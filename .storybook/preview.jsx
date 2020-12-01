@@ -116,7 +116,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     width: 100%;
     color: #131f2b;
-    background-color: #f8fafb;
+    // background-color: #f8fafb;
   }
 
   main {
