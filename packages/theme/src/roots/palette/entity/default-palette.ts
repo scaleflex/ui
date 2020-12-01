@@ -31,6 +31,8 @@ export const darkPalette = {
   [Color.BordersStrong]: 'rgba(52,68,76,1)',
   [Color.BordersInvert]: 'rgba(164,170,171,1)',
 
+  [Color.Tag]: '#889AAC',
+
   [Color.Error]: 'rgba(232,91,70,1)',
   [Color.Success]: 'rgba(62,207,139,1)',
   [Color.Warning]: 'rgba(255,172,74,1)',
@@ -64,6 +66,8 @@ export const lightPalette = {
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
   [Color.BordersStrong]: 'rgba(223,231,237,1)',
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
+
+  [Color.Tag]: '#889AAC',
 
   [Color.Error]: 'rgba(232,91,70,1)',
   [Color.Success]: 'rgba(62,207,139,1)',

@@ -26,6 +26,8 @@ export const Color = {
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
 
+  Tag: 'tag',
+
   Error: 'error',
   Success: 'success',
   Warning: 'warning',
