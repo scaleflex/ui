@@ -31,7 +31,7 @@ const Input = styled.div.attrs({
 
     ${sizeInputMixin[size]}
 
-    &:focus,
+    &:focus-within,
     &:hover {
       background-color: ${theme.palette[PaletteColor.BackgroundSecondary]};
       border: 1px solid ${theme.palette[PaletteColor.AccentPrimary]};
