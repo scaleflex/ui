@@ -1,0 +1,30 @@
+{
+  "name": "@sfx-ui/theme",
+  "version": "0.1.0",
+  "description": "Theme package",
+  "scripts": {
+    "prebuild": "copyfiles README.md lib"
+  },
+  "dependencies": {
+    "@sfx-ui/utils": "^0.1.0",
+    "lodash.merge": "^4.6.2",
+    "polished": "^3.6.6"
+  },
+  "devDependencies": {
+    "@types/lodash.merge": "^4.6.6",
+    "@types/prop-types": "^15.7.3",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
+    "@types/styled-components": "^5.1.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1",
+    "typescript": "^4.0.2"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}

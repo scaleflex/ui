@@ -1,0 +1,31 @@
+{
+  "include": ["packages/**/*", "globals.d.ts"],
+  "exclude": ["node_modules", "packages/*/lib"],
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
+    "types": ["jest"],
+    "jsx": "react",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@sfx-ui/core/*": ["packages/core/src/*"],
+      "@sfx-ui/icons/*": ["packages/icons/src/*"],
+      "@sfx-ui/utils/*": ["packages/utils/src/*"],
+      "@sfx-ui/theme/*": ["packages/theme/src/*"],
+      "@sfx-ui/theme": ["packages/theme/src/index.ts"]
+    }
+  }
+}
