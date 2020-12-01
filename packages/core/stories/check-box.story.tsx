@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _CheckBox, { CheckBoxProps } from '../src/check-box';
 
@@ -11,19 +11,23 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  // checked: false
+  checked: false
 };
 
 const BasicTemplate: Story<CheckBoxProps> = ({
-  ...args
+  checked, ...args
 }) => {
-  const [checked, setChecked] = useState(false);
+  const [checkedState, setCheckedState] = useState(false);
+
+  useEffect(() => {
+    setCheckedState(checked || false);
+  }, [checked]);
 
   return (
     <CheckBox
       {...args}
-      checked={checked}
-      onChange={(newValue) => setChecked(newValue)}
+      checked={checkedState}
+      onChange={(event) => setCheckedState(event.target.checked)}
     />
   );
 };

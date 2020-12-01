@@ -2,32 +2,27 @@ import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import CheckBoxIcon from '@sfx-ui/icons/check-box';
-import CheckBoxBlankIcon from '@sfx-ui/icons/check-box-blank';
+import CheckBoxUncheckedIcon from '@sfx-ui/icons/check-box-unchecked';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLInputElement>((
-  props: CheckBoxProps,
+  {
+    checked, onChange, ...rest
+  }: CheckBoxProps,
   ref: React.ForwardedRef<HTMLInputElement>
 ): JSX.Element => (
-  <Styled.CheckBox
-    ref={ref}
-    {...props}
-    onClick={(event) => {
-      if (typeof props.onChange === 'function') {
-        props.onChange(!props.checked);
-      }
+  <Styled.CheckBox {...rest}>
+    <Styled.Input
+      ref={ref}
+      checked={checked}
+      onChange={onChange}
+    />
 
-      if (typeof props.onClick === 'function') {
-        props.onClick(event);
-      }
-    }}
-
-  >
     {
-      props.checked
+      checked
         ? <CheckBoxIcon />
-        : <CheckBoxBlankIcon />
+        : <CheckBoxUncheckedIcon />
     }
   </Styled.CheckBox>
 ));
