@@ -1,17 +1,17 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
+import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
 import type { LabelProps } from './label.props';
 import { errorMixin } from './label.mixin';
-// import { Type } from './types';
 
 const baseClassName = 'Label';
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<LabelProps>(
-  ({ error = false, theme }: WithTheme) => css`
+})(
+  ({ error = false, theme }: With<WithTheme, LabelProps>) => css`
     display: flex;
     align-items: center;
     padding: 4px 0px;
@@ -23,18 +23,18 @@ const Label = styled.label.attrs({
 
 const Base = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})(({ theme: { palette } }: WithTheme) => css`
+})(() => css`
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
   line-height: 14px;
-  margin: 4px 0px;
+  /* margin: 4px 0px; */
 `);
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ error = false, theme: { palette } }: WithTheme) => css`
+  ({ error = false, theme: { palette } }: With<WithTheme, {error: boolean}>) => css`
     display: flex;
     margin-right: 4px;
     color: ${palette[PaletteColor.IconsPrimary]};
