@@ -7,4 +7,7 @@ export interface IconProps extends IntrinsicComponent<HTMLAttributes<SVGSVGEleme
   width?: string | number;
   height?: string | number;
   color?: string;
+  color2?: string;
+  stroke?: string;
+  stroke2?: string;
 }
