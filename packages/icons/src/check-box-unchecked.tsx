@@ -2,7 +2,7 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
-export const CheckBoxBlank = intrinsicComponent<IconProps, SVGSVGElement>((
+export const CheckBoxUnchecked = intrinsicComponent<IconProps, SVGSVGElement>((
   {
     color = '#F8FAFB', stroke = '#DFE7ED', size = 16, ...rest
   },
@@ -21,4 +21,4 @@ export const CheckBoxBlank = intrinsicComponent<IconProps, SVGSVGElement>((
   </svg>
 ));
 
-export default CheckBoxBlank;
+export default CheckBoxUnchecked;
