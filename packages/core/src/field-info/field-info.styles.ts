@@ -13,6 +13,7 @@ const FieldInfo = styled.span.attrs({
   ({ error = false, theme }: With<WithTheme, FieldInfoProps>) => css`
     display: flex;
     align-items: center;
+    margin-top: 2px;
     font-size: 10px;
     line-height: 12px;
     color: ${error ? theme.palette[PaletteColor.Error] : theme.palette[PaletteColor.TextSecondary]};
