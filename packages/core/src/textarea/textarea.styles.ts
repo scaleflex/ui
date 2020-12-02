@@ -10,7 +10,7 @@ const baseClassName = 'Textarea';
 
 const Textarea = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'root'),
-  rows: '3',
+  rows: 3,
 })<TextareaProps>(
   ({ error = false, theme }: With<WithTheme, TextareaProps>) => css`
     position: relative;
@@ -38,7 +38,7 @@ const Textarea = styled.textarea.attrs({
       border: 1px solid ${theme.palette[PaletteColor.AccentPrimary]};
     }
 
-    ${error ? errorMixin({ theme }) : undefined}
+    ${error && errorMixin({ theme })}
   `
 );
 
