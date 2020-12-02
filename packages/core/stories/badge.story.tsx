@@ -7,7 +7,7 @@ import { Color } from '../src/badge/types';
 export const Badge = _Badge;
 
 export default {
-  title: 'Inputs/Badge',
+  title: 'Data Display/Badge',
   component: Badge,
   excludeStories: ['Badge'],
 } as Meta;
