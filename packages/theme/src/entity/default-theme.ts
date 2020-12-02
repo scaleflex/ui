@@ -1,6 +1,14 @@
 import { Breakpoint } from '@sfx-ui/utils/types/css';
+import { FontVariant } from '@sfx-ui/utils/types/typography';
 
 import type { Theme } from './theme';
+
+const fontFamily = '"Roboto"';
+const defaultFontValue = {
+  fontFamily,
+  fontStyle: 'normal',
+  fontWeight: 'normal',
+};
 
 export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
   breakpoints: {
@@ -12,8 +20,73 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
   },
   typography: {
     htmlFontSize: '14px',
-    fontFamily: '"Roboto"',
+    fontFamily,
     baseLineHeight: 1.375,
+
+    font: {
+      [FontVariant.TextExtraSmall]: {
+        ...defaultFontValue,
+        fontSize: '10px',
+        lineHeight: '12px',
+      },
+      [FontVariant.TextSmall]: {
+        ...defaultFontValue,
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
+      [FontVariant.TextNormal]: {
+        ...defaultFontValue,
+        fontSize: '14px',
+        lineHeight: '16px',
+      },
+      [FontVariant.TextEmphasis]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '14px',
+        lineHeight: '16px',
+      },
+
+      [FontVariant.BtnXs]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
+      [FontVariant.BtnSm]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '13px',
+        lineHeight: '16px',
+      },
+      [FontVariant.BtnMd]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '15px',
+        lineHeight: '16px',
+      },
+      [FontVariant.BtnLg]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '15px',
+        lineHeight: '16px',
+      },
+      [FontVariant.BtnXl]: {
+        ...defaultFontValue,
+        fontSize: '10px',
+        lineHeight: '12px',
+      },
+
+      [FontVariant.InputSm]: {
+        ...defaultFontValue,
+        fontSize: '13px',
+        lineHeight: '16px',
+      },
+      [FontVariant.InputMd]: {
+        ...defaultFontValue,
+        fontSize: '14px',
+        lineHeight: '16px',
+      },
+    }
   },
 };
 
