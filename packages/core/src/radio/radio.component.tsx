@@ -6,11 +6,11 @@ import RadioButtonUncheckedIcon from '@sfx-ui/icons/radio-button-unchecked';
 import type { RadioProps } from './radio.props';
 import Styled from './radio.styles';
 
-const Radio = intrinsicComponent<RadioProps, HTMLSpanElement>((
+const Radio = intrinsicComponent<RadioProps, HTMLInputElement>((
   {
     checked, onChange, ...rest
   }: RadioProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref: React.ForwardedRef<HTMLInputElement>
 ): JSX.Element => (
   <Styled.Radio
     {...rest}

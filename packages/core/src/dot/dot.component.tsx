@@ -17,7 +17,7 @@ const Dot = intrinsicComponent<DotProps, HTMLSpanElement>((
     active={active}
     {...rest}
   >
-    <Styled.Icon visible={active}>
+    <Styled.Icon visible={Boolean(active)}>
       <DotIcon />
     </Styled.Icon>
 

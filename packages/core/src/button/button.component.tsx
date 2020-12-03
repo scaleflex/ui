@@ -6,7 +6,7 @@ import type { ButtonProps } from './button.props';
 import { Size, Color, Status } from './types';
 import Styled from './button.styles';
 
-const getIconSize = (sizeName: string): number => {
+const getIconSize = (sizeName: string | undefined): number => {
   switch (sizeName) {
     case Size.Xl:
       return 15;

@@ -17,7 +17,7 @@ const Label = intrinsicComponent<LabelProps, HTMLLabelElement>((
     type={type}
   >
     {icon && (
-      <Styled.Icon error={error}>
+      <Styled.Icon error={Boolean(error)}>
         {
           typeof icon === 'function'
             ? icon()

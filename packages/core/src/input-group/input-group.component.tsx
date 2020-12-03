@@ -13,11 +13,12 @@ import Styled from './input-group.styles';
 
 const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
   {
+    // eslint-disable-next-line no-shadow
     children, type, error, label, hint, LabelProps, ...rest
   }: InputGroupProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ): JSX.Element => {
-  const renderLabel = () => {
+  const renderLabel = (): string | number | null | JSX.Element | any => {
     if (label) {
       if (typeof label === 'function') {
         return label({ error });
@@ -28,7 +29,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
       }
 
       return (
-        <Label error={error} {...LabelProps}>{label}</Label>
+        <Label error={error} {...(LabelProps || {})}>{label}</Label>
       );
     }
 
@@ -39,17 +40,17 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
     const fieldProps = { error, ...rest };
 
     if (type === Type.Input) {
-      return <Input ref={ref} {...fieldProps} />;
+      return <Input {...fieldProps} />;
     }
 
     if (type === Type.Textarea) {
-      return <Textarea ref={ref} {...fieldProps} />;
+      return <Textarea {...fieldProps} />;
     }
 
     return null;
   };
 
-  const renderHint = () => {
+  const renderHint = (): string | number | null | JSX.Element | any => {
     if (hint) {
       if (typeof hint === 'function') {
         return hint({ error });
@@ -68,9 +69,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.InputGroup
-      error={error}
-    >
+    <Styled.InputGroup ref={ref}>
       {renderLabel()}
       {renderField()}
       {renderHint()}
@@ -81,7 +80,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
 InputGroup.defaultProps = {
   type: Type.Input,
   error: false,
-  LabelProps: {},
+  // LabelProps: {},
 };
 
 InputGroup.propTypes = {

@@ -4,7 +4,7 @@ import { Type } from './types';
 
 export type InputGroupPropsType = Values<typeof Type>;
 
-export interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface InputGroupProps extends React.HTMLAttributes<Omit<HTMLDivElement, 'align'>> {
   label?: React.ReactNode | string | number | null | undefined;
   hint?: React.ReactNode | string | number | null | undefined;
   type?: InputGroupPropsType;

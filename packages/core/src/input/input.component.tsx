@@ -22,7 +22,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>((
   }: InputProps,
   ref: React.ForwardedRef<HTMLInputElement>
 ): JSX.Element => {
-  const renderIcon = (_icon): JSX.Element | undefined => (
+  const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined => (
     _icon
       ? (
         <Styled.Icon>

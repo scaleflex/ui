@@ -12,5 +12,5 @@ export interface RatingItemReadOnlyProps extends React.HTMLAttributes<HTMLSpanEl
 
 export interface RatingItemProps extends RatingItemReadOnlyProps {
   name: string;
-  onChange: (event: FormEvent<HTMLInputElement>) => void;
+  onChange?: (event: FormEvent<HTMLInputElement>) => void;
 }

@@ -12,7 +12,7 @@ const DotsNavigation = intrinsicComponent<DotsNavigationProps, HTMLDivElement>((
   ref: React.ForwardedRef<HTMLDivElement>
 ): JSX.Element => (
   <Styled.DotsNavigation ref={ref} {...rest}>
-    {Array(size).fill(null).map((item, index) => (
+    {[...(new Array(size))].map((_item, index) => index).map((index) => (
       <Dot
         key={index}
         active={activeItem > -1 && index <= activeItem}
