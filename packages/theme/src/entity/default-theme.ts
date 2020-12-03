@@ -1,5 +1,6 @@
 import { Breakpoint } from '@sfx-ui/utils/types/css';
 import { FontVariant } from '@sfx-ui/utils/types/typography';
+import { BorderRadiusSize } from '@sfx-ui/utils/types/shape';
 
 import type { Theme } from './theme';
 
@@ -10,7 +11,7 @@ const defaultFontValue = {
   fontWeight: 'normal',
 };
 
-export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
+export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> = {
   breakpoints: {
     [Breakpoint.Xs]: 0,
     [Breakpoint.Sm]: 576,
@@ -18,6 +19,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
     [Breakpoint.Lg]: 992,
     [Breakpoint.Xl]: 1200,
   },
+
   typography: {
     htmlFontSize: '14px',
     fontFamily,
@@ -87,6 +89,14 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
         fontSize: '14px',
         lineHeight: '16px',
       },
+    }
+  },
+
+  shape: {
+    borderRadius: {
+      [BorderRadiusSize.Sm]: '2px',
+      [BorderRadiusSize.Md]: '4px',
+      [BorderRadiusSize.Lg]: '8px',
     }
   },
 };

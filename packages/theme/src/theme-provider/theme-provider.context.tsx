@@ -7,6 +7,8 @@ import { record } from '@sfx-ui/utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '@sfx-ui/utils/functions';
 import { Breakpoint } from '@sfx-ui/utils/types/css';
 import { Color } from '@sfx-ui/utils/types/palette';
+import { FontVariant } from '@sfx-ui/utils/types/typography';
+import { BorderRadiusSize } from '@sfx-ui/utils/types/shape';
 
 import { Theme, ThemeOverride, defaultTheme } from '../entity';
 import { Typography } from '../roots';
@@ -19,6 +21,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     palette: paletteOverride = {},
     breakpoints: breakpointsOverride = {},
     typography: typographyOverride = {},
+    shape: shapeOverride = {},
   } = theme;
 
   const finalTheme = useMemo<Theme>(() => {
@@ -43,6 +46,16 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
           }
         )
       },
+      shape: {
+        ...merge(
+          {
+            ...defaultTheme.shape
+          },
+          {
+            ...shapeOverride
+          }
+        )
+      },
     };
 
     return {} as Theme;
@@ -57,15 +70,21 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   );
 };
 
-const { baseLineHeight, ...typography } = defaultTheme.typography;
+const {
+  baseLineHeight, font, ...typography
+} = defaultTheme.typography;
 
 ThemeProvider.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]),
   theme: PT.exact({
     breakpoints: PT.exact(record(objectValues(Breakpoint), PT.number)),
     palette: PT.exact(record(objectValues(Color), PT.string)),
+    shape: PT.exact({
+      borderRadius: PT.exact(record(objectValues(BorderRadiusSize), PT.string))
+    }),
     typography: PT.exact({
       baseLineHeight: PT.oneOfType([PT.string, PT.number]),
+      font: PT.exact(record(objectValues(FontVariant), PT.string)),
       ...record(objectKeys(typography), PT.string),
     }),
   }) as Validator<ThemeOverride>,
