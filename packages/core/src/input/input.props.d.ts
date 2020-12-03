@@ -5,6 +5,7 @@ export type InputPropsSize = Values<typeof Size>;
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: InputPropsSize;
-  icon?: React.ReactNode;
+  iconStart?: React.ReactNode;
+  iconEnd?: React.ReactNode;
   error?: boolean;
 }

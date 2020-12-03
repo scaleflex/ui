@@ -10,6 +10,18 @@ import { Size } from './types';
 
 const baseClassName = 'Input';
 
+const Icon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Icon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
+
+    svg {
+      color: ${palette[PColor.IconsPrimary]};
+    }
+  `
+);
+
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
@@ -18,17 +30,17 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     cursor: text;
-    font-size: 1rem;
+    /* font-size: 1rem; */
     width: 300px;
-    padding: 0 7px 0 12px;
+    /* padding: 0 7px 0 12px; */
     background: ${theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};;
     box-sizing: border-box;
-    font-family: ${theme.typography.fontFamily};
+    /* font-family: ${theme.typography.fontFamily};
     font-style: normal;
     font-weight: normal;
-    line-height: 16px;
+    line-height: 16px; */
     color: ${theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
@@ -40,6 +52,16 @@ const Input = styled.div.attrs({
     }
 
     ${error ? errorMixin({ theme }) : undefined}
+
+    ${Icon} {
+      &:first-child {
+        margin-right: 7px;
+      }
+
+      &:last-child {
+        margin-left: 7px;
+      }
+    }
   `
 );
 
@@ -56,19 +78,6 @@ const Base = styled.input.attrs({
   background-color: transparent;
   outline: none;
 `;
-
-const Icon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    display: flex;
-    margin-left: 6px;
-
-    svg {
-      color: ${palette[PColor.IconsPrimary]};
-    }
-  `
-);
 
 const Styled = {
   Input,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import VisibilityOff from '@sfx-ui/icons/visibility-off';
+import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
+import SearchIcon from '@sfx-ui/icons/search';
 import _Input, { InputProps } from '../src/input';
 import { Size } from '../src/input/types';
 
@@ -34,9 +35,24 @@ const BasicTemplate: Story<InputProps> = ({
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
-// WithIcon
-export const WithIcon = BasicTemplate.bind({});
-WithIcon.args = {
+// WithIconStart
+export const WithIconStart = BasicTemplate.bind({});
+WithIconStart.args = {
   ...defaultArgs,
-  icon: (props) => <VisibilityOff {...props} />,
+  iconStart: (props) => <SearchIcon {...props} />,
+};
+
+// WithIconEnd
+export const WithIconEnd = BasicTemplate.bind({});
+WithIconEnd.args = {
+  ...defaultArgs,
+  iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
+};
+
+// WithIcons
+export const WithIcons = BasicTemplate.bind({});
+WithIcons.args = {
+  ...defaultArgs,
+  iconStart: (props) => <SearchIcon {...props} />,
+  iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
 };

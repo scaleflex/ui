@@ -5,10 +5,12 @@ import { Size } from './types';
 
 export const sizeInputMixin = {
   [Size.Sm]: css`
+    padding: 4px 8px;
     height: 24px;
   `,
 
   [Size.Md]: css`
+    padding: 8px 12px;
     height: 30px;
   `,
 };
