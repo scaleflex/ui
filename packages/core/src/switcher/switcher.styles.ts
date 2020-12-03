@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 // import type { WithTheme } from '@sfx-ui/theme/entity';
 // import type { With } from '@sfx-ui/utils/types';
-// import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+// import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { SwitcherProps } from './switcher.props';
 
 const baseClassName = 'Switcher';

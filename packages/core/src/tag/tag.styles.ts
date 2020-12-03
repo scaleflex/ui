@@ -2,7 +2,8 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
-import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
+import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
 import type { TagProps } from './tag.props';
 import { sizeTagLabelMixin, sizeTagCrossMixin } from './tag.mixin';
 import { Size, Type } from './types';
@@ -19,7 +20,7 @@ const Cross = styled.span.attrs({
     height: 6px;
     right: 3px;
     top: 3px;
-    color: ${theme.palette[PaletteColor.TextPrimaryInvert]};
+    color: ${theme.palette[PColor.TextPrimaryInvert]};
     cursor: pointer;
   `
 );
@@ -29,7 +30,7 @@ const Label = styled.span.attrs({
 })(({ theme }: WithTheme) => `
   display: flex;
   align-items: center;
-  color: ${theme.palette[PaletteColor.BackgroundSecondary]};
+  color: ${theme.palette[PColor.BackgroundSecondary]};
   padding: 6px 16px;
   border-radius: inherit;
 `);
@@ -42,15 +43,15 @@ const Tag = styled.div.attrs({
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: ${theme.palette[PaletteColor.Tag]};
-    border-radius: 2px;
+    background-color: ${theme.palette[PColor.Tag]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
 
     &:hover {
-      background-color: ${theme.palette[PaletteColor.Error]};
+      background-color: ${theme.palette[PColor.Error]};
 
       ${Label} {
-        border-color: ${theme.palette[PaletteColor.Error]};
+        border-color: ${theme.palette[PColor.Error]};
       }
 
       ${type === Type.Default && css`
@@ -62,22 +63,22 @@ const Tag = styled.div.attrs({
 
     &:not(:hover) {
       ${type === Type.Suggested && css`
-        background-color: ${theme.palette[PaletteColor.BackgroundSecondary]};
+        background-color: ${theme.palette[PColor.BackgroundSecondary]};
 
         ${Label} {
-          border: 1px dashed ${theme.palette[PaletteColor.BackgroundPrimaryActive]};
-          color: ${theme.palette[PaletteColor.TextSecondary]};
+          border: 1px dashed ${theme.palette[PColor.BackgroundPrimaryActive]};
+          color: ${theme.palette[PColor.TextSecondary]};
         }
       `}
     }
 
     ${Label} {
-      border: 1px solid ${theme.palette[PaletteColor.Tag]};
+      border: 1px solid ${theme.palette[PColor.Tag]};
       ${sizeTagLabelMixin[size]}
 
       &:hover {
-        background-color: ${theme.palette[PaletteColor.BackgroundPrimaryActive]};
-        border-color: ${theme.palette[PaletteColor.BackgroundPrimaryActive]};
+        background-color: ${theme.palette[PColor.BackgroundPrimaryActive]};
+        border-color: ${theme.palette[PColor.BackgroundPrimaryActive]};
       }
     }
 

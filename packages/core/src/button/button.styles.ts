@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
+import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
 import type { ButtonProps } from './button.props';
 import {
   colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin
@@ -30,7 +31,7 @@ const Button = styled.button.attrs({
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-radius: 2px;
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     border: 0;
     cursor: pointer;
     outline: none;

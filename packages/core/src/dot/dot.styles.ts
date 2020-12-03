@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
-// import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+// import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { DotProps } from './dot.props';
 import { activeDotMixin } from './dot.mixin';
 
@@ -37,7 +37,7 @@ const Dot = styled.span.attrs({
     transition: background-color ${transitionDuration}s ease;
 
     border: 1px solid transparent;
-    border-radius: 5px;
+    border-radius: 50%;
 
     ${active && activeDotMixin({ theme })}
   `

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
-import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { LabelProps } from './label.props';
 import { errorMixin } from './label.mixin';
 
@@ -15,7 +15,7 @@ const Label = styled.label.attrs({
     display: flex;
     align-items: center;
     padding: 4px 0px;
-    color: ${theme.palette[PaletteColor.TextSecondary]};
+    color: ${theme.palette[PColor.TextSecondary]};
 
     ${error ? errorMixin({ theme }) : undefined}
   `
@@ -37,9 +37,9 @@ const Icon = styled.span.attrs({
   ({ error = false, theme: { palette } }: With<WithTheme, {error: boolean}>) => css`
     display: flex;
     margin-right: 4px;
-    color: ${palette[PaletteColor.IconsPrimary]};
+    color: ${palette[PColor.IconsPrimary]};
 
-    ${error ? `color: ${palette[PaletteColor.Error]};` : ''}
+    ${error ? `color: ${palette[PColor.Error]};` : ''}
   `
 );
 

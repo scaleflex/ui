@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import type { With } from '@sfx-ui/utils/types';
-import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { FieldInfoProps } from './field-info.props';
 
 const baseClassName = 'FieldInfo';
@@ -16,7 +16,7 @@ const FieldInfo = styled.span.attrs({
     margin-top: 2px;
     font-size: 10px;
     line-height: 12px;
-    color: ${error ? theme.palette[PaletteColor.Error] : theme.palette[PaletteColor.TextSecondary]};
+    color: ${error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
   `
 );
 

@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 // import type { With } from '@sfx-ui/utils/types';
-import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { RadioGroupProps } from './radio-group.props';
 
 const baseClassName = 'RadioGroup';
@@ -17,7 +17,7 @@ const Label = styled.span.attrs({
     font-size: 12px;
     line-height: 14px;
     margin-left: 8px;
-    color: ${theme.palette[PaletteColor.TextPrimary]};
+    color: ${theme.palette[PColor.TextPrimary]};
   `
 );
 
