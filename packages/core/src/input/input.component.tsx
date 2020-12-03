@@ -48,16 +48,20 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>((
   );
 });
 
-Input.defaultProps = {
+export const defaultProps = {
   size: Size.Md,
   error: false,
 };
 
-Input.propTypes = {
+Input.defaultProps = defaultProps;
+
+export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
 };
+
+Input.propTypes = propTypes;
 
 export default Input;
