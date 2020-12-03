@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import PT, { Validator } from 'prop-types';
 import { ThemeProvider as SCThemeProvider } from 'styled-components';
-// import merge from 'lodash.merge';
+import merge from 'lodash.merge';
 
 import { record } from '@sfx-ui/utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '@sfx-ui/utils/functions';
@@ -9,7 +9,7 @@ import { Breakpoint } from '@sfx-ui/utils/types/css';
 import { Color } from '@sfx-ui/utils/types/palette';
 
 import { Theme, ThemeOverride, defaultTheme } from '../entity';
-import { Reset, Typography } from '../roots';
+import { Typography } from '../roots';
 import { defaultPalette } from '../roots/palette';
 
 import type { ThemeProviderProps } from './theme-provider.props';
@@ -34,8 +34,14 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
         ...breakpointsOverride,
       },
       typography: {
-        ...defaultTheme.typography,
-        ...typographyOverride,
+        ...merge(
+          {
+            ...defaultTheme.typography
+          },
+          {
+            ...typographyOverride
+          }
+        )
       },
     };
 
@@ -46,7 +52,6 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     <SCThemeProvider theme={finalTheme}>
       {applyPolymorphicFunctionProp(children, finalTheme)}
 
-      {/* <Reset /> */}
       <Typography />
     </SCThemeProvider>
   );

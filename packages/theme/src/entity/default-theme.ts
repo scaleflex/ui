@@ -46,34 +46,35 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography'> = {
         lineHeight: '16px',
       },
 
-      [FontVariant.BtnXs]: {
+      [FontVariant.ButtonXs]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '12px',
         lineHeight: '14px',
       },
-      [FontVariant.BtnSm]: {
+      [FontVariant.ButtonSm]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '13px',
         lineHeight: '16px',
       },
-      [FontVariant.BtnMd]: {
+      [FontVariant.ButtonMd]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '15px',
         lineHeight: '16px',
       },
-      [FontVariant.BtnLg]: {
+      [FontVariant.ButtonLg]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '15px',
         lineHeight: '16px',
       },
-      [FontVariant.BtnXl]: {
+      [FontVariant.ButtonXl]: {
         ...defaultFontValue,
-        fontSize: '10px',
-        lineHeight: '12px',
+        fontWeight: '500',
+        fontSize: '16px',
+        lineHeight: '16px',
       },
 
       [FontVariant.InputSm]: {

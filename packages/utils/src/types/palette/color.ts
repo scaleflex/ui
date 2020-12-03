@@ -21,6 +21,10 @@ export const Color = {
 
   ButtonPrimaryText: 'btn-primary-text',
 
+  LinkPrimary: 'link-primary',
+  LinkHover: 'link-hover',
+  LinkActive: 'link-active',
+
   BordersPrimary: 'borders-primary',
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',

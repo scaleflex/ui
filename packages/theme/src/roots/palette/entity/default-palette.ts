@@ -26,6 +26,10 @@ export const darkPalette = {
 
   [Color.ButtonPrimaryText]: 'rgba(255,255,255,1)',
 
+  [Color.LinkPrimary]: '#5D6D7E',
+  [Color.LinkHover]: '#768A9F',
+  [Color.LinkActive]: '#92A6BC',
+
   [Color.BordersPrimary]: 'rgba(30,39,43,1)',
   [Color.BordersSecondary]: 'rgba(37,50,55,1)',
   [Color.BordersStrong]: 'rgba(52,68,76,1)',
@@ -61,6 +65,10 @@ export const lightPalette = {
   [Color.IconsSecondary]: 'rgba(174,179,181,1)',
 
   [Color.ButtonPrimaryText]: 'rgba(255,255,255,1)',
+
+  [Color.LinkPrimary]: '#5D6D7E',
+  [Color.LinkHover]: '#768A9F',
+  [Color.LinkActive]: '#92A6BC',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)',
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
