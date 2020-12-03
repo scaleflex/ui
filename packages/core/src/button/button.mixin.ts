@@ -1,6 +1,8 @@
 import { css } from 'styled-components';
-import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { FontVariant } from '@sfx-ui/utils/types/typography';
+import type { WithTheme } from '@sfx-ui/theme/entity';
+import StyledBadge from '../badge/badge.styles';
 import { Size, Color, Status } from './types';
 
 export const colorButtonMixin = {
@@ -55,21 +57,79 @@ export const colorButtonMixin = {
       background-color: #CBD3DA;
     `,
   },
+
+  [Color.Link]: {
+    common: ({ theme: { palette } }: WithTheme) => css`
+      background-color: transparent;
+      color: ${palette[PaletteColor.LinkPrimary]};
+
+      &:hover {
+        color: ${palette[PaletteColor.LinkHover]};
+
+        ${StyledBadge.Badge} {
+          background-color: ${palette[PaletteColor.LinkHover]};
+        }
+      }
+
+      &:active {
+        color: ${palette[PaletteColor.LinkActive]};
+
+        ${StyledBadge.Badge} {
+          background-color: ${palette[PaletteColor.LinkActive]};
+        }
+      }
+    `,
+
+    [Status.Stateless]: () => css``,
+
+    [Status.Hover]: ({ theme: { palette } }: WithTheme) => css`
+      color: ${palette[PaletteColor.LinkHover]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.LinkHover]};
+      }
+    `,
+
+    [Status.Active]: ({ theme: { palette } }: WithTheme) => css`
+      color: ${palette[PaletteColor.LinkActive]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.LinkActive]};
+      }
+    `,
+  },
 };
 
 export const sizeButtonMixin = {
-  [Size.Sm]: () => css`
-    padding: 4px 8px;
-    font-size: 12px;
-  `,
+  [Size.Xs]: () => css`padding: 4px 8px;`,
 
-  [Size.Md]: () => css`
-    padding: 6px 10px;
-    font-size: 13px;
-  `,
+  [Size.Sm]: () => css`padding: 6px 10px;`,
 
-  [Size.Lg]: () => css`
-    padding: 7px 13px;
-    font-size: 15px;
-  `,
+  [Size.Md]: () => css`padding: 8px 12px;`,
+
+  [Size.Lg]: () => css`padding: 10px 14px;`,
+
+  [Size.Xl]: () => css`padding: 12px 16px;`,
+};
+
+export const sizeButtonLabelMixin = {
+  [Size.Xs]: ({ theme: { typography: { font } } }: WithTheme) => css(
+    font[FontVariant.ButtonXs]
+  ),
+
+  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => css(
+    font[FontVariant.ButtonSm]
+  ),
+
+  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => css(
+    font[FontVariant.ButtonMd]
+  ),
+
+  [Size.Lg]: ({ theme: { typography: { font } } }: WithTheme) => css(
+    font[FontVariant.ButtonLg]
+  ),
+
+  [Size.Xl]: ({ theme: { typography: { font } } }: WithTheme) => css(
+    font[FontVariant.ButtonXl]
+  ),
 };

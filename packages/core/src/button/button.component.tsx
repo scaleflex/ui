@@ -6,6 +6,24 @@ import type { ButtonProps } from './button.props';
 import { Size, Color, Status } from './types';
 import Styled from './button.styles';
 
+const getIconSize = (sizeName: string): number => {
+  switch (sizeName) {
+    case Size.Xl:
+      return 15;
+
+    case Size.Lg:
+    case Size.Md:
+      return 14;
+
+    case Size.Sm:
+      return 12;
+
+    case Size.Xs:
+    default:
+      return 11;
+  }
+};
+
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
   {
     children, icon, badge, color, size, ...rest
@@ -22,7 +40,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
       <Styled.Icon>
         {
           typeof icon === 'function'
-            ? icon({ size: size === 'lg' ? 16 : (size === 'md' ? 13 : 12) })
+            ? icon({ size: getIconSize(size) })
             : icon
         }
       </Styled.Icon>
