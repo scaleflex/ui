@@ -128,7 +128,17 @@ export const decorators = [
   jsxDecorator,
   (StoryFn) => {
     return (
-      <ThemeProvider>
+      <ThemeProvider
+        // theme={{
+        //   typography: {
+        //     font: {
+        //       'btn-lg': {
+        //         fontSize: '40px'
+        //       }
+        //     }
+        //   }
+        // }}
+      >
         <style>
           @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
         </style>
