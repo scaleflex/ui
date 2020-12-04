@@ -11,7 +11,7 @@ import { FontVariant } from '@sfx-ui/utils/types/typography';
 import { BorderRadiusSize } from '@sfx-ui/utils/types/shape';
 
 import { Theme, ThemeOverride, defaultTheme } from '../entity';
-import { Typography } from '../roots';
+import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 
 import type { ThemeProviderProps } from './theme-provider.props';
@@ -65,6 +65,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     <SCThemeProvider theme={finalTheme}>
       {applyPolymorphicFunctionProp(children, finalTheme)}
 
+      <CommonStyles />
       <Typography />
     </SCThemeProvider>
   );
