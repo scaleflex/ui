@@ -16,7 +16,7 @@ const BasicTemplate: Story<LoaderProps> = ({
   ...args
 }) => (
   <Loader {...args} />
-); 
+);
 
 // Basic
 export const Basic = BasicTemplate.bind({});

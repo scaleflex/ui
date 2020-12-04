@@ -5,40 +5,43 @@ import RobotWorried from '@sfx-ui/icons/robot-worried';
 import RobotSad from '@sfx-ui/icons/robot-sad';
 import RobotNeutral from '@sfx-ui/icons/robot-neutral';
 import RobotHappy from '@sfx-ui/icons/robot-happy';
-import type { RobotProps, RobotPropsEmotion } from './robot.props';
-import { Emotion } from './types';
+import type { RobotProps, RobotPropsStatus } from './robot.props';
+import { Status } from './types';
 import Styled from './robot.styles';
 
-const getRobotIcon = (emotion: RobotPropsEmotion | undefined): JSX.Element => {
-  switch (emotion) {
-    case Emotion.Worried: return <RobotWorried />;
+const getRobotIcon = (status: RobotPropsStatus | undefined): JSX.Element => {
+  switch (status) {
+    case Status.Worried: return <RobotWorried />;
 
-    case Emotion.Sad: return <RobotSad />;
+    case Status.Sad: return <RobotSad />;
 
-    case Emotion.Neutral: return <RobotNeutral />;
+    case Status.Neutral: return <RobotNeutral />;
 
-    case Emotion.Happy:
+    case Status.Happy:
     default:
       return <RobotHappy />;
   }
 };
 
 const Robot = intrinsicComponent<RobotProps, HTMLSpanElement>((
-  { emotion, ...rest },
+  { status, ...rest },
   ref
 ): JSX.Element => (
   <Styled.Robot {...rest} ref={ref}>
-    {getRobotIcon(emotion)}
+    {getRobotIcon(status)}
   </Styled.Robot>
 ));
 
-Robot.defaultProps = {
-  emotion: Emotion.Happy
+export const defaultProps = {
+  status: Status.Happy
 };
 
+Robot.defaultProps = defaultProps;
 
-Robot.propTypes = {
-  emotion: PT.oneOf(objectValues(Emotion)),
+export const propTypes = {
+  status: PT.oneOf(objectValues(Status)),
 };
+
+Robot.propTypes = propTypes;
 
 export default Robot;

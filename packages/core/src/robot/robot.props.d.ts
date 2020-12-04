@@ -1,8 +1,8 @@
 import type { Values } from '@sfx-ui/utils/types';
-import { Emotion } from './types';
+import { Status } from './types';
 
-export type RobotPropsEmotion = Values<typeof Emotion>;
+export type RobotPropsStatus = Values<typeof Status>;
 
 export interface RobotProps extends React.HTMLAttributes<HTMLSpanElement> {
-  emotion?: RobotPropsEmotion;
+  status?: RobotPropsStatus;
 }

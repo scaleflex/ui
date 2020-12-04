@@ -12,6 +12,7 @@ const Robot = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<RobotProps>(
   () => css`
+    display: flex;
   `
 );
 

@@ -1,4 +1,4 @@
-export const Emotion = {
+export const Status = {
   Happy: 'happy',
   Neutral: 'neutral',
   Sad: 'sad',
