@@ -29,6 +29,7 @@ const Button = styled.button.attrs({
     color = Color.Secondary, status = Status.Stateless, size = Size.Md, theme
   }) => css`
     display: flex;
+    flex-shrink: 0;
     flex-direction: row;
     align-items: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
