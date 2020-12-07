@@ -15,7 +15,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
   const target = usePortal(generateClassNames('Popup'));
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout | null = null;
+    let timeout: ReturnType<typeof setTimeout> | null = null;
 
     if (open && autoHideDuration && typeof onClose === 'function') {
       timeout = setTimeout(onClose, autoHideDuration);
