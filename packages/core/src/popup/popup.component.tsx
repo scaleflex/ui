@@ -1,38 +1,50 @@
 import React from 'react';
-// import PT from 'prop-types';
-import { intrinsicComponent, /* objectValues */ } from '@sfx-ui/utils/functions';
-import Robot from '../robot';
-import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../robot/robot.component';
-import type { PopupProps } from './popup.props';
+import { createPortal } from 'react-dom';
+import PT, { Validator } from 'prop-types';
+import { intrinsicComponent, objectValues, generateClassNames } from '@sfx-ui/utils/functions';
+import usePortal from '@sfx-ui/hooks/use-portal';
+import PopupContent, { defaultProps as cDefaultProps, propTypes as cPropTypes } from '../popup-content/popup-content.component';
+import type { PopupProps, PopupAnchorOriginProps } from './popup.props';
+import { Horizontal, Vertical } from './types';
 import Styled from './popup.styles';
 
-const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((
-  {
-    children, status, ...rest
-  },
-  ref
-): JSX.Element => (
-  <Styled.Popup {...rest} ref={ref}>
-    <Styled.Robot>
-      <Robot status={status} />
-    </Styled.Robot>
+const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.Element => {
+  const target = usePortal(generateClassNames('Popup'));
 
-    <Styled.LabelWrapper>
-      <Styled.Label>
-        {children}
-      </Styled.Label>
-    </Styled.LabelWrapper>
+  const render = (): JSX.Element | null => {
+    if (!props.open) {
+      return null;
+    }
 
-  </Styled.Popup>
-));
+    return (
+      <Styled.Popup {...props}>
+        <PopupContent {...props} ref={ref} />
+      </Styled.Popup>
+    );
+  };
+
+  return createPortal(
+    render(),
+    target,
+  );
+});
 
 Popup.defaultProps = {
-  ...robotDefaultProps,
+  ...cDefaultProps,
+  open: false,
+  anchorOrigin: {
+    vertical: Vertical.Bottom,
+    horizontal: Horizontal.Left
+  }
 };
 
 Popup.propTypes = {
-  ...robotPropTypes,
-  // position TODO
+  ...cPropTypes,
+  anchorOrigin: PT.exact({
+    vertical: PT.oneOf(objectValues(Vertical)),
+    horizontal: PT.oneOf(objectValues(Horizontal)),
+  }) as Validator<PopupAnchorOriginProps>,
+  open: PT.bool,
 };
 
 export default Popup;

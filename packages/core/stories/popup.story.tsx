@@ -1,37 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Popup, { PopupProps } from '../src/popup';
+import Button from '../src/button';
 import { Status } from '../src/robot/types';
 
 export const Popup = _Popup;
-
-const Item = styled.div`
-  margin-bottom: 40px;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const items: PopupProps[] = [
-  {
-    children: 'New folder “2022 annual event” was created',
-    status: Status.Happy,
-  },
-  {
-    children: 'Image resolution is less than selected resize parameters',
-    status: Status.Neutral,
-  },
-  {
-    children: 'You cannot upload file bigger than 25MB',
-    status: Status.Sad,
-  },
-  {
-    children: 'You set visibility to public, everyone can view these files',
-    status: Status.Worried,
-  },
-];
 
 export default {
   title: 'Feedback/Popup',
@@ -39,34 +12,33 @@ export default {
   excludeStories: ['Popup'],
 } as Meta;
 
-const defaultArgs = {};
+const defaultArgs = {
+  message: 'New folder “2022 annual event” was created',
+  status: Status.Happy,
+  anchorOrigin: {
+    vertical: 'bottom',
+    horizontal: 'left'
+  },
+  open: false,
+};
 
 const BasicTemplate: Story<PopupProps> = ({
-  ...args
-}) => (
-  <Popup {...args} />
-);
+  open, ...args
+}) => {
+  const [openState, setOpenState] = useState(open || false);
 
-const AllTemplate: Story<PopupProps> = ({
-  ...args
-}) => (
-  <div>
-    {items.map((props) => (
-      <Item key={props.status}>
-        <Popup {...args} {...props} />
-      </Item>
-    ))}
-  </div>
-);
+  useEffect(() => {
+    setOpenState(open || false);
+  }, [open]);
+
+  return (
+    <>
+      <Button color="link" size="sm" onClick={() => setOpenState(!openState)}>Open simple popup</Button>
+      <Popup {...args} open={openState} />
+    </>
+  );
+};
 
 // Basic
 export const Basic = BasicTemplate.bind({});
-Basic.args = {
-  ...defaultArgs,
-  children: 'New folder “2022 annual event” was created',
-  status: Status.Happy,
-};
-
-// All
-export const All = AllTemplate.bind({});
-All.args = { ...defaultArgs };
+Basic.args = { ...defaultArgs };

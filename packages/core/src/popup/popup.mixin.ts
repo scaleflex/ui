@@ -1,21 +1,39 @@
 import { css } from 'styled-components';
-import type { WithTheme } from '@sfx-ui/theme/entity';
-import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
-import { Size } from './types';
+// import type { WithTheme } from '@sfx-ui/theme/entity';
+// import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { Horizontal, Vertical } from './types';
 
-export const sizePopupMixin = {
-  [Size.Sm]: css`
-    padding: 4px 8px;
-    height: 24px;
+export const positionHorizontalMixin = {
+  [Horizontal.Left]: css`
+    left: 25px;
+    right: auto;
   `,
 
-  [Size.Md]: css`
-    padding: 8px 12px;
-    height: 30px;
+  [Horizontal.Center]: css`
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  `,
+
+  [Horizontal.Right]: css`
+    left: auto;
+    right: 25px;
   `,
 };
 
-export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
-  background: ${palette[PaletteColor.BackgroundSecondary]} !important;
-  border: 1px solid ${palette[PaletteColor.Error]} !important;
-`;
+export const positionVerticalMixin = {
+  [Vertical.Top]: css`
+    top: 25px;
+    bottom: auto;
+  `,
+
+  [Vertical.Bottom]: css`
+    top: auto;
+    bottom: 25px;
+  `,
+};
+
+// export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
+//   background: ${palette[PaletteColor.BackgroundSecondary]} !important;
+//   border: 1px solid ${palette[PaletteColor.Error]} !important;
+// `;
