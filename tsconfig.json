@@ -25,7 +25,8 @@
       "@sfx-ui/icons/*": ["packages/icons/src/*"],
       "@sfx-ui/utils/*": ["packages/utils/src/*"],
       "@sfx-ui/theme/*": ["packages/theme/src/*"],
-      "@sfx-ui/theme": ["packages/theme/src/index.ts"]
+      "@sfx-ui/theme": ["packages/theme/src/index.ts"],
+      "@sfx-ui/hooks/*": ["packages/hooks/src/*"]
     }
   }
 }

@@ -29,9 +29,9 @@
   },
   "dependencies": {
     "@sfx-ui/core": "^0.1.0",
+    "@sfx-ui/hooks": "^0.1.0",
     "@sfx-ui/icons": "^0.1.0",
     "@sfx-ui/utils": "^0.1.0",
-    "honks": "^0.4.0",
     "polished": "^3.6.5",
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.1",

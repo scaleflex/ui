@@ -22,6 +22,9 @@
     },
     {
       "path": "packages/theme/tsconfig.build.json"
+    },
+    {
+      "path": "packages/hooks/tsconfig.build.json"
     }
   ]
 }

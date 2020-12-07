@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.build.json",
-  "include": ["src", "assets/index.d.ts", "../../globals.d.ts"],
+  "include": ["src"],
   "compilerOptions": {
     "rootDir": "src",
     "declarationDir": "lib",
@@ -8,16 +8,7 @@
   },
   "references": [
     {
-      "path": "../icons/tsconfig.build.json"
-    },
-    {
       "path": "../utils/tsconfig.build.json"
-    },
-    {
-      "path": "../theme/tsconfig.build.json"
-    },
-    {
-      "path": "../hooks/tsconfig.build.json"
     }
   ]
 }
