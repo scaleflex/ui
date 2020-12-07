@@ -35,7 +35,7 @@ const items: PopupContentProps[] = [
 ];
 
 export default {
-  title: `${StoryGroup.Feedback}/PopupContent`,
+  title: `${StoryGroup.DataDisplay}/PopupContent`,
   component: PopupContent,
   excludeStories: ['PopupContent'],
 } as Meta;
