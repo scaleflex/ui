@@ -4,11 +4,12 @@ import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
 import SearchIcon from '@sfx-ui/icons/search';
 import _Input, { InputProps } from '../src/input';
 import { Size } from '../src/input/types';
+import { StoryGroup } from './types';
 
 export const Input = _Input;
 
 export default {
-  title: 'Inputs/Input',
+  title: `${StoryGroup.Inputs}/Input`,
   component: Input,
   excludeStories: ['Input'],
 } as Meta;

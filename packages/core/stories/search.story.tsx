@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Search, { SearchProps } from '../src/search';
 import { Size } from '../src/input/types';
+import { StoryGroup } from './types';
 
 export const Search = _Search;
 
 export default {
-  title: 'Inputs/Search',
+  title: `${StoryGroup.Inputs}/Search`,
   component: Search,
   excludeStories: ['Search'],
 } as Meta;

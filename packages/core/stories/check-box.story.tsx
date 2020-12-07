@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _CheckBox, { CheckBoxProps } from '../src/check-box';
+import { StoryGroup } from './types';
 
 export const CheckBox = _CheckBox;
 
 export default {
-  title: 'Inputs/CheckBox',
+  title: `${StoryGroup.Inputs}/CheckBox`,
   component: CheckBox,
   excludeStories: ['CheckBox'],
 } as Meta;

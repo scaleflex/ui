@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
 import _PopupContent, { PopupContentProps } from '../src/popup-content';
 import { Status } from '../src/robot/types';
+import { StoryGroup } from './types';
 
 export const PopupContent = _PopupContent;
 
@@ -34,7 +35,7 @@ const items: PopupContentProps[] = [
 ];
 
 export default {
-  title: 'Feedback/PopupContent',
+  title: `${StoryGroup.Feedback}/PopupContent`,
   component: PopupContent,
   excludeStories: ['PopupContent'],
 } as Meta;

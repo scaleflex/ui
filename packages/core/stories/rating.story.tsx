@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Rating, { RatingProps } from '../src/rating';
+import { StoryGroup } from './types';
 
 export const Rating = _Rating;
 
 export default {
-  title: 'Inputs/Rating',
+  title: `${StoryGroup.Inputs}/Rating`,
   component: Rating,
   excludeStories: ['Rating'],
 

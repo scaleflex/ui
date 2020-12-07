@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _DotsNavigation, { DotsNavigationProps } from '../src/dots-navigation';
+import { StoryGroup } from './types';
 
 export const DotsNavigation = _DotsNavigation;
 
 export default {
-  title: 'Navigation/DotsNavigation',
+  title: `${StoryGroup.Navigation}/DotsNavigation`,
   component: DotsNavigation,
   excludeStories: ['DotsNavigation'],
 

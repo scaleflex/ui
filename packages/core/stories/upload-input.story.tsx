@@ -2,11 +2,12 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _UploadInput, { UploadInputProps } from '../src/upload-input';
 import { Size } from '../src/input/types';
+import { StoryGroup } from './types';
 
 export const UploadInput = _UploadInput;
 
 export default {
-  title: 'Inputs/UploadInput',
+  title: `${StoryGroup.Inputs}/UploadInput`,
   component: UploadInput,
   excludeStories: ['UploadInput'],
 } as Meta;

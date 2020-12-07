@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Textarea, { TextareaProps } from '../src/textarea';
+import { StoryGroup } from './types';
 
 export const Textarea = _Textarea;
 
 export default {
-  title: 'Inputs/Textarea',
+  title: `${StoryGroup.Inputs}/Textarea`,
   component: Textarea,
   excludeStories: ['Textarea'],
 } as Meta;

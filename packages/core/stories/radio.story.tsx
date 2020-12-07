@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Radio, { RadioProps } from '../src/radio';
+import { StoryGroup } from './types';
 
 export const Radio = _Radio;
 
 export default {
-  title: 'Inputs/Radio',
+  title: `${StoryGroup.Inputs}/Radio`,
   component: Radio,
   excludeStories: ['Radio'],
 } as Meta;

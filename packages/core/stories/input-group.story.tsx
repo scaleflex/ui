@@ -3,11 +3,12 @@ import type { Meta, Story } from '@storybook/react';
 import QuestionMarkOutline from '@sfx-ui/icons/question-mark-outline';
 import _InputGroup, { InputGroupProps } from '../src/input-group';
 import { Type } from '../src/input-group/types';
+import { StoryGroup } from './types';
 
 export const InputGroup = _InputGroup;
 
 export default {
-  title: 'Inputs/InputGroup',
+  title: `${StoryGroup.Inputs}/InputGroup`,
   component: InputGroup,
   excludeStories: ['InputGroup'],
 } as Meta;

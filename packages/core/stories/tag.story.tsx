@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Tag, { TagProps } from '../src/tag';
+import { StoryGroup } from './types';
 
 export const Tag = _Tag;
 
 export default {
-  title: 'Inputs/Tag',
+  title: `${StoryGroup.Inputs}/Tag`,
   component: Tag,
   excludeStories: ['Tag'],
 } as Meta;

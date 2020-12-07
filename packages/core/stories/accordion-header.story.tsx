@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _AccordionHeader, { AccordionHeaderProps } from '../src/accordion-header';
+import { StoryGroup } from './types';
 
 export const AccordionHeader = _AccordionHeader;
 
 export default {
-  title: 'Surfaces/AccordionHeader',
+  title: `${StoryGroup.Surfaces}/AccordionHeader`,
   component: AccordionHeader,
   excludeStories: ['AccordionHeader'],
 } as Meta;

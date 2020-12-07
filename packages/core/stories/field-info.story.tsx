@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _FieldInfo, { FieldInfoProps } from '../src/field-info';
+import { StoryGroup } from './types';
 
 export const FieldInfo = _FieldInfo;
 
 export default {
-  title: 'Inputs/FieldInfo',
+  title: `${StoryGroup.Inputs}/FieldInfo`,
   component: FieldInfo,
   excludeStories: ['FieldInfo'],
 } as Meta;

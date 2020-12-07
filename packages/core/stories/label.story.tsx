@@ -3,11 +3,12 @@ import type { Meta, Story } from '@storybook/react';
 import QuestionMarkOutline from '@sfx-ui/icons/question-mark-outline';
 import _Label, { LabelProps } from '../src/label';
 import { Type } from '../src/label/types';
+import { StoryGroup } from './types';
 
 export const Label = _Label;
 
 export default {
-  title: 'Inputs/Label',
+  title: `${StoryGroup.Inputs}/Label`,
   component: Label,
   excludeStories: ['Label'],
 } as Meta;

@@ -4,11 +4,12 @@ import _Popup, { PopupProps } from '../src/popup';
 import Button from '../src/button';
 import { Status } from '../src/robot/types';
 import { Horizontal, Vertical } from '../src/popup/types';
+import { StoryGroup } from './types';
 
 export const Popup = _Popup;
 
 export default {
-  title: 'Feedback/Popup',
+  title: `${StoryGroup.Feedback}/Popup`,
   component: Popup,
   excludeStories: ['Popup'],
 } as Meta;

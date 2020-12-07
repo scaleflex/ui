@@ -3,11 +3,12 @@ import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@sfx-ui/icons/upload';
 import _Button, { ButtonProps } from '../src/button';
 import { Size, Color, Status } from '../src/button/types';
+import { StoryGroup } from './types';
 
 export const Button = _Button;
 
 export default {
-  title: 'Inputs/Button',
+  title: `${StoryGroup.Inputs}/Button`,
   component: Button,
   excludeStories: ['Button'],
 } as Meta;

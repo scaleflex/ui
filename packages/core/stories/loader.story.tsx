@@ -1,11 +1,12 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Loader, { LoaderProps } from '../src/loader';
+import { StoryGroup } from './types';
 
 export const Loader = _Loader;
 
 export default {
-  title: 'Data Display/Loader',
+  title: `${StoryGroup.DataDisplay}/Loader`,
   component: Loader,
   excludeStories: ['Loader'],
 } as Meta;

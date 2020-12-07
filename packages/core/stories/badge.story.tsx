@@ -3,11 +3,12 @@ import type { Meta, Story } from '@storybook/react';
 // import BadgeIcon from '@sfx-ui/icons/badge';
 import _Badge, { BadgeProps } from '../src/badge';
 import { Color } from '../src/badge/types';
+import { StoryGroup } from './types';
 
 export const Badge = _Badge;
 
 export default {
-  title: 'Data Display/Badge',
+  title: `${StoryGroup}/Badge`,
   component: Badge,
   excludeStories: ['Badge'],
 } as Meta;

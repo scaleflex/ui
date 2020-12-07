@@ -2,11 +2,12 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Robot, { RobotProps } from '../src/robot';
 import { Status } from '../src/robot/types';
+import { StoryGroup } from './types';
 
 export const Robot = _Robot;
 
 export default {
-  title: 'Data Display/Robot',
+  title: `${StoryGroup.DataDisplay}/Robot`,
   component: Robot,
   excludeStories: ['Robot'],
 } as Meta;

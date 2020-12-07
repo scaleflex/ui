@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _SwitcherGroup, { SwitcherGroupProps } from '../src/switcher-group';
+import { StoryGroup } from './types';
 
 export const SwitcherGroup = _SwitcherGroup;
 
 export default {
-  title: 'Inputs/SwitcherGroup',
+  title: `${StoryGroup.Inputs}/SwitcherGroup`,
   component: SwitcherGroup,
   excludeStories: ['SwitcherGroup'],
 } as Meta;
