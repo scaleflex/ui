@@ -3,6 +3,7 @@ import type { Meta, Story } from '@storybook/react';
 import _Popup, { PopupProps } from '../src/popup';
 import Button from '../src/button';
 import { Status } from '../src/robot/types';
+import { Horizontal, Vertical } from '../src/popup/types';
 
 export const Popup = _Popup;
 
@@ -15,10 +16,6 @@ export default {
 const defaultArgs = {
   message: 'New folder “2022 annual event” was created',
   status: Status.Happy,
-  anchorOrigin: {
-    vertical: 'bottom',
-    horizontal: 'left'
-  },
   open: false,
 };
 
@@ -34,11 +31,72 @@ const BasicTemplate: Story<PopupProps> = ({
   return (
     <>
       <Button color="link" size="sm" onClick={() => setOpenState(!openState)}>Open simple popup</Button>
-      <Popup {...args} open={openState} />
+      <Popup
+        {...args}
+        open={openState}
+        autoHideDuration={3000}
+        onClose={() => setOpenState(false)}
+      />
     </>
   );
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+// BottomLeft
+export const BottomLeft = BasicTemplate.bind({});
+BottomLeft.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Bottom,
+    horizontal: Horizontal.Left
+  },
+};
+
+// BottomCenter
+export const BottomCenter = BasicTemplate.bind({});
+BottomCenter.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Bottom,
+    horizontal: Horizontal.Center
+  },
+};
+
+// BottomRight
+export const BottomRight = BasicTemplate.bind({});
+BottomRight.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Bottom,
+    horizontal: Horizontal.Right
+  },
+};
+
+// TopLeft
+export const TopLeft = BasicTemplate.bind({});
+TopLeft.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Top,
+    horizontal: Horizontal.Left
+  },
+};
+
+// TopCenter
+export const TopCenter = BasicTemplate.bind({});
+TopCenter.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Top,
+    horizontal: Horizontal.Center
+  },
+};
+
+// TopRight
+export const TopRight = BasicTemplate.bind({});
+TopRight.args = {
+  ...defaultArgs,
+  anchorOrigin: {
+    vertical: Vertical.Top,
+    horizontal: Horizontal.Right
+  },
+};

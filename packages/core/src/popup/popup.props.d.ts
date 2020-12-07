@@ -13,4 +13,6 @@ export interface PopupAnchorOriginProps {
 export interface PopupProps extends PopupContentProps {
   open?: boolean;
   anchorOrigin?: PopupAnchorOriginProps;
+  autoHideDuration?: number;
+  onClose?: () => void;
 }

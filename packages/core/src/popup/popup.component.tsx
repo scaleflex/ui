@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues, generateClassNames } from '@sfx-ui/utils/functions';
@@ -9,16 +9,33 @@ import { Horizontal, Vertical } from './types';
 import Styled from './popup.styles';
 
 const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.Element => {
+  const {
+    autoHideDuration, anchorOrigin, open, onClose, ...rest
+  } = props;
   const target = usePortal(generateClassNames('Popup'));
 
+  useEffect(() => {
+    let timeout: NodeJS.Timeout | null = null;
+
+    if (open && autoHideDuration && typeof onClose === 'function') {
+      timeout = setTimeout(onClose, autoHideDuration);
+    }
+
+    return () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, [autoHideDuration, open, onClose]);
+
   const render = (): JSX.Element | null => {
-    if (!props.open) {
+    if (!open) {
       return null;
     }
 
     return (
       <Styled.Popup {...props}>
-        <PopupContent {...props} ref={ref} />
+        <PopupContent {...rest} ref={ref} />
       </Styled.Popup>
     );
   };
@@ -35,7 +52,7 @@ Popup.defaultProps = {
   anchorOrigin: {
     vertical: Vertical.Bottom,
     horizontal: Horizontal.Left
-  }
+  },
 };
 
 Popup.propTypes = {
@@ -45,6 +62,8 @@ Popup.propTypes = {
     horizontal: PT.oneOf(objectValues(Horizontal)),
   }) as Validator<PopupAnchorOriginProps>,
   open: PT.bool,
+  autoHideDuration: PT.number,
+  onClose: PT.func,
 };
 
 export default Popup;
