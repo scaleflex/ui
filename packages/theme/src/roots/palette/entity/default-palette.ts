@@ -41,6 +41,8 @@ export const darkPalette = {
   [Color.Success]: 'rgba(62,207,139,1)',
   [Color.Warning]: 'rgba(255,172,74,1)',
   [Color.Info]: 'rgba(110,123,178,1)',
+
+  [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 };
 
 export const lightPalette = {
@@ -81,6 +83,8 @@ export const lightPalette = {
   [Color.Success]: 'rgba(62,207,139,1)',
   [Color.Warning]: 'rgba(255,172,74,1)',
   [Color.Info]: 'rgba(110,123,178,1)',
+
+  [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;

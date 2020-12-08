@@ -36,4 +36,6 @@ export const Color = {
   Success: 'success',
   Warning: 'warning',
   Info: 'info',
+
+  LightShadow: 'light-shadow',
 } as const;
