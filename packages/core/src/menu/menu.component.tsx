@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import PT, { Validate } from 'prop-types';
-import { intrinsicComponent, objectKeys } from '@sfx-ui/utils/functions';
-import MenuItem from '../menu-item';
+import PT, { Validator } from 'prop-types';
+import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { MenuProps } from './menu.props';
-// import { Size } from './types';
 import Styled from './menu.styles';
 
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
@@ -110,17 +108,13 @@ export const propTypes = {
     right: PT.number,
     top: PT.number,
     bottom: PT.number,
-  }) as Validate<DOMRect>,
+  }) as Validator<DOMRect>,
   anchorEl: PT.instanceOf(Element),
   open: PT.bool,
   fullWidth: PT.bool,
   onClose: PT.func,
   id: PT.string,
   children: PT.node,
-  // children: PT.instanceOf(MenuItem),
-  // children: PT.arrayOf(
-  //   PT.instanceOf(MenuItem)
-  // ),
 };
 
 Menu.propTypes = propTypes;

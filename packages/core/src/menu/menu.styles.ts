@@ -4,9 +4,6 @@ import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
-import type { MenuProps } from './menu.props';
-// import { sizeMenuMixin } from './menu.mixin';
-// import { Size } from './types';
 
 const baseClassName = 'Menu';
 
@@ -75,7 +72,7 @@ const Container = styled.div.attrs({
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  (props: With<WithTheme, MenuProps>) => css`
+  () => css`
     position: relative;
     padding-top: 8px;
     padding-bottom: 8px;

@@ -4,7 +4,7 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   open?: boolean;
   fullWidth?: boolean;
   anchorElPosition?: DOMRect;
-  anchorEl?: HTMLElement;
+  anchorEl?: Element;
   onClose?: () => void;
   id?: string;
 }
