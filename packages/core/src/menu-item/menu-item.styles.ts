@@ -53,7 +53,7 @@ const MenuItem = styled.div.attrs({
     align-items: center;
     background: ${theme.palette[active ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
     cursor: pointer;
-    min-width: 300px;
+    /* min-width: 300px; */
     box-sizing: border-box;
 
     ${sizeMenuItemMixin[size]({ theme, StyledLabel: Label })}
