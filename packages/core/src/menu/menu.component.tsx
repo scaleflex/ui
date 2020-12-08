@@ -114,7 +114,7 @@ export const propTypes = {
   fullWidth: PT.bool,
   onClose: PT.func,
   id: PT.string,
-  children: PT.node,
+  children: PT.node.isRequired,
 };
 
 Menu.propTypes = propTypes;

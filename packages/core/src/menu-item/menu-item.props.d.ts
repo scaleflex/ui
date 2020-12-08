@@ -7,4 +7,5 @@ export interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemPropsSize;
   icon?: React.ReactNode;
   active?: boolean;
+  value?: string | number | null;
 }

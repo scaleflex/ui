@@ -63,7 +63,8 @@ MenuItem.defaultProps = defaultProps;
 export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
   icon: PT.oneOfType([PT.node, PT.func]),
-  active: PT.bool
+  active: PT.bool,
+  value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]),
 };
 
 MenuItem.propTypes = propTypes;
