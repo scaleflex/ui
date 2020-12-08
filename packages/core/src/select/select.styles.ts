@@ -34,8 +34,6 @@ const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<SelectProps>(
   () => css`
-    /* position: relative;
-    display: flex; */
     cursor: pointer;
   `
 );

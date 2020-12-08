@@ -59,20 +59,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
       }
     };
 
-    // option?.children
-    //   ?.filter((optionChild: any) => typeof optionChild === 'string')
-    //   ?.join(' ')
-    //   ?? (option?.children || '');
-
     if (value) {
-      // const optionsProps: ReactElement[] = React.Children.toArray(children)
-      //   .filter((child: ReactElement): boolean =>
-      //     child && child.type.displayName === 'MenuItem' && Boolean(child.props)
-      //   )
-      //   .map((child: ReactElement) =>
-      //     ({ ...(child.props || {}), children: child.props.children })
-      //   );
-
       const optionsProps: {value: SelectPropsSimpleValueType}[] = [];
 
       React.Children.forEach(children, (child: ReactElement<any, any>): void => {
