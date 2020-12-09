@@ -10,11 +10,12 @@ import { Size } from './types';
 
 const baseClassName = 'MenuItem';
 
-const Icon = styled.span.attrs({
+const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
+    flex-shrink: 0;
 
     &:first-child {
       margin-right: 8px;
@@ -30,18 +31,17 @@ const Icon = styled.span.attrs({
   `
 );
 
+const Actions = styled(Icon).attrs({
+  className: generateClassNames(baseClassName, 'Actions'),
+})(
+  () => css`
+  `
+);
+
 const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
-  display: block;
-  color: inherit;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  outline: none;
+  flex-grow: 1;
 `;
 
 const MenuItem = styled.div.attrs({
@@ -56,7 +56,7 @@ const MenuItem = styled.div.attrs({
     /* min-width: 300px; */
     box-sizing: border-box;
 
-    ${sizeMenuItemMixin[size]({ theme, StyledLabel: Label })}
+    ${sizeMenuItemMixin[size]({ theme })}
 
     &:focus-within,
     &:focus,
@@ -70,6 +70,7 @@ const Styled = {
   MenuItem,
   Label,
   Icon,
+  Actions,
 };
 
 export default Styled;

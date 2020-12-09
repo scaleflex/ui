@@ -1,7 +1,10 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import FlagIcon from '@sfx-ui/icons/flag';
-import _MenuItem, { MenuItemProps } from '../src/menu-item';
+import DownloadIcon from '@sfx-ui/icons/download';
+import _MenuItem, {
+  MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions
+} from '../src/menu-item';
 import { Size } from '../src/menu-item/types';
 import { StoryGroup } from './types';
 
@@ -36,17 +39,38 @@ Active.args = {
   active: true,
 };
 
-// WithIcon
-export const WithIcon = BasicTemplate.bind({});
-WithIcon.args = {
-  ...defaultArgs,
-  icon: (props) => <FlagIcon {...props} />,
-};
+const WithIconTemplate: Story<MenuItemProps> = ({
+  children, ...args
+}) => (
+  <MenuItem {...args}>
+    <MenuItemIcon>
+      <FlagIcon size={args.size === 'md' ? 16 : 12} />
+    </MenuItemIcon>
 
-// ActiveWithIcon
-export const ActiveWithIcon = BasicTemplate.bind({});
-ActiveWithIcon.args = {
-  ...defaultArgs,
-  active: true,
-  icon: (props) => <FlagIcon {...props} />,
-};
+    <MenuItemLabel>{children}</MenuItemLabel>
+  </MenuItem>
+);
+
+// WithIcon
+export const WithIcon = WithIconTemplate.bind({});
+WithIcon.args = { ...defaultArgs };
+
+const WithIconAndActionsTemplate: Story<MenuItemProps> = ({
+  children, ...args
+}) => (
+  <MenuItem {...args}>
+    <MenuItemIcon>
+      <FlagIcon size={args.size === 'md' ? 16 : 12} />
+    </MenuItemIcon>
+
+    <MenuItemLabel>{children}</MenuItemLabel>
+
+    <MenuItemActions>
+      <DownloadIcon size={args.size === 'md' ? 15 : 12} />
+    </MenuItemActions>
+  </MenuItem>
+);
+
+// WithIconAndActions
+export const WithIconAndActions = WithIconAndActionsTemplate.bind({});
+WithIconAndActions.args = { ...defaultArgs };
