@@ -1,17 +1,20 @@
 import { css } from 'styled-components';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PaletteColor } from '@sfx-ui/utils/types/palette';
+import { FontVariant as FV } from '@sfx-ui/utils/types/typography';
 import { Size } from './types';
 
 export const sizeInputMixin = {
-  [Size.Sm]: css`
+  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => css`
     padding: 4px 8px;
     height: 24px;
+    ${font[FV.InputSm]}
   `,
 
-  [Size.Md]: css`
+  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => css`
     padding: 8px 12px;
     height: 30px;
+    ${font[FV.InputMd]}
   `,
 };
 

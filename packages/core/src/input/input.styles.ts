@@ -30,17 +30,11 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     cursor: text;
-    /* font-size: 1rem; */
     width: 300px;
-    /* padding: 0 7px 0 12px; */
     background: ${theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};;
     box-sizing: border-box;
-    /* font-family: ${theme.typography.fontFamily};
-    font-style: normal;
-    font-weight: normal;
-    line-height: 16px; */
     color: ${theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
@@ -51,7 +45,7 @@ const Input = styled.div.attrs({
       border: 1px solid ${theme.palette[PColor.AccentPrimary]};
     }
 
-    ${error ? errorMixin({ theme }) : undefined}
+    ${error && errorMixin}
 
     ${Icon} {
       &:first-child {
