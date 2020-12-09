@@ -37,10 +37,12 @@ Label.defaultProps = {
   error: false,
 };
 
-Label.propTypes = {
+export const propTypes = {
   type: PT.oneOf(objectValues(Type)),
   icon: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
 };
+
+Label.propTypes = propTypes;
 
 export default Label;

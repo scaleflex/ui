@@ -18,8 +18,10 @@ Textarea.defaultProps = {
   error: false,
 };
 
-Textarea.propTypes = {
+export const propTypes = {
   error: PT.bool,
 };
+
+Textarea.propTypes = propTypes;
 
 export default Textarea;

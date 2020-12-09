@@ -207,11 +207,13 @@ export const defaultProps = {
 
 Select.defaultProps = defaultProps;
 
-Select.propTypes = {
+export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
   error: PT.bool,
   multiple: PT.bool,
   children: PT.arrayOf(PT.element).isRequired,
 };
+
+Select.propTypes = propTypes;
 
 export default Select;
