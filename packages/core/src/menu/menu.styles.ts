@@ -63,7 +63,7 @@ const Container = styled.div.attrs({
       left: ${rect.left + rect.width / 2}px;
 
       ${fullWidth && css`
-        width: ${rect.width}px;
+        min-width: ${rect.width}px;
       `}
     `}
   `

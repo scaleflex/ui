@@ -1,6 +1,5 @@
-import React, { FormEvent, useState } from 'react';
+import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-// import FlagIcon from '@sfx-ui/icons/flag';
 import _Menu, { MenuProps } from '../src/menu';
 import MenuItem from '../src/menu-item';
 import Button from '../src/button';
@@ -15,14 +14,14 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  // open: false,
+  fullWidth: false,
 };
 
 const BasicTemplate: Story<MenuProps> = ({
   ...args
 }) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
-  const handleClick = (event): void => setAnchorEl(event.currentTarget);
+  const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
   const handleClose = (): void => setAnchorEl(undefined);
 
   return (
@@ -39,11 +38,10 @@ const BasicTemplate: Story<MenuProps> = ({
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        fullWidth
       >
-        <MenuItem onClick={handleClose}>Menu item 1</MenuItem>
-        <MenuItem onClick={handleClose}>Menu item 2</MenuItem>
-        <MenuItem onClick={handleClose}>Menu item 3</MenuItem>
+        <MenuItem onClick={handleClose}>Item 1</MenuItem>
+        <MenuItem onClick={handleClose}>Item 2</MenuItem>
+        <MenuItem onClick={handleClose}>Item 3</MenuItem>
       </Menu>
     </div>
   );
@@ -52,25 +50,3 @@ const BasicTemplate: Story<MenuProps> = ({
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-// // Active
-// export const Active = BasicTemplate.bind({});
-// Active.args = {
-//   ...defaultArgs,
-//   active: true,
-// };
-
-// // WithIcon
-// export const WithIcon = BasicTemplate.bind({});
-// WithIcon.args = {
-//   ...defaultArgs,
-//   icon: (props) => <FlagIcon {...props} />,
-// };
-
-// // ActiveWithIcon
-// export const ActiveWithIcon = BasicTemplate.bind({});
-// ActiveWithIcon.args = {
-//   ...defaultArgs,
-//   active: true,
-//   icon: (props) => <FlagIcon {...props} />,
-// };
