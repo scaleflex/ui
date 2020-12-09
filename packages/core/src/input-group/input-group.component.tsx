@@ -2,10 +2,14 @@ import React from 'react';
 import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
 import Label from '../label';
-import { Type as LabelType } from '../label/types';
+import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import Input from '../input';
+import type { InputProps } from '../input';
+import { propTypes as inputPropTypes } from '../input/input.component';
+import type { TextareaProps } from '../textarea';
 import Textarea from '../textarea';
+import { propTypes as textareaPropTypes } from '../textarea/textarea.component';
 import FieldInfo from '../field-info';
 import type { InputGroupProps } from './input-group.props';
 import { Type } from './types';
@@ -13,8 +17,8 @@ import Styled from './input-group.styles';
 
 const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
   {
-    // eslint-disable-next-line no-shadow
-    children, type, error, label, hint, LabelProps, ...rest
+    children, type, error, label, hint, LabelProps: LabelPropsData,
+    InputProps: InputPropsData, TextareaProps: TextareaPropsData, ...rest
   }: InputGroupProps,
   ref: React.ForwardedRef<HTMLDivElement>
 ): JSX.Element => {
@@ -29,7 +33,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
       }
 
       return (
-        <Label error={error} {...(LabelProps || {})}>{label}</Label>
+        <Label error={error} {...(LabelPropsData || {})}>{label}</Label>
       );
     }
 
@@ -40,11 +44,11 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
     const fieldProps = { error, ...rest };
 
     if (type === Type.Input) {
-      return <Input {...fieldProps} />;
+      return <Input {...fieldProps} {...(InputPropsData || {})} />;
     }
 
     if (type === Type.Textarea) {
-      return <Textarea {...fieldProps} />;
+      return <Textarea {...fieldProps} {...(TextareaPropsData || {})} />;
     }
 
     return null;
@@ -85,14 +89,12 @@ InputGroup.defaultProps = {
 
 InputGroup.propTypes = {
   type: PT.oneOf(objectValues(Type)),
-  label: PT.oneOf([PT.node, PT.string, PT.number]),
-  hint: PT.oneOf([PT.node, PT.string, PT.number]),
+  label: PT.oneOfType([PT.node, PT.string, PT.number]),
+  hint: PT.oneOfType([PT.node, PT.string, PT.number]),
   error: PT.bool,
-  LabelProps: PT.shape({
-    type: PT.oneOf(objectValues(LabelType)),
-    icon: PT.oneOfType([PT.node, PT.func]),
-    error: PT.bool,
-  }) as Validator<LabelProps>,
+  LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
+  InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
+  TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,
 };
 
 export default InputGroup;
