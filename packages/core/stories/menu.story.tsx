@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Menu = _Menu;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Menu`,
+  title: `${StoryGroup.Navigation}/Menu`,
   component: Menu,
   excludeStories: ['Menu'],
 } as Meta;

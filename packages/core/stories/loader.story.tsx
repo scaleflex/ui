@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const Loader = _Loader;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Loader`,
+  title: `${StoryGroup.Feedback}/Loader`,
   component: Loader,
   excludeStories: ['Loader'],
 } as Meta;
