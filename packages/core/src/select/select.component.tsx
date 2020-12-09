@@ -2,7 +2,9 @@ import React, { useState, cloneElement } from 'react';
 import type { ReactElement } from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
+import TickIcon from '@sfx-ui/icons/tick';
 import ArrowTick from '../arrow-tick';
+import { MenuItemActions, MenuItemLabel } from '../menu-item';
 import Menu from '../menu';
 import type { AnchorElType } from '../menu/menu.props';
 import type { SelectProps, SelectPropsSizeType, SelectPropsSimpleValueType } from './select.props';
@@ -97,12 +99,50 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
       ? (Array.isArray(value) ? value : [])
       : [value];
     const isActive = valueArr.length > 0 && valueArr.includes(menuItemValue);
+    const miChildren = menuItem.props.children;
+
+    const generateChildren = () => {
+      if (isActive && miChildren) {
+        const miActions = (
+          <MenuItemActions>
+            <TickIcon size={size === Size.Md ? 11 : 9} />
+          </MenuItemActions>
+        );
+
+        if (React.Children.count(miChildren) === 1) {
+          return (
+            <>
+              {miChildren?.type?.displayName !== 'MenuItemLabel'
+                ? <MenuItemLabel>{miChildren}</MenuItemLabel>
+                : miChildren}
+
+              {miActions}
+            </>
+          );
+        }
+
+        if (
+          React.Children.count(miChildren) > 1
+          && !miChildren.some((child: any) => child?.type?.displayName === 'MenuItemActions')
+        ) {
+          return (
+            <>
+              {miChildren}
+              {miActions}
+            </>
+          );
+        }
+      }
+
+      return miChildren;
+    };
 
     return cloneElement(
       menuItem,
       {
         active: isActive,
-        children: menuItem.props.children,
+        size,
+        children: generateChildren(),
         onClick: () => {
           if (!multiple) {
             handleClose();
