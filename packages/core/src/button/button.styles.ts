@@ -37,13 +37,13 @@ const Button = styled.button.attrs({
     cursor: pointer;
     outline: none;
 
-    ${colorButtonMixin[color].common({ theme })}
-    ${colorButtonMixin[color][status]({ theme })}
+    ${colorButtonMixin[color].common}
+    ${colorButtonMixin[color][status]}
 
     ${sizeButtonMixin[size]()}
 
     ${Label} {
-      ${sizeButtonLabelMixin[size]({ theme })}
+      ${sizeButtonLabelMixin[size]}
     }
   `
 );

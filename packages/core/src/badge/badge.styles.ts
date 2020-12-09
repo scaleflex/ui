@@ -18,7 +18,7 @@ const defaultSize = 20;
 
 const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) })<BadgeProps>(
   ({
-    size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline, theme
+    size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline
   }) => css`
     ${inline ? '' : 'position: absolute;'}
     display: flex;
@@ -37,7 +37,7 @@ const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) }
     border-radius: ${(size || defaultSize) / 2}px;
     z-index: 1;
 
-    ${colorBadgeMixin[color]({ theme })}
+    ${colorBadgeMixin[color]}
   `
 );
 

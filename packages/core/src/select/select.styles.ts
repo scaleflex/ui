@@ -5,7 +5,6 @@ import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PColor } from '@sfx-ui/utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
 import InputStyled from '../input/input.styles';
-import type { SelectProps } from './select.props';
 
 const baseClassName = 'Select';
 
@@ -24,25 +23,15 @@ const Icon = styled.span.attrs({
 
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
-})(
-  () => css`
-    display: flex;
-  `
-);
+})`display: flex;`;
 
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<SelectProps>(
-  () => css`
-    cursor: pointer;
-  `
-);
+})`cursor: pointer;`;
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})`
-  flex-grow: 1;
-`;
+})`flex-grow: 1;`;
 
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),

@@ -39,7 +39,7 @@ const Textarea = styled.textarea.attrs({
       border: 1px solid ${theme.palette[PColor.AccentPrimary]};
     }
 
-    ${error && errorMixin({ theme })}
+    ${error && errorMixin}
   `
 );
 

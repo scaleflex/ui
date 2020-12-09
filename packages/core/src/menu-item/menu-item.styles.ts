@@ -56,7 +56,7 @@ const MenuItem = styled.div.attrs({
     /* min-width: 300px; */
     box-sizing: border-box;
 
-    ${sizeMenuItemMixin[size]({ theme })}
+    ${sizeMenuItemMixin[size]}
 
     &:focus-within,
     &:focus,

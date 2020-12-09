@@ -27,7 +27,7 @@ const Icon = styled.span.attrs({
 const Dot = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ active = false, theme }: With<WithTheme, DotProps>) => css`
+  ({ active = false }: With<WithTheme, DotProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -39,7 +39,7 @@ const Dot = styled.span.attrs({
     border: 1px solid transparent;
     border-radius: 50%;
 
-    ${active && activeDotMixin({ theme })}
+    ${active && activeDotMixin}
   `
 );
 

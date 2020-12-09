@@ -17,7 +17,7 @@ const Label = styled.label.attrs({
     padding: 4px 0px;
     color: ${theme.palette[PColor.TextSecondary]};
 
-    ${error ? errorMixin({ theme }) : undefined}
+    ${error && errorMixin}
   `
 );
 
