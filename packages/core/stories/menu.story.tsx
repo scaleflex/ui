@@ -11,6 +11,12 @@ export default {
   title: `${StoryGroup.Navigation}/Menu`,
   component: Menu,
   excludeStories: ['Menu'],
+
+  argTypes: {
+    children: {
+      description: 'Menu contents, normally `MenuItem`s.',
+    }
+  }
 } as Meta;
 
 const defaultArgs = {
