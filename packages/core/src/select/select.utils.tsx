@@ -1,6 +1,7 @@
 import React from 'react';
-import type { ReactElement, ReactNode } from 'react';
+import type { ReactNode, ReactElement } from 'react';
 import TickIcon from '@sfx-ui/icons/tick';
+import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
 import type {
   RenderOption, RenderValue, SelectPropsSizeType, SelectPropsSimpleValueType
@@ -36,10 +37,10 @@ export const renderIcon = (
 );
 
 const generateChildren = (
-  children?: ReactNode | ReactNode[],
+  children: ReactNode,
   isActive = false,
   size: SelectPropsSizeType = Size.Md
-): ReactNode | ReactNode[] | undefined => {
+): ReactNode => {
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
@@ -48,11 +49,15 @@ const generateChildren = (
     );
 
     if (React.Children.count(children) === 1) {
+      let miChildren = children;
+
+      if (React.isValidElement(children) && (children as JSX.Element)?.type?.displayName !== 'MenuItemLabel') {
+        miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
+      }
+
       return (
         <>
-          {children?.type?.displayName !== 'MenuItemLabel'
-            ? <MenuItemLabel>{children}</MenuItemLabel>
-            : children}
+          {miChildren}
 
           {miActions}
         </>
@@ -76,24 +81,32 @@ const generateChildren = (
 };
 
 export const renderOption = (
-  menuItem: ReactElement,
+  menuItem: JSX.Element,
   {
     value, multiple = false, size = Size.Md, onClose, onChange,
   }: RenderOption
 // eslint-disable-next-line sonarjs/cognitive-complexity
-): ReactElement => {
-  const menuItemValue = menuItem.props?.value;
+): JSX.Element => {
+  if (!React.isValidElement(menuItem)) {
+    return menuItem;
+  }
+
+  if ((menuItem as JSX.Element).type?.displayName !== 'MenuItem') {
+    return React.cloneElement(menuItem);
+  }
+
+  const menuItemValue = (menuItem as JSX.Element)?.props?.value;
   const valueArr = multiple
     ? (Array.isArray(value) ? value : [])
     : [value];
-  const isActive = valueArr.length > 0 && valueArr.includes(menuItemValue);
+  const active = valueArr.length > 0 && valueArr.includes(menuItemValue);
 
   return React.cloneElement(
-    menuItem,
+    menuItem as ReactElement<MenuItemProps>,
     {
-      active: isActive,
+      active,
       size,
-      children: generateChildren(menuItem.props.children, isActive, size),
+      children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
       onClick: () => {
         if (!multiple && typeof onClose === 'function') { onClose(); }
 
@@ -140,12 +153,14 @@ export const renderValue = (
   if (value) {
     const optionsProps: {value: SelectPropsSimpleValueType}[] = [];
 
-    React.Children.forEach(children, (child: ReactElement<any, any>): void => {
-      if (child && child.type) {
-        const displayName = child.type.displayName || child.type.name;
+    React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
+      if (React.isValidElement(child)) {
+        const { displayName } = (child as JSX.Element)?.type;
 
         if (displayName === 'MenuItem' && Boolean(child.props)) {
-          optionsProps.push({ ...(child.props || {}), children: child.props.children });
+          optionsProps.push({
+            ...(child as JSX.Element).props,
+          });
         }
       }
     });

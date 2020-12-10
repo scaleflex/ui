@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
-import SearchIcon from '@sfx-ui/icons/search';
+// import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
+// import SearchIcon from '@sfx-ui/icons/search';
 import _Select, { SelectProps } from '../src/select';
 import MenuItem from '../src/menu-item';
 import { Size } from '../src/select/types';
