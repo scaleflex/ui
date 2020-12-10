@@ -2,10 +2,10 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
+// Stroke #5D6D7E
 export const Arrow = intrinsicComponent<IconProps, SVGSVGElement>((
   {
-    // color = 'currentColor',
-    stroke = '#5D6D7E', size = 10, ...rest
+    stroke = 'currentColor', size = 10, ...rest
   },
   ref
 ): JSX.Element => (
