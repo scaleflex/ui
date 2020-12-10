@@ -1,5 +1,4 @@
 import { Color } from '@sfx-ui/utils/types/palette';
-// import type { Values } from '@sfx-ui/utils/types';
 
 import type { ColorsMap } from './colors-map';
 

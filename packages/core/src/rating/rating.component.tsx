@@ -72,7 +72,6 @@ const Rating = intrinsicComponent<RatingProps, HTMLInputElement>((
 
 Rating.defaultProps = {
   value: 0,
-  // name: 'raiting-field',
   readOnly: false,
 };
 

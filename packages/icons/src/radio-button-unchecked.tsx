@@ -13,7 +13,7 @@ export const RadioButtonUnchecked = intrinsicComponent<IconProps, SVGSVGElement>
     width={size}
     height={size}
     viewBox="0 0 16 16"
-    // fill="none"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >

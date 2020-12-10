@@ -84,7 +84,6 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
 InputGroup.defaultProps = {
   type: Type.Input,
   error: false,
-  // LabelProps: {},
 };
 
 InputGroup.propTypes = {

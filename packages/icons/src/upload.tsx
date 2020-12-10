@@ -11,7 +11,7 @@ export const Upload = intrinsicComponent<IconProps, SVGSVGElement>((
     width={size * 0.618}
     height={size}
     viewBox="0 0 10 14"
-    // fill="none"
+    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
