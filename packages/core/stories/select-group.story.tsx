@@ -11,6 +11,12 @@ export default {
   title: `${StoryGroup.Inputs}/SelectGroup`,
   component: SelectGroup,
   excludeStories: ['SelectGroup'],
+
+  argTypes: {
+    children: {
+      description: 'Menu contents, normally `MenuItem`s.',
+    }
+  }
 } as Meta;
 
 const defaultArgs = {

@@ -1,2 +1,2 @@
 export { default } from './select.component';
-export type { SelectProps } from './select.props';
+export type { SelectProps, SelectPropsSimpleValueType } from './select.props';
