@@ -16,6 +16,14 @@ const Icon = styled.span.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
 
+    &:first-child {
+      margin-right: 7px;
+    }
+
+    &:last-child {
+      margin-left: 7px;
+    }
+
     svg {
       color: ${palette[PColor.IconsPrimary]};
     }
@@ -46,16 +54,6 @@ const Input = styled.div.attrs({
     }
 
     ${error && errorMixin}
-
-    ${Icon} {
-      &:first-child {
-        margin-right: 7px;
-      }
-
-      &:last-child {
-        margin-left: 7px;
-      }
-    }
   `
 );
 
