@@ -11,7 +11,7 @@ export const FilerobotLabel = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 6.2}
+    width={size * (124 / 20)}
     height={size}
     viewBox="0 0 124 20"
     fill="none"

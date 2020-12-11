@@ -10,7 +10,7 @@ export const SwitcherOn = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 2}
+    width={size * (32 / 16)}
     height={size}
     viewBox="0 0 32 16"
     fill="none"

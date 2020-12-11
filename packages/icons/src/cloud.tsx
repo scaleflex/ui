@@ -8,7 +8,7 @@ export const Cloud = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 1.542}
+    width={size * (128 / 83)}
     height={size}
     viewBox="0 0 128 83"
     fill="none"

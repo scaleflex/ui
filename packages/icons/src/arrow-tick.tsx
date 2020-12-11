@@ -8,7 +8,7 @@ export const ArrowTick = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 0.5}
+    width={size * (4 / 8)}
     height={size}
     viewBox="0 0 4 8"
     fill="none"

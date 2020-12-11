@@ -8,7 +8,7 @@ export const VisibilityOff = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 1.538}
+    width={size * (20 / 13)}
     height={size}
     viewBox="0 0 20 13"
     fill="none"

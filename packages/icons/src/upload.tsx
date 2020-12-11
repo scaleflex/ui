@@ -8,7 +8,7 @@ export const Upload = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 0.618}
+    width={size * (10 / 14)}
     height={size}
     viewBox="0 0 10 14"
     fill="none"

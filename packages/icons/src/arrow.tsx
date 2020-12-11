@@ -10,7 +10,7 @@ export const Arrow = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 0.6}
+    width={size * (6 / 10)}
     height={size}
     viewBox="0 0 6 10"
     fill="none"

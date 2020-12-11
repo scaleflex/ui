@@ -8,7 +8,7 @@ export const Spinner = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * 0.964}
+    width={size * (27 / 28)}
     height={size}
     viewBox="0 0 27 28"
     fill="none"
