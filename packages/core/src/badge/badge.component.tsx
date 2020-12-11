@@ -21,7 +21,7 @@ Badge.defaultProps = {
 
 Badge.propTypes = {
   color: PT.oneOf(objectValues(Color)),
-  badgeContent: PT.oneOfType([PT.node, PT.string, PT.number]),
+  badgeContent: PT.node,
   size: PT.oneOfType([PT.number]),
   fontSize: PT.oneOfType([PT.number, PT.string]),
   padding: PT.oneOfType([PT.number, PT.string]),

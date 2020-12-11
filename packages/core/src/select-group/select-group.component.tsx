@@ -82,8 +82,8 @@ const { size, ...restSelectPropTypes } = selectPropTypes;
 SelectGroup.propTypes = {
   ...restSelectPropTypes, // Extends from SelectProps: multiple, error, children, value, onChange
 
-  label: PT.oneOfType([PT.node, PT.string, PT.number]),
-  hint: PT.oneOfType([PT.node, PT.string, PT.number]),
+  label: PT.node,
+  hint: PT.node,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   SelectProps: PT.exact(selectPropTypes)as Validator<SelectProps>,
 };

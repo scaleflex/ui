@@ -88,8 +88,8 @@ InputGroup.defaultProps = {
 
 InputGroup.propTypes = {
   type: PT.oneOf(objectValues(Type)),
-  label: PT.oneOfType([PT.node, PT.string, PT.number]),
-  hint: PT.oneOfType([PT.node, PT.string, PT.number]),
+  label: PT.node,
+  hint: PT.node,
   error: PT.bool,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,

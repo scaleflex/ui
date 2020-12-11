@@ -74,7 +74,7 @@ Button.propTypes = {
   color: PT.oneOf(objectValues(Color)),
   status: PT.oneOf(objectValues(Status)),
   icon: PT.oneOfType([PT.node, PT.func]),
-  badge: PT.oneOfType([PT.node, PT.number, PT.string]),
+  badge: PT.node,
 };
 
 export default Button;
