@@ -5,6 +5,8 @@ import { objectKeys } from '@sfx-ui/utils/functions';
 // eslint-disable-next-line unicorn/import-index
 import * as icons from '@sfx-ui/icons/index';
 
+const defaultSize = 25;
+
 export default {
   title: 'Theme/Icons',
 
@@ -18,13 +20,13 @@ export default {
 
   args: {
     color: '#5D6D7E',
-    size: 30,
+    size: defaultSize,
   }
 };
 
 const Container = styled.div``;
 
-const Item = styled.div(({ size = 30 }: {size?: number}) => css`
+const Item = styled.div(({ size = defaultSize }: {size?: number}) => css`
   display: inline-flex;
   align-items: center;
   flex-direction: column;
@@ -54,7 +56,7 @@ const ItemTitle = styled.div`
   font-weight: 400;
 `;
 
-export const All: Story<{color: string, size: number}> = ({ color, size = 30, ...args }) => (
+export const All: Story<{color: string, size: number}> = ({ color, size = defaultSize, ...args }) => (
   <Container {...args} style={{ color }}>
     {objectKeys(icons).map((iconName) => (
       <Item size={size} key={iconName}>
