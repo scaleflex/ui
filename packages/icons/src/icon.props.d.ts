@@ -11,4 +11,5 @@ export interface IconProps
   color2?: string;
   stroke?: string;
   stroke2?: string;
+  viewBox?: string;
 }

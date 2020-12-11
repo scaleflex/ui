@@ -8,4 +8,5 @@ export const iconPropTypes = {
   color2: PT.string,
   stroke: PT.string,
   stroke2: PT.string,
+  viewBox: PT.string,
 };
