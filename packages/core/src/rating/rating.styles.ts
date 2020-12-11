@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
-// import type { With } from '@sfx-ui/utils/types';
-// import type { WithTheme } from '@sfx-ui/theme/entity';
-// import { Color as PColor } from '@sfx-ui/utils/types/palette';
+import type { With } from '@sfx-ui/utils/types';
+import type { WithTheme } from '@sfx-ui/theme/entity';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { RatingProps } from './rating.props';
 
 const baseClassName = 'Rating';
@@ -42,8 +42,9 @@ const Item = styled.label.attrs({
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  () => css`
+  ({ active = false, theme: { palette } }: With<WithTheme, {active: boolean}>) => css`
     display: inline-flex;
+    color: ${active ? palette[PColor.Warning] : palette[PColor.TextPrimary]}
   `
 );
 

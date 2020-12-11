@@ -2,13 +2,12 @@ import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import StarIcon from '@sfx-ui/icons/star';
-import StarOutlineIcon from '@sfx-ui/icons/star-outline';
 import type { RatingProps, RatingItemProps, RatingItemReadOnlyProps } from './rating.props';
 import Styled from './rating.styles';
 
 const RatingIcon = ({ active }: {active: boolean}): JSX.Element => (
-  <Styled.Icon>
-    {active ? <StarIcon /> : <StarOutlineIcon />}
+  <Styled.Icon active={active}>
+    <StarIcon />
   </Styled.Icon>
 );
 

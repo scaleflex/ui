@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
-// import type { WithTheme } from '@sfx-ui/theme/entity';
+import type { WithTheme } from '@sfx-ui/theme/entity';
 // import type { With } from '@sfx-ui/utils/types';
-// import { Color as PColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { CheckBoxProps } from './check-box.props';
 
 const baseClassName = 'CheckBox';
@@ -28,10 +28,11 @@ const Input = styled.input.attrs({
 const CheckBox = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<CheckBoxProps>(
-  () => css`
+  ({ theme: { palette } }: WithTheme) => css`
     position: relative;
     display: inline-flex;
     cursor: pointer;
+    color: ${palette[PColor.AccentPrimary]};
   `
 );
 

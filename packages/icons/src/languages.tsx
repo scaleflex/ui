@@ -2,7 +2,6 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
-// color #5D6D7E
 export const Languages = intrinsicComponent<IconProps, SVGSVGElement>((
   { color = 'currentColor', size = 14, ...rest },
   ref

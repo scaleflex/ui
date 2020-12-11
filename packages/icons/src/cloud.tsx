@@ -3,7 +3,7 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Cloud = intrinsicComponent<IconProps, SVGSVGElement>((
-  { color = '#7487F3', size = 83, ...rest },
+  { color = 'currentColor', size = 83, ...rest },
   ref
 ): JSX.Element => (
   <svg

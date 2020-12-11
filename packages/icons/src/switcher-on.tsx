@@ -4,7 +4,7 @@ import type { IconProps } from './icon.props';
 
 export const SwitcherOn = intrinsicComponent<IconProps, SVGSVGElement>((
   {
-    color = '#F8FAFB', stroke = '#DFE7ED', color2 = '#6879EB', size = 16, ...rest
+    color = '#F8FAFB', stroke = '#DFE7ED', color2 = 'currentColor', size = 16, ...rest
   },
   ref
 ): JSX.Element => (

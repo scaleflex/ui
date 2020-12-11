@@ -3,7 +3,7 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Download = intrinsicComponent<IconProps, SVGSVGElement>((
-  { color = '#5D6D7E', size = 16, ...rest },
+  { color = 'currentColor', size = 16, ...rest },
   ref
 ): JSX.Element => (
   <svg

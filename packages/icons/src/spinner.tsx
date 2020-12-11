@@ -3,7 +3,7 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Spinner = intrinsicComponent<IconProps, SVGSVGElement>((
-  { color = 'white', size = 28, ...rest },
+  { color = 'currentColor', size = 28, ...rest },
   ref
 ): JSX.Element => (
   <svg

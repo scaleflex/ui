@@ -2,7 +2,6 @@ import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import DotIcon from '@sfx-ui/icons/dot';
-import DotOffIcon from '@sfx-ui/icons/dot-off';
 import type { DotProps } from './dot.props';
 import Styled from './dot.styles';
 
@@ -17,12 +16,12 @@ const Dot = intrinsicComponent<DotProps, HTMLSpanElement>((
     active={active}
     {...rest}
   >
-    <Styled.Icon visible={Boolean(active)}>
+    <Styled.Icon visible={Boolean(active)} on>
       <DotIcon />
     </Styled.Icon>
 
     <Styled.Icon visible={!active}>
-      <DotOffIcon />
+      <DotIcon />
     </Styled.Icon>
   </Styled.Dot>
 ));

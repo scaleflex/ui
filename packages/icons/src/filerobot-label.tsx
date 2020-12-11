@@ -2,9 +2,10 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
+// $light/txt-secondary color: #768184;
 export const FilerobotLabel = intrinsicComponent<IconProps, SVGSVGElement>((
   {
-    color = '#F8FAFB', stroke = '#DFE7ED', color2 = '#768184', size = 20, ...rest
+    color = '#F8FAFB', stroke = '#DFE7ED', color2 = 'currentColor', size = 20, ...rest
   },
   ref
 ): JSX.Element => (

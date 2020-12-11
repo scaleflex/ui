@@ -3,7 +3,7 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Tick = intrinsicComponent<IconProps, SVGSVGElement>((
-  { color = '#5D6D7E', size = 12, ...rest },
+  { color = 'currentColor', size = 12, ...rest },
   ref
 ): JSX.Element => (
   <svg

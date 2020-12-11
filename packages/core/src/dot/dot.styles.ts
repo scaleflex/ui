@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
-// import { Color as PColor } from '@sfx-ui/utils/types/palette';
+import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import type { DotProps } from './dot.props';
 import { activeDotMixin } from './dot.mixin';
 
@@ -12,7 +12,7 @@ const transitionDuration = 0.3;
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ visible = false }: {visible: boolean}) => css`
+  ({ visible = false, on = false, theme: { palette } }: With<WithTheme, {visible: boolean, on?: boolean}>) => css`
     position: absolute;
     top: 0;
     left: 0;
@@ -21,6 +21,7 @@ const Icon = styled.span.attrs({
     justify-content: center;
     transition: opacity ${transitionDuration}s;
     opacity: ${visible ? 1 : 0};
+    color: ${palette[on ? PColor.AccentPrimary : PColor.BordersStrong]}
   `
 );
 
