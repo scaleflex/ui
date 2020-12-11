@@ -7,14 +7,20 @@ export const typeArrowTickMixin = {
   [Type.Right]: css``,
 
   [Type.Left]: css`
-    transform: rotate(180deg);
+    svg {
+      transform: rotate(180deg);
+    }
   `,
 
   [Type.Top]: css`
-    transform: rotate(-90deg);
+    svg {
+      transform: rotate(-90deg);
+    }
   `,
 
   [Type.Bottom]: css`
-    transform: rotate(90deg);
+    svg {
+      transform: rotate(90deg);
+    }
   `,
 };
