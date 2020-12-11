@@ -8,7 +8,7 @@ import IStyled from '../input/input.styles';
 import Styled from './upload-input.styles';
 import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';
 
-const UploadInput = intrinsicComponent<UploadInputProps, HTMLInputElement>((
+const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>((
   {
     error, size, buttonLabel, placeholder, onChange, ...rest
   },
@@ -17,7 +17,7 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLInputElement>((
   const [valueState, setValueState] = useState('');
 
   return (
-    <Styled.UploadInput>
+    <Styled.UploadInput ref={ref}>
       <IStyled.Input
         error={error}
         size={size}
@@ -39,7 +39,6 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLInputElement>((
 
         <Styled.FileInput
           {...rest}
-          ref={ref}
           type="file"
           onChange={(event) => {
             const { files } = event.target;

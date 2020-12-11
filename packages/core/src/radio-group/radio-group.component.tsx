@@ -5,17 +5,14 @@ import Radio from '../radio';
 import type { RadioGroupProps } from './radio-group.props';
 import Styled from './radio-group.styles';
 
-const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLInputElement>((
+const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>((
   {
     label, ...rest
   }: RadioGroupProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
-  <Styled.RadioGroup>
-    <Radio
-      ref={ref}
-      {...rest}
-    />
+  <Styled.RadioGroup ref={ref}>
+    <Radio {...rest} />
 
     <Styled.Label>
       {label}

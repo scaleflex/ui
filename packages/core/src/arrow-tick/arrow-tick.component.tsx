@@ -12,7 +12,7 @@ const ArrowTick = intrinsicComponent<ArrowTickProps, HTMLSpanElement>((
   {
     IconProps: IconPropsData, ...rest
   }: ArrowTickProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => (
   <Styled.ArrowTick
     {...rest}

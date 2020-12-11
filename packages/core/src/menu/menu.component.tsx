@@ -76,7 +76,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.Wrapper open={Boolean(open)} id={id}>
+    <Styled.Wrapper open={Boolean(open)} id={id} ref={ref}>
       <Styled.Overlay onClick={handleClose} />
 
       <Styled.Container
@@ -84,10 +84,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
         fullWidth={Boolean(fullWidth)}
         rect={rect}
       >
-        <Styled.Menu
-          {...rest}
-          ref={ref}
-        >
+        <Styled.Menu {...rest}>
           {children}
         </Styled.Menu>
       </Styled.Container>

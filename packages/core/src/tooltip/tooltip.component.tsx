@@ -29,7 +29,7 @@ const getArrowTypeByPosition = (position: TooltipPositionType): ArrowTickTypesTy
 
 const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>((
   { children, position = Position.Top, ...rest }: TooltipProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => {
   const target = usePortal(generateClassNames('Tooltip'));
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);

@@ -7,7 +7,7 @@ import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '
 
 const Search = intrinsicComponent<SearchProps, HTMLInputElement>((
   props: SearchProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
   <Input
     ref={ref}

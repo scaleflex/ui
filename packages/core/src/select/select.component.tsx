@@ -21,9 +21,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
   const handleClose = (): void => setAnchorEl(undefined);
 
   return (
-    <Styled.Container>
+    <Styled.Container ref={ref}>
       <Styled.Select
-        ref={ref}
         size={size}
         error={error}
         onClick={handleClick}

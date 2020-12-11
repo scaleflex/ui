@@ -10,7 +10,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
   {
     children, type, size, ...rest
   }: TagProps,
-  ref: React.ForwardedRef<HTMLDivElement>
+  ref
 ): JSX.Element => (
   <Styled.Tag
     ref={ref}

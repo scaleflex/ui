@@ -10,7 +10,7 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
   {
     open, label, onChange, onClick, ...rest
   }: AccordionHeaderProps,
-  ref: React.ForwardedRef<HTMLDivElement>
+  ref
 ): JSX.Element => (
   <Styled.AccordionHeader
     ref={ref}

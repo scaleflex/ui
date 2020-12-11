@@ -6,7 +6,7 @@ import Styled from './textarea.styles';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>((
   props: TextareaProps,
-  ref: React.ForwardedRef<HTMLTextAreaElement>
+  ref
 ): JSX.Element => (
   <Styled.Textarea
     ref={ref}

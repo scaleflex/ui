@@ -23,9 +23,8 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
   const handleClose = (): void => setAnchorEl(undefined);
 
   return (
-    <Styled.Container {...rest}>
+    <Styled.Container {...rest} ref={ref}>
       <Styled.InputLocalization
-        ref={ref}
         onClick={handleClick}
       >
         {icon && (

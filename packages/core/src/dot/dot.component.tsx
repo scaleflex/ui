@@ -10,7 +10,7 @@ const Dot = intrinsicComponent<DotProps, HTMLSpanElement>((
   {
     active, ...rest
   }: DotProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => (
   <Styled.Dot
     ref={ref}

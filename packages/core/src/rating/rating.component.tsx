@@ -39,7 +39,7 @@ const Rating = intrinsicComponent<RatingProps, HTMLInputElement>((
   {
     value, readOnly, name, onChange, ...rest
   }: RatingProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => {
   const valueRounded = Math.min(value || 0, 5);
 

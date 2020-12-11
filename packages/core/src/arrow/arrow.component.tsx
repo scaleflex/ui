@@ -12,7 +12,7 @@ const Arrow = intrinsicComponent<ArrowProps, HTMLSpanElement>((
   {
     IconProps: IconPropsData, ...rest
   }: ArrowProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => (
   <Styled.Arrow
     {...rest}

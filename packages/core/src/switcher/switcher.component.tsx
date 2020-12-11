@@ -6,15 +6,14 @@ import SwitcherOffIcon from '@sfx-ui/icons/switcher-off';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
 
-const Switcher = intrinsicComponent<SwitcherProps, HTMLInputElement>((
+const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>((
   {
     checked, onChange, ...rest
   }: SwitcherProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
-  <Styled.Switcher {...rest}>
+  <Styled.Switcher {...rest} ref={ref}>
     <Styled.Input
-      ref={ref}
       checked={checked}
       onChange={onChange}
     />

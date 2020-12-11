@@ -6,7 +6,7 @@ import Styled from './field-info.styles';
 
 const FieldInfo = intrinsicComponent<FieldInfoProps, HTMLSpanElement>((
   props: FieldInfoProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => (
   <Styled.FieldInfo
     ref={ref}

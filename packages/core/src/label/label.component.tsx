@@ -9,7 +9,7 @@ const Label = intrinsicComponent<LabelProps, HTMLLabelElement>((
   {
     icon, error, type, ...rest
   }: LabelProps,
-  ref: React.ForwardedRef<HTMLLabelElement>
+  ref
 ): JSX.Element => (
   <Styled.Label
     ref={ref}

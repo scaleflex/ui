@@ -20,7 +20,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
     children, type, error, label, hint, LabelProps: LabelPropsData,
     InputProps: InputPropsData, TextareaProps: TextareaPropsData, ...rest
   }: InputGroupProps,
-  ref: React.ForwardedRef<HTMLDivElement>
+  ref
 ): JSX.Element => {
   const renderLabel = (): string | number | null | JSX.Element | any => {
     if (label) {

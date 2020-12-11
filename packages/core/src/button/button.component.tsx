@@ -28,7 +28,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
   {
     children, icon, badge, color, size, ...rest
   }: ButtonProps,
-  ref: React.ForwardedRef<HTMLButtonElement>
+  ref
 ): JSX.Element => (
   <Styled.Button
     {...rest}

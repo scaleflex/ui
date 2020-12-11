@@ -5,17 +5,14 @@ import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
 
-const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLInputElement>((
+const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>((
   {
     label, ...rest
   }: CheckBoxGroupProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
-  <Styled.CheckBoxGroup>
-    <CheckBox
-      ref={ref}
-      {...rest}
-    />
+  <Styled.CheckBoxGroup ref={ref}>
+    <CheckBox {...rest} />
 
     <Styled.Label>
       {label}

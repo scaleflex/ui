@@ -16,7 +16,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
     children, error, label, hint, LabelProps: LabelPropsData, SelectProps: SelectPropsData,
     value, multiple, onChange, ...rest
   }: SelectGroupProps,
-  ref: React.ForwardedRef<HTMLDivElement>
+  ref
 ): JSX.Element => {
   const renderLabel = (): string | number | null | JSX.Element | any => {
     if (label) {

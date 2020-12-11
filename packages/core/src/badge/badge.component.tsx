@@ -7,7 +7,7 @@ import Styled from './badge.styles';
 
 const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>((
   { badgeContent, ...rest }: BadgeProps,
-  ref: React.ForwardedRef<HTMLSpanElement>
+  ref
 ): JSX.Element => (
   <Styled.BadgeRoot ref={ref}>
     <Styled.Badge {...rest}>{badgeContent}</Styled.Badge>

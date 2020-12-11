@@ -6,15 +6,14 @@ import CheckBoxUncheckedIcon from '@sfx-ui/icons/check-box-unchecked';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 
-const CheckBox = intrinsicComponent<CheckBoxProps, HTMLInputElement>((
+const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>((
   {
     checked, onChange, ...rest
   }: CheckBoxProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
-  <Styled.CheckBox {...rest}>
+  <Styled.CheckBox {...rest} ref={ref}>
     <Styled.Input
-      ref={ref}
       checked={checked}
       onChange={onChange}
     />

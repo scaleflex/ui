@@ -5,17 +5,14 @@ import Switcher from '../switcher';
 import type { SwitcherGroupProps } from './switcher-group.props';
 import Styled from './switcher-group.styles';
 
-const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLInputElement>((
+const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>((
   {
     label, ...rest
   }: SwitcherGroupProps,
-  ref: React.ForwardedRef<HTMLInputElement>
+  ref
 ): JSX.Element => (
-  <Styled.SwitcherGroup>
-    <Switcher
-      ref={ref}
-      {...rest}
-    />
+  <Styled.SwitcherGroup ref={ref}>
+    <Switcher {...rest} />
 
     <Styled.Label>
       {label}
