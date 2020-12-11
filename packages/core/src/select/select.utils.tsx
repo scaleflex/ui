@@ -4,12 +4,12 @@ import TickIcon from '@sfx-ui/icons/tick';
 import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
 import type {
-  RenderOption, RenderValue, SelectPropsSizeType, SelectPropsSimpleValueType
+  RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType
 } from './select.props';
 import { Size } from './types';
 import Styled from './select.styles';
 
-export const getIconSize = (size?: SelectPropsSizeType): number => {
+export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
     case Size.Md:
       return 13;
@@ -21,7 +21,7 @@ export const getIconSize = (size?: SelectPropsSizeType): number => {
 };
 
 export const renderIcon = (
-  _icon: ReactNode, size?: SelectPropsSizeType
+  _icon: ReactNode, size?: SelectSizeType
 ): JSX.Element | undefined => (
   _icon
     ? (
@@ -39,7 +39,7 @@ export const renderIcon = (
 const generateChildren = (
   children: ReactNode,
   isActive = false,
-  size: SelectPropsSizeType = Size.Md
+  size: SelectSizeType = Size.Md
 ): ReactNode => {
   if (isActive && children) {
     const miActions = (
@@ -149,9 +149,9 @@ export const renderValue = (
     value, multiple = false, children,
   }: RenderValue
 // eslint-disable-next-line sonarjs/cognitive-complexity
-): SelectPropsSimpleValueType => {
+): SelectSimpleValueType => {
   if (value) {
-    const optionsProps: {value: SelectPropsSimpleValueType}[] = [];
+    const optionsProps: {value: SelectSimpleValueType}[] = [];
 
     React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
       if (React.isValidElement(child)) {

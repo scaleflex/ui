@@ -1,8 +1,8 @@
-import type { SelectProps, SelectPropsSimpleValueType } from '../select';
+import type { SelectProps, SelectSimpleValueType } from '../select';
 
 export interface InputLocalizationProps extends Omit<SelectProps, 'multiple' | 'error' | 'size' | 'value' | 'onChange'> {
   // Extends from SelectProps: children
-  value?: SelectPropsSimpleValueType;
-  onChange?: (value: SelectPropsSimpleValueType) => void;
+  value?: SelectSimpleValueType;
+  onChange?: (value: SelectSimpleValueType) => void;
   icon?: React.ReactNode;
 }

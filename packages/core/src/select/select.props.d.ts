@@ -1,28 +1,28 @@
 import type { Values } from '@sfx-ui/utils/types';
 import { Size } from './types';
 
-export type SelectPropsSizeType = Values<typeof Size>;
-export type SelectPropsSimpleValueType = string | number | null | undefined;
+export type SelectSizeType = Values<typeof Size>;
+export type SelectSimpleValueType = string | number | null | undefined;
 
 export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: SelectPropsSizeType;
+  size?: SelectSizeType;
   error?: boolean;
   children: React.ReactElementLike;
   multiple?: boolean;
-  value?: SelectPropsSimpleValueType | SelectPropsSimpleValueType[];
-  onChange?: (value: SelectPropsSimpleValueType | SelectPropsSimpleValueType[]) => void;
+  value?: SelectSimpleValueType | SelectSimpleValueType[];
+  onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
 }
 
 export interface RenderOption {
-  value?: SelectPropsSimpleValueType | SelectPropsSimpleValueType[];
+  value?: SelectSimpleValueType | SelectSimpleValueType[];
   multiple?: boolean;
-  size?: SelectPropsSizeType;
+  size?: SelectSizeType;
   onClose?: () => void;
   onChange?: (value) => void;
 }
 
 export interface RenderValue {
-  value?: SelectPropsSimpleValueType | SelectPropsSimpleValueType[];
+  value?: SelectSimpleValueType | SelectSimpleValueType[];
   multiple?: boolean;
   children: React.ReactElementLike;
 }

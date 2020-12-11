@@ -4,7 +4,7 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import Arrow from '../arrow';
 import Menu from '../menu';
 import type { AnchorElType } from '../menu/menu.props';
-import type { SelectPropsSimpleValueType } from '../select';
+import type { SelectSimpleValueType } from '../select';
 import { renderValue, renderOption } from '../select/select.utils';
 import { propTypes as selectPropTypes, simpleValuePropTypes } from '../select/select.component';
 import type { InputLocalizationProps } from './input-localization.props';
@@ -67,7 +67,7 @@ const {
 
 InputLocalization.propTypes = {
   ...restSelectPropTypes,
-  value: simpleValuePropTypes as Validator<SelectPropsSimpleValueType>,
+  value: simpleValuePropTypes as Validator<SelectSimpleValueType>,
   onChange: PT.func,
   icon: PT.node,
 };

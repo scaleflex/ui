@@ -5,11 +5,11 @@ import RobotWorried from '@sfx-ui/icons/robot-worried';
 import RobotSad from '@sfx-ui/icons/robot-sad';
 import RobotNeutral from '@sfx-ui/icons/robot-neutral';
 import RobotHappy from '@sfx-ui/icons/robot-happy';
-import type { RobotProps, RobotPropsStatus } from './robot.props';
+import type { RobotProps, RobotStatusType } from './robot.props';
 import { Status } from './types';
 import Styled from './robot.styles';
 
-const getRobotIcon = (status: RobotPropsStatus | undefined): JSX.Element => {
+const getRobotIcon = (status?: RobotStatusType): JSX.Element => {
   switch (status) {
     case Status.Worried: return <RobotWorried />;
 

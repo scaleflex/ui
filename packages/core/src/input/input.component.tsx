@@ -1,11 +1,11 @@
 import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
-import type { InputProps, InputPropsSize } from './input.props';
+import type { InputProps, InputSizeType } from './input.props';
 import { Size } from './types';
 import Styled from './input.styles';
 
-const getIconSize = (sizeName: InputPropsSize | undefined): number => {
+const getIconSize = (sizeName: InputSizeType | undefined): number => {
   switch (sizeName) {
     case Size.Md:
       return 13;

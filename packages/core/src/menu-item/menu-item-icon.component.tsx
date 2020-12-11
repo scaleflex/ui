@@ -1,11 +1,11 @@
 import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
-import type { MenuItemIconProps, MenuItemPropsSize } from './menu-item.props';
+import type { MenuItemIconProps, MenuItemSizeType } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
 
-const getIconSize = (sizeName: MenuItemPropsSize | undefined): number => {
+const getIconSize = (sizeName: MenuItemSizeType | undefined): number => {
   switch (sizeName) {
     case Size.Md:
       return 16;

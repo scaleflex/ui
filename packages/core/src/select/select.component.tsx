@@ -4,7 +4,7 @@ import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
 import Arrow from '../arrow';
 import Menu from '../menu';
 import type { AnchorElType } from '../menu/menu.props';
-import type { SelectProps, SelectPropsSimpleValueType } from './select.props';
+import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { Size } from './types';
 import Styled from './select.styles';
@@ -77,7 +77,7 @@ export const propTypes = {
     PT.number,
     PT.oneOf([null]),
     PT.arrayOf(simpleValuePropTypes)
-  ]) as Validator<SelectPropsSimpleValueType | SelectPropsSimpleValueType[]>,
+  ]) as Validator<SelectSimpleValueType | SelectSimpleValueType[]>,
   onChange: PT.func,
 };
 
