@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
-import FlagIcon from '@sfx-ui/icons/flag';
+import CountryIcon from '@sfx-ui/icons/country';
 import DownloadIcon from '@sfx-ui/icons/download';
 import _MenuItem, {
   MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions
@@ -44,7 +44,7 @@ const WithIconTemplate: Story<MenuItemProps> = ({
 }) => (
   <MenuItem {...args}>
     <MenuItemIcon>
-      <FlagIcon size={args.size === 'md' ? 16 : 12} />
+      <CountryIcon size={args.size === 'md' ? 16 : 12} />
     </MenuItemIcon>
 
     <MenuItemLabel>{children}</MenuItemLabel>
@@ -60,7 +60,7 @@ const WithIconAndActionsTemplate: Story<MenuItemProps> = ({
 }) => (
   <MenuItem {...args}>
     <MenuItemIcon>
-      <FlagIcon size={args.size === 'md' ? 16 : 12} />
+      <CountryIcon size={args.size === 'md' ? 16 : 12} />
     </MenuItemIcon>
 
     <MenuItemLabel>{children}</MenuItemLabel>
