@@ -114,8 +114,6 @@ const Fonts = createGlobalStyle`
 const GlobalStyle = createGlobalStyle`
   body {
     height: 100%;
-    width: 100%;
-    padding: 1rem 0 !important;
     color: #131f2b;
     // background-color: #f8fafb;
   }
