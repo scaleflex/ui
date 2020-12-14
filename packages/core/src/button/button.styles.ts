@@ -19,7 +19,7 @@ const Badge = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Badge'),
 })`
   display: flex;
-  margin-left: 4px;
+  margin-left: 5px;
 `;
 
 const Button = styled.button.attrs({
@@ -52,7 +52,7 @@ const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })`
   display: flex;
-  margin-right: 6px;
+  margin-right: 4px;
   margin-left: 1px;
 `;
 
