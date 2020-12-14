@@ -37,10 +37,10 @@ const Label = styled.span.attrs({
 
 const Tag = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<TagProps>(
+})(
   ({
-    size = Size.Md, type = Type.Default, onSelect, onRemove, theme
-  }: With<WithTheme, TagProps>) => css`
+    size = Size.Md, type = Type.Default, onSelect, hasRemoveHandler, theme
+  }: With<WithTheme, TagProps & {hasRemoveHandler: boolean}>) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -56,7 +56,7 @@ const Tag = styled.div.attrs({
         border-color: ${theme.palette[PColor.Error]};
       }
 
-      ${type === Type.Default && onRemove && css`
+      ${type === Type.Default && hasRemoveHandler && css`
         ${Cross} {
           display: inline-flex;
         }

@@ -1,14 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
-import RemoveIcon from '@sfx-ui/icons/remove';
+import CrossIcon from '@sfx-ui/icons/cross';
 import type { TagProps } from './tag.props';
 import { Size, Type } from './types';
 import Styled from './tag.styles';
 
 const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
   {
-    children, type, size, ...rest
+    children, type, size, onRemove, ...rest
   }: TagProps,
   ref
 ): JSX.Element => (
@@ -17,6 +17,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
     size={size}
     type={type}
     {...rest}
+    hasRemoveHandler={typeof onRemove === 'function'}
     onClick={
       type === Type.Suggested
         ? (event: any) => {
@@ -33,11 +34,11 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
   >
     <Styled.Label>{children}</Styled.Label>
     <Styled.Cross>
-      <RemoveIcon
+      <CrossIcon
         size={6}
         onClick={() => {
-          if (typeof rest.onRemove === 'function') {
-            rest.onRemove();
+          if (typeof onRemove === 'function') {
+            onRemove();
           }
         }}
       />
