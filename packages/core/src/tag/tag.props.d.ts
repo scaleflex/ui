@@ -7,4 +7,6 @@ export type TagTypesType = Values<typeof Type>;
 export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: TagSizeType;
   type?: TagTypesType;
+  onRemove?: () => void;
+  onSelect?: () => void;
 }

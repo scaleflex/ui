@@ -17,10 +17,30 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
     size={size}
     type={type}
     {...rest}
+    onClick={
+      type === Type.Suggested
+        ? (event: any) => {
+          if (typeof rest.onSelect === 'function') {
+            rest.onSelect();
+          }
+
+          if (typeof rest.onClick === 'function') {
+            rest.onClick(event);
+          }
+        }
+        : rest.onClick
+    }
   >
     <Styled.Label>{children}</Styled.Label>
     <Styled.Cross>
-      <RemoveIcon />
+      <RemoveIcon
+        size={6}
+        onClick={() => {
+          if (typeof rest.onRemove === 'function') {
+            rest.onRemove();
+          }
+        }}
+      />
     </Styled.Cross>
   </Styled.Tag>
 ));
@@ -33,6 +53,8 @@ Tag.defaultProps = {
 Tag.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   type: PT.oneOf(objectValues(Type)),
+  onRemove: PT.func,
+  onSelect: PT.func,
 };
 
 export default Tag;
