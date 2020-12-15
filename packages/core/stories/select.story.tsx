@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-// import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
-// import SearchIcon from '@sfx-ui/icons/search';
 import _Select, { SelectProps } from '../src/select';
 import MenuItem from '../src/menu-item';
 import { Size } from '../src/select/types';
@@ -51,25 +49,3 @@ const BasicTemplate: Story<SelectProps> = ({
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-// // WithIconStart
-// export const WithIconStart = BasicTemplate.bind({});
-// WithIconStart.args = {
-//   ...defaultArgs,
-//   iconStart: (props) => <SearchIcon {...props} />,
-// };
-
-// // WithIconEnd
-// export const WithIconEnd = BasicTemplate.bind({});
-// WithIconEnd.args = {
-//   ...defaultArgs,
-//   iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
-// };
-
-// // WithIcons
-// export const WithIcons = BasicTemplate.bind({});
-// WithIcons.args = {
-//   ...defaultArgs,
-//   iconStart: (props) => <SearchIcon {...props} />,
-//   iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
-// };

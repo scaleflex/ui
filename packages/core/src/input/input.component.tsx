@@ -8,11 +8,11 @@ import Styled from './input.styles';
 const getIconSize = (sizeName: InputSizeType | undefined): number => {
   switch (sizeName) {
     case Size.Md:
-      return 13;
+      return 16;
 
     case Size.Sm:
     default:
-      return 11;
+      return 14;
   }
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import VisibilityOffIcon from '@sfx-ui/icons/visibility-off';
+import CensorIcon from '@sfx-ui/icons/censor';
 import SearchIcon from '@sfx-ui/icons/search';
 import _Input, { InputProps } from '../src/input';
 import { Size } from '../src/input/types';
@@ -47,7 +47,7 @@ WithIconStart.args = {
 export const WithIconEnd = BasicTemplate.bind({});
 WithIconEnd.args = {
   ...defaultArgs,
-  iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
+  iconEnd: (props) => <CensorIcon {...props} />,
 };
 
 // WithIcons
@@ -55,5 +55,5 @@ export const WithIcons = BasicTemplate.bind({});
 WithIcons.args = {
   ...defaultArgs,
   iconStart: (props) => <SearchIcon {...props} />,
-  iconEnd: (props) => <VisibilityOffIcon {...props} size={10} />,
+  iconEnd: (props) => <CensorIcon {...props} />,
 };
