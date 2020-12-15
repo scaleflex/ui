@@ -10,14 +10,14 @@ export const Arrow = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * (6 / 10)}
+    width={size * (51 / 56)}
     height={size}
-    viewBox="0 0 6 10"
+    viewBox="0 0 51 56"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <path d="M1 1L5 4.85185L1 9" stroke={stroke} strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M12.2754 3L37.2754 27.0741L12.2754 53" stroke={stroke} strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 ));
 

@@ -26,7 +26,10 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
     {...rest}
   >
     <Styled.Icon>
-      <ArrowTick type={open ? ArrowTickType.Bottom : ArrowTickType.Right} />
+      <ArrowTick
+        type={open ? ArrowTickType.Bottom : ArrowTickType.Right}
+        IconProps={{ size: 8 }}
+      />
     </Styled.Icon>
 
     <Styled.Label>{label}</Styled.Label>

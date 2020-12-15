@@ -8,14 +8,14 @@ export const ArrowTick = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * (4 / 8)}
+    width={size * (51 / 50)}
     height={size}
-    viewBox="0 0 4 8"
+    viewBox="0 0 51 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <path d="M4 4L0 -1.65782e-07L-3.49691e-07 8L4 4Z" fill={color} />
+    <path d="M37.2754 25L12.2754 -1.03614e-06L12.2754 50L37.2754 25Z" fill={color} />
   </svg>
 ));
 

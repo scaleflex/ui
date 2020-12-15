@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
-import Arrow from '../arrow';
+import ArrowTick from '../arrow-tick';
 import Menu from '../menu';
 import type { AnchorElType } from '../menu/menu.props';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
@@ -32,7 +32,11 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
         </Styled.Label>
 
         <Styled.Icon>
-          <Arrow type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 13 : 11 }} />
+          <ArrowTick
+            type={open ? 'top' : 'bottom'}
+            // IconProps={{ size: size === Size.Md ? 13 : 11 }}
+            IconProps={{ size: 8 }}
+          />
         </Styled.Icon>
       </Styled.Select>
 
