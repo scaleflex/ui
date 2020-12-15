@@ -2,7 +2,7 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
-export const Delete = intrinsicComponent<IconProps, SVGSVGElement>((
+export const Remove = intrinsicComponent<IconProps, SVGSVGElement>((
   { color = 'currentColor', size = 14, ...rest },
   ref
 ): JSX.Element => (
@@ -20,4 +20,4 @@ export const Delete = intrinsicComponent<IconProps, SVGSVGElement>((
   </svg>
 ));
 
-export default Delete;
+export default Remove;

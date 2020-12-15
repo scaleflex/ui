@@ -2,7 +2,7 @@ import React from 'react';
 import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
-export const MoveTo2 = intrinsicComponent<IconProps, SVGSVGElement>((
+export const FolderMoveTo = intrinsicComponent<IconProps, SVGSVGElement>((
   { color = 'currentColor', size = 14, ...rest },
   ref
 ): JSX.Element => (
@@ -19,4 +19,4 @@ export const MoveTo2 = intrinsicComponent<IconProps, SVGSVGElement>((
   </svg>
 ));
 
-export default MoveTo2;
+export default FolderMoveTo;
