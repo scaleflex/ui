@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@sfx-ui/icons/upload';
 import _Button, { ButtonProps } from '../src/button';
-import { Size, Color, Status } from '../src/button/types';
+import { Size, Color } from '../src/button/types';
 import { StoryGroup } from './types';
 
 export const Button = _Button;
@@ -17,7 +17,6 @@ const defaultArgs = {
   children: 'Upload',
   size: Size.Md,
   color: Color.Secondary,
-  status: Status.Stateless,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({
