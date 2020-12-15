@@ -151,5 +151,3 @@ export { BillingPlan } from './billing-plan';
 export { Billing } from './billing';
 export { Arrow } from './arrow';
 export { ArrowTick } from './arrow-tick';
-
-// Helper Icons
