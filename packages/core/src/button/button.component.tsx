@@ -3,26 +3,9 @@ import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '@sfx-ui/utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
-import { Size, Color, Status } from './types';
+import { Size, Color } from './types';
+import { getIconSize } from './button.utils';
 import Styled from './button.styles';
-
-const getIconSize = (sizeName: string | undefined): number => {
-  switch (sizeName) {
-    case Size.Xl:
-      return 16;
-
-    case Size.Lg:
-    case Size.Md:
-      return 14;
-
-    case Size.Sm:
-      return 12;
-
-    case Size.Xs:
-    default:
-      return 11;
-  }
-};
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
   {
@@ -66,13 +49,11 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
 Button.defaultProps = {
   size: Size.Md,
   color: Color.Secondary,
-  status: Status.Stateless,
 };
 
 Button.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   color: PT.oneOf(objectValues(Color)),
-  status: PT.oneOf(objectValues(Status)),
   icon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
 };

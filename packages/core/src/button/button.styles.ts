@@ -1,11 +1,13 @@
 import styled, { css } from 'styled-components';
+import type { With } from '@sfx-ui/utils/types';
+import type { WithTheme } from '@sfx-ui/theme/entity';
 import { generateClassNames } from '@sfx-ui/utils/functions';
 import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
 import type { ButtonProps } from './button.props';
 import {
   colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin
 } from './button.mixin';
-import { Size, Color, Status } from './types';
+import { Size, Color } from './types';
 
 const baseClassName = 'Button';
 
@@ -24,10 +26,10 @@ const Badge = styled.span.attrs({
 
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<ButtonProps>(
+})(
   ({
-    color = Color.Secondary, status = Status.Stateless, size = Size.Md, theme
-  }) => css`
+    color = Color.Secondary, size = Size.Md, theme
+  }: With<WithTheme, ButtonProps>) => css`
     display: flex;
     flex-shrink: 0;
     flex-direction: row;
@@ -37,10 +39,8 @@ const Button = styled.button.attrs({
     cursor: pointer;
     outline: none;
 
-    ${colorButtonMixin[color].common}
-    ${colorButtonMixin[color][status]}
-
-    ${sizeButtonMixin[size]()}
+    ${colorButtonMixin[color]}
+    ${sizeButtonMixin[size]}
 
     ${Label} {
       ${sizeButtonLabelMixin[size]}
