@@ -58,12 +58,15 @@ const ItemTitle = styled.div`
 
 export const All: Story<{color: string, size: number}> = ({ color, size = defaultSize, ...args }) => (
   <Container {...args} style={{ color }}>
-    {objectKeys(icons).map((iconName) => (
-      <Item size={size} key={iconName}>
-        <ItemIcon>{React.createElement(icons[iconName], { size })}</ItemIcon>
+    {objectKeys(icons)
+      /* .reverse() */
+      .sort()
+      .map((iconName) => (
+        <Item size={size} key={iconName}>
+          <ItemIcon>{React.createElement(icons[iconName], { size })}</ItemIcon>
 
-        <ItemTitle>{ iconName }</ItemTitle>
-      </Item>
-    ))}
+          <ItemTitle>{ iconName }</ItemTitle>
+        </Item>
+      ))}
   </Container>
 );
