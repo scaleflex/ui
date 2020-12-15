@@ -8,7 +8,7 @@ export const Languages = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size}
+    width={size * (51 / 50)}
     height={size}
     viewBox="0 0 51 50"
     fill="none"

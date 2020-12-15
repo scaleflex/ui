@@ -3,32 +3,19 @@ import { intrinsicComponent } from '@sfx-ui/utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Cloud = intrinsicComponent<IconProps, SVGSVGElement>((
-  { color = 'currentColor', size = 83, ...rest },
+  { color = 'currentColor', size = 14, ...rest },
   ref
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * (128 / 83)}
+    width={size * (51 / 50)}
     height={size}
-    viewBox="0 0 128 83"
+    viewBox="0 0 51 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <g filter="url(#filter0_d)">
-      <path d="M101.233 29.2565C99.7195 29.2565 98.2087 29.4078 96.7251 29.7093C95.6064 24.1 91.9895 19.3151 86.9113 16.7251C81.8341 14.1352 75.8544 14.0266 70.6862 16.4297C66.0092 3.48718 51.774 -3.19526 38.891 1.50336C26.008 6.20198 19.3563 20.5039 24.0333 33.4454C12.748 33.8038 3.83359 43.1879 4.00236 54.5293C4.17214 65.8718 13.3635 74.9817 24.6548 75H101.233C113.806 75 124 64.7601 124 52.1282C124 39.4964 113.806 29.2565 101.233 29.2565Z" fill={color} />
-    </g>
-    <defs>
-      <filter id="filter0_d" x="0" y="0" width="128" height="83" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-        <feOffset dy="4" />
-        <feGaussianBlur stdDeviation="2" />
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0" />
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-      </filter>
-    </defs>
+    <path d="M39.6497 20.0208C39.6497 15.3333 35.8997 11.4792 31.2122 11.4792C29.7538 11.4792 28.2955 11.8958 27.0455 12.5208C25.3788 9.29167 21.9413 7 17.983 7C12.358 7 7.87882 11.5833 7.87882 17.1042C7.87882 18.25 8.08716 19.3958 8.39966 20.3333C3.71216 21.6875 0.274658 26.0625 0.274658 31.1667C0.274658 37.4167 5.27466 42.4167 11.5247 42.4167C11.9413 42.4167 38.7122 42.4167 39.0247 42.4167C45.2747 42.4167 50.2747 37.4167 50.2747 31.1667C50.2747 25.2292 45.5872 20.3333 39.6497 20.0208Z" fill={color} />
   </svg>
 ));
 

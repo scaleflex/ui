@@ -10,12 +10,12 @@ export const Tick = intrinsicComponent<IconProps, SVGSVGElement>((
     ref={ref}
     width={size}
     height={size}
-    viewBox="0 0 12 12"
+    viewBox="0 0 55 55"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <path fillRule="evenodd" clipRule="evenodd" d="M11.4288 1.25729L5.4288 11.2573C5.34457 11.3977 5.19695 11.4879 5.03361 11.4989C4.87027 11.5099 4.71189 11.4402 4.60962 11.3124L0.609619 6.31239L1.39049 5.6877L4.94128 10.1262L10.5713 0.742798L11.4288 1.25729Z" fill={color} />
+    <path fillRule="evenodd" clipRule="evenodd" d="M54.4184 3.28622L24.4184 53.2862C23.9972 53.9881 23.2591 54.4394 22.4424 54.4944C21.6257 54.5493 20.8338 54.2009 20.3225 53.5617L0.322456 28.5617L4.2268 25.4382L21.9807 47.6307L50.1309 0.713745L54.4184 3.28622Z" fill={color} />
   </svg>
 ));
 
