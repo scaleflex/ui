@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.1](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.0...1.0.0-beta.1) (2020-12-16)
+
+
+### Bug Fixes
+
+* tslint error ([5658dc6](https://github.com/scaleflex/sfx-ui/commit/5658dc6b85780c0c33145c6a000008eadb3ec672))
+
+
+### Features
+
+* Modal implementation ([dd5f784](https://github.com/scaleflex/sfx-ui/commit/dd5f784a1c2430f5300c3bab3d5cee9e5e107b29))
+* ModalActions implementation ([fcd2fe9](https://github.com/scaleflex/sfx-ui/commit/fcd2fe972d33618d94a505ddc9b34382cb8bf50a))
+* ModalContent implementation ([7dfa834](https://github.com/scaleflex/sfx-ui/commit/7dfa8346a67a6a6ada9866b2718fdd9bead4b721))
+* ModalTitle implementation ([df02b90](https://github.com/scaleflex/sfx-ui/commit/df02b9041598ed378f9bb4176163e38008009ce5))
+
+
+
+
+
 # [1.0.0-beta.0](https://github.com/scaleflex/sfx-ui/compare/v1.0.0...v1.0.0-beta.0) (2020-12-16)
 
 **Note:** Version bump only for package @sfx-ui/core
