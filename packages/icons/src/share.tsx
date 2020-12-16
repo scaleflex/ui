@@ -8,9 +8,9 @@ export const Share = intrinsicComponent<IconProps, SVGSVGElement>((
 ): JSX.Element => (
   <svg
     ref={ref}
-    width={size * (51 / 50)}
+    width={size}
     height={size}
-    viewBox="0 0 51 50"
+    viewBox="0 0 50 50"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
