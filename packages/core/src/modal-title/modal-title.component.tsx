@@ -18,7 +18,7 @@ const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>((
   >
     {rest.icon && <Styled.Icon iconShadow={Boolean(rest.iconShadow)}>{rest.icon}</Styled.Icon>}
 
-    <Styled.LabelPrimary variant={rest.variant}>{rest.primary}</Styled.LabelPrimary>
+    <Styled.LabelPrimary>{rest.primary}</Styled.LabelPrimary>
 
     {rest.variant === Variant.WithIcon && secondary && (
       <Styled.LabelSecondary>{secondary}</Styled.LabelSecondary>
