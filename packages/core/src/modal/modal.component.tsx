@@ -7,7 +7,7 @@ import Styled from './modal.styles';
 
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
   {
-    children, open, onClose, ...rest
+    children, open, onClose, maxWidth, ...rest
   },
   ref
 ): JSX.Element => {
@@ -30,11 +30,11 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.Wrapper open={Boolean(open)} ref={ref}>
+    <Styled.Wrapper open={Boolean(open)} {...rest} ref={ref}>
       <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
 
       <Styled.Container
-        {...rest}
+        maxWidth={maxWidth}
         open={Boolean(open)}
       >
         <Styled.Modal>

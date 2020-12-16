@@ -4,14 +4,13 @@ import type { With } from '@sfx-ui/utils/types';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import { Color as PColor } from '@sfx-ui/utils/types/palette';
 import { BorderRadiusSize as BRSize } from '@sfx-ui/utils/types/shape';
-import type { ModalTitleProps } from './modal-title.props';
 
 const baseClassName = 'ModalTitle';
 
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette } }: With<WithTheme, {iconShadow: boolean}>) => css`
     /* display: flex;
     flex-shrink: 0;
 
@@ -29,7 +28,7 @@ const Icon = styled.div.attrs({
   `
 );
 
-const LabelPrimary = styled(Icon).attrs({
+const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
 })(
   ({ iconMode = false, theme: { palette, shape: { borderRadius } } }: With<WithTheme, {iconMode: boolean}>) => css`
@@ -43,7 +42,6 @@ const LabelPrimary = styled(Icon).attrs({
     ${iconMode && css`
       border-bottom: 1px solid ${palette[PColor.BordersSecondary]};
     `}
-
   `
 );
 
@@ -67,19 +65,8 @@ const Close = styled.div.attrs({
 const ModalTitle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme }: With<WithTheme, ModalTitleProps>) => css`
+  () => css`
     position: relative;
-    /* display: inline-flex;
-    align-items: center;
-    background: ${theme.palette[active ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
-    cursor: pointer;
-    box-sizing: border-box;
-
-    &:focus-within,
-    &:focus,
-    &:hover {
-      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
-    } */
   `
 );
 
@@ -88,6 +75,7 @@ const Styled = {
   LabelPrimary,
   LabelSecondary,
   Close,
+  Icon,
 };
 
 export default Styled;

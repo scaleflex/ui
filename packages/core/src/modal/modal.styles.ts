@@ -44,7 +44,7 @@ const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
   ({
-    theme, open, maxWidth = Size.Sm
+    theme, open = false, maxWidth = Size.Sm
   }: With<WithTheme, ModalProps>) => css`
     position: absolute;
     overflow-x: hidden;
