@@ -5,12 +5,20 @@ import type { ModalProps } from './modal.props';
 import { Size } from './types';
 import Styled from './modal.styles';
 
+const isValidSingleFragmentChildren = (children?: any): boolean => children
+  && isValidElement(children) && React.Children.count(children) === 1
+  && (children as JSX.Element).type === React.Fragment;
+
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
   {
-    children, open, onClose, maxWidth, ...rest
+    children: _children, open, onClose, maxWidth, fullWidth, ...rest
   },
   ref
 ): JSX.Element => {
+  const children = isValidSingleFragmentChildren(_children)
+    ? (_children as JSX.Element).props.children
+    : _children;
+
   useEffect(() => {
     if (open) {
       document.body.style.overflow = 'hidden';
@@ -35,6 +43,7 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
 
       <Styled.Container
         maxWidth={maxWidth}
+        fullWidth={fullWidth}
         open={Boolean(open)}
       >
         <Styled.Modal>
@@ -42,7 +51,7 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
             if (isValidElement(child) && (child as JSX.Element).type.displayName === 'ModalTitle') {
               return React.cloneElement(child, {
                 onClose: handleClose, // Defaut onClose fn, but can be override by props
-                ...child.props
+                ...((child as JSX.Element).props || {})
               });
             }
 
@@ -56,16 +65,18 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
 
 export const defaultProps = {
   open: false,
-  maxWidth: Size.Sm,
+  fullWidth: false,
+  maxWidth: Size.Xs,
 };
 
 Modal.defaultProps = defaultProps;
 
 export const propTypes = {
-  open: PT.bool,
-  maxWidth: PT.oneOf(objectValues(Size)),
   onClose: PT.func.isRequired,
   children: PT.node.isRequired,
+  maxWidth: PT.oneOf(objectValues(Size)),
+  open: PT.bool,
+  fullWidth: PT.bool,
 };
 
 Modal.propTypes = propTypes;

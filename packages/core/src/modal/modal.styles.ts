@@ -44,7 +44,7 @@ const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
   ({
-    theme, open = false, maxWidth = Size.Sm
+    theme, open = false, fullWidth = false, maxWidth = Size.Sm
   }: With<WithTheme, ModalProps>) => css`
     position: absolute;
     overflow-x: hidden;
@@ -61,7 +61,8 @@ const Container = styled.div.attrs({
     display: flex;
     max-height: calc(100% - 64px);
     flex-direction: column;
-    width: calc(100% - 64px);
+
+    ${fullWidth && css`width: calc(100% - 64px);`}
     ${modalSizeMixin[maxWidth]}
 
     top: 50%;

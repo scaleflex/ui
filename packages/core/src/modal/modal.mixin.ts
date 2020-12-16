@@ -2,7 +2,7 @@ import { css } from 'styled-components';
 import { Size } from './types';
 
 export const modalSizeMixin = {
-  [Size.Xs]: css`max-width: 444px;`,
+  [Size.Xs]: css`max-width: 300px;`,
 
   [Size.Sm]: css`max-width: 600px;`,
 

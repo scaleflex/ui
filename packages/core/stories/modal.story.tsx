@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
+import { defaultPalette } from '@sfx-ui/theme/roots/palette';
+import { Color } from '@sfx-ui/utils/types/palette';
+import RemoveIcon from '@sfx-ui/icons/remove';
 import _Modal, { ModalProps } from '../src/modal';
 import ModalStyled from '../src/modal/modal.styles';
 import ModalTitle from '../src/modal-title';
+import ModalContent from '../src/modal-content';
+import ModalActions from '../src/modal-actions';
 import Button from '../src/button';
 import { StoryGroup } from './types';
+import { Variant } from '../src/modal-title/types';
 
 export const Modal = _Modal;
 
@@ -17,6 +23,10 @@ export default {
   argTypes: {
     children: {
       description: 'Modal children are sub-module components: `ModalTitle`, `ModalContent` and `ModalActions`.',
+    },
+
+    fullWidth: {
+      description: 'If true, the modal stretches to maxWidth. Notice that the modal width grow is limited by the default margin.'
     }
   }
 } as Meta;
@@ -30,22 +40,41 @@ const StyledModalContainer = styled(ModalStyled.Container)`
   transform: none;
 `;
 
-const BasicTemplate: Story<ModalProps> = ({
-  ...args
-}) => {
+const generateTemplate = ({ TitleProps = {} } = {}) => ({ ...args }) => {
   const [open, setOpen] = useState(false);
   const handleClick = (): void => setOpen(true);
   const handleClose = (): void => setOpen(false);
 
   const renderModalContent = () => (
     <>
-      <ModalTitle primary="Test" />
+      <ModalTitle {...TitleProps} primary="Delete file?" />
+
+      <ModalContent>
+        1 file will be deleted, ok?
+      </ModalContent>
+
+      <ModalActions>
+        <Button
+          onClick={handleClose}
+          color="link"
+        >
+          Cancel
+        </Button>
+
+        <Button
+          onClick={handleClose}
+          color="primary"
+          style={{ background: defaultPalette[Color.Error] }}
+        >
+          Delete
+        </Button>
+      </ModalActions>
     </>
   );
 
   return (
     <div>
-      <div style={{ marginBottom: 16 }}>
+      <div style={{ display: 'flex', marginBottom: 16 }}>
         <StyledModalContainer {...args} open>
           <ModalStyled.Modal>
             {renderModalContent()}
@@ -71,6 +100,24 @@ const BasicTemplate: Story<ModalProps> = ({
   );
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+const BasicTemplate: Story<ModalProps> = generateTemplate();
+
+// Base
+export const Base = BasicTemplate.bind({});
+Base.args = { ...defaultArgs };
+
+// FullWidth
+export const FullWidth = BasicTemplate.bind({});
+FullWidth.args = { ...defaultArgs, fullWidth: true };
+
+const IconTemplate: Story<ModalProps> = generateTemplate({
+  TitleProps: {
+    variant: Variant.WithIcon,
+    secondary: 'Secondary text',
+    icon: <RemoveIcon size={25} />
+  }
+});
+
+// WithIcon
+export const WithIcon = IconTemplate.bind({});
+WithIcon.args = { ...defaultArgs, fullWidth: true };
