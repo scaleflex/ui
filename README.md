@@ -7,10 +7,19 @@ Scaleflex UI framework for React built with [TypeScript](https://github.com/micr
 
 ---
 
+<p align="center">
+  <strong>
+    <a href="https://scaleflex.github.io/sfx-ui/" target="_blank">Storybook for UI (Documentation)</a>
+  </strong>
+</p>
+
 SFX UI is shipping several packages:
 
 - [`core`](packages/core/README.md)
 - [`icons`](packages/icons/README.md)
+- [`hooks`](packages/hooks/README.md)
+- [`theme`](packages/theme/README.md)
+- [`utils`](packages/utils/README.md)
 
 ## Installation
 
