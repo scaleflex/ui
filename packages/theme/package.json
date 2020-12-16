@@ -1,12 +1,12 @@
 {
   "name": "@sfx-ui/theme",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Theme package",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
   },
   "dependencies": {
-    "@sfx-ui/utils": "^0.1.0",
+    "@sfx-ui/utils": "^1.0.0",
     "lodash.merge": "^4.6.2",
     "polished": "^3.6.6"
   },

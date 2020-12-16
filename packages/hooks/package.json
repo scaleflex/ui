@@ -1,6 +1,6 @@
 {
   "name": "@sfx-ui/hooks",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Batch of useful UI-related React hooks",
   "keywords": [
     "hooks"
@@ -9,7 +9,7 @@
     "prebuild": "copyfiles README.md lib"
   },
   "dependencies": {
-    "@sfx-ui/utils": "^0.1.0"
+    "@sfx-ui/utils": "^1.0.0"
   },
   "devDependencies": {
     "@types/react": "^16.9.43",
