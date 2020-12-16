@@ -25,7 +25,7 @@
 
 
 ## Create new package
-Don't forget to add package in root package.json and add "references" in tsconfig.build.json
+Don't forget to add package in root package.json and add "references" in tsconfig.build.json and paths in tsconfig.json
 
 
 ## Adding a Local Sibling Dependency to a Specific Package
@@ -48,18 +48,3 @@ yarn build
 ```
 
 > Notice! Few times there were issue in VSCode when it was necessary to restart editor to use `import {...} from '@sfx-ui/packageB'`
-
-
-
-
-# TODOs:
-- Add components
-- Add icons
-- Theme system
-- makeStyles fn
-
-
-## Not finished components (form Figma - https://www.figma.com/file/JAz70jZfyI5JRNobHZ8ue7/Filerobot?node-id=448%3A0):
-- Label (type=localization)
-- localization field selector
-- Links input group
