@@ -15,6 +15,7 @@ const Icon = styled.span.attrs({
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
+    color: ${palette[PColor.IconsPrimary]};
 
     &:first-child {
       margin-right: 7px;
@@ -22,10 +23,6 @@ const Icon = styled.span.attrs({
 
     &:last-child {
       margin-left: 7px;
-    }
-
-    svg {
-      color: ${palette[PColor.IconsPrimary]};
     }
   `
 );
