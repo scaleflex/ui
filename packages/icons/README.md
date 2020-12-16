@@ -22,5 +22,5 @@ Every icon present in this package is a pure React component, wrapping plain `sv
 Each component is exported by default and gives access to the `ref` and `className` props, as well as standard `svg` attributes.
 
 ```typescript jsx
-import Times from '@sfx-ui/icons/times';
+import DownloadIcon from '@sfx-ui/icons/download';
 ```
