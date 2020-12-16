@@ -8,4 +8,5 @@ export interface ModalProps extends PropsWithChildren, React.HTMLAttributes<HTML
   open?: boolean;
   maxWidth?: ModalSizeType;
   onClose: () => void;
+  // variant?: 'defautl' | 'with-icon' // TODO
 }

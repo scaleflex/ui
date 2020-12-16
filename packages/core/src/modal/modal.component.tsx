@@ -40,7 +40,10 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
         <Styled.Modal>
           {React.Children.map(children, (child) => {
             if (isValidElement(child) && (child as JSX.Element).type.displayName === 'ModalTitle') {
-              return React.cloneElement(child, { onClose: handleClose });
+              return React.cloneElement(child, {
+                onClose: handleClose, // Defaut onClose fn, but can be override by props
+                ...child.props
+              });
             }
 
             return child;

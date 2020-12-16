@@ -4,4 +4,5 @@ export interface ModalTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode;
   iconShadow?: boolean;
   onClose?: () => void;
+  // variant?: 'defautl' | 'with-icon' // TODO
 }

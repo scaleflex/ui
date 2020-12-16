@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
 import _Modal, { ModalProps } from '../src/modal';
+import ModalStyled from '../src/modal/modal.styles';
 import ModalTitle from '../src/modal-title';
 import Button from '../src/button';
 import { StoryGroup } from './types';
@@ -19,8 +21,14 @@ export default {
   }
 } as Meta;
 
-const defaultArgs = {
-};
+const defaultArgs = {};
+
+const StyledModalContainer = styled(ModalStyled.Container)`
+  position: relative;
+  top: auto;
+  left: auto;
+  transform: none;
+`;
 
 const BasicTemplate: Story<ModalProps> = ({
   ...args
@@ -29,8 +37,22 @@ const BasicTemplate: Story<ModalProps> = ({
   const handleClick = (): void => setOpen(true);
   const handleClose = (): void => setOpen(false);
 
+  const renderModalContent = () => (
+    <>
+      <ModalTitle primary="Test" />
+    </>
+  );
+
   return (
     <div>
+      <div style={{ marginBottom: 16 }}>
+        <StyledModalContainer {...args} open>
+          <ModalStyled.Modal>
+            {renderModalContent()}
+          </ModalStyled.Modal>
+        </StyledModalContainer>
+      </div>
+
       <Button
         onClick={handleClick}
         color="link"
@@ -43,10 +65,7 @@ const BasicTemplate: Story<ModalProps> = ({
         open={open}
         onClose={handleClose}
       >
-        <ModalTitle primary="Test" />
-        {/* <ModalItem onClick={handleClose}>Item 1</ModalItem>
-        <ModalItem onClick={handleClose}>Item 2</ModalItem>
-        <ModalItem onClick={handleClose}>Item 3</ModalItem> */}
+        {renderModalContent()}
       </Modal>
     </div>
   );

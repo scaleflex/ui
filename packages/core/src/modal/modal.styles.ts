@@ -47,7 +47,6 @@ const Container = styled.div.attrs({
     theme, open, maxWidth = Size.Sm
   }: With<WithTheme, ModalProps>) => css`
     position: absolute;
-    /* min-height: 16px; */
     overflow-x: hidden;
     overflow-y: auto;
     transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
@@ -68,11 +67,6 @@ const Container = styled.div.attrs({
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-    ${open && css`
-      /* top: ${rect.top + rect.height}px;
-      left: ${rect.left + rect.width / 2}px; */
-    `}
   `
 );
 
