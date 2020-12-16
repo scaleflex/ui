@@ -13,6 +13,7 @@
     "version": {
       "message": "chore(release): %s",
       "allowBranch": [
+        "master",
         "hotfix-*",
         "release-*"
       ],
