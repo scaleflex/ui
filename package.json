@@ -2,12 +2,18 @@
   "name": "sfx-ui",
   "version": "1.0.0-beta.0",
   "license": "MIT",
+  "author": "scaleflex",
   "private": true,
   "workspaces": {
     "packages": [
       "packages/*"
     ]
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scaleflex/sfx-ui"
+  },
+  "homepage": "https://github.com/scaleflex/sfx-ui#readme",
   "scripts": {
     "start": "start-storybook -s .storybook/public -p 9009",
     "format": "prettier --check packages/**/*.{ts,tsx}",
@@ -24,20 +30,10 @@
     "test": "jest",
     "ci": "npm-run-all -s build test",
     "bump": "lerna version --yes --tag-version-prefix=''",
-    "deploy": "gh-pages -d dist -r https://${GH_TOKEN}@github.com/scaleflex/sfx-ui",
+    "deploy": "gh-pages -d dist",
     "prerelease": "node scripts/create-meta-files.js",
     "release": "lerna exec -- yarn publish lib --non-interactive",
     "cd": "npm-run-all -p deploy release"
-  },
-  "dependencies": {
-    "@sfx-ui/core": "^0.1.0",
-    "@sfx-ui/hooks": "^0.1.0",
-    "@sfx-ui/icons": "^0.1.0",
-    "@sfx-ui/utils": "^0.1.0",
-    "polished": "^3.6.5",
-    "prop-types": "^15.7.2",
-    "react-focus-lock": "^2.4.1",
-    "use-callback-ref": "^1.2.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.11.6",
