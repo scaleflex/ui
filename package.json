@@ -1,6 +1,6 @@
 {
   "name": "sfx-ui",
-  "version": "1.0.0",
+  "version": "1.0.0-beta.0",
   "license": "MIT",
   "private": true,
   "workspaces": {
@@ -24,8 +24,10 @@
     "test": "jest",
     "ci": "npm-run-all -s build test",
     "bump": "lerna version --yes --tag-version-prefix=''",
+    "deploy": "gh-pages -d dist -r https://${GH_TOKEN}@github.com/scaleflex/sfx-ui",
     "prerelease": "node scripts/create-meta-files.js",
-    "release": "lerna exec -- yarn publish lib --non-interactive"
+    "release": "lerna exec -- yarn publish lib --non-interactive",
+    "cd": "npm-run-all -p deploy release"
   },
   "dependencies": {
     "@sfx-ui/core": "^0.1.0",
@@ -73,6 +75,7 @@
     "eslint-plugin-react-hooks": "^4.0.7",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-unicorn": "^20.1.0",
+    "gh-pages": "^3.1.0",
     "jest": "^26.3.0",
     "jest-styled-components": "^7.0.3",
     "lerna": "^3.22.1",
