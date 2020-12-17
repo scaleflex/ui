@@ -1,6 +1,6 @@
 {
   "name": "@sfx-ui/icons",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.1-beta.0",
   "description": "SVG icons as React components",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
