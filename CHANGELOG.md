@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.2-beta.0](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.1...1.0.2-beta.0) (2020-12-21)
+
+
+### Features
+
+* update cross icon ([37bc218](https://github.com/scaleflex/sfx-ui/commit/37bc21815c3411375da257e0429a21b710fd9ecb))
+* update tick icon ([2cdbace](https://github.com/scaleflex/sfx-ui/commit/2cdbacef9ebb5d9f9fab23f555f3e509186a1a33))
+
+
+
+
+
 # [1.0.1-beta.0](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.0...1.0.1-beta.0) (2020-12-16)
 
 
