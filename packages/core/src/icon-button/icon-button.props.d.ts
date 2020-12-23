@@ -7,5 +7,6 @@ export type IconButtonColorType = Values<typeof Color>;
 export interface IconButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   size?: IconButtonSizeType;
   color?: IconButtonColorType;
+  square?: boolean;
   children: React.ReactNode;
 }

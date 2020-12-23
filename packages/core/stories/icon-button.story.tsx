@@ -24,6 +24,7 @@ const defaultArgs = {
   color: Color.Secondary,
   children: (props) => <UploadIcon {...props} />,
   disabled: false,
+  square: false,
 };
 
 const BasicTemplate: Story<IconButtonProps> = ({
