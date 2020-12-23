@@ -13,7 +13,6 @@ const FormHint = styled.span.attrs({
   ({ error = false, theme }: With<WithTheme, FormHintProps>) => css`
     display: flex;
     align-items: center;
-    margin-top: 2px;
     font-size: 10px;
     line-height: 12px;
     color: ${error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
