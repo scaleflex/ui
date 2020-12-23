@@ -12,6 +12,7 @@ export const darkPalette = {
   [Color.AccentPrimary]: 'rgba(104,121,235,1)',
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
+  [Color.AccentPrimaryDisabled]: '#E9EEF2',
 
   [Color.BackgroundPrimary]: 'rgba(37,50,55,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(46,61,69,1)',
@@ -54,6 +55,7 @@ export const lightPalette = {
   [Color.AccentPrimary]: 'rgba(104,121,235,1)',
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
+  [Color.AccentPrimaryDisabled]: '#E9EEF2',
 
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)',
