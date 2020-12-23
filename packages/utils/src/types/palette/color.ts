@@ -21,6 +21,7 @@ export const Color = {
   IconsSecondary: 'icons-secondary',
 
   ButtonPrimaryText: 'btn-primary-text',
+  ButtonDisabledText: 'btn-disabled-text',
 
   LinkPrimary: 'link-primary',
   LinkHover: 'link-hover',
