@@ -17,6 +17,7 @@ const defaultArgs = {
   children: 'Upload',
   size: Size.Md,
   color: Color.Secondary,
+  disabled: false,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({
@@ -32,6 +33,10 @@ const BasicTemplate: Story<ButtonProps> = ({
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
+
+// Disabled
+export const Disabled = BasicTemplate.bind({});
+Disabled.args = { ...defaultArgs, disabled: true };
 
 // WithIcon
 export const WithIcon = BasicTemplate.bind({});
