@@ -10,6 +10,10 @@ export const colorButtonMixin = {
     background-color: ${palette[PaletteColor.AccentPrimary]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
+    ${StyledBadge.Badge} {
+      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    }
+
     &:hover {
       background-color: ${palette[PaletteColor.AccentPrimaryHover]};
     }
@@ -17,18 +21,41 @@ export const colorButtonMixin = {
     &:active {
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      }
+    }
   `,
 
   [Color.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: #E9EEF2;
+    background-color: ${palette[PaletteColor.ActiveSecondary]};
     color: ${palette[PaletteColor.IconsPrimary]};
 
     &:hover {
-      background-color: #DFE4E9;
+      background-color: ${palette[PaletteColor.ActiveSecondaryHover]};
     }
 
     &:active {
-      background-color: #CBD3DA;
+      background-color: ${palette[PaletteColor.ActiveSecondaryActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+      }
+    }
+
+    ${StyledBadge.Badge} {
+      background-color: ${palette[PaletteColor.IconsPrimary]};
     }
   `,
 
@@ -49,6 +76,14 @@ export const colorButtonMixin = {
 
       ${StyledBadge.Badge} {
         background-color: ${palette[PaletteColor.LinkActive]};
+      }
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.ButtonDisabledText]};
       }
     }
   `,
