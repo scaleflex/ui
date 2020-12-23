@@ -22,7 +22,8 @@ export default {
 const defaultArgs = {
   size: Size.Md,
   color: Color.Secondary,
-  children: (props) => <UploadIcon {...props} />
+  children: (props) => <UploadIcon {...props} />,
+  disabled: false,
 };
 
 const BasicTemplate: Story<IconButtonProps> = ({
