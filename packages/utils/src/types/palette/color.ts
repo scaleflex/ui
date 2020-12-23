@@ -8,6 +8,7 @@ export const Color = {
   AccentPrimary: 'accent-primary',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
+  AccentPrimaryDisabled: 'accent-primary-disabled',
 
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
