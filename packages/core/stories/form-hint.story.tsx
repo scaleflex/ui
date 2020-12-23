@@ -1,24 +1,24 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _FieldInfo, { FieldInfoProps } from '../src/field-info';
+import _FormHint, { FormHintProps } from '../src/form-hint';
 import { StoryGroup } from './types';
 
-export const FieldInfo = _FieldInfo;
+export const FormHint = _FormHint;
 
 export default {
-  title: `${StoryGroup.Inputs}/FieldInfo`,
-  component: FieldInfo,
-  excludeStories: ['FieldInfo'],
+  title: `${StoryGroup.Inputs}/FormHint`,
+  component: FormHint,
+  excludeStories: ['FormHint'],
 } as Meta;
 
 const defaultArgs = {
   children: 'Some hint goes here'
 };
 
-const BasicTemplate: Story<FieldInfoProps> = ({
+const BasicTemplate: Story<FormHintProps> = ({
   ...args
 }) => (
-  <FieldInfo {...args} />
+  <FormHint {...args} />
 );
 
 // Basic

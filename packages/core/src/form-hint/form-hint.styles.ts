@@ -3,14 +3,14 @@ import { generateClassNames } from '@sfx-ui/utils/functions';
 import type { WithTheme } from '@sfx-ui/theme/entity';
 import type { With } from '@sfx-ui/utils/types';
 import { Color as PColor } from '@sfx-ui/utils/types/palette';
-import type { FieldInfoProps } from './field-info.props';
+import type { FormHintProps } from './form-hint.props';
 
-const baseClassName = 'FieldInfo';
+const baseClassName = 'FormHint';
 
-const FieldInfo = styled.span.attrs({
+const FormHint = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<FieldInfoProps>(
-  ({ error = false, theme }: With<WithTheme, FieldInfoProps>) => css`
+})<FormHintProps>(
+  ({ error = false, theme }: With<WithTheme, FormHintProps>) => css`
     display: flex;
     align-items: center;
     margin-top: 2px;
@@ -20,6 +20,6 @@ const FieldInfo = styled.span.attrs({
   `
 );
 
-const Styled = { FieldInfo };
+const Styled = { FormHint };
 
 export default Styled;

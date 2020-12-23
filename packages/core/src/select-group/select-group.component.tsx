@@ -7,7 +7,7 @@ import { propTypes as labelPropTypes } from '../label/label.component';
 import Select from '../select';
 import type { SelectProps } from '../select';
 import { propTypes as selectPropTypes } from '../select/select.component';
-import FieldInfo from '../field-info';
+import FormHint from '../form-hint';
 import type { SelectGroupProps } from './select-group.props';
 import Styled from './select-group.styles';
 
@@ -47,7 +47,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
       }
 
       return (
-        <FieldInfo error={error}>{hint}</FieldInfo>
+        <FormHint error={error}>{hint}</FormHint>
       );
     }
 

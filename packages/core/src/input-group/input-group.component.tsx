@@ -10,7 +10,7 @@ import { propTypes as inputPropTypes } from '../input/input.component';
 import type { TextareaProps } from '../textarea';
 import Textarea from '../textarea';
 import { propTypes as textareaPropTypes } from '../textarea/textarea.component';
-import FieldInfo from '../field-info';
+import FormHint from '../form-hint';
 import type { InputGroupProps } from './input-group.props';
 import { Type } from './types';
 import Styled from './input-group.styles';
@@ -65,7 +65,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
       }
 
       return (
-        <FieldInfo error={error}>{hint}</FieldInfo>
+        <FormHint error={error}>{hint}</FormHint>
       );
     }
 
