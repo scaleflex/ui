@@ -14,7 +14,6 @@ const Label = styled.label.attrs({
   ({ error = false, theme }: With<WithTheme, LabelProps>) => css`
     display: flex;
     align-items: center;
-    padding: 4px 0px;
     color: ${theme.palette[PColor.TextSecondary]};
 
     ${error && errorMixin}
