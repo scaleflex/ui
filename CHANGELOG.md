@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3-beta.0](https://github.com/scaleflex/sfx-ui/compare/1.0.2-beta.0...1.0.3-beta.0) (2020-12-23)
+
+
+### Features
+
+* add Button disable state styles (also work for IconButton) ([cc16fff](https://github.com/scaleflex/sfx-ui/commit/cc16fff3cd3c307b769103a173a8d9f173925e2c))
+* IconButton add square prop and square styles ([c0e99bd](https://github.com/scaleflex/sfx-ui/commit/c0e99bd51401a7aaab5e50e47a4ac4ec1447bd7d))
+
+
+
+
+
 ## [1.0.2-beta.0](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.1...1.0.2-beta.0) (2020-12-21)
 
 
