@@ -13,27 +13,23 @@ const Icon = styled.span.attrs({
 })(
   () => css`
     display: inline-flex;
-    width: 16px;
+    margin-right: 8px;
   `
 );
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})(
-  ({ theme }: WithTheme) => css`
-    color: ${theme.palette[PColor.TextPrimary]};
-
-    ${css(theme.typography.font[FontVariant.TextSmall])}
-  `
-);
+})``;
 
 const AccordionHeader = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  () => css`
+  ({ theme }: WithTheme) => css`
+    ${css(theme.typography.font[FontVariant.ButtonXs])}
     display: flex;
     align-items: center;
     cursor: pointer;
+    color: ${theme.palette[PColor.LinkPrimary]};
   `
 );
 
