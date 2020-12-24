@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.1](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2020-12-24)
+
+
+### Features
+
+* **defaultTheme:** add styles for typography.font 'text' variants and LabelExtraLarge ([d40151d](https://github.com/scaleflex/sfx-ui/commit/d40151dc2d13de59d9b62a15877bcf308ddb7270))
+* **FontVariant:** rename 'Text' variants to 'Label' ([09016f5](https://github.com/scaleflex/sfx-ui/commit/09016f5133ab7bd5e117443020508a73d9288173))
+
+
+
+## 1.0.3-beta.0 (2020-12-23)
+
+
+
+## 1.0.2-beta.0 (2020-12-21)
+
+
+
+
+
 ## [1.0.3-beta.0](https://github.com/scaleflex/sfx-ui/compare/1.0.2-beta.0...1.0.3-beta.0) (2020-12-23)
 
 **Note:** Version bump only for package @sfx-ui/theme

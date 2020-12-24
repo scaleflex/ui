@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.1](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2020-12-24)
+
+
+### Features
+
+* **AccordionHeader:** change styles ([d3c3520](https://github.com/scaleflex/sfx-ui/commit/d3c35206af8c3dce0fbc8c40f3bb5288873afe33))
+* **FontVariant:** rename 'Text' variants to 'Label' ([09016f5](https://github.com/scaleflex/sfx-ui/commit/09016f5133ab7bd5e117443020508a73d9288173))
+
+
+
+## 1.0.3-beta.0 (2020-12-23)
+
+
+### Features
+
+* add Button disable state styles (also work for IconButton) ([cc16fff](https://github.com/scaleflex/sfx-ui/commit/cc16fff3cd3c307b769103a173a8d9f173925e2c))
+* IconButton add square prop and square styles ([c0e99bd](https://github.com/scaleflex/sfx-ui/commit/c0e99bd51401a7aaab5e50e47a4ac4ec1447bd7d))
+
+
+
+## 1.0.2-beta.0 (2020-12-21)
+
+
+
+# 1.0.0-beta.1 (2020-12-16)
+
+
+### Bug Fixes
+
+* tslint error ([5658dc6](https://github.com/scaleflex/sfx-ui/commit/5658dc6b85780c0c33145c6a000008eadb3ec672))
+
+
+### Features
+
+* Modal implementation ([dd5f784](https://github.com/scaleflex/sfx-ui/commit/dd5f784a1c2430f5300c3bab3d5cee9e5e107b29))
+* ModalActions implementation ([fcd2fe9](https://github.com/scaleflex/sfx-ui/commit/fcd2fe972d33618d94a505ddc9b34382cb8bf50a))
+* ModalContent implementation ([7dfa834](https://github.com/scaleflex/sfx-ui/commit/7dfa8346a67a6a6ada9866b2718fdd9bead4b721))
+* ModalTitle implementation ([df02b90](https://github.com/scaleflex/sfx-ui/commit/df02b9041598ed378f9bb4176163e38008009ce5))
+
+
+
+
+
 ## [1.0.3-beta.0](https://github.com/scaleflex/sfx-ui/compare/1.0.2-beta.0...1.0.3-beta.0) (2020-12-23)
 
 
