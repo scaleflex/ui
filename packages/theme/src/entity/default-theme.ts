@@ -10,6 +10,35 @@ const defaultFontValue = {
   fontStyle: 'normal',
   fontWeight: 'normal',
 };
+const labelFontVariants = {
+  [FontVariant.LabelExtraSmall]: {
+    ...defaultFontValue,
+    fontSize: '10px',
+    lineHeight: '12px',
+  },
+  [FontVariant.LabelSmall]: {
+    ...defaultFontValue,
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
+  [FontVariant.LabelNormal]: {
+    ...defaultFontValue,
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelExtraLarge]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '24px',
+    lineHeight: '28px',
+  },
+};
 
 export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> = {
   breakpoints: {
@@ -26,26 +55,27 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
     baseLineHeight: 1.375,
 
     font: {
-      [FontVariant.LabelExtraSmall]: {
-        ...defaultFontValue,
-        fontSize: '10px',
-        lineHeight: '12px',
+      ...labelFontVariants,
+
+      [FontVariant.TextExtraSmall]: {
+        ...labelFontVariants[FontVariant.LabelExtraSmall],
+        lineHeight: '1.3',
       },
-      [FontVariant.LabelSmall]: {
-        ...defaultFontValue,
-        fontSize: '12px',
-        lineHeight: '14px',
+      [FontVariant.TextSmall]: {
+        ...labelFontVariants[FontVariant.LabelSmall],
+        lineHeight: '1.3',
       },
-      [FontVariant.LabelNormal]: {
-        ...defaultFontValue,
-        fontSize: '14px',
-        lineHeight: '16px',
+      [FontVariant.TextNormal]: {
+        ...labelFontVariants[FontVariant.LabelNormal],
+        lineHeight: '1.3',
       },
-      [FontVariant.LabelEmphasis]: {
-        ...defaultFontValue,
-        fontWeight: '500',
-        fontSize: '14px',
-        lineHeight: '16px',
+      [FontVariant.TextEmphasis]: {
+        ...labelFontVariants[FontVariant.LabelEmphasis],
+        lineHeight: '1.3',
+      },
+      [FontVariant.TextExtraLarge]: {
+        ...labelFontVariants[FontVariant.LabelExtraLarge],
+        lineHeight: '1.3',
       },
 
       [FontVariant.ButtonXs]: {
