@@ -27,7 +27,7 @@ const Label = styled.span.attrs({
     align-items: center;
     color: ${palette[PColor.TextSecondary]};
 
-    ${font[FontVariant.TextSmall]}
+    ${font[FontVariant.LabelSmall]}
   `
 );
 

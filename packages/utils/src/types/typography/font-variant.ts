@@ -1,8 +1,8 @@
 export const FontVariant = {
-  TextExtraSmall: 'text-extra-small',
-  TextSmall: 'text-small',
-  TextNormal: 'text-normal',
-  TextEmphasis: 'text-emphasis',
+  LabelExtraSmall: 'label-extra-small',
+  LabelSmall: 'label-small',
+  LabelNormal: 'label-normal',
+  LabelEmphasis: 'label-emphasis',
 
   ButtonXs: 'btn-xs',
   ButtonSm: 'btn-sm',

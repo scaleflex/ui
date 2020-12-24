@@ -40,7 +40,7 @@ const InputLocalization = styled.div.attrs({
     cursor: pointer;
     color: ${palette[PColor.IconsSecondary]};
 
-    ${font[FV.TextSmall]};
+    ${font[FV.LabelSmall]};
   `
 );
 

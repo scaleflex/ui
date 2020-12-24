@@ -53,7 +53,7 @@ export const positionTooltipMixin = {
 };
 
 export const sizeTooltipMixin = {
-  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.TextSmall],
+  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.LabelSmall],
 
-  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.TextNormal],
+  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.LabelNormal],
 };

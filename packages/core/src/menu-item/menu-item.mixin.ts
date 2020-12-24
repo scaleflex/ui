@@ -9,12 +9,12 @@ export const sizeMenuItemMixin = {
   [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => css`
     padding: 4px 8px;
     min-height: 22px;
-    ${font[FV.TextSmall]}
+    ${font[FV.LabelSmall]}
   `,
 
   [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => css`
     padding: 8px 12px;
     min-height: 32px;
-    ${font[FV.TextNormal]}
+    ${font[FV.LabelNormal]}
   `,
 };
