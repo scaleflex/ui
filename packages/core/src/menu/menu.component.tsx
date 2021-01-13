@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
-import { intrinsicComponent } from '@sfx-ui/utils/functions';
+import usePortal from '@sfx-ui/hooks/use-portal';
+import { intrinsicComponent, generateClassNames } from '@sfx-ui/utils/functions';
 import type { MenuProps } from './menu.props';
 import Styled from './menu.styles';
 
@@ -12,6 +14,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
 ): JSX.Element => {
   const [timeout, setTimeoutState] = useState<ReturnType<typeof setTimeout> | null>(null);
   const [rect, setRect] = useState(new DOMRect());
+  const target = usePortal(generateClassNames('Menu'));
 
   const updateRect = useCallback(() => {
     const defaultPosition = {
@@ -75,7 +78,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
     }
   };
 
-  return (
+  const render = (): JSX.Element => (
     <Styled.Wrapper open={Boolean(open)} id={id} ref={ref}>
       <Styled.Overlay onClick={handleClose} />
 
@@ -89,6 +92,11 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
         </Styled.Menu>
       </Styled.Container>
     </Styled.Wrapper>
+  );
+
+  return createPortal(
+    render(),
+    target,
   );
 });
 
