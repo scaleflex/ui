@@ -9,6 +9,8 @@ import ModalStyled from '../src/modal/modal.styles';
 import ModalTitle from '../src/modal-title';
 import ModalContent from '../src/modal-content';
 import ModalActions from '../src/modal-actions';
+import SelectGroup from '../src/select-group';
+import MenuItem from '../src/menu-item';
 import Button from '../src/button';
 import { StoryGroup } from './types';
 import { Variant } from '../src/modal-title/types';
@@ -121,3 +123,79 @@ const IconTemplate: Story<ModalProps> = generateTemplate({
 // WithIcon
 export const WithIcon = IconTemplate.bind({});
 WithIcon.args = { ...defaultArgs, fullWidth: true };
+
+/**
+ * SelectGroupTemplate
+ */
+const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
+  const [open, setOpen] = useState(false);
+  const [valueState, setValueState] = useState();
+  const handleClick = (): void => setOpen(true);
+  const handleClose = (): void => setOpen(false);
+
+  const renderModalContent = (): JSX.Element => (
+    <>
+      <ModalTitle primary="Create item" />
+
+      <ModalContent>
+        <SelectGroup
+          value={valueState}
+          onChange={setValueState}
+          label="Label"
+          hint="Some hint goes here"
+        >
+          <MenuItem value="item1">Item 1</MenuItem>
+          <MenuItem value="item2">Item 2</MenuItem>
+        </SelectGroup>
+
+      </ModalContent>
+
+      <ModalActions>
+        <Button
+          onClick={handleClose}
+          color="link"
+        >
+          Cancel
+        </Button>
+
+        <Button
+          onClick={handleClose}
+          color="primary"
+        >
+          Save
+        </Button>
+      </ModalActions>
+    </>
+  );
+
+  return (
+    <div>
+      <div style={{ display: 'flex', marginBottom: 16 }}>
+        <StyledModalContainer {...args} open>
+          <ModalStyled.Modal>
+            {renderModalContent()}
+          </ModalStyled.Modal>
+        </StyledModalContainer>
+      </div>
+
+      <Button
+        onClick={handleClick}
+        color="link"
+      >
+        Open modal
+      </Button>
+
+      <Modal
+        {...args}
+        open={open}
+        onClose={handleClose}
+      >
+        {renderModalContent()}
+      </Modal>
+    </div>
+  );
+};
+
+// WithSelectGroup
+export const WithSelectGroup = SelectGroupTemplate.bind({});
+WithSelectGroup.args = { ...defaultArgs, fullWidth: true };
