@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.2](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.1...1.0.0-beta.2) (2021-01-13)
+
+
+### Features
+
+* **menu:** use portal ([ba12b8e](https://github.com/scaleflex/sfx-ui/commit/ba12b8ebceada651ae33d9b616fe50ebdb662d3a))
+* **modal.story:** add WithSelectGroup story ([c51aa05](https://github.com/scaleflex/sfx-ui/commit/c51aa055c60cb4f1bf8bfa710066ef329bb00dd9))
+
+
+
+
+
 # [1.0.0-beta.1](https://github.com/scaleflex/sfx-ui/compare/v1.0.0-beta.0...v1.0.0-beta.1) (2020-12-24)
 
 
