@@ -1,13 +1,11 @@
 {
-  "name": "@sfx-ui/icons",
+  "name": "@scaleflex/icons",
   "version": "1.0.0-beta.1",
   "description": "SVG icons as React components",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
   },
-  "dependencies": {
-    "@sfx-ui/utils": "^1.0.0-beta.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",

@@ -1,4 +1,4 @@
-# @sfx-ui/icons
+# @scaleflex/icons
 
 SVG icons as React components.
 
@@ -7,11 +7,11 @@ SVG icons as React components.
 ## Installation
 
 ```shell script
-npm i @sfx-ui/icons # react react-dom
+npm i @scaleflex/icons # react react-dom
 ```
 
 ```shell script
-yarn add @sfx-ui/icons # react react-dom
+yarn add @scaleflex/icons # react react-dom
 ```
 
 > Make sure to have `react` and `react-dom` installed in your package as they are included in our peer dependencies.
@@ -22,5 +22,5 @@ Every icon present in this package is a pure React component, wrapping plain `sv
 Each component is exported by default and gives access to the `ref` and `className` props, as well as standard `svg` attributes.
 
 ```typescript jsx
-import DownloadIcon from '@sfx-ui/icons/download';
+import DownloadIcon from '@scaleflex/icons/download';
 ```

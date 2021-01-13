@@ -6,9 +6,5 @@
     "declarationDir": "lib",
     "tsBuildInfoFile": "tsconfig.tsbuildinfo"
   },
-  "references": [
-    {
-      "path": "../utils/tsconfig.build.json"
-    }
-  ]
+  "references": []
 }

@@ -35,9 +35,9 @@ For example packageA - form, packageB - button. And we are going to integrate bu
 cd packageA
 ```
 
-Add `"dependencies": {"@sfx-ui/packageB": "^0.1.0"}` in packageA/package.json by command:
+Add `"dependencies": {"@scaleflex/packageB": "^0.1.0"}` in packageA/package.json by command:
 ```bash
-lerna add @sfx-ui/packageB --scope=@sfx-ui/packageA
+lerna add @scaleflex/packageB --scope=@scaleflex/packageA
 ```
 
 Go to root dir and update siblings
@@ -47,4 +47,4 @@ lerna bootstrap
 yarn build
 ```
 
-> Notice! Few times there were issue in VSCode when it was necessary to restart editor to use `import {...} from '@sfx-ui/packageB'`
+> Notice! Few times there were issue in VSCode when it was necessary to restart editor to use `import {...} from '@scaleflex/packageB'`

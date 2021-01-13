@@ -21,12 +21,9 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@sfx-ui/core/*": ["packages/core/src/*"],
-      "@sfx-ui/icons/*": ["packages/icons/src/*"],
-      "@sfx-ui/utils/*": ["packages/utils/src/*"],
-      "@sfx-ui/theme/*": ["packages/theme/src/*"],
-      "@sfx-ui/theme": ["packages/theme/src/index.ts"],
-      "@sfx-ui/hooks/*": ["packages/hooks/src/*"]
+      "@scaleflex/ui/*": ["packages/ui/src/*"],
+      "@scaleflex/icons/*": ["packages/icons/src/*"],
+      "@scaleflex/icons": ["packages/icons/src/index.ts"]
     }
   }
 }

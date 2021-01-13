@@ -3,8 +3,8 @@ const fromTemplate = require('./from-template');
 
 const meta = {
   author: 'scaleflex',
-  repository: 'github:scaleflex/sfx-ui',
-  homepage: 'https://github.com/scaleflex/sfx-ui/blob/master/README.md',
+  repository: 'github:scaleflex/ui',
+  homepage: 'https://github.com/scaleflex/ui/blob/master/README.md',
   license: 'MIT',
 };
 

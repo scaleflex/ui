@@ -1,5 +1,5 @@
 import React from 'react';
-import { intrinsicComponent } from '@sfx-ui/utils/functions';
+import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
 
 export const OrientationPortrait = intrinsicComponent<IconProps, SVGSVGElement>((

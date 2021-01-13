@@ -2,8 +2,8 @@ import React from 'react';
 import { jsxDecorator } from 'storybook-addon-jsx';
 import { createGlobalStyle } from 'styled-components';
 
-import ThemeProvider from '@sfx-ui/theme';
-import { FontWeight } from '@sfx-ui/utils/types/typography';
+import ThemeProvider from '@scaleflex/ui/theme';
+import { FontWeight } from '@scaleflex/ui/utils/types/typography';
 
 import SSPBlack from './public/assets/fonts/SourceSansPro/SourceSansPro-Black.ttf';
 import SSPBold from './public/assets/fonts/SourceSansPro/SourceSansPro-Bold.ttf';
