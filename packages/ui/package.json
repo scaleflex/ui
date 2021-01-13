@@ -6,7 +6,7 @@
     "prebuild": "copyfiles README.md lib"
   },
   "dependencies": {
-    "@scaleflex/icons": "^1.0.0-beta.1",
+    "@scaleflex/icons": "^1.0.0-beta.3",
     "lodash.merge": "^4.6.2",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
