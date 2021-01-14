@@ -23,6 +23,8 @@ Every component is exported by default from its folder along with its props and,
 
 ```typescript jsx
 import Button from '@scaleflex/ui/core/button';
+Or
+import { Button } from '@scaleflex/ui/core';
 
 // ...
 
