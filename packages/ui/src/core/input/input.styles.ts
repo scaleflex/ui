@@ -56,17 +56,23 @@ const Input = styled.div.attrs({
 
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})`
-  display: block;
-  color: inherit;
-  width: 100%;
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background-color: transparent;
-  outline: none;
-`;
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: block;
+    color: inherit;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: ${palette[PColor.TextPlaceholder]};
+    }
+  `
+);
 
 const Styled = {
   Input,
