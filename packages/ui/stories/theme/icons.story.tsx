@@ -1,9 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import type { Story } from '@storybook/react';
-import { objectKeys } from '../../src/utils/functions';
-// eslint-disable-next-line unicorn/import-index
 import * as icons from '@scaleflex/icons';
+import { objectKeys } from '../../src/utils/functions';
 
 const defaultSize = 25;
 
