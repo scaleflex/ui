@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/scaleflex/ui/compare/1.0.0-beta.3...1.0.0-beta.4) (2021-01-14)
+
+
+### Bug Fixes
+
+* **Menu:** menu select item bug ([4af36f1](https://github.com/scaleflex/ui/commit/4af36f1d406066e7767b6b7fdd634f0d1a1793dd))
+
+
+### Features
+
+* create icons: MoveDown, MoveUp, Box, Point, Rocket, Power, CloudUpload, Process ([6409c3f](https://github.com/scaleflex/ui/commit/6409c3f4b486d5a243bd486e59e7d107abda5c67))
+* create icons: Security, Analytics, Puzzle, Account, LogOut, ReleaseNotes, About, Support, Documentation ([78d3a84](https://github.com/scaleflex/ui/commit/78d3a848374e25bb8e3d72d0b6fa12b93b73fdc0))
+* **Input:** add input placeholder styles and add placeholder to story ([f8b94c4](https://github.com/scaleflex/ui/commit/f8b94c4fdf4931afd8691ca6ee0714a5acf4350f))
+* **ui/core:** create ui/core/index.ts ([f6715c4](https://github.com/scaleflex/ui/commit/f6715c4cde8b25bdc25ad89e5ba5d2665a6262c1))
+
+
+
+
+
 # [1.0.0-beta.3](https://github.com/scaleflex/ui/compare/1.0.0-beta.2...1.0.0-beta.3) (2021-01-13)
 
 

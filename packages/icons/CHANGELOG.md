@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.4](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.3...1.0.0-beta.4) (2021-01-14)
+
+
+### Features
+
+* create icons: MoveDown, MoveUp, Box, Point, Rocket, Power, CloudUpload, Process ([6409c3f](https://github.com/scaleflex/sfx-ui/commit/6409c3f4b486d5a243bd486e59e7d107abda5c67))
+* create icons: Security, Analytics, Puzzle, Account, LogOut, ReleaseNotes, About, Support, Documentation ([78d3a84](https://github.com/scaleflex/sfx-ui/commit/78d3a848374e25bb8e3d72d0b6fa12b93b73fdc0))
+
+
+
+
+
 # [1.0.0-beta.3](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.2...1.0.0-beta.3) (2021-01-13)
 
 
