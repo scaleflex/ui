@@ -15,6 +15,8 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((
   />
 ));
 
+MenuItem.displayName = 'MenuItem';
+
 export const defaultProps = {
   size: Size.Md,
   active: false,
