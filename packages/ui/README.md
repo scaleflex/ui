@@ -19,7 +19,7 @@ yarn add @scaleflex/ui # styled-components react react-dom
 ## Usage
 
 Scaleflex UI includes several parts:
-- [`core`](core/README.md)
-- [`hooks`](hooks/README.md)
-- [`theme`](theme/README.md)
-- [`utils`](utils/README.md)
+- [`core`](src/core/README.md)
+- [`hooks`](src/hooks/README.md)
+- [`theme`](src/theme/README.md)
+- [`utils`](src/utils/README.md)
