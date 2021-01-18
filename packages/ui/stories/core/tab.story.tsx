@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import AssetsIcon from '@scaleflex/icons/assets';
 import _Tab, { TabProps } from '../../src/core/tab';
+import { Size } from '../../src/core/tab/types';
 import { StoryGroup } from './types';
 
 export const Tab = _Tab;
@@ -14,7 +15,8 @@ export default {
 
 const defaultArgs = {
   label: 'Assets',
-  icon: <AssetsIcon size={10} />,
+  icon: <AssetsIcon />,
+  size: Size.Md,
 };
 
 const BasicTemplate: Story<TabProps> = ({
