@@ -6,11 +6,11 @@ import Styled from './tabs.styles';
 
 const Tabs = intrinsicComponent<TabsProps, HTMLDivElement>((
   {
-    children, value, onChange
+    children, value, onChange, ...rest
   }: TabsProps,
   ref
 ): JSX.Element => (
-  <Styled.Tabs ref={ref}>
+  <Styled.Tabs ref={ref} {...rest}>
     {React.Children.map(children, (child, index) => {
       const childValue = child.props.value || index;
       const active = value === childValue;
