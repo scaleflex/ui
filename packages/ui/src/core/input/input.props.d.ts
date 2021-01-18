@@ -8,4 +8,5 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   error?: boolean;
+  fullWidth?: boolean;
 }
