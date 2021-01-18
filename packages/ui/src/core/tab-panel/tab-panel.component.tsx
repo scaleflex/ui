@@ -6,7 +6,7 @@ import Styled from './tab-panel.styles';
 
 const TabPanel = intrinsicComponent<TabPanelProps, HTMLDivElement>((
   {
-    children, value, index
+    value, index, ...rest
   }: TabPanelProps,
   ref
 ): JSX.Element | null => {
@@ -15,15 +15,13 @@ const TabPanel = intrinsicComponent<TabPanelProps, HTMLDivElement>((
   }
 
   return (
-    <Styled.TabPanel ref={ref}>
-      {children}
-    </Styled.TabPanel>
+    <Styled.TabPanel ref={ref} {...rest} />
   );
 });
 
 TabPanel.propTypes = {
   value: PT.oneOfType([PT.string, PT.number]).isRequired,
-  index: PT.number.isRequired,
+  index: PT.oneOfType([PT.string, PT.number]).isRequired,
   children: PT.node,
 };
 
