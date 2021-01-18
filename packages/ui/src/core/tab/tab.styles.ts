@@ -11,7 +11,7 @@ const Tab = styled.div.attrs({
   ({ theme: { palette, typography: { font } } }: WithTheme) => css`
     ${font['label-normal']}
     position: relative;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     text-align: center;
     color: ${palette[PColor.TextPrimary]};

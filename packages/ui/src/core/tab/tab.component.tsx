@@ -15,10 +15,8 @@ const Tab = intrinsicComponent<TabProps, HTMLDivElement>((
     {...rest}
     className={`${className}${active ? ' active' : ''}`}
   >
-    <Styled.Tab {...rest} className={`${className}${active ? ' active' : ''}`}>
-      {icon && <Styled.Icon>{icon}</Styled.Icon>}
-      {label && <Styled.Label>{label}</Styled.Label>}
-    </Styled.Tab>
+    {icon && <Styled.Icon>{icon}</Styled.Icon>}
+    {label && <Styled.Label>{label}</Styled.Label>}
   </Styled.Tab>
 ));
 
