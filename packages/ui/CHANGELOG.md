@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.5](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.4...1.0.0-beta.5) (2021-01-18)
+
+
+### Features
+
+* **Input:** add props.fullWidth and throw rest props to main component element ([b1879b2](https://github.com/scaleflex/sfx-ui/commit/b1879b238036633985ea4e02809331f5b788effb))
+* **Select:** add props.fullWidth and throw rest props to main component element ([f56dc25](https://github.com/scaleflex/sfx-ui/commit/f56dc251b51e5b9cccb860d44c3f8316221c544a))
+* **Tab:** add story and throw rest props to main component element ([0c8a1ec](https://github.com/scaleflex/sfx-ui/commit/0c8a1ec34bf4aae01e32b9241e0aa14e52d21c8a))
+* **Tab:** create Tab component ([f78cdd8](https://github.com/scaleflex/sfx-ui/commit/f78cdd8217f48e37f495d2b11a29347391ac7e42))
+* **TabPanel:** add story and throw rest props to main component element ([b50a127](https://github.com/scaleflex/sfx-ui/commit/b50a127943c3628a55c3ecbae7338f671e4291dd))
+* **TabPanel:** create TabPanel component ([e0ae534](https://github.com/scaleflex/sfx-ui/commit/e0ae534d588045df96e34a8da64339cbaa505051))
+* **Tabs:** add story and throw rest props to main component element ([c113f5e](https://github.com/scaleflex/sfx-ui/commit/c113f5e0cdb9ec36c75f81b76dc12f7581ba4433))
+* **Tabs:** create Tabs component ([1b27601](https://github.com/scaleflex/sfx-ui/commit/1b27601320bec004c80e66ba85a8c8914d6136a4))
+
+
+
+
+
 # [1.0.0-beta.4](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.3...1.0.0-beta.4) (2021-01-14)
 
 
