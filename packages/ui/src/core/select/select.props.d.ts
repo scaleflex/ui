@@ -7,6 +7,7 @@ export type SelectSimpleValueType = string | number | null | undefined;
 export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: SelectSizeType;
   error?: boolean;
+  fullWidth?: boolean;
   children: React.ReactElementLike;
   multiple?: boolean;
   value?: SelectSimpleValueType | SelectSimpleValueType[];

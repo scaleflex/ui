@@ -20,11 +20,20 @@ const Icon = styled.span.attrs({
 
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
-})`display: flex;`;
+})(
+  ({ fullWidth = false }: {fullWidth: boolean}) => css`
+    position: relative;
+    display: inline-flex;
+    ${fullWidth ? 'width: 100%' : ''}
+  `
+);
 
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`cursor: pointer;`;
+})`
+  cursor: pointer;
+  user-select: none;
+`;
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
@@ -41,6 +50,7 @@ const Input = styled.input.attrs({
   opacity: 0;
   position: absolute;
   pointer-events: none;
+  box-sizing: border-box;
 `;
 
 const Styled = {

@@ -11,7 +11,7 @@ import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
   {
-    children, size, error, multiple, onChange, value
+    children, size, error, multiple, onChange, value, fullWidth, ...rest
   },
   ref
 ): JSX.Element => {
@@ -21,10 +21,12 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
   const handleClose = (): void => setAnchorEl(undefined);
 
   return (
-    <Styled.Container ref={ref}>
+    <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
       <Styled.Select
+        {...rest}
         size={size}
         error={error}
+        fullWidth={Boolean(fullWidth)}
         onClick={handleClick}
       >
         <Styled.Label>
@@ -63,6 +65,7 @@ export const defaultProps = {
   size: Size.Md,
   error: false,
   multiple: false,
+  fullWidth: false,
 };
 
 Select.defaultProps = defaultProps;
@@ -75,6 +78,7 @@ export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
   error: PT.bool,
   multiple: PT.bool,
+  fullWidth: PT.bool,
   children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]).isRequired,
   value: PT.oneOfType([
     PT.string,
