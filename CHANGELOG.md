@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.6](https://github.com/scaleflex/ui/compare/1.0.0-beta.5...1.0.0-beta.6) (2021-01-19)
+
+
+### Features
+
+* **Tag:** add size prop ([0b42ace](https://github.com/scaleflex/ui/commit/0b42aceb3178528c89d49a3eb3c098e0a4d6bae6))
+
+
+
+
+
 # [1.0.0-beta.5](https://github.com/scaleflex/ui/compare/1.0.0-beta.4...1.0.0-beta.5) (2021-01-18)
 
 
