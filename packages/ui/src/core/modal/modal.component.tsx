@@ -38,10 +38,11 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.Wrapper open={Boolean(open)} {...rest} ref={ref}>
+    <Styled.Wrapper open={Boolean(open)} ref={ref}>
       <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
 
       <Styled.Container
+        {...rest}
         maxWidth={maxWidth}
         fullWidth={fullWidth}
         open={Boolean(open)}
