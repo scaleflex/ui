@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.8](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.7...1.0.0-beta.8) (2021-01-19)
+
+
+### Bug Fixes
+
+* **Input:** fullWidth prop ([2513ba4](https://github.com/scaleflex/sfx-ui/commit/2513ba41f12b52b22fd8ebea32aa5c3a3b485fa1))
+
+
+
+
+
 # [1.0.0-beta.7](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.6...1.0.0-beta.7) (2021-01-19)
 
 
