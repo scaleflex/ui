@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.7](https://github.com/scaleflex/ui/compare/1.0.0-beta.6...1.0.0-beta.7) (2021-01-19)
+
+
+### Bug Fixes
+
+* **Input:** input props like placeholder, ... ([9c003fc](https://github.com/scaleflex/ui/commit/9c003fc203f430d490487fa514f9d820a5d98695))
+
+
+
+
+
 # [1.0.0-beta.6](https://github.com/scaleflex/ui/compare/1.0.0-beta.5...1.0.0-beta.6) (2021-01-19)
 
 
