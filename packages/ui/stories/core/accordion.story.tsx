@@ -1,14 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _AccordionHeader, { AccordionHeaderProps } from '../../src/core/accordion-header';
+import _Accordion, { AccordionProps } from '../../src/core/accordion';
+
 import { StoryGroup } from './types';
 
-export const AccordionHeader = _AccordionHeader;
+export const Accordion = _Accordion;
 
 export default {
-  title: `${StoryGroup.Surfaces}/AccordionHeader`,
-  component: AccordionHeader,
-  excludeStories: ['AccordionHeader'],
+  title: `${StoryGroup.Surfaces}/Accordion`,
+  component: Accordion,
+  argTypes: {
+    children: {
+      description: 'Accordion children are sub-module components: `AccordionHeader, AccordionDetails`.'
+    }
+  },
+  excludeStories: ['Accordion'],
 } as Meta;
 
 const defaultArgs = {
@@ -16,7 +22,7 @@ const defaultArgs = {
   expanded: false,
 };
 
-const BasicTemplate: Story<AccordionHeaderProps> = ({
+const BasicTemplate: Story<AccordionProps> = ({
   expanded, ...args
 }) => {
   const [openState, setOpenState] = useState(expanded || false);
@@ -26,11 +32,14 @@ const BasicTemplate: Story<AccordionHeaderProps> = ({
   }, [expanded]);
 
   return (
-    <AccordionHeader
+    <Accordion
       {...args}
+      className="test"
       expanded={openState}
       onChange={(value) => setOpenState(value)}
-    />
+    >
+      <div>This is Scaleflex Accordion </div>
+    </Accordion>
   );
 };
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import PT, { Validator } from 'prop-types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
-import ArrowIcon from '@scaleflex/icons/arrow';
 import { iconPropTypes } from '@scaleflex/icons/icon.prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+import ArrowIcon from '@scaleflex/icons/arrow';
+
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ArrowProps } from './arrow.props';
 import { Type } from './types';
 import Styled from './arrow.styles';
