@@ -34,7 +34,7 @@
     "bump_prepatch_beta": "lerna version prepatch --tag-version-prefix='' --preid beta",
     "deploy": "gh-pages -d dist",
     "prerelease": "node scripts/create-meta-files.js",
-    "release": "lerna exec -- yarn publish lib --non-interactive",
+    "release": "lerna exec --no-bail -- yarn publish lib --non-interactive",
     "cd": "npm-run-all -p deploy release"
   },
   "devDependencies": {
