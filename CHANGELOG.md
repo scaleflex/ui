@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.9](https://github.com/scaleflex/ui/compare/1.0.0-beta.8...1.0.0-beta.9) (2021-01-20)
+
+
+### Bug Fixes
+
+* **Modal:** props rest relocate to container ([d5c1d13](https://github.com/scaleflex/ui/commit/d5c1d13eecfc043dec12e92b78f95ff84ec41923))
+
+
+### Features
+
+* **Accordion and AccordionDetails:** add Accordion component and story and accordion details component ([d5e8f7f](https://github.com/scaleflex/ui/commit/d5e8f7fbe1973dd6b8ec7b75c403d15d58b426a6))
+* **applyDisplayNames:** wrap all styled components with applyDisplayNames fn ([2dda27e](https://github.com/scaleflex/ui/commit/2dda27ef4ded97f4788031170b45fe2f0e3603ba))
+* **theme:** add palette color BorderActiveBottom ([910543d](https://github.com/scaleflex/ui/commit/910543d075d7af0c184abbd2558ef1a5ce4e9142))
+* **Utils:** create fn applyDisplayNames ([05bce8b](https://github.com/scaleflex/ui/commit/05bce8b40c5fed502202a7e7d0550139e92949e4))
+
+
+
+
+
 # [1.0.0-beta.8](https://github.com/scaleflex/ui/compare/1.0.0-beta.7...1.0.0-beta.8) (2021-01-19)
 
 
