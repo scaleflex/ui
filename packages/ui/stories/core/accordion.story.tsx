@@ -34,7 +34,6 @@ const BasicTemplate: Story<AccordionProps> = ({
   return (
     <Accordion
       {...args}
-      className="test"
       expanded={openState}
       onChange={(value) => setOpenState(value)}
     >
