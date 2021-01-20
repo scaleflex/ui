@@ -30,17 +30,7 @@ const Tab = styled.div.attrs({
 
     &.active {
       color: ${palette[PColor.AccentPrimary]};
-
-      &:after {
-        content: '';
-        position: absolute;
-        height: 2px;
-        width: 100%;
-        left: 0px;
-        bottom: 0px;
-        right: 0px;
-        background: ${palette[PColor.AccentPrimary]};
-      }
+      box-shadow: inset 0px -1px 0px ${palette[PColor.BorderActiveBottom]};
     }
   `
 );
