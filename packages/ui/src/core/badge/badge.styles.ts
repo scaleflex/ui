@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { BadgeProps } from './badge.props';
 import { colorBadgeMixin } from './badge.mixin';
 
@@ -41,9 +41,9 @@ const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) }
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   BadgeRoot,
   Badge
-};
+});
 
 export default Styled;

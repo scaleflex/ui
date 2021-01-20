@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 // import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
@@ -20,11 +20,20 @@ const Icon = styled.span.attrs({
 
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
-})`display: flex;`;
+})(
+  ({ fullWidth = false }: {fullWidth: boolean}) => css`
+    position: relative;
+    display: inline-flex;
+    ${fullWidth ? 'width: 100%' : ''}
+  `
+);
 
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`cursor: pointer;`;
+})`
+  cursor: pointer;
+  user-select: none;
+`;
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
@@ -41,14 +50,15 @@ const Input = styled.input.attrs({
   opacity: 0;
   position: absolute;
   pointer-events: none;
+  box-sizing: border-box;
 `;
 
-const Styled = {
+const Styled = applyDisplayNames({
   Container,
   Select,
   Label,
   Icon,
   Input,
-};
+});
 
 export default Styled;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import ButtonStyled from '../button/button.styles';
 import type { IconButtonProps } from './icon-button.props';
 import { Size } from './types';
@@ -22,8 +22,8 @@ const IconButton = styled(ButtonStyled.Button).attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   IconButton,
-};
+});
 
 export default Styled;

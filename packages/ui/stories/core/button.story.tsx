@@ -11,6 +11,12 @@ export default {
   title: `${StoryGroup.Inputs}/Button`,
   component: Button,
   excludeStories: ['Button'],
+
+  argTypes: {
+    icon: {
+      description: 'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`'
+    }
+  }
 } as Meta;
 
 const defaultArgs = {

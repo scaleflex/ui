@@ -78,6 +78,7 @@ export const lightPalette = {
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
   [Color.BordersStrong]: 'rgba(223,231,237,1)',
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
+  [Color.BorderActiveBottom]: '#6879EB',
 
   [Color.ActiveSecondary]: '#E9EEF2',
   [Color.ActiveSecondaryHover]: '#DFE4E9',

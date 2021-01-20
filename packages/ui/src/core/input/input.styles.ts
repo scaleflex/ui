@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
@@ -30,12 +30,14 @@ const Icon = styled.span.attrs({
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
-  ({ size = Size.Md, error = false, theme }: With<WithTheme, InputProps>) => css`
+  ({
+    size = Size.Md, error = false, fullWidth = false, theme
+  }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: text;
-    width: 300px;
+    width: ${fullWidth ? '100%' : '300px'};
     background: ${theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};;
@@ -74,10 +76,10 @@ const Base = styled.input.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   Input,
   Base,
   Icon,
-};
+});
 
 export default Styled;

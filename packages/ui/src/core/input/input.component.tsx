@@ -18,7 +18,7 @@ const getIconSize = (sizeName: InputSizeType | undefined): number => {
 
 const Input = intrinsicComponent<InputProps, HTMLDivElement>((
   {
-    children, iconStart, iconEnd, error, size, ...rest
+    children, iconStart, iconEnd, size, className, style, fullWidth, ...rest
   }: InputProps,
   ref
 ): JSX.Element => {
@@ -39,8 +39,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>((
   return (
     <Styled.Input
       ref={ref}
-      error={error}
       size={size}
+      className={className}
+      style={style}
+      fullWidth={Boolean(fullWidth)}
     >
       {renderIcon(iconStart)}
       <Styled.Base {...rest} />
@@ -52,6 +54,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>((
 export const defaultProps = {
   size: Size.Md,
   error: false,
+  fullWidth: false,
 };
 
 Input.defaultProps = defaultProps;
@@ -61,6 +64,7 @@ export const propTypes = {
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
+  fullWidth: PT.bool,
 };
 
 Input.propTypes = propTypes;
