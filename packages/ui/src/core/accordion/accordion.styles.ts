@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'Accordion';
 
@@ -7,6 +7,10 @@ const Accordion = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })``;
 
-const Styled = { Accordion };
+const Styled = applyDisplayNames(
+  {
+    Accordion,
+  }
+);
 
 export default Styled;

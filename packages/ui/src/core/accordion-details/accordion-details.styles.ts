@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { AccordionDetailsProps } from './accordion-details.props';
 
 const baseClassName = 'AccordionDetails';
@@ -13,6 +13,10 @@ const AccordionDetails = styled.div.attrs({
   `
 );
 
-const Styled = { AccordionDetails };
+const Styled = applyDisplayNames(
+  {
+    AccordionDetails,
+  }
+);
 
 export default Styled;
