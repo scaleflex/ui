@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 // import type { WithTheme } from '../../theme/entity';
 // import { Color as PColor } from '../../utils/types/palette';
 
@@ -13,8 +13,8 @@ const TabPanel = styled.div.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   TabPanel,
-};
+});
 
 export default Styled;

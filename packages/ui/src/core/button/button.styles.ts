@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { ButtonProps } from './button.props';
 import {
@@ -56,11 +56,11 @@ const Icon = styled.span.attrs({
   margin-left: 1px;
 `;
 
-const Styled = {
+const Styled = applyDisplayNames({
   Button,
   Label,
   Icon,
   Badge
-};
+});
 
 export default Styled;

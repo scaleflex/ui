@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
@@ -43,6 +43,6 @@ const Textarea = styled.textarea.attrs({
   `
 );
 
-const Styled = { Textarea };
+const Styled = applyDisplayNames({ Textarea });
 
 export default Styled;

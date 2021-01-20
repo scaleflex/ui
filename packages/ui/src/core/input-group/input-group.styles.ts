@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
 
@@ -17,6 +17,6 @@ const InputGroup = styled.div.attrs({
   }
 `;
 
-const Styled = { InputGroup };
+const Styled = applyDisplayNames({ InputGroup });
 
 export default Styled;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { ModalActionsProps } from './modal-actions.props';
 import { Align } from './types';
 
@@ -21,8 +21,8 @@ const ModalActions = styled.div.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   ModalActions,
-};
+});
 
 export default Styled;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'ModalContent';
 
@@ -12,8 +12,8 @@ const ModalContent = styled.div.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   ModalContent,
-};
+});
 
 export default Styled;

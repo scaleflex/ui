@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
@@ -56,11 +56,11 @@ const Robot = styled.div.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   PopupContent,
   Robot,
   LabelWrapper,
   Label,
-};
+});
 
 export default Styled;

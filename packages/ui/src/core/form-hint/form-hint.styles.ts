@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
@@ -19,6 +19,6 @@ const FormHint = styled.span.attrs({
   `
 );
 
-const Styled = { FormHint };
+const Styled = applyDisplayNames({ FormHint });
 
 export default Styled;

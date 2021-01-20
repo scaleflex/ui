@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 // import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { FontVariant as FV } from '../../utils/types/typography';
@@ -51,11 +51,11 @@ const Label = styled.label.attrs({
   min-width: 30px;
 `;
 
-const Styled = {
+const Styled = applyDisplayNames({
   Container,
   InputLocalization,
   Label,
   Icon,
-};
+});
 
 export default Styled;

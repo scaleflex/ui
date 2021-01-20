@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
@@ -80,12 +80,12 @@ const ModalTitle = styled.div.attrs({
   `
 );
 
-const Styled = {
+const Styled = applyDisplayNames({
   ModalTitle,
   LabelPrimary,
   LabelSecondary,
   Close,
   Icon,
-};
+});
 
 export default Styled;

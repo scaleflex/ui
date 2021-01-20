@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 // import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
@@ -31,6 +31,6 @@ const CheckBoxGroup = styled.label.attrs({
   `
 );
 
-const Styled = { CheckBoxGroup, Label };
+const Styled = applyDisplayNames({ CheckBoxGroup, Label });
 
 export default Styled;
