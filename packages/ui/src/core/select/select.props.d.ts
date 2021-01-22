@@ -8,7 +8,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: SelectSizeType;
   error?: boolean;
   fullWidth?: boolean;
-  children: React.ReactElementLike;
+  children?: React.ReactElementLike;
   multiple?: boolean;
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
@@ -25,5 +25,5 @@ export interface RenderOption {
 export interface RenderValue {
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   multiple?: boolean;
-  children: React.ReactElementLike;
+  children?: React.ReactElementLike;
 }

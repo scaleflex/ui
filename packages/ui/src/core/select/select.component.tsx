@@ -79,7 +79,7 @@ export const propTypes = {
   error: PT.bool,
   multiple: PT.bool,
   fullWidth: PT.bool,
-  children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]).isRequired,
+  children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
   value: PT.oneOfType([
     PT.string,
     PT.number,
