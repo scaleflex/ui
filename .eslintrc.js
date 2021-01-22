@@ -139,7 +139,8 @@ module.exports = {
     'max-classes-per-file': 'off',
     'global-require': 'off',
     'consistent-return': 'warn',
-    'comma-dangle': 'off'
+    'comma-dangle': 'off',
+    'max-len': ["error", { "code": 120 }]
   },
   overrides: [
     {

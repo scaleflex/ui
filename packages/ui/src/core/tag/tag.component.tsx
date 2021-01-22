@@ -1,14 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
 import CrossIcon from '@scaleflex/icons/cross';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TagProps } from './tag.props';
 import { Size, Type } from './types';
 import Styled from './tag.styles';
 
 const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
   {
-    children, type, size, onRemove, ...rest
+    children, type, size, tagIndex, onRemove, ...rest
   }: TagProps,
   ref
 ): JSX.Element => (
@@ -22,7 +22,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
       type === Type.Suggested
         ? (event: any) => {
           if (typeof rest.onSelect === 'function') {
-            rest.onSelect();
+            rest.onSelect(event);
           }
 
           if (typeof rest.onClick === 'function') {
@@ -38,7 +38,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
         size={6}
         onClick={() => {
           if (typeof onRemove === 'function') {
-            onRemove();
+            onRemove(tagIndex);
           }
         }}
       />
@@ -56,6 +56,7 @@ Tag.propTypes = {
   type: PT.oneOf(objectValues(Type)),
   onRemove: PT.func,
   onSelect: PT.func,
+  tagIndex: PT.number,
 };
 
 export default Tag;
