@@ -81,6 +81,23 @@ const Menu = styled.div.attrs({
     outline: 0;
     display: flex;
     flex-direction: column;
+    max-height: 300px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.35);
+      border-radius: 2px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 0, 0, 0.5);
+    }
+
   `
 );
 
