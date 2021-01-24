@@ -27,18 +27,19 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
     setShowSuggestions(true);
     setUserInput(input);
   };
-  const addTags = (ev: any):void => {
+  const addTags = (ev:any):void => {
     const val = ev.target.value || ev.currentTarget.textContent;
+    const newTags = [...internalTags, val];
     if (!val) { return; }
-    setInternalTags([...internalTags, val]);
-    onAdd(ev);
+    setInternalTags(newTags);
+    onAdd(newTags);
   };
 
-  const suggestionChoose = (e : any):void => {
+  const suggestionChoose = (ev : any):void => {
     setFilteredSuggestions([]);
-    setUserInput(e.currentTarget.textContent);
+    setUserInput(ev.currentTarget.textContent);
     setShowSuggestions(false);
-    addTags(e);
+    addTags(ev);
     setUserInput('');
   };
 
@@ -68,6 +69,7 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
             key={tag}
             size="md"
             tagIndex={index}
+            // eslint-disable-next-line no-shadow
             onRemove={(index) => removeTag(index)}
             style={{ margin: '0 8px 8px 0' }}
           >
@@ -81,9 +83,8 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
             type="text"
             autoComplete="off"
             placeholder="Add a tag (separate by pressing enter)"
-            onChange={(e) => suggestionListChange(e.target.value)}
-            onKeyDown={(e) => suggestionListKeyDown(e)}
-              // readOnly={isGeneratingTags}
+            onChange={(ev) => suggestionListChange(ev.target.value)}
+            onKeyDown={(ev) => suggestionListKeyDown(ev)}
             value={userInput}
           />
         </Styled.TagsFieldInputWrapper>
@@ -103,7 +104,7 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
               key={suggestion}
               size="md"
               type="suggested"
-              onSelect={(e) => suggestionChoose(e)}
+              onSelect={(ev) => suggestionChoose(ev)}
               style={{ margin: '0 8px 8px 0' }}
             >
               {suggestion}
@@ -116,5 +117,17 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
     </Styled.TagsFieldWrapper>
   );
 });
+
+TagsField.defaultProps = {
+  tags: [''],
+  suggestedTags: ['']
+};
+
+TagsField.propTypes = {
+  tags: PT.arrayOf(PT.string).isRequired,
+  suggestedTags: PT.arrayOf(PT.string).isRequired,
+  onAdd: PT.func.isRequired,
+  onRemove: PT.func.isRequired,
+};
 
 export default TagsField;

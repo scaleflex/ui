@@ -16,8 +16,8 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  tags: ['test', 'test2'],
-  suggestedTags: ['teststs', 'what', 'where']
+  tags: ['scaleflex', 'sfx'],
+  suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming']
 };
 
 const BasicTemplate: Story<TagsFieldProps> = ({
@@ -25,14 +25,12 @@ const BasicTemplate: Story<TagsFieldProps> = ({
 }) => {
   const [tags, setTags] = useState(args.tags);
 
-  const addTags = (ev: React.ChangeEvent<HTMLInputElement>):void => {
-    const val = ev.target.value || ev.currentTarget.textContent;
-    if (!val) { return; }
-    setTags([...tags, val]);
+  const addTags = (newTags : string[]):void => {
+    setTags(newTags);
   };
 
-  const removeTags = (tags : string[]) => {
-    setTags(tags);
+  const removeTags = (newTags : string[]):void => {
+    setTags(newTags);
   };
 
   return (

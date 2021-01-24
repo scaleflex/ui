@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-
+import type { WithTheme } from '../../theme/entity';
+import { Color as PColor } from '../../utils/types/palette';
+import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 // import type { TagsFieldProps } from './tags-field.props';
 
 const baseClassName = 'TagsField';
@@ -8,27 +10,26 @@ const baseClassName = 'TagsField';
 const TagsFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  font-size: 16px;
   overflow: hidden;
 `;
 
 const TagsFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
-})`
+})(({ theme }: WithTheme) => css`
   display: inline-flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 8px 12px;
   margin-bottom: 16px;
   list-style: none;
-  border: 1px solid #E9EFF4;
+  border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
   border-radius: 2px;
   font-size: 14px;
   line-height: 1.5;
   padding: 6px 8px;
   background: #F8FAFB;
   width:100%;
-`;
+`);
 
 const TagsFieldInputWrapper = styled.li.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
@@ -58,7 +59,6 @@ const TagsFieldSuggestionLabel = styled.label.attrs({
     display: flex;
     align-items: center;
     font-size: 12px;
-    font-weight: 400;
     padding: 4px 0;
 `;
 const TagsFieldSuggestionWrapperList = styled.ul.attrs({
@@ -75,28 +75,21 @@ const TagsFieldSuggestionWrapperList = styled.ul.attrs({
 
 const TagsFieldSuggestionList = styled.li.attrs({
   className: generateClassNames(baseClassName, 'suggestionList'),
-})`
+})(({ theme }: WithTheme) => css`
     position: relative;
-  
+    display: flex;
     align-items: center;
     margin: 0 8px 8px 0;
     padding: 4px 12px;
-    border-radius: 2px;
-    border: 1px dashed #5D6D7E;
-    background: transparent;
-    color: #5D6D7E;
-    display: -ms-flexbox;
-    display: flex;
-    font-family: 'Roboto';
-    font-size: 14px;
+    border-radius:${theme.shape.borderRadius[BRSize.Sm]};
+    border: 1px dashed  ${theme.palette[PColor.LinkPrimary]};
+    background: transparent;  
+    color: ${theme.palette[PColor.LinkPrimary]};
     line-height: 16.4px;
-    font-weight: 400;
     list-style: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     max-height: 24px;
-`;
+    `);
 
 const Styled = applyDisplayNames({
   TagsFieldWrapper,
