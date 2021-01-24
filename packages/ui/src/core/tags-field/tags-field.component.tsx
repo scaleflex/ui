@@ -124,8 +124,8 @@ TagsField.defaultProps = {
 };
 
 TagsField.propTypes = {
-  tags: PT.arrayOf(PT.string).isRequired,
-  suggestedTags: PT.arrayOf(PT.string).isRequired,
+  tags: PT.arrayOf(PT.any).isRequired,
+  suggestedTags: PT.arrayOf(PT.any).isRequired,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
 };

@@ -12,16 +12,16 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  expanded: false,
+  expanded: true,
 };
 
 const BasicTemplate: Story<AccordionDetailsProps> = ({
   expanded, ...args
 }) => {
-  const [openState, setOpenState] = useState(expanded || false);
+  const [openState, setOpenState] = useState(expanded || true);
 
   useEffect(() => {
-    setOpenState(expanded || false);
+    setOpenState(expanded || true);
   }, [expanded]);
 
   return (
