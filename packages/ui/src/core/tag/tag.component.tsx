@@ -38,7 +38,8 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>((
         size={6}
         onClick={() => {
           if (typeof onRemove === 'function') {
-            onRemove(tagIndex);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            onRemove(tagIndex!);
           }
         }}
       />
