@@ -93,7 +93,9 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
       {filteredSuggestions.length > 0 && showSuggestions && (
       <Styled.TagsFieldSuggestionWrapper>
         <Styled.TagsFieldSuggestionLabel>
-          <QuestionMarkOutline size={12} color="#778285" style={{ marginRight: '4px' }} />
+          <Styled.TagsFieldSuggestionIcon>
+            <QuestionMarkOutline size={12} color="#778285" />
+          </Styled.TagsFieldSuggestionIcon>
           <span>Suggested Tags</span>
         </Styled.TagsFieldSuggestionLabel>
 

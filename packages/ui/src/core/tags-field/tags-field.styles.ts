@@ -60,7 +60,17 @@ const TagsFieldSuggestionLabel = styled.label.attrs({
     align-items: center;
     font-size: 12px;
     padding: 4px 0;
+
 `;
+
+const TagsFieldSuggestionIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Icon'),
+})(
+  () => css`
+    display: inline-flex;
+    margin-right: 4px;
+  `
+);
 const TagsFieldSuggestionWrapperList = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
@@ -98,6 +108,7 @@ const Styled = applyDisplayNames({
   TagsFieldInput,
   TagsFieldSuggestionWrapper,
   TagsFieldSuggestionLabel,
+  TagsFieldSuggestionIcon,
   TagsFieldSuggestionWrapperList,
   TagsFieldSuggestionList,
 
