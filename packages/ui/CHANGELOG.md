@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.10](https://github.com/scaleflex/ui/compare/1.0.0-beta.9...1.0.0-beta.10) (2021-01-24)
+
+
+### Bug Fixes
+
+* change SelectProps to not required ([a875e89](https://github.com/scaleflex/ui/commit/a875e89ca119b4a5f8101e889d0a997b96d9997e))
+* scrolling in select group menu ([90ccbb8](https://github.com/scaleflex/ui/commit/90ccbb8894dd4733bb6e3ea9812c399726f3ebde))
+
+
+### Features
+
+* **AccordionDetails:** add accordionDetails story ([d35c2fa](https://github.com/scaleflex/ui/commit/d35c2fafd5b8d667a0335435ed147c0de62ee7cd))
+* **TagsField:** Add TagsField component ([e0c35a3](https://github.com/scaleflex/ui/commit/e0c35a330a306d42bac0b015c579d1ec1841a527))
+
+
+### Reverts
+
+* Revert "test commit" ([21f9319](https://github.com/scaleflex/ui/commit/21f931916f85d49bf5fae284b523d9f5b7a869a4))
+
+
+
+
+
 # [1.0.0-beta.9](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.8...1.0.0-beta.9) (2021-01-20)
 
 
