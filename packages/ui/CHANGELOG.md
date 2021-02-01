@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.11](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.10...1.0.0-beta.11) (2021-02-01)
+
+
+### Features
+
+* **Snackbar:** add snackbar (context, provider, hook) ([905480f](https://github.com/scaleflex/sfx-ui/commit/905480fb61972046c088e80abfd7e4984e0481ce))
+
+
+
+
+
 # [1.0.0-beta.10](https://github.com/scaleflex/ui/compare/1.0.0-beta.9...1.0.0-beta.10) (2021-01-24)
 
 
