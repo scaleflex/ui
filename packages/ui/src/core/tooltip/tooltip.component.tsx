@@ -1,13 +1,15 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import PT from 'prop-types';
+import PT, { Validator } from 'prop-types';
+import { usePopper } from 'react-popper';
+
 import { intrinsicComponent, objectValues, generateClassNames } from '../../utils/functions';
 import usePortal from '../../hooks/use-portal';
 import ArrowTick from '../arrow-tick';
 import { Type as ArrowTickType } from '../arrow-tick/types';
 import type { ArrowTickTypesType } from '../arrow-tick/arrow-tick.props';
-import type { TooltipProps, TooltipPositionType } from './tooltip.props';
-import { Position, Size } from './types';
+import type { TooltipProps, TooltipPositionType, PopperOptions, Modifiers } from './tooltip.props';
+import { Position, Size, Strategy } from './types';
 import Styled from './tooltip.styles';
 
 const getArrowTypeByPosition = (position: TooltipPositionType): ArrowTickTypesType => {
@@ -28,35 +30,30 @@ const getArrowTypeByPosition = (position: TooltipPositionType): ArrowTickTypesTy
 };
 
 const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>((
-  { children, position = Position.Top, ...rest }: TooltipProps,
+  {
+    children, position = Position.Top, popperOptions, ...rest
+  }: TooltipProps,
   ref
 ): JSX.Element => {
   const target = usePortal(generateClassNames('Tooltip'));
   const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const [rect, setRect] = useState(new DOMRect());
   const open = Boolean(anchorEl);
 
-  const updateRect = useCallback(() => {
-    const defaultPosition = {
-      top: 0,
-      left: 0,
-      height: 0,
-      width: 0,
-    };
+  const tooltipRef = useRef(null)
 
-    const defaultRect = new DOMRect(
-      defaultPosition.left,
-      defaultPosition.top,
-      defaultPosition.width,
-      defaultPosition.height
-    );
+  // Amr: Todo set some constant modifers
+  let popperModifiers: Modifiers = [];
 
-    setRect(anchorEl ? anchorEl.getBoundingClientRect() : defaultRect);
-  }, [anchorEl]);
+  if (popperOptions && popperOptions.modifiers != null) {
+    popperModifiers = popperModifiers.concat(popperOptions.modifiers);
+  }
 
-  useEffect(() => {
-    updateRect();
-  }, [updateRect]);
+
+  const { styles, attributes } = usePopper(anchorEl, tooltipRef?.current!, {
+    placement: position,
+    ...popperOptions,
+    modifiers: popperModifiers,
+  });
 
   const handleMouseEnter = (event: any): void => {
     const { onMouseEnter } = children.props;
@@ -79,12 +76,14 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>((
   };
 
   const render = (): JSX.Element => (
-    <Styled.TooltipContainer {...rest} position={position} rect={rect} open={open}>
+    <Styled.TooltipContainer
+      {...rest}
+      ref={tooltipRef}
+      style={styles.popper} {...attributes.popper} open={open}>
       <ArrowTick
         type={getArrowTypeByPosition(position)}
         IconProps={{ viewBox: '0 0 8 8', width: 10, height: 10 }}
       />
-
       <Styled.Tooltip>
         {rest.title}
       </Styled.Tooltip>
@@ -103,11 +102,10 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>((
           }
         )
       }
-
       {
         createPortal(
           render(),
-          target,
+          target
         )
       }
     </>
@@ -124,6 +122,12 @@ Tooltip.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   title: PT.node,
   children: PT.element,
+  popperOptions: PT.shape({
+    modifiers: PT.array,
+    onFirstUpdate: PT.func,
+    placement: PT.oneOf(objectValues(Position)),
+    strategy: PT.oneOf(objectValues(Strategy)),
+  }) as Validator<PopperOptions>,
 };
 
 export default Tooltip;

@@ -11,7 +11,9 @@
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.1",
-    "use-callback-ref": "^1.2.4"
+    "use-callback-ref": "^1.2.4",
+    "@popperjs/core": "^2.6.0",
+    "react-popper": "^2.2.4"
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",

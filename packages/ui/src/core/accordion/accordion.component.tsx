@@ -10,7 +10,7 @@ import Styled from './accordion.styles';
 const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>((
   {
     label, expanded, children, onClick, onChange, ...rest
-  } : AccordionProps,
+  }: AccordionProps,
   ref
 ): JSX.Element => (
   <Styled.Accordion ref={ref} {...rest}>
@@ -31,9 +31,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>((
     <AccordionDetails expanded={expanded}>
       {children}
     </AccordionDetails>
-
   </Styled.Accordion>
-
 ));
 
 Accordion.defaultProps = {
