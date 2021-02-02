@@ -10,7 +10,6 @@ export const defaultProps = {
     vertical: Vertical.Bottom,
     horizontal: Horizontal.Left,
   },
-  message: '',
 };
 
 const SnackbarContext = createContext<Partial<SnackbarContextProps>>({
