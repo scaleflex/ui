@@ -130,7 +130,7 @@ module.exports = {
     'sonarjs/no-duplicate-string': 'warn',
 
     'no-process-env': 'off',
-    'id-length': ['warn', { exceptions: ['_'] } , { "min": 2 }],
+    'id-length': ['warn', { exceptions: ['_'] }],
     'no-console': 'warn',
     'no-underscore-dangle': 'off',
     'sort-imports': 'off',
@@ -140,9 +140,7 @@ module.exports = {
     'global-require': 'off',
     'consistent-return': 'warn',
     'comma-dangle': 'off',
-    'max-len': ["error", { "code": 120 }],
-    'no-param-reassign': 'off',
-    'no-prototype-builtins':'off'
+    'max-len': ["error", { "code": 120 }]
   },
   overrides: [
     {
