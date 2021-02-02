@@ -43,7 +43,7 @@ To override predefined configuration you can pass configs into props of the `Sna
 ```typescript
 import { useSnackbar } from '@scaleflex/ui/snackbar';
 
-function YourComponent({ onClose }) {
+function YourComponent() {
   const { showMessage } = useSnackbar();
 
   // Success
