@@ -25,7 +25,7 @@ RadioGroup.defaultProps = {
 };
 
 RadioGroup.propTypes = {
-  label: PT.string,
+  label: PT.node,
   checked: PT.bool,
   onChange: PT.func,
 };
