@@ -30,7 +30,7 @@ const Button = styled.button.attrs({
   ({
     color = Color.Secondary, size = Size.Md, theme
   }: With<WithTheme, ButtonProps>) => css`
-    display: flex;
+    display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;
     align-items: center;
