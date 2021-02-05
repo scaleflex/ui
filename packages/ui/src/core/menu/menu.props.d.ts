@@ -9,4 +9,5 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   anchorEl?: AnchorElType;
   onClose?: () => void;
   id?: string;
+  containerProps?: object;
 }

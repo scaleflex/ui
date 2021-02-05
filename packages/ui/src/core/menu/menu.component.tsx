@@ -8,7 +8,7 @@ import Styled from './menu.styles';
 
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
   {
-    id, children, open, fullWidth, anchorElPosition, anchorEl, onClose, ...rest
+    id, children, open, fullWidth, anchorElPosition, anchorEl, onClose, containerProps, ...rest
   },
   ref
 ): JSX.Element => {
@@ -83,6 +83,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
       <Styled.Overlay onClick={handleClose} />
 
       <Styled.Container
+        {...containerProps}
         open={Boolean(open)}
         fullWidth={Boolean(fullWidth)}
         rect={rect}
@@ -103,6 +104,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
 export const defaultProps = {
   open: false,
   fullWidth: false,
+  containerProps: null,
 };
 
 Menu.defaultProps = defaultProps;
@@ -120,6 +122,7 @@ export const propTypes = {
   onClose: PT.func,
   id: PT.string,
   children: PT.node.isRequired,
+  containerProps: PT.object,
 };
 
 Menu.propTypes = propTypes;
