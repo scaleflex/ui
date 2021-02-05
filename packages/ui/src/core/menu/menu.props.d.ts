@@ -11,4 +11,5 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   id?: string;
   containerProps?: object;
   alignCenter?: boolean;
+  maxHeight?: string | number;
 }
