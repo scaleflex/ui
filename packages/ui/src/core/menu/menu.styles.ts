@@ -82,7 +82,7 @@ const Menu = styled.div.attrs({
     display: flex;
     flex-direction: column;
     max-height: 300px;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
     ::-webkit-scrollbar {
       width: 6px;
