@@ -130,7 +130,7 @@ module.exports = {
     'sonarjs/no-duplicate-string': 'warn',
 
     'no-process-env': 'off',
-    'id-length': ['warn', { exceptions: ['_'] } , { "min": 2 }],
+    'id-length': ['warn', { exceptions: ['_'], min: 2 }],
     'no-console': 'warn',
     'no-underscore-dangle': 'off',
     'sort-imports': 'off',
