@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.12](https://github.com/scaleflex/ui/compare/1.0.0-beta.11...1.0.0-beta.12) (2021-02-05)
+
+
+### Features
+
+* **Menu:** add property containerProps ([09fc0cf](https://github.com/scaleflex/ui/commit/09fc0cf74e5bbb98b5ef991108e64eac7216cb8c))
+* **Menu:** add props.alignCenter ([f8f95cd](https://github.com/scaleflex/ui/commit/f8f95cd1c8b8100c8471465481705354b8c5c2e3))
+* **Menu:** add props.maxHeight ([2929809](https://github.com/scaleflex/ui/commit/2929809ef1c2f1a0a91327d18aacef1d3a4dbaac))
+* **Table component and all it's children:** add table component ([b2cd298](https://github.com/scaleflex/ui/commit/b2cd2986d2ac34a614bce8f77abe290331980b20))
+* add smart positioning to tooltip ([28289a1](https://github.com/scaleflex/ui/commit/28289a1a6d7845073ed50f736fe10f7b057c8036))
+
+
+
+
+
 # [1.0.0-beta.11](https://github.com/scaleflex/ui/compare/1.0.0-beta.10...1.0.0-beta.11) (2021-02-01)
 
 
