@@ -8,7 +8,7 @@ import Styled from './menu.styles';
 
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
   {
-    id, children, open, fullWidth, anchorElPosition, anchorEl, onClose, containerProps, ...rest
+    id, children, open, fullWidth, anchorElPosition, anchorEl, onClose, containerProps, alignCenter, ...rest
   },
   ref
 ): JSX.Element => {
@@ -86,6 +86,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
         {...containerProps}
         open={Boolean(open)}
         fullWidth={Boolean(fullWidth)}
+        alignCenter={Boolean(alignCenter)}
         rect={rect}
       >
         <Styled.Menu {...rest}>
@@ -104,7 +105,8 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>((
 export const defaultProps = {
   open: false,
   fullWidth: false,
-  containerProps: null,
+  containerProps: {},
+  alignCenter: true,
 };
 
 Menu.defaultProps = defaultProps;
@@ -123,6 +125,7 @@ export const propTypes = {
   id: PT.string,
   children: PT.node.isRequired,
   containerProps: PT.object,
+  alignCenter: PT.bool,
 };
 
 Menu.propTypes = propTypes;

@@ -10,4 +10,5 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   onClose?: () => void;
   id?: string;
   containerProps?: object;
+  alignCenter?: boolean;
 }

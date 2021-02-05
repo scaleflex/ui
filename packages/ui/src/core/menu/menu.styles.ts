@@ -39,8 +39,8 @@ const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
   ({
-    open, fullWidth, rect, theme
-  }: With<WithTheme, {open: boolean, fullWidth: boolean, rect: DOMRect}>) => css`
+    open, fullWidth, rect, alignCenter = true, theme
+  }: With<WithTheme, {open: boolean, fullWidth: boolean, rect: DOMRect, alignCenter: boolean}>) => css`
     position: absolute;
     max-width: calc(100% - 32px);
     min-width: 16px;
@@ -48,7 +48,7 @@ const Container = styled.div.attrs({
     min-height: 16px;
     overflow-x: hidden;
     overflow-y: auto;
-    transform: translate(-50%);
+    ${alignCenter && css`transform: translate(-50%);`}
     transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transform-origin: 0px 26px;
     outline: 0;
@@ -60,7 +60,7 @@ const Container = styled.div.attrs({
 
     ${open && css`
       top: ${rect.top + rect.height}px;
-      left: ${rect.left + rect.width / 2}px;
+      left: ${rect.left + (alignCenter ? rect.width / 2 : 0)}px;
 
       ${fullWidth && css`
         min-width: ${rect.width}px;
