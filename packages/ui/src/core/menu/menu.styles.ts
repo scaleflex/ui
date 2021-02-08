@@ -72,7 +72,7 @@ const Container = styled.div.attrs({
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  () => css`
+  ({ maxHeight }: {maxHeight?: string|number}) => css`
     position: relative;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -81,7 +81,7 @@ const Menu = styled.div.attrs({
     outline: 0;
     display: flex;
     flex-direction: column;
-    max-height: 300px;
+    ${maxHeight && css`max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};`}
     overflow-y: auto;
     overflow-x: hidden;
     ::-webkit-scrollbar {

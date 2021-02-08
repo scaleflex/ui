@@ -1,19 +1,19 @@
 {
   "name": "@scaleflex/ui",
-  "version": "1.0.0-beta.11",
+  "version": "1.0.0-beta.12",
   "description": "React UI components library by Scaleflex Company",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
   },
   "dependencies": {
+    "@popperjs/core": "^2.6.0",
     "@scaleflex/icons": "^1.0.0-beta.4",
     "lodash.merge": "^4.6.2",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.1",
-    "use-callback-ref": "^1.2.4",
-    "@popperjs/core": "^2.6.0",
-    "react-popper": "^2.2.4"
+    "react-popper": "^2.2.4",
+    "use-callback-ref": "^1.2.4"
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
