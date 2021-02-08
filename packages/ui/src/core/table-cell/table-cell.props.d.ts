@@ -8,8 +8,8 @@ export type TableCellSize = Values<typeof Size>;
 
 export interface TableCellProps extends React.HTMLAttributes<HTMLTableCellElement> {
   align?: TableCellAlign;
-  padding?: TableCellPadding | string;
-  size?: TableCellSize | string,
+  padding?: string | TableCellPadding;
+  size?: string | TableCellSize,
   component?: React.ReactNode | string
   scope?: string
 }

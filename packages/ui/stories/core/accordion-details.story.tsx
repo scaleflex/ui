@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const AccordionDetails = _AccordionDetails;
 
 export default {
-  title: `${StoryGroup.Surfaces}/AccordionDetails`,
+  title: `${StoryGroup.Surfaces}/Accordion/AccordionDetails`,
   component: AccordionDetails,
   excludeStories: ['AccordionDetails'],
 } as Meta;
