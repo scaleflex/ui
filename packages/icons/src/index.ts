@@ -93,6 +93,7 @@ export { Emoji } from './emoji';
 export { Undo } from './undo';
 export { Redo } from './redo';
 export { FitTheScreen } from './fit-the-screen';
+export { CancelFitScreen } from './cancel-fit-screen';
 export { Plus } from './plus';
 export { Minus } from './minus';
 export { ZoomPlus } from './zoom-plus';
