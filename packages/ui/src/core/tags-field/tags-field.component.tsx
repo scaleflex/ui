@@ -19,9 +19,10 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
   const [userInput, setUserInput] = useState('');
 
   const suggestionListChange = (input : string) : void => {
-    const filteredSuggestionsArray = suggestedTags.filter(
+    let filteredSuggestionsArray = suggestedTags.filter(
       (suggestion : string) => suggestion.toLowerCase().includes(input.toLowerCase())
     );
+    filteredSuggestionsArray = filteredSuggestionsArray.filter((item) => !internalTags.includes(item));
 
     setFilteredSuggestions(filteredSuggestionsArray);
     setShowSuggestions(true);
@@ -29,7 +30,15 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
   };
   const addTags = (ev:any):void => {
     const val = ev.target.value || ev.currentTarget.textContent;
-    const newTags = [...internalTags, val];
+    const hasVal = internalTags.includes(val);
+    let newTags = [];
+
+    if (hasVal) {
+      newTags = internalTags;
+    } else {
+      newTags = [...internalTags, val];
+    }
+
     if (!val) { return; }
     setInternalTags(newTags);
     onAdd(newTags);
@@ -62,7 +71,6 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
 
   return (
     <Styled.TagsFieldWrapper ref={ref} {...rest}>
-
       <Styled.TagsFieldListWrapper>
         {tags.map((tag : string, index:number) => (
           <Tag
