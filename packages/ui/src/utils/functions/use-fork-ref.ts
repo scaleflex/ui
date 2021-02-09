@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { setRef } from './set-ref';
+import xsetRef from './set-ref';
 
 export function useForkRef(refA, refB) {
   /**
