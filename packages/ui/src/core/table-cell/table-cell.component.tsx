@@ -4,11 +4,8 @@ import PT, { oneOfType } from 'prop-types';
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableCellProps } from './table-cell.props';
 import Tablelvl2Context from '../table/table-lvl-2-context';
-import TableContext from '../table/table-context'
+import TableContext from '../table/table-context';
 import Styled from './table-cell.styles';
-
-
-
 
 const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>((
   {
@@ -16,7 +13,6 @@ const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>((
   }: TableCellProps,
   ref
 ): JSX.Element => {
-
   const table = useContext(TableContext);
   const tablelvl2 = useContext(Tablelvl2Context);
 
@@ -51,7 +47,7 @@ const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>((
       {children}
     </Component>
 
-  )
+  );
 });
 
 TableCell.defaultProps = {

@@ -6,18 +6,20 @@ import TableHead from '../../src/core/table-head';
 import TableCell from '../../src/core/table-cell';
 import TableRow from '../../src/core/table-row';
 import TableBody from '../../src/core/table-body';
-import Copy from '../../../icons/src/copy'
-import More from '../../../icons/src/more'
-import RobotHappy from '../../../icons/src/robot-happy'
+import Copy from '../../../icons/src/copy';
+import More from '../../../icons/src/more';
+import RobotHappy from '../../../icons/src/robot-happy';
 
 const action = () => (
   <span>
     <Copy size={10} />
     <span style={{ marginLeft: '4px' }}>Copy</span>
   </span>
-)
+);
 function createData(name: string, Permissions: string, CreatedAt: string, Active: JSX.Element, Actions: JSX.Element) {
-  return { name, Permissions, CreatedAt, Active, Actions };
+  return {
+    name, Permissions, CreatedAt, Active, Actions
+  };
 }
 const rows = [
   createData('Global Key', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
@@ -31,26 +33,26 @@ const TableStory = (): JSX.Element => (
   <TableContainer>
     <Table>
       <TableHead>
-        <TableRow >
+        <TableRow>
           <TableCell>Description</TableCell>
           <TableCell>Permissions</TableCell>
           <TableCell>CreatedAt</TableCell>
-          <TableCell >Active</TableCell>
-          <TableCell >Actions</TableCell>
+          <TableCell>Active</TableCell>
+          <TableCell>Actions</TableCell>
           <TableCell padding="options" />
         </TableRow>
       </TableHead>
-      <TableBody >
+      <TableBody>
         {rows.map((row) => (
           <TableRow key={row.name}>
-            <TableCell component="th" scope="row">
+            <TableCell scope="row">
               {row.name}
             </TableCell>
             <TableCell>{row.Permissions}</TableCell>
-            <TableCell >{row.CreatedAt}</TableCell>
-            <TableCell >{row.Active}</TableCell>
-            <TableCell >{row.Actions}</TableCell>
-            <TableCell padding="options" >
+            <TableCell>{row.CreatedAt}</TableCell>
+            <TableCell>{row.Active}</TableCell>
+            <TableCell>{row.Actions}</TableCell>
+            <TableCell padding="options">
               <More />
             </TableCell>
           </TableRow>
@@ -59,9 +61,5 @@ const TableStory = (): JSX.Element => (
     </Table>
   </TableContainer>
 );
-
-
-
-
 
 export default TableStory;
