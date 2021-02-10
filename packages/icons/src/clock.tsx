@@ -1,5 +1,3 @@
-/* eslint-disable max-len */
-
 import React from 'react';
 import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
