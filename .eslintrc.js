@@ -140,7 +140,7 @@ module.exports = {
     'global-require': 'off',
     'consistent-return': 'warn',
     'comma-dangle': 'off',
-    'max-len': ["error", { "code": 120 }],
+    'max-len': 'off',
     'no-param-reassign': 'off',
     'no-prototype-builtins':'off'
   },
