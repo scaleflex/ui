@@ -50,11 +50,18 @@ const Button = styled.button.attrs({
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})`
+})(
+  ({ loading }:ButtonProps) => css`
   display: flex;
   margin-right: 4px;
   margin-left: 1px;
-`;
+
+  svg {
+    animation: ${loading ? 'spinner 1.2s linear infinite' : '1.2s'} ;
+  }
+  
+`
+);
 
 const Styled = applyDisplayNames({
   Button,

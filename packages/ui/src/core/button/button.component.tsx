@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+import SpinnerIcon from '@scaleflex/icons/spinner';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
@@ -9,22 +10,23 @@ import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
   {
-    children, icon, badge, color, size, ...rest
+    children, icon, badge, color, size, loading, ...rest
   }: ButtonProps,
   ref
 ): JSX.Element => (
   <Styled.Button
     {...rest}
+    disabled={loading}
     color={color}
     size={size}
     ref={ref}
   >
     {icon && (
-      <Styled.Icon>
+      <Styled.Icon loading={loading}>
         {
           typeof icon === 'function'
-            ? icon({ size: getIconSize(size) })
-            : icon
+            ? (loading ? <SpinnerIcon size={getIconSize(size)} /> : icon({ size: getIconSize(size) }))
+            : (loading ? <SpinnerIcon size={getIconSize(size)} /> : icon)
         }
       </Styled.Icon>
     )}
@@ -56,6 +58,7 @@ Button.propTypes = {
   color: PT.oneOf(objectValues(Color)),
   icon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
+  loading: PT.bool
 };
 
 export default Button;

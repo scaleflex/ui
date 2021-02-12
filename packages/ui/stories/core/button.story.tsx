@@ -24,6 +24,7 @@ const defaultArgs = {
   size: Size.Md,
   color: Color.Secondary,
   disabled: false,
+  loading: false,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({
