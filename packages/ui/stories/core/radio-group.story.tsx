@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const RadioGroup = _RadioGroup;
 
 export default {
-  title: `${StoryGroup.Inputs}/RadioGroup`,
+  title: `${StoryGroup.Inputs}/Radio/RadioGroup`,
   component: RadioGroup,
   excludeStories: ['RadioGroup'],
 } as Meta;

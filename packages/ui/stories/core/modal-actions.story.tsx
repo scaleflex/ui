@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const ModalActions = _ModalActions;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/ModalActions`,
+  title: `${StoryGroup.Feedback}/Modal/ModalActions`,
   component: ModalActions,
   excludeStories: ['ModalActions'],
 } as Meta;

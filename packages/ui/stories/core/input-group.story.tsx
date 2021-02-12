@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const InputGroup = _InputGroup;
 
 export default {
-  title: `${StoryGroup.Inputs}/InputGroup`,
+  title: `${StoryGroup.Inputs}/Input/InputGroup`,
   component: InputGroup,
   excludeStories: ['InputGroup'],
 } as Meta;

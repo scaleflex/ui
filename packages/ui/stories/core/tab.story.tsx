@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Tab = _Tab;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Tab`,
+  title: `${StoryGroup.Navigation}/Tabs/Tab`,
   component: Tab,
   excludeStories: ['Tab'],
 } as Meta;
