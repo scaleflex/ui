@@ -12,7 +12,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   multiple?: boolean;
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
-  selectProps: React.InputHTMLAttributes
+  selectProps?: React.InputHTMLAttributes;
 }
 
 export interface RenderOption {

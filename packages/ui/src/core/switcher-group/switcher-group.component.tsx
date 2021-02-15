@@ -7,12 +7,12 @@ import Styled from './switcher-group.styles';
 
 const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>((
   {
-    label, ...rest
+    label, switcherProps, ...rest
   }: SwitcherGroupProps,
   ref
 ): JSX.Element => (
   <Styled.SwitcherGroup ref={ref}>
-    <Switcher {...rest} />
+    <Switcher switcherProps={switcherProps} {...rest} />
 
     <Styled.Label>
       {label}
@@ -28,6 +28,8 @@ SwitcherGroup.propTypes = {
   label: PT.string,
   checked: PT.bool,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  switcherProps: PT.object
 };
 
 export default SwitcherGroup;

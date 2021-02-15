@@ -1,14 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
-import { intrinsicComponent } from '../../utils/functions';
 import SwitcherOnIcon from '@scaleflex/icons/switcher-on';
 import SwitcherOffIcon from '@scaleflex/icons/switcher-off';
+import { intrinsicComponent } from '../../utils/functions';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>((
   {
-    checked, onChange, ...rest
+    checked, onChange, switcherProps, ...rest
   }: SwitcherProps,
   ref
 ): JSX.Element => (
@@ -16,6 +16,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>((
     <Styled.Input
       checked={checked}
       onChange={onChange}
+      {...switcherProps}
     />
 
     {
@@ -33,6 +34,8 @@ Switcher.defaultProps = {
 Switcher.propTypes = {
   checked: PT.bool,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  switcherProps: PT.object
 };
 
 export default Switcher;
