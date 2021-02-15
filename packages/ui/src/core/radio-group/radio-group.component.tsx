@@ -7,12 +7,12 @@ import Styled from './radio-group.styles';
 
 const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>((
   {
-    label, ...rest
+    label, radioProps, ...rest
   }: RadioGroupProps,
   ref
 ): JSX.Element => (
   <Styled.RadioGroup ref={ref}>
-    <Radio {...rest} />
+    <Radio radioProps={radioProps} {...rest} />
 
     <Styled.Label>
       {label}
@@ -28,6 +28,8 @@ RadioGroup.propTypes = {
   label: PT.node,
   checked: PT.bool,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  radioProps: PT.object
 };
 
 export default RadioGroup;
