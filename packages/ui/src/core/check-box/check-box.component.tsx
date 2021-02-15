@@ -1,14 +1,14 @@
 import React from 'react';
 import PT from 'prop-types';
-import { intrinsicComponent } from '../../utils/functions';
 import CheckBoxIcon from '@scaleflex/icons/check-box';
 import CheckBoxUncheckedIcon from '@scaleflex/icons/check-box-unchecked';
+import { intrinsicComponent } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>((
   {
-    checked, onChange, ...rest
+    checked, onChange, checkBoxProps, ...rest
   }: CheckBoxProps,
   ref
 ): JSX.Element => (
@@ -16,6 +16,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>((
     <Styled.Input
       checked={checked}
       onChange={onChange}
+      {...checkBoxProps}
     />
 
     {
@@ -33,6 +34,8 @@ CheckBox.defaultProps = {
 CheckBox.propTypes = {
   checked: PT.bool,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  checkBoxProps: PT.object
 };
 
 export default CheckBox;

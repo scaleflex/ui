@@ -7,12 +7,12 @@ import Styled from './check-box-group.styles';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>((
   {
-    label, ...rest
+    label, checkBoxProps, ...rest
   }: CheckBoxGroupProps,
   ref
 ): JSX.Element => (
   <Styled.CheckBoxGroup ref={ref}>
-    <CheckBox {...rest} />
+    <CheckBox checkBoxProps={checkBoxProps} {...rest} />
 
     <Styled.Label>
       {label}
@@ -28,6 +28,8 @@ CheckBoxGroup.propTypes = {
   label: PT.string,
   checked: PT.bool,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  checkBoxProps: PT.object
 };
 
 export default CheckBoxGroup;
