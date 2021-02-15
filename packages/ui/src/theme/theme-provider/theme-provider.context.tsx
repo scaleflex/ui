@@ -60,7 +60,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
 
     return {} as Theme;
   }, [JSON.stringify(theme)]);
-
+  console.log('theme', finalTheme)
   return (
     <SCThemeProvider theme={finalTheme}>
       {applyPolymorphicFunctionProp(children, finalTheme)}
