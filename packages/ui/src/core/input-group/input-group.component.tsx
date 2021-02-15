@@ -49,7 +49,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
           {...fieldProps}
           {...(InputPropsData || {})}
           {...inputProps}
-          ref={inputRef.ref || inputRef}
+          ref={inputRef?.ref || inputRef}
         />
       );
     }
