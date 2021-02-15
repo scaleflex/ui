@@ -11,7 +11,7 @@ import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
   {
-    children, size, error, multiple, onChange, value, fullWidth, ...rest
+    children, size, error, multiple, onChange, value, fullWidth, selectProps, ...rest
   },
   ref
 ): JSX.Element => {
@@ -42,7 +42,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
         </Styled.Icon>
       </Styled.Select>
 
-      <Styled.Input />
+      <Styled.Input {...selectProps} />
 
       <Menu
         anchorEl={anchorEl}
@@ -87,6 +87,8 @@ export const propTypes = {
     PT.arrayOf(simpleValuePropTypes)
   ]) as Validator<SelectSimpleValueType | SelectSimpleValueType[]>,
   onChange: PT.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  selectProps: PT.object
 };
 
 Select.propTypes = propTypes;

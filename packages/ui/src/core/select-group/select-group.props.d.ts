@@ -7,6 +7,6 @@ export interface SelectGroupProps
   hint?: React.ReactNode;
   LabelProps?: LabelProps;
   SelectProps?: SelectProps;
-  selectProps?: React.SelectHTMLAttributes;
+  selectProps?: React.InputHTMLAttributes;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }

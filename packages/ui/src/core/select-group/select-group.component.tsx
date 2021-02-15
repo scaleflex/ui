@@ -64,7 +64,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
         onChange={onChange}
         multiple={multiple}
         {...(SelectPropsData || {})}
-        {...selectProps}
+        selectProps={selectProps}
       >
         {children}
       </Select>
