@@ -27,8 +27,8 @@ const style = {
 const BasicTemplate: Story<PopperProps> = ({
   ...args
 }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const handleClick = (event:any) => {
+  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+  const handleClick = (event:React.MouseEvent<HTMLButtonElement>):void => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
