@@ -1,3 +1,4 @@
+import { InputHTMLAttributes } from 'packages/icons/node_modules/@types/react';
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import type { InputProps } from '../input';
@@ -13,5 +14,7 @@ export interface InputGroupProps extends React.HTMLAttributes<Omit<HTMLDivElemen
   error?: boolean;
   LabelProps?: LabelProps;
   InputProps?: InputProps;
+  inputProps?: React.InputHTMLAttributes;
+  inputRef? : React.Ref
   TextareaProps?: TextareaProps;
 }

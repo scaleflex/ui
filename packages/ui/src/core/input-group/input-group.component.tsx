@@ -18,7 +18,7 @@ import Styled from './input-group.styles';
 const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
   {
     children, type, error, label, hint, LabelProps: LabelPropsData,
-    InputProps: InputPropsData, TextareaProps: TextareaPropsData, ...rest
+    InputProps: InputPropsData, inputProps, inputRef, TextareaProps: TextareaPropsData, ...rest
   }: InputGroupProps,
   ref
 ): JSX.Element => {
@@ -44,7 +44,14 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
     const fieldProps = { error, ...rest };
 
     if (type === Type.Input) {
-      return <Input {...fieldProps} {...(InputPropsData || {})} />;
+      return (
+        <Input
+          {...fieldProps}
+          {...(InputPropsData || {})}
+          {...inputProps}
+          ref={inputRef.ref || inputRef}
+        />
+      );
     }
 
     if (type === Type.Textarea) {
@@ -93,6 +100,9 @@ InputGroup.propTypes = {
   error: PT.bool,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
+  // eslint-disable-next-line react/forbid-prop-types
+  inputProps: PT.object,
+  inputRef: PT.oneOfType([PT.func, PT.object]),
   TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,
 };
 

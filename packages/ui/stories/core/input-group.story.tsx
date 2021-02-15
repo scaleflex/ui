@@ -11,6 +11,12 @@ export default {
   title: `${StoryGroup.Inputs}/Input/InputGroup`,
   component: InputGroup,
   excludeStories: ['InputGroup'],
+
+  argTypes: {
+    inputProps: {
+      description: 'input attributes applied directly input element.'
+    }
+  }
 } as Meta;
 
 const defaultArgs = {
