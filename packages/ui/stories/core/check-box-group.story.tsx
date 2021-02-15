@@ -9,6 +9,11 @@ export default {
   title: `${StoryGroup.Inputs}/Checkbox/CheckBoxGroup`,
   component: CheckBoxGroup,
   excludeStories: ['CheckBoxGroup'],
+  argTypes: {
+    checkProps: {
+      description: 'input attributes applied directly input element.'
+    }
+  }
 } as Meta;
 
 const defaultArgs = {

@@ -15,7 +15,12 @@ export default {
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
+    },
+
+    switcherProps: {
+      description: 'input attributes applied directly input element.'
     }
+
   }
 } as Meta;
 

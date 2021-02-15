@@ -9,6 +9,11 @@ export default {
   title: `${StoryGroup.Inputs}/Radio/RadioGroup`,
   component: RadioGroup,
   excludeStories: ['RadioGroup'],
+  argTypes: {
+    radioProps: {
+      description: 'input attributes applied directly input element.'
+    }
+  }
 } as Meta;
 
 const defaultArgs = {

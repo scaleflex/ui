@@ -9,6 +9,12 @@ export default {
   title: `${StoryGroup.Inputs}/Switcher/SwitcherGroup`,
   component: SwitcherGroup,
   excludeStories: ['SwitcherGroup'],
+
+  argTypes: {
+    switcherProps: {
+      description: 'input attributes applied directly input element.'
+    }
+  }
 } as Meta;
 
 const defaultArgs = {
