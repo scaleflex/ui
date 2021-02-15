@@ -14,7 +14,7 @@ import Styled from './select-group.styles';
 const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
   {
     children, error, label, hint, LabelProps: LabelPropsData, SelectProps: SelectPropsData,
-    value, multiple, onChange, ...rest
+    selectProps, value, multiple, onChange, ...rest
   }: SelectGroupProps,
   ref
 ): JSX.Element => {
@@ -64,6 +64,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
         onChange={onChange}
         multiple={multiple}
         {...(SelectPropsData || {})}
+        {...selectProps}
       >
         {children}
       </Select>
@@ -86,6 +87,8 @@ SelectGroup.propTypes = {
   hint: PT.node,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   SelectProps: PT.exact(selectPropTypes)as Validator<SelectProps>,
+  // eslint-disable-next-line react/forbid-prop-types
+  selectProps: PT.object,
 };
 
 export default SelectGroup;
