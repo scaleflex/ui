@@ -36,8 +36,6 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>((
     modifiers: popperModifiers,
   });
 
-  console.log(popper);
-
   const handleRef = React.useCallback(
     (node) => {
       if (typeof ownRef === 'function') {
