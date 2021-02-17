@@ -31,6 +31,12 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
       </Styled.Icon>
     )}
 
+    {loading && !icon && (
+      <Styled.Icon loading={loading}>
+        <SpinnerIcon size={getIconSize(size)} />
+      </Styled.Icon>
+    )}
+
     <Styled.Label>{children}</Styled.Label>
 
     {badge && (
