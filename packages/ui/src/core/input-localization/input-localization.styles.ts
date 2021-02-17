@@ -48,7 +48,6 @@ const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
   flex-grow: 1;
-  min-width: 30px;
 `;
 
 const Styled = applyDisplayNames({
