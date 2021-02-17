@@ -1,4 +1,6 @@
-export { default as AccordionHeader } from './accordion-header';
+export { default as Accordion } from './accordion-header';
+export { default as AccordionHeader } from './accordion';
+export { default as AccordionDetails } from './accordion-details';
 export { default as Arrow } from './arrow';
 export { default as ArrowTick } from './arrow-tick';
 export { default as Badge } from './badge';

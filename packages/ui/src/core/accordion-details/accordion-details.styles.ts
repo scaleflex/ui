@@ -8,7 +8,7 @@ const AccordionDetails = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ expanded }: AccordionDetailsProps) => css`
-    visibility: ${expanded ? 'visible' : 'hidden'};
+    display: ${expanded ? 'block' : 'none'};
     margin: 16px 0;
   `
 );
