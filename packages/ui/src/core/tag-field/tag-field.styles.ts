@@ -3,17 +3,16 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-// import type { TagsFieldProps } from './tags-field.props';
 
-const baseClassName = 'TagsField';
+const baseClassName = 'TagField';
 
-const TagsFieldWrapper = styled.div.attrs({
+const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
   overflow: hidden;
 `;
 
-const TagsFieldListWrapper = styled.ul.attrs({
+const TagFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
 })(({ theme }: WithTheme) => css`
   display: inline-flex;
@@ -31,7 +30,7 @@ const TagsFieldListWrapper = styled.ul.attrs({
   width:100%;
 `);
 
-const TagsFieldInputWrapper = styled.li.attrs({
+const TagFieldInputWrapper = styled.li.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
 })`
     background: none;
@@ -39,7 +38,7 @@ const TagsFieldInputWrapper = styled.li.attrs({
     padding: 5px 0;
 `;
 
-const TagsFieldInput = styled.input.attrs({
+const TagFieldInput = styled.input.attrs({
   className: generateClassNames(baseClassName, 'input'),
 })`
     background: transparent;
@@ -48,12 +47,12 @@ const TagsFieldInput = styled.input.attrs({
     outline: none;
 `;
 
-const TagsFieldSuggestionWrapper = styled.div.attrs({
+const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
 })`
   position: relative;
 `;
-const TagsFieldSuggestionLabel = styled.label.attrs({
+const TagFieldSuggestionLabel = styled.label.attrs({
   className: generateClassNames(baseClassName, 'suggestionLabel'),
 })`
     display: flex;
@@ -63,7 +62,7 @@ const TagsFieldSuggestionLabel = styled.label.attrs({
 
 `;
 
-const TagsFieldSuggestionIcon = styled.span.attrs({
+const TagFieldSuggestionIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   () => css`
@@ -71,7 +70,7 @@ const TagsFieldSuggestionIcon = styled.span.attrs({
     margin-right: 4px;
   `
 );
-const TagsFieldSuggestionWrapperList = styled.ul.attrs({
+const TagFieldSuggestionWrapperList = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
      
@@ -83,7 +82,7 @@ const TagsFieldSuggestionWrapperList = styled.ul.attrs({
     list-style: none;
 `;
 
-const TagsFieldSuggestionList = styled.li.attrs({
+const TagFieldSuggestionList = styled.li.attrs({
   className: generateClassNames(baseClassName, 'suggestionList'),
 })(({ theme }: WithTheme) => css`
     position: relative;
@@ -102,15 +101,15 @@ const TagsFieldSuggestionList = styled.li.attrs({
     `);
 
 const Styled = applyDisplayNames({
-  TagsFieldWrapper,
-  TagsFieldListWrapper,
-  TagsFieldInputWrapper,
-  TagsFieldInput,
-  TagsFieldSuggestionWrapper,
-  TagsFieldSuggestionLabel,
-  TagsFieldSuggestionIcon,
-  TagsFieldSuggestionWrapperList,
-  TagsFieldSuggestionList,
+  TagFieldWrapper,
+  TagFieldListWrapper,
+  TagFieldInputWrapper,
+  TagFieldInput,
+  TagFieldSuggestionWrapper,
+  TagFieldSuggestionLabel,
+  TagFieldSuggestionIcon,
+  TagFieldSuggestionWrapperList,
+  TagFieldSuggestionList,
 
 });
 

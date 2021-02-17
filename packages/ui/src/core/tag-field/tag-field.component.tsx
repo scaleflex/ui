@@ -3,14 +3,14 @@ import PT from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
 import { intrinsicComponent } from '../../utils/functions';
 import Tag from '../tag';
-import type { TagsFieldProps } from './tags-field.props';
+import type { TagFieldProps } from './tag-field.props';
 
-import Styled from './tags-field.styles';
+import Styled from './tag-field.styles';
 
-const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
+const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
   {
     suggestedTags, tags, onAdd, onRemove, ...rest
-  }: TagsFieldProps,
+  }: TagFieldProps,
   ref
 ): JSX.Element => {
   const [internalTags, setInternalTags] = useState(tags);
@@ -70,8 +70,8 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.TagsFieldWrapper ref={ref} {...rest}>
-      <Styled.TagsFieldListWrapper>
+    <Styled.TagFieldWrapper ref={ref} {...rest}>
+      <Styled.TagFieldListWrapper>
         {tags.map((tag : string, index:number) => (
           <Tag
             key={tag}
@@ -86,8 +86,8 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
           </Tag>
         ))}
 
-        <Styled.TagsFieldInputWrapper>
-          <Styled.TagsFieldInput
+        <Styled.TagFieldInputWrapper>
+          <Styled.TagFieldInput
             type="text"
             autoComplete="off"
             placeholder="Add a tag (separate by pressing enter)"
@@ -95,19 +95,19 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
             onKeyDown={(ev) => suggestionListKeyDown(ev)}
             value={userInput}
           />
-        </Styled.TagsFieldInputWrapper>
-      </Styled.TagsFieldListWrapper>
+        </Styled.TagFieldInputWrapper>
+      </Styled.TagFieldListWrapper>
 
       {filteredSuggestions.length > 0 && showSuggestions && (
-      <Styled.TagsFieldSuggestionWrapper>
-        <Styled.TagsFieldSuggestionLabel>
-          <Styled.TagsFieldSuggestionIcon>
+      <Styled.TagFieldSuggestionWrapper>
+        <Styled.TagFieldSuggestionLabel>
+          <Styled.TagFieldSuggestionIcon>
             <QuestionMarkOutline size={12} color="#778285" />
-          </Styled.TagsFieldSuggestionIcon>
+          </Styled.TagFieldSuggestionIcon>
           <span>Suggested Tags</span>
-        </Styled.TagsFieldSuggestionLabel>
+        </Styled.TagFieldSuggestionLabel>
 
-        <Styled.TagsFieldSuggestionWrapperList>
+        <Styled.TagFieldSuggestionWrapperList>
 
           {filteredSuggestions.map((suggestion : string) => (
             <Tag
@@ -121,23 +121,23 @@ const TagsField = intrinsicComponent<TagsFieldProps, HTMLDivElement>((
             </Tag>
           ))}
 
-        </Styled.TagsFieldSuggestionWrapperList>
-      </Styled.TagsFieldSuggestionWrapper>
+        </Styled.TagFieldSuggestionWrapperList>
+      </Styled.TagFieldSuggestionWrapper>
       )}
-    </Styled.TagsFieldWrapper>
+    </Styled.TagFieldWrapper>
   );
 });
 
-TagsField.defaultProps = {
+TagField.defaultProps = {
   tags: [''],
   suggestedTags: ['']
 };
 
-TagsField.propTypes = {
+TagField.propTypes = {
   tags: PT.arrayOf(PT.any).isRequired,
   suggestedTags: PT.arrayOf(PT.any).isRequired,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
 };
 
-export default TagsField;
+export default TagField;

@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _TagsFields, { TagsFieldProps } from '../../src/core/tags-field';
+import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { StoryGroup } from './types';
 
-export const TagsField = _TagsFields;
+export const TagField = _TagField;
 
 export default {
   title: `${StoryGroup.Surfaces}/TagField`,
-  component: TagsField,
-  excludeStories: ['TagsField'],
+  component: TagField,
+  excludeStories: ['TagField'],
 
   argTypes: {
 
@@ -20,7 +20,7 @@ const defaultArgs = {
   suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming']
 };
 
-const BasicTemplate: Story<TagsFieldProps> = ({
+const BasicTemplate: Story<TagFieldProps> = ({
   ...args
 }) => {
   const [tags, setTags] = useState(args.tags);
@@ -34,12 +34,12 @@ const BasicTemplate: Story<TagsFieldProps> = ({
   };
 
   return (
-    <TagsField
+    <TagField
       style={{ width: '500px' }}
       tags={tags}
       suggestedTags={args.suggestedTags}
-      onAdd={(event) => addTags(event)}
-      onRemove={(tags: string[]) => removeTags(tags)}
+      onAdd={(newTags: string[]) => addTags(newTags)}
+      onRemove={(newTags: string[]) => removeTags(newTags)}
     />
   );
 };

@@ -1,4 +1,4 @@
-export interface TagsFieldProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: string[];
   suggestedTags:string[];
   onAdd: (tags : string[]) => void;

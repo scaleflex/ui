@@ -51,4 +51,4 @@ export { default as TableHead } from './table-head';
 export { default as TableRow } from './table-row';
 export { default as Popper } from './popper';
 export { default as StatusLabel } from './status-label';
-export { default as TagsField } from './tags-field';
+export { default as TagField } from './tag-field';
