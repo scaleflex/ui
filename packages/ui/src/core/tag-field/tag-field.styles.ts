@@ -19,7 +19,6 @@ const TagFieldListWrapper = styled.ul.attrs({
   flex-wrap: wrap;
   margin: 0;
   padding: 8px 12px;
-  margin-bottom: 16px;
   list-style: none;
   border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
   border-radius: 2px;
@@ -27,7 +26,7 @@ const TagFieldListWrapper = styled.ul.attrs({
   line-height: 1.5;
   padding: 6px 8px;
   background: #F8FAFB;
-  width:100%;
+  width:95%;
 `);
 
 const TagFieldInputWrapper = styled.li.attrs({
@@ -51,6 +50,7 @@ const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
 })`
   position: relative;
+  margin-top: 16px;
 `;
 const TagFieldSuggestionLabel = styled.label.attrs({
   className: generateClassNames(baseClassName, 'suggestionLabel'),

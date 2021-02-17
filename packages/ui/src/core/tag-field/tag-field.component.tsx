@@ -79,7 +79,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
             tagIndex={index}
             // eslint-disable-next-line no-shadow
             onRemove={(index) => removeTag(index)}
-            style={{ margin: '0 8px 8px 0' }}
+            style={{ margin: '4px 4px 4px 0' }}
           >
 
             {tag || internalTags}
