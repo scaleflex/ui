@@ -33,13 +33,13 @@ const BasicTemplate: Story<PopperProps> = ({
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popper' : undefined;
+
   return (
     <div>
-      <button aria-describedby={id} type="button" onClick={handleClick}>
+      <button type="button" onClick={handleClick}>
         Toggle Popper
       </button>
-      <Popper {...args} id={id} open={open} anchorEl={anchorEl}>
+      <Popper {...args} open={open} anchorEl={anchorEl}>
         <div style={style}>The content of the Popper.</div>
       </Popper>
     </div>

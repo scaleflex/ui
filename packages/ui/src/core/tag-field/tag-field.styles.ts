@@ -3,14 +3,18 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
+import type { TagFieldProps } from './tag-field.props';
 
 const baseClassName = 'TagField';
 
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
+})(
+  ({ fullWidth = false }: TagFieldProps) => css`
   overflow: hidden;
-`;
+  width: ${fullWidth ? '100%' : ''};
+`
+);
 
 const TagFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PT from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Tag from '../tag';
 import type { TagFieldProps } from './tag-field.props';
@@ -9,7 +10,7 @@ import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
   {
-    suggestedTags, tags, onAdd, onRemove, ...rest
+    suggestedTags, tags, onAdd, onRemove, fullWidth, ...rest
   }: TagFieldProps,
   ref
 ): JSX.Element => {
@@ -70,7 +71,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
   };
 
   return (
-    <Styled.TagFieldWrapper ref={ref} {...rest}>
+    <Styled.TagFieldWrapper
+      ref={ref}
+      fullWidth={fullWidth}
+      {...rest}
+    >
       <Styled.TagFieldListWrapper>
         {tags.map((tag : string, index:number) => (
           <Tag
@@ -81,7 +86,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
             onRemove={(index) => removeTag(index)}
             style={{ margin: '4px 4px 4px 0' }}
           >
-
             {tag || internalTags}
           </Tag>
         ))}
@@ -130,7 +134,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
 
 TagField.defaultProps = {
   tags: [''],
-  suggestedTags: ['']
+  suggestedTags: [''],
+  fullWidth: false
 };
 
 TagField.propTypes = {
@@ -138,6 +143,7 @@ TagField.propTypes = {
   suggestedTags: PT.arrayOf(PT.any).isRequired,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
+  fullWidth: PT.bool
 };
 
 export default TagField;

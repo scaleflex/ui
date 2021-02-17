@@ -17,7 +17,7 @@ export default {
 
 const defaultArgs = {
   tags: ['scaleflex', 'sfx'],
-  suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming']
+  suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming'],
 };
 
 const BasicTemplate: Story<TagFieldProps> = ({
@@ -35,6 +35,7 @@ const BasicTemplate: Story<TagFieldProps> = ({
 
   return (
     <TagField
+      {...args}
       style={{ width: '500px' }}
       tags={tags}
       suggestedTags={args.suggestedTags}
