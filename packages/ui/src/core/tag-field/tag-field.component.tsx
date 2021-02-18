@@ -73,7 +73,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
   return (
     <Styled.TagFieldWrapper
       ref={ref}
-      fullWidth={fullWidth}
+      fullWidth={Boolean(fullWidth)}
       {...rest}
     >
       <Styled.TagFieldListWrapper>

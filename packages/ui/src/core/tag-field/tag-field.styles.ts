@@ -3,14 +3,14 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-import type { TagFieldProps } from './tag-field.props';
+// import type { TagFieldProps } from './tag-field.props';
 
 const baseClassName = 'TagField';
 
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ fullWidth = false }: TagFieldProps) => css`
+  ({ fullWidth = false }: {fullWidth: boolean}) => css`
   overflow: hidden;
   width: ${fullWidth ? '100%' : ''};
 `
@@ -77,7 +77,6 @@ const TagFieldSuggestionIcon = styled.span.attrs({
 const TagFieldSuggestionWrapperList = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
-     
     display: inline-flex;
     flex-wrap: wrap;
     margin: 0;
@@ -96,7 +95,7 @@ const TagFieldSuggestionList = styled.li.attrs({
     padding: 4px 12px;
     border-radius:${theme.shape.borderRadius[BRSize.Sm]};
     border: 1px dashed  ${theme.palette[PColor.LinkPrimary]};
-    background: transparent;  
+    background: transparent;
     color: ${theme.palette[PColor.LinkPrimary]};
     line-height: 16.4px;
     list-style: none;
