@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.14](https://github.com/scaleflex/ui/compare/1.0.0-beta.12...1.0.0-beta.14) (2021-02-18)
+
+
+### Bug Fixes
+
+* show spinner in button on loading if no icon ([2484750](https://github.com/scaleflex/ui/commit/2484750675753b5b3018fd8a4b82a7ca72e9b058))
+* **table:** fix styles ([9de6908](https://github.com/scaleflex/ui/commit/9de6908bfeb5115c361088fe2866da3440ecc678))
+* **tagField:** styles ([5378abe](https://github.com/scaleflex/ui/commit/5378abe22e9c7d3d171ed3533fe05de3aaa0f4d0))
+* **tagsfield:** no duplicates and remove tags that are used in suggestions ([b73701c](https://github.com/scaleflex/ui/commit/b73701c4d91dd91d9590b450569879a26e02ee7b))
+
+
+### Features
+
+* **button:** add loading props ([064d5c5](https://github.com/scaleflex/ui/commit/064d5c5460a0bdd2d7f5bae45ecdc51ecf76488e))
+* **checbox & checkbox group:** add checkbox props ([a1d29bc](https://github.com/scaleflex/ui/commit/a1d29bcf3988ecee02ff93df0cfcafe9ca56e239))
+* **inputGroup:** add input props and input ref ([ba7505d](https://github.com/scaleflex/ui/commit/ba7505dd1b93793949f4bd19dda2e770847fb4b4))
+* **inputGroup:** add input props and input ref ([3a46f70](https://github.com/scaleflex/ui/commit/3a46f704ab7ba95895dfa9dae2155c9fc99442b0))
+* **Popper:** add popper component ([511beff](https://github.com/scaleflex/ui/commit/511beffdc8d6e77ef18113f2999b7594af992e08))
+* **radio & radio group:** add radio props ([9cc5ca3](https://github.com/scaleflex/ui/commit/9cc5ca3b893f2936bbaa220b7c5bf8d6caf4a3f4))
+* **select:** add select props ([d0b6d7b](https://github.com/scaleflex/ui/commit/d0b6d7bfcd15aa201f4ba971d16bf8d25b5cae40))
+* **selectGroup:** add select props ([6c32a22](https://github.com/scaleflex/ui/commit/6c32a222a4b31b39fa8dc02c4fa013c38dcf00bf))
+* **StatusLabel:** add statuslabel component ([dd61579](https://github.com/scaleflex/ui/commit/dd615794d97d6eab5ac8f53d601cb049700b2f68))
+* **switcher & switcher groups:** add switcher props ([ccb6551](https://github.com/scaleflex/ui/commit/ccb6551f0c21c367ae85a49721f48f23c08c786b))
+* **tagField:** add fullWidth props ([7be62e2](https://github.com/scaleflex/ui/commit/7be62e2f0143c78174c6b95dcfef515f52781c56))
+* add cancelFitScreen icon ([b19a2ed](https://github.com/scaleflex/ui/commit/b19a2ed5d39061a6cb45cbaf9056b0362fbff92b))
+* **Table:** add all table related stories ([f372e87](https://github.com/scaleflex/ui/commit/f372e8760f4a04b6ed1500e9468d0d2bc297a64b))
+
+
+
+
+
 # 1.0.0-beta.13 (2021-02-11)
 
 ### Bug Fixes
