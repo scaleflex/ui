@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PT from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
 
@@ -69,6 +69,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
       removeTag(tags.length - 1);
     }
   };
+
+  useEffect(() => {
+    setInternalTags(tags);
+  }, [tags]);
 
   return (
     <Styled.TagFieldWrapper
