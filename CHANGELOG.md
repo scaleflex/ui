@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.15](https://github.com/scaleflex/ui/compare/1.0.0-beta.14...1.0.0-beta.15) (2021-02-26)
+
+
+### Bug Fixes
+
+* **TagField:** update state when props.tags changed ([2f690e3](https://github.com/scaleflex/ui/commit/2f690e33ba6894b810557b7e9c3ea0799426b13e))
+
+
+### Features
+
+* **Select:** add prop MenuProps ([cda5a66](https://github.com/scaleflex/ui/commit/cda5a6627f25a126957335223b3e8c27ded2f0e9))
+* **SelectUtils:** add empty value support (case: <MenuItem value="">None</MenuItem>) ([ff87f9a](https://github.com/scaleflex/ui/commit/ff87f9a35bedb2c269826746cd5998896caedd8c))
+
+
+
+
+
 # [1.0.0-beta.14](https://github.com/scaleflex/ui/compare/1.0.0-beta.12...1.0.0-beta.14) (2021-02-18)
 
 
