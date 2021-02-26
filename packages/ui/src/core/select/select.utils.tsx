@@ -150,28 +150,26 @@ export const renderValue = (
   }: RenderValue
 // eslint-disable-next-line sonarjs/cognitive-complexity
 ): SelectSimpleValueType => {
-  if (value) {
-    const optionsProps: {value: SelectSimpleValueType}[] = [];
+  const optionsProps: {value: SelectSimpleValueType}[] = [];
 
-    React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
-      if (React.isValidElement(child)) {
-        const { displayName } = (child as JSX.Element)?.type;
+  React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
+    if (React.isValidElement(child)) {
+      const { displayName } = (child as JSX.Element)?.type;
 
-        if (displayName === 'MenuItem' && Boolean(child.props)) {
-          optionsProps.push({
-            ...(child as JSX.Element).props,
-          });
-        }
+      if (displayName === 'MenuItem' && Boolean(child.props)) {
+        optionsProps.push({
+          ...(child as JSX.Element).props,
+        });
       }
-    });
-
-    const activeOptions = multiple
-      ? optionsProps.filter((itemProps) => Array.isArray(value) && value.includes(itemProps.value))
-      : [optionsProps.find((itemProps) => itemProps.value === value)];
-
-    if (activeOptions.length > 0) {
-      return activeOptions.map(renderOptionValue).join(', ');
     }
+  });
+
+  const activeOptions = multiple
+    ? optionsProps.filter((itemProps) => Array.isArray(value) && value.includes(itemProps.value))
+    : [optionsProps.find((itemProps) => itemProps.value === value)];
+
+  if (activeOptions.length > 0) {
+    return activeOptions.map(renderOptionValue).join(', ');
   }
 
   return Array.isArray(value) ? value.join(', ') : value;
