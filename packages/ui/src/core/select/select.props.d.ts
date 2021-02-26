@@ -1,4 +1,5 @@
 import type { Values } from '../../utils/types';
+import type { MenuProps } from '../menu';
 import { Size } from './types';
 
 export type SelectSizeType = Values<typeof Size>;
@@ -13,6 +14,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
   selectProps?: React.InputHTMLAttributes;
+  MenuProps?: MenuProps;
 }
 
 export interface RenderOption {

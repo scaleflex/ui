@@ -3,7 +3,8 @@ import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
 import Menu from '../menu';
-import type { AnchorElType } from '../menu/menu.props';
+import type { AnchorElType, MenuProps } from '../menu/menu.props';
+import { propTypes as menuPropTypes } from '../menu/menu.component';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { Size } from './types';
@@ -11,7 +12,7 @@ import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
   {
-    children, size, error, multiple, onChange, value, fullWidth, selectProps, ...rest
+    children, size, error, multiple, onChange, value, fullWidth, selectProps, MenuProps, ...rest
   },
   ref
 ): JSX.Element => {
@@ -45,10 +46,11 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
       <Styled.Input {...selectProps} />
 
       <Menu
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
         fullWidth
+        {...(MenuProps || {})}
+        onClose={handleClose}
+        open={open}
+        anchorEl={anchorEl}
       >
         {React.Children.map(children, (child) => renderOption(
           child,
@@ -87,6 +89,7 @@ export const propTypes = {
     PT.arrayOf(simpleValuePropTypes)
   ]) as Validator<SelectSimpleValueType | SelectSimpleValueType[]>,
   onChange: PT.func,
+  MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
   // eslint-disable-next-line react/forbid-prop-types
   selectProps: PT.object
 };
