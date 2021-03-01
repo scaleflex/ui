@@ -10,5 +10,6 @@ export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTM
   color?: ButtonColorType;
   icon?: React.ReactNode | ((props: any) => React.ReactNode);
   badge?: React.ReactNode;
-  loading?:boolean;
+  loading?: boolean;
+  $loading?: boolean;
 }
