@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.16](https://github.com/scaleflex/ui/compare/1.0.0-beta.15...1.0.0-beta.16) (2021-03-01)
+
+
+### Bug Fixes
+
+* loading in button ([4a4339e](https://github.com/scaleflex/ui/commit/4a4339eef6f7e27f936ed14e15d6b7c25c34e2aa))
+* loading in button ([4519727](https://github.com/scaleflex/ui/commit/45197271ba17180a0d55a11285c72f1b51857892))
+
+
+
+
+
 # [1.0.0-beta.15](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.14...1.0.0-beta.15) (2021-02-26)
 
 
