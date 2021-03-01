@@ -22,7 +22,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
     ref={ref}
   >
     {icon && (
-      <Styled.Icon loading={loading}>
+      <Styled.Icon loading={Boolean(loading)}>
         {
           typeof icon === 'function'
             ? (loading ? <SpinnerIcon size={getIconSize(size)} /> : icon({ size: getIconSize(size) }))
@@ -32,7 +32,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>((
     )}
 
     {loading && !icon && (
-      <Styled.Icon loading={loading}>
+      <Styled.Icon loading={Boolean(loading)}>
         <SpinnerIcon size={getIconSize(size)} />
       </Styled.Icon>
     )}
