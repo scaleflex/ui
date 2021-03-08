@@ -4,9 +4,7 @@ import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { ButtonProps } from './button.props';
-import {
-  colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin
-} from './button.mixin';
+import { colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin } from './button.mixin';
 import { Size, Color } from './types';
 
 const baseClassName = 'Button';
@@ -27,9 +25,7 @@ const Badge = styled.span.attrs({
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    color = Color.Secondary, size = Size.Md, theme
-  }: With<WithTheme, ButtonProps>) => css`
+  ({ color = Color.Secondary, size = Size.Md, theme }: With<WithTheme, ButtonProps>) => css`
     display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;
@@ -49,26 +45,24 @@ const Button = styled.button.attrs({
 );
 
 const Icon = styled.span.attrs({
-
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ $loading }:ButtonProps) => css`
-  display: flex;
-  margin-right: 4px;
-  margin-left: 1px;
+  ({ $loading }: ButtonProps) => css`
+    display: flex;
+    margin-right: 4px;
+    margin-left: 1px;
 
-  svg {
-    animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'} ;
-  }
-  
-`
+    svg {
+      animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'};
+    }
+  `
 );
 
 const Styled = applyDisplayNames({
   Button,
   Label,
   Icon,
-  Badge
+  Badge,
 });
 
 export default Styled;

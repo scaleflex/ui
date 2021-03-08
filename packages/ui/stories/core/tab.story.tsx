@@ -19,11 +19,7 @@ const defaultArgs = {
   size: Size.Md,
 };
 
-const BasicTemplate: Story<TabProps> = ({
-  ...args
-}) => (
-  <Tab {...args} />
-);
+const BasicTemplate: Story<TabProps> = ({ ...args }) => <Tab {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

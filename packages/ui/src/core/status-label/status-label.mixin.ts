@@ -16,5 +16,4 @@ export const sizeStatusLabelMixin = {
     line-height: 16px;
     padding: 4px 12px;
   `,
-
 };

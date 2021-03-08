@@ -15,78 +15,82 @@ import type { InputGroupProps } from './input-group.props';
 import { Type } from './types';
 import Styled from './input-group.styles';
 
-const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>((
-  {
-    children, type, error, label, hint, LabelProps: LabelPropsData,
-    InputProps: InputPropsData, inputProps, inputRef, TextareaProps: TextareaPropsData, ...rest
-  }: InputGroupProps,
-  ref
-): JSX.Element => {
-  const renderLabel = (): string | number | null | JSX.Element | any => {
-    if (label) {
-      if (typeof label === 'function') {
-        return label({ error });
+const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
+  (
+    {
+      children,
+      type,
+      error,
+      label,
+      hint,
+      LabelProps: LabelPropsData,
+      InputProps: InputPropsData,
+      inputProps,
+      inputRef,
+      TextareaProps: TextareaPropsData,
+      ...rest
+    }: InputGroupProps,
+    ref
+  ): JSX.Element => {
+    const renderLabel = (): string | number | null | JSX.Element | any => {
+      if (label) {
+        if (typeof label === 'function') {
+          return label({ error });
+        }
+
+        if (typeof label === 'object') {
+          return label;
+        }
+
+        return (
+          <Label error={error} {...(LabelPropsData || {})}>
+            {label}
+          </Label>
+        );
       }
 
-      if (typeof label === 'object') {
-        return label;
+      return null;
+    };
+
+    const renderField = (): JSX.Element | null => {
+      const fieldProps = { error, ...rest };
+
+      if (type === Type.Input) {
+        return <Input {...fieldProps} {...(InputPropsData || {})} {...inputProps} ref={inputRef?.ref || inputRef} />;
       }
 
-      return (
-        <Label error={error} {...(LabelPropsData || {})}>{label}</Label>
-      );
-    }
-
-    return null;
-  };
-
-  const renderField = (): JSX.Element | null => {
-    const fieldProps = { error, ...rest };
-
-    if (type === Type.Input) {
-      return (
-        <Input
-          {...fieldProps}
-          {...(InputPropsData || {})}
-          {...inputProps}
-          ref={inputRef?.ref || inputRef}
-        />
-      );
-    }
-
-    if (type === Type.Textarea) {
-      return <Textarea {...fieldProps} {...(TextareaPropsData || {})} />;
-    }
-
-    return null;
-  };
-
-  const renderHint = (): string | number | null | JSX.Element | any => {
-    if (hint) {
-      if (typeof hint === 'function') {
-        return hint({ error });
+      if (type === Type.Textarea) {
+        return <Textarea {...fieldProps} {...(TextareaPropsData || {})} />;
       }
 
-      if (typeof hint === 'object') {
-        return hint;
+      return null;
+    };
+
+    const renderHint = (): string | number | null | JSX.Element | any => {
+      if (hint) {
+        if (typeof hint === 'function') {
+          return hint({ error });
+        }
+
+        if (typeof hint === 'object') {
+          return hint;
+        }
+
+        return <FormHint error={error}>{hint}</FormHint>;
       }
 
-      return (
-        <FormHint error={error}>{hint}</FormHint>
-      );
-    }
+      return null;
+    };
 
-    return null;
-  };
-
-  return (
-    <Styled.InputGroup ref={ref}>
-      {renderLabel()}
-      {renderField()}
-      {renderHint()}
-    </Styled.InputGroup>
-  );
-});
+    return (
+      <Styled.InputGroup ref={ref}>
+        {renderLabel()}
+        {renderField()}
+        {renderHint()}
+      </Styled.InputGroup>
+    );
+  }
+);
 
 InputGroup.defaultProps = {
   type: Type.Input,

@@ -20,9 +20,7 @@ const defaultArgs = {
   open: false,
 };
 
-const BasicTemplate: Story<PopupProps> = ({
-  open, ...args
-}) => {
+const BasicTemplate: Story<PopupProps> = ({ open, ...args }) => {
   const [openState, setOpenState] = useState(open || false);
 
   useEffect(() => {
@@ -31,13 +29,10 @@ const BasicTemplate: Story<PopupProps> = ({
 
   return (
     <>
-      <Button color="link" size="sm" onClick={() => setOpenState(!openState)}>Open simple popup</Button>
-      <Popup
-        {...args}
-        open={openState}
-        autoHideDuration={3000}
-        onClose={() => setOpenState(false)}
-      />
+      <Button color="link" size="sm" onClick={() => setOpenState(!openState)}>
+        Open simple popup
+      </Button>
+      <Popup {...args} open={openState} autoHideDuration={3000} onClose={() => setOpenState(false)} />
     </>
   );
 };
@@ -48,7 +43,7 @@ BottomLeft.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Bottom,
-    horizontal: Horizontal.Left
+    horizontal: Horizontal.Left,
   },
 };
 
@@ -58,7 +53,7 @@ BottomCenter.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Bottom,
-    horizontal: Horizontal.Center
+    horizontal: Horizontal.Center,
   },
 };
 
@@ -68,7 +63,7 @@ BottomRight.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Bottom,
-    horizontal: Horizontal.Right
+    horizontal: Horizontal.Right,
   },
 };
 
@@ -78,7 +73,7 @@ TopLeft.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Top,
-    horizontal: Horizontal.Left
+    horizontal: Horizontal.Left,
   },
 };
 
@@ -88,7 +83,7 @@ TopCenter.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Top,
-    horizontal: Horizontal.Center
+    horizontal: Horizontal.Center,
   },
 };
 
@@ -98,6 +93,6 @@ TopRight.args = {
   ...defaultArgs,
   anchorOrigin: {
     vertical: Vertical.Top,
-    horizontal: Horizontal.Right
+    horizontal: Horizontal.Right,
   },
 };

@@ -12,7 +12,7 @@ const baseClassName = 'ModalTitle';
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ theme: { palette } }: With<WithTheme, {iconShadow: boolean}>) => css`
+  ({ theme: { palette } }: With<WithTheme, { iconShadow: boolean }>) => css`
     display: flex;
     margin-bottom: 8px;
     padding: 12.5px;
@@ -42,7 +42,7 @@ const LabelSecondary = styled.div.attrs({
 const Close = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Close'),
 })(
-  ({ variant = Variant.Default }: {variant?: ModalTitleVariantType}) => `
+  ({ variant = Variant.Default }: { variant?: ModalTitleVariantType }) => `
     position: absolute;
     display: flex;
     top: ${variant === Variant.WithIcon ? 8 : 16}px;
@@ -54,25 +54,35 @@ const Close = styled.div.attrs({
 const ModalTitle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ variant = Variant.Default, theme: { palette, shape: { borderRadius } } }: With<WithTheme, ModalTitleProps>) => css`
+  ({
+    variant = Variant.Default,
+    theme: {
+      palette,
+      shape: { borderRadius },
+    },
+  }: With<WithTheme, ModalTitleProps>) => css`
     position: relative;
     color: ${palette[PColor.TextPrimary]};
     border-radius: ${borderRadius[BRSize.Md]}px ${borderRadius[BRSize.Md]}px 0px 0px;
 
     ${() => {
-    const paddingY = variant === Variant.WithIcon ? 8 : 11;
-    const paddingLeft = 18;
-    const paddingRight = variant === Variant.WithIcon ? paddingLeft : 40;
+      const paddingY = variant === Variant.WithIcon ? 8 : 11;
+      const paddingLeft = 18;
+      const paddingRight = variant === Variant.WithIcon ? paddingLeft : 40;
 
-    return css`padding: ${paddingY}px ${paddingRight}px ${paddingY}px ${paddingLeft}px;`;
-  }}
+      return css`
+        padding: ${paddingY}px ${paddingRight}px ${paddingY}px ${paddingLeft}px;
+      `;
+    }}
 
-    ${variant === Variant.Default && css`
+    ${variant === Variant.Default &&
+    css`
       background: ${palette[PColor.BackgroundPrimary]};
       border-bottom: 1px solid ${palette[PColor.BordersSecondary]};
     `}
 
-    ${variant === Variant.WithIcon && css`
+    ${variant === Variant.WithIcon &&
+    css`
       display: flex;
       align-items: center;
       flex-direction: column;

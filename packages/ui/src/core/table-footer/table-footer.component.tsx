@@ -10,26 +10,18 @@ const tablelvl2 = {
   variant: 'footer',
 };
 
-const TableFooter = intrinsicComponent<TableFooterProps, HTMLTableSectionElement>((
-  {
-    children, ...rest
-  }: TableFooterProps,
-  ref
-): JSX.Element => (
-  <Tablelvl2Context.Provider value={tablelvl2}>
-    <Styled.TableFooter
-      ref={ref}
-      {...rest}
-    >
-      {children}
-    </Styled.TableFooter>
-  </Tablelvl2Context.Provider>
-));
-
-
+const TableFooter = intrinsicComponent<TableFooterProps, HTMLTableSectionElement>(
+  ({ children, ...rest }: TableFooterProps, ref): JSX.Element => (
+    <Tablelvl2Context.Provider value={tablelvl2}>
+      <Styled.TableFooter ref={ref} {...rest}>
+        {children}
+      </Styled.TableFooter>
+    </Tablelvl2Context.Provider>
+  )
+);
 
 TableFooter.propTypes = {
-  children: PT.node
+  children: PT.node,
 };
 
 export default TableFooter;

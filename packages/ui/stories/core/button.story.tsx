@@ -14,9 +14,10 @@ export default {
 
   argTypes: {
     icon: {
-      description: 'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`'
-    }
-  }
+      description:
+        'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -27,15 +28,7 @@ const defaultArgs = {
   loading: false,
 };
 
-const BasicTemplate: Story<ButtonProps> = ({
-  children, ...args
-}) => (
-  <Button
-    {...args}
-  >
-    {children}
-  </Button>
-);
+const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {...args}>{children}</Button>;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

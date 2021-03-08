@@ -7,7 +7,7 @@ import StyledArrowTick from '../arrow-tick/arrow-tick.styles';
 import { Position, Size } from './types';
 
 export const positionTooltipMixin = {
-  [Position.Right]: ({ rect }: {rect: DOMRect}) => css`
+  [Position.Right]: ({ rect }: { rect: DOMRect }) => css`
     top: ${rect.top + rect.height / 2}px;
     left: ${rect.left + rect.width}px;
     transform: translate(0, -50%);
@@ -17,7 +17,7 @@ export const positionTooltipMixin = {
     }
   `,
 
-  [Position.Left]: ({ rect }: {rect: DOMRect}) => css`
+  [Position.Left]: ({ rect }: { rect: DOMRect }) => css`
     top: ${rect.top + rect.height / 2}px;
     left: ${rect.left}px;
     transform: translate(-100%, -50%);
@@ -28,7 +28,7 @@ export const positionTooltipMixin = {
     }
   `,
 
-  [Position.Top]: ({ rect }: {rect: DOMRect}) => css`
+  [Position.Top]: ({ rect }: { rect: DOMRect }) => css`
     flex-direction: column;
     top: ${rect.top}px;
     left: ${rect.left + rect.width / 2}px;
@@ -40,7 +40,7 @@ export const positionTooltipMixin = {
     }
   `,
 
-  [Position.Bottom]: ({ rect }: {rect: DOMRect}) => css`
+  [Position.Bottom]: ({ rect }: { rect: DOMRect }) => css`
     flex-direction: column;
     top: ${rect.top + rect.height}px;
     left: ${rect.left + rect.width / 2}px;
@@ -53,7 +53,15 @@ export const positionTooltipMixin = {
 };
 
 export const sizeTooltipMixin = {
-  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.LabelSmall],
+  [Size.Sm]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.LabelSmall],
 
-  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => font[FV.LabelNormal],
+  [Size.Md]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.LabelNormal],
 };

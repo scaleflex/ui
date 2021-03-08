@@ -90,35 +90,55 @@ export const colorButtonMixin = {
 };
 
 export const sizeButtonMixin = {
-  [Size.Xs]: css`padding: 6px 8px;`,
+  [Size.Xs]: css`
+    padding: 6px 8px;
+  `,
 
-  [Size.Sm]: css`padding: 8px 10px;`,
+  [Size.Sm]: css`
+    padding: 8px 10px;
+  `,
 
-  [Size.Md]: css`padding: 9px 12px;`,
+  [Size.Md]: css`
+    padding: 9px 12px;
+  `,
 
-  [Size.Lg]: css`padding: 11px 14px;`,
+  [Size.Lg]: css`
+    padding: 11px 14px;
+  `,
 
-  [Size.Xl]: css`padding: 12px 16px;`,
+  [Size.Xl]: css`
+    padding: 12px 16px;
+  `,
 };
 
 export const sizeButtonLabelMixin = {
-  [Size.Xs]: ({ theme: { typography: { font } } }: WithTheme) => css(
-    font[FontVariant.ButtonXs]
-  ),
+  [Size.Xs]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonXs]),
 
-  [Size.Sm]: ({ theme: { typography: { font } } }: WithTheme) => css(
-    font[FontVariant.ButtonSm]
-  ),
+  [Size.Sm]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonSm]),
 
-  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => css(
-    font[FontVariant.ButtonMd]
-  ),
+  [Size.Md]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonMd]),
 
-  [Size.Lg]: ({ theme: { typography: { font } } }: WithTheme) => css(
-    font[FontVariant.ButtonLg]
-  ),
+  [Size.Lg]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonLg]),
 
-  [Size.Xl]: ({ theme: { typography: { font } } }: WithTheme) => css(
-    font[FontVariant.ButtonXl]
-  ),
+  [Size.Xl]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonXl]),
 };

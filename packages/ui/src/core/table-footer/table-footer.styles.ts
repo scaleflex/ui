@@ -7,12 +7,10 @@ const TableFooter = styled.tfoot.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
   display: table-footer-group;
- `;
+`;
 
-const Styled = applyDisplayNames(
-  {
-    TableFooter
-  }
-);
+const Styled = applyDisplayNames({
+  TableFooter,
+});
 
 export default Styled;

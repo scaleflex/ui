@@ -15,9 +15,7 @@ const defaultArgs = {
   expanded: true,
 };
 
-const BasicTemplate: Story<AccordionDetailsProps> = ({
-  expanded, ...args
-}) => {
+const BasicTemplate: Story<AccordionDetailsProps> = ({ expanded, ...args }) => {
   const [openState, setOpenState] = useState(expanded || true);
 
   useEffect(() => {
@@ -25,10 +23,7 @@ const BasicTemplate: Story<AccordionDetailsProps> = ({
   }, [expanded]);
 
   return (
-    <AccordionDetails
-      {...args}
-      expanded={openState}
-    >
+    <AccordionDetails {...args} expanded={openState}>
       <p>Scaleflex Accordion Details</p>
     </AccordionDetails>
   );

@@ -13,7 +13,7 @@ const baseClassName = 'Modal';
 const Wrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Wrapper'),
 })(
-  ({ open }: {open: boolean}) => css`
+  ({ open }: { open: boolean }) => css`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -27,7 +27,7 @@ const Wrapper = styled.div.attrs({
 const Overlay = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Overlay'),
 })(
-  ({ open }: {open: boolean}) => css`
+  ({ open }: { open: boolean }) => css`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -43,9 +43,7 @@ const Overlay = styled.div.attrs({
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
-  ({
-    theme, open = false, fullWidth = false, maxWidth = Size.Sm
-  }: With<WithTheme, ModalProps>) => css`
+  ({ theme, open = false, fullWidth = false, maxWidth = Size.Sm }: With<WithTheme, ModalProps>) => css`
     position: absolute;
     overflow-x: hidden;
     overflow-y: auto;
@@ -62,7 +60,10 @@ const Container = styled.div.attrs({
     max-height: calc(100% - 64px);
     flex-direction: column;
 
-    ${fullWidth && css`width: calc(100% - 64px);`}
+    ${fullWidth &&
+    css`
+      width: calc(100% - 64px);
+    `}
     ${modalSizeMixin[maxWidth]}
 
     top: 50%;

@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 
-
 import { StoryGroup } from './types';
 import _Table from '../../src/core/table';
 import _TableContainer from '../../src/core/table-container';
@@ -9,7 +8,6 @@ import _TableHead from '../../src/core/table-head';
 import _TableCell from '../../src/core/table-cell';
 import _TableRow, { TableRowProps } from '../../src/core/table-row';
 import _TableBody from '../../src/core/table-body';
-
 
 export const Table = _Table;
 export const TableContainer = _TableContainer;
@@ -26,30 +24,24 @@ export default {
   argTypes: {
     children: {
       description: 'Node',
-    }
-  }
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
-  children: ''
+  children: '',
 };
 
-const BasicTemplate: Story<TableRowProps> = ({
-  ...args
-}) => (
+const BasicTemplate: Story<TableRowProps> = ({ ...args }) => (
   <Table>
     <TableHead>
       <TableRow {...args}>
-        <TableCell >Description</TableCell>
+        <TableCell>Description</TableCell>
       </TableRow>
     </TableHead>
-  </Table >
-)
-
+  </Table>
+);
 
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-
-

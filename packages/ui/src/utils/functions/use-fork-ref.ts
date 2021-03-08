@@ -4,7 +4,7 @@ import setRef from './set-ref';
 export function useForkRef<T>(
   refA: React.MutableRefObject<T | null> | ((instance: T | null) => void) | null | undefined,
   refB: React.MutableRefObject<T | null> | ((instance: T | null) => void) | null | undefined
-):any {
+): any {
   /**
    * This will create a new function if the ref props change and are defined.
    * This means react will call the old forkRef with `null` and the new forkRef
@@ -14,7 +14,7 @@ export function useForkRef<T>(
     if (refA == null && refB == null) {
       return null;
     }
-    return (refValue:any) => {
+    return (refValue: any) => {
       setRef(refA, refValue);
       setRef(refB, refValue);
     };

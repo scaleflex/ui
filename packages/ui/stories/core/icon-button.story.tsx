@@ -14,9 +14,10 @@ export default {
 
   argTypes: {
     children: {
-      description: 'IconButton contents, normally `icon` function `(props) => <MyIcon {...props} />`. If you use function you will have adaptive icon size. If you don\'t need it just use `<IconButton><MyIcon /></IconButton>`'
-    }
-  }
+      description:
+        "IconButton contents, normally `icon` function `(props) => <MyIcon {...props} />`. If you use function you will have adaptive icon size. If you don't need it just use `<IconButton><MyIcon /></IconButton>`",
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -27,15 +28,7 @@ const defaultArgs = {
   square: false,
 };
 
-const BasicTemplate: Story<IconButtonProps> = ({
-  children, ...args
-}) => (
-  <IconButton
-    {...args}
-  >
-    {children}
-  </IconButton>
-);
+const BasicTemplate: Story<IconButtonProps> = ({ children, ...args }) => <IconButton {...args}>{children}</IconButton>;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

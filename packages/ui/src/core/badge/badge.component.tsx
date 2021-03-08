@@ -5,14 +5,13 @@ import type { BadgeProps } from './badge.props';
 import { Color } from './types';
 import Styled from './badge.styles';
 
-const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>((
-  { badgeContent, ...rest }: BadgeProps,
-  ref
-): JSX.Element => (
-  <Styled.BadgeRoot ref={ref}>
-    <Styled.Badge {...rest}>{badgeContent}</Styled.Badge>
-  </Styled.BadgeRoot>
-));
+const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>(
+  ({ badgeContent, ...rest }: BadgeProps, ref): JSX.Element => (
+    <Styled.BadgeRoot ref={ref}>
+      <Styled.Badge {...rest}>{badgeContent}</Styled.Badge>
+    </Styled.BadgeRoot>
+  )
+);
 
 Badge.defaultProps = {
   color: Color.Secondary,

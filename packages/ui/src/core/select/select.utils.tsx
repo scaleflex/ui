@@ -3,9 +3,7 @@ import type { ReactNode, ReactElement } from 'react';
 import TickIcon from '@scaleflex/icons/tick';
 import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
-import type {
-  RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType
-} from './select.props';
+import type { RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType } from './select.props';
 import { Size } from './types';
 import Styled from './select.styles';
 
@@ -20,27 +18,12 @@ export const getIconSize = (size?: SelectSizeType): number => {
   }
 };
 
-export const renderIcon = (
-  _icon: ReactNode, size?: SelectSizeType
-): JSX.Element | undefined => (
-  _icon
-    ? (
-      <Styled.Icon>
-        {
-          typeof _icon === 'function'
-            ? _icon({ size: getIconSize(size) })
-            : _icon
-        }
-      </Styled.Icon>
-    )
-    : undefined
-);
+export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element | undefined =>
+  _icon ? (
+    <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
+  ) : undefined;
 
-const generateChildren = (
-  children: ReactNode,
-  isActive = false,
-  size: SelectSizeType = Size.Md
-): ReactNode => {
+const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType = Size.Md): ReactNode => {
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
@@ -65,8 +48,8 @@ const generateChildren = (
     }
 
     if (
-      React.Children.count(children) > 1
-      && !React.Children.toArray(children).some((child: any) => child?.type?.displayName === 'MenuItemActions')
+      React.Children.count(children) > 1 &&
+      !React.Children.toArray(children).some((child: any) => child?.type?.displayName === 'MenuItemActions')
     ) {
       return (
         <>
@@ -82,11 +65,9 @@ const generateChildren = (
 
 export const renderOption = (
   menuItem: JSX.Element,
-  {
-    value, multiple = false, size = Size.Md, onClose, onChange,
-  }: RenderOption
-// eslint-disable-next-line sonarjs/cognitive-complexity
-): JSX.Element => {
+  { value, multiple = false, size = Size.Md, onClose, onChange }: RenderOption
+): // eslint-disable-next-line sonarjs/cognitive-complexity
+JSX.Element => {
   if (!React.isValidElement(menuItem)) {
     return menuItem;
   }
@@ -96,61 +77,56 @@ export const renderOption = (
   }
 
   const menuItemValue = (menuItem as JSX.Element)?.props?.value;
-  const valueArr = multiple
-    ? (Array.isArray(value) ? value : [])
-    : [value];
+  const valueArr = multiple ? (Array.isArray(value) ? value : []) : [value];
   const active = valueArr.length > 0 && valueArr.includes(menuItemValue);
 
-  return React.cloneElement(
-    menuItem as ReactElement<MenuItemProps>,
-    {
-      active,
-      size,
-      children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
-      onClick: () => {
-        if (!multiple && typeof onClose === 'function') { onClose(); }
+  return React.cloneElement(menuItem as ReactElement<MenuItemProps>, {
+    active,
+    size,
+    children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
+    onClick: () => {
+      if (!multiple && typeof onClose === 'function') {
+        onClose();
+      }
 
-        if (typeof onChange === 'function') {
-          let newValue = menuItemValue;
+      if (typeof onChange === 'function') {
+        let newValue = menuItemValue;
 
-          if (multiple) {
-            newValue = [...(Array.isArray(value) ? value : [])];
+        if (multiple) {
+          newValue = [...(Array.isArray(value) ? value : [])];
 
-            const index = newValue.indexOf(menuItemValue);
+          const index = newValue.indexOf(menuItemValue);
 
-            if (index > -1) {
-              newValue.splice(index, 1);
-            } else {
-              newValue.push(menuItemValue);
-            }
+          if (index > -1) {
+            newValue.splice(index, 1);
+          } else {
+            newValue.push(menuItemValue);
           }
-
-          onChange(newValue);
         }
-      },
-    }
-  );
+
+        onChange(newValue);
+      }
+    },
+  });
 };
 
 const renderOptionValue = (option: any) => {
   if (option && option.children) {
     if (Array.isArray(option.children)) {
-      return option.children
-        ?.filter((optionChild: any) => typeof optionChild === 'string')
-        ?.join(' ');
+      return option.children?.filter((optionChild: any) => typeof optionChild === 'string')?.join(' ');
     }
 
     return option.children;
   }
 };
 
-export const renderValue = (
-  {
-    value, multiple = false, children,
-  }: RenderValue
-// eslint-disable-next-line sonarjs/cognitive-complexity
-): SelectSimpleValueType => {
-  const optionsProps: {value: SelectSimpleValueType}[] = [];
+export const renderValue = ({
+  value,
+  multiple = false,
+  children,
+}: RenderValue): // eslint-disable-next-line sonarjs/cognitive-complexity
+SelectSimpleValueType => {
+  const optionsProps: { value: SelectSimpleValueType }[] = [];
 
   React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
     if (React.isValidElement(child)) {

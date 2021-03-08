@@ -11,11 +11,14 @@ import Styled from './robot.styles';
 
 const getRobotIcon = (status?: RobotStatusType): JSX.Element => {
   switch (status) {
-    case Status.Worried: return <RobotWorried />;
+    case Status.Worried:
+      return <RobotWorried />;
 
-    case Status.Sad: return <RobotSad />;
+    case Status.Sad:
+      return <RobotSad />;
 
-    case Status.Neutral: return <RobotNeutral />;
+    case Status.Neutral:
+      return <RobotNeutral />;
 
     case Status.Happy:
     default:
@@ -23,17 +26,16 @@ const getRobotIcon = (status?: RobotStatusType): JSX.Element => {
   }
 };
 
-const Robot = intrinsicComponent<RobotProps, HTMLSpanElement>((
-  { status, ...rest },
-  ref
-): JSX.Element => (
-  <Styled.Robot {...rest} ref={ref}>
-    {getRobotIcon(status)}
-  </Styled.Robot>
-));
+const Robot = intrinsicComponent<RobotProps, HTMLSpanElement>(
+  ({ status, ...rest }, ref): JSX.Element => (
+    <Styled.Robot {...rest} ref={ref}>
+      {getRobotIcon(status)}
+    </Styled.Robot>
+  )
+);
 
 export const defaultProps = {
-  status: Status.Happy
+  status: Status.Happy,
 };
 
 Robot.defaultProps = defaultProps;

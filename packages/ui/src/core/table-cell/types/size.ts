@@ -1,4 +1,4 @@
 export const Size = {
   Medium: 'medium',
-  Small: 'small'
+  Small: 'small',
 } as const;

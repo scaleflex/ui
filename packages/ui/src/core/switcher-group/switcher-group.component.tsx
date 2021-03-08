@@ -5,20 +5,15 @@ import Switcher from '../switcher';
 import type { SwitcherGroupProps } from './switcher-group.props';
 import Styled from './switcher-group.styles';
 
-const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>((
-  {
-    label, switcherProps, ...rest
-  }: SwitcherGroupProps,
-  ref
-): JSX.Element => (
-  <Styled.SwitcherGroup ref={ref}>
-    <Switcher switcherProps={switcherProps} {...rest} />
+const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
+  ({ label, switcherProps, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
+    <Styled.SwitcherGroup ref={ref}>
+      <Switcher switcherProps={switcherProps} {...rest} />
 
-    <Styled.Label>
-      {label}
-    </Styled.Label>
-  </Styled.SwitcherGroup>
-));
+      <Styled.Label>{label}</Styled.Label>
+    </Styled.SwitcherGroup>
+  )
+);
 
 SwitcherGroup.defaultProps = {
   checked: false,
@@ -29,7 +24,7 @@ SwitcherGroup.propTypes = {
   checked: PT.bool,
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
-  switcherProps: PT.object
+  switcherProps: PT.object,
 };
 
 export default SwitcherGroup;

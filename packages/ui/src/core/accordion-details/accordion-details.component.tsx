@@ -4,16 +4,13 @@ import { intrinsicComponent } from '../../utils/functions';
 import type { AccordionDetailsProps } from './accordion-details.props';
 import Styled from './accordion-details.styles';
 
-const AccordionDetails = intrinsicComponent<AccordionDetailsProps, HTMLDivElement>((
-  {
-    expanded, children, ...rest
-  } : AccordionDetailsProps,
-  ref
-): JSX.Element => (
-  <Styled.AccordionDetails ref={ref} expanded={expanded} {...rest}>
-    {children}
-  </Styled.AccordionDetails>
-));
+const AccordionDetails = intrinsicComponent<AccordionDetailsProps, HTMLDivElement>(
+  ({ expanded, children, ...rest }: AccordionDetailsProps, ref): JSX.Element => (
+    <Styled.AccordionDetails ref={ref} expanded={expanded} {...rest}>
+      {children}
+    </Styled.AccordionDetails>
+  )
+);
 
 AccordionDetails.defaultProps = {
   expanded: false,

@@ -18,16 +18,13 @@ export default {
   argTypes: {
     children: {
       description: 'Tabs contents, normally `Tab`s.',
-    }
-  }
+    },
+  },
 } as Meta;
 
-const defaultArgs = {
-};
+const defaultArgs = {};
 
-const BasicTemplate: Story<TabsProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<TabsProps> = ({ ...args }) => {
   const tabs = ['Assets', 'Collections', 'Products'];
   const tabsIcons = [<AssetsIcon />, <CollectionsIcon />, <ProductsIcon />];
   const [activeTabIndex, setActiveTabIndex] = useState(0);
@@ -37,21 +34,12 @@ const BasicTemplate: Story<TabsProps> = ({
     <div>
       <Tabs value={activeTabIndex} onChange={handleTabClick} {...args}>
         {tabs.map((tab, index) => (
-          <Tab
-            key={tab}
-            value={index}
-            label={tab}
-            icon={tabsIcons[index]}
-          />
+          <Tab key={tab} value={index} label={tab} icon={tabsIcons[index]} />
         ))}
       </Tabs>
 
       {tabs.map((tab, index) => (
-        <TabPanel
-          key={tab}
-          value={activeTabIndex}
-          index={index}
-        >
+        <TabPanel key={tab} value={activeTabIndex} index={index}>
           {tab}
         </TabPanel>
       ))}

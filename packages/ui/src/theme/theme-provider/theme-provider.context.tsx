@@ -39,22 +39,22 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       typography: {
         ...merge(
           {
-            ...defaultTheme.typography
+            ...defaultTheme.typography,
           },
           {
-            ...typographyOverride
+            ...typographyOverride,
           }
-        )
+        ),
       },
       shape: {
         ...merge(
           {
-            ...defaultTheme.shape
+            ...defaultTheme.shape,
           },
           {
-            ...shapeOverride
+            ...shapeOverride,
           }
-        )
+        ),
       },
     };
 
@@ -71,9 +71,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   );
 };
 
-const {
-  baseLineHeight, font, ...typography
-} = defaultTheme.typography;
+const { baseLineHeight, font, ...typography } = defaultTheme.typography;
 
 ThemeProvider.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]),
@@ -81,7 +79,7 @@ ThemeProvider.propTypes = {
     breakpoints: PT.exact(record(objectValues(Breakpoint), PT.number)),
     palette: PT.exact(record(objectValues(Color), PT.string)),
     shape: PT.exact({
-      borderRadius: PT.exact(record(objectValues(BorderRadiusSize), PT.string))
+      borderRadius: PT.exact(record(objectValues(BorderRadiusSize), PT.string)),
     }),
     typography: PT.exact({
       baseLineHeight: PT.oneOfType([PT.string, PT.number]),

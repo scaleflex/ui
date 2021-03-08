@@ -21,7 +21,7 @@ const Icon = styled.span.attrs({
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
-  ({ fullWidth = false }: {fullWidth: boolean}) => css`
+  ({ fullWidth = false }: { fullWidth: boolean }) => css`
     position: relative;
     display: inline-flex;
     ${fullWidth ? 'width: 100%' : ''}
@@ -37,7 +37,9 @@ const Select = styled(InputStyled.Input).attrs({
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})`flex-grow: 1;`;
+})`
+  flex-grow: 1;
+`;
 
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),

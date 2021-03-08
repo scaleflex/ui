@@ -19,18 +19,10 @@ const defaultArgs = {
   placeholder: 'placeholder',
 };
 
-const BasicTemplate: Story<InputProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<InputProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
-  return (
-    <Input
-      {...args}
-      value={value}
-      onChange={({ target }) => setValue(target.value)}
-    />
-  );
+  return <Input {...args} value={value} onChange={({ target }) => setValue(target.value)} />;
 };
 
 // Basic

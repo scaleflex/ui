@@ -12,32 +12,24 @@ export default {
 
   argTypes: {
     switcherProps: {
-      description: 'input attributes applied directly input element.'
-    }
-  }
+      description: 'input attributes applied directly input element.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   label: 'label',
-  checked: false
+  checked: false,
 };
 
-const BasicTemplate: Story<SwitcherGroupProps> = ({
-  checked, ...args
-}) => {
+const BasicTemplate: Story<SwitcherGroupProps> = ({ checked, ...args }) => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return (
-    <SwitcherGroup
-      {...args}
-      checked={checkedState}
-      onChange={(event) => setCheckedState(event.target.checked)}
-    />
-  );
+  return <SwitcherGroup {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
 // Basic

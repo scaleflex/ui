@@ -8,19 +8,13 @@ import type { ArrowTickProps } from './arrow-tick.props';
 import { Type } from './types';
 import Styled from './arrow-tick.styles';
 
-const ArrowTick = intrinsicComponent<ArrowTickProps, HTMLSpanElement>((
-  {
-    IconProps: IconPropsData, ...rest
-  }: ArrowTickProps,
-  ref
-): JSX.Element => (
-  <Styled.ArrowTick
-    {...rest}
-    ref={ref}
-  >
-    <ArrowTickIcon {...IconPropsData} />
-  </Styled.ArrowTick>
-));
+const ArrowTick = intrinsicComponent<ArrowTickProps, HTMLSpanElement>(
+  ({ IconProps: IconPropsData, ...rest }: ArrowTickProps, ref): JSX.Element => (
+    <Styled.ArrowTick {...rest} ref={ref}>
+      <ArrowTickIcon {...IconPropsData} />
+    </Styled.ArrowTick>
+  )
+);
 
 ArrowTick.defaultProps = {
   type: Type.Right,

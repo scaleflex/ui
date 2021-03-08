@@ -5,22 +5,14 @@ import type { TabProps } from './tab.props';
 import { Size } from './types';
 import Styled from './tab.styles';
 
-const Tab = intrinsicComponent<TabProps, HTMLDivElement>((
-  {
-    icon, label, value, active, className, size = Size.Md, ...rest
-  }: TabProps,
-  ref
-): JSX.Element => (
-  <Styled.Tab
-    ref={ref}
-    size={size}
-    {...rest}
-    className={`${className}${active ? ' active' : ''}`}
-  >
-    {icon && <Styled.Icon size={size}>{icon}</Styled.Icon>}
-    {label && <Styled.Label>{label}</Styled.Label>}
-  </Styled.Tab>
-));
+const Tab = intrinsicComponent<TabProps, HTMLDivElement>(
+  ({ icon, label, value, active, className, size = Size.Md, ...rest }: TabProps, ref): JSX.Element => (
+    <Styled.Tab ref={ref} size={size} {...rest} className={`${className}${active ? ' active' : ''}`}>
+      {icon && <Styled.Icon size={size}>{icon}</Styled.Icon>}
+      {label && <Styled.Label>{label}</Styled.Label>}
+    </Styled.Tab>
+  )
+);
 
 Tab.defaultProps = {
   size: Size.Md,

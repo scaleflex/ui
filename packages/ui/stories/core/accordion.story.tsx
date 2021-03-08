@@ -11,8 +11,8 @@ export default {
   component: Accordion,
   argTypes: {
     children: {
-      description: 'Accordion children are sub-module components: `AccordionHeader, AccordionDetails`.'
-    }
+      description: 'Accordion children are sub-module components: `AccordionHeader, AccordionDetails`.',
+    },
   },
   excludeStories: ['Accordion'],
 } as Meta;
@@ -22,9 +22,7 @@ const defaultArgs = {
   expanded: false,
 };
 
-const BasicTemplate: Story<AccordionProps> = ({
-  expanded, ...args
-}) => {
+const BasicTemplate: Story<AccordionProps> = ({ expanded, ...args }) => {
   const [openState, setOpenState] = useState(expanded || false);
 
   useEffect(() => {
@@ -32,11 +30,7 @@ const BasicTemplate: Story<AccordionProps> = ({
   }, [expanded]);
 
   return (
-    <Accordion
-      {...args}
-      expanded={openState}
-      onChange={(value) => setOpenState(value)}
-    >
+    <Accordion {...args} expanded={openState} onChange={(value) => setOpenState(value)}>
       <div>This is Scaleflex Accordion </div>
     </Accordion>
   );

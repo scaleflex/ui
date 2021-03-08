@@ -16,11 +16,7 @@ const defaultArgs = {
   status: Status.Happy,
 };
 
-const BasicTemplate: Story<RobotProps> = ({
-  ...args
-}) => (
-  <Robot {...args} />
-);
+const BasicTemplate: Story<RobotProps> = ({ ...args }) => <Robot {...args} />;
 
 // Happy
 export const Happy = BasicTemplate.bind({});

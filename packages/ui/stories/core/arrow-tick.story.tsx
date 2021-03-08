@@ -16,9 +16,7 @@ const defaultArgs = {
   type: Type.Right,
 };
 
-const BasicTemplate: Story<ArrowTickProps> = (args) => (
-  <ArrowTick {...args} />
-);
+const BasicTemplate: Story<ArrowTickProps> = (args) => <ArrowTick {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

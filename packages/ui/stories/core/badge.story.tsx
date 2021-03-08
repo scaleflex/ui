@@ -21,9 +21,7 @@ const defaultArgs = {
   padding: '0 6px',
 };
 
-const BasicTemplate: Story<BadgeProps> = (args) => (
-  <Badge {...args} />
-);
+const BasicTemplate: Story<BadgeProps> = (args) => <Badge {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

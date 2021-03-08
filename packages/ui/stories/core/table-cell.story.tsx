@@ -10,9 +10,6 @@ import _TableCell, { TableCellProps } from '../../src/core/table-cell';
 import _TableRow from '../../src/core/table-row';
 import _TableBody from '../../src/core/table-body';
 
-
-
-
 export const Table = _Table;
 export const TableContainer = _TableContainer;
 export const TableHead = _TableHead;
@@ -30,49 +27,36 @@ export default {
       description: 'Node',
     },
     padding: {
-      description: "` default options none` ",
+      description: '` default options none` ',
       control: {
         type: 'radio',
-        options: [
-          'default',
-          'options',
-          'none'
-        ]
-      }
+        options: ['default', 'options', 'none'],
+      },
     },
     size: {
-      description: "` medium small` ",
+      description: '` medium small` ',
       control: {
         type: 'radio',
-        options: [
-          'medium',
-          'small',
-        ]
-      }
+        options: ['medium', 'small'],
+      },
     },
-  }
+  },
 } as Meta;
 
 const defaultArgs = {
-  children: ''
+  children: '',
 };
 
-const BasicTemplate: Story<TableCellProps> = ({
-  ...args
-}) => (
+const BasicTemplate: Story<TableCellProps> = ({ ...args }) => (
   <Table>
     <TableHead>
-      <TableRow >
+      <TableRow>
         <TableCell {...args}>Description</TableCell>
       </TableRow>
     </TableHead>
   </Table>
-)
-
+);
 
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-
-

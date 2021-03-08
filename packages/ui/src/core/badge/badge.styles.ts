@@ -11,15 +11,13 @@ const BadgeRoot = styled.span.attrs({
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
-  vertical-align: middle
+  vertical-align: middle;
 `;
 
 const defaultSize = 20;
 
 const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) })<BadgeProps>(
-  ({
-    size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline
-  }) => css`
+  ({ size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline }) => css`
     ${inline ? '' : 'position: absolute;'}
     display: flex;
     flex-wrap: wrap;
@@ -43,7 +41,7 @@ const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) }
 
 const Styled = applyDisplayNames({
   BadgeRoot,
-  Badge
+  Badge,
 });
 
 export default Styled;

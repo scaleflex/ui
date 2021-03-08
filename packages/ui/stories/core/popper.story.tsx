@@ -14,21 +14,19 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  position: 'top'
+  position: 'top',
 };
 
 const style = {
   border: '1px solid',
   padding: '8px',
   backgroundColor: '#37414b',
-  color: 'white'
+  color: 'white',
 };
 
-const BasicTemplate: Story<PopperProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<PopperProps> = ({ ...args }) => {
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
-  const handleClick = (event:React.MouseEvent<HTMLButtonElement>):void => {
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 

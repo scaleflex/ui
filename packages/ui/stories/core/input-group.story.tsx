@@ -14,9 +14,9 @@ export default {
 
   argTypes: {
     inputProps: {
-      description: 'input attributes applied directly input element.'
-    }
-  }
+      description: 'input attributes applied directly input element.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -25,18 +25,10 @@ const defaultArgs = {
   hint: 'Some hint goes here',
 };
 
-const BasicTemplate: Story<InputGroupProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState('value');
 
-  return (
-    <InputGroup
-      {...args}
-      value={valueState}
-      onChange={({ target }) => setValueState(target.value)}
-    />
-  );
+  return <InputGroup {...args} value={valueState} onChange={({ target }) => setValueState(target.value)} />;
 };
 
 // Input

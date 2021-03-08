@@ -16,19 +16,13 @@ const getIconSize = (sizeName: MenuItemSizeType | undefined): number => {
   }
 };
 
-const MenuItemIcon = intrinsicComponent<MenuItemIconProps, HTMLDivElement>((
-  { children, size = Size.Md, ...rest },
-  ref
-): JSX.Element => (
-  <Styled.Icon
-    {...rest}
-    ref={ref}
-  >
-    {children && typeof children === 'function'
-      ? children({ size: getIconSize(size) })
-      : children}
-  </Styled.Icon>
-));
+const MenuItemIcon = intrinsicComponent<MenuItemIconProps, HTMLDivElement>(
+  ({ children, size = Size.Md, ...rest }, ref): JSX.Element => (
+    <Styled.Icon {...rest} ref={ref}>
+      {children && typeof children === 'function' ? children({ size: getIconSize(size) }) : children}
+    </Styled.Icon>
+  )
+);
 
 MenuItemIcon.defaultProps = {
   size: Size.Md,

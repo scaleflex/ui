@@ -12,26 +12,20 @@ export default {
 
   argTypes: {
     onSelect: {
-      description: 'Actual only for "suggested" type.'
+      description: 'Actual only for "suggested" type.',
     },
     onRemove: {
-      description: 'Actual only for "default" type. On remove icon click.'
-    }
-  }
+      description: 'Actual only for "default" type. On remove icon click.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
-  children: 'Audi Q7'
+  children: 'Audi Q7',
 };
 
-const BasicTemplate: Story<TagProps> = ({
-  ...args
-}) => (
-  <Tag
-    {...args}
-    onSelect={() => alert('onSelect handler')}
-    onRemove={() => alert('onRemove handler')}
-  />
+const BasicTemplate: Story<TagProps> = ({ ...args }) => (
+  <Tag {...args} onSelect={() => alert('onSelect handler')} onRemove={() => alert('onRemove handler')} />
 );
 
 // Basic

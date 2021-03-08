@@ -1,4 +1,4 @@
 export const Strategy = {
   Absloute: 'absolute',
-  Fixed: 'fixed'
+  Fixed: 'fixed',
 } as const;

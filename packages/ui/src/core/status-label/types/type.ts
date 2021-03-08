@@ -2,5 +2,5 @@ export const Type = {
   Default: 'default',
   Success: 'success',
   Error: 'error',
-  Warning: 'warning'
+  Warning: 'warning',
 } as const;

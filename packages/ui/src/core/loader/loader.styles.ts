@@ -20,7 +20,6 @@ const Spinner = styled.span.attrs({
     svg {
       animation: spinner 1.2s linear infinite;
     }
-
   `
 );
 

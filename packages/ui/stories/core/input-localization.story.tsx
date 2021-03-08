@@ -15,27 +15,23 @@ export default {
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
-    }
-  }
+    },
+  },
 } as Meta;
 
 const defaultArgs = {};
 
 const options = ['France', 'Germany', 'Ukraine'];
 
-const BasicTemplate: Story<InputLocalizationProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<InputLocalizationProps> = ({ ...args }) => {
   const [value, setValue] = useState(options[0]);
 
   return (
-    <InputLocalization
-      {...args}
-      value={value}
-      onChange={setValue}
-    >
+    <InputLocalization {...args} value={value} onChange={setValue}>
       {options.map((option) => (
-        <MenuItem key={option} value={option}>{option}</MenuItem>
+        <MenuItem key={option} value={option}>
+          {option}
+        </MenuItem>
       ))}
     </InputLocalization>
   );

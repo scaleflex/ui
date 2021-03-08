@@ -11,32 +11,24 @@ export default {
   excludeStories: ['CheckBoxGroup'],
   argTypes: {
     checkProps: {
-      description: 'input attributes applied directly input element.'
-    }
-  }
+      description: 'input attributes applied directly input element.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   label: 'label',
-  checked: false
+  checked: false,
 };
 
-const BasicTemplate: Story<CheckBoxGroupProps> = ({
-  checked, ...args
-}) => {
+const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return (
-    <CheckBoxGroup
-      {...args}
-      checked={checkedState}
-      onChange={(event) => setCheckedState(event.target.checked)}
-    />
-  );
+  return <CheckBoxGroup {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
 // Basic

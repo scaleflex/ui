@@ -18,13 +18,7 @@ const defaultArgs = {
   children: 'CDN Link',
 };
 
-const BasicTemplate: Story<LabelProps> = ({
-  ...args
-}) => (
-  <Label
-    {...args}
-  />
-);
+const BasicTemplate: Story<LabelProps> = ({ ...args }) => <Label {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

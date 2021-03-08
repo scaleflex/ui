@@ -22,18 +22,20 @@ const Label = styled.label.attrs({
 
 const Base = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})(() => css`
-  font-style: normal;
-  font-weight: normal;
-  font-size: 12px;
-  line-height: 14px;
-  /* margin: 4px 0px; */
-`);
+})(
+  () => css`
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* margin: 4px 0px; */
+  `
+);
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ error = false, theme: { palette } }: With<WithTheme, {error: boolean}>) => css`
+  ({ error = false, theme: { palette } }: With<WithTheme, { error: boolean }>) => css`
     display: flex;
     margin-right: 4px;
     color: ${palette[PColor.IconsPrimary]};

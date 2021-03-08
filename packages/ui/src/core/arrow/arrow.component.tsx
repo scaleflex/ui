@@ -9,19 +9,13 @@ import type { ArrowProps } from './arrow.props';
 import { Type } from './types';
 import Styled from './arrow.styles';
 
-const Arrow = intrinsicComponent<ArrowProps, HTMLSpanElement>((
-  {
-    IconProps: IconPropsData, ...rest
-  }: ArrowProps,
-  ref
-): JSX.Element => (
-  <Styled.Arrow
-    {...rest}
-    ref={ref}
-  >
-    <ArrowIcon {...IconPropsData} />
-  </Styled.Arrow>
-));
+const Arrow = intrinsicComponent<ArrowProps, HTMLSpanElement>(
+  ({ IconProps: IconPropsData, ...rest }: ArrowProps, ref): JSX.Element => (
+    <Styled.Arrow {...rest} ref={ref}>
+      <ArrowIcon {...IconPropsData} />
+    </Styled.Arrow>
+  )
+);
 
 Arrow.defaultProps = {
   type: Type.Right,

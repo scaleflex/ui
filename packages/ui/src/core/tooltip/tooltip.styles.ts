@@ -14,11 +14,7 @@ const baseClassName = 'Tooltip';
 const TooltipContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  (
-    {
-      open, size = Size.Sm, theme
-    }: With<With<WithTheme, TooltipProps>, { open: boolean }>
-  ) => css`
+  ({ open, size = Size.Sm, theme }: With<With<WithTheme, TooltipProps>, { open: boolean }>) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,7 +27,7 @@ const TooltipContainer = styled.div.attrs({
     transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     visibility: ${open ? 'visible' : 'hidden'};
     opacity: ${open ? '1' : '0'};
-    
+
     ${sizeTooltipMixin[size]}
 
     ${StyledArrowTick.ArrowTick} {

@@ -16,22 +16,14 @@ const defaultArgs = {
   expanded: false,
 };
 
-const BasicTemplate: Story<AccordionHeaderProps> = ({
-  expanded, ...args
-}) => {
+const BasicTemplate: Story<AccordionHeaderProps> = ({ expanded, ...args }) => {
   const [openState, setOpenState] = useState(expanded || false);
 
   useEffect(() => {
     setOpenState(expanded || false);
   }, [expanded]);
 
-  return (
-    <AccordionHeader
-      {...args}
-      expanded={openState}
-      onChange={(value) => setOpenState(value)}
-    />
-  );
+  return <AccordionHeader {...args} expanded={openState} onChange={(value) => setOpenState(value)} />;
 };
 
 // Basic

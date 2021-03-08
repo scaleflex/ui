@@ -28,12 +28,19 @@ const Icon = styled.span.attrs({
 
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
-})`display: inline-flex;`;
+})`
+  display: inline-flex;
+`;
 
 const InputLocalization = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette, typography: { font } } }: WithTheme) => css`
+  ({
+    theme: {
+      palette,
+      typography: { font },
+    },
+  }: WithTheme) => css`
     position: relative;
     display: flex;
     align-items: center;

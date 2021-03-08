@@ -14,7 +14,9 @@ export const defaultProps = {
 
 const SnackbarContext = createContext<Partial<SnackbarContextProps>>({
   ...defaultProps,
-  showMessage: () => { /** will be redefined in provider */ },
+  showMessage: () => {
+    /** will be redefined in provider */
+  },
 });
 
 export default SnackbarContext;

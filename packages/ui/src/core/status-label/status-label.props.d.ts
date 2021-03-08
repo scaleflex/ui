@@ -5,7 +5,7 @@ export type StatusLabelSizeType = Values<typeof Size>;
 export type StatusLabelTypesType = Values<typeof Type>;
 
 export interface StatusLabelProps extends React.HTMLAttributes<HTMLDivElement> {
-  label : string;
+  label: string;
   size?: StatusLabelSizeType;
   type?: StatusLabelTypesType;
 }

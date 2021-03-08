@@ -14,20 +14,16 @@ export default {
 
   argTypes: {
     secondary: {
-      description: 'Visible only with `with-icon` variant.'
-    }
-  }
+      description: 'Visible only with `with-icon` variant.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
-  primary: 'Delete file?'
+  primary: 'Delete file?',
 };
 
-const BasicTemplate: Story<ModalTitleProps> = ({
-  ...args
-}) => (
-  <ModalTitle {...args} />
-);
+const BasicTemplate: Story<ModalTitleProps> = ({ ...args }) => <ModalTitle {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});
@@ -39,5 +35,5 @@ WithIcon.args = {
   ...defaultArgs,
   variant: Variant.WithIcon,
   secondary: 'Secondary text',
-  icon: <RemoveIcon size={25} />
+  icon: <RemoveIcon size={25} />,
 };

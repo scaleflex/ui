@@ -7,11 +7,21 @@ import { Size } from './types';
 const baseClassName = 'IconButton';
 
 const squarePaddingMixin = {
-  [Size.Xs]: css`padding: 6px`,
-  [Size.Sm]: css`padding: 8px`,
-  [Size.Md]: css`padding: 8px`,
-  [Size.Lg]: css`padding: 10px`,
-  [Size.Xl]: css`padding: 11px`,
+  [Size.Xs]: css`
+    padding: 6px;
+  `,
+  [Size.Sm]: css`
+    padding: 8px;
+  `,
+  [Size.Md]: css`
+    padding: 8px;
+  `,
+  [Size.Lg]: css`
+    padding: 10px;
+  `,
+  [Size.Xl]: css`
+    padding: 11px;
+  `,
 };
 
 const IconButton = styled(ButtonStyled.Button).attrs({

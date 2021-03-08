@@ -16,40 +16,22 @@ const getIconSize = (sizeName: InputSizeType | undefined): number => {
   }
 };
 
-const Input = intrinsicComponent<InputProps, HTMLDivElement>((
-  {
-    children, iconStart, iconEnd, size, className, style, fullWidth, ...rest
-  }: InputProps,
-  ref
-): JSX.Element => {
-  const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined => (
-    _icon
-      ? (
-        <Styled.Icon>
-          {
-            typeof _icon === 'function'
-              ? _icon({ size: getIconSize(size) })
-              : _icon
-          }
-        </Styled.Icon>
-      )
-      : undefined
-  );
+const Input = intrinsicComponent<InputProps, HTMLDivElement>(
+  ({ children, iconStart, iconEnd, size, className, style, fullWidth, ...rest }: InputProps, ref): JSX.Element => {
+    const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
+      _icon ? (
+        <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
+      ) : undefined;
 
-  return (
-    <Styled.Input
-      ref={ref}
-      size={size}
-      className={className}
-      style={style}
-      fullWidth={Boolean(fullWidth)}
-    >
-      {renderIcon(iconStart)}
-      <Styled.Base {...rest} />
-      {renderIcon(iconEnd)}
-    </Styled.Input>
-  );
-});
+    return (
+      <Styled.Input ref={ref} size={size} className={className} style={style} fullWidth={Boolean(fullWidth)}>
+        {renderIcon(iconStart)}
+        <Styled.Base {...rest} />
+        {renderIcon(iconEnd)}
+      </Styled.Input>
+    );
+  }
+);
 
 export const defaultProps = {
   size: Size.Md,

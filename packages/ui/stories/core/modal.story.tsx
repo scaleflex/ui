@@ -28,9 +28,10 @@ export default {
     },
 
     fullWidth: {
-      description: 'If true, the modal stretches to maxWidth. Notice that the modal width grow is limited by the default margin.'
-    }
-  }
+      description:
+        'If true, the modal stretches to maxWidth. Notice that the modal width grow is limited by the default margin.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {};
@@ -51,23 +52,14 @@ const generateTemplate = ({ TitleProps = {} } = {}) => ({ ...args }) => {
     <>
       <ModalTitle {...TitleProps} primary="Delete file?" />
 
-      <ModalContent>
-        1 file will be deleted, ok?
-      </ModalContent>
+      <ModalContent>1 file will be deleted, ok?</ModalContent>
 
       <ModalActions>
-        <Button
-          onClick={handleClose}
-          color="link"
-        >
+        <Button onClick={handleClose} color="link">
           Cancel
         </Button>
 
-        <Button
-          onClick={handleClose}
-          color="primary"
-          style={{ background: defaultPalette[Color.Error] }}
-        >
+        <Button onClick={handleClose} color="primary" style={{ background: defaultPalette[Color.Error] }}>
           Delete
         </Button>
       </ModalActions>
@@ -78,24 +70,15 @@ const generateTemplate = ({ TitleProps = {} } = {}) => ({ ...args }) => {
     <div>
       <div style={{ display: 'flex', marginBottom: 16 }}>
         <StyledModalContainer {...args} open>
-          <ModalStyled.Modal>
-            {renderModalContent()}
-          </ModalStyled.Modal>
+          <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
         </StyledModalContainer>
       </div>
 
-      <Button
-        onClick={handleClick}
-        color="link"
-      >
+      <Button onClick={handleClick} color="link">
         Open modal
       </Button>
 
-      <Modal
-        {...args}
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal {...args} open={open} onClose={handleClose}>
         {renderModalContent()}
       </Modal>
     </div>
@@ -116,8 +99,8 @@ const IconTemplate: Story<ModalProps> = generateTemplate({
   TitleProps: {
     variant: Variant.WithIcon,
     secondary: 'Secondary text',
-    icon: <RemoveIcon size={25} />
-  }
+    icon: <RemoveIcon size={25} />,
+  },
 });
 
 // WithIcon
@@ -138,30 +121,18 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
       <ModalTitle primary="Create item" />
 
       <ModalContent>
-        <SelectGroup
-          value={valueState}
-          onChange={setValueState}
-          label="Label"
-          hint="Some hint goes here"
-        >
+        <SelectGroup value={valueState} onChange={setValueState} label="Label" hint="Some hint goes here">
           <MenuItem value="item1">Item 1</MenuItem>
           <MenuItem value="item2">Item 2</MenuItem>
         </SelectGroup>
-
       </ModalContent>
 
       <ModalActions>
-        <Button
-          onClick={handleClose}
-          color="link"
-        >
+        <Button onClick={handleClose} color="link">
           Cancel
         </Button>
 
-        <Button
-          onClick={handleClose}
-          color="primary"
-        >
+        <Button onClick={handleClose} color="primary">
           Save
         </Button>
       </ModalActions>
@@ -172,24 +143,15 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
     <div>
       <div style={{ display: 'flex', marginBottom: 16 }}>
         <StyledModalContainer {...args} open>
-          <ModalStyled.Modal>
-            {renderModalContent()}
-          </ModalStyled.Modal>
+          <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
         </StyledModalContainer>
       </div>
 
-      <Button
-        onClick={handleClick}
-        color="link"
-      >
+      <Button onClick={handleClick} color="link">
         Open modal
       </Button>
 
-      <Modal
-        {...args}
-        open={open}
-        onClose={handleClose}
-      >
+      <Modal {...args} open={open} onClose={handleClose}>
         {renderModalContent()}
       </Modal>
     </div>

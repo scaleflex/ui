@@ -12,14 +12,10 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  children: 'Some hint goes here'
+  children: 'Some hint goes here',
 };
 
-const BasicTemplate: Story<FormHintProps> = ({
-  ...args
-}) => (
-  <FormHint {...args} />
-);
+const BasicTemplate: Story<FormHintProps> = ({ ...args }) => <FormHint {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

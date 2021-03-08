@@ -16,11 +16,7 @@ const defaultArgs = {
   label: 'Paid',
 };
 
-const BasicTemplate: Story<StatusLabelProps> = ({
-  ...args
-}) => (
-  <StatusLabel {...args} />
-);
+const BasicTemplate: Story<StatusLabelProps> = ({ ...args }) => <StatusLabel {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

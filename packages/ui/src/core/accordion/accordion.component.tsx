@@ -7,32 +7,27 @@ import AccordionHeader from '../accordion-header';
 import AccordionDetails from '../accordion-details';
 import Styled from './accordion.styles';
 
-const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>((
-  {
-    label, expanded, children, onClick, onChange, ...rest
-  }: AccordionProps,
-  ref
-): JSX.Element => (
-  <Styled.Accordion ref={ref} {...rest}>
-    <AccordionHeader
-      label={label}
-      expanded={expanded}
-      onClick={(event) => {
-        if (typeof onChange === 'function') {
-          onChange(!expanded);
-        }
+const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
+  ({ label, expanded, children, onClick, onChange, ...rest }: AccordionProps, ref): JSX.Element => (
+    <Styled.Accordion ref={ref} {...rest}>
+      <AccordionHeader
+        label={label}
+        expanded={expanded}
+        onClick={(event) => {
+          if (typeof onChange === 'function') {
+            onChange(!expanded);
+          }
 
-        if (typeof onClick === 'function') {
-          onClick(event);
-        }
-      }}
-    />
+          if (typeof onClick === 'function') {
+            onClick(event);
+          }
+        }}
+      />
 
-    <AccordionDetails expanded={expanded}>
-      {children}
-    </AccordionDetails>
-  </Styled.Accordion>
-));
+      <AccordionDetails expanded={expanded}>{children}</AccordionDetails>
+    </Styled.Accordion>
+  )
+);
 
 Accordion.defaultProps = {
   expanded: false,

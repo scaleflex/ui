@@ -119,7 +119,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         fontSize: '14px',
         lineHeight: '16px',
       },
-    }
+    },
   },
 
   shape: {
@@ -127,7 +127,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       [BorderRadiusSize.Sm]: '2px',
       [BorderRadiusSize.Md]: '4px',
       [BorderRadiusSize.Lg]: '8px',
-    }
+    },
   },
 };
 

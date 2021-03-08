@@ -33,78 +33,63 @@ const getArrowTypeByPosition = (position: TooltipPositionType): ArrowTickTypesTy
   }
 };
 
-const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>((
-  {
-    children, position = Position.Top, popperOptions, ...rest
-  }: TooltipProps,
-  ref
-): JSX.Element => {
-  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
-  const open = Boolean(anchorEl);
+const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
+  ({ children, position = Position.Top, popperOptions, ...rest }: TooltipProps, ref): JSX.Element => {
+    const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+    const open = Boolean(anchorEl);
 
-  const tooltipRef = useRef(null);
+    const tooltipRef = useRef(null);
 
-  const handleMouseEnter = (event: any): void => {
-    const { onMouseEnter } = children.props;
+    const handleMouseEnter = (event: any): void => {
+      const { onMouseEnter } = children.props;
 
-    setAnchorEl(event.currentTarget);
+      setAnchorEl(event.currentTarget);
 
-    if (typeof onMouseEnter === 'function') {
-      onMouseEnter(event);
-    }
-  };
+      if (typeof onMouseEnter === 'function') {
+        onMouseEnter(event);
+      }
+    };
 
-  const handleMouseLeave = (event: any): void => {
-    const { onMouseLeave } = children.props;
+    const handleMouseLeave = (event: any): void => {
+      const { onMouseLeave } = children.props;
 
-    setAnchorEl(null);
+      setAnchorEl(null);
 
-    if (typeof onMouseLeave === 'function') {
-      onMouseLeave(event);
-    }
-  };
+      if (typeof onMouseLeave === 'function') {
+        onMouseLeave(event);
+      }
+    };
 
-  const render = (): JSX.Element => (
-    <Popper
-      ref={tooltipRef}
-      position={position}
-      anchorEl={anchorEl}
-      open={anchorEl ? open : false}
-      popperOptions={popperOptions}
-    >
-      <Styled.TooltipContainer
-        {...rest}
-        open={open}
+    const render = (): JSX.Element => (
+      <Popper
+        ref={tooltipRef}
+        position={position}
+        anchorEl={anchorEl}
+        open={anchorEl ? open : false}
+        popperOptions={popperOptions}
       >
-        <ArrowTick
-          type={getArrowTypeByPosition(position)}
-          IconProps={{ viewBox: '0 0 8 8', width: 10, height: 10 }}
-        />
-        <Styled.Tooltip>
-          {rest.title}
-        </Styled.Tooltip>
-      </Styled.TooltipContainer>
-    </Popper>
-  );
+        <Styled.TooltipContainer {...rest} open={open}>
+          <ArrowTick
+            type={getArrowTypeByPosition(position)}
+            IconProps={{ viewBox: '0 0 8 8', width: 10, height: 10 }}
+          />
+          <Styled.Tooltip>{rest.title}</Styled.Tooltip>
+        </Styled.TooltipContainer>
+      </Popper>
+    );
 
-  return (
-    <>
-      {
-        React.cloneElement(
-          children,
-          {
-            ref,
-            onMouseEnter: handleMouseEnter,
-            onMouseLeave: handleMouseLeave
-          }
-        )
-      }
-      {
-        render()
-      }
-    </>
-  );
-});
+    return (
+      <>
+        {React.cloneElement(children, {
+          ref,
+          onMouseEnter: handleMouseEnter,
+          onMouseLeave: handleMouseLeave,
+        })}
+        {render()}
+      </>
+    );
+  }
+);
 
 Tooltip.defaultProps = {
   position: Position.Top,
@@ -138,7 +123,7 @@ Tooltip.propTypes = {
         ]),
         requires: PT.arrayOf(PT.string),
         requiresIfExists: PT.arrayOf(PT.string),
-      }),
+      })
     ) as Validator<Modifiers>,
     onFirstUpdate: PT.func,
     placement: PT.oneOf(objectValues(Position)),

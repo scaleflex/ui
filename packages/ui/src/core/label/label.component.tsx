@@ -5,32 +5,17 @@ import type { LabelProps } from './label.props';
 import { Type } from './types';
 import Styled from './label.styles';
 
-const Label = intrinsicComponent<LabelProps, HTMLLabelElement>((
-  {
-    icon, error, type, ...rest
-  }: LabelProps,
-  ref
-): JSX.Element => (
-  <Styled.Label
-    ref={ref}
-    error={error}
-    type={type}
-  >
-    {icon && (
-      <Styled.Icon error={Boolean(error)}>
-        {
-          typeof icon === 'function'
-            ? icon()
-            : icon
-        }
-      </Styled.Icon>
-    )}
+const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
+  ({ icon, error, type, ...rest }: LabelProps, ref): JSX.Element => (
+    <Styled.Label ref={ref} error={error} type={type}>
+      {icon && <Styled.Icon error={Boolean(error)}>{typeof icon === 'function' ? icon() : icon}</Styled.Icon>}
 
-    <Styled.Base {...rest} />
+      <Styled.Base {...rest} />
 
-    {/* TODO Select for type: localization */}
-  </Styled.Label>
-));
+      {/* TODO Select for type: localization */}
+    </Styled.Label>
+  )
+);
 
 Label.defaultProps = {
   type: Type.Default,

@@ -7,10 +7,8 @@ const Accordion = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })``;
 
-const Styled = applyDisplayNames(
-  {
-    Accordion,
-  }
-);
+const Styled = applyDisplayNames({
+  Accordion,
+});
 
 export default Styled;

@@ -12,23 +12,17 @@ export default {
 
   argTypes: {
     activeItem: {
-      description: 'Set the active item (zero based index). Set to -1 to disable all the steps.'
-    }
-  }
+      description: 'Set the active item (zero based index). Set to -1 to disable all the steps.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   size: 5,
-  activeItem: 1
+  activeItem: 1,
 };
 
-const BasicTemplate: Story<DotsNavigationProps> = ({
-  ...args
-}) => (
-  <DotsNavigation
-    {...args}
-  />
-);
+const BasicTemplate: Story<DotsNavigationProps> = ({ ...args }) => <DotsNavigation {...args} />;
 
 // Base
 export const Base = BasicTemplate.bind({});

@@ -16,18 +16,10 @@ const defaultArgs = {
   size: Size.Md,
 };
 
-const BasicTemplate: Story<SearchProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<SearchProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
-  return (
-    <Search
-      {...args}
-      value={value}
-      onChange={({ target }) => setValue(target.value)}
-    />
-  );
+  return <Search {...args} value={value} onChange={({ target }) => setValue(target.value)} />;
 };
 
 // Basic

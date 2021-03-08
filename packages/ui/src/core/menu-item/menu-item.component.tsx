@@ -5,15 +5,9 @@ import type { MenuItemProps } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
 
-const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((
-  props,
-  ref
-): JSX.Element => (
-  <Styled.MenuItem
-    {...props}
-    ref={ref}
-  />
-));
+const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
+  (props, ref): JSX.Element => <Styled.MenuItem {...props} ref={ref} />
+);
 
 MenuItem.displayName = 'MenuItem';
 

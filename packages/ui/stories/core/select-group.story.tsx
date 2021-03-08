@@ -18,10 +18,9 @@ export default {
     },
 
     switcherProps: {
-      description: 'input attributes applied directly input element.'
-    }
-
-  }
+      description: 'input attributes applied directly input element.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -29,17 +28,11 @@ const defaultArgs = {
   hint: 'Some hint goes here',
 };
 
-const BasicTemplate: Story<SelectGroupProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<SelectGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState();
 
   return (
-    <SelectGroup
-      {...args}
-      value={valueState}
-      onChange={setValueState}
-    >
+    <SelectGroup {...args} value={valueState} onChange={setValueState}>
       <MenuItem value="item1">Item 1</MenuItem>
       <MenuItem value="item2">Item 2</MenuItem>
     </SelectGroup>
@@ -54,7 +47,7 @@ Select.args = { ...defaultArgs };
 export const SelectMultiple = BasicTemplate.bind({});
 SelectMultiple.args = {
   ...defaultArgs,
-  multiple: true
+  multiple: true,
 };
 
 // Select with icon

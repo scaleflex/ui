@@ -13,11 +13,7 @@ export default {
 
 const defaultArgs = {};
 
-const BasicTemplate: Story<LoaderProps> = ({
-  ...args
-}) => (
-  <Loader {...args} />
-);
+const BasicTemplate: Story<LoaderProps> = ({ ...args }) => <Loader {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

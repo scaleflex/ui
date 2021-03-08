@@ -2,9 +2,7 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import CountryIcon from '@scaleflex/icons/country';
 import DownloadIcon from '@scaleflex/icons/download';
-import _MenuItem, {
-  MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions
-} from '../../src/core/menu-item';
+import _MenuItem, { MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions } from '../../src/core/menu-item';
 import { Size } from '../../src/core/menu-item/types';
 import { StoryGroup } from './types';
 
@@ -22,11 +20,7 @@ const defaultArgs = {
   active: false,
 };
 
-const BasicTemplate: Story<MenuItemProps> = ({
-  ...args
-}) => (
-  <MenuItem {...args} />
-);
+const BasicTemplate: Story<MenuItemProps> = ({ ...args }) => <MenuItem {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});
@@ -39,9 +33,7 @@ Active.args = {
   active: true,
 };
 
-const WithIconTemplate: Story<MenuItemProps> = ({
-  children, ...args
-}) => (
+const WithIconTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
   <MenuItem {...args}>
     <MenuItemIcon>
       <CountryIcon size={args.size === 'md' ? 16 : 12} />
@@ -55,9 +47,7 @@ const WithIconTemplate: Story<MenuItemProps> = ({
 export const WithIcon = WithIconTemplate.bind({});
 WithIcon.args = { ...defaultArgs };
 
-const WithIconAndActionsTemplate: Story<MenuItemProps> = ({
-  children, ...args
-}) => (
+const WithIconAndActionsTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
   <MenuItem {...args}>
     <MenuItemIcon>
       <CountryIcon size={args.size === 'md' ? 16 : 12} />

@@ -10,58 +10,47 @@ import { renderValue, renderOption } from './select.utils';
 import { Size } from './types';
 import Styled from './select.styles';
 
-const Select = intrinsicComponent<SelectProps, HTMLDivElement>((
-  {
-    children, size, error, multiple, onChange, value, fullWidth, selectProps, MenuProps, ...rest
-  },
-  ref
-): JSX.Element => {
-  const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
-  const open = Boolean(anchorEl);
-  const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
-  const handleClose = (): void => setAnchorEl(undefined);
+const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
+  (
+    { children, size, error, multiple, onChange, value, fullWidth, selectProps, MenuProps, ...rest },
+    ref
+  ): JSX.Element => {
+    const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
+    const open = Boolean(anchorEl);
+    const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
+    const handleClose = (): void => setAnchorEl(undefined);
 
-  return (
-    <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
-      <Styled.Select
-        {...rest}
-        size={size}
-        error={error}
-        fullWidth={Boolean(fullWidth)}
-        onClick={handleClick}
-      >
-        <Styled.Label>
-          {renderValue({ value, multiple, children })}
-        </Styled.Label>
+    return (
+      <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
+        <Styled.Select {...rest} size={size} error={error} fullWidth={Boolean(fullWidth)} onClick={handleClick}>
+          <Styled.Label>{renderValue({ value, multiple, children })}</Styled.Label>
 
-        <Styled.Icon>
-          <ArrowTick
-            type={open ? 'top' : 'bottom'}
-            // IconProps={{ size: size === Size.Md ? 13 : 11 }}
-            IconProps={{ size: 8 }}
-          />
-        </Styled.Icon>
-      </Styled.Select>
+          <Styled.Icon>
+            <ArrowTick
+              type={open ? 'top' : 'bottom'}
+              // IconProps={{ size: size === Size.Md ? 13 : 11 }}
+              IconProps={{ size: 8 }}
+            />
+          </Styled.Icon>
+        </Styled.Select>
 
-      <Styled.Input {...selectProps} />
+        <Styled.Input {...selectProps} />
 
-      <Menu
-        fullWidth
-        {...(MenuProps || {})}
-        onClose={handleClose}
-        open={open}
-        anchorEl={anchorEl}
-      >
-        {React.Children.map(children, (child) => renderOption(
-          child,
-          {
-            value, multiple, size, onClose: handleClose, onChange
-          }
-        ))}
-      </Menu>
-    </Styled.Container>
-  );
-});
+        <Menu fullWidth {...(MenuProps || {})} onClose={handleClose} open={open} anchorEl={anchorEl}>
+          {React.Children.map(children, (child) =>
+            renderOption(child, {
+              value,
+              multiple,
+              size,
+              onClose: handleClose,
+              onChange,
+            })
+          )}
+        </Menu>
+      </Styled.Container>
+    );
+  }
+);
 
 export const defaultProps = {
   size: Size.Md,
@@ -72,9 +61,7 @@ export const defaultProps = {
 
 Select.defaultProps = defaultProps;
 
-export const simpleValuePropTypes = PT.oneOfType([
-  PT.string, PT.number, PT.oneOf([null]),
-]);
+export const simpleValuePropTypes = PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]);
 
 export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
@@ -82,16 +69,13 @@ export const propTypes = {
   multiple: PT.bool,
   fullWidth: PT.bool,
   children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
-  value: PT.oneOfType([
-    PT.string,
-    PT.number,
-    PT.oneOf([null]),
-    PT.arrayOf(simpleValuePropTypes)
-  ]) as Validator<SelectSimpleValueType | SelectSimpleValueType[]>,
+  value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
+    SelectSimpleValueType | SelectSimpleValueType[]
+  >,
   onChange: PT.func,
   MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
   // eslint-disable-next-line react/forbid-prop-types
-  selectProps: PT.object
+  selectProps: PT.object,
 };
 
 Select.propTypes = propTypes;

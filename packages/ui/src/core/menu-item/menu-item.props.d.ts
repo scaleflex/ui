@@ -4,8 +4,7 @@ import { Size } from './types';
 
 export type MenuItemSizeType = Values<typeof Size>;
 
-export interface MenuItemIconProps
-  extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
+export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;
 }
 

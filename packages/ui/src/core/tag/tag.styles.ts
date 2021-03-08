@@ -27,20 +27,26 @@ const Cross = styled.span.attrs({
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})(({ theme }: WithTheme) => `
+})(
+  ({ theme }: WithTheme) => `
   display: flex;
   align-items: center;
   color: ${theme.palette[PColor.BackgroundSecondary]};
   padding: 6px 16px;
   border-radius: inherit;
-`);
+`
+);
 
 const Tag = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({
-    size = Size.Md, type = Type.Default, onSelect, hasRemoveHandler, theme
-  }: With<WithTheme, TagProps & {hasRemoveHandler: boolean}>) => css`
+    size = Size.Md,
+    type = Type.Default,
+    onSelect,
+    hasRemoveHandler,
+    theme,
+  }: With<WithTheme, TagProps & { hasRemoveHandler: boolean }>) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -56,19 +62,24 @@ const Tag = styled.div.attrs({
         border-color: ${theme.palette[PColor.Error]};
       }
 
-      ${type === Type.Default && hasRemoveHandler && css`
+      ${type === Type.Default &&
+      hasRemoveHandler &&
+      css`
         ${Cross} {
           display: inline-flex;
         }
       `}
 
-      ${type === Type.Suggested && onSelect && css`
+      ${type === Type.Suggested &&
+      onSelect &&
+      css`
         cursor: pointer;
       `}
     }
 
     &:not(:hover) {
-      ${type === Type.Suggested && css`
+      ${type === Type.Suggested &&
+      css`
         background-color: ${theme.palette[PColor.BackgroundSecondary]};
 
         ${Label} {

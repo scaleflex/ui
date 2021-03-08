@@ -5,19 +5,13 @@ import type { MenuItemActionsProps } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
 
-const MenuItemActions = intrinsicComponent<MenuItemActionsProps, HTMLDivElement>((
-  { children, ...rest },
-  ref
-): JSX.Element => (
-  <Styled.Actions
-    {...rest}
-    ref={ref}
-  >
-    {children && typeof children === 'function'
-      ? children({ size: rest.size })
-      : children}
-  </Styled.Actions>
-));
+const MenuItemActions = intrinsicComponent<MenuItemActionsProps, HTMLDivElement>(
+  ({ children, ...rest }, ref): JSX.Element => (
+    <Styled.Actions {...rest} ref={ref}>
+      {children && typeof children === 'function' ? children({ size: rest.size }) : children}
+    </Styled.Actions>
+  )
+);
 
 MenuItemActions.displayName = 'MenuItemActions';
 

@@ -10,12 +10,12 @@ const baseClassName = 'TagField';
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ fullWidth = false, theme }: WithTheme & {fullWidth: boolean}) => css`
-  overflow: hidden;
-  border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
-  border-radius: 2px;
-  width: ${fullWidth ? '100%' : '50%'};
-`
+  ({ fullWidth = false, theme }: WithTheme & { fullWidth: boolean }) => css`
+    overflow: hidden;
+    border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
+    border-radius: 2px;
+    width: ${fullWidth ? '100%' : '50%'};
+  `
 );
 
 const TagFieldListWrapper = styled.ul.attrs({
@@ -29,25 +29,25 @@ const TagFieldListWrapper = styled.ul.attrs({
   font-size: 14px;
   line-height: 1.5;
   padding: 6px 8px;
-  background: #F8FAFB;
-  width:100%;
+  background: #f8fafb;
+  width: 100%;
 `;
 
 const TagFieldInputWrapper = styled.li.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
 })`
-    background: none;
-    flex-grow: 1;
-    padding: 5px 0;
+  background: none;
+  flex-grow: 1;
+  padding: 5px 0;
 `;
 
 const TagFieldInput = styled.input.attrs({
   className: generateClassNames(baseClassName, 'input'),
 })`
-    background: transparent;
-    border: none;
-    width: 100%;
-    outline: none;
+  background: transparent;
+  border: none;
+  width: 100%;
+  outline: none;
 `;
 
 const TagFieldSuggestionWrapper = styled.div.attrs({
@@ -59,11 +59,10 @@ const TagFieldSuggestionWrapper = styled.div.attrs({
 const TagFieldSuggestionLabel = styled.label.attrs({
   className: generateClassNames(baseClassName, 'suggestionLabel'),
 })`
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 4px 0;
-
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 4px 0;
 `;
 
 const TagFieldSuggestionIcon = styled.span.attrs({
@@ -77,31 +76,33 @@ const TagFieldSuggestionIcon = styled.span.attrs({
 const TagFieldSuggestionWrapperList = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
-    display: inline-flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    list-style: none;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  list-style: none;
 `;
 
 const TagFieldSuggestionList = styled.li.attrs({
   className: generateClassNames(baseClassName, 'suggestionList'),
-})(({ theme }: WithTheme) => css`
+})(
+  ({ theme }: WithTheme) => css`
     position: relative;
     display: flex;
     align-items: center;
     margin: 0 8px 8px 0;
     padding: 4px 12px;
-    border-radius:${theme.shape.borderRadius[BRSize.Sm]};
-    border: 1px dashed  ${theme.palette[PColor.LinkPrimary]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    border: 1px dashed ${theme.palette[PColor.LinkPrimary]};
     background: transparent;
     color: ${theme.palette[PColor.LinkPrimary]};
     line-height: 16.4px;
     list-style: none;
     user-select: none;
     max-height: 24px;
-    `);
+  `
+);
 
 const Styled = applyDisplayNames({
   TagFieldWrapper,
@@ -113,7 +114,6 @@ const Styled = applyDisplayNames({
   TagFieldSuggestionIcon,
   TagFieldSuggestionWrapperList,
   TagFieldSuggestionList,
-
 });
 
 export default Styled;

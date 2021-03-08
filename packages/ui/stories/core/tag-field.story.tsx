@@ -10,9 +10,7 @@ export default {
   component: TagField,
   excludeStories: ['TagField'],
 
-  argTypes: {
-
-  }
+  argTypes: {},
 } as Meta;
 
 const defaultArgs = {
@@ -20,16 +18,14 @@ const defaultArgs = {
   suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming'],
 };
 
-const BasicTemplate: Story<TagFieldProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
   const [tags, setTags] = useState(args.tags);
 
-  const addTags = (newTags : string[]):void => {
+  const addTags = (newTags: string[]): void => {
     setTags(newTags);
   };
 
-  const removeTags = (newTags : string[]):void => {
+  const removeTags = (newTags: string[]): void => {
     setTags(newTags);
   };
 

@@ -12,52 +12,41 @@ export default {
 
   argTypes: {
     value: {
-      description: 'The rating value.'
+      description: 'The rating value.',
     },
     name: {
-      description: 'The name attribute of the radio input elements. If readOnly is true, the prop is required, this input name should be unique within the parent form.'
-    }
-  }
+      description:
+        'The name attribute of the radio input elements. If readOnly is true, the prop is required, this input name should be unique within the parent form.',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   value: 3,
 };
 
-const ReadOnlyTemplate: Story<RatingProps> = ({
-  ...args
-}) => (
-  <Rating {...args} />
-);
+const ReadOnlyTemplate: Story<RatingProps> = ({ ...args }) => <Rating {...args} />;
 
-const ControlledTemplate: Story<RatingProps> = ({
-  value, ...args
-}) => {
+const ControlledTemplate: Story<RatingProps> = ({ value, ...args }) => {
   const [valueState, setValueState] = useState(value);
 
   useEffect(() => {
     setValueState(value);
   }, [value]);
 
-  return (
-    <Rating
-      {...args}
-      value={valueState}
-      onChange={({ target }) => setValueState(+target.value)}
-    />
-  );
+  return <Rating {...args} value={valueState} onChange={({ target }) => setValueState(+target.value)} />;
 };
 
 // Controlled
 export const Controlled = ControlledTemplate.bind({});
 Controlled.args = {
   ...defaultArgs,
-  name: 'controlled-raiting-field'
+  name: 'controlled-raiting-field',
 };
 
 // ReadOnly
 export const ReadOnly = ReadOnlyTemplate.bind({});
 ReadOnly.args = {
   ...defaultArgs,
-  readOnly: true
+  readOnly: true,
 };

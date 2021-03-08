@@ -12,9 +12,9 @@ export default {
 
   argTypes: {
     value: {
-      description: 'TabPanel is visible only when value is equal to index'
-    }
-  }
+      description: 'TabPanel is visible only when value is equal to index',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -23,11 +23,7 @@ const defaultArgs = {
   index: 1,
 };
 
-const BasicTemplate: Story<TabPanelProps> = ({
-  ...args
-}) => (
-  <TabPanel {...args} />
-);
+const BasicTemplate: Story<TabPanelProps> = ({ ...args }) => <TabPanel {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

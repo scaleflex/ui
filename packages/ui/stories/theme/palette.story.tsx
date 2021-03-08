@@ -22,10 +22,10 @@ export const Colors: Story<PaletteProps> = () => (
             fontSize: 12,
             color: 'grey',
             fontWeight: 500,
-            marginLeft: 8
+            marginLeft: 8,
           }}
         >
-          { colorName } ({ Color[colorName] })
+          {colorName} ({Color[colorName]})
         </div>
       </div>
     ))}

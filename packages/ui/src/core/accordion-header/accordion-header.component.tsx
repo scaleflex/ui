@@ -6,35 +6,29 @@ import { Type as ArrowTickType } from '../arrow-tick/types';
 import type { AccordionHeaderProps } from './accordion-header.props';
 import Styled from './accordion-header.styles';
 
-const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>((
-  {
-    expanded, label, onChange, onClick, ...rest
-  }: AccordionHeaderProps,
-  ref
-): JSX.Element => (
-  <Styled.AccordionHeader
-    ref={ref}
-    onClick={(event) => {
-      if (typeof onChange === 'function') {
-        onChange(!expanded);
-      }
+const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>(
+  ({ expanded, label, onChange, onClick, ...rest }: AccordionHeaderProps, ref): JSX.Element => (
+    <Styled.AccordionHeader
+      ref={ref}
+      onClick={(event) => {
+        if (typeof onChange === 'function') {
+          onChange(!expanded);
+        }
 
-      if (typeof onClick === 'function') {
-        onClick(event);
-      }
-    }}
-    {...rest}
-  >
-    <Styled.Icon>
-      <ArrowTick
-        type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right}
-        IconProps={{ size: 8 }}
-      />
-    </Styled.Icon>
+        if (typeof onClick === 'function') {
+          onClick(event);
+        }
+      }}
+      {...rest}
+    >
+      <Styled.Icon>
+        <ArrowTick type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right} IconProps={{ size: 8 }} />
+      </Styled.Icon>
 
-    <Styled.Label>{label}</Styled.Label>
-  </Styled.AccordionHeader>
-));
+      <Styled.Label>{label}</Styled.Label>
+    </Styled.AccordionHeader>
+  )
+);
 
 AccordionHeader.defaultProps = {
   expanded: false,

@@ -12,7 +12,7 @@ const Popper = styled.div.attrs({
     position: fixed;
     top: 0;
     left: 0;
-    display:${!open ? 'none' : null};
+    display: ${!open ? 'none' : null};
   `
 );
 

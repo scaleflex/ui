@@ -6,28 +6,18 @@ import type { StatusLabelProps } from './status-label.props';
 import { Size, Type } from './types';
 import Styled from './status-label.styles';
 
-const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>((
-  {
-    label, type, size, ...rest
-  }: StatusLabelProps,
-  ref
-): JSX.Element => (
-  <Styled.StatusLabelWrapper
-    ref={ref}
-    size={size}
-    type={type}
-    label={label}
-    {...rest}
-  >
-    <Styled.StatusLabel>{label}</Styled.StatusLabel>
-
-  </Styled.StatusLabelWrapper>
-));
+const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
+  ({ label, type, size, ...rest }: StatusLabelProps, ref): JSX.Element => (
+    <Styled.StatusLabelWrapper ref={ref} size={size} type={type} label={label} {...rest}>
+      <Styled.StatusLabel>{label}</Styled.StatusLabel>
+    </Styled.StatusLabelWrapper>
+  )
+);
 
 StatusLabel.defaultProps = {
   label: '',
   type: Type.Default,
-  size: Size.Md
+  size: Size.Md,
 };
 
 StatusLabel.propTypes = {

@@ -15,36 +15,26 @@ export default {
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
-    }
-  }
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   fullWidth: false,
 };
 
-const BasicTemplate: Story<MenuProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
   const [anchorEl, setAnchorEl] = useState(undefined);
   const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
   const handleClose = (): void => setAnchorEl(undefined);
 
   return (
     <div>
-      <Button
-        onClick={handleClick}
-        color="link"
-      >
+      <Button onClick={handleClick} color="link">
         Open menu
       </Button>
 
-      <Menu
-        {...args}
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
+      <Menu {...args} anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem onClick={handleClose}>Item 1</MenuItem>
         <MenuItem onClick={handleClose}>Item 2</MenuItem>
         <MenuItem onClick={handleClose}>Item 3</MenuItem>

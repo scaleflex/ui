@@ -15,17 +15,11 @@ export default {
 
 const defaultArgs = {};
 
-const BasicTemplate: Story<ModalActionsProps> = ({
-  ...args
-}) => (
+const BasicTemplate: Story<ModalActionsProps> = ({ ...args }) => (
   <ModalActions {...args}>
-    <Button color="link">
-      Cancel
-    </Button>
+    <Button color="link">Cancel</Button>
 
-    <Button color="primary">
-      Save
-    </Button>
+    <Button color="primary">Save</Button>
   </ModalActions>
 );
 

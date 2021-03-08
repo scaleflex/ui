@@ -2,8 +2,7 @@ import type { HTMLAttributes } from 'react';
 
 import type { IntrinsicComponent, StylableComponent } from './utils/types';
 
-export interface IconProps
-  extends IntrinsicComponent<HTMLAttributes<SVGSVGElement>>, StylableComponent {
+export interface IconProps extends IntrinsicComponent<HTMLAttributes<SVGSVGElement>>, StylableComponent {
   size?: number;
   width?: string | number;
   height?: string | number;

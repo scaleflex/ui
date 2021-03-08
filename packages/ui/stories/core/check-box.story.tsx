@@ -12,25 +12,17 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  checked: false
+  checked: false,
 };
 
-const BasicTemplate: Story<CheckBoxProps> = ({
-  checked, ...args
-}) => {
+const BasicTemplate: Story<CheckBoxProps> = ({ checked, ...args }) => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return (
-    <CheckBox
-      {...args}
-      checked={checkedState}
-      onChange={(event) => setCheckedState(event.target.checked)}
-    />
-  );
+  return <CheckBox {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
 // Basic

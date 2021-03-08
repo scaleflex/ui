@@ -19,7 +19,7 @@ const Rating = styled.div.attrs({
 const Item = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Item'),
 })(
-  ({ readOnly = false }: {readOnly?: boolean}) => css`
+  ({ readOnly = false }: { readOnly?: boolean }) => css`
     position: relative;
     display: inline-flex;
     margin-left: 3px;
@@ -28,7 +28,8 @@ const Item = styled.label.attrs({
       margin-left: 0;
     }
 
-    ${!readOnly && css`
+    ${!readOnly &&
+    css`
       cursor: pointer;
     `}
 
@@ -42,9 +43,9 @@ const Item = styled.label.attrs({
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ active = false, theme: { palette } }: With<WithTheme, {active: boolean}>) => css`
+  ({ active = false, theme: { palette } }: With<WithTheme, { active: boolean }>) => css`
     display: inline-flex;
-    color: ${active ? palette[PColor.Warning] : palette[PColor.TextPrimary]}
+    color: ${active ? palette[PColor.Warning] : palette[PColor.TextPrimary]};
   `
 );
 

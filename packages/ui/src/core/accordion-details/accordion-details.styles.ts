@@ -13,10 +13,8 @@ const AccordionDetails = styled.div.attrs({
   `
 );
 
-const Styled = applyDisplayNames(
-  {
-    AccordionDetails,
-  }
-);
+const Styled = applyDisplayNames({
+  AccordionDetails,
+});
 
 export default Styled;

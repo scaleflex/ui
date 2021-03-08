@@ -12,25 +12,17 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  checked: false
+  checked: false,
 };
 
-const BasicTemplate: Story<SwitcherProps> = ({
-  checked, ...args
-}) => {
+const BasicTemplate: Story<SwitcherProps> = ({ checked, ...args }) => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return (
-    <Switcher
-      {...args}
-      checked={checkedState}
-      onChange={(event) => setCheckedState(event.target.checked)}
-    />
-  );
+  return <Switcher {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
 // Basic

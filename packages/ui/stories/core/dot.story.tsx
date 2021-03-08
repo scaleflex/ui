@@ -15,9 +15,7 @@ const defaultArgs = {
   active: false,
 };
 
-const BasicTemplate: Story<DotProps> = (args) => (
-  <Dot {...args} />
-);
+const BasicTemplate: Story<DotProps> = (args) => <Dot {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

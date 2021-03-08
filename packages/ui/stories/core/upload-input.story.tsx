@@ -16,13 +16,7 @@ const defaultArgs = {
   size: Size.Md,
 };
 
-const BasicTemplate: Story<UploadInputProps> = ({
-  ...args
-}) => (
-  <UploadInput
-    {...args}
-  />
-);
+const BasicTemplate: Story<UploadInputProps> = ({ ...args }) => <UploadInput {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

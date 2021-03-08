@@ -7,9 +7,7 @@ import type { IconButtonProps } from './icon-button.props';
 import { Size, Color } from './types';
 import Styled from './icon-button.styles';
 
-export const getIconSizeWithSquare = (
-  sizeName?: ButtonSizeType, square?: boolean
-): number => {
+export const getIconSizeWithSquare = (sizeName?: ButtonSizeType, square?: boolean): number => {
   switch (sizeName) {
     case Size.Xl:
       return square ? 18 : 16;
@@ -23,23 +21,14 @@ export const getIconSizeWithSquare = (
   }
 };
 
-const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>((
-  {
-    children, ...rest
-  }: IconButtonProps,
-  ref
-): JSX.Element => (
-  <Styled.IconButton
-    {...rest}
-    ref={ref}
-  >
-    {children && (
-      typeof children === 'function'
-        ? children({ size: getIconSizeWithSquare(rest.size, rest.square) })
-        : children
-    )}
-  </Styled.IconButton>
-));
+const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
+  ({ children, ...rest }: IconButtonProps, ref): JSX.Element => (
+    <Styled.IconButton {...rest} ref={ref}>
+      {children &&
+        (typeof children === 'function' ? children({ size: getIconSizeWithSquare(rest.size, rest.square) }) : children)}
+    </Styled.IconButton>
+  )
+);
 
 IconButton.defaultProps = {
   size: Size.Md,

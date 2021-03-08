@@ -1,7 +1,6 @@
-export function generateClassNames(
-  componentName: string, subClassNames?: string | string[]
-): string {
-  const generateClassName = (subClassName?: string): string => `Sfx${componentName}${subClassName ? `-${subClassName}` : ''}`;
+export function generateClassNames(componentName: string, subClassNames?: string | string[]): string {
+  const generateClassName = (subClassName?: string): string =>
+    `Sfx${componentName}${subClassName ? `-${subClassName}` : ''}`;
   const classNameArray: string[] = [];
 
   if (subClassNames) {

@@ -31,6 +31,6 @@ const RadioGroup = styled.label.attrs({
   `
 );
 
-const Styled =applyDisplayNames({ RadioGroup, Label });
+const Styled = applyDisplayNames({ RadioGroup, Label });
 
 export default Styled;

@@ -1,5 +1,5 @@
 export const Padding = {
   Default: 'default',
   Options: 'options',
-  None: 'none'
+  None: 'none',
 } as const;

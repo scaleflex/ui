@@ -28,11 +28,7 @@ function SnackbarProvider({ children, ...rest }: SnackbarProviderProps): JSX.Ele
     <SnackbarContext.Provider value={{ ...options, showMessage: handleShowMessage }}>
       {children}
 
-      <Popup
-        {...options}
-        open={open}
-        onClose={() => setOpen(false)}
-      />
+      <Popup {...options} open={open} onClose={() => setOpen(false)} />
     </SnackbarContext.Provider>
   );
 }

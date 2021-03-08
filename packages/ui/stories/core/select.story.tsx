@@ -15,8 +15,8 @@ export default {
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
-    }
-  }
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -24,9 +24,7 @@ const defaultArgs = {
   multiple: false,
 };
 
-const BasicTemplate: Story<SelectProps> = ({
-  ...args
-}) => {
+const BasicTemplate: Story<SelectProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   useEffect(() => {
@@ -34,11 +32,7 @@ const BasicTemplate: Story<SelectProps> = ({
   }, [args.multiple]);
 
   return (
-    <Select
-      {...args}
-      value={value}
-      onChange={setValue}
-    >
+    <Select {...args} value={value} onChange={setValue}>
       <MenuItem value="item1">Menu item 1</MenuItem>
       <MenuItem value="item2">Menu item 2</MenuItem>
       <MenuItem value="item3">Menu item 3</MenuItem>

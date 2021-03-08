@@ -10,7 +10,7 @@ const baseClassName = 'Menu';
 const Wrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Wrapper'),
 })(
-  ({ open }: {open: boolean}) => css`
+  ({ open }: { open: boolean }) => css`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -39,8 +39,12 @@ const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })(
   ({
-    open, fullWidth, rect, alignCenter = true, theme
-  }: With<WithTheme, {open: boolean, fullWidth: boolean, rect: DOMRect, alignCenter: boolean}>) => css`
+    open,
+    fullWidth,
+    rect,
+    alignCenter = true,
+    theme,
+  }: With<WithTheme, { open: boolean; fullWidth: boolean; rect: DOMRect; alignCenter: boolean }>) => css`
     position: absolute;
     max-width: calc(100% - 32px);
     min-width: 16px;
@@ -48,7 +52,10 @@ const Container = styled.div.attrs({
     min-height: 16px;
     overflow-x: hidden;
     overflow-y: auto;
-    ${alignCenter && css`transform: translate(-50%);`}
+    ${alignCenter &&
+    css`
+      transform: translate(-50%);
+    `}
     transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transform-origin: 0px 26px;
     outline: 0;
@@ -58,11 +65,13 @@ const Container = styled.div.attrs({
     visibility: ${open ? 'visible' : 'hidden'};
     opacity: ${open ? '1' : '0'};
 
-    ${open && css`
+    ${open &&
+    css`
       top: ${rect.top + rect.height}px;
       left: ${rect.left + (alignCenter ? rect.width / 2 : 0)}px;
 
-      ${fullWidth && css`
+      ${fullWidth &&
+      css`
         min-width: ${rect.width}px;
       `}
     `}
@@ -72,7 +81,7 @@ const Container = styled.div.attrs({
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ maxHeight }: {maxHeight?: string|number}) => css`
+  ({ maxHeight }: { maxHeight?: string | number }) => css`
     position: relative;
     padding-top: 8px;
     padding-bottom: 8px;
@@ -81,7 +90,10 @@ const Menu = styled.div.attrs({
     outline: 0;
     display: flex;
     flex-direction: column;
-    ${maxHeight && css`max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};`}
+    ${maxHeight &&
+    css`
+      max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};
+    `}
     overflow-y: auto;
     overflow-x: hidden;
     ::-webkit-scrollbar {
@@ -97,7 +109,6 @@ const Menu = styled.div.attrs({
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(0, 0, 0, 0.5);
     }
-
   `
 );
 

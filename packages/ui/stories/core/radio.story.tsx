@@ -12,25 +12,17 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  checked: false
+  checked: false,
 };
 
-const BasicTemplate: Story<RadioProps> = ({
-  checked, ...args
-}) => {
+const BasicTemplate: Story<RadioProps> = ({ checked, ...args }) => {
   const [checkedState, setCheckedState] = useState(checked || false);
 
   useEffect(() => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return (
-    <Radio
-      {...args}
-      checked={checkedState}
-      onChange={(event) => setCheckedState(event.target.checked)}
-    />
-  );
+  return <Radio {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
 // Basic

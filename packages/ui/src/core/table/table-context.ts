@@ -2,7 +2,7 @@ import * as React from 'react';
 
 const TableContext = React.createContext({
   padding: 'default',
-  size: 'meduim'
+  size: 'meduim',
 });
 
 if (process.env.NODE_ENV !== 'production') {

@@ -17,9 +17,7 @@ export { default as InputLocalization } from './input-localization';
 export { default as Label } from './label';
 export { default as Loader } from './loader';
 export { default as Menu } from './menu';
-export {
-  default as MenuItem, MenuItemIcon, MenuItemLabel, MenuItemActions
-} from './menu-item';
+export { default as MenuItem, MenuItemIcon, MenuItemLabel, MenuItemActions } from './menu-item';
 export { default as Modal } from './modal';
 export { default as ModalActions } from './modal-actions';
 export { default as ModalContent } from './modal-content';

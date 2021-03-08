@@ -8,7 +8,7 @@ import _TableHead, { TableHeadProps } from '../../src/core/table-head';
 import _TableCell from '../../src/core/table-cell';
 import _TableRow from '../../src/core/table-row';
 import _TableBody from '../../src/core/table-body';
-import TableStory from '../shared/table-story.component'
+import TableStory from '../shared/table-story.component';
 
 export const Table = _Table;
 export const TableContainer = _TableContainer;
@@ -25,23 +25,16 @@ export default {
   argTypes: {
     children: {
       description: 'Node',
-    }
-  }
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
-  children: ''
+  children: '',
 };
 
-const BasicTemplate: Story<TableHeadProps> = ({
-  ...args
-}) => (
-  <TableStory />
-)
+const BasicTemplate: Story<TableHeadProps> = ({ ...args }) => <TableStory />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-
-

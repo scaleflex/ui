@@ -12,10 +12,8 @@ const Table = styled.table.attrs({
   border-spacing: 0;
 `;
 
-const Styled = applyDisplayNames(
-  {
-    Table
-  }
-);
+const Styled = applyDisplayNames({
+  Table,
+});
 
 export default Styled;

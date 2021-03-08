@@ -12,9 +12,7 @@ const baseClassName = 'Tab';
 const Tab = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    theme: { palette }, size = Size.Md
-  }: With<WithTheme, TabProps>) => css`
+  ({ theme: { palette }, size = Size.Md }: With<WithTheme, TabProps>) => css`
     ${tabSizeMixin[size]}
     position: relative;
     display: inline-flex;
@@ -23,7 +21,9 @@ const Tab = styled.div.attrs({
     color: ${palette[PColor.TextPrimary]};
     cursor: pointer;
 
-    &:hover, &:focus, &.active {
+    &:hover,
+    &:focus,
+    &.active {
       /* background: ${palette[PColor.BackgroundPrimaryHover]}; */
       color: ${palette[PColor.AccentPrimary]};
     }
@@ -38,7 +38,7 @@ const Tab = styled.div.attrs({
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ size = Size.Md }: {size: TabSizeType}) => css`
+  ({ size = Size.Md }: { size: TabSizeType }) => css`
     display: flex;
     margin-right: 8px;
 
@@ -50,9 +50,7 @@ const Icon = styled.div.attrs({
 
 const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})(
-  () => css``
-);
+})(() => css``);
 
 const Styled = applyDisplayNames({
   Tab,

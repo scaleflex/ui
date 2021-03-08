@@ -22,7 +22,12 @@ const LabelWrapper = styled.span.attrs({
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
-  ({ theme: { palette, typography: { font } } }: WithTheme) => css`
+  ({
+    theme: {
+      palette,
+      typography: { font },
+    },
+  }: WithTheme) => css`
     display: flex;
     align-items: center;
     color: ${palette[PColor.TextSecondary]};

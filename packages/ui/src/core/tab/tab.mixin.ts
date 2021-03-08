@@ -4,12 +4,20 @@ import { FontVariant as FV } from '../../utils/types/typography/font-variant';
 import { Size } from './types';
 
 export const tabSizeMixin = {
-  [Size.Md]: ({ theme: { typography: { font } } }: WithTheme) => css`
+  [Size.Md]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css`
     ${font[FV.LabelSmall]}
     padding: 8px 0px;
   `,
 
-  [Size.Lg]: ({ theme: { typography: { font } } }: WithTheme) => css`
+  [Size.Lg]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css`
     ${font[FV.LabelNormal]}
     padding: 15px 0px;
   `,

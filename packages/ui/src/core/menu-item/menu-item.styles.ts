@@ -30,10 +30,7 @@ const Icon = styled.div.attrs({
 
 const Actions = styled(Icon).attrs({
   className: generateClassNames(baseClassName, 'Actions'),
-})(
-  () => css`
-  `
-);
+})(() => css``);
 
 const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),

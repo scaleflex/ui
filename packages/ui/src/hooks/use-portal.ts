@@ -83,6 +83,4 @@ function usePortal(id: string): HTMLElement {
 
 export default usePortal;
 
-export {
-  usePortal,
-};
+export { usePortal };

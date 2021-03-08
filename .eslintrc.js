@@ -15,10 +15,10 @@ module.exports = {
     'plugin:promise/recommended',
     'plugin:unicorn/recommended',
     'plugin:@typescript-eslint/recommended',
-    // 'prettier/@typescript-eslint',
+     'prettier/@typescript-eslint',
     'plugin:import/typescript',
-    // 'plugin:prettier/recommended',
-    // 'prettier/react',
+     'plugin:prettier/recommended',
+     'prettier/react',
   ],
   plugins: [
     'import',
@@ -29,7 +29,7 @@ module.exports = {
     'react',
     'react-hooks',
     '@typescript-eslint',
-    // 'prettier',
+    'prettier',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -102,7 +102,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-named-as-default-member': 'off',
 
-    // 'prettier/prettier': 'warn',
+     'prettier/prettier': 'warn',
 
     'unicorn/consistent-function-scoping': 'warn',
     'unicorn/no-useless-undefined': 'off',

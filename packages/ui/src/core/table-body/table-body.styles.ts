@@ -9,10 +9,8 @@ const TableBody = styled.tbody.attrs({
   display: table-row-group;
 `;
 
-const Styled = applyDisplayNames(
-  {
-    TableBody
-  }
-);
+const Styled = applyDisplayNames({
+  TableBody,
+});
 
 export default Styled;

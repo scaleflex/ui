@@ -12,14 +12,10 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  children: '1 file will be deleted, ok?'
+  children: '1 file will be deleted, ok?',
 };
 
-const BasicTemplate: Story<ModalContentProps> = ({
-  ...args
-}) => (
-  <ModalContent {...args} />
-);
+const BasicTemplate: Story<ModalContentProps> = ({ ...args }) => <ModalContent {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

@@ -42,15 +42,9 @@ export default {
 
 const defaultArgs = {};
 
-const BasicTemplate: Story<PopupContentProps> = ({
-  ...args
-}) => (
-  <PopupContent {...args} />
-);
+const BasicTemplate: Story<PopupContentProps> = ({ ...args }) => <PopupContent {...args} />;
 
-const AllTemplate: Story<PopupContentProps> = ({
-  ...args
-}) => (
+const AllTemplate: Story<PopupContentProps> = ({ ...args }) => (
   <div>
     {items.map((props) => (
       <Item key={props.status}>

@@ -9,15 +9,13 @@ const TableHead = styled.thead.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ theme }: WithTheme) => css`
-  display: table-header-group;
-  background-color: ${theme.palette[PColor.BackgroundPrimary]};
-`
+    display: table-header-group;
+    background-color: ${theme.palette[PColor.BackgroundPrimary]};
+  `
 );
 
-const Styled = applyDisplayNames(
-  {
-    TableHead
-  }
-);
+const Styled = applyDisplayNames({
+  TableHead,
+});
 
 export default Styled;

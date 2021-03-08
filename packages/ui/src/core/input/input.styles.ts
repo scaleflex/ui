@@ -30,9 +30,7 @@ const Icon = styled.span.attrs({
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
-  ({
-    size = Size.Md, error = false, fullWidth = false, theme
-  }: With<WithTheme, InputProps>) => css`
+  ({ size = Size.Md, error = false, fullWidth = false, theme }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -40,7 +38,7 @@ const Input = styled.div.attrs({
     width: ${fullWidth ? '100%' : '300px'};
     background: ${theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};;
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
     color: ${theme.palette[PColor.TextPrimary]};
 
