@@ -14,7 +14,7 @@ import Styled from './select-group.styles';
 const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
   {
     children, error, label, hint, LabelProps: LabelPropsData, SelectProps: SelectPropsData,
-    selectProps, value, multiple, onChange, ...rest
+    selectProps, fullWidth, value, multiple, onChange, ...rest
   }: SelectGroupProps,
   ref
 ): JSX.Element => {
@@ -63,6 +63,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
         value={value}
         onChange={onChange}
         multiple={multiple}
+        fullWidth={Boolean(fullWidth)}
         {...(SelectPropsData || {})}
         selectProps={selectProps}
       >
@@ -76,13 +77,14 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>((
 
 SelectGroup.defaultProps = {
   error: false,
+  fullWidth: false,
 };
 
 const { size, ...restSelectPropTypes } = selectPropTypes;
 
 SelectGroup.propTypes = {
   ...restSelectPropTypes, // Extends from SelectProps: multiple, error, children, value, onChange
-
+  fullWidth: PT.bool,
   label: PT.node,
   hint: PT.node,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,

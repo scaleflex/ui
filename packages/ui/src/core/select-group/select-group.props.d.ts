@@ -8,5 +8,6 @@ export interface SelectGroupProps
   LabelProps?: LabelProps;
   SelectProps?: SelectProps;
   selectProps?: React.InputHTMLAttributes;
+  fullWidth?: boolean;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }
