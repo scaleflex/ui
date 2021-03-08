@@ -75,37 +75,39 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
   }, [tags]);
 
   return (
-    <Styled.TagFieldWrapper
-      ref={ref}
-      fullWidth={Boolean(fullWidth)}
-      {...rest}
-    >
-      <Styled.TagFieldListWrapper>
-        {tags.map((tag : string, index:number) => (
-          <Tag
-            key={tag}
-            size="md"
-            tagIndex={index}
+    <>
+      <Styled.TagFieldWrapper
+        ref={ref}
+        fullWidth={Boolean(fullWidth)}
+        {...rest}
+      >
+        <Styled.TagFieldListWrapper>
+          {tags.map((tag : string, index:number) => (
+            <Tag
+              key={tag}
+              size="md"
+              tagIndex={index}
             // eslint-disable-next-line no-shadow
-            onRemove={(index) => removeTag(index)}
-            style={{ margin: '4px 4px 4px 0' }}
-          >
-            {tag || internalTags}
-          </Tag>
-        ))}
+              onRemove={(index) => removeTag(index)}
+              style={{ margin: '4px 4px 4px 0' }}
+            >
+              {tag || internalTags}
+            </Tag>
+          ))}
 
-        <Styled.TagFieldInputWrapper>
-          <Styled.TagFieldInput
-            type="text"
-            autoComplete="off"
-            placeholder="Add a tag (separate by pressing enter)"
-            onChange={(ev) => suggestionListChange(ev.target.value)}
-            onKeyDown={(ev) => suggestionListKeyDown(ev)}
-            value={userInput}
-          />
-        </Styled.TagFieldInputWrapper>
-      </Styled.TagFieldListWrapper>
+          <Styled.TagFieldInputWrapper>
+            <Styled.TagFieldInput
+              type="text"
+              autoComplete="off"
+              placeholder="Add a tag (separate by pressing enter)"
+              onChange={(ev) => suggestionListChange(ev.target.value)}
+              onKeyDown={(ev) => suggestionListKeyDown(ev)}
+              value={userInput}
+            />
+          </Styled.TagFieldInputWrapper>
+        </Styled.TagFieldListWrapper>
 
+      </Styled.TagFieldWrapper>
       {filteredSuggestions.length > 0 && showSuggestions && (
       <Styled.TagFieldSuggestionWrapper>
         <Styled.TagFieldSuggestionLabel>
@@ -132,7 +134,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>((
         </Styled.TagFieldSuggestionWrapperList>
       </Styled.TagFieldSuggestionWrapper>
       )}
-    </Styled.TagFieldWrapper>
+    </>
   );
 });
 

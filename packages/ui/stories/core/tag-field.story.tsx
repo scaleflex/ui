@@ -36,7 +36,6 @@ const BasicTemplate: Story<TagFieldProps> = ({
   return (
     <TagField
       {...args}
-      style={{ width: '500px' }}
       tags={tags}
       suggestedTags={args.suggestedTags}
       onAdd={(newTags: string[]) => addTags(newTags)}

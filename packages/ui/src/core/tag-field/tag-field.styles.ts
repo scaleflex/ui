@@ -10,28 +10,28 @@ const baseClassName = 'TagField';
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ fullWidth = false }: {fullWidth: boolean}) => css`
+  ({ fullWidth = false, theme }: WithTheme & {fullWidth: boolean}) => css`
   overflow: hidden;
-  width: ${fullWidth ? '100%' : ''};
+  border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
+  border-radius: 2px;
+  width: ${fullWidth ? '100%' : '50%'};
 `
 );
 
 const TagFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
-})(({ theme }: WithTheme) => css`
+})`
   display: inline-flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 8px 12px;
   list-style: none;
-  border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
-  border-radius: 2px;
   font-size: 14px;
   line-height: 1.5;
   padding: 6px 8px;
   background: #F8FAFB;
-  width:95%;
-`);
+  width:100%;
+`;
 
 const TagFieldInputWrapper = styled.li.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
