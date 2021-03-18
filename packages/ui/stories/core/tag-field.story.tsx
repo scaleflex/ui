@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { StoryGroup } from './types';
@@ -20,6 +20,10 @@ const defaultArgs = {
 
 const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
   const [tags, setTags] = useState(args.tags);
+
+  useEffect(() => {
+    setTags(args.tags);
+  }, [args.tags]);
 
   const addTags = (newTags: string[]): void => {
     setTags(newTags);
