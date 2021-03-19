@@ -163,7 +163,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                 size="md"
                 tagIndex={index}
                 // eslint-disable-next-line no-shadow
-                onRemove={readOnly ? null : (index) => removeTag(index)}
+                onRemove={readOnly || loading ? null : (index) => removeTag(index)}
                 style={{ margin: '4px 4px 4px 0' }}
               >
                 {tag || internalTags}
