@@ -3,6 +3,7 @@ import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';
+import ModalMenuContext from './modal-menu-context';
 import Styled from './modal.styles';
 
 const isValidSingleFragmentChildren = (children?: any): boolean =>
@@ -34,24 +35,26 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
     };
 
     return (
-      <Styled.Wrapper open={Boolean(open)} ref={ref}>
-        <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
+      <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
+        <Styled.Wrapper open={Boolean(open)} ref={ref}>
+          <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
 
-        <Styled.Container {...rest} maxWidth={maxWidth} fullWidth={fullWidth} open={Boolean(open)}>
-          <Styled.Modal>
-            {React.Children.map(children, (child) => {
-              if (isValidElement(child) && (child as JSX.Element).type.displayName === 'ModalTitle') {
-                return React.cloneElement(child, {
-                  onClose: handleClose, // Defaut onClose fn, but can be override by props
-                  ...((child as JSX.Element).props || {}),
-                });
-              }
+          <Styled.Container {...rest} maxWidth={maxWidth} fullWidth={fullWidth} open={Boolean(open)}>
+            <Styled.Modal>
+              {React.Children.map(children, (child) => {
+                if (isValidElement(child) && (child as JSX.Element).type.displayName === 'ModalTitle') {
+                  return React.cloneElement(child, {
+                    onClose: handleClose, // Defaut onClose fn, but can be override by props
+                    ...((child as JSX.Element).props || {}),
+                  });
+                }
 
-              return child;
-            })}
-          </Styled.Modal>
-        </Styled.Container>
-      </Styled.Wrapper>
+                return child;
+              })}
+            </Styled.Modal>
+          </Styled.Container>
+        </Styled.Wrapper>
+      </ModalMenuContext.Provider>
     );
   }
 );

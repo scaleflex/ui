@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useContext } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
 import usePortal from '../../hooks/use-portal';
 import { intrinsicComponent, generateClassNames } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
+import ModalMenuContext from '../modal/modal-menu-context';
 import Styled from './menu.styles';
 
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
@@ -26,7 +27,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     const [timeout, setTimeoutState] = useState<ReturnType<typeof setTimeout> | null>(null);
     const [rect, setRect] = useState(new DOMRect());
     const target = usePortal(generateClassNames('Menu'));
-
+    const modalContext = useContext(ModalMenuContext);
     const updateRect = useCallback(() => {
       const defaultPosition = {
         top: 0,
@@ -69,16 +70,14 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     }, [anchorElPosition, updateRect]);
 
     useEffect(() => {
-      if (open) {
-        document.body.style.overflow = 'hidden';
-        updateRect();
-      } else {
-        document.body.style.overflow = '';
+      if (!modalContext.modalOpened) {
+        if (open) {
+          document.body.style.overflow = 'hidden';
+          updateRect();
+        } else {
+          document.body.style.overflow = '';
+        }
       }
-
-      return () => {
-        document.body.style.overflow = '';
-      };
     }, [open, updateRect]);
 
     const handleClose = (): void => {
@@ -132,6 +131,7 @@ export const propTypes = {
   onClose: PT.func,
   id: PT.string,
   children: PT.node.isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
   containerProps: PT.object,
   alignCenter: PT.bool,
   maxHeight: PT.oneOfType([PT.string, PT.number]),
