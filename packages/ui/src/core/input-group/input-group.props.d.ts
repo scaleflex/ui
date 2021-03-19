@@ -12,6 +12,7 @@ export interface InputGroupProps extends React.HTMLAttributes<Omit<HTMLDivElemen
   hint?: React.ReactNode;
   type?: InputGroupTypesType;
   error?: boolean;
+  label: PT.node;
   LabelProps?: LabelProps;
   InputProps?: InputProps;
   inputProps?: React.InputHTMLAttributes;

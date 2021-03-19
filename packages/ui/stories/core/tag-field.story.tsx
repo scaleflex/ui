@@ -16,6 +16,9 @@ export default {
 const defaultArgs = {
   tags: ['scaleflex', 'sfx'],
   suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming'],
+  placeholder: 'Add a tag (separate by pressing enter)',
+  label: 'Tags',
+  hint: 'Some hint goes here',
 };
 
 const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
