@@ -5,7 +5,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import type { TagFieldProps } from './tag-field.props';
+// import type { TagFieldProps } from './tag-field.props';
 
 const baseClassName = 'TagField';
 
@@ -48,7 +48,7 @@ const TagFieldLoader = styled.span.attrs({
 const TagFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
 })(
-  ({ $loading }: TagFieldProps) => css`
+  ({ $loading }: { $loading: boolean | undefined }) => css`
     display: inline-flex;
     align-items: center;
     flex-wrap: wrap;

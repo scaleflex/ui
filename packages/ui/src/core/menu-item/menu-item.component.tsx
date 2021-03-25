@@ -97,7 +97,7 @@ export const defaultProps = {
 
 MenuItem.defaultProps = defaultProps;
 
-export const propTypes = {
+MenuItem.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   children: PT.oneOfType([PT.node, PT.func]),
   active: PT.bool,
@@ -115,7 +115,5 @@ export const propTypes = {
   ),
   depth: PT.number,
 };
-
-MenuItem.propTypes = propTypes;
 
 export default MenuItem;

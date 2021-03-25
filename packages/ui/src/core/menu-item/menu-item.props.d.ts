@@ -7,10 +7,10 @@ export type MenuItemSizeType = Values<typeof Size>;
 export type MenuItemListType = {
   key: string;
   content: string | React.ReactNode;
-  prefix?: string | React.ReactNode;
+  prefix?: string | React.ReactNode | undefined;
   subList?: MenuItemListType[];
-  suffix?: string | React.ReactNode;
-  onClick?: func;
+  suffix?: string | React.ReactNode | undefined;
+  onClick?: func | undefined;
   disabled?: boolean;
 };
 export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
@@ -24,6 +24,6 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   icon?: React.ReactNode;
   active?: boolean;
   value?: string | number | null;
-  list?: MenuItemListType[];
-  depth?: number;
+  list?: MenuItemListType[] | null | undefined;
+  depth?: number | undefined;
 }
