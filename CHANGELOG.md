@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.18](https://github.com/scaleflex/ui/compare/1.0.0-beta.17...1.0.0-beta.18) (2021-03-25)
+
+
+### Bug Fixes
+
+* **Modal:** menu overwriting scroll disable ([941b2b3](https://github.com/scaleflex/ui/commit/941b2b340aac1d5a35187ee44e3f1c65064d1547))
+* **TagField:** story update state ([4b7d6a8](https://github.com/scaleflex/ui/commit/4b7d6a89ea362b6711f7b8c249fb944e83d4f6b6))
+* **TagsField:** styles T2988_TAGSFIELD_COMPONENT ([93f84f4](https://github.com/scaleflex/ui/commit/93f84f4430547d7738c896c0c7b10813fd7e2391))
+
+
+### Features
+
+* **Menu, MenuItem:** add sublist feature to menu ([60eef26](https://github.com/scaleflex/ui/commit/60eef267db404b0e4031920fd2ab45d20419e45e))
+* **SelectGroup:** add full width prop ([f749bbf](https://github.com/scaleflex/ui/commit/f749bbf3a82c0a16949db285252ab4da28507905))
+* **TagField:** add new props ([7f2cb0e](https://github.com/scaleflex/ui/commit/7f2cb0e178d82c744f8c9ea931877df73c4a3c98))
+
+
+
+
+
 # [1.0.0-beta.17](https://github.com/scaleflex/ui/compare/v1.0.0-beta.16...1.0.0-beta.17) (2021-03-01)
 
 **Note:** Version bump only for package ui
