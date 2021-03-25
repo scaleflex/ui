@@ -1,10 +1,13 @@
-import React, { useState, useEffect, useCallback, useContext } from 'react';
-import { createPortal } from 'react-dom';
+import React, { useState, useEffect, useCallback, useContext, useRef } from 'react';
+
 import PT, { Validator } from 'prop-types';
-import usePortal from '../../hooks/use-portal';
-import { intrinsicComponent, generateClassNames } from '../../utils/functions';
+
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
+import { propTypes as popperPropTypes } from '../popper/popper.component';
+import { Position } from '../popper/types';
 import ModalMenuContext from '../modal/modal-menu-context';
+import Popper from '../popper';
 import Styled from './menu.styles';
 
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
@@ -20,13 +23,16 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       containerProps,
       alignCenter,
       maxHeight,
+      position,
+      popperOptions,
       ...rest
     },
     ref
   ): JSX.Element => {
     const [timeout, setTimeoutState] = useState<ReturnType<typeof setTimeout> | null>(null);
     const [rect, setRect] = useState(new DOMRect());
-    const target = usePortal(generateClassNames('Menu'));
+    const menuRef = useRef(null);
+
     const modalContext = useContext(ModalMenuContext);
     const updateRect = useCallback(() => {
       const defaultPosition = {
@@ -86,34 +92,31 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       }
     };
 
-    const render = (): JSX.Element => (
-      <Styled.Wrapper open={Boolean(open)} id={id} ref={ref}>
+    return (
+      <>
         <Styled.Overlay onClick={handleClose} />
-
-        <Styled.Container
-          {...containerProps}
-          open={Boolean(open)}
-          fullWidth={Boolean(fullWidth)}
-          alignCenter={Boolean(alignCenter)}
-          rect={rect}
-        >
-          <Styled.Menu {...rest} maxHeight={maxHeight}>
+        <Popper ref={menuRef} position={position || 'bottom'} open={Boolean(anchorEl)} anchorEl={anchorEl}>
+          <Styled.Menu
+            {...containerProps}
+            alignCenter={Boolean(alignCenter)}
+            rect={rect}
+            {...rest}
+            ref={ref}
+            maxHeight={maxHeight}
+          >
             {children}
           </Styled.Menu>
-        </Styled.Container>
-      </Styled.Wrapper>
+        </Popper>
+      </>
     );
-
-    return createPortal(render(), target);
   }
 );
 
 export const defaultProps = {
   open: false,
-  fullWidth: false,
   containerProps: {},
-  alignCenter: true,
-  maxHeight: 300,
+  maxHeight: 0,
+  position: 'bottom',
 };
 
 Menu.defaultProps = defaultProps;
@@ -135,6 +138,8 @@ export const propTypes = {
   containerProps: PT.object,
   alignCenter: PT.bool,
   maxHeight: PT.oneOfType([PT.string, PT.number]),
+  popperOptions: popperPropTypes.popperOptions,
+  position: PT.oneOf(objectValues(Position)),
 };
 
 Menu.propTypes = propTypes;

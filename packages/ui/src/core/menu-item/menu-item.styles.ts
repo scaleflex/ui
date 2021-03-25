@@ -38,16 +38,30 @@ const Label = styled.div.attrs({
   flex-grow: 1;
 `;
 
+const MenuItemWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'wrapper'),
+})(
+  ({ disabled, theme }: With<WithTheme, { disabled: boolean }>) => css`
+    ${disabled &&
+    css`
+      width: 100%;
+      height: 1px;
+      background: ${theme.palette[PColor.BordersSecondary]};
+      box-sizing: border-box;
+    `}
+  `
+);
+
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ size = Size.Md, active, theme }: With<WithTheme, MenuItemProps>) => css`
-    position: relative;
-    display: inline-flex;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    width: 100%;
     background: ${theme.palette[active ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
     cursor: pointer;
-    /* min-width: 300px; */
     box-sizing: border-box;
 
     ${sizeMenuItemMixin[size]}
@@ -60,8 +74,38 @@ const MenuItem = styled.div.attrs({
   `
 );
 
+const MenuPrefix = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'prefix'),
+})(
+  () => css`
+    display: flex;
+    margin-right: 8px;
+  `
+);
+
+const MenuContent = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'content'),
+})(
+  () => css`
+    flex-grow: 1;
+    line-height: 16px;
+  `
+);
+
+const MenuSuffix = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'suffix'),
+})(
+  () => css`
+    display: flex;
+    margin-left: 8px;
+  `
+);
 const Styled = applyDisplayNames({
+  MenuItemWrapper,
   MenuItem,
+  MenuPrefix,
+  MenuContent,
+  MenuSuffix,
   Label,
   Icon,
   Actions,

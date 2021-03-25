@@ -7,20 +7,6 @@ import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 
 const baseClassName = 'Menu';
 
-const Wrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Wrapper'),
-})(
-  ({ open }: { open: boolean }) => css`
-    position: fixed;
-    right: 0px;
-    bottom: 0px;
-    top: 0px;
-    left: 0px;
-    z-index: 1300;
-    visibility: ${open ? 'visible' : 'hidden'};
-  `
-);
-
 const Overlay = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Overlay'),
 })(
@@ -35,67 +21,27 @@ const Overlay = styled.div.attrs({
   `
 );
 
-const Container = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Container'),
-})(
-  ({
-    open,
-    fullWidth,
-    rect,
-    alignCenter = true,
-    theme,
-  }: With<WithTheme, { open: boolean; fullWidth: boolean; rect: DOMRect; alignCenter: boolean }>) => css`
-    position: absolute;
-    max-width: calc(100% - 32px);
-    min-width: 16px;
-    /* max-height: calc(100% - 32px); */
-    min-height: 16px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    ${alignCenter &&
-    css`
-      transform: translate(-50%);
-    `}
-    transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-    transform-origin: 0px 26px;
-    outline: 0;
-    filter: drop-shadow(0px 2px 4px ${theme.palette[PColor.LightShadow]});
-    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-
-    visibility: ${open ? 'visible' : 'hidden'};
-    opacity: ${open ? '1' : '0'};
-
-    ${open &&
-    css`
-      top: ${rect.top + rect.height}px;
-      left: ${rect.left + (alignCenter ? rect.width / 2 : 0)}px;
-
-      ${fullWidth &&
-      css`
-        min-width: ${rect.width}px;
-      `}
-    `}
-  `
-);
-
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ maxHeight }: { maxHeight?: string | number }) => css`
-    position: relative;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    margin: 0;
-    padding: 0;
+  ({
+    rect,
+    theme,
+    maxHeight = '',
+  }: With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number }>) => css`
+    min-width: ${rect.width}px;
+    min-height: 16px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     outline: 0;
-    display: flex;
-    flex-direction: column;
+    box-shadow: 0 2px 4px ${theme.palette[PColor.LightShadow]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     ${maxHeight &&
     css`
       max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};
     `}
-    overflow-y: auto;
-    overflow-x: hidden;
+
     ::-webkit-scrollbar {
       width: 6px;
     }
@@ -114,9 +60,7 @@ const Menu = styled.div.attrs({
 
 const Styled = applyDisplayNames({
   Menu,
-  Wrapper,
   Overlay,
-  Container,
 });
 
 export default Styled;

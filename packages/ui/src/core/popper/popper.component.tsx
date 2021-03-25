@@ -8,6 +8,7 @@ import usePortal from '../../hooks/use-portal';
 import { intrinsicComponent, generateClassNames, useForkRef, objectValues } from '../../utils/functions';
 import { Position, Strategy } from './types';
 import type { PopperProps, PopperOptions, Modifiers } from './popper.props';
+import Styled from './popper.styles';
 
 const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
   (
@@ -15,8 +16,8 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
-    const tooltipRef = useRef(null);
-    const ownRef = useForkRef(tooltipRef, ref);
+    const Ref = useRef(null);
+    const ownRef = useForkRef(Ref, ref);
 
     let popperModifiers: Modifiers = [];
 
@@ -24,7 +25,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       popperModifiers = popperModifiers.concat(popperOptions.modifiers);
     }
 
-    const popper = usePopper(anchorEl, tooltipRef.current, {
+    const popper = usePopper(anchorEl, Ref.current, {
       placement: initialPlacement,
       ...popperOptions,
       modifiers: popperModifiers,
@@ -43,9 +44,9 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       return <div ref={handleRef} />;
     }
     const render = (): JSX.Element => (
-      <div ref={handleRef} style={popper.styles.popper} {...popper.attributes.popper}>
+      <Styled.Popper ref={handleRef} style={popper.styles.popper} {...popper.attributes.popper}>
         {children}
-      </div>
+      </Styled.Popper>
     );
 
     return createPortal(render(), target);
@@ -54,7 +55,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
 
 Popper.defaultProps = {};
 
-Popper.propTypes = {
+export const propTypes = {
   anchorEl: PT.instanceOf(Element),
 
   popperOptions: PT.shape({
@@ -86,5 +87,7 @@ Popper.propTypes = {
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
 };
+
+Popper.propTypes = propTypes;
 
 export default Popper;

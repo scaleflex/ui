@@ -1,4 +1,8 @@
 import type { PropsWithChildren } from 'react';
+import { Position } from '../popper/types';
+import type { PopperOptions } from '../popper/popper.props';
+
+export type PopperPositionType = Values<typeof Position>;
 
 export type AnchorElType = Element | null | undefined;
 
@@ -12,4 +16,6 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   containerProps?: object;
   alignCenter?: boolean;
   maxHeight?: string | number;
+  position?: PopperPositionType;
+  popperOptions?: PopperOptions;
 }
