@@ -102,18 +102,18 @@ MenuItem.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]),
   active: PT.bool,
   value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]),
-  list: PT.arrayOf(
-    PT.shape({
-      key: PT.string.isRequired,
-      content: PT.oneOfType([PT.string, PT.node]).isRequired,
-      prefix: PT.oneOfType([PT.string, PT.node]),
-      subList: PT.arrayOf(PT.object),
-      suffix: PT.oneOfType([PT.string, PT.node]),
-      onClick: PT.func,
-      disabled: PT.bool,
-    })
-  ),
   depth: PT.number,
 };
 
 export default MenuItem;
+// list: PT.arrayOf(
+//   PT.shape({
+//     key: PT.string.isRequired,
+//     content: PT.oneOfType([PT.string, PT.node]).isRequired,
+//     prefix: PT.oneOfType([PT.string, PT.node]),
+//     subList: PT.arrayOf(PT.object),
+//     suffix: PT.oneOfType([PT.string, PT.node]),
+//     onClick: PT.func,
+//     disabled: PT.bool,
+//   })
+// ),

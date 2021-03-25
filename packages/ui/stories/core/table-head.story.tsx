@@ -33,7 +33,7 @@ const defaultArgs = {
   children: '',
 };
 
-const BasicTemplate: Story<TableHeadProps> = ({ ...args }) => <TableStory />;
+const BasicTemplate: Story<TableHeadProps> = ({ ...args }) => <TableStory {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

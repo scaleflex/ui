@@ -1,4 +1,4 @@
-import { Values, With } from '../../types';
+import { Values, With } from '..';
 
 export const Direction = {
   Row: 'row',

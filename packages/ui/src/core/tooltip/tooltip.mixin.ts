@@ -1,5 +1,5 @@
-import { WithTheme } from '../../theme/entity';
 import { css } from 'styled-components';
+import { WithTheme } from '../../theme/entity';
 // import type { WithTheme } from '../../theme/entity';
 // import { Color as PaletteColor } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
