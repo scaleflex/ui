@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _TagField, { TagFieldProps } from '../../src/core/tag-field';
+import _TagField, { TagFieldProps, TagObjectTypes } from '../../src/core/tag-field';
 import { StoryGroup } from './types';
 
 export const TagField = _TagField;
@@ -28,11 +28,11 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
     setTags(args.tags);
   }, [args.tags]);
 
-  const addTags = (newTags: string[]): void => {
+  const addTags = (newTags: (string | TagObjectTypes)[]): void => {
     setTags(newTags);
   };
 
-  const removeTags = (newTags: string[]): void => {
+  const removeTags = (newTags: (string | TagObjectTypes)[]): void => {
     setTags(newTags);
   };
 
@@ -41,8 +41,8 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
       {...args}
       tags={tags}
       suggestedTags={args.suggestedTags}
-      onAdd={(newTags: string[]) => addTags(newTags)}
-      onRemove={(newTags: string[]) => removeTags(newTags)}
+      onAdd={(newTags: (string | TagObjectTypes)[]) => addTags(newTags)}
+      onRemove={(newTags: (string | TagObjectTypes)[]) => removeTags(newTags)}
     />
   );
 };

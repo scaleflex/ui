@@ -9,7 +9,7 @@ import Label from '../label';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
-import type { TagFieldProps } from './tag-field.props';
+import type { TagFieldProps, TagObjectTypes } from './tag-field.props';
 
 import Styled from './tag-field.styles';
 
@@ -32,7 +32,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     }: TagFieldProps,
     ref
   ): JSX.Element => {
-    const [internalTags, setInternalTags] = useState(tags);
+    const [internalTags, setInternalTags] = useState<(string | TagObjectTypes)[]>([]);
+    const [internalIds, setInternalIds] = useState<(string | undefined)[]>([]);
     const [showSuggestions, setShowSuggestions] = useState(false);
     const [filteredSuggestions, setFilteredSuggestions] = useState(['']);
     const [userInput, setUserInput] = useState('');
@@ -50,19 +51,32 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const addTags = (ev: any): void => {
       const val = ev.target.value || ev.currentTarget.textContent;
       const hasVal = internalTags.includes(val);
-      let newTags = [];
+      let newTags: any = [];
+      let newIds: any = [];
 
       if (hasVal) {
         newTags = internalTags;
+        newIds = internalIds;
       } else {
         newTags = [...internalTags, val];
+        newIds = [...internalIds, val];
       }
 
       if (!val) {
         return;
       }
       setInternalTags(newTags);
-      onAdd(newTags);
+      setInternalIds(newIds);
+
+      if (tags.some((tag) => typeof tag === 'object')) {
+        let newObjectTags: (string | TagObjectTypes)[] = [];
+        newTags.forEach((tag: string, index: number) => {
+          newObjectTags = [...newObjectTags, { id: newIds[index], label: tag }];
+        });
+        onAdd(newObjectTags);
+      } else {
+        onAdd(newTags);
+      }
     };
 
     const suggestionChoose = (ev: any): void => {
@@ -73,10 +87,26 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       setUserInput('');
     };
 
+    const returnObjorString = (newTags: (string | TagObjectTypes)[]): void => {
+      if (tags.some((tag) => typeof tag === 'object')) {
+        const tagLabels = newTags.map((tag: any) => {
+          return tag.label;
+        });
+        const tagIds = newTags.map((tag: any) => {
+          return tag.id;
+        });
+        setInternalTags(tagLabels);
+        setInternalIds(tagIds);
+      } else {
+        setInternalTags(newTags);
+      }
+    };
+
     const removeTag = (index: number): void => {
       const newTags = [...tags];
       newTags.splice(index, 1);
-      setInternalTags(newTags);
+
+      returnObjorString(newTags);
       onRemove(newTags);
     };
 
@@ -91,8 +121,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      setInternalTags(tags);
-    }, [tags]);
+      // let newTags: any = [];
+      // tags.forEach((tag, index) => {
+      //   if (!tag) {
+      //     newTags = [...tags];
+      //     newTags.splice(index, 1);
+      //   }
+      // });
+
+      returnObjorString(tags);
+    }, []);
 
     const renderLabel = (): string | number | null | JSX.Element | any => {
       if (label) {
@@ -129,7 +167,25 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
       return null;
     };
-
+    const renderTags = (): (JSX.Element | undefined)[] => {
+      return tags.map((tag: string | TagObjectTypes, index: number) => {
+        if (tag) {
+          return (
+            <Tag
+              key={typeof tag === 'object' ? internalIds[index] : tag}
+              type="default"
+              size="md"
+              tagIndex={index}
+              // eslint-disable-next-line no-shadow
+              onRemove={readOnly || loading ? undefined : (index) => removeTag(index)}
+              style={{ margin: '4px 4px 4px 0' }}
+            >
+              {typeof tag === 'object' ? internalTags[index] : tag}
+            </Tag>
+          );
+        }
+      });
+    };
     const renderInputSection = (): JSX.Element => (
       <>
         {loading ? (
@@ -151,24 +207,13 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         )}
       </>
     );
-
+    console.log(internalTags);
     return (
       <Styled.TagFieldRoot>
         {renderLabel()}
         <Styled.TagFieldWrapper ref={ref} fullWidth={Boolean(fullWidth)} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
-            {tags.map((tag: string, index: number) => (
-              <Tag
-                key={tag}
-                size="md"
-                tagIndex={index}
-                // eslint-disable-next-line no-shadow
-                onRemove={readOnly || loading ? undefined : (index) => removeTag(index)}
-                style={{ margin: '4px 4px 4px 0' }}
-              >
-                {tag || internalTags}
-              </Tag>
-            ))}
+            {renderTags()}
             {renderInputSection()}
           </Styled.TagFieldListWrapper>
         </Styled.TagFieldWrapper>
@@ -209,7 +254,15 @@ TagField.defaultProps = {
 };
 
 TagField.propTypes = {
-  tags: PT.arrayOf(PT.any).isRequired,
+  tags: PT.arrayOf(
+    PT.oneOfType([
+      PT.string.isRequired,
+      PT.shape({
+        id: PT.string.isRequired,
+        label: PT.string.isRequired,
+      }).isRequired as Validator<TagObjectTypes>,
+    ])
+  ).isRequired,
   suggestedTags: PT.arrayOf(PT.any).isRequired,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
