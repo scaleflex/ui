@@ -14,6 +14,7 @@ Textarea.defaultProps = {
 
 export const propTypes = {
   error: PT.bool,
+  value: PT.string,
 };
 
 Textarea.propTypes = propTypes;

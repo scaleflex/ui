@@ -22,7 +22,13 @@ const defaultArgs = {
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
-  return <Input {...args} value={value} onChange={({ target }) => setValue(target.value)} />;
+  return (
+    <Input
+      {...args}
+      value={value}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
+    />
+  );
 };
 
 // Basic
@@ -33,20 +39,20 @@ Basic.args = { ...defaultArgs };
 export const WithIconStart = BasicTemplate.bind({});
 WithIconStart.args = {
   ...defaultArgs,
-  iconStart: (props) => <SearchIcon {...props} />,
+  iconStart: (props: any) => <SearchIcon {...props} />,
 };
 
 // WithIconEnd
 export const WithIconEnd = BasicTemplate.bind({});
 WithIconEnd.args = {
   ...defaultArgs,
-  iconEnd: (props) => <CensorIcon {...props} />,
+  iconEnd: (props: any) => <CensorIcon {...props} />,
 };
 
 // WithIcons
 export const WithIcons = BasicTemplate.bind({});
 WithIcons.args = {
   ...defaultArgs,
-  iconStart: (props) => <SearchIcon {...props} />,
-  iconEnd: (props) => <CensorIcon {...props} />,
+  iconStart: (props: any) => <SearchIcon {...props} />,
+  iconEnd: (props: any) => <CensorIcon {...props} />,
 };

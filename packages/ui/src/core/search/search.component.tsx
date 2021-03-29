@@ -1,6 +1,6 @@
 import React from 'react';
-import { intrinsicComponent } from '../../utils/functions';
 import SearchIcon from '@scaleflex/icons/search';
+import { intrinsicComponent } from '../../utils/functions';
 import type { SearchProps } from './search.props';
 import Input from '../input';
 import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';

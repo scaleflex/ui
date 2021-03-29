@@ -47,6 +47,7 @@ export const propTypes = {
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
   fullWidth: PT.bool,
+  value: PT.string,
 };
 
 Input.propTypes = propTypes;

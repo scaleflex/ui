@@ -19,6 +19,7 @@ const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>(
       ...rest
     }: TableCellProps,
     ref
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const table = useContext(TableContext);
     const tablelvl2 = useContext(Tablelvl2Context);

@@ -34,7 +34,13 @@ const ControlledTemplate: Story<RatingProps> = ({ value, ...args }) => {
     setValueState(value);
   }, [value]);
 
-  return <Rating {...args} value={valueState} onChange={({ target }) => setValueState(+target.value)} />;
+  return (
+    <Rating
+      {...args}
+      value={valueState}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(+currentTarget.value)}
+    />
+  );
 };
 
 // Controlled

@@ -1,5 +1,5 @@
-import { Values } from '../../utils/types';
 import React from 'react';
+import { Values } from '../../utils/types';
 import type { Values } from '../../utils/types';
 import { Color } from './types';
 

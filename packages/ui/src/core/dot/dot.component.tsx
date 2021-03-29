@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
-import { intrinsicComponent } from '../../utils/functions';
 import DotIcon from '@scaleflex/icons/dot';
+import { intrinsicComponent } from '../../utils/functions';
 import type { DotProps } from './dot.props';
 import Styled from './dot.styles';
 

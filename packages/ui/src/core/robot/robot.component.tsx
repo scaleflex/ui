@@ -1,10 +1,10 @@
 import React from 'react';
 import PT from 'prop-types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
 import RobotWorried from '@scaleflex/icons/robot-worried';
 import RobotSad from '@scaleflex/icons/robot-sad';
 import RobotNeutral from '@scaleflex/icons/robot-neutral';
 import RobotHappy from '@scaleflex/icons/robot-happy';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { RobotProps, RobotStatusType } from './robot.props';
 import { Status } from './types';
 import Styled from './robot.styles';

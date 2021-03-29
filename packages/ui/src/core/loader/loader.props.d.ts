@@ -1,1 +1,1 @@
-export interface LoaderProps extends React.HTMLAttributes<HTMLSpanElement> {}
+export type LoaderProps = React.HTMLAttributes<HTMLSpanElement>;

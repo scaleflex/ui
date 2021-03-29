@@ -32,7 +32,7 @@ const BasicTemplate: Story<SelectProps> = ({ ...args }) => {
   }, [args.multiple]);
 
   return (
-    <Select {...args} value={value} onChange={setValue}>
+    <Select {...args} value={value} onChange={(ev: any) => setValue(ev)}>
       <MenuItem value="item1">Menu item 1</MenuItem>
       <MenuItem value="item2">Menu item 2</MenuItem>
       <MenuItem value="item3">Menu item 3</MenuItem>

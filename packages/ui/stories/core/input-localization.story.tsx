@@ -27,7 +27,7 @@ const BasicTemplate: Story<InputLocalizationProps> = ({ ...args }) => {
   const [value, setValue] = useState(options[0]);
 
   return (
-    <InputLocalization {...args} value={value} onChange={setValue}>
+    <InputLocalization {...args} value={value} onChange={(ev: any) => setValue(ev)}>
       {options.map((option) => (
         <MenuItem key={option} value={option}>
           {option}

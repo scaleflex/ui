@@ -42,7 +42,7 @@ Disabled.args = { ...defaultArgs, disabled: true };
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  icon: (props) => <UploadIcon {...props} />,
+  icon: (props: any) => <UploadIcon {...props} />,
 };
 
 // WithBadge
@@ -57,6 +57,6 @@ WithBadge.args = {
 export const WithIconsAndBadge = BasicTemplate.bind({});
 WithIconsAndBadge.args = {
   ...defaultArgs,
-  icon: (props) => <UploadIcon {...props} />,
+  icon: (props: any) => <UploadIcon {...props} />,
   badge: 22,
 };

@@ -23,7 +23,7 @@ export default {
 const defaultArgs = {
   size: Size.Md,
   color: Color.Secondary,
-  children: (props) => <UploadIcon {...props} />,
+  children: (props: any) => <UploadIcon {...props} />,
   disabled: false,
   square: false,
 };

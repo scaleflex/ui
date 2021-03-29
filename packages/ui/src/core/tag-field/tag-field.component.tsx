@@ -168,6 +168,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       return null;
     };
     const renderTags = (): (JSX.Element | undefined)[] => {
+      // eslint-disable-next-line consistent-return
+      // eslint-disable-next-line array-callback-return
       return tags.map((tag: string | TagObjectTypes, index: number) => {
         if (tag) {
           return (
@@ -207,7 +209,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         )}
       </>
     );
-    console.log(internalTags);
+
     return (
       <Styled.TagFieldRoot>
         {renderLabel()}

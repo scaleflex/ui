@@ -121,7 +121,12 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
       <ModalTitle primary="Create item" />
 
       <ModalContent>
-        <SelectGroup value={valueState} onChange={setValueState} label="Label" hint="Some hint goes here">
+        <SelectGroup
+          value={valueState}
+          onChange={(ev: any) => setValueState(ev)}
+          label="Label"
+          hint="Some hint goes here"
+        >
           <MenuItem value="item1">Item 1</MenuItem>
           <MenuItem value="item2">Item 2</MenuItem>
         </SelectGroup>

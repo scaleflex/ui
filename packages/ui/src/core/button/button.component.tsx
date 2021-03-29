@@ -19,7 +19,8 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
             ) : (
               icon({ size: getIconSize(size) })
             )
-          ) : loading ? (
+          ) : // eslint-disable-next-line unicorn/no-nested-ternary
+          loading ? (
             <SpinnerIcon size={getIconSize(size)} />
           ) : (
             icon

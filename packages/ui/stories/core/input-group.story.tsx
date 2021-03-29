@@ -28,7 +28,13 @@ const defaultArgs = {
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState('value');
 
-  return <InputGroup {...args} value={valueState} onChange={({ target }) => setValueState(target.value)} />;
+  return (
+    <InputGroup
+      {...args}
+      value={valueState}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(currentTarget.value)}
+    />
+  );
 };
 
 // Input
@@ -40,7 +46,7 @@ export const InputWithIcon = BasicTemplate.bind({});
 InputWithIcon.args = {
   ...defaultArgs,
   LabelProps: {
-    icon: (props) => <QuestionMarkOutline {...props} />,
+    icon: (props: any) => <QuestionMarkOutline {...props} />,
   },
 };
 

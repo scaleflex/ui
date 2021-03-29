@@ -28,5 +28,5 @@ Basic.args = { ...defaultArgs };
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  icon: (props) => <QuestionMarkOutline {...props} />,
+  icon: (props: any) => <QuestionMarkOutline {...props} />,
 };

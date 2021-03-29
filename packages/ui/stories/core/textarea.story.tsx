@@ -16,7 +16,13 @@ const defaultArgs = {};
 const BasicTemplate: Story<TextareaProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
-  return <Textarea {...args} value={value} onChange={({ target }) => setValue(target.value)} />;
+  return (
+    <Textarea
+      {...args}
+      value={value}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLTextAreaElement>) => setValue(currentTarget.value)}
+    />
+  );
 };
 
 // Basic

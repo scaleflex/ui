@@ -12,6 +12,7 @@ import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   (
+    // eslint-disable-next-line no-shadow
     { children, size, error, multiple, onChange, value, fullWidth, selectProps, MenuProps, ...rest },
     ref
   ): JSX.Element => {

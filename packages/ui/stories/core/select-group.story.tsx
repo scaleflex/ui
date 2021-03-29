@@ -32,7 +32,7 @@ const BasicTemplate: Story<SelectGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState();
 
   return (
-    <SelectGroup {...args} value={valueState} onChange={setValueState}>
+    <SelectGroup {...args} value={valueState} onChange={(ev: any) => setValueState(ev)}>
       <MenuItem value="item1">Item 1</MenuItem>
       <MenuItem value="item2">Item 2</MenuItem>
     </SelectGroup>
@@ -55,6 +55,6 @@ export const SelectWithIcon = BasicTemplate.bind({});
 SelectWithIcon.args = {
   ...defaultArgs,
   LabelProps: {
-    icon: (props) => <QuestionMarkOutline {...props} />,
+    icon: (props: any) => <QuestionMarkOutline {...props} />,
   },
 };

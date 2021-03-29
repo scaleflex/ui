@@ -1,7 +1,7 @@
 import React from 'react';
-import { intrinsicComponent } from '../../utils/functions';
 import CloudWithShadow from '@scaleflex/icons/cloud-with-shadow';
 import SpinnerIcon from '@scaleflex/icons/spinner';
+import { intrinsicComponent } from '../../utils/functions';
 import type { LoaderProps } from './loader.props';
 import Styled from './loader.styles';
 

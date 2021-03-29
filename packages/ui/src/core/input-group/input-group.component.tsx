@@ -102,6 +102,7 @@ InputGroup.propTypes = {
   label: PT.node,
   hint: PT.node,
   error: PT.bool,
+  value: PT.string,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   // eslint-disable-next-line react/forbid-prop-types

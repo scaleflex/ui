@@ -19,7 +19,13 @@ const defaultArgs = {
 const BasicTemplate: Story<SearchProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
-  return <Search {...args} value={value} onChange={({ target }) => setValue(target.value)} />;
+  return (
+    <Search
+      {...args}
+      value={value}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
+    />
+  );
 };
 
 // Basic
