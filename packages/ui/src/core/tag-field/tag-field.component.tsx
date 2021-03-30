@@ -130,7 +130,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       // });
 
       returnObjorString(tags);
-    }, []);
+    }, [tags]);
 
     const renderLabel = (): string | number | null | JSX.Element | any => {
       if (label) {
