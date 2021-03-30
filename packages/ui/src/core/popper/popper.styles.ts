@@ -5,7 +5,11 @@ const baseClassName = 'Popper';
 
 const Popper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(() => css``);
+})(
+  () => css`
+    z-index: 1300;
+  `
+);
 
 const Styled = applyDisplayNames({ Popper });
 
