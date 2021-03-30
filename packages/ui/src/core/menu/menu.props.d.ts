@@ -18,4 +18,5 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   maxHeight?: string | number;
   position?: PopperPositionType;
   popperOptions?: PopperOptions;
+  enableOverlay?: boolean;
 }

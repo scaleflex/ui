@@ -12,10 +12,20 @@ import Styled from './popper.styles';
 
 const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
   (
-    { anchorEl, children, open, position: initialPlacement = 'bottom', popperOptions }: PopperProps,
+    {
+      anchorEl,
+      children,
+      open,
+      position: initialPlacement = 'bottom',
+      popperOptions,
+      onClick,
+      overlay = false,
+    }: PopperProps,
     ref
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const overlayTarget = document.querySelector('body')!;
     const Ref = useRef(null);
     const ownRef = useForkRef(Ref, ref);
 
@@ -49,7 +59,15 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       </Styled.Popper>
     );
 
-    return createPortal(render(), target);
+    const renderOverlay = (): JSX.Element => <Styled.Overlay onClick={onClick} />;
+
+    return (
+      <>
+        {createPortal(render(), target)}
+
+        {overlay && createPortal(renderOverlay(), overlayTarget)}
+      </>
+    );
   }
 );
 
@@ -86,6 +104,7 @@ export const propTypes = {
     placement: PT.oneOf(objectValues(Position)),
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
+  overlay: PT.bool,
 };
 
 Popper.propTypes = propTypes;
