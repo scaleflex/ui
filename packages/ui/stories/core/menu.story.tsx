@@ -73,7 +73,7 @@ const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
         Open menu
       </Button>
 
-      <Menu {...args} anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose} enableOverlay>
+      <Menu {...args} anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={handleClose}>
         <MenuItem list={defaultArgs.list} />
         <MenuItem onClick={handleClose}>Item 3</MenuItem>
         <MenuItem onClick={handleClose}>Item 4</MenuItem>

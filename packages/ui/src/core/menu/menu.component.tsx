@@ -25,7 +25,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       maxHeight,
       position,
       popperOptions,
-      enableOverlay,
+      enableOverlay = true,
       ...rest
     },
     ref
@@ -124,6 +124,7 @@ export const defaultProps = {
   containerProps: {},
   maxHeight: 0,
   position: 'bottom',
+  enableOverlay: true,
 };
 
 Menu.defaultProps = defaultProps;

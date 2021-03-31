@@ -59,7 +59,29 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       </Styled.Popper>
     );
 
-    const renderOverlay = (): JSX.Element => <Styled.Overlay onClick={onClick} />;
+    const passEventToUnderlayingEvent = (event: React.MouseEvent<HTMLDivElement>): void => {
+      setTimeout(() => {
+        if (event.clientX && event.clientY) {
+          const elem = document.elementFromPoint(event.clientX, event.clientY);
+          if (elem) {
+            elem.dispatchEvent(event.nativeEvent);
+          }
+        }
+      }, 0);
+    };
+
+    const handleOnClicking = (event: React.MouseEvent<HTMLDivElement>): void => {
+      event.persist();
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (onClick) {
+        onClick(event);
+      }
+      passEventToUnderlayingEvent(event);
+    };
+
+    const renderOverlay = (): JSX.Element => <Styled.Overlay onClick={handleOnClicking} />;
 
     return (
       <>
