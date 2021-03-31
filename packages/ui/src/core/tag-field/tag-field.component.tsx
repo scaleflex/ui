@@ -168,13 +168,14 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       return null;
     };
     const renderTags = (): (JSX.Element | undefined)[] => {
+      // `${`${internalIds[index]}_${index}`}`
       // eslint-disable-next-line consistent-return
       // eslint-disable-next-line array-callback-return
       return tags.map((tag: string | TagObjectTypes, index: number) => {
         if (tag) {
           return (
             <Tag
-              key={typeof tag === 'object' ? internalIds[index] : tag}
+              key={typeof tag === 'object' ? tag.id : tag}
               type="default"
               size="md"
               tagIndex={index}
@@ -182,7 +183,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               onRemove={readOnly || loading ? undefined : (index) => removeTag(index)}
               style={{ margin: '4px 4px 4px 0' }}
             >
-              {typeof tag === 'object' ? internalTags[index] : tag}
+              {typeof tag === 'object' ? tag.label : tag}
             </Tag>
           );
         }

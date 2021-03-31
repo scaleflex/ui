@@ -21,7 +21,7 @@ const Overlay = styled.div.attrs({
     top: 0px;
     left: 0px;
     background-color: transparent;
-    z-index: -1;
+    z-index: 1200;
   `
 );
 const Styled = applyDisplayNames({ Popper, Overlay });
