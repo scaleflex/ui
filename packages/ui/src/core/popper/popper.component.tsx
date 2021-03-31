@@ -22,6 +22,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       overlay = false,
     }: PopperProps,
     ref
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

@@ -12,7 +12,7 @@ import Styled from './input-localization.styles';
 import { Size } from '../select/types';
 
 const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElement>(
-  ({ children, onChange, value, icon, ...rest }, ref): JSX.Element => {
+  ({ children, onChange, value, icon, MenuProps, ...rest }, ref): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const open = Boolean(anchorEl);
     const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
@@ -30,7 +30,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
           </Styled.Icon>
         </Styled.InputLocalization>
 
-        <Menu anchorEl={anchorEl} open={open} onClose={handleClose} fullWidth>
+        <Menu anchorEl={anchorEl} open={open} onClose={handleClose} {...MenuProps}>
           {React.Children.map(children, (child) =>
             renderOption(child, {
               value,
