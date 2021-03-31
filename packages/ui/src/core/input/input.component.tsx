@@ -17,7 +17,10 @@ const getIconSize = (sizeName: InputSizeType | undefined): number => {
 };
 
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
-  ({ children, iconStart, iconEnd, size, className, style, fullWidth, ...rest }: InputProps, ref): JSX.Element => {
+  (
+    { children, iconStart, iconEnd, size, className, style, fullWidth, readOnly, ...rest }: InputProps,
+    ref
+  ): JSX.Element => {
     const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
       _icon ? (
         <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
@@ -26,7 +29,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     return (
       <Styled.Input ref={ref} size={size} className={className} style={style} fullWidth={Boolean(fullWidth)}>
         {renderIcon(iconStart)}
-        <Styled.Base {...rest} />
+        <Styled.Base {...rest} readOnly={Boolean(readOnly)} />
         {renderIcon(iconEnd)}
       </Styled.Input>
     );
@@ -37,6 +40,7 @@ export const defaultProps = {
   size: Size.Md,
   error: false,
   fullWidth: false,
+  readOnly: false,
 };
 
 Input.defaultProps = defaultProps;
@@ -48,6 +52,7 @@ export const propTypes = {
   error: PT.bool,
   fullWidth: PT.bool,
   value: PT.string,
+  readOnly: PT.bool,
 };
 
 Input.propTypes = propTypes;

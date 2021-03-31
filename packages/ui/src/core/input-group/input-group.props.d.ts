@@ -18,4 +18,5 @@ export interface InputGroupProps extends React.HTMLAttributes<Omit<HTMLDivElemen
   inputProps?: React.InputHTMLAttributes;
   inputRef?: React.Ref;
   TextareaProps?: TextareaProps;
+  readOnly?: boolean;
 }

@@ -17,6 +17,7 @@ export default {
 const defaultArgs = {
   size: Size.Md,
   placeholder: 'placeholder',
+  readOnly: false,
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {
