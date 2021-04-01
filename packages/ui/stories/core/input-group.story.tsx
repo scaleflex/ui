@@ -23,6 +23,7 @@ const defaultArgs = {
   type: Type.Input,
   label: 'Label',
   hint: 'Some hint goes here',
+  readOnly: false,
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {

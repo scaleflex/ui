@@ -12,10 +12,21 @@ import Styled from './popper.styles';
 
 const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
   (
-    { anchorEl, children, open, position: initialPlacement = 'bottom', popperOptions }: PopperProps,
+    {
+      anchorEl,
+      children,
+      open,
+      position: initialPlacement = 'bottom',
+      popperOptions,
+      onClick,
+      overlay = false,
+    }: PopperProps,
     ref
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const overlayTarget = document.querySelector('body')!;
     const Ref = useRef(null);
     const ownRef = useForkRef(Ref, ref);
 
@@ -49,7 +60,37 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       </Styled.Popper>
     );
 
-    return createPortal(render(), target);
+    const passEventToUnderlayingEvent = (event: React.MouseEvent<HTMLDivElement>): void => {
+      setTimeout(() => {
+        if (event.clientX && event.clientY) {
+          const elem = document.elementFromPoint(event.clientX, event.clientY);
+          if (elem) {
+            elem.dispatchEvent(event.nativeEvent);
+          }
+        }
+      }, 0);
+    };
+
+    const handleOnClicking = (event: React.MouseEvent<HTMLDivElement>): void => {
+      event.persist();
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (onClick) {
+        onClick(event);
+      }
+      passEventToUnderlayingEvent(event);
+    };
+
+    const renderOverlay = (): JSX.Element => <Styled.Overlay onClick={handleOnClicking} />;
+
+    return (
+      <>
+        {createPortal(render(), target)}
+
+        {overlay && createPortal(renderOverlay(), overlayTarget)}
+      </>
+    );
   }
 );
 
@@ -86,6 +127,7 @@ export const propTypes = {
     placement: PT.oneOf(objectValues(Position)),
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
+  overlay: PT.bool,
 };
 
 Popper.propTypes = propTypes;

@@ -28,6 +28,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       inputProps,
       inputRef,
       TextareaProps: TextareaPropsData,
+      readOnly,
       ...rest
     }: InputGroupProps,
     ref
@@ -56,7 +57,15 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       const fieldProps = { error, ...rest };
 
       if (type === Type.Input) {
-        return <Input {...fieldProps} {...(InputPropsData || {})} {...inputProps} ref={inputRef?.ref || inputRef} />;
+        return (
+          <Input
+            {...fieldProps}
+            {...(InputPropsData || {})}
+            {...inputProps}
+            ref={inputRef?.ref || inputRef}
+            readOnly={readOnly}
+          />
+        );
       }
 
       if (type === Type.Textarea) {
@@ -95,6 +104,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
 InputGroup.defaultProps = {
   type: Type.Input,
   error: false,
+  readOnly: false,
 };
 
 InputGroup.propTypes = {
@@ -109,6 +119,7 @@ InputGroup.propTypes = {
   inputProps: PT.object,
   inputRef: PT.oneOfType([PT.func, PT.object]),
   TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,
+  readOnly: PT.bool,
 };
 
 export default InputGroup;

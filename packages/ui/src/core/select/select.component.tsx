@@ -37,7 +37,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 
         <Styled.Input {...selectProps} />
 
-        <Menu fullWidth {...(MenuProps || {})} onClose={handleClose} open={open} anchorEl={anchorEl}>
+        <Menu onClose={handleClose} open={open} anchorEl={anchorEl} {...MenuProps}>
           {React.Children.map(children, (child) =>
             renderOption(child, {
               value,

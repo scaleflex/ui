@@ -25,6 +25,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       maxHeight,
       position,
       popperOptions,
+      enableOverlay = true,
       ...rest
     },
     ref
@@ -94,8 +95,14 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
 
     return (
       <>
-        <Styled.Overlay onClick={handleClose} />
-        <Popper ref={menuRef} position={position || 'bottom'} open={Boolean(anchorEl)} anchorEl={anchorEl}>
+        <Popper
+          ref={menuRef}
+          position={position || 'bottom'}
+          open={Boolean(anchorEl)}
+          anchorEl={anchorEl}
+          overlay={Boolean(enableOverlay)}
+          onClick={handleClose}
+        >
           <Styled.Menu
             {...containerProps}
             alignCenter={Boolean(alignCenter)}
@@ -117,6 +124,7 @@ export const defaultProps = {
   containerProps: {},
   maxHeight: 0,
   position: 'bottom',
+  enableOverlay: true,
 };
 
 Menu.defaultProps = defaultProps;
@@ -140,6 +148,7 @@ export const propTypes = {
   maxHeight: PT.oneOfType([PT.string, PT.number]),
   popperOptions: popperPropTypes.popperOptions,
   position: PT.oneOf(objectValues(Position)),
+  enableOverlay: PT.bool,
 };
 
 Menu.propTypes = propTypes;
