@@ -7,9 +7,15 @@ import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
-  ({ checked, onChange, switcherProps, ...rest }: SwitcherProps, ref): JSX.Element => (
+  ({ checked, onChange, switcherProps, readOnly, disabled, ...rest }: SwitcherProps, ref): JSX.Element => (
     <Styled.Switcher {...rest} ref={ref}>
-      <Styled.Input checked={checked} onChange={onChange} {...switcherProps} />
+      <Styled.Input
+        checked={checked}
+        onChange={readOnly || disabled ? undefined : onChange}
+        readOnly={readOnly}
+        disabled={disabled}
+        {...switcherProps}
+      />
 
       {checked ? <SwitcherOnIcon /> : <SwitcherOffIcon />}
     </Styled.Switcher>
@@ -25,6 +31,8 @@ Switcher.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   switcherProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default Switcher;

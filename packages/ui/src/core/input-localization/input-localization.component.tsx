@@ -12,7 +12,7 @@ import Styled from './input-localization.styles';
 import { Size } from '../select/types';
 
 const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElement>(
-  ({ children, onChange, value, icon, MenuProps, ...rest }, ref): JSX.Element => {
+  ({ children, onChange, value, icon, MenuProps, readOnly, disabled, ...rest }, ref): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const open = Boolean(anchorEl);
     const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
@@ -20,7 +20,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
 
     return (
       <Styled.Container {...rest} ref={ref}>
-        <Styled.InputLocalization onClick={handleClick}>
+        <Styled.InputLocalization onClick={disabled || readOnly ? undefined : handleClick}>
           {icon && <Styled.Icon>{icon}</Styled.Icon>}
 
           <Styled.Label>{renderValue({ value, children })}</Styled.Label>
@@ -36,7 +36,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
               value,
               size: Size.Sm,
               onClose: handleClose,
-              onChange,
+              onChange: disabled || readOnly ? undefined : onChange,
             })
           )}
         </Menu>
@@ -54,6 +54,8 @@ InputLocalization.propTypes = {
   value: simpleValuePropTypes as Validator<SelectSimpleValueType>,
   onChange: PT.func,
   icon: PT.node,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default InputLocalization;

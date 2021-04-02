@@ -25,6 +25,8 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       value,
       multiple,
       onChange,
+      readOnly,
+      disabled,
       ...rest
     }: SelectGroupProps,
     ref
@@ -77,6 +79,8 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           fullWidth={Boolean(fullWidth)}
           {...(SelectPropsData || {})}
           selectProps={selectProps}
+          readOnly={readOnly}
+          disabled={disabled}
         >
           {children}
         </Select>
@@ -90,6 +94,8 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
 SelectGroup.defaultProps = {
   error: false,
   fullWidth: false,
+  readOnly: false,
+  disabled: false,
 };
 
 const { size, ...restSelectPropTypes } = selectPropTypes;
@@ -103,6 +109,8 @@ SelectGroup.propTypes = {
   SelectProps: PT.exact(selectPropTypes) as Validator<SelectProps>,
   // eslint-disable-next-line react/forbid-prop-types
   selectProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default SelectGroup;

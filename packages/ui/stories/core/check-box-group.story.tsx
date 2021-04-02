@@ -19,6 +19,8 @@ export default {
 const defaultArgs = {
   label: 'label',
   checked: false,
+  readOnly: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {

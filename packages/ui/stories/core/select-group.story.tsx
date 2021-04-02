@@ -26,6 +26,8 @@ export default {
 const defaultArgs = {
   label: 'Label',
   hint: 'Some hint goes here',
+  readOnly: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<SelectGroupProps> = ({ ...args }) => {

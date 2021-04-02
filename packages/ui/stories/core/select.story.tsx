@@ -22,6 +22,8 @@ export default {
 const defaultArgs = {
   size: Size.Md,
   multiple: false,
+  readOnly: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<SelectProps> = ({ ...args }) => {

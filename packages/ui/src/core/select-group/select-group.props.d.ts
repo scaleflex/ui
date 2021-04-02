@@ -10,5 +10,7 @@ export interface SelectGroupProps
   SelectProps?: SelectProps;
   selectProps?: React.InputHTMLAttributes;
   fullWidth?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }

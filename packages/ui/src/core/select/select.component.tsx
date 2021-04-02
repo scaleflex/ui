@@ -12,8 +12,21 @@ import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   (
-    // eslint-disable-next-line no-shadow
-    { children, size, error, multiple, onChange, value, fullWidth, selectProps, MenuProps, ...rest },
+    {
+      children,
+      size,
+      error,
+      multiple,
+      onChange,
+      value,
+      fullWidth,
+      selectProps,
+      // eslint-disable-next-line no-shadow
+      MenuProps,
+      readOnly,
+      disabled,
+      ...rest
+    },
     ref
   ): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -23,7 +36,14 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 
     return (
       <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
-        <Styled.Select {...rest} size={size} error={error} fullWidth={Boolean(fullWidth)} onClick={handleClick}>
+        <Styled.Select
+          {...rest}
+          size={size}
+          error={error}
+          fullWidth={Boolean(fullWidth)}
+          readOnly={readOnly}
+          onClick={readOnly || disabled ? undefined : handleClick}
+        >
           <Styled.Label>{renderValue({ value, multiple, children })}</Styled.Label>
 
           <Styled.Icon>
@@ -44,7 +64,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
               multiple,
               size,
               onClose: handleClose,
-              onChange,
+              onChange: readOnly || disabled ? undefined : onChange,
             })
           )}
         </Menu>
@@ -58,6 +78,8 @@ export const defaultProps = {
   error: false,
   multiple: false,
   fullWidth: false,
+  readOnly: false,
+  disabled: false,
 };
 
 Select.defaultProps = defaultProps;
@@ -77,6 +99,8 @@ export const propTypes = {
   MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
   // eslint-disable-next-line react/forbid-prop-types
   selectProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 Select.propTypes = propTypes;

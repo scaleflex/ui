@@ -6,9 +6,9 @@ import type { SwitcherGroupProps } from './switcher-group.props';
 import Styled from './switcher-group.styles';
 
 const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
-  ({ label, switcherProps, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
+  ({ label, switcherProps, readOnly, disabled, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
     <Styled.SwitcherGroup ref={ref}>
-      <Switcher switcherProps={switcherProps} {...rest} />
+      <Switcher switcherProps={switcherProps} readOnly={readOnly} disabled={disabled} {...rest} />
 
       <Styled.Label>{label}</Styled.Label>
     </Styled.SwitcherGroup>
@@ -25,6 +25,8 @@ SwitcherGroup.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   switcherProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default SwitcherGroup;

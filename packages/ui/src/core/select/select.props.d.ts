@@ -15,6 +15,8 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
   selectProps?: React.InputHTMLAttributes;
   MenuProps?: MenuProps;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
 export interface RenderOption {

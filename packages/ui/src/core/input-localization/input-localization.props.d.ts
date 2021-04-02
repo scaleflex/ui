@@ -6,4 +6,6 @@ export interface InputLocalizationProps
   value?: SelectSimpleValueType;
   onChange?: (value: SelectSimpleValueType) => void;
   icon?: React.ReactNode;
+  readOnly?: boolean;
+  disabled?: boolean;
 }

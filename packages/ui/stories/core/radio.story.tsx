@@ -13,6 +13,8 @@ export default {
 
 const defaultArgs = {
   checked: false,
+  readOnly: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<RadioProps> = ({ checked, ...args }) => {

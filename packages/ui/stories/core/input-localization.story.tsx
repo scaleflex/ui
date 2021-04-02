@@ -19,7 +19,10 @@ export default {
   },
 } as Meta;
 
-const defaultArgs = {};
+const defaultArgs = {
+  readOnly: false,
+  disabled: false,
+};
 
 const options = ['France', 'Germany', 'Ukraine'];
 

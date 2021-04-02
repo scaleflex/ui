@@ -7,9 +7,14 @@ import type { RadioProps } from './radio.props';
 import Styled from './radio.styles';
 
 const Radio = intrinsicComponent<RadioProps, HTMLSpanElement>(
-  ({ checked, onChange, radioProps, ...rest }: RadioProps, ref): JSX.Element => (
+  ({ checked, onChange, radioProps, readOnly, disabled, ...rest }: RadioProps, ref): JSX.Element => (
     <Styled.Radio {...rest} ref={ref}>
-      <Styled.Input checked={checked} onChange={onChange} {...radioProps} />
+      <Styled.Input
+        checked={checked}
+        onChange={readOnly || disabled ? undefined : onChange}
+        disabled={disabled}
+        {...radioProps}
+      />
 
       {checked ? <RadioButtonIcon /> : <RadioButtonUncheckedIcon />}
     </Styled.Radio>
@@ -25,6 +30,8 @@ Radio.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   radioProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default Radio;

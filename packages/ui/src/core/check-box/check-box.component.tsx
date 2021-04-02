@@ -7,9 +7,14 @@ import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
-  ({ checked, onChange, checkBoxProps, ...rest }: CheckBoxProps, ref): JSX.Element => (
+  ({ checked, onChange, checkBoxProps, readOnly, disabled, ...rest }: CheckBoxProps, ref): JSX.Element => (
     <Styled.CheckBox {...rest} ref={ref}>
-      <Styled.Input checked={checked} onChange={onChange} {...checkBoxProps} />
+      <Styled.Input
+        checked={checked}
+        disabled={disabled}
+        onChange={readOnly || disabled ? undefined : onChange}
+        {...checkBoxProps}
+      />
 
       {checked ? <CheckBoxIcon /> : <CheckBoxUncheckedIcon />}
     </Styled.CheckBox>
@@ -25,6 +30,8 @@ CheckBox.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   checkBoxProps: PT.object,
+  readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default CheckBox;
