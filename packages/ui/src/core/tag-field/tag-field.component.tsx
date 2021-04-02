@@ -8,7 +8,7 @@ import Label from '../label';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
-import type { TagFieldProps, AddTagTypesType } from './tag-field.props';
+import type { TagFieldProps, AddTagTypesType, TagType } from './tag-field.props';
 import { AddTagType } from './types';
 import Styled from './tag-field.styles';
 
@@ -28,15 +28,15 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       error,
       hint,
       loading,
-      getTagLabel = (tag: string | object): string => tag as string,
-      getTagValue = (tag: string | object): string => tag as string,
+      getTagLabel = (tag: TagType): string => tag as string,
+      getTagValue = (tag: TagType): string => tag as string,
       ...rest
     }: TagFieldProps,
     ref
     // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
-    const filteredTags = useMemo<(string | object)[]>(() => tags.filter((tag) => tag), [tags]);
+    const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const showSuggestions = useMemo<boolean>(() => (userInput || '').length > 0, [userInput]);
     const existingLabels = useMemo<string[]>(() => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()), [
       filteredTags,
@@ -45,18 +45,18 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       let filteredItems = suggestedTags.filter((suggestion) => !existingLabels.includes(getTagLabel(suggestion)));
       if (userInput) {
         const regexp = new RegExp(userInput, 'i');
-        filteredItems = filteredItems.filter((suggestion: string | object) => regexp.test(getTagLabel(suggestion)));
+        filteredItems = filteredItems.filter((suggestion: TagType) => regexp.test(getTagLabel(suggestion)));
       }
       return filteredItems;
     }, [userInput, suggestedTags, existingLabels]);
 
-    const handleTagAdd = (item: string | object, type: AddTagTypesType): void => {
+    const handleTagAdd = (item: TagType, type: AddTagTypesType): void => {
       if (!item) return;
 
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
       const regexp = new RegExp(tagLabel as string, 'i');
 
-      if (!filteredTags.some((tag: string | object) => regexp.test(getTagLabel(tag)))) {
+      if (!filteredTags.some((tag: TagType) => regexp.test(getTagLabel(tag)))) {
         onAdd(item, type);
       }
     };
@@ -83,7 +83,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
             {filteredTags.map(
-              (tag: string | object, index: number): JSX.Element => (
+              (tag: TagType, index: number) => (
                 <Tag
                   key={getTagValue(tag)}
                   tagIndex={index}
@@ -128,7 +128,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Styled.TagFieldSuggestionLabel>
 
             <Styled.TagFieldSuggestionWrapperList>
-              {filteredSuggestions.map((suggestion: string | object) => (
+              {filteredSuggestions.map((suggestion: TagType) => (
                 <Tag
                   key={getTagValue(suggestion)}
                   type="suggested"
