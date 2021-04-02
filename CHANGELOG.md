@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.23](https://github.com/scaleflex/ui/compare/1.0.0-beta.22...1.0.0-beta.23) (2021-04-02)
+
+
+### Bug Fixes
+
+* **input:** No focus on search icon click ([6588c21](https://github.com/scaleflex/ui/commit/6588c2172a27b13c570c6875efb83b619716333d))
+* **modal,menu:** menu overriding scroll ([cc76993](https://github.com/scaleflex/ui/commit/cc76993110a90fe58f2172fbd5982c97e56a0cb6))
+* **TagField:** type errors ([9164396](https://github.com/scaleflex/ui/commit/9164396f95193d6a9603077b1bb86eb41befbdaf))
+* **TagFilter:** suggestions filter ([2a1591c](https://github.com/scaleflex/ui/commit/2a1591c29ff11b3e75129f6d1dd35332c52a61ab))
+
+
+### Features
+
+* **input,input-group:** readOnly prop ([e612b66](https://github.com/scaleflex/ui/commit/e612b66a4c4d599b0105ff30fa98fb633c81de2e))
+* **Popper:** popper handles clicking on elements when overlay is on ([e284300](https://github.com/scaleflex/ui/commit/e2843004131d2ba6c8953dc1ac682c4d71a4d339))
+* **TagField:** remade component and update story ([b30b853](https://github.com/scaleflex/ui/commit/b30b8539a26c626a69993e4e316d5bf1223c3513))
+
+
+
+
+
 # [1.0.0-beta.22](https://github.com/scaleflex/ui/compare/1.0.0-beta.21...1.0.0-beta.22) (2021-03-31)
 
 
