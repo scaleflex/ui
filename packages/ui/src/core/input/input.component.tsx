@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
@@ -21,15 +21,19 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     { children, iconStart, iconEnd, size, className, style, fullWidth, readOnly, ...rest }: InputProps,
     ref
   ): JSX.Element => {
+    const inputRef = useRef<HTMLInputElement | null>(null);
+
     const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
+        <Styled.Icon onClick={() => inputRef.current?.focus()}>
+          {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
+        </Styled.Icon>
       ) : undefined;
 
     return (
       <Styled.Input ref={ref} size={size} className={className} style={style} fullWidth={Boolean(fullWidth)}>
         {renderIcon(iconStart)}
-        <Styled.Base {...rest} readOnly={Boolean(readOnly)} />
+        <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
         {renderIcon(iconEnd)}
       </Styled.Input>
     );
