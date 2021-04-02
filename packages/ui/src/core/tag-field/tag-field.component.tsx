@@ -1,226 +1,123 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useMemo } from 'react';
 import PT, { Validator } from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
-
 import { intrinsicComponent } from '../../utils/functions';
 import Tag from '../tag';
 import Label from '../label';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
-import type { TagFieldProps, TagObjectTypes } from './tag-field.props';
-
+import type { TagFieldProps, AddTagTypesType } from './tag-field.props';
+import { AddTagType } from './types';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
   (
     {
-      suggestedTags,
-      tags,
+      suggestedTags = [],
+      tags = [],
       onAdd,
       onRemove,
       fullWidth,
       placeholder,
+      disabled,
       readOnly,
       label,
       LabelProps: LabelPropsData,
       error,
       hint,
       loading,
+      getTagLabel = (tag: string | object): string => tag as string,
+      getTagValue = (tag: string | object): string => tag as string,
       ...rest
     }: TagFieldProps,
     ref
+    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
-    const [internalTags, setInternalTags] = useState<(string | TagObjectTypes)[]>([]);
-    const [internalIds, setInternalIds] = useState<(string | undefined)[]>([]);
-    const [showSuggestions, setShowSuggestions] = useState(false);
-    const [filteredSuggestions, setFilteredSuggestions] = useState(['']);
     const [userInput, setUserInput] = useState('');
-
-    const suggestionListChange = (input: string): void => {
-      let filteredSuggestionsArray = suggestedTags.filter((suggestion: string) =>
-        suggestion.toLowerCase().includes(input.toLowerCase())
-      );
-      filteredSuggestionsArray = filteredSuggestionsArray.filter((item) => !internalTags.includes(item));
-
-      setFilteredSuggestions(filteredSuggestionsArray);
-      setShowSuggestions(true);
-      setUserInput(input);
-    };
-    const addTags = (ev: any): void => {
-      const val = ev.target.value || ev.currentTarget.textContent;
-      const hasVal = internalTags.includes(val);
-      let newTags: any = [];
-      let newIds: any = [];
-
-      if (hasVal) {
-        newTags = internalTags;
-        newIds = internalIds;
-      } else {
-        newTags = [...internalTags, val];
-        newIds = [...internalIds, val];
+    const filteredTags = useMemo<(string | object)[]>(() => tags.filter((tag) => tag), [tags]);
+    const showSuggestions = useMemo<boolean>(() => (userInput || '').length > 0, [userInput]);
+    const existingLabels = useMemo<string[]>(() => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()), [
+      filteredTags,
+    ]);
+    const filteredSuggestions = useMemo(() => {
+      let filteredItems = suggestedTags.filter((suggestion) => !existingLabels.includes(getTagLabel(suggestion)));
+      if (userInput) {
+        const regexp = new RegExp(userInput, 'i');
+        filteredItems = filteredItems.filter((suggestion: string | object) => regexp.test(getTagLabel(suggestion)));
       }
+      return filteredItems;
+    }, [userInput, suggestedTags, existingLabels]);
 
-      if (!val) {
-        return;
-      }
-      setInternalTags(newTags);
-      setInternalIds(newIds);
+    const handleTagAdd = (item: string | object, type: AddTagTypesType): void => {
+      if (!item) return;
 
-      if (tags.some((tag) => typeof tag === 'object')) {
-        let newObjectTags: (string | TagObjectTypes)[] = [];
-        newTags.forEach((tag: string, index: number) => {
-          newObjectTags = [...newObjectTags, { id: newIds[index], label: tag }];
-        });
-        onAdd(newObjectTags);
-      } else {
-        onAdd(newTags);
+      const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
+      const regexp = new RegExp(tagLabel as string, 'i');
+
+      if (!filteredTags.some((tag: string | object) => regexp.test(getTagLabel(tag)))) {
+        onAdd(item, type);
       }
     };
 
-    const suggestionChoose = (ev: any): void => {
-      setFilteredSuggestions([]);
-      setUserInput(ev.currentTarget.textContent);
-      setShowSuggestions(false);
-      addTags(ev);
-      setUserInput('');
-    };
-
-    const returnObjorString = (newTags: (string | TagObjectTypes)[]): void => {
-      if (tags.some((tag) => typeof tag === 'object')) {
-        const tagLabels = newTags.map((tag: any) => {
-          return tag.label;
-        });
-        const tagIds = newTags.map((tag: any) => {
-          return tag.id;
-        });
-        setInternalTags(tagLabels);
-        setInternalIds(tagIds);
-      } else {
-        setInternalTags(newTags);
-      }
-    };
-
-    const removeTag = (index: number): void => {
-      const newTags = [...tags];
-      newTags.splice(index, 1);
-
-      returnObjorString(newTags);
-      onRemove(newTags);
-    };
-
-    const suggestionListKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (event.key === 'Enter') {
+    const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+      if (event.key === 'Enter' && userInput) {
         event.preventDefault();
-        addTags(event);
+        handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
       } else if (event.key === 'Backspace' && !userInput) {
-        removeTag(tags.length - 1);
+        const index = filteredTags.length - 1;
+        onRemove(index, getTagValue(filteredTags[index]));
       }
     };
 
-    useEffect(() => {
-      // let newTags: any = [];
-      // tags.forEach((tag, index) => {
-      //   if (!tag) {
-      //     newTags = [...tags];
-      //     newTags.splice(index, 1);
-      //   }
-      // });
-
-      returnObjorString(tags);
-    }, [tags]);
-
-    const renderLabel = (): string | number | null | JSX.Element | any => {
-      if (label) {
-        if (typeof label === 'function') {
-          return label({ error });
-        }
-
-        if (typeof label === 'object') {
-          return label;
-        }
-
-        return (
+    return (
+      <Styled.TagFieldRoot ref={ref}>
+        {label && (
           <Label error={error} {...(LabelPropsData || {})}>
             {label}
           </Label>
-        );
-      }
-
-      return null;
-    };
-
-    const renderHint = (): string | number | null | JSX.Element | any => {
-      if (hint) {
-        if (typeof hint === 'function') {
-          return hint({ error });
-        }
-
-        if (typeof hint === 'object') {
-          return hint;
-        }
-
-        return <FormHint error={error}>{hint}</FormHint>;
-      }
-
-      return null;
-    };
-    const renderTags = (): (JSX.Element | undefined)[] => {
-      // `${`${internalIds[index]}_${index}`}`
-      // eslint-disable-next-line consistent-return
-      // eslint-disable-next-line array-callback-return
-      return tags.map((tag: string | TagObjectTypes, index: number) => {
-        if (tag) {
-          return (
-            <Tag
-              key={typeof tag === 'object' ? tag.id : tag}
-              type="default"
-              size="md"
-              tagIndex={index}
-              // eslint-disable-next-line no-shadow
-              onRemove={readOnly || loading ? undefined : (index) => removeTag(index)}
-              style={{ margin: '4px 4px 4px 0' }}
-            >
-              {typeof tag === 'object' ? tag.label : tag}
-            </Tag>
-          );
-        }
-      });
-    };
-    const renderInputSection = (): JSX.Element => (
-      <>
-        {loading ? (
-          <Styled.TagFieldLoader>
-            <SpinnerIcon size={16} color="#768184" />
-          </Styled.TagFieldLoader>
-        ) : (
-          <Styled.TagFieldInputWrapper>
-            <Styled.TagFieldInput
-              type="text"
-              autoComplete="off"
-              placeholder={placeholder ?? 'Add a tag (separate by pressing enter)'}
-              onChange={(ev) => suggestionListChange(ev.target.value)}
-              onKeyDown={(ev) => suggestionListKeyDown(ev)}
-              value={userInput}
-              readOnly={readOnly}
-            />
-          </Styled.TagFieldInputWrapper>
         )}
-      </>
-    );
 
-    return (
-      <Styled.TagFieldRoot>
-        {renderLabel()}
-        <Styled.TagFieldWrapper ref={ref} fullWidth={Boolean(fullWidth)} {...rest}>
+        <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
-            {renderTags()}
-            {renderInputSection()}
+            {filteredTags.map(
+              (tag: string | object, index: number): JSX.Element => (
+                <Tag
+                  key={getTagValue(tag)}
+                  tagIndex={index}
+                  onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
+                  style={{ margin: '4px 4px 4px 0' }}
+                >
+                  {getTagLabel(tag)}
+                </Tag>
+              )
+            )}
+
+            {loading ? (
+              <Styled.TagFieldLoader>
+                <SpinnerIcon size={16} color="#768184" />
+              </Styled.TagFieldLoader>
+            ) : (
+              <Styled.TagFieldInputWrapper>
+                <Styled.TagFieldInput
+                  value={userInput}
+                  type="text"
+                  autoComplete="off"
+                  placeholder={placeholder}
+                  onChange={(ev) => setUserInput(ev.target.value)}
+                  onKeyDown={handleUserInputKeyDown}
+                  readOnly={readOnly}
+                  disabled={disabled}
+                />
+              </Styled.TagFieldInputWrapper>
+            )}
           </Styled.TagFieldListWrapper>
         </Styled.TagFieldWrapper>
-        {renderHint()}
+
+        {hint && <FormHint error={error}>{hint}</FormHint>}
+
         {filteredSuggestions.length > 0 && showSuggestions && (
           <Styled.TagFieldSuggestionWrapper>
             <Styled.TagFieldSuggestionLabel>
@@ -231,15 +128,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Styled.TagFieldSuggestionLabel>
 
             <Styled.TagFieldSuggestionWrapperList>
-              {filteredSuggestions.map((suggestion: string) => (
+              {filteredSuggestions.map((suggestion: string | object) => (
                 <Tag
-                  key={suggestion}
-                  size="md"
+                  key={getTagValue(suggestion)}
                   type="suggested"
-                  onSelect={(ev) => suggestionChoose(ev)}
+                  onSelect={() => {
+                    handleTagAdd(suggestion, AddTagType.Suggestion);
+                    setUserInput('');
+                  }}
                   style={{ margin: '0 8px 8px 0' }}
                 >
-                  {suggestion}
+                  {getTagLabel(suggestion)}
                 </Tag>
               ))}
             </Styled.TagFieldSuggestionWrapperList>
@@ -251,32 +150,30 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 );
 
 TagField.defaultProps = {
-  tags: [''],
-  suggestedTags: [''],
+  tags: [],
+  suggestedTags: [],
   fullWidth: false,
+  placeholder: 'Add a tag (separate by pressing enter)',
+  disabled: false,
+  readOnly: false,
 };
 
 TagField.propTypes = {
-  tags: PT.arrayOf(
-    PT.oneOfType([
-      PT.string.isRequired,
-      PT.shape({
-        id: PT.string.isRequired,
-        label: PT.string.isRequired,
-      }).isRequired as Validator<TagObjectTypes>,
-    ])
-  ).isRequired,
-  suggestedTags: PT.arrayOf(PT.any).isRequired,
+  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])).isRequired,
+  suggestedTags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])),
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
   fullWidth: PT.bool,
   placeholder: PT.string,
   readOnly: PT.bool,
+  disabled: PT.bool,
   label: PT.node,
   error: PT.bool,
   hint: PT.node,
   loading: PT.bool,
+  getTagValue: PT.func,
+  getTagLabel: PT.func,
 };
 
 export default TagField;
