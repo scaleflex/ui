@@ -84,18 +84,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
         <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
-            {filteredTags.map(
-              (tag: TagType, index: number) => (
-                <Tag
-                  key={getTagValue(tag)}
-                  tagIndex={index}
-                  onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
-                  style={{ margin: '4px 4px 4px 0' }}
-                >
-                  {getTagLabel(tag)}
-                </Tag>
-              )
-            )}
+            {filteredTags.map((tag: TagType, index: number) => (
+              <Tag
+                key={getTagValue(tag)}
+                tagIndex={index}
+                onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
+                style={{ margin: '4px 4px 4px 0' }}
+              >
+                {getTagLabel(tag)}
+              </Tag>
+            ))}
 
             {loading ? (
               <Styled.TagFieldLoader>

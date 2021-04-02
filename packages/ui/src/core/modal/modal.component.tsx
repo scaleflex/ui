@@ -1,4 +1,5 @@
 import React, { useEffect, isValidElement } from 'react';
+import { createPortal } from 'react-dom';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
@@ -16,6 +17,8 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
   ({ children: _children, open, onClose, maxWidth, fullWidth, ...rest }, ref): JSX.Element => {
     const children = isValidSingleFragmentChildren(_children) ? (_children as JSX.Element).props.children : _children;
 
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+    const target = document.querySelector('body')!;
     useEffect(() => {
       if (open) {
         document.body.style.overflow = 'hidden';
@@ -34,7 +37,7 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       }
     };
 
-    return (
+    const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
         <Styled.Wrapper open={Boolean(open)} ref={ref}>
           <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
@@ -56,6 +59,8 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
         </Styled.Wrapper>
       </ModalMenuContext.Provider>
     );
+
+    return createPortal(render(), target);
   }
 );
 

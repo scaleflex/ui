@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useContext, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 import PT, { Validator } from 'prop-types';
 
@@ -6,7 +6,6 @@ import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
 import { propTypes as popperPropTypes } from '../popper/popper.component';
 import { Position } from '../popper/types';
-import ModalMenuContext from '../modal/modal-menu-context';
 import Popper from '../popper';
 import Styled from './menu.styles';
 
@@ -34,7 +33,6 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     const [rect, setRect] = useState(new DOMRect());
     const menuRef = useRef(null);
 
-    const modalContext = useContext(ModalMenuContext);
     const updateRect = useCallback(() => {
       const defaultPosition = {
         top: 0,
@@ -77,13 +75,11 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     }, [anchorElPosition, updateRect]);
 
     useEffect(() => {
-      if (!modalContext.modalOpened) {
-        if (open) {
-          document.body.style.overflow = 'hidden';
-          updateRect();
-        } else {
-          document.body.style.overflow = '';
-        }
+      if (open) {
+        document.body.className = 'Menu-open';
+        updateRect();
+      } else {
+        document.body.className = '';
       }
     }, [open, updateRect]);
 

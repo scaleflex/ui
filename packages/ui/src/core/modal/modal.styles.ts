@@ -19,7 +19,7 @@ const Wrapper = styled.div.attrs({
     bottom: 0px;
     top: 0px;
     left: 0px;
-    z-index: 1300;
+    z-index: 1200;
     visibility: ${open ? 'visible' : 'hidden'};
   `
 );

@@ -10,7 +10,10 @@ const CommonStyles = createGlobalStyle`
     100% {
       transform: rotate(360deg);
     }
-  }
+ }
+  .Menu-open {
+      overflow:hidden;
+    }
 `;
 
 export default CommonStyles;
