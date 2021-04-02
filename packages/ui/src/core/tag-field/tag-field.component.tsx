@@ -42,7 +42,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       filteredTags,
     ]);
     const filteredSuggestions = useMemo(() => {
-      let filteredItems = suggestedTags.filter((suggestion) => !existingLabels.includes(getTagLabel(suggestion)));
+      let filteredItems = suggestedTags.filter(
+        (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())
+      );
       if (userInput) {
         const regexp = new RegExp(userInput, 'i');
         filteredItems = filteredItems.filter((suggestion: TagType) => regexp.test(getTagLabel(suggestion)));
