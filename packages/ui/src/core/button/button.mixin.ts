@@ -91,19 +91,19 @@ export const colorButtonMixin = {
 
 export const sizeButtonMixin = {
   [Size.Xs]: css`
-    padding: 6px 8px;
+    padding: 4px 8px;
   `,
 
   [Size.Sm]: css`
-    padding: 8px 10px;
+    padding: 6px 10px;
   `,
 
   [Size.Md]: css`
-    padding: 9px 12px;
+    padding: 8px 12px;
   `,
 
   [Size.Lg]: css`
-    padding: 11px 14px;
+    padding: 10px 14px;
   `,
 
   [Size.Xl]: css`
