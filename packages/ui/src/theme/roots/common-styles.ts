@@ -13,7 +13,10 @@ const CommonStyles = createGlobalStyle`
  }
   .Menu-open {
       overflow:hidden;
-    }
+  }
+  .Modal-open {
+      overflow:hidden;
+  }
 `;
 
 export default CommonStyles;

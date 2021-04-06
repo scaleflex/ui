@@ -76,10 +76,10 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
 
     useEffect(() => {
       if (open) {
-        document.body.className = 'Menu-open';
+        document.body.classList.add('Menu-open');
         updateRect();
       } else {
-        document.body.className = '';
+        document.body.classList.remove('Menu-open');
       }
     }, [open, updateRect]);
 

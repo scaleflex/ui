@@ -21,14 +21,10 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
     const target = document.querySelector('body')!;
     useEffect(() => {
       if (open) {
-        document.body.style.overflow = 'hidden';
+        document.body.classList.add('Modal-open');
       } else {
-        document.body.style.overflow = '';
+        document.body.classList.remove('Modal-open');
       }
-
-      return () => {
-        document.body.style.overflow = '';
-      };
     }, [open]);
 
     const handleClose = (): void => {
