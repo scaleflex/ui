@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.24](https://github.com/scaleflex/ui/compare/1.0.0-beta.23...1.0.0-beta.24) (2021-04-06)
+
+
+### Bug Fixes
+
+* **button:** sizes ([9554d22](https://github.com/scaleflex/ui/commit/9554d2253c122f8fd7ba27833d324fa23f247aaf))
+* **menu:** popperOptions were not set in menu ([09557f2](https://github.com/scaleflex/ui/commit/09557f2811dfa7ef6bdaf468ab8340f8bd77f3d2))
+* **modal:** add global class  for modal instead of inline style ([32e4bae](https://github.com/scaleflex/ui/commit/32e4bae975fcfcd25f84e7ed0b0513dd7acd65a9))
+
+
+
+
+
 # [1.0.0-beta.23](https://github.com/scaleflex/ui/compare/1.0.0-beta.22...1.0.0-beta.23) (2021-04-02)
 
 
