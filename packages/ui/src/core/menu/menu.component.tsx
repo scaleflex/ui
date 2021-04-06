@@ -98,6 +98,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           anchorEl={anchorEl}
           overlay={Boolean(enableOverlay)}
           onClick={handleClose}
+          popperOptions={popperOptions}
         >
           <Styled.Menu
             {...containerProps}
