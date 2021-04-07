@@ -18,14 +18,20 @@ const getIconSize = (sizeName: InputSizeType | undefined): number => {
 
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
-    { children, iconStart, iconEnd, size, className, style, fullWidth, readOnly, ...rest }: InputProps,
+    { children, iconStart, iconEnd, onIconClick, size, className, style, fullWidth, readOnly, ...rest }: InputProps,
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
+    const handleIconClick = (): void => {
+      inputRef.current?.focus();
+      if (onIconClick) {
+        onIconClick();
+      }
+    };
     const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon onClick={() => inputRef.current?.focus()}>
+        <Styled.Icon onIconClick={onIconClick} onClick={handleIconClick}>
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
       ) : undefined;
@@ -58,6 +64,7 @@ export const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   value: PT.any,
   readOnly: PT.bool,
+  onIconClick: PT.func,
 };
 
 Input.propTypes = propTypes;
