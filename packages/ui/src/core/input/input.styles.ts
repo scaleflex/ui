@@ -13,10 +13,10 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ onIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({ iconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${onIconClick ? 'pointer' : 'default'};
+    cursor: ${iconClick ? 'pointer' : 'default'};
 
     &:first-child {
       margin-right: 7px;
