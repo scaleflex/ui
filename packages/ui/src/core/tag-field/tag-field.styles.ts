@@ -37,6 +37,12 @@ const TagFieldWrapper = styled.div.attrs({
     ${StyledLabel.Label} {
       margin-bottom: 4px;
     }
+
+    &:focus-within,
+    &:hover {
+      background-color: ${theme.palette[PColor.BackgroundSecondary]};
+      border: 1px solid ${theme.palette[PColor.AccentPrimary]};
+    }
   `
 );
 const TagFieldLoader = styled.span.attrs({
