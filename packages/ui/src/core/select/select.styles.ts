@@ -39,6 +39,9 @@ const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
   flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 const Input = styled.input.attrs({

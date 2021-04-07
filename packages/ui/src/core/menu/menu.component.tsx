@@ -138,7 +138,6 @@ export const propTypes = {
   fullWidth: PT.bool,
   onClose: PT.func,
   id: PT.string,
-  children: PT.node.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   containerProps: PT.object,
   alignCenter: PT.bool,
