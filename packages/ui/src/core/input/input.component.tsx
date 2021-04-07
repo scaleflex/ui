@@ -55,7 +55,8 @@ export const propTypes = {
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
   fullWidth: PT.bool,
-  value: PT.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  value: PT.any,
   readOnly: PT.bool,
 };
 

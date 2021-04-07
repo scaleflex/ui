@@ -9,6 +9,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   iconEnd?: React.ReactNode;
   error?: boolean;
   fullWidth?: boolean;
-  value?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value?: any;
   readOnly?: boolean;
 }

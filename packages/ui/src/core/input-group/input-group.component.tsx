@@ -1,5 +1,6 @@
 import React from 'react';
 import PT, { Validator } from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Label from '../label';
 import { propTypes as labelPropTypes } from '../label/label.component';
@@ -112,7 +113,8 @@ InputGroup.propTypes = {
   label: PT.node,
   hint: PT.node,
   error: PT.bool,
-  value: PT.string,
+  // eslint-disable-next-line react/forbid-prop-types
+  value: PT.any,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   // eslint-disable-next-line react/forbid-prop-types
