@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.25](https://github.com/scaleflex/ui/compare/1.0.0-beta.24...1.0.0-beta.25) (2021-04-08)
+
+
+### Bug Fixes
+
+* **input,inputGroup:** fix type of value ([44cb881](https://github.com/scaleflex/ui/commit/44cb881f2e2351a9583735559324c8f0e0c9a378))
+* **Menu/Modal:** body scroll bug ([ef6bde5](https://github.com/scaleflex/ui/commit/ef6bde5b95783b5f0ca6efc46cef45a17205edfd))
+* **select:** styles ([02d1107](https://github.com/scaleflex/ui/commit/02d11075ec5a655436a5b9d95d960aea6bb6ee04))
+
+
+### Features
+
+* **input:** add iconClick prop ([aa0dfc3](https://github.com/scaleflex/ui/commit/aa0dfc3c6ba7d93d1d369b787965acb39d8fd473))
+* **input:** add onIconClick prop ([7b19993](https://github.com/scaleflex/ui/commit/7b199939c5915511549a206f5fcc68a4613656ed))
+* **input:** add onIconClick prop ([d7b10c3](https://github.com/scaleflex/ui/commit/d7b10c38a859b98fde7858642d3ffef47dd5d503))
+* **input:** add onIconClick prop ([3b0b9e8](https://github.com/scaleflex/ui/commit/3b0b9e8e3bac9a8ff4743e93e488d6b6c1ad90c9))
+
+
+
+
+
 # [1.0.0-beta.24](https://github.com/scaleflex/ui/compare/1.0.0-beta.23...1.0.0-beta.24) (2021-04-06)
 
 
