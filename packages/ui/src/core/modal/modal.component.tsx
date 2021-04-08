@@ -27,6 +27,10 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       }
     }, [open]);
 
+    useEffect(() => {
+      document.body.classList.remove('Modal-open');
+    }, []);
+
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
         onClose();
