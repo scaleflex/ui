@@ -81,11 +81,11 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       } else {
         document.body.classList.remove('Menu-open');
       }
-    }, [open, updateRect]);
 
-    useEffect(() => {
-      document.body.classList.remove('Menu-open');
-    }, []);
+      return () => {
+        document.body.classList.remove('Menu-open');
+      };
+    }, [open, updateRect]);
 
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
