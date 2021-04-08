@@ -31,13 +31,20 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     };
     const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon iconClick={iconClick} onClick={handleIconClick}>
+        <Styled.Icon iconClick={iconClick}>
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
       ) : undefined;
 
     return (
-      <Styled.Input ref={ref} size={size} className={className} style={style} fullWidth={Boolean(fullWidth)}>
+      <Styled.Input
+        onClick={handleIconClick}
+        ref={ref}
+        size={size}
+        className={className}
+        style={style}
+        fullWidth={Boolean(fullWidth)}
+      >
         {renderIcon(iconStart)}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
         {renderIcon(iconEnd)}
