@@ -25,11 +25,11 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       } else {
         document.body.classList.remove('Modal-open');
       }
-    }, [open]);
 
-    useEffect(() => {
-      document.body.classList.remove('Modal-open');
-    }, []);
+      return () => {
+        document.body.classList.remove('Modal-open');
+      };
+    }, [open]);
 
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
