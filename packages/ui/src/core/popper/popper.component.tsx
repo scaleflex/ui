@@ -82,7 +82,9 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       passEventToUnderlayingEvent(event);
     };
 
-    const renderOverlay = (): JSX.Element => <Styled.Overlay onClick={handleOnClicking} />;
+    const renderOverlay = (): JSX.Element => (
+      <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
+    );
 
     return (
       <>
