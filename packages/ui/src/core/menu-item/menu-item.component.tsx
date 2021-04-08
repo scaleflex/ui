@@ -36,7 +36,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           subMenu = (
             <Menu key={option.key} position="right" open={Boolean(anchorEl)} anchorEl={anchorEl} enableOverlay={false}>
               {/* {renderItems(option.subList, newDepthLevel)} */}
-              <MenuItem list={option.subList} depth={newDepthLevel} />
+              <MenuItem list={option.subList} depth={newDepthLevel} {...props} />
             </Menu>
           );
         }
@@ -48,7 +48,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
             <Styled.MenuItem
               {...props}
               ref={ref}
-              onClick={option.onClick}
+              onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
               onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
             >
               {option.prefix && (
