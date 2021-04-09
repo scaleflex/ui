@@ -4,6 +4,11 @@ import { AddTagType } from './types';
 
 export type AddTagTypesType = Values<typeof AddTagType>;
 export type TagType = string | object | null | undefined;
+export type SuggestionsFilterFnType = (
+  suggestions: TagType[],
+  userInput: string,
+  getTagLabel: (tag: TagType) => string
+) => TagType[];
 
 export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: TagType[];
@@ -21,4 +26,5 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
+  suggestionsFilter?: SuggestionsFilterFnType;
 }
