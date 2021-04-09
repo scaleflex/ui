@@ -1,10 +1,6 @@
-import type { TagType } from './tag-field.props';
+import type { TagType, SuggestionsFilterFnType } from './tag-field.props';
 
-const tagsSuggestionsFilter = (
-  suggestedTags: TagType[] = [],
-  userInput = '',
-  getTagLabel: (tag: TagType) => string
-): TagType[] => {
+const tagsSuggestionsFilter = <SuggestionsFilterFnType>((suggestedTags, userInput, getTagLabel) => {
   if (!userInput) {
     return [];
   }
@@ -18,6 +14,6 @@ const tagsSuggestionsFilter = (
   }
 
   return suggestions;
-};
+});
 
 export { tagsSuggestionsFilter };

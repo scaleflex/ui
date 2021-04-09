@@ -8,7 +8,7 @@ import Label from '../label';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
-import type { TagFieldProps, AddTagTypesType, TagType } from './tag-field.props';
+import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
 import { AddTagType } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import Styled from './tag-field.styles';
@@ -31,7 +31,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       loading,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
-      suggestionsFilter,
+      suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
       ...rest
     }: TagFieldProps,
     ref
@@ -46,9 +46,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       const filteredItems = suggestedTags.filter(
         (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())
       );
-      const filterHandler = suggestionsFilter || tagsSuggestionsFilter;
 
-      return filterHandler(filteredItems, userInput, getTagLabel);
+      return suggestionsFilter(filteredItems, userInput, getTagLabel);
     }, [userInput, suggestedTags, existingLabels, suggestionsFilter]);
 
     const handleTagAdd = (item: TagType, type: AddTagTypesType): void => {
