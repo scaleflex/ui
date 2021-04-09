@@ -21,4 +21,5 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
+  suggestionsFilter?: (suggestions: TagType[], userInput: string, getTagLabel: function) => string;
 }

@@ -10,6 +10,7 @@ import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType } from './tag-field.props';
 import { AddTagType } from './types';
+import { tagsSuggestionsFilter } from './tag-field.utils';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -30,6 +31,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       loading,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
+      suggestionsFilter,
       ...rest
     }: TagFieldProps,
     ref
@@ -37,20 +39,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
-    const showSuggestions = useMemo<boolean>(() => (userInput || '').length > 0, [userInput]);
     const existingLabels = useMemo<string[]>(() => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()), [
       filteredTags,
     ]);
     const filteredSuggestions = useMemo(() => {
-      let filteredItems = suggestedTags.filter(
+      const filteredItems = suggestedTags.filter(
         (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())
       );
-      if (userInput) {
-        const regexp = new RegExp(userInput, 'i');
-        filteredItems = filteredItems.filter((suggestion: TagType) => regexp.test(getTagLabel(suggestion)));
-      }
-      return filteredItems;
-    }, [userInput, suggestedTags, existingLabels]);
+      const filterHandler = suggestionsFilter || tagsSuggestionsFilter;
+
+      return filterHandler(filteredItems, userInput, getTagLabel);
+    }, [userInput, suggestedTags, existingLabels, suggestionsFilter]);
 
     const handleTagAdd = (item: TagType, type: AddTagTypesType): void => {
       if (!item) return;
@@ -118,7 +117,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
         {hint && <FormHint error={error}>{hint}</FormHint>}
 
-        {filteredSuggestions.length > 0 && showSuggestions && (
+        {filteredSuggestions.length > 0 && (
           <Styled.TagFieldSuggestionWrapper>
             <Styled.TagFieldSuggestionLabel>
               <Styled.TagFieldSuggestionIcon>
@@ -174,6 +173,7 @@ TagField.propTypes = {
   loading: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
+  suggestionsFilter: PT.func,
 };
 
 export default TagField;
