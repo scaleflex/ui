@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.26](https://github.com/scaleflex/ui/compare/1.0.0-beta.25...1.0.0-beta.26) (2021-04-09)
+
+
+### Bug Fixes
+
+* **menu:** passing props to onClick ([d47deb9](https://github.com/scaleflex/ui/commit/d47deb98d0cadbeaa81f148613491808e64b0b93))
+* input should be clickable to start searching T3285_ALL_INPUT_SHOULD_BE_CL ([19c6d6b](https://github.com/scaleflex/ui/commit/19c6d6bf542fdd7df9b6c6e19be269b2df46f690))
+
+
+### Features
+
+* **popper:** add more position options ([db1df77](https://github.com/scaleflex/ui/commit/db1df7762c5934459e20013dcd19be9fc62aded8))
+* **TagField:** add prop tagsSuggestionsFilter ([9892aa5](https://github.com/scaleflex/ui/commit/9892aa558a194f5d0b15a2a80a4bac124a534870))
+* **TagField:** add prop tagsSuggestionsFilter ([d118fdd](https://github.com/scaleflex/ui/commit/d118fddbfe8c1192eab7da4639e5a900eb91b1a9))
+
+
+
+
+
 # [1.0.0-beta.25](https://github.com/scaleflex/ui/compare/1.0.0-beta.24...1.0.0-beta.25) (2021-04-08)
 
 
