@@ -126,6 +126,7 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
           onChange={(ev: any) => setValueState(ev)}
           label="Label"
           hint="Some hint goes here"
+          fullWidth
         >
           <MenuItem value="item1">Item 1</MenuItem>
           <MenuItem value="item2">Item 2</MenuItem>
