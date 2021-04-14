@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.27](https://github.com/scaleflex/ui/compare/1.0.0-beta.26...1.0.0-beta.27) (2021-04-14)
+
+
+### Features
+
+* add AddUser icon ([a254f3e](https://github.com/scaleflex/ui/commit/a254f3e54db9d9638ec395e77415f50dae1faf41))
+
+
+
+
+
 # [1.0.0-beta.26](https://github.com/scaleflex/ui/compare/1.0.0-beta.25...1.0.0-beta.26) (2021-04-09)
 
 
