@@ -170,3 +170,4 @@ export { ReleaseNotes } from './release-notes';
 export { About } from './about';
 export { Support } from './support';
 export { Documentation } from './documentation';
+export { AddUser } from './add-user';
