@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.28](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.27...1.0.0-beta.28) (2021-04-16)
+
+
+### Features
+
+* add icons: Sort, Collaboration, ApiConnection, Warning, Movable, Airbox, Transcode, Location, LocationOutline and User ([cbc43dd](https://github.com/scaleflex/sfx-ui/commit/cbc43dd035ed29cc9d5311c97c3bf0ec15f95c76))
+* change Account icon ([9cf0c2e](https://github.com/scaleflex/sfx-ui/commit/9cf0c2e99c64362b074a6a7d59fa522c264fc8ae))
+* change ExternalLink icon ([e2d72da](https://github.com/scaleflex/sfx-ui/commit/e2d72da476d052f6dd1e06a82af92523d023e167))
+* change LogOut icon ([f1cfabf](https://github.com/scaleflex/sfx-ui/commit/f1cfabf5310e1159ede0a7877cb32a5984c82381))
+
+
+
+
+
 # [1.0.0-beta.27](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.26...1.0.0-beta.27) (2021-04-14)
 
 

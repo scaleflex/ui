@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.28](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.27...1.0.0-beta.28) (2021-04-16)
+
+
+### Features
+
+* **IconsStory:** added search and sort ([ad6189c](https://github.com/scaleflex/sfx-ui/commit/ad6189c30f2a74a1c34de982b7e474f045eeffa0))
+
+
+
+
+
 # [1.0.0-beta.27](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.26...1.0.0-beta.27) (2021-04-14)
 
 **Note:** Version bump only for package @scaleflex/ui
