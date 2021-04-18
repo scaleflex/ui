@@ -11,11 +11,13 @@ const LabelWrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
   ({ theme: { palette, shape } }: WithTheme) => css`
+    display: flex;
     flex-grow: 1;
     margin-left: 31px;
     padding: 8px 8px 8px 39px;
     background: ${palette[PColor.ButtonPrimaryText]};
     border-radius: ${shape.borderRadius[BRSize.Sm]};
+    min-height: 41px;
   `
 );
 
