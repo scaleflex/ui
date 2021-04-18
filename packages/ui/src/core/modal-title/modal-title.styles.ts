@@ -42,11 +42,15 @@ const LabelSecondary = styled.div.attrs({
 const Close = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Close'),
 })(
-  ({ variant = Variant.Default }: { variant?: ModalTitleVariantType }) => `
+  ({ variant = Variant.Default, theme: { palette } }: With<WithTheme, { variant?: ModalTitleVariantType }>) => css`
     position: absolute;
     display: flex;
     top: ${variant === Variant.WithIcon ? 8 : 16}px;
     right: ${variant === Variant.WithIcon ? 8 : 16}px;
+    color: ${palette[PColor.IconsSecondary]};
+    &:hover {
+      color: ${palette[PColor.IconsPrimary]};
+    }
     cursor: pointer;
   `
 );
