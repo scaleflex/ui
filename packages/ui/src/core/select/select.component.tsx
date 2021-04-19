@@ -7,7 +7,7 @@ import type { AnchorElType, MenuProps } from '../menu/menu.props';
 import { propTypes as menuPropTypes } from '../menu/menu.component';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
-import { Size } from './types';
+import { Size, Background } from './types';
 import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
@@ -25,6 +25,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       MenuProps,
       readOnly,
       disabled,
+      background,
       ...rest
     },
     ref
@@ -39,6 +40,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
         <Styled.Select
           {...rest}
           size={size}
+          background={background}
           error={error}
           fullWidth={Boolean(fullWidth)}
           readOnly={readOnly}
@@ -80,6 +82,7 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  background: Background.Primary,
 };
 
 Select.defaultProps = defaultProps;
@@ -101,6 +104,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  background: PT.oneOf(objectValues(Background)),
 };
 
 Select.propTypes = propTypes;

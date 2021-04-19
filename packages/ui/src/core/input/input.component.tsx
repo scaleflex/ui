@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
-import { Size } from './types';
+import { Size, Background } from './types';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined): number => {
@@ -18,7 +18,19 @@ const getIconSize = (sizeName: InputSizeType | undefined): number => {
 
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
-    { children, iconStart, iconEnd, iconClick, size, className, style, fullWidth, readOnly, ...rest }: InputProps,
+    {
+      children,
+      iconStart,
+      iconEnd,
+      iconClick,
+      size,
+      className,
+      style,
+      fullWidth,
+      readOnly,
+      background,
+      ...rest
+    }: InputProps,
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -44,6 +56,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         className={className}
         style={style}
         fullWidth={Boolean(fullWidth)}
+        background={background}
       >
         {renderIcon(iconStart)}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
@@ -55,6 +68,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
 export const defaultProps = {
   size: Size.Md,
+  background: Background.Primary,
   error: false,
   fullWidth: false,
   readOnly: false,
@@ -72,6 +86,7 @@ export const propTypes = {
   value: PT.any,
   readOnly: PT.bool,
   iconClick: PT.func,
+  background: PT.oneOf(objectValues(Background)),
 };
 
 Input.propTypes = propTypes;

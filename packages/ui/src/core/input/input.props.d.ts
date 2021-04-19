@@ -1,8 +1,8 @@
 import type { Values } from '../../utils/types';
-import { Size } from './types';
+import { Size, Background } from './types';
 
 export type InputSizeType = Values<typeof Size>;
-
+export type InputBackgroundType = Values<typeof Background>;
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: InputSizeType;
   iconStart?: React.ReactNode;
@@ -13,4 +13,5 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   value?: any;
   readOnly?: boolean;
   iconClick?: () => void;
+  background?: InputBackgroundType;
 }

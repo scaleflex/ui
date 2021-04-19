@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
 import { sizeInputMixin, errorMixin } from './input.mixin';
-import { Size } from './types';
+import { Background, Size } from './types';
 
 const baseClassName = 'Input';
 
@@ -31,13 +31,21 @@ const Icon = styled.span.attrs({
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
-  ({ size = Size.Md, error = false, fullWidth = false, theme }: With<WithTheme, InputProps>) => css`
+  ({
+    size = Size.Md,
+    error = false,
+    fullWidth = false,
+    theme,
+    background = Background.Primary,
+  }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: text;
     width: ${fullWidth ? '100%' : '300px'};
-    background: ${theme.palette[PColor.BackgroundPrimary]};
+    background: ${background === 'primary'
+      ? theme.palette[PColor.BackgroundSecondary]
+      : theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
@@ -45,10 +53,13 @@ const Input = styled.div.attrs({
 
     ${sizeInputMixin[size]}
 
-    &:focus-within,
-    &:hover {
+    &:focus-within {
       background-color: ${theme.palette[PColor.BackgroundSecondary]};
       border: 1px solid ${theme.palette[PColor.AccentPrimary]};
+    }
+
+    &:hover {
+      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
     }
 
     ${error && errorMixin}

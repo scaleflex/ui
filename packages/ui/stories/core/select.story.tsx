@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Select, { SelectProps } from '../../src/core/select';
 import MenuItem from '../../src/core/menu-item';
-import { Size } from '../../src/core/select/types';
+import { Size, Background } from '../../src/core/select/types';
 import { StoryGroup } from './types';
 
 export const Select = _Select;
@@ -24,6 +24,7 @@ const defaultArgs = {
   multiple: false,
   readOnly: false,
   disabled: false,
+  background: Background.Primary,
 };
 
 const BasicTemplate: Story<SelectProps> = ({ ...args }) => {

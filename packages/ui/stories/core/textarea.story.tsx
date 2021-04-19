@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Textarea, { TextareaProps } from '../../src/core/textarea';
+import { Background } from '../../src/core/input/types';
 import { StoryGroup } from './types';
 
 export const Textarea = _Textarea;
@@ -11,7 +12,9 @@ export default {
   excludeStories: ['Textarea'],
 } as Meta;
 
-const defaultArgs = {};
+const defaultArgs = {
+  background: Background.Primary,
+};
 
 const BasicTemplate: Story<TextareaProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');

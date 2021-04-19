@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-// import type { With } from '../../utils/types';
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import InputStyled from '../input/input.styles';
+import type { SelectProps } from './select.props';
+import { Background } from './types';
 
 const baseClassName = 'Select';
 
@@ -30,10 +32,13 @@ const Container = styled.div.attrs({
 
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
-  cursor: pointer;
-  user-select: none;
-`;
+})(
+  ({ theme: { palette }, background = Background.Primary }: With<WithTheme, SelectProps>) => css`
+    cursor: pointer;
+    user-select: none;
+    background: ${background === 'primary' ? palette[PColor.BackgroundSecondary] : palette[PColor.BackgroundPrimary]};
+  `
+);
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),

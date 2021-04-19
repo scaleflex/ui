@@ -6,6 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
 import { errorMixin } from './textarea.mixin';
+import { Background } from '../input/types';
 
 const baseClassName = 'Textarea';
 
@@ -13,14 +14,16 @@ const Textarea = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'root'),
   rows: 3,
 })<TextareaProps>(
-  ({ error = false, theme }: With<WithTheme, TextareaProps>) => css`
+  ({ error = false, background = Background.Primary, theme }: With<WithTheme, TextareaProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: text;
     width: 300px;
     padding: 7px 12px;
-    background: ${theme.palette[PColor.BackgroundPrimary]};
+    background: ${background === 'primary'
+      ? theme.palette[PColor.BackgroundSecondary]
+      : theme.palette[PColor.BackgroundPrimary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
@@ -33,10 +36,13 @@ const Textarea = styled.textarea.attrs({
     outline: none;
     resize: none;
 
-    &:focus,
-    &:hover {
+    &:focus-within {
       background-color: ${theme.palette[PColor.BackgroundSecondary]};
       border: 1px solid ${theme.palette[PColor.AccentPrimary]};
+    }
+
+    &:hover {
+      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
     }
 
     ${error && errorMixin}
