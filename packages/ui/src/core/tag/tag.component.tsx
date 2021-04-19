@@ -7,7 +7,10 @@ import { Size, Type } from './types';
 import Styled from './tag.styles';
 
 const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
-  ({ children, type, size, tagIndex, onRemove, ...rest }: TagProps, ref): JSX.Element => (
+  (
+    { children, type, size, tagIndex, onRemove, contentEditable, suppressContentEditableWarning, ...rest }: TagProps,
+    ref
+  ): JSX.Element => (
     <Styled.Tag
       ref={ref}
       size={size}
@@ -28,7 +31,9 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
           : rest.onClick
       }
     >
-      <Styled.Label>{children}</Styled.Label>
+      <Styled.Label contentEditable={contentEditable} suppressContentEditableWarning={suppressContentEditableWarning}>
+        {children}
+      </Styled.Label>
       <Styled.Cross>
         <CrossIcon
           size={6}
