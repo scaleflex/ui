@@ -27,7 +27,7 @@ const defaultArgs = {
 const options = ['France', 'Germany', 'Ukraine'];
 
 const BasicTemplate: Story<InputLocalizationProps> = ({ ...args }) => {
-  const [value, setValue] = useState(options[0]);
+  const [value, setValue] = useState(args.multiple ? [options[0]] : options[0]);
 
   return (
     <InputLocalization {...args} value={value} onChange={(ev: any) => setValue(ev)}>
@@ -43,6 +43,10 @@ const BasicTemplate: Story<InputLocalizationProps> = ({ ...args }) => {
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
+
+// Multiple
+export const Multiple = BasicTemplate.bind({});
+Multiple.args = { ...defaultArgs, multiple: true };
 
 // WithIcon
 export const WithIcon = BasicTemplate.bind({});
