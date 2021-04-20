@@ -181,3 +181,5 @@ export { AddUser } from './add-user';
 export { Location } from './location';
 export { LocationOutline } from './location-outline';
 export { User } from './user';
+export { World } from './world';
+export { Verify } from './verify';
