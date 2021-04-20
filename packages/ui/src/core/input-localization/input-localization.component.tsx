@@ -12,7 +12,7 @@ import Styled from './input-localization.styles';
 import { Size } from '../select/types';
 
 const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElement>(
-  ({ children, onChange, value, icon, MenuProps, readOnly, disabled, ...rest }, ref): JSX.Element => {
+  ({ children, onChange, value, icon, MenuProps, readOnly, disabled, renderLabel, ...rest }, ref): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const open = Boolean(anchorEl);
     const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
@@ -23,7 +23,9 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
         <Styled.InputLocalization onClick={disabled || readOnly ? undefined : handleClick}>
           {icon && <Styled.Icon>{icon}</Styled.Icon>}
 
-          <Styled.Label>{renderValue({ value, children })}</Styled.Label>
+          <Styled.Label>
+            {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, children })}
+          </Styled.Label>
 
           <Styled.Icon>
             <Arrow type={open ? 'top' : 'bottom'} IconProps={{ size: 6 }} />
@@ -56,6 +58,7 @@ InputLocalization.propTypes = {
   icon: PT.node,
   readOnly: PT.bool,
   disabled: PT.bool,
+  renderLabel: PT.func,
 };
 
 export default InputLocalization;

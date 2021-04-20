@@ -50,3 +50,11 @@ WithIcon.args = {
   ...defaultArgs,
   icon: <LanguagesIcon size={12} />,
 };
+
+// WithIconAndCustomLabel
+export const WithIconAndCustomLabel = BasicTemplate.bind({});
+WithIconAndCustomLabel.args = {
+  ...defaultArgs,
+  icon: <LanguagesIcon size={12} />,
+  renderLabel: (value: string) => `Value: ${value}`,
+};

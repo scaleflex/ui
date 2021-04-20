@@ -8,4 +8,5 @@ export interface InputLocalizationProps
   icon?: React.ReactNode;
   readOnly?: boolean;
   disabled?: boolean;
+  renderLabel?: (value: SelectSimpleValueType) => React.ReactNode;
 }
