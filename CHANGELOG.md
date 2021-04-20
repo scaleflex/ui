@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.30](https://github.com/scaleflex/ui/compare/1.0.0-beta.29...1.0.0-beta.30) (2021-04-20)
+
+
+### Features
+
+* **InputLocalization:** add renderLabel prop ([9b733df](https://github.com/scaleflex/ui/commit/9b733dfcdb15ca5871663237dd216b44daefe500))
+* **InputLocalization:** support multiple mode ([d304c5c](https://github.com/scaleflex/ui/commit/d304c5c37e15071c437a106b56659a52e375c00b))
+
+
+
+
+
 # [1.0.0-beta.29](https://github.com/scaleflex/ui/compare/1.0.0-beta.28...1.0.0-beta.29) (2021-04-20)
 
 
