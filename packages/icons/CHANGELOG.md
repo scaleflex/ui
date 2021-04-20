@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.29](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.28...1.0.0-beta.29) (2021-04-20)
+
+
+### Features
+
+* **Icons:** add icons: world and verify ([5e1fda0](https://github.com/scaleflex/sfx-ui/commit/5e1fda007790733b3c8b0f196b49d34830a9dc3a))
+
+
+
+
+
 # [1.0.0-beta.28](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.27...1.0.0-beta.28) (2021-04-16)
 
 

@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.29](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.28...1.0.0-beta.29) (2021-04-20)
+
+
+### Bug Fixes
+
+* **popup-content:** styles ([0a8c305](https://github.com/scaleflex/sfx-ui/commit/0a8c305387a0420ab91fb19fdd4a373f1d08c94c))
+
+
+### Features
+
+* **input,select,text-area:** add background prop ([fd47837](https://github.com/scaleflex/sfx-ui/commit/fd478376a161f10e27bc97748ba55d8acbbbcc24))
+* **MenuItem:** add prop 'active' for sub menu MenuItem (MenuItemListType) ([cf8ed76](https://github.com/scaleflex/sfx-ui/commit/cf8ed7610eff7e9b94e306ceb9087db6eb23a1e7))
+* **Tag:** enable contentEditable ([1b4d86b](https://github.com/scaleflex/sfx-ui/commit/1b4d86bc34c67f173aad549228852c1aeabc06d8))
+
+
+
+
+
 # [1.0.0-beta.28](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.27...1.0.0-beta.28) (2021-04-16)
 
 
