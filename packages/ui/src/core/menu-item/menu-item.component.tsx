@@ -48,6 +48,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
             <Styled.MenuItem
               {...props}
               ref={ref}
+              active={Boolean(option.active)}
               onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
               onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
             >

@@ -12,6 +12,7 @@ export type MenuItemListType = {
   suffix?: string | React.ReactNode | undefined;
   onClick?: func | undefined;
   disabled?: boolean;
+  active?: boolean;
 };
 export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;
