@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.31](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.30...1.0.0-beta.31) (2021-04-21)
+
+
+### Features
+
+* **Select:** add prop renderLabel ([6b850c9](https://github.com/scaleflex/sfx-ui/commit/6b850c9f6922d9d7fc2117d0a7a22dcd86fd5374))
+
+
+
+
+
 # [1.0.0-beta.30](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.29...1.0.0-beta.30) (2021-04-20)
 
 
