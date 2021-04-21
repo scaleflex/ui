@@ -26,6 +26,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       readOnly,
       disabled,
       background,
+      renderLabel,
       ...rest
     },
     ref
@@ -46,7 +47,9 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           readOnly={readOnly}
           onClick={readOnly || disabled ? undefined : handleClick}
         >
-          <Styled.Label>{renderValue({ value, multiple, children })}</Styled.Label>
+          <Styled.Label>
+            {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
+          </Styled.Label>
 
           <Styled.Icon>
             <ArrowTick
@@ -105,6 +108,7 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   background: PT.oneOf(objectValues(Background)),
+  renderLabel: PT.func,
 };
 
 Select.propTypes = propTypes;

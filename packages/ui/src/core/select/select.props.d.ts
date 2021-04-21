@@ -19,6 +19,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   readOnly?: boolean;
   disabled?: boolean;
   background?: SelectBackgroundType;
+  renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
 }
 
 export interface RenderOption {

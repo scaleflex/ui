@@ -59,7 +59,6 @@ InputLocalization.propTypes = {
   icon: PT.node,
   readOnly: PT.bool,
   disabled: PT.bool,
-  renderLabel: PT.func,
 };
 
 export default InputLocalization;
