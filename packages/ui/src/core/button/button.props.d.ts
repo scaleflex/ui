@@ -12,4 +12,5 @@ export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTM
   badge?: React.ReactNode;
   loading?: boolean;
   $loading?: boolean;
+  disabled?: boolean;
 }

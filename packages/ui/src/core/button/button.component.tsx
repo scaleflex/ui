@@ -9,8 +9,8 @@ import { getIconSize } from './button.utils';
 import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
-  ({ children, icon, badge, color, size, loading, ...rest }: ButtonProps, ref): JSX.Element => (
-    <Styled.Button {...rest} disabled={loading} color={color} size={size} ref={ref}>
+  ({ children, icon, badge, color, size, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => (
+    <Styled.Button {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
       {icon && (
         <Styled.Icon $loading={loading}>
           {typeof icon === 'function' ? (
@@ -63,6 +63,7 @@ Button.propTypes = {
   icon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
   loading: PT.bool,
+  disabled: PT.bool,
 };
 
 export default Button;
