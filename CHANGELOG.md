@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.32](https://github.com/scaleflex/ui/compare/1.0.0-beta.31...1.0.0-beta.32) (2021-04-22)
+
+
+### Bug Fixes
+
+* **button:** disabled prop ([97e7911](https://github.com/scaleflex/ui/commit/97e7911121194c7a53f380644c0f67fa58d6e8b5))
+* **modal:** styles ([6347dbc](https://github.com/scaleflex/ui/commit/6347dbc13460030248d593481041b0546c10dbc2))
+* **Tag:** styles ([e1f8908](https://github.com/scaleflex/ui/commit/e1f8908732e18539c604fa32d7d87ce00ebc57f4))
+
+
+### Features
+
+* **redo,undo:** change design ([d38dac4](https://github.com/scaleflex/ui/commit/d38dac49e6b28f51391db7ab71958736069a8aa2))
+
+
+
+
+
 # [1.0.0-beta.31](https://github.com/scaleflex/ui/compare/1.0.0-beta.30...1.0.0-beta.31) (2021-04-21)
 
 

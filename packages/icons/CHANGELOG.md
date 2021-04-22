@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.32](https://github.com/scaleflex/ui/compare/1.0.0-beta.31...1.0.0-beta.32) (2021-04-22)
+
+
+### Features
+
+* **redo,undo:** change design ([d38dac4](https://github.com/scaleflex/ui/commit/d38dac49e6b28f51391db7ab71958736069a8aa2))
+
+
+
+
+
 # [1.0.0-beta.29](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.28...1.0.0-beta.29) (2021-04-20)
 
 
