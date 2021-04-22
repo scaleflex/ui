@@ -34,6 +34,7 @@ const Label = styled.span.attrs({
   color: ${theme.palette[PColor.BackgroundSecondary]};
   padding: 6px 16px;
   border-radius: inherit;
+  outline: none;
 `
 );
 
