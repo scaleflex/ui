@@ -26,7 +26,7 @@ const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
 })(
   () => css`
-    font-size: 15px;
+    font-size: 16px;
     line-height: 18px;
   `
 );
@@ -45,8 +45,8 @@ const Close = styled.div.attrs({
   ({ variant = Variant.Default, theme: { palette } }: With<WithTheme, { variant?: ModalTitleVariantType }>) => css`
     position: absolute;
     display: flex;
-    top: ${variant === Variant.WithIcon ? 8 : 16}px;
-    right: ${variant === Variant.WithIcon ? 8 : 16}px;
+    top: ${variant === Variant.WithIcon ? 12 : 16}px;
+    right: ${variant === Variant.WithIcon ? 12 : 16}px;
     color: ${palette[PColor.IconsSecondary]};
     &:hover {
       color: ${palette[PColor.IconsPrimary]};
@@ -70,7 +70,7 @@ const ModalTitle = styled.div.attrs({
     border-radius: ${borderRadius[BRSize.Md]}px ${borderRadius[BRSize.Md]}px 0px 0px;
 
     ${() => {
-      const paddingY = variant === Variant.WithIcon ? 8 : 11;
+      const paddingY = variant === Variant.WithIcon ? 12 : 11;
       const paddingLeft = 18;
       const paddingRight = variant === Variant.WithIcon ? paddingLeft : 40;
 

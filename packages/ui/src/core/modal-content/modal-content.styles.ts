@@ -9,6 +9,7 @@ const ModalContent = styled.div.attrs({
   () => css`
     position: relative;
     padding: 15px 16px;
+    text-align: center;
   `
 );
 

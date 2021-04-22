@@ -12,7 +12,7 @@ const ModalActions = styled.div.attrs({
     position: relative;
     display: flex;
     align-items: center;
-    padding: 7px 16px;
+    padding: 12px 16px;
     justify-content: ${align === Align.Right ? 'flex-end' : align};
 
     > *:not(:first-child) {
