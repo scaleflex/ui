@@ -32,4 +32,5 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   title: ReactNode;
   children: ReactElement;
   popperOptions?: PopperOptions;
+  arrow?: boolean;
 }

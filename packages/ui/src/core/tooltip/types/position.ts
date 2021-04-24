@@ -1,4 +1,7 @@
 export const Position = {
+  AutoStart: 'auto-start',
+  Auto: 'auto',
+  AutoEnd: 'auto-end',
   TopStart: 'top-start',
   Top: 'top',
   TopEnd: 'top-end',

@@ -1,5 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
 import { usePopper } from 'react-popper';
@@ -17,6 +17,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       children,
       open,
       position: initialPlacement = 'bottom',
+      arrow = false,
       popperOptions,
       onClick,
       overlay = false,
@@ -29,8 +30,11 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     const overlayTarget = document.querySelector('body')!;
     const Ref = useRef(null);
     const ownRef = useForkRef(Ref, ref);
+    const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
 
-    let popperModifiers: Modifiers = [];
+    const arrowModifier = { name: 'arrow', options: { element: arrowElement } };
+
+    let popperModifiers: Modifiers = arrow ? [arrowModifier] : [];
 
     if (popperOptions && popperOptions.modifiers != null) {
       popperModifiers = popperModifiers.concat(popperOptions.modifiers);
@@ -54,11 +58,6 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     if (!open) {
       return <div ref={handleRef} />;
     }
-    const render = (): JSX.Element => (
-      <Styled.Popper ref={handleRef} style={popper.styles.popper} {...popper.attributes.popper}>
-        {children}
-      </Styled.Popper>
-    );
 
     const passEventToUnderlayingEvent = (event: React.MouseEvent<HTMLDivElement>): void => {
       setTimeout(() => {
@@ -81,6 +80,19 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       }
       passEventToUnderlayingEvent(event);
     };
+
+    const render = (): JSX.Element => (
+      <Styled.Popper ref={handleRef} style={popper.styles.popper} {...popper.attributes.popper}>
+        {children}
+        {arrow && (
+          <Styled.Arrow
+            position={popper.state?.placement || initialPlacement}
+            ref={setArrowElement}
+            style={popper.styles.arrow}
+          />
+        )}
+      </Styled.Popper>
+    );
 
     const renderOverlay = (): JSX.Element => (
       <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
@@ -130,6 +142,7 @@ export const propTypes = {
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
   overlay: PT.bool,
+  arrow: PT.bool,
 };
 
 Popper.propTypes = propTypes;

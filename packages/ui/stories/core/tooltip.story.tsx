@@ -16,6 +16,7 @@ export default {
 const defaultArgs = {
   title: 'Tooltip text',
   size: Size.Sm,
+  arrow: true,
 };
 
 const BasicTemplate: Story<TooltipProps> = (args) => (

@@ -4,11 +4,7 @@ import React, { useState, useRef } from 'react';
 import PT, { Validator } from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-
-import ArrowTick from '../arrow-tick';
-import { Type as ArrowTickType } from '../arrow-tick/types';
-import type { ArrowTickTypesType } from '../arrow-tick/arrow-tick.props';
-import type { TooltipProps, TooltipPositionType } from './tooltip.props';
+import type { TooltipProps } from './tooltip.props';
 import type { PopperOptions, Modifiers } from '../popper/popper.props';
 import { Size } from './types';
 import { Position, Strategy } from '../popper/types';
@@ -16,26 +12,10 @@ import Styled from './tooltip.styles';
 
 import Popper from '../popper';
 
-const getArrowTypeByPosition = (position: TooltipPositionType): ArrowTickTypesType => {
-  switch (position) {
-    case Position.Left:
-      return ArrowTickType.Right;
-
-    case Position.Right:
-      return ArrowTickType.Left;
-
-    case Position.Bottom:
-      return ArrowTickType.Top;
-
-    case Position.Top:
-    default:
-      return ArrowTickType.Bottom;
-  }
-};
-
 const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
-  ({ children, position = Position.Top, popperOptions, ...rest }: TooltipProps, ref): JSX.Element => {
+  ({ children, position = Position.Top, popperOptions, arrow = true, ...rest }: TooltipProps, ref): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
+
     const open = Boolean(anchorEl);
 
     const tooltipRef = useRef(null);
@@ -67,12 +47,9 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
         anchorEl={anchorEl}
         open={anchorEl ? open : false}
         popperOptions={popperOptions}
+        arrow={arrow}
       >
         <Styled.TooltipContainer {...rest} open={open}>
-          <ArrowTick
-            type={getArrowTypeByPosition(position)}
-            IconProps={{ viewBox: '0 0 8 8', width: 10, height: 10 }}
-          />
           <Styled.Tooltip>{rest.title}</Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
@@ -94,6 +71,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
 Tooltip.defaultProps = {
   position: Position.Top,
   size: Size.Sm,
+  arrow: true,
 };
 
 Tooltip.propTypes = {
@@ -101,6 +79,7 @@ Tooltip.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   title: PT.node,
   children: PT.element,
+  arrow: PT.bool,
   popperOptions: PT.shape({
     modifiers: PT.arrayOf(
       PT.shape({
