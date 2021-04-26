@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.33](https://github.com/scaleflex/ui/compare/1.0.0-beta.32...1.0.0-beta.33) (2021-04-26)
+
+
+### Bug Fixes
+
+* export path for accordion ([be83ed7](https://github.com/scaleflex/ui/commit/be83ed793a491ae704f73993ae6422d97e1dcc97))
+
+
+### Features
+
+* **Icons:** add icons: Info and InfoOutline ([ad6b474](https://github.com/scaleflex/ui/commit/ad6b4743e783b2ba034776a77b3997ea062f3893))
+* **tooltip:** add arrows for tooltip ([eb5d739](https://github.com/scaleflex/ui/commit/eb5d7393273f5b39bd854d91f7d1f2f5ec037a69))
+
+
+
+
+
 # [1.0.0-beta.32](https://github.com/scaleflex/ui/compare/1.0.0-beta.31...1.0.0-beta.32) (2021-04-22)
 
 
