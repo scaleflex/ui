@@ -183,3 +183,5 @@ export { LocationOutline } from './location-outline';
 export { User } from './user';
 export { World } from './world';
 export { Verify } from './verify';
+export { Info } from './info';
+export { InfoOutline } from './info-outline';
