@@ -36,7 +36,7 @@ const Select = styled(InputStyled.Input).attrs({
   ({ theme: { palette }, background = Background.Primary }: With<WithTheme, SelectProps>) => css`
     cursor: pointer;
     user-select: none;
-    background: ${background === 'primary' ? palette[PColor.BackgroundSecondary] : palette[PColor.BackgroundPrimary]};
+    background: ${background === 'primary' ? palette[PColor.BackgroundPrimary] : palette[PColor.BackgroundSecondary]};
   `
 );
 

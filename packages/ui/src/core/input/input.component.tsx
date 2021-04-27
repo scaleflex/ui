@@ -28,7 +28,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       style,
       fullWidth,
       readOnly,
-      background,
+      background = 'primary',
       ...rest
     }: InputProps,
     ref

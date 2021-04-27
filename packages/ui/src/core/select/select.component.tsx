@@ -58,9 +58,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
               IconProps={{ size: 8 }}
             />
           </Styled.Icon>
+          <Styled.Input {...selectProps} />
         </Styled.Select>
-
-        <Styled.Input {...selectProps} />
 
         <Menu onClose={handleClose} open={open} anchorEl={anchorEl} {...MenuProps}>
           {React.Children.map(children, (child) =>

@@ -22,8 +22,8 @@ const Textarea = styled.textarea.attrs({
     width: 300px;
     padding: 7px 12px;
     background: ${background === 'primary'
-      ? theme.palette[PColor.BackgroundSecondary]
-      : theme.palette[PColor.BackgroundPrimary]};
+      ? theme.palette[PColor.BackgroundPrimary]
+      : theme.palette[PColor.BackgroundSecondary]};
     border: 1px solid ${theme.palette[PColor.BordersSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
@@ -37,7 +37,7 @@ const Textarea = styled.textarea.attrs({
     resize: none;
 
     &:focus-within {
-      background-color: ${theme.palette[PColor.BackgroundSecondary]};
+      background-color: ${theme.palette[PColor.BackgroundSecondary]} !important;
       border: 1px solid ${theme.palette[PColor.AccentPrimary]};
     }
 
