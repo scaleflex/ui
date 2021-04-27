@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.34](https://github.com/scaleflex/ui/compare/1.0.0-beta.33...1.0.0-beta.34) (2021-04-27)
+
+
+### Bug Fixes
+
+* **input,select:** focus and hover state ([96bb8b7](https://github.com/scaleflex/ui/commit/96bb8b708482dfdb3de1eb72659359d0cff65c08))
+* **modal:** styles ([dbb2b00](https://github.com/scaleflex/ui/commit/dbb2b00e7f130ff3fa17fdfbab88da0516478dc2))
+
+
+
+
+
 # [1.0.0-beta.33](https://github.com/scaleflex/ui/compare/1.0.0-beta.32...1.0.0-beta.33) (2021-04-26)
 
 
