@@ -14,7 +14,6 @@ const ArrowTick = styled.span.attrs({
 })(
   ({ type = Type.Right }: With<WithTheme, ArrowTickProps>) => css`
     display: inline-flex;
-    transition: transform 0.15s;
 
     ${typeArrowTickMixin[type]}
   `
