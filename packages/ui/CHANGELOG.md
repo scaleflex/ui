@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.35](https://github.com/scaleflex/ui/compare/1.0.0-beta.34...1.0.0-beta.35) (2021-05-08)
+
+
+### Features
+
+* **accordion:** add headerStyle and detailStyle props ([4459b93](https://github.com/scaleflex/ui/commit/4459b93347a999da91347cdbbaba47a801ba4a0f))
+* **Accordion:** add event to onchange ([c89ea42](https://github.com/scaleflex/ui/commit/c89ea422cc0adef5aec1395322be4f131fde2629))
+* **arrowTick:** add transition ([d839a52](https://github.com/scaleflex/ui/commit/d839a52cc004168c455f8eded02f9f6a0e705c10))
+* **TagsField:** add background props and fix focus/hover state ([d91e56d](https://github.com/scaleflex/ui/commit/d91e56d20f7063ac1608ff6625a5385694293a5b))
+
+
+
+
+
 # [1.0.0-beta.34](https://github.com/scaleflex/ui/compare/1.0.0-beta.33...1.0.0-beta.34) (2021-04-27)
 
 
