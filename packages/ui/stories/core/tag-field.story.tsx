@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
-import { AddTagType } from '../../src/core/tag-field/types';
+import { AddTagType, Background } from '../../src/core/tag-field/types';
 import { StoryGroup } from './types';
 
 export const TagField = _TagField;
@@ -21,6 +21,7 @@ const defaultArgs = {
   placeholder: 'Add tag ...',
   label: 'Tags',
   hint: 'Some hint goes here',
+  background: Background.Primary,
 };
 
 const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {

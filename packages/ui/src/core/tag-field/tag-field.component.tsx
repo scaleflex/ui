@@ -2,14 +2,14 @@ import React, { useState, useMemo } from 'react';
 import PT, { Validator } from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Tag from '../tag';
 import Label from '../label';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
-import { AddTagType } from './types';
+import { AddTagType, Background } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import Styled from './tag-field.styles';
 
@@ -29,6 +29,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       error,
       hint,
       loading,
+      background = 'primary',
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
@@ -80,7 +81,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
           </Label>
         )}
 
-        <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} {...rest}>
+        <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} background={background} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
             {filteredTags.map((tag: TagType, index: number) => (
               <Tag
@@ -154,6 +155,7 @@ TagField.defaultProps = {
   placeholder: 'Add a tag (separate by pressing enter)',
   disabled: false,
   readOnly: false,
+  background: Background.Primary,
 };
 
 TagField.propTypes = {
@@ -173,6 +175,7 @@ TagField.propTypes = {
   getTagValue: PT.func,
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
+  background: PT.oneOf(objectValues(Background)),
 };
 
 export default TagField;

@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-// import type { TagFieldProps } from './tag-field.props';
+import type { TagFieldWrapperProps } from './tag-field.props';
 
 const baseClassName = 'TagField';
 
@@ -25,11 +26,14 @@ const TagFieldRoot = styled.div.attrs({
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
 })(
-  ({ fullWidth = false, theme }: WithTheme & { fullWidth: boolean }) => css`
+  (props: With<WithTheme, TagFieldWrapperProps>) => css`
     overflow: hidden;
-    border: 1px solid ${theme.palette[PColor.ActiveSecondary]};
+    border: 1px solid ${props.theme.palette[PColor.ActiveSecondary]};
     border-radius: 2px;
-    width: ${fullWidth ? '100%' : '50%'};
+    width: ${props.fullWidth ? '100%' : '50%'};
+    background: ${props.background === 'primary'
+      ? props.theme.palette[PColor.BackgroundPrimary]
+      : props.theme.palette[PColor.BackgroundSecondary]};
     ${StyledFormHint.FormHint} {
       margin-top: 4px;
     }
@@ -38,10 +42,13 @@ const TagFieldWrapper = styled.div.attrs({
       margin-bottom: 4px;
     }
 
-    &:focus-within,
+    &:focus-within {
+      background-color: ${props.theme.palette[PColor.BackgroundSecondary]}!important;
+      border: 1px solid ${props.theme.palette[PColor.AccentPrimary]};
+    }
+
     &:hover {
-      background-color: ${theme.palette[PColor.BackgroundSecondary]};
-      border: 1px solid ${theme.palette[PColor.AccentPrimary]};
+      background-color: ${props.theme.palette[PColor.BackgroundPrimaryHover]};
     }
   `
 );
@@ -64,7 +71,6 @@ const TagFieldListWrapper = styled.ul.attrs({
     font-size: 14px;
     line-height: 1.5;
     padding: 6px 8px;
-    background: #f8fafb;
     width: 100%;
 
     ${TagFieldLoader} {
@@ -91,7 +97,6 @@ const TagFieldInput = styled.input.attrs({
   width: 100%;
   outline: none;
 `;
-
 const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
 })`
