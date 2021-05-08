@@ -15,7 +15,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
         expanded={expanded}
         onClick={(event) => {
           if (typeof onChange === 'function') {
-            onChange(!expanded);
+            onChange(!expanded, event);
           }
 
           if (typeof onClick === 'function') {
