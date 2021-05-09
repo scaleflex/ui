@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.36](https://github.com/scaleflex/ui/compare/1.0.0-beta.35...1.0.0-beta.36) (2021-05-09)
+
+
+### Bug Fixes
+
+* **TagsField:** fix spinner align ([688785d](https://github.com/scaleflex/ui/commit/688785d8b40fda8d0bf45fd928e453230d0391e4))
+
+
+
+
+
 # [1.0.0-beta.35](https://github.com/scaleflex/ui/compare/1.0.0-beta.34...1.0.0-beta.35) (2021-05-08)
 
 
