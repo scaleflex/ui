@@ -55,6 +55,7 @@ const TagFieldWrapper = styled.div.attrs({
 const TagFieldLoader = styled.span.attrs({
   className: generateClassNames(baseClassName, 'loader'),
 })`
+  display: flex;
   margin-left: 8px;
 `;
 
