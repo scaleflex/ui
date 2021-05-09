@@ -6,9 +6,13 @@ import Styled from './accordion-details.styles';
 
 const AccordionDetails = intrinsicComponent<AccordionDetailsProps, HTMLDivElement>(
   ({ expanded, children, ...rest }: AccordionDetailsProps, ref): JSX.Element => (
-    <Styled.AccordionDetails ref={ref} expanded={expanded} {...rest}>
-      {children}
-    </Styled.AccordionDetails>
+    <>
+      {expanded && (
+        <Styled.AccordionDetails ref={ref} {...rest}>
+          {children}
+        </Styled.AccordionDetails>
+      )}
+    </>
   )
 );
 
