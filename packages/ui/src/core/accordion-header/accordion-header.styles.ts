@@ -13,7 +13,7 @@ const Icon = styled.span.attrs({
 })(
   () => css`
     display: inline-flex;
-    margin-right: 8px;
+    padding-right: 8px;
   `
 );
 

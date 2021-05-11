@@ -7,7 +7,7 @@ import type { AccordionHeaderProps } from './accordion-header.props';
 import Styled from './accordion-header.styles';
 
 const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>(
-  ({ expanded, label, onChange, onClick, ...rest }: AccordionHeaderProps, ref): JSX.Element => (
+  ({ expanded, label, onChange, onClick, onContextMenu, ...rest }: AccordionHeaderProps, ref): JSX.Element => (
     <Styled.AccordionHeader
       ref={ref}
       onClick={(event) => {
@@ -21,11 +21,11 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
       }}
       {...rest}
     >
-      <Styled.Icon>
+      <Styled.Icon onContextMenu={onContextMenu}>
         <ArrowTick type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right} IconProps={{ size: 8 }} />
       </Styled.Icon>
 
-      <Styled.Label>{label}</Styled.Label>
+      <Styled.Label onContextMenu={onContextMenu}>{label}</Styled.Label>
     </Styled.AccordionHeader>
   )
 );

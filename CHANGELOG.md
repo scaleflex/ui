@@ -9,7 +9,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * **TagsField:** fix spinner align ([688785d](https://github.com/scaleflex/ui/commit/688785d8b40fda8d0bf45fd928e453230d0391e4))
-
+* **Accordion:** change how we hide accordion ([c0fd954](https://github.com/scaleflex/ui/commit/c0fd954b40955a935d4b5ee48459dc9eb0b52639))
 
 
 

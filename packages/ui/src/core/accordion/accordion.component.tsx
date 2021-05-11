@@ -9,7 +9,7 @@ import Styled from './accordion.styles';
 
 const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
   (
-    { label, expanded, children, onClick, onChange, detailStyle, headerStyle, ...rest }: AccordionProps,
+    { label, expanded, children, onClick, onChange, onContextMenu, detailStyle, headerStyle, ...rest }: AccordionProps,
     ref
   ): JSX.Element => {
     return (
@@ -27,6 +27,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
               onClick(event);
             }
           }}
+          onContextMenu={onContextMenu}
         />
 
         <AccordionDetails expanded={expanded} style={{ ...detailStyle }}>
@@ -45,6 +46,7 @@ Accordion.propTypes = {
   label: PT.string.isRequired,
   expanded: PT.bool,
   onChange: PT.func,
+  onContextMenu: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   detailStyle: PT.object,
   // eslint-disable-next-line react/forbid-prop-types
