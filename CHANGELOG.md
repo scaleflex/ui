@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.37](https://github.com/scaleflex/ui/compare/1.0.0-beta.36...1.0.0-beta.37) (2021-05-24)
+
+
+### Features
+
+* **Accordion:** add onContextMenu prop ([2b6db86](https://github.com/scaleflex/ui/commit/2b6db867513c47c7867b23a692d5073a21e0b5a5))
+* **checboxGroup:** add labelPositionProp ([2fa25a5](https://github.com/scaleflex/ui/commit/2fa25a59bf4be87e5397df082a0a213da4f94ddc))
+
+
+
+
+
 # [1.0.0-beta.36](https://github.com/scaleflex/ui/compare/1.0.0-beta.35...1.0.0-beta.36) (2021-05-09)
 
 
