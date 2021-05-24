@@ -1,9 +1,10 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
-// import type { With } from '../../utils/types';
+import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import type { CheckBoxGroupProps } from './check-box-group.props';
+import { LabelPositionType } from './check-box-group.props';
 
 const baseClassName = 'CheckBoxGroup';
 
@@ -11,12 +12,12 @@ const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
   type: 'checkbox',
 })(
-  ({ theme }: WithTheme) => css`
+  ({ theme, labelPosition = 'after' }: With<WithTheme, { labelPosition: LabelPositionType | undefined }>) => css`
     display: flex;
     align-items: center;
     font-size: 12px;
     line-height: 14px;
-    margin-left: 8px;
+    ${`margin-${labelPosition === 'after' ? 'left' : 'right'}`}:8px;
     color: ${theme.palette[PColor.TextPrimary]};
   `
 );
