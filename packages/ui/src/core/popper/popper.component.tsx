@@ -32,9 +32,17 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     const ownRef = useForkRef(Ref, ref);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
 
-    const arrowModifier = { name: 'arrow', options: { element: arrowElement } };
+    const arrowModifier = [
+      { name: 'arrow', options: { element: arrowElement } },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 10],
+        },
+      },
+    ];
 
-    let popperModifiers: Modifiers = arrow ? [arrowModifier] : [];
+    let popperModifiers: Modifiers = arrow ? arrowModifier : [];
 
     if (popperOptions && popperOptions.modifiers != null) {
       popperModifiers = popperModifiers.concat(popperOptions.modifiers);
