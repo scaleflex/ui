@@ -39,10 +39,10 @@ This is done by wrapping your application in our `ThemeProvider` component.
 import ThemeProvider from '@scaleflex/ui/theme';
 
 ReactDOM.render(
-  document.querySelector('#root'),
   <ThemeProvider>
     <App />
-  </ThemeProvider>
+  </ThemeProvider>,
+  document.querySelector('#root')
 );
 ```
 
