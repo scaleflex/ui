@@ -12,6 +12,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
   readOnly?: boolean;
-  iconClick?: () => void;
+  iconClickStart?: () => void;
+  iconClickEnd?: () => void;
   background?: InputBackgroundType;
 }

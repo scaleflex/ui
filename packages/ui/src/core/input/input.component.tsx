@@ -22,7 +22,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
-      iconClick,
+      iconClickStart,
+      iconClickEnd,
       size,
       className,
       style,
@@ -35,22 +36,32 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    const handleIconClick = (): void => {
+    const handleFocus = (): void => {
       inputRef.current?.focus();
-      if (iconClick) {
-        iconClick();
+    };
+
+    const handleIconClick = (type: string): void => {
+      inputRef.current?.focus();
+
+      if (type === 'start') {
+        if (iconClickStart) {
+          iconClickStart();
+        }
+      } else if (iconClickEnd) {
+        iconClickEnd();
       }
     };
-    const renderIcon = (_icon: React.ReactNode): JSX.Element | undefined =>
+
+    const renderIcon = (_icon: React.ReactNode, type: string): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon iconClick={iconClick}>
+        <Styled.Icon onClick={() => handleIconClick(type)} iconClickStart={iconClickStart} iconClickEnd={iconClickEnd}>
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
       ) : undefined;
 
     return (
       <Styled.Input
-        onClick={handleIconClick}
+        onClick={handleFocus}
         ref={ref}
         size={size}
         className={className}
@@ -58,9 +69,9 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         fullWidth={Boolean(fullWidth)}
         background={background}
       >
-        {renderIcon(iconStart)}
+        {renderIcon(iconStart, 'start')}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
-        {renderIcon(iconEnd)}
+        {renderIcon(iconEnd, 'end')}
       </Styled.Input>
     );
   }
@@ -85,7 +96,8 @@ export const propTypes = {
   // eslint-disable-next-line react/forbid-prop-types
   value: PT.any,
   readOnly: PT.bool,
-  iconClick: PT.func,
+  iconClickStart: PT.func,
+  iconClickEnd: PT.func,
   background: PT.oneOf(objectValues(Background)),
 };
 
