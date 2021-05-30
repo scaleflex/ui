@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.38](https://github.com/scaleflex/ui/compare/1.0.0-beta.37...1.0.0-beta.38) (2021-05-30)
+
+
+### Features
+
+* **input:** add iconClickStart,iconClickEnd prop ([3cc7559](https://github.com/scaleflex/ui/commit/3cc75590d9a4c3896f5378c89d38de0c2292fedf))
+* **popper:** add default offset for arrow ([e2299f9](https://github.com/scaleflex/ui/commit/e2299f9cd6a1332c43fb7451937960bb76231247))
+
+
+
+
+
 # [1.0.0-beta.37](https://github.com/scaleflex/ui/compare/1.0.0-beta.36...1.0.0-beta.37) (2021-05-24)
 
 
