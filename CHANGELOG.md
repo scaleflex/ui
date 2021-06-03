@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.40](https://github.com/scaleflex/ui/compare/1.0.0-beta.39...1.0.0-beta.40) (2021-06-03)
+
+
+### Features
+
+* **slider:** add slider component ([c5e0645](https://github.com/scaleflex/ui/commit/c5e064511847959b563f327e868ced582a169394))
+
+
+
+
+
 # [1.0.0-beta.39](https://github.com/scaleflex/ui/compare/1.0.0-beta.38...1.0.0-beta.39) (2021-06-01)
 
 
