@@ -51,7 +51,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
 
   typography: {
     // htmlFontSize: '14px',
-    // fontFamily,
+    fontFamily,
     baseLineHeight: 1.375,
 
     font: {
