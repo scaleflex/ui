@@ -112,10 +112,15 @@ const Fonts = createGlobalStyle`
 `;
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    font-size: 14px;
+  }
+
   body {
     height: 100%;
     color: #131f2b;
     // background-color: #f8fafb;
+    font-family: 'Roboto';
   }
 
   main {

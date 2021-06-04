@@ -2,16 +2,16 @@ import { createGlobalStyle, css } from 'styled-components';
 
 const Typography = createGlobalStyle`
   ${({ theme }) => {
-    const { htmlFontSize, fontFamily, baseLineHeight } = theme.typography;
+    const { /* htmlFontSize, fontFamily, */ baseLineHeight } = theme.typography;
 
     return css`
-      html {
-        font-size: ${htmlFontSize};
+      /* html {
+        font-size: {htmlFontSize};
       }
 
       body {
-        font-family: ${fontFamily};
-      }
+        font-family: {fontFamily};
+      } */
 
       h1,
       h2,
