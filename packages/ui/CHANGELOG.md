@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.41](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.40...1.0.0-beta.41) (2021-06-04)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
 # [1.0.0-beta.40](https://github.com/scaleflex/ui/compare/1.0.0-beta.39...1.0.0-beta.40) (2021-06-03)
 
 
