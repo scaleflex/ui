@@ -203,7 +203,12 @@ const Slider = intrinsicComponent<SliderProps, HTMLDivElement>(
     if (slidersContainer) {
       let minSliderPercentage: number | undefined = 0;
       let maxSliderPercentage: number | undefined = 0;
-      if (slider1Value && slider2Value) {
+      if (numberOfSliders === 1) {
+        if (slider1Value) {
+          minSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
+          maxSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
+        }
+      } else if (slider1Value && slider2Value) {
         minSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
         maxSliderPercentage = absToPercentage(
           mapValueBySlidersWidth(slider2Value > slider1Value ? slider2Value : slider1Value)

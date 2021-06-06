@@ -1,0 +1,60 @@
+import styled, { css } from 'styled-components';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
+import type { With } from '../../utils/types';
+import type { WithTheme } from '../../theme/entity';
+import { Color as PColor } from '../../utils/types/palette';
+
+import { FontVariant } from '../../utils/types/typography/font-variant';
+
+const baseClassName = 'Pagination';
+
+const PaginationList = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'list'),
+})(
+  () => css`
+    margin: 0;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+  `
+);
+
+const PaginationItemList = styled.li.attrs({
+  className: generateClassNames(baseClassName, 'item-list'),
+})(() => css``);
+
+const PaginationItem = styled.button.attrs({
+  className: generateClassNames(baseClassName, 'item'),
+})(
+  ({ selected, theme }: With<WithTheme, { selected: boolean }>) => css`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 26px;
+    margin: 0 3px;
+    padding: 0 6px;
+    min-width: 26px;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    user-select: none;
+    background: transparent;
+    color: ${selected ? theme.palette[PColor.AccentPrimaryHover] : theme.palette[PColor.TextPrimary]};
+
+    ${theme.typography.font[FontVariant.LabelSmall]};
+
+    &:hover {
+      color: ${theme.palette[PColor.AccentPrimaryHover]};
+    }
+    &:disabled {
+      color: ${theme.palette[PColor.ButtonDisabledText]};
+    }
+  `
+);
+
+const Styled = applyDisplayNames({ PaginationList, PaginationItemList, PaginationItem });
+
+export default Styled;
