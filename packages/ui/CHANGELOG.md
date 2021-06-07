@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.42](https://github.com/scaleflex/ui/compare/1.0.0-beta.41...1.0.0-beta.42) (2021-06-07)
+
+
+### Features
+
+* **input:** add focusOnMount ([d195797](https://github.com/scaleflex/ui/commit/d195797c1e1a284ddefde48396c700957acff0af))
+* **pagination:** add pagination component ([45a6b89](https://github.com/scaleflex/ui/commit/45a6b891b689282457bfdcf5e3567e975b5912bc))
+
+
+
+
+
 # [1.0.0-beta.41](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.40...1.0.0-beta.41) (2021-06-04)
 
 **Note:** Version bump only for package @scaleflex/ui
