@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
@@ -30,6 +30,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       fullWidth,
       readOnly,
       background = 'primary',
+      focusOnMount = false,
       ...rest
     }: InputProps,
     ref
@@ -40,8 +41,14 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       inputRef.current?.focus();
     };
 
+    useEffect(() => {
+      if (focusOnMount) {
+        handleFocus();
+      }
+    }, []);
+
     const handleIconClick = (type: string): void => {
-      inputRef.current?.focus();
+      handleFocus();
 
       if (type === 'start') {
         if (iconClickStart) {
@@ -99,6 +106,7 @@ export const propTypes = {
   iconClickStart: PT.func,
   iconClickEnd: PT.func,
   background: PT.oneOf(objectValues(Background)),
+  focusOnMount: PT.bool,
 };
 
 Input.propTypes = propTypes;
