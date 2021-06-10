@@ -50,3 +50,6 @@ export { default as TableRow } from './table-row';
 export { default as Popper } from './popper';
 export { default as StatusLabel } from './status-label';
 export { default as TagField } from './tag-field';
+export { default as Slider } from './slider';
+export { default as Pagination } from './pagination';
+export { default as TablePagination } from './table-pagination';

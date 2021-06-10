@@ -7,6 +7,7 @@ import _TableHead from '../../src/core/table-head';
 import _TableCell from '../../src/core/table-cell';
 import _TableRow from '../../src/core/table-row';
 import _TableBody from '../../src/core/table-body';
+import _TablePagination from '../../src/core/table-pagination';
 import More from '../../../icons/src/more';
 import RobotHappy from '../../../icons/src/robot-happy';
 import Copy from '../../../icons/src/copy';
@@ -18,6 +19,7 @@ export const TableHead = _TableHead;
 export const TableCell = _TableCell;
 export const TableRow = _TableRow;
 export const TableBody = _TableBody;
+export const TablePagination = _TablePagination;
 
 export default {
   title: `${StoryGroup.Surfaces}/Table`,
@@ -31,13 +33,31 @@ const defaultArgs = {
 };
 
 const BasicTemplate: Story<TableProps> = ({ ...args }) => {
+  const [page, setPage] = React.useState(1);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  const handleChangePage = (newPage: any): void => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event: any): void => {
+    setRowsPerPage(Number.parseInt(event, 10));
+    setPage(1);
+  };
+
   const action = () => (
     <span>
       <Copy size={10} />
       <span style={{ marginLeft: '4px' }}>Copy</span>
     </span>
   );
-  function createData(name: string, Permissions: string, CreatedAt: string, Active: JSX.Element, Actions: JSX.Element) {
+  const createData = (
+    name: string,
+    Permissions: string,
+    CreatedAt: string,
+    Active: JSX.Element,
+    Actions: JSX.Element
+  ): any => {
     return {
       name,
       Permissions,
@@ -45,7 +65,8 @@ const BasicTemplate: Story<TableProps> = ({ ...args }) => {
       Active,
       Actions,
     };
-  }
+  };
+
   const rows = [
     createData('Global Key', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
     createData(
@@ -69,36 +90,56 @@ const BasicTemplate: Story<TableProps> = ({ ...args }) => {
       <RobotHappy size={25} />,
       action()
     ),
+    createData('Test1', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test2', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test3', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test4', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test5', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test6', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test7', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test8', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
+    createData('Test9', '42f89117d2d944b4423c18cc340956', '2020-06-15 14:21', <RobotHappy size={25} />, action()),
   ];
+
   return (
-    <TableContainer>
-      <Table {...args}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Description</TableCell>
-            <TableCell>Permissions</TableCell>
-            <TableCell>CreatedAt</TableCell>
-            <TableCell>Active</TableCell>
-            <TableCell>Actions</TableCell>
-            <TableCell padding="options" />
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow key={row.name}>
-              <TableCell scope="row">{row.name}</TableCell>
-              <TableCell>{row.Permissions}</TableCell>
-              <TableCell>{row.CreatedAt}</TableCell>
-              <TableCell>{row.Active}</TableCell>
-              <TableCell>{row.Actions}</TableCell>
-              <TableCell padding="options">
-                <More />
-              </TableCell>
+    <>
+      <TableContainer>
+        <Table {...args}>
+          <TableHead>
+            <TableRow>
+              <TableCell>Description</TableCell>
+              <TableCell>Permissions</TableCell>
+              <TableCell>CreatedAt</TableCell>
+              <TableCell>Active</TableCell>
+              <TableCell>Actions</TableCell>
+              <TableCell padding="options" />
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+          </TableHead>
+          <TableBody>
+            {rows.slice((page - 1) * rowsPerPage, (page - 1) * rowsPerPage + rowsPerPage).map((row) => (
+              <TableRow key={row.name}>
+                <TableCell scope="row">{row.name}</TableCell>
+                <TableCell>{row.Permissions}</TableCell>
+                <TableCell>{row.CreatedAt}</TableCell>
+                <TableCell>{row.Active}</TableCell>
+                <TableCell>{row.Actions}</TableCell>
+                <TableCell padding="options">
+                  <More />
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      <TablePagination
+        rowsPerPageOptions={[5, 10, 25]}
+        count={rows.length}
+        page={page}
+        rowsPerPage={rowsPerPage}
+        onPageChange={(val) => handleChangePage(val)}
+        onRowsPerPageChange={handleChangeRowsPerPage}
+      />
+    </>
   );
 };
 

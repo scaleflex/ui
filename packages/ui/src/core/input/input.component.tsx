@@ -79,6 +79,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderIcon(iconStart, 'start')}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
         {renderIcon(iconEnd, 'end')}
+        {children && <>{children}</>}
       </Styled.Input>
     );
   }
