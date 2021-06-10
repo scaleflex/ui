@@ -8,6 +8,10 @@ import { FontVariant } from '../../utils/types/typography/font-variant';
 
 const baseClassName = 'Pagination';
 
+const Pagination = styled.nav.attrs({
+  className: generateClassNames(baseClassName, 'root'),
+})(() => css``);
+
 const PaginationList = styled.div.attrs({
   className: generateClassNames(baseClassName, 'list'),
 })(
@@ -55,6 +59,6 @@ const PaginationItem = styled.button.attrs({
   `
 );
 
-const Styled = applyDisplayNames({ PaginationList, PaginationItemList, PaginationItem });
+const Styled = applyDisplayNames({ Pagination, PaginationList, PaginationItemList, PaginationItem });
 
 export default Styled;

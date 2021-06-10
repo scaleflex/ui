@@ -16,26 +16,27 @@ function defaultGetAriaLabel(type: string, page: number, selected: boolean): str
 }
 const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>(
   (props: PaginationProps, ref): JSX.Element => {
-    const { items } = usePagination({ ...props, componentName: 'Pagination' });
-    const { getItemAriaLabel = defaultGetAriaLabel, ...other } = props;
+    const { items } = usePagination({ ...props });
+
+    const { getItemAriaLabel = defaultGetAriaLabel, ...rest } = props;
 
     const paginationItem = (paginationitems: any): JSX.Element => {
-      const { component, disabled = false, page, selected = false, type = 'page', variant, ...rest } = paginationitems;
+      const { disabled = false, page, selected = false, type = 'page', ...other } = paginationitems;
 
-      const normalizedIcons: any = {
+      const Icons: any = {
         previous: () => <Arrow type="left" IconProps={{ size: 8 }} />,
         next: () => <Arrow type="right" IconProps={{ size: 8 }} />,
         // first: FirstPageIcon,
         // last: LastPageIcon,
       };
 
-      const Icon = normalizedIcons[type];
+      const Icon = Icons[type];
       return type === 'start-ellipsis' || type === 'end-ellipsis' ? (
-        <Styled.PaginationItem disabled={disabled} selected={selected} {...rest}>
+        <Styled.PaginationItem disabled={disabled} selected={selected} {...other}>
           …
         </Styled.PaginationItem>
       ) : (
-        <Styled.PaginationItem ref={ref} disabled={disabled} selected={selected} {...rest}>
+        <Styled.PaginationItem ref={ref} disabled={disabled} selected={selected} {...other}>
           {type === 'page' && page}
           {Icon ? <Icon /> : null}
         </Styled.PaginationItem>
@@ -43,7 +44,7 @@ const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>(
     };
 
     return (
-      <nav ref={ref} {...other}>
+      <Styled.Pagination ref={ref} style={rest.style}>
         <Styled.PaginationList>
           {items.map((item: any, index: number) => (
             <Styled.PaginationItemList key={index}>
@@ -55,7 +56,7 @@ const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>(
             </Styled.PaginationItemList>
           ))}
         </Styled.PaginationList>
-      </nav>
+      </Styled.Pagination>
     );
   }
 );

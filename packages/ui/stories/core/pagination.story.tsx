@@ -14,9 +14,9 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  count: 11,
-  defaultPage: 6,
-  boundryCount: 2,
+  count: 10,
+  defaultPage: 1,
+  boundaryCount: 1,
 };
 
 const BasicTemplate: Story<PaginationProps> = ({ ...args }) => {

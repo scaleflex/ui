@@ -1,29 +1,26 @@
 /* eslint-disable unicorn/no-nested-ternary */
+
+/**
+ * Borrows heavily from and inspired by material-ui https://github.com/mui-org/material-ui
+ * basically a stripped-down version of it. Uing only the core functionalities and using what we need from it
+ */
+
 import useControlled from './use-controlled';
 
 // eslint-disable-next-line sonarjs/cognitive-complexity
-function usePagination(props: any): any {
-  const {
-    boundaryCount = 1,
-    componentName = 'usePagination',
-    count = 1,
-    defaultPage = 1,
-    disabled = false,
-    hideNextButton = false,
-    hidePrevButton = false,
-    onChange: handleChange,
-    page: pageProp,
-    showFirstButton = false,
-    showLastButton = false,
-    siblingCount = 1,
-    ...other
-  } = props;
-
+function usePagination({
+  boundaryCount = 1,
+  count = 1,
+  defaultPage = 1,
+  disabled = false,
+  onChange: handleChange,
+  page: pageProp,
+  siblingCount = 1,
+  ...other
+}: any): any {
   const [page, setPageState] = useControlled({
     controlled: pageProp,
     default: defaultPage,
-    name: componentName,
-    state: 'page',
   });
 
   const handleClick = (event: any, value: any) => {
@@ -43,6 +40,7 @@ function usePagination(props: any): any {
   };
 
   const startPages = range(1, Math.min(boundaryCount, count));
+
   const endPages = range(Math.max(count - boundaryCount + 1, boundaryCount + 1), count);
 
   const siblingsStart = Math.max(
@@ -68,8 +66,8 @@ function usePagination(props: any): any {
   );
 
   const itemList = [
-    ...(showFirstButton ? ['first'] : []),
-    ...(hidePrevButton ? [] : ['previous']),
+    ...['first'],
+    ...['previous'],
     ...startPages,
 
     // Start ellipsis
@@ -92,8 +90,8 @@ function usePagination(props: any): any {
       : []),
 
     ...endPages,
-    ...(hideNextButton ? [] : ['next']),
-    ...(showLastButton ? ['last'] : []),
+    ...['next'],
+    ...['last'],
   ];
 
   const buttonPage = (type: string) => {
