@@ -19,6 +19,7 @@ const defaultArgs = {
   placeholder: 'placeholder',
   readOnly: false,
   background: Background.Primary,
+  focusOnClick: true,
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {

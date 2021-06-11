@@ -15,5 +15,6 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   iconClickStart?: () => void;
   iconClickEnd?: () => void;
   background?: InputBackgroundType;
-  focusOnMount?: bool;
+  focusOnMount?: boolean;
+  focusOnClick?: boolean;
 }

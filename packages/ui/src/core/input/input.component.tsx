@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/cognitive-complexity */
 import React, { useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -31,6 +32,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       readOnly,
       background = 'primary',
       focusOnMount = false,
+      focusOnClick = true,
       ...rest
     }: InputProps,
     ref
@@ -48,8 +50,9 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     }, []);
 
     const handleIconClick = (type: string): void => {
-      handleFocus();
-
+      if (focusOnClick) {
+        handleFocus();
+      }
       if (type === 'start') {
         if (iconClickStart) {
           iconClickStart();
@@ -68,7 +71,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     return (
       <Styled.Input
-        onClick={handleFocus}
+        onClick={focusOnClick ? handleFocus : undefined}
         ref={ref}
         size={size}
         className={className}
@@ -108,6 +111,7 @@ export const propTypes = {
   iconClickEnd: PT.func,
   background: PT.oneOf(objectValues(Background)),
   focusOnMount: PT.bool,
+  focusOnClick: PT.bool,
 };
 
 Input.propTypes = propTypes;
