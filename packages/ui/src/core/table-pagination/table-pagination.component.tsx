@@ -13,8 +13,20 @@ import Button from '../button';
 import { Size, Background } from '../select/types';
 import Styled from './table-pagination.styles';
 
-const defaultLabelDisplayedRows = ({ from, to, count }: any): string => {
-  return `Showing ${from}-${to} of ${count !== -1 ? count : `more than ${to}`} results`;
+const getTotalCount = (count: number, to: number): JSX.Element => (
+  <Styled.WeightedText>{count !== -1 ? count : `more than ${to}`}</Styled.WeightedText>
+);
+
+const FromTo = (from: number, to: number): JSX.Element => (
+  <Styled.WeightedText>{`${from} - ${to}`}</Styled.WeightedText>
+);
+
+const defaultLabelDisplayedRows = ({ from, to, count }: any): JSX.Element => {
+  return (
+    <span>
+      Showing {FromTo(from, to)} of {getTotalCount(count, to)} result
+    </span>
+  );
 };
 
 const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectionElement>(
@@ -61,7 +73,7 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
           <Styled.Amount>
             {rowsPerPageOptions.length > 1 && (
               <Select
-                style={{ width: '95px', border: 'none' }}
+                style={{ width: '95px', border: 'none', fontWeight: 500 }}
                 background={Background.Secondary}
                 value={`${rowsPerPage} / page`}
                 onChange={onRowsPerPageChange}
@@ -89,10 +101,11 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             style={{ width: '116px', paddingRight: '0px', marginLeft: '24px' }}
             value={buttonValue}
             onChange={handleChange}
+            background={Background.Primary}
           >
             <Button
               size={Size.Sm}
-              style={{ paddingTop: '6.5px', paddingBottom: '6.5px' }}
+              style={{ paddingTop: '6.5px', paddingBottom: '6.5px', color: '#A9B6C2' }}
               onClick={() =>
                 onPageChange(buttonValue > paginationCount ? Number(paginationCount) : Number(buttonValue))
               }

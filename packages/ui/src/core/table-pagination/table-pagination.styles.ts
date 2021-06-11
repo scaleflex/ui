@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
+// import { With } from '@scaleflex/ui/utils/types';
+import { Color as PC } from '@scaleflex/ui/utils/types/palette';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-// import type { WithTheme } from '../../theme/entity';
+import type { WithTheme } from '../../theme/entity';
 
 const baseClassName = 'TablePagination';
 
@@ -36,11 +38,21 @@ const Amount = styled.div.attrs({
   className: generateClassNames(baseClassName, 'amount'),
 })``;
 
+const WeightedText = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'weighted-text'),
+})(
+  ({ theme }: WithTheme) => css`
+    font-weight: 700;
+    color: ${theme.palette[PC.TextPrimary]};
+  `
+);
+
 const Styled = applyDisplayNames({
   TablePagination,
   ShowPages,
   Amount,
   Section,
+  WeightedText,
 });
 
 export default Styled;
