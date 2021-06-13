@@ -6,12 +6,10 @@ import { Type } from './types';
 import Styled from './label.styles';
 
 const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
-  ({ icon, error, type, ...rest }: LabelProps, ref): JSX.Element => (
-    <Styled.Label ref={ref} error={error} type={type}>
+  ({ children, icon, error, type, ...rest }: LabelProps, ref): JSX.Element => (
+    <Styled.Label ref={ref} error={error} type={type} {...rest}>
       {icon && <Styled.Icon error={Boolean(error)}>{typeof icon === 'function' ? icon() : icon}</Styled.Icon>}
-
-      <Styled.Base {...rest} />
-
+      {children}
       {/* TODO Select for type: localization */}
     </Styled.Label>
   )
@@ -26,6 +24,7 @@ export const propTypes = {
   type: PT.oneOf(objectValues(Type)),
   icon: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
+  htmlFor: PT.string,
 };
 
 Label.propTypes = propTypes;

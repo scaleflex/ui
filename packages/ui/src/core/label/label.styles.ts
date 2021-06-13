@@ -11,24 +11,17 @@ const baseClassName = 'Label';
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ error = false, theme }: With<WithTheme, LabelProps>) => css`
+  ({ error = false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
     display: flex;
     align-items: center;
     color: ${theme.palette[PColor.TextSecondary]};
-
-    ${error && errorMixin}
-  `
-);
-
-const Base = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Base'),
-})(
-  () => css`
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
     line-height: 14px;
-    /* margin: 4px 0px; */
+    cursor: ${htmlFor && 'pointer'};
+
+    ${error && errorMixin};
   `
 );
 
@@ -46,7 +39,6 @@ const Icon = styled.span.attrs({
 
 const Styled = applyDisplayNames({
   Label,
-  Base,
   Icon,
 });
 
