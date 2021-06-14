@@ -32,4 +32,5 @@ export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
   open: boolean;
   overlay?: boolean;
   arrow?: boolean;
+  zIndex?: number;
 }

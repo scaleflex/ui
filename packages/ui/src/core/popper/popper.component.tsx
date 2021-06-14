@@ -21,6 +21,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       popperOptions,
       onClick,
       overlay = false,
+      zIndex,
     }: PopperProps,
     ref
     // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -90,7 +91,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     };
 
     const render = (): JSX.Element => (
-      <Styled.Popper ref={handleRef} style={popper.styles.popper} {...popper.attributes.popper}>
+      <Styled.Popper ref={handleRef} style={{ ...popper.styles.popper, zIndex }} {...popper.attributes.popper}>
         {children}
         {arrow && (
           <Styled.Arrow
@@ -151,6 +152,7 @@ export const propTypes = {
   }) as Validator<PopperOptions>,
   overlay: PT.bool,
   arrow: PT.bool,
+  zIndex: PT.number,
 };
 
 Popper.propTypes = propTypes;

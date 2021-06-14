@@ -25,6 +25,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       position,
       popperOptions,
       enableOverlay = true,
+      zIndex,
       ...rest
     },
     ref
@@ -103,6 +104,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           overlay={Boolean(enableOverlay)}
           onClick={handleClose}
           popperOptions={popperOptions}
+          zIndex={zIndex}
         >
           <Styled.Menu
             {...containerProps}
@@ -149,6 +151,7 @@ export const propTypes = {
   popperOptions: popperPropTypes.popperOptions,
   position: PT.oneOf(objectValues(Position)),
   enableOverlay: PT.bool,
+  zIndex: PT.number,
 };
 
 Menu.propTypes = propTypes;
