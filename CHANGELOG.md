@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.43](https://github.com/scaleflex/ui/compare/1.0.0-beta.42...1.0.0-beta.43) (2021-06-14)
+
+
+### Bug Fixes
+
+* **TablePagination:** styles ([5764db8](https://github.com/scaleflex/ui/commit/5764db81d0af0c8a471030e95b95d170e094f644))
+
+
+### Features
+
+* **Input:** add foncusOnClick prop ([a968b4c](https://github.com/scaleflex/ui/commit/a968b4c3ea6273bc09a600bb8195623045ca4fc0))
+* **Label:** add htmlFor prop ([2e3a543](https://github.com/scaleflex/ui/commit/2e3a543e1d4613eb5995af0e6e53d8b444ca7e8d))
+* **Popper,Select:** add zIndex prop ([4f3b9ab](https://github.com/scaleflex/ui/commit/4f3b9ab4022af92dfc0b17e3ca20f4b22d64ee83))
+* add Table Pagination component ([fd71cac](https://github.com/scaleflex/ui/commit/fd71cac5316fd3747f406cd0ac3448aa08954c7e))
+
+
+
+
+
 # [1.0.0-beta.42](https://github.com/scaleflex/ui/compare/1.0.0-beta.41...1.0.0-beta.42) (2021-06-07)
 
 
