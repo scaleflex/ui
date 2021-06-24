@@ -24,7 +24,7 @@ export const TablePagination = _TablePagination;
 export default {
   title: `${StoryGroup.Surfaces}/Table`,
   component: Table,
-  excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
+  excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody', 'TablePagination'],
 } as Meta;
 
 const defaultArgs = {
@@ -36,7 +36,7 @@ const BasicTemplate: Story<TableProps> = ({ ...args }) => {
   const [page, setPage] = React.useState(1);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleChangePage = (newPage: any): void => {
+  const handleChangePage = (event: any, newPage: any): void => {
     setPage(newPage);
   };
 
@@ -136,7 +136,7 @@ const BasicTemplate: Story<TableProps> = ({ ...args }) => {
         count={rows.length}
         page={page}
         rowsPerPage={rowsPerPage}
-        onPageChange={(val) => handleChangePage(val)}
+        onPageChange={(event, val) => handleChangePage(event, val)}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </>

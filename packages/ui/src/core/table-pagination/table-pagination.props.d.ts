@@ -5,6 +5,6 @@ export interface TablePaginationProps extends React.HTMLAttributes<HTMLDivElemen
   count: number;
   rowsPerPage?: number;
   rowsPerPageOptions?: array<number>;
-  onPageChange: (val: any) => void;
+  onPageChange: (event: any, val: any) => void;
   onRowsPerPageChange: (event: any) => void;
 }

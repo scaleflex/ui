@@ -95,7 +95,7 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             page={Number(page)}
             count={paginationCount}
             boundaryCount={2}
-            onChange={(event, value) => onPageChange(value)}
+            onChange={(event, value) => onPageChange(event, value)}
           />
           <Input
             style={{ width: '116px', paddingRight: '0px', marginLeft: '24px' }}
@@ -106,8 +106,8 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             <Button
               size={Size.Sm}
               style={{ paddingTop: '6.5px', paddingBottom: '6.5px', color: '#A9B6C2' }}
-              onClick={() =>
-                onPageChange(buttonValue > paginationCount ? Number(paginationCount) : Number(buttonValue))
+              onClick={(ev) =>
+                onPageChange(ev, buttonValue > paginationCount ? Number(paginationCount) : Number(buttonValue))
               }
             >
               Go To
