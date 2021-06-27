@@ -1,8 +1,10 @@
-import type { RadioProps } from '../radio';
-
-export interface RadioGroupProps extends RadioProps {
+export interface RadioGroupProps extends React.HTMLAttributes<HTMLLabelElement> {
   label?: React.ReactNode;
   radioProps?: React.InputHTMLAttributes;
+  radioStyles?: object;
+  labelStyles?: object;
   readOnly?: boolean;
   disabled?: boolean;
+  checked?: boolean;
+  onChange?: (event: any) => void;
 }
