@@ -209,7 +209,9 @@ const Slider = intrinsicComponent<SliderProps, HTMLDivElement>(
           maxSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
         }
       } else if (slider1Value && slider2Value) {
-        minSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
+        minSliderPercentage = absToPercentage(
+          mapValueBySlidersWidth(slider1Value > slider2Value ? slider2Value : slider1Value)
+        );
         maxSliderPercentage = absToPercentage(
           mapValueBySlidersWidth(slider2Value > slider1Value ? slider2Value : slider1Value)
         );
