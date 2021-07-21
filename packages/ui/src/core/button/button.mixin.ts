@@ -96,11 +96,11 @@ export const colorButtonMixin = {
     }
 
     &:hover {
-      background-color: #e0512c; //need to be added to the general color palette
+      background-color: rgba(224, 81, 44, 1); //need to be added to the general color palette in figma
     }
 
     &:active {
-      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+      background-color: rgba(201, 58, 23, 1); //need to be added to the general color palette in figma
     }
 
     &:disabled {
