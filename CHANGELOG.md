@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.44](https://github.com/scaleflex/ui/compare/v1.0.0-beta.43...1.0.0-beta.44) (2021-07-21)
+
+
+### Bug Fixes
+
+* **Slider:** overlay numberOfSlider is 2 ([7e12780](https://github.com/scaleflex/ui/commit/7e12780a6004be3e8d0770e78bdd1d72417a08da))
+
+
+### Features
+
+* add button color for error state ([1181706](https://github.com/scaleflex/ui/commit/118170670eeee43155871f0b1e3463637d8be4f3))
+* **radioGroup:** add radioStyles & labelStyles prop ([bcc15d1](https://github.com/scaleflex/ui/commit/bcc15d1a7d780a8b24e8d0ac97ff5ec60ef3609f))
+
+
+
+
+
 # [1.0.0-beta.43](https://github.com/scaleflex/ui/compare/1.0.0-beta.42...1.0.0-beta.43) (2021-06-14)
 
 
