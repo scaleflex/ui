@@ -87,6 +87,32 @@ export const colorButtonMixin = {
       }
     }
   `,
+  [Color.Error]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.Error]};
+    color: ${palette[PaletteColor.ButtonPrimaryText]};
+
+    ${StyledBadge.Badge} {
+      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    }
+
+    &:hover {
+      background-color: #e0512c; //need to be added to the general color palette
+    }
+
+    &:active {
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+
+      ${StyledBadge.Badge} {
+        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      }
+    }
+  `,
 };
 
 export const sizeButtonMixin = {
