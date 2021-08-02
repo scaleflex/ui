@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';

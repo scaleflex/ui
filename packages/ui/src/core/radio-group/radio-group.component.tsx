@@ -1,6 +1,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Radio from '../radio';
 import type { RadioGroupProps } from './radio-group.props';

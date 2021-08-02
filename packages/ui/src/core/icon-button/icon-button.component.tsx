@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { getIconSize } from '../button/button.utils';
 import type { ButtonSizeType } from '../button/button.props';

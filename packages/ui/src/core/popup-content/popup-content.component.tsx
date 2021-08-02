@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Robot from '../robot';
 import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../robot/robot.component';

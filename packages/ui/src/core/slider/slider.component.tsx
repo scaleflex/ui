@@ -11,7 +11,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-
 import type { SliderProps } from './slider.props';
 import Styled from './slider.styles';
 import { NumberofSliders } from './types';

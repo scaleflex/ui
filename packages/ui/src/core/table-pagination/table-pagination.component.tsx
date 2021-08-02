@@ -9,7 +9,6 @@ import MenuItem from '../menu-item';
 import Pagination from '../pagination';
 import Input from '../input';
 import Button from '../button';
-
 import { Size, Background } from '../select/types';
 import Styled from './table-pagination.styles';
 

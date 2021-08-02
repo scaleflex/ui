@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Button from '../button';
 import type { UploadInputProps } from './upload-input.props';

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Arrow from '../arrow';
 import Menu from '../menu';

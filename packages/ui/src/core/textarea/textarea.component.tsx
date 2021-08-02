@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { Background } from '../input/types';

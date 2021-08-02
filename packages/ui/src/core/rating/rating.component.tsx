@@ -1,6 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import StarIcon from '@scaleflex/icons/star';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { RatingProps, RatingItemProps, RatingItemReadOnlyProps } from './rating.props';
 import Styled from './rating.styles';

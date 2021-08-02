@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'Accordion';

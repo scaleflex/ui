@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PT, { Validator } from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
 import Menu from '../menu';

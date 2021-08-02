@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
 import { Type as ArrowTickType } from '../arrow-tick/types';

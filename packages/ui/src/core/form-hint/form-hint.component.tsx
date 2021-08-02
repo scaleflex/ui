@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { FormHintProps } from './form-hint.props';
 import Styled from './form-hint.styles';

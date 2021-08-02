@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { LabelProps } from './label.props';
 import { Type } from './types';

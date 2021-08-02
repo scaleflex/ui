@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { TabPanelProps } from './tab-panel.props';
 import Styled from './tab-panel.styles';

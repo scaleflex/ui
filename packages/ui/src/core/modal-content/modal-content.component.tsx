@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { ModalContentProps } from './modal-content.props';
 import Styled from './modal-content.styles';

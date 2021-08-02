@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-
 import PT, { Validator } from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';

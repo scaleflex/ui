@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Dot from '../dot';
 import type { DotsNavigationProps } from './dots-navigation.props';

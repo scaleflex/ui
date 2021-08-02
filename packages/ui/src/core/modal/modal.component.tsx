@@ -1,6 +1,7 @@
 import React, { useEffect, isValidElement } from 'react';
 import { createPortal } from 'react-dom';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';

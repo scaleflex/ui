@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { TabsProps } from './tabs.props';
 import Styled from './tabs.styles';

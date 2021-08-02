@@ -1,5 +1,6 @@
 import React from 'react';
 import PT, { Validator } from 'prop-types';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Label from '../label';
 import type { LabelProps } from '../label';

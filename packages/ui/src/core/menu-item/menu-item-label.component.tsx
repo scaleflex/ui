@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { intrinsicComponent } from '../../utils/functions';
 import Styled from './menu-item.styles';
 

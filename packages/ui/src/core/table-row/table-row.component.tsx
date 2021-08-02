@@ -3,7 +3,6 @@ import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableRowProps } from './table-row.props';
-
 import Styled from './table-row.styles';
 
 const TableRow = intrinsicComponent<TableRowProps, HTMLTableRowElement>(

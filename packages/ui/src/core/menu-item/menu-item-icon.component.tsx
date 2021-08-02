@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { MenuItemIconProps, MenuItemSizeType } from './menu-item.props';
 import { Size } from './types';

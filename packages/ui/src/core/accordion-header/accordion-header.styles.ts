@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-// import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
-// import type { AccordionHeaderProps } from './accordion-header.props';
 
 const baseClassName = 'AccordionHeader';
 

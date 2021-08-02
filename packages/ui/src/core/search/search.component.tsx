@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchIcon from '@scaleflex/icons/search';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { SearchProps } from './search.props';
 import Input from '../input';

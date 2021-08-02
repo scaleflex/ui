@@ -1,6 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import CrossIcon from '@scaleflex/icons/cross';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ModalTitleProps } from './modal-title.props';
 import Styled from './modal-title.styles';

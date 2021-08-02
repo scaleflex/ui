@@ -2,6 +2,7 @@ import React, { useState, useMemo } from 'react';
 import PT, { Validator } from 'prop-types';
 import { QuestionMarkOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Tag from '../tag';
 import Label from '../label';
@@ -40,9 +41,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
-    const existingLabels = useMemo<string[]>(() => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()), [
-      filteredTags,
-    ]);
+    const existingLabels = useMemo<string[]>(
+      () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
+      [filteredTags]
+    );
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags.filter(
         (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())

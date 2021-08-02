@@ -45,12 +45,12 @@ Accordion.defaultProps = {
 Accordion.propTypes = {
   label: PT.string.isRequired,
   expanded: PT.bool,
-  onChange: PT.func,
-  onContextMenu: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   detailStyle: PT.object,
   // eslint-disable-next-line react/forbid-prop-types
   headerStyle: PT.object,
+  onChange: PT.func,
+  onContextMenu: PT.func,
 };
 
 export default Accordion;

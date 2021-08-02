@@ -1,6 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
 import SpinnerIcon from '@scaleflex/icons/spinner';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';

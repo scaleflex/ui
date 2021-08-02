@@ -1,6 +1,5 @@
 /* eslint-disable react/forbid-prop-types */
 import React, { useState, useRef } from 'react';
-
 import PT, { Validator } from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
