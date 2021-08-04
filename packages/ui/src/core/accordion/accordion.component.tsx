@@ -9,7 +9,7 @@ import Styled from './accordion.styles';
 
 const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
   (
-    { label, expanded, children, onClick, onChange, onContextMenu, detailStyle, headerStyle, ...rest }: AccordionProps,
+    { label, expanded, children, detailStyle, headerStyle, onClick, onChange, onContextMenu, ...rest }: AccordionProps,
     ref
   ): JSX.Element => {
     return (
