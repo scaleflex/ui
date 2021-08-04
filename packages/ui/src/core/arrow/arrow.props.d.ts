@@ -1,8 +1,7 @@
 import type { IconProps } from '@scaleflex/icons/icon.props';
-import type { Values } from '../../utils/types';
-import { Type } from './types';
+import type { Values, Position } from '../../utils/types';
 
-export type ArrowTypesType = Values<typeof Type>;
+export type ArrowTypesType = Values<typeof Position>;
 
 export interface ArrowProps extends React.HTMLAttributes<HTMLSpanElement> {
   type?: ArrowTypesType;

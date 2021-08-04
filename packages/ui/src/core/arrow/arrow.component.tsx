@@ -6,7 +6,7 @@ import ArrowIcon from '@scaleflex/icons/arrow';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ArrowProps } from './arrow.props';
-import { Type } from './types';
+import { Position } from '../../utils/types';
 import Styled from './arrow.styles';
 
 const Arrow = intrinsicComponent<ArrowProps, HTMLSpanElement>(
@@ -18,11 +18,11 @@ const Arrow = intrinsicComponent<ArrowProps, HTMLSpanElement>(
 );
 
 Arrow.defaultProps = {
-  type: Type.Right,
+  type: Position.Right,
 };
 
 Arrow.propTypes = {
-  type: PT.oneOf(objectValues(Type)),
+  type: PT.oneOf(objectValues(Position)),
   IconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
 };
 

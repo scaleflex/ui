@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+
 import _ArrowTick, { ArrowTickProps } from '../../src/core/arrow-tick';
-import { Type } from '../../src/core/arrow-tick/types';
+import { Position } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const ArrowTick = _ArrowTick;
@@ -13,7 +14,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  type: Type.Right,
+  type: Position.Right,
 };
 
 const BasicTemplate: Story<ArrowTickProps> = (args) => <ArrowTick {...args} />;

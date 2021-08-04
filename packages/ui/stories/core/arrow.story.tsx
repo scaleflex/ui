@@ -1,7 +1,8 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
+
 import _Arrow, { ArrowProps } from '../../src/core/arrow';
-import { Type } from '../../src/core/arrow/types';
+import { Position } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Arrow = _Arrow;
@@ -13,7 +14,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  type: Type.Right,
+  type: Position.Right,
 };
 
 const BasicTemplate: Story<ArrowProps> = (args) => <Arrow {...args} />;

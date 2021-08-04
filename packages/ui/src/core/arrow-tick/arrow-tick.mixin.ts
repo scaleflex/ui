@@ -1,31 +1,31 @@
 import { css } from 'styled-components';
 // import type { WithTheme } from '../../theme/entity';
 // import { Color as PaletteColor } from '../../utils/types/palette';
-import { Type } from './types';
+import { Position } from '../../utils/types';
 
 export const typeArrowTickMixin = {
-  [Type.Right]: css`
+  [Position.Right]: css`
     svg {
       transform: rotate(0);
       transition: transform 150ms;
     }
   `,
 
-  [Type.Left]: css`
+  [Position.Left]: css`
     svg {
       transform: rotate(180deg);
       transition: transform 150ms;
     }
   `,
 
-  [Type.Top]: css`
+  [Position.Top]: css`
     svg {
       transform: rotate(-90deg);
       transition: transform 150ms;
     }
   `,
 
-  [Type.Bottom]: css`
+  [Position.Bottom]: css`
     svg {
       transform: rotate(90deg);
       transition: transform 150ms;

@@ -1,4 +1,4 @@
-export const Type = {
+export const Position = {
   Left: 'left',
   Right: 'right',
   Top: 'top',

@@ -1,20 +1,18 @@
 import { css } from 'styled-components';
-// import type { WithTheme } from '../../theme/entity';
-// import { Color as PaletteColor } from '../../utils/types/palette';
-import { Type } from './types';
+import { Position } from '../../utils/types';
 
 export const typeArrowMixin = {
-  [Type.Right]: css``,
+  [Position.Right]: css``,
 
-  [Type.Left]: css`
+  [Position.Left]: css`
     transform: rotate(180deg);
   `,
 
-  [Type.Top]: css`
+  [Position.Top]: css`
     transform: rotate(-90deg);
   `,
 
-  [Type.Bottom]: css`
+  [Position.Bottom]: css`
     transform: rotate(90deg);
   `,
 };

@@ -6,7 +6,7 @@ import type { IconProps } from '@scaleflex/icons/icon.props';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ArrowTickProps } from './arrow-tick.props';
-import { Type } from './types';
+import { Position } from '../../utils/types';
 import Styled from './arrow-tick.styles';
 
 const ArrowTick = intrinsicComponent<ArrowTickProps, HTMLSpanElement>(
@@ -18,11 +18,11 @@ const ArrowTick = intrinsicComponent<ArrowTickProps, HTMLSpanElement>(
 );
 
 ArrowTick.defaultProps = {
-  type: Type.Right,
+  type: Position.Right,
 };
 
 ArrowTick.propTypes = {
-  type: PT.oneOf(objectValues(Type)),
+  type: PT.oneOf(objectValues(Position)),
   IconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
 };
 

@@ -3,7 +3,7 @@ import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
-import { Type as ArrowTickType } from '../arrow-tick/types';
+import { Position as ArrowTickType } from '../../utils/types';
 import type { AccordionHeaderProps } from './accordion-header.props';
 import Styled from './accordion-header.styles';
 
