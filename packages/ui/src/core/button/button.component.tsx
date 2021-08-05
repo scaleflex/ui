@@ -5,7 +5,7 @@ import SpinnerIcon from '@scaleflex/icons/spinner';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from '../../utils/types';
 import { getIconSize } from './button.utils';
 import Styled from './button.styles';
 
@@ -45,7 +45,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
             fontSize={10}
             padding="0 1px"
             badgeContent={badge}
-            color={color === Color.Primary ? 'white' : 'secondary'}
+            color={color === ButtonColor.Primary ? 'white' : 'secondary'}
           />
         </Styled.Badge>
       )}
@@ -54,13 +54,13 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 );
 
 Button.defaultProps = {
-  size: Size.Md,
-  color: Color.Secondary,
+  size: ButtonSize.Md,
+  color: ButtonColor.Secondary,
 };
 
 Button.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  color: PT.oneOf(objectValues(Color)),
+  size: PT.oneOf(objectValues(ButtonSize)),
+  color: PT.oneOf(objectValues(ButtonColor)),
   icon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
   loading: PT.bool,

@@ -1,9 +1,9 @@
 import type { PropsWithChildren } from 'react';
 import type { Values } from '../../utils/types';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from '../../utils/types';
 
-export type ButtonSizeType = Values<typeof Size>;
-export type ButtonColorType = Values<typeof Color>;
+export type ButtonSizeType = Values<typeof ButtonSize>;
+export type ButtonColorType = Values<typeof ButtonColor>;
 
 export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTMLButtonElement> {
   size?: ButtonSizeType;

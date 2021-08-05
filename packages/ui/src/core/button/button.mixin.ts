@@ -3,10 +3,10 @@ import { Color as PaletteColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import type { WithTheme } from '../../theme/entity';
 import StyledBadge from '../badge/badge.styles';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
-  [Color.Primary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.AccentPrimary]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
@@ -33,7 +33,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [Color.Secondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.ActiveSecondary]};
     color: ${palette[PaletteColor.IconsPrimary]};
 
@@ -59,7 +59,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [Color.Link]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Link]: ({ theme: { palette } }: WithTheme) => css`
     background-color: transparent;
     color: ${palette[PaletteColor.LinkPrimary]};
 
@@ -87,7 +87,7 @@ export const colorButtonMixin = {
       }
     }
   `,
-  [Color.Error]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Error]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.Error]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
@@ -116,53 +116,53 @@ export const colorButtonMixin = {
 };
 
 export const sizeButtonMixin = {
-  [Size.Xs]: css`
+  [ButtonSize.Xs]: css`
     padding: 4px 8px;
   `,
 
-  [Size.Sm]: css`
+  [ButtonSize.Sm]: css`
     padding: 6px 10px;
   `,
 
-  [Size.Md]: css`
+  [ButtonSize.Md]: css`
     padding: 8px 12px;
   `,
 
-  [Size.Lg]: css`
+  [ButtonSize.Lg]: css`
     padding: 10px 14px;
   `,
 
-  [Size.Xl]: css`
+  [ButtonSize.Xl]: css`
     padding: 12px 16px;
   `,
 };
 
 export const sizeButtonLabelMixin = {
-  [Size.Xs]: ({
+  [ButtonSize.Xs]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonXs]),
 
-  [Size.Sm]: ({
+  [ButtonSize.Sm]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonSm]),
 
-  [Size.Md]: ({
+  [ButtonSize.Md]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonMd]),
 
-  [Size.Lg]: ({
+  [ButtonSize.Lg]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonLg]),
 
-  [Size.Xl]: ({
+  [ButtonSize.Xl]: ({
     theme: {
       typography: { font },
     },

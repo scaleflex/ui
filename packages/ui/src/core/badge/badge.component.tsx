@@ -3,7 +3,7 @@ import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { BadgeProps } from './badge.props';
-import { Color } from './types';
+import { BadgeColor } from '../../utils/types';
 import Styled from './badge.styles';
 
 const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>(
@@ -15,12 +15,12 @@ const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>(
 );
 
 Badge.defaultProps = {
-  color: Color.Secondary,
+  color: BadgeColor.Secondary,
   inline: false,
 };
 
 Badge.propTypes = {
-  color: PT.oneOf(objectValues(Color)),
+  color: PT.oneOf(objectValues(BadgeColor)),
   badgeContent: PT.node,
   size: PT.oneOfType([PT.number]),
   fontSize: PT.oneOfType([PT.number, PT.string]),

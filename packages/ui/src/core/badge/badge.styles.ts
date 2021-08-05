@@ -4,20 +4,19 @@ import type { BadgeProps } from './badge.props';
 import { colorBadgeMixin } from './badge.mixin';
 
 const baseClassName = 'Badge';
+const defaultSize = 20;
 
 const BadgeRoot = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<BadgeProps>`
+})`
   position: relative;
   display: inline-flex;
   flex-shrink: 0;
   vertical-align: middle;
 `;
 
-const defaultSize = 20;
-
-const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) })<BadgeProps>(
-  ({ size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline }) => css`
+const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) })(
+  ({ size, color = 'secondary', fontSize = '0.75rem', padding = '0 6px', inline }: BadgeProps) => css`
     ${inline ? '' : 'position: absolute;'}
     display: flex;
     flex-wrap: wrap;

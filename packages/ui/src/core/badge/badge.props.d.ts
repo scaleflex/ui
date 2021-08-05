@@ -1,9 +1,8 @@
 import React from 'react';
-import { Values } from '../../utils/types';
+import { Values, BadgeColor } from '../../utils/types';
 import type { Values } from '../../utils/types';
-import { Color } from './types';
 
-export type BadgeColorType = Values<typeof Color>;
+export type BadgeColorType = Values<typeof BadgeColor>;
 
 export interface BadgeProps {
   color?: BadgeColorType;

@@ -1,1 +1,1 @@
-export * from '../../button/types';
+export { ButtonColor, ButtonSize } from '../../../utils/types';

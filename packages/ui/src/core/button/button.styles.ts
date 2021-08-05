@@ -5,7 +5,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { ButtonProps } from './button.props';
 import { colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin } from './button.mixin';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from '../../utils/types';
 
 const baseClassName = 'Button';
 
@@ -25,7 +25,7 @@ const Badge = styled.span.attrs({
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ color = Color.Secondary, size = Size.Md, theme }: With<WithTheme, ButtonProps>) => css`
+  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, theme }: With<WithTheme, ButtonProps>) => css`
     display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;

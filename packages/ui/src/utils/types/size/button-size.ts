@@ -1,4 +1,4 @@
-export const Size = {
+export const ButtonSize = {
   Xs: 'xs',
   Sm: 'sm',
   Md: 'md',

@@ -1,19 +1,19 @@
-import { Size } from './types';
+import { ButtonSize } from '../../utils/types';
 import type { ButtonSizeType } from './button.props';
 
 export const getIconSize = (sizeName?: ButtonSizeType): number => {
   switch (sizeName) {
-    case Size.Xl:
+    case ButtonSize.Xl:
       return 16;
 
-    case Size.Lg:
-    case Size.Md:
+    case ButtonSize.Lg:
+    case ButtonSize.Md:
       return 14;
 
-    case Size.Sm:
+    case ButtonSize.Sm:
       return 12;
 
-    case Size.Xs:
+    case ButtonSize.Xs:
     default:
       return 11;
   }

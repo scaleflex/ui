@@ -2,7 +2,7 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
 import _Button, { ButtonProps } from '../../src/core/button';
-import { Size, Color } from '../../src/core/button/types';
+import { ButtonSize, ButtonColor } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Button = _Button;
@@ -22,8 +22,8 @@ export default {
 
 const defaultArgs = {
   children: 'Upload',
-  size: Size.Md,
-  color: Color.Secondary,
+  size: ButtonSize.Md,
+  color: ButtonColor.Secondary,
   disabled: false,
   loading: false,
 };
