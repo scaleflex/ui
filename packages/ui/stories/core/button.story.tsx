@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+import type { IconProps } from '@scaleflex/icons/icon.props';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
 import { StoryGroup } from './types';
@@ -42,7 +43,7 @@ Disabled.args = { ...defaultArgs, disabled: true };
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  icon: (props: any) => <UploadIcon {...props} />,
+  icon: (props: IconProps) => <UploadIcon {...props} />,
 };
 
 // WithBadge
@@ -57,6 +58,6 @@ WithBadge.args = {
 export const WithIconsAndBadge = BasicTemplate.bind({});
 WithIconsAndBadge.args = {
   ...defaultArgs,
-  icon: (props: any) => <UploadIcon {...props} />,
+  icon: (props: IconProps) => <UploadIcon {...props} />,
   badge: 22,
 };

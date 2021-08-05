@@ -1,8 +1,9 @@
 import { css } from 'styled-components';
-import { Color as PaletteColor } from '../../utils/types/palette';
-import { FontVariant } from '../../utils/types/typography';
+
 import type { WithTheme } from '../../theme/entity';
 import StyledBadge from '../badge/badge.styles';
+import { Color as PaletteColor } from '../../utils/types/palette';
+import { FontVariant } from '../../utils/types/typography';
 import { ButtonSize, ButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
