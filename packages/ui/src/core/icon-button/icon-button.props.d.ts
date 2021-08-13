@@ -1,8 +1,8 @@
 import type { Values } from '../../utils/types';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from './types';
 
-export type IconButtonSizeType = Values<typeof Size>;
-export type IconButtonColorType = Values<typeof Color>;
+export type IconButtonSizeType = Values<typeof ButtonSize>;
+export type IconButtonColorType = Values<typeof ButtonColor>;
 
 export interface IconButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   size?: IconButtonSizeType;

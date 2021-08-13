@@ -5,16 +5,16 @@ import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { getIconSize } from '../button/button.utils';
 import type { ButtonSizeType } from '../button/button.props';
 import type { IconButtonProps } from './icon-button.props';
-import { Size, Color } from './types';
+import { ButtonSize, ButtonColor } from './types';
 import Styled from './icon-button.styles';
 
 export const getIconSizeWithSquare = (sizeName?: ButtonSizeType, square?: boolean): number => {
   switch (sizeName) {
-    case Size.Xl:
+    case ButtonSize.Xl:
       return square ? 18 : 16;
 
-    case Size.Lg:
-    case Size.Md:
+    case ButtonSize.Lg:
+    case ButtonSize.Md:
       return square ? 16 : 14;
 
     default:
@@ -32,15 +32,15 @@ const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
 );
 
 IconButton.defaultProps = {
-  size: Size.Md,
-  color: Color.Secondary,
+  size: ButtonSize.Md,
+  color: ButtonColor.Secondary,
   square: false,
 };
 
 IconButton.propTypes = {
   children: PT.node.isRequired,
-  size: PT.oneOf(objectValues(Size)),
-  color: PT.oneOf(objectValues(Color)),
+  size: PT.oneOf(objectValues(ButtonSize)),
+  color: PT.oneOf(objectValues(ButtonColor)),
   square: PT.bool,
 };
 

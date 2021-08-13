@@ -2,24 +2,24 @@ import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import ButtonStyled from '../button/button.styles';
 import type { IconButtonProps } from './icon-button.props';
-import { Size } from './types';
+import { ButtonSize } from './types';
 
 const baseClassName = 'IconButton';
 
 const squarePaddingMixin = {
-  [Size.Xs]: css`
+  [ButtonSize.Xs]: css`
     padding: 6px;
   `,
-  [Size.Sm]: css`
+  [ButtonSize.Sm]: css`
     padding: 8px;
   `,
-  [Size.Md]: css`
+  [ButtonSize.Md]: css`
     padding: 8px;
   `,
-  [Size.Lg]: css`
+  [ButtonSize.Lg]: css`
     padding: 10px;
   `,
-  [Size.Xl]: css`
+  [ButtonSize.Xl]: css`
     padding: 11px;
   `,
 };
@@ -27,7 +27,7 @@ const squarePaddingMixin = {
 const IconButton = styled(ButtonStyled.Button).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ square = false, size = Size.Md }: IconButtonProps) => css`
+  ({ square = false, size = ButtonSize.Md }: IconButtonProps) => css`
     ${square && squarePaddingMixin[size]}
   `
 );
