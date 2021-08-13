@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.45](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.44...1.0.0-beta.45) (2021-08-13)
+
+
+### Bug Fixes
+
+* **IconButton:** variables names ([0c70adc](https://github.com/scaleflex/sfx-ui/commit/0c70adcff050b0313a8153b763eedf428e525efe))
+
+
+
+
+
 # [1.0.0-beta.44](https://github.com/scaleflex/ui/compare/v1.0.0-beta.43...1.0.0-beta.44) (2021-07-21)
 
 
