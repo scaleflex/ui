@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import ButtonStyled from '../button/button.styles';
 import type { IconButtonProps } from './icon-button.props';
-import { ButtonSize } from './types';
+import { ButtonSize } from '../../utils/types';
 
 const baseClassName = 'IconButton';
 

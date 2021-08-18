@@ -5,7 +5,7 @@ import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { getIconSize } from '../button/button.utils';
 import type { ButtonSizeType } from '../button/button.props';
 import type { IconButtonProps } from './icon-button.props';
-import { ButtonSize, ButtonColor } from './types';
+import { ButtonSize, ButtonColor } from '../../utils/types';
 import Styled from './icon-button.styles';
 
 export const getIconSizeWithSquare = (sizeName?: ButtonSizeType, square?: boolean): number => {
@@ -38,7 +38,7 @@ IconButton.defaultProps = {
 };
 
 IconButton.propTypes = {
-  children: PT.node.isRequired,
+  children: PT.oneOfType([PT.node, PT.func]).isRequired,
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(ButtonColor)),
   square: PT.bool,

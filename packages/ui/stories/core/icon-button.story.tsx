@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+import type { IconProps } from '@scaleflex/icons/icon.props';
 import _IconButton, { IconButtonProps } from '../../src/core/icon-button';
-import { Size, Color } from '../../src/core/icon-button/types';
+import { ButtonSize, ButtonColor } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const IconButton = _IconButton;
@@ -21,9 +22,9 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  size: Size.Md,
-  color: Color.Secondary,
-  children: (props: any) => <UploadIcon {...props} />,
+  size: ButtonSize.Md,
+  color: ButtonColor.Secondary,
+  children: (props: IconProps) => <UploadIcon {...props} />,
   disabled: false,
   square: false,
 };
