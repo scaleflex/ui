@@ -120,7 +120,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
 Popper.defaultProps = {};
 
 export const propTypes = {
-  anchorEl: PT.instanceOf(Element),
+  anchorEl: PT.oneOfType([PT.instanceOf(Element), PT.object]),
 
   popperOptions: PT.shape({
     modifiers: PT.arrayOf(

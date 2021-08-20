@@ -26,7 +26,7 @@ export type PopperOptions = {
 };
 
 export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
-  anchorEl: HTMLElement | func | object;
+  anchorEl?: Element | VirtualElement | func | object;
   position: PopperPositionType;
   popperOptions?: PopperOptions;
   open: boolean;
