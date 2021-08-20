@@ -38,6 +38,17 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       }
     };
 
+    useEffect(() => {
+      const keyListener = (ev: KeyboardEvent): void => {
+        if (ev.key === 'Escape') {
+          handleClose();
+        }
+      };
+      document.addEventListener('keydown', keyListener);
+
+      return () => document.removeEventListener('keydown', keyListener);
+    });
+
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
         <Styled.Wrapper open={Boolean(open)} ref={ref}>
