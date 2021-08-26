@@ -200,3 +200,4 @@ export { PartiallyDone } from './partially-done';
 export { Csv } from './csv';
 export { Archive } from './archive';
 export { Organize } from './organize';
+export { Bookmark } from './bookmark';
