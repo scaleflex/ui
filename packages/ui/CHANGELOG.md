@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.46](https://github.com/scaleflex/ui/compare/1.0.0-beta.45...1.0.0-beta.46) (2021-09-02)
+
+
+### Features
+
+* **Modal:** add escape event for closing modal ([4c6c6b3](https://github.com/scaleflex/ui/commit/4c6c6b327a4d9e993309bc98392b383934ba5de6))
+* **Popper:** Add virtual element to acceptable props of popper component T4548_ADD_VIRTUAL_ELEMENT_TO ([a5374d1](https://github.com/scaleflex/ui/commit/a5374d19aabe632191105202754e8252489c57d0))
+
+
+
+
+
 # [1.0.0-beta.45](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.44...1.0.0-beta.45) (2021-08-13)
 
 

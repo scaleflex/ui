@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.46](https://github.com/scaleflex/ui/compare/1.0.0-beta.45...1.0.0-beta.46) (2021-09-02)
+
+
+### Bug Fixes
+
+* **icons:** Renaming Flip icons in sfx/ui as they are exchanged together T4552_RENAMING_FLIP_ICONS_IN ([0035cd0](https://github.com/scaleflex/ui/commit/0035cd0a302109844f989f97bfe90e20b6c3959e))
+
+
+### Features
+
+* **icons:** Add bookmark icon and update label and tag icons ([7a10f14](https://github.com/scaleflex/ui/commit/7a10f14eed9a9800061f18a4afdd7ddb2463f339))
+
+
+
+
+
 # [1.0.0-beta.45](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.44...1.0.0-beta.45) (2021-08-13)
 
 **Note:** Version bump only for package @scaleflex/icons
