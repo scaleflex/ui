@@ -53,12 +53,14 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       return suggestionsFilter(filteredItems, userInput, getTagLabel);
     }, [userInput, suggestedTags, existingLabels, suggestionsFilter]);
 
-    const handleTagAdd = (item: any, type: AddTagTypesType): void => {
+    const handleTagAdd = (item: TagType, type: AddTagTypesType): void => {
       if (!item) return;
 
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
 
-      if (!filteredTags.some((tag: any) => tag.toLowerCase() === tagLabel.toLowerCase())) {
+      if (
+        !filteredTags.some((tag: TagType) => getTagLabel(tag).toLowerCase() === getTagLabel(tagLabel).toLowerCase())
+      ) {
         onAdd(item, type);
       }
     };
