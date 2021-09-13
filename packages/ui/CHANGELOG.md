@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.49](https://github.com/scaleflex/ui/compare/1.0.0-beta.48...1.0.0-beta.49) (2021-09-13)
+
+
+### Bug Fixes
+
+* tagField ([b4e184c](https://github.com/scaleflex/ui/commit/b4e184c3af9508a660e19a1efc7d4056ed8c0262))
+
+
+
+
+
 # [1.0.0-beta.48](https://github.com/scaleflex/ui/compare/1.0.0-beta.47...1.0.0-beta.48) (2021-09-13)
 
 
