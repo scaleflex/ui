@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.47](https://github.com/scaleflex/ui/compare/v1.0.0-beta.46...1.0.0-beta.47) (2021-09-13)
+
+
+### Bug Fixes
+
+* checking duplicates when adding tags ([def95cf](https://github.com/scaleflex/ui/commit/def95cf0d4bae064bd2c7786f49bdd1fd83cda5a))
+
+
+
+
+
 # [1.0.0-beta.46](https://github.com/scaleflex/ui/compare/1.0.0-beta.45...1.0.0-beta.46) (2021-09-02)
 
 
