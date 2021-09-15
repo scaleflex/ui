@@ -9,8 +9,14 @@ import { LabelPosition } from './types';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   ({ label, checkBoxProps, readOnly, disabled, labelPosition, ...rest }: CheckBoxGroupProps, ref): JSX.Element => {
-    const content = [<CheckBox checkBoxProps={checkBoxProps} disabled={disabled} readOnly={readOnly} {...rest} />];
-    const labelContent = <Styled.Label labelPosition={labelPosition}>{label}</Styled.Label>;
+    const content = [
+      <CheckBox key="checkbox" checkBoxProps={checkBoxProps} disabled={disabled} readOnly={readOnly} {...rest} />,
+    ];
+    const labelContent = (
+      <Styled.Label key="label" labelPosition={labelPosition}>
+        {label}
+      </Styled.Label>
+    );
 
     if (labelPosition === 'before') {
       content.unshift(labelContent);
