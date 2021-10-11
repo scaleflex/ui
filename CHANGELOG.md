@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.50](https://github.com/scaleflex/ui/compare/1.0.0-beta.49...1.0.0-beta.50) (2021-10-11)
+
+
+### Bug Fixes
+
+* **CheckBoxGroup:** missing keys in list ([af264c7](https://github.com/scaleflex/ui/commit/af264c79425dc61a724c1076f09e434ed64e7c5c))
+
+
+### Features
+
+* **MenuItemListType:** add props subMenuProps and className ([86f0154](https://github.com/scaleflex/ui/commit/86f015419f6e5863e97d15c166fca636bd016366))
+
+
+
+
+
 # [1.0.0-beta.49](https://github.com/scaleflex/ui/compare/1.0.0-beta.48...1.0.0-beta.49) (2021-09-13)
 
 
