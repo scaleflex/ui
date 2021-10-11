@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import type { Values } from '../../utils/types';
+import type { MenuProps } from '../menu';
 import { Size } from './types';
 
 export type MenuItemSizeType = Values<typeof Size>;
@@ -13,6 +14,8 @@ export type MenuItemListType = {
   onClick?: func | undefined;
   disabled?: boolean;
   active?: boolean;
+  subMenuProps?: MenuProps;
+  className?: string;
 };
 export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;

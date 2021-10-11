@@ -34,7 +34,14 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           const newDepthLevel = depthLevel + 1;
 
           subMenu = (
-            <Menu key={option.key} position="right" open={Boolean(anchorEl)} anchorEl={anchorEl} enableOverlay={false}>
+            <Menu
+              key={option.key}
+              position="right"
+              open={Boolean(anchorEl)}
+              anchorEl={anchorEl}
+              enableOverlay={false}
+              {...option.subMenuProps}
+            >
               {/* {renderItems(option.subList, newDepthLevel)} */}
               <MenuItem list={option.subList} depth={newDepthLevel} {...props} />
             </Menu>
@@ -47,6 +54,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           <Styled.MenuItemWrapper disabled={false} key={option.key}>
             <Styled.MenuItem
               {...props}
+              className={option.className}
               ref={ref}
               active={Boolean(option.active)}
               onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
