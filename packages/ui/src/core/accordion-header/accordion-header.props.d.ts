@@ -1,5 +1,5 @@
 export interface AccordionHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
-  label: string;
+  label: React.ReactNode;
   expanded?: boolean;
   onChange?: (value: boolean) => void;
 }

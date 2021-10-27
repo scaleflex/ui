@@ -1,7 +1,7 @@
-import { SyntheticEvent, MouseEvent } from 'react';
+import React, { SyntheticEvent, MouseEvent } from 'react';
 
 export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
-  label: string;
+  label: React.ReactNode;
   expanded?: boolean;
   detailStyle?: object;
   headerStyle?: object;

@@ -36,7 +36,7 @@ AccordionHeader.defaultProps = {
 };
 
 AccordionHeader.propTypes = {
-  label: PT.string.isRequired,
+  label: PT.node.isRequired,
   expanded: PT.bool,
   onChange: PT.func,
 };
