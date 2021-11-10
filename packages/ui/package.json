@@ -9,6 +9,7 @@
     "@popperjs/core": "^2.6.0",
     "@scaleflex/icons": "^1.0.0-beta.46",
     "lodash.merge": "^4.6.2",
+    "lodash.throttle": "^4.1.1",
     "polished": "^3.6.6",
     "prop-types": "^15.7.2",
     "react-focus-lock": "^2.4.1",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@types/lodash.merge": "^4.6.6",
+    "@types/lodash.throttle": "^4.1.6",
     "@types/prop-types": "^15.7.3",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
