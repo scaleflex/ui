@@ -262,5 +262,5 @@ export { Blur } from './blur';
 export { AttentionFilled } from './attention-filled';
 export { PinOutline } from './pin-outline';
 export { Duplicate } from './duplicate';
-export { LayerOrder } from './layer-order';
 export { DeleteOutline } from './delete-outline';
+export { LayerOrder } from './layer-order';
