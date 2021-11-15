@@ -8,6 +8,7 @@ export { default as Button } from './button';
 export { default as CheckBox } from './check-box';
 export { default as CheckBoxGroup } from './check-box-group';
 export { default as ColorPicker } from './color-picker';
+export { default as ContinuousSlider } from './continuous-slider';
 export { default as Dot } from './dot';
 export { default as DotsNavigation } from './dots-navigation';
 export { default as FormHint } from './form-hint';
