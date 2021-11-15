@@ -7,15 +7,9 @@ import { NumberofSliders } from '../../src/core/slider/types';
 export const Slider = _Slider;
 
 export default {
-  title: `${StoryGroup.Inputs}/Slider`,
+  title: `${StoryGroup.Inputs}/Sliders/Slider`,
   component: Slider,
   excludeStories: ['Slider'],
-
-  // argTypes: {
-  //   children: {
-  //     description: 'Menu contents, normally `MenuItem`s.',
-  //   },
-  // },
 } as Meta;
 
 const defaultArgs = {
