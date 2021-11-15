@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.52](https://github.com/scaleflex/ui/compare/1.0.0-beta.51...1.0.0-beta.52) (2021-11-15)
+
+
+### Bug Fixes
+
+* changelog ([0dc8741](https://github.com/scaleflex/ui/commit/0dc8741b7ed1aac003919b759caec80c66afe638))
+
+
+### Features
+
+* **ColorPicker:** add color picker component ([53bc0ba](https://github.com/scaleflex/ui/commit/53bc0baa90c14bfd6b9a93bc14668aa43e8c558d))
+* **ContinuousSlider:** add ContinuousSlider component ([b72e9a3](https://github.com/scaleflex/ui/commit/b72e9a3818eae6c89d0dc61902304d9e4cabcd06))
+* **RotationSlider:** add RotationSlider component ([2735f45](https://github.com/scaleflex/ui/commit/2735f456b94cb4e56ab15aa32660455507483a91))
+
+
+
+
+
 # [1.0.0-beta.51](https://github.com/scaleflex/ui/compare/1.0.0-beta.50...1.0.0-beta.51) (2021-10-28)
 
 **refactor(accordion,accordionHeader):** change label props to node

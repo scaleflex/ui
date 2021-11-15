@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.52](https://github.com/scaleflex/ui/compare/1.0.0-beta.51...1.0.0-beta.52) (2021-11-15)
+
+
+### Features
+
+* **icons:** add all image editor icons ([f200a73](https://github.com/scaleflex/ui/commit/f200a73780bc950139a60d3cfdcad70e7d875532))
+
+
+
+
+
 # [1.0.0-beta.46](https://github.com/scaleflex/ui/compare/1.0.0-beta.45...1.0.0-beta.46) (2021-09-02)
 
 
