@@ -183,7 +183,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLDivElement>(
                   {annotationText}
                 </Styled.RotationSliderTooltip>
               )}
-              <Styled.RotationSliderControl isActive={isActive} />
+              <Styled.RotationSliderControl />
             </Styled.RotationSliderLabel>
           </Styled.RotationSliderDrag>
         </Styled.RotationSliderContainer>
