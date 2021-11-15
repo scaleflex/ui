@@ -1,7 +1,7 @@
 /* eslint-disable default-case */
 export const HexToRGB = (hex: string) => {
   const shorthandRegex = /^#?([\da-f])([\da-f])([\da-f])$/i;
-  hex = hex.replace(shorthandRegex, (m, r, g, b) => r + r + g + g + b + b);
+  hex = hex.replace(shorthandRegex, (r, g, b) => r + r + g + g + b + b);
   const result = /^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i.exec(hex);
   return result ? [Number.parseInt(result[1], 16), Number.parseInt(result[2], 16), Number.parseInt(result[3], 16)] : [];
 };
