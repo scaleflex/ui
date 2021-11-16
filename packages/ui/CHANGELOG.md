@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.55](https://github.com/scaleflex/ui/compare/1.0.0-beta.54...1.0.0-beta.55) (2021-11-16)
+
+
+### Features
+
+* **continuoutsSlider:** add hideOverlay prop ([aa5a78c](https://github.com/scaleflex/ui/commit/aa5a78cff9a919e7e1413d6b800b16b973c06e2f))
+
+
+
+
+
 # [1.0.0-beta.54](https://github.com/scaleflex/ui/compare/1.0.0-beta.53...1.0.0-beta.54) (2021-11-16)
 
 **Note:** Version bump only for package @scaleflex/ui
