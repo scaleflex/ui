@@ -8,4 +8,5 @@ export interface ContinuousSliderProps extends React.HTMLAttributes<HTMLDivEleme
   step?: number;
   annotation?: string;
   showAnntotaionTooltip?: boolean;
+  hideOverlay?: boolean;
 }

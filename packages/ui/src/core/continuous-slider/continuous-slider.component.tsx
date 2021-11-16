@@ -25,6 +25,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
       onDragStart,
       onDragEnd,
       step = 1,
+      hideOverlay = false,
       showAnntotaionTooltip = false,
       annotation = '',
       ...rest
@@ -177,7 +178,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
       return value;
     };
 
-    if (slidersContainer) {
+    if (slidersContainer && !hideOverlay) {
       let minSliderPercentage: number | undefined = 0;
       let maxSliderPercentage: number | undefined = 0;
 
@@ -197,7 +198,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
     return (
       <Styled.Slider {...rest} ref={ref}>
         <Styled.SliderContainer onClick={isSliding ? undefined : handleClick} ref={slidersContainerRef}>
-          <Styled.SliderOverlay />
+          {!hideOverlay && <Styled.SliderOverlay />}
           <Styled.SliderContainerLabel
             onMouseDown={(e) => activateDragging(e)}
             onTouchStart={(e) => activateDragging(e)}
@@ -232,6 +233,8 @@ ContinuousSlider.defaultProps = {
   start: 0,
   end: 100,
   step: 1,
+  hideOverlay: false,
+  showAnntotaionTooltip: false,
 };
 
 ContinuousSlider.propTypes = {
@@ -244,6 +247,7 @@ ContinuousSlider.propTypes = {
   step: PT.number,
   annotation: PT.string,
   showAnntotaionTooltip: PT.bool,
+  hideOverlay: PT.bool,
 };
 
 export default ContinuousSlider;
