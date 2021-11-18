@@ -10,7 +10,6 @@ const Slider = styled.div.attrs({
 })`
   display: flex;
   width: 100%;
-  padding: 12px 0 0;
 `;
 
 const SliderContainerLabel = styled.label.attrs({
@@ -22,7 +21,7 @@ const SliderContainer = styled.div.attrs({
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: block;
-    width: 100%;
+    width: 98%;
     height: 4px;
     background: ${palette[PColor.BordersStrong]};
     border-radius: 20px;
@@ -104,6 +103,7 @@ const SliderAnnotation = styled.div.attrs({
   className: generateClassNames(baseClassName, 'annotation'),
 })`
   display: inline-block;
+  width: 2%;
   white-space: nowrap;
   margin-left: 8px;
   margin-top: 4px;

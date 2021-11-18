@@ -94,7 +94,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           let newPosition = mapValueBySlidersWidth(pageX - containerLeft, false)!;
 
-          if (newPosition < start) {
+          if (newPosition < start || newPosition === 0) {
             newPosition = start;
           } else if (newPosition > end) {
             newPosition = end;
@@ -149,19 +149,31 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
       if (!slidersContainer) {
         return;
       }
+      const slidersContainerWidth = slidersContainer.getBoundingClientRect().width - 10;
+
+      if (value === 0 && start < 0 && mapToWidth) {
+        return slidersContainerWidth / 2;
+      }
+
       if (!value) {
         return 0;
       }
       // 10 = the slider controls circle's width
-      const slidersContainerWidth = slidersContainer.getBoundingClientRect().width - 10;
-      const mapRangeFromMin = mapToWidth ? start : 0;
-      const mapRangeFromMax = mapToWidth ? end : slidersContainerWidth;
-      const mapRangeToMin = mapToWidth ? 0 : start;
-      const mapRangeToMax = mapToWidth ? slidersContainerWidth : end;
 
+      const mapRangeFromStart = mapToWidth ? start : 0;
+      const mapRangeFromEnd = mapToWidth ? end : slidersContainerWidth;
+      const mapRangeToStart = mapToWidth ? 0 : start;
+      const mapRangeToEnd = mapToWidth ? slidersContainerWidth : end;
+
+      if (start < 0 && !mapToWidth) {
+        return (
+          ((value - mapRangeFromStart) / (mapRangeFromEnd - mapRangeFromStart)) * (mapRangeToEnd - mapRangeToStart) -
+          end
+        );
+      }
       return (
-        ((value - mapRangeFromMin) / (mapRangeFromMax - mapRangeFromMin)) *
-        (mapRangeToMax - mapRangeToMin + mapRangeToMin)
+        ((value - mapRangeFromStart) / (mapRangeFromEnd - mapRangeFromStart)) *
+        (mapRangeToEnd - mapRangeToStart + mapRangeToStart)
       );
     };
 
