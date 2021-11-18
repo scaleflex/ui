@@ -13,7 +13,9 @@ const colorItemClassName = 'ColorItem';
 const ColorPicker = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ColorPickerAction = styled.div.attrs({
@@ -121,6 +123,7 @@ const ColorItemsContainer = styled.div`
   align-content: space-between;
   margin-top: 14px;
   margin-bottom: 12px;
+  margin-left: 12px;
   & > .item {
     margin-right: 8px;
     display: flex;

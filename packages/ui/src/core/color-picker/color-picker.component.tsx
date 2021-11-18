@@ -144,7 +144,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
                 size="sm"
                 value={rgb}
                 onChange={(e: any) => updateRGB(Number(e.target?.value), index)}
-                style={{ maxWidth: '20%' }}
+                style={{ width: '20%' }}
               />
             ))
           )}
