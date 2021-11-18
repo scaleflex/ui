@@ -7,6 +7,6 @@ export interface ContinuousSliderProps extends React.HTMLAttributes<HTMLDivEleme
   onDragEnd?: (value) => void;
   step?: number;
   annotation?: string;
-  showAnntotaionTooltip?: boolean;
+  // showAnntotaionTooltip?: boolean;
   hideOverlay?: boolean;
 }

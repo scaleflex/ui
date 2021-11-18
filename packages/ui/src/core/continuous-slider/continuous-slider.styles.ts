@@ -1,57 +1,46 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
+import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 
 const baseClassName = 'Slider';
 
 const Slider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
-  display: flex;
-  width: 100%;
-`;
-
-const SliderContainerLabel = styled.label.attrs({
-  className: generateClassNames(baseClassName, 'label'),
-})``;
-
-const SliderContainer = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'container'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
-    display: block;
-    width: 98%;
-    height: 4px;
-    background: ${palette[PColor.BordersStrong]};
-    border-radius: 20px;
-    position: relative;
-    margin-top: 12px;
-    cursor: pointer;
+  ({ theme: { palette }, hideOverlay = false }: With<WithTheme, { hideOverlay: boolean }>) => css`
+    width: 100%;
+    display: flex;
+    align-items: center;
 
-    ${SliderContainerLabel} {
-      position: absolute;
-      left: 0;
-      display: flex;
-      justify-content: center;
+    .slider {
+      flex: 6;
+      -webkit-appearance: ${hideOverlay ? 'none' : 'auto'};
+      width: 100%;
+      height: 4px;
+      background: ${palette[PColor.BordersStrong]};
+      border-radius: 5px;
+      outline: none;
+      cursor: pointer;
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        height: 15px;
+        width: 15px;
+        border-radius: 20px;
+        background: ${palette[PColor.BorderActiveBottom]};
+        cursor: ew-resize;
+      }
+
+      &::-moz-range-thumb {
+        height: 15px;
+        width: 15px;
+        border-radius: 20px;
+        background: ${palette[PColor.BorderActiveBottom]};
+        cursor: ew-resize;
+      }
     }
-  `
-);
-
-const SliderContainerControl = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'control'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    height: 10px;
-    width: 10px;
-    border-radius: 20px;
-    border: 2px solid ${palette[PColor.BorderActiveBottom]};
-    border-color: ${palette[PColor.BorderActiveBottom]};
-    background: ${palette[PColor.BorderActiveBottom]};
-    display: inline-block;
-    position: relative;
-    top: -5px;
-    cursor: ew-resize;
   `
 );
 
@@ -69,7 +58,7 @@ const SliderContainerControlTooltip = styled.span.attrs({
     padding: 3px 6px;
     border-radius: 2px;
     position: absolute;
-    top: -35px;
+    top: 2px;
     height: 18px;
     font-size: 10px;
     width: max-content;
@@ -87,35 +76,15 @@ const SliderContainerControlTooltip = styled.span.attrs({
   `
 );
 
-const SliderOverlay = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'overlay'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    background: ${palette[PColor.BorderActiveBottom]};
-    height: 100%;
-    pointer-events: none;
-    position: absolute;
-    display: block;
-  `
-);
-
 const SliderAnnotation = styled.div.attrs({
   className: generateClassNames(baseClassName, 'annotation'),
 })`
-  display: inline-block;
-  width: 2%;
-  white-space: nowrap;
-  margin-left: 8px;
-  margin-top: 4px;
+  flex: 1;
 `;
 
 const Styled = applyDisplayNames({
   Slider,
-  SliderContainer,
-  SliderContainerLabel,
-  SliderContainerControl,
   SliderContainerControlTooltip,
-  SliderOverlay,
   SliderAnnotation,
 });
 

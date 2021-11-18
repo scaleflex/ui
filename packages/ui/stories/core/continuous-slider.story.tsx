@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _ContinuousSlider, { ContinuousSliderProps } from '../../src/core/continuous-slider';
 import { StoryGroup } from './types';
@@ -12,23 +12,16 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  start: 0,
+  start: -20,
   end: 200,
   step: 1,
-  value: 30,
+  value: 0,
 };
 
 const BasicTemplate: Story<ContinuousSliderProps> = ({ ...args }) => {
-  const [isFileSizeActive, setIsFileSizeActive] = useState(false);
-
   return (
     <>
-      <ContinuousSlider
-        {...args}
-        onDragStart={() => setIsFileSizeActive(true)}
-        showAnntotaionTooltip={isFileSizeActive}
-        style={{ marginTop: '20px', width: '350px' }}
-      />
+      <ContinuousSlider {...args} style={{ marginTop: '20px', width: '350px' }} hideOverlay />
     </>
   );
 };
