@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.56](https://github.com/scaleflex/ui/compare/1.0.0-beta.55...1.0.0-beta.56) (2021-11-19)
+
+
+### Bug Fixes
+
+* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
+
+
+### Features
+
+* **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
+
+
+
+
+
 # [1.0.0-beta.54](https://github.com/scaleflex/ui/compare/1.0.0-beta.53...1.0.0-beta.54) (2021-11-16)
 
 **Note:** Version bump only for package @scaleflex/icons

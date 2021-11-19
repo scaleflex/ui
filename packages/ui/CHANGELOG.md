@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.56](https://github.com/scaleflex/ui/compare/1.0.0-beta.55...1.0.0-beta.56) (2021-11-19)
+
+
+### Bug Fixes
+
+* **ColorPicker:** styles ([bfa7268](https://github.com/scaleflex/ui/commit/bfa7268a5dab9a9d3ba6ce31d1d7b4fe13a58216))
+* **continuousSlider:** fix slider when start value is negative ([6aed750](https://github.com/scaleflex/ui/commit/6aed75095f7dcf0e6296cfb65bd33e3869e58619))
+* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
+
+
+
+
+
 # [1.0.0-beta.55](https://github.com/scaleflex/ui/compare/1.0.0-beta.54...1.0.0-beta.55) (2021-11-16)
 
 ### Features
