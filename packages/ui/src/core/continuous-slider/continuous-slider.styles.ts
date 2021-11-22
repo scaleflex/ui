@@ -80,6 +80,7 @@ const SliderAnnotation = styled.div.attrs({
   className: generateClassNames(baseClassName, 'annotation'),
 })`
   flex: 1;
+  white-space: nowrap;
 `;
 
 const Styled = applyDisplayNames({

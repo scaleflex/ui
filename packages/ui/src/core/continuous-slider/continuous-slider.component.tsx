@@ -74,10 +74,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
             {annotationText}
           </Styled.SliderContainerControlTooltip>
         )} */}
-        <Styled.SliderAnnotation>
-          {sliderValue}
-          {annotationText}
-        </Styled.SliderAnnotation>
+        <Styled.SliderAnnotation>{`${sliderValue}${annotationText}`}</Styled.SliderAnnotation>
       </Styled.Slider>
     );
   }
