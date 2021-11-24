@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.57](https://github.com/scaleflex/ui/compare/1.0.0-beta.56...1.0.0-beta.57) (2021-11-24)
+
+
+### Bug Fixes
+
+* **continuousSlider:** slider label ([4002822](https://github.com/scaleflex/ui/commit/400282215a61f15fa179a7b6d7801b5aa91ce021))
+
+
+
+
+
 # [1.0.0-beta.56](https://github.com/scaleflex/ui/compare/1.0.0-beta.55...1.0.0-beta.56) (2021-11-19)
 
 
