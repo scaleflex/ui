@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.58](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.57...1.0.0-beta.58) (2021-12-03)
+
+
+### Features
+
+* **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/sfx-ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
+
+
+
+
+
 # [1.0.0-beta.57](https://github.com/scaleflex/ui/compare/1.0.0-beta.56...1.0.0-beta.57) (2021-11-24)
 
 
