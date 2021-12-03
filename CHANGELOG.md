@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.59](https://github.com/scaleflex/ui/compare/1.0.0-beta.58...1.0.0-beta.59) (2021-12-03)
+
+
+### Features
+
+* **Ui&Icons:** Tree shaking support ([b7b036a](https://github.com/scaleflex/ui/commit/b7b036a10de915e5792acc13d2c64e49ba1fb10c))
+
+
+
+
+
 # [1.0.0-beta.58](https://github.com/scaleflex/ui/compare/1.0.0-beta.57...1.0.0-beta.58) (2021-12-03)
 
 
