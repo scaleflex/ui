@@ -1,5 +1,5 @@
 const presets = {
-  env: '@babel/preset-env',
+  env: ['@babel/preset-env', { modules: false }],
   react: '@babel/preset-react',
 };
 
