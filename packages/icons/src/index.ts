@@ -260,3 +260,8 @@ export { CropClassicTv } from './crop-classic-tv';
 export { CropFrame } from './crop-frame';
 export { Portrait } from './portrait';
 export { SaveAs } from './save-as';
+export { Prominents } from './prominents';
+export { Delivery } from './delivery';
+export { Cdn } from './cdn';
+export { Optimization } from './optimization';
+export { Storage } from './storage';
