@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.61](https://github.com/scaleflex/ui/compare/1.0.0-beta.60...1.0.0-beta.61) (2021-12-17)
+
+
+### Features
+
+* **accordion:** add iconProps ([ca7e91b](https://github.com/scaleflex/ui/commit/ca7e91b4a4261502eda910e923620d5f24f280b6))
+* **uploadInput:** add buttonColor prop ([2852c97](https://github.com/scaleflex/ui/commit/2852c97bdd6bba76c4d8c1c9e781108ccd9ec6b8))
+
+
+
+
+
 # [1.0.0-beta.60](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.59...1.0.0-beta.60) (2021-12-03)
 
 **Note:** Version bump only for package @scaleflex/ui

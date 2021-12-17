@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.61](https://github.com/scaleflex/ui/compare/1.0.0-beta.60...1.0.0-beta.61) (2021-12-17)
+
+
+### Features
+
+* **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
+* **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
+
+
+
+
+
 # [1.0.0-beta.60](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.59...1.0.0-beta.60) (2021-12-03)
 
 **Note:** Version bump only for package @scaleflex/icons
