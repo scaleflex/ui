@@ -83,7 +83,7 @@ ThemeProvider.propTypes = {
     }),
     typography: PT.exact({
       baseLineHeight: PT.oneOfType([PT.string, PT.number]),
-      font: PT.exact(record(objectValues(FontVariant), PT.string)),
+      font: PT.exact(record(objectValues(FontVariant), PT.object)),
       ...record(objectKeys(typography), PT.string),
     }),
   }) as Validator<ThemeOverride>,
