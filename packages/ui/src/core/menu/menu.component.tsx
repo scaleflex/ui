@@ -25,6 +25,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       popperOptions,
       enableOverlay = true,
       zIndex,
+      hideScroll = true,
       ...rest
     },
     ref
@@ -75,16 +76,18 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     }, [anchorElPosition, updateRect]);
 
     useEffect(() => {
-      if (open) {
-        document.body.classList.add('Menu-open');
-        updateRect();
-      } else {
-        document.body.classList.remove('Menu-open');
-      }
+      if (hideScroll) {
+        if (open) {
+          document.body.classList.add('Menu-open');
+          updateRect();
+        } else {
+          document.body.classList.remove('Menu-open');
+        }
 
-      return () => {
-        document.body.classList.remove('Menu-open');
-      };
+        return () => {
+          document.body.classList.remove('Menu-open');
+        };
+      }
     }, [open, updateRect]);
 
     const handleClose = (): void => {
@@ -127,6 +130,7 @@ export const defaultProps = {
   maxHeight: 0,
   position: 'bottom',
   enableOverlay: true,
+  hideScroll: true,
 };
 
 Menu.defaultProps = defaultProps;
@@ -151,6 +155,7 @@ export const propTypes = {
   position: PT.oneOf(objectValues(Position)),
   enableOverlay: PT.bool,
   zIndex: PT.number,
+  hideScroll: PT.bool,
 };
 
 Menu.propTypes = propTypes;
