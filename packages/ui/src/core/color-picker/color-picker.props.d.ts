@@ -31,9 +31,8 @@ export interface SquareColorProps {
 }
 
 export interface ColorPickerProps extends React.HTMLAttributes<HTMLSpanElement> {
-  color: ColorType;
-  setColor: (color: ColorType) => void;
-  setPinnedColors: (pinnedColors: Array<string>) => void;
-  squareSize?: number;
-  pinnedColors: Array<string>;
+  defaultColor?: string;
+  onChange?: (hexColor: string, rgb: string) => void;
+  setPinnedColors?: (pinnedColors: Array<string>) => void;
+  pinnedColors?: Array<string>;
 }

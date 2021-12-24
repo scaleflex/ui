@@ -28,6 +28,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
       hideOverlay = false,
       // showAnntotaionTooltip = false,
       annotation = '',
+      sliderStyles = {},
       ...rest
     }: ContinuousSliderProps,
     ref
@@ -66,6 +67,7 @@ const ContinuousSlider = intrinsicComponent<ContinuousSliderProps, HTMLDivElemen
           className="slider"
           onClick={handleClick}
           onChange={handleOnChange}
+          style={sliderStyles}
         />
 
         {/* {showAnntotaionTooltip && (

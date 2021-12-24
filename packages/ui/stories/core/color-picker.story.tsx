@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 
 import _ColorPicker, { ColorPickerProps } from '../../src/core/color-picker';
+
 import { StoryGroup } from './types';
 
 export const ColorPicker = _ColorPicker;
@@ -30,39 +31,35 @@ const DEFAULT_EDITOR_COLOR = [
 ];
 
 const defaultArgs = {
-  color: {
-    circleBarPos: 181.51260504201682,
-    circleSquarePos: [26, 89.11764705882354],
-    hexValue: '#d35c9e',
-    hue: 326.7226890756302,
-    inputType: 'hex',
-    rgbValue: [211, 92, 158],
-  },
-  pinnedColors: DEFAULT_EDITOR_COLOR,
+  color: '#8f4646',
 };
 
 const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
-  const [pinnedColors, setPinnedColors] = useState<Array<string>>(args.pinnedColors);
-  const [present, setPresent] = useState(args.color);
+  const [pinnedColors, setPinnedColors] = useState<Array<string>>(DEFAULT_EDITOR_COLOR);
+
+  const [color, setColor] = useState(() => args.color);
 
   return (
-    <div
-      style={{
-        width: '20%',
-        padding: '12px',
-        borderRadius: '2px',
-        boxShadow:
-          'rgb(0 0 0 / 20%) 0px 2px 1px -1px, rgb(0 0 0 / 14%) 0px 1px 1px 0px, rgb(0 0 0 / 12%) 0px 1px 3px 0px',
-        backgroundColor: 'rgb(255 255 255)',
-      }}
-    >
+    <>
+      <div
+        style={{
+          backgroundColor: color,
+          borderRadius: '2px',
+          width: '24px',
+          height: '24px',
+          border: `2px solid ${color}`,
+          cursor: 'pointer',
+          boxSizing: 'border-box',
+        }}
+      />
+
       <ColorPicker
         pinnedColors={pinnedColors}
-        color={present}
-        setColor={setPresent}
+        defaultColor={color}
         setPinnedColors={setPinnedColors}
+        onChange={setColor}
       />
-    </div>
+    </>
   );
 };
 

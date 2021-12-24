@@ -1,30 +1,32 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { SelectSimpleValueType } from '../select/select.props';
-// import type { WithTheme } from '../../theme/entity';
-// import type { With } from '../../utils/types';
+import type { WithTheme } from '../../theme/entity';
+import type { With } from '../../utils/types';
 // import { Color as PColor } from '../../utils/types/palette';
 
 const baseClassName = 'ColorPicker';
-const squareClassName = 'SquareColor';
-const hueBarClassName = 'HueBar';
+
 const colorItemClassName = 'ColorItem';
 
-const ColorPicker = styled.div.attrs({
+// const ColorPicker = styled.div.attrs({
+//   className: generateClassNames(baseClassName, 'root'),
+// })`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// `;
+
+const ColorPickerWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: ${({ theme }) => theme.palette['bg-secondary']};
+  box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
+  border-radius: 2px;
+  padding: 12px;
+  max-width: 200px;
 `;
 
-const ColorPickerAction = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'action'),
-})`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
 const ColorPickerIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'icon'),
 })`
@@ -34,68 +36,118 @@ const ColorPickerIcon = styled.div.attrs({
   cursor: pointer;
 `;
 
-const Select = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'select'),
+const RangePickerWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'range-picker'),
 })(
-  ({ value }: { value: SelectSimpleValueType | SelectSimpleValueType[] }) => css`
-    width: ${value === 'rgb' ? '25%' : '35%'};
+  ({ color }: { color: string }) => css`
+    position: relative;
+    border-radius: 2px;
+    width: 186px;
+    height: 180px;
+    user-select: none;
+    cursor: crosshair;
+    background-color: ${color};
   `
 );
-const HueBarContainer = styled.div.attrs({
-  className: generateClassNames(hueBarClassName, 'root'),
-})`
-  position: relative;
-  cursor: ew-resize;
-`;
 
-const HueBarCanvas = styled.canvas.attrs((props) => ({
-  className: generateClassNames(hueBarClassName, 'canavs'),
-  width: props.width,
-  height: props.height,
-}))`
-  border-radius: 8px;
-`;
-
-const HueBarSlider = styled.div.attrs({
-  className: generateClassNames(hueBarClassName, 'slider'),
+const WhiteGradient = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'white-gradient'),
 })`
+  background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
+  z-index: 0;
   position: absolute;
-  width: 8px;
-  height: 8px;
-  background: #6879eb;
-  border: 2px solid #ffffff;
-  box-shadow: 0 1px 2px rgba(78, 77, 77, 0.15);
-  border-radius: 20px;
-  pointer-events: none;
-`;
-
-const SquareColorContainer = styled.div.attrs({
-  className: generateClassNames(squareClassName, 'root'),
-})`
-  position: relative;
-  cursor: crosshair;
-`;
-
-const SquareColorCanvas = styled.canvas.attrs((props) => ({
-  className: generateClassNames(squareClassName, 'canavs'),
-  width: props.width,
-  height: props.height,
-}))`
+  width: 100%;
+  height: 100%;
   border-radius: 2px;
+  user-select: none;
+  pointer-events: none;
+  top: -1px;
 `;
 
-const SquareColorController = styled.div.attrs({
-  className: generateClassNames(squareClassName, 'controller'),
+const BlackGradient = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'black-gradient'),
 })`
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, black 100%);
+  z-index: 1;
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  user-select: none;
   pointer-events: none;
+`;
+
+const ColorPointer = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'pointer'),
+})(
+  ({
+    theme,
+    left = 0,
+    top = 0,
+    considerTopWidth = false,
+  }: With<WithTheme, { left: number; top: number; considerTopWidth: boolean }>) => css`
+    display: inline-block;
+    left: ${left - 7}px; // 7
+    top: ${top - (considerTopWidth ? 7 : 0)}px; // 7 = 5  (half width) + 2 (border width)
+    width: 10px;
+    height: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
+    border: 2px solid ${theme.palette['bg-secondary']};
+    background-color: ${theme.palette['accent-primary']};
+    position: absolute;
+    cursor: pointer;
+    z-index: 11;
+    user-select: none;
+    outline: none;
+  `
+);
+
+const BarWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'bar-wrapper'),
+})`
+  margin-top: 8px;
+  position: relative;
+  width: 186px;
+  height: 12px;
+`;
+
+const Bar = styled.table.attrs({
+  className: generateClassNames(baseClassName, 'bar'),
+})`
+  border-radius: 4px;
+  width: 100%;
+  height: 8px;
+  border-collapse: collapse;
+`;
+
+const BarColorStop = styled.td.attrs({
+  className: generateClassNames(baseClassName, 'stop'),
+})`
+  padding: 0;
+  user-select: none;
+  pointer-events: none;
+  &:first-child {
+    width: 4px; // for having the border radius shown clearly
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+  &:last-child {
+    width: 4px; // for having the border radius shown clearly
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+`;
+const ColorPickerAction = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'action'),
+})`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const ColorItemWrapper = styled.label.attrs({
-  className: generateClassNames(colorItemClassName, 'Label'),
+  className: generateClassNames(colorItemClassName, 'label'),
 })(
   ({ size, color, stroke }: { size: number; color: string; stroke: string }) => css`
     border-radius: 2px;
@@ -131,19 +183,28 @@ const ColorItemsContainer = styled.div`
   }
 `;
 
+const Select = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'select'),
+})(
+  ({ value }: { value: SelectSimpleValueType | SelectSimpleValueType[] }) => css`
+    width: ${value === 'rgb' ? '25%' : '35%'};
+  `
+);
+
 const Styled = applyDisplayNames({
-  ColorPicker,
+  ColorPickerWrapper,
+  RangePickerWrapper,
+  WhiteGradient,
+  BlackGradient,
+  ColorPointer,
+  BarWrapper,
+  Bar,
+  BarColorStop,
   ColorPickerAction,
   ColorPickerIcon,
-  Select,
-  SquareColorContainer,
-  SquareColorCanvas,
-  SquareColorController,
-  HueBarContainer,
-  HueBarCanvas,
-  HueBarSlider,
   ColorItemsContainer,
   ColorItemWrapper,
+  Select,
 });
 
 export default Styled;
