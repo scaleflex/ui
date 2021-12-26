@@ -64,7 +64,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
-    const changeBarAndRangeColors = (color: string): void => {
+    const changeBarPosByColor = (color: string): void => {
       if (barRef !== null) {
         const { left } = barRef.getBoundingClientRect();
         const [h] = colorToHsl(color || rangePicker.color);
@@ -116,16 +116,16 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           color,
           pointer: { left, top },
         });
-        changeBarAndRangeColors(color);
+        changeBarPosByColor(color);
         // updateRgb(color);
       }
     };
 
-    const changeRangePickerColorByPosition = (left: number, top: number): void => {
+    const changeRangePickerColorByPosition = (left: number, top: number, barColor: string): void => {
       if (rangePickerRef !== null) {
         const { width, height } = rangePickerRef.getBoundingClientRect();
 
-        const [barColorHue] = colorToHsl(bar.color);
+        const [barColorHue] = colorToHsl(barColor);
 
         const restrictedLeft = restrictNumber(left, 0, width) || 0;
         const restrictedTop = restrictNumber(top, 0, height) || 0;
@@ -148,7 +148,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
-    const changeBarColorByPosition = (pointerLeft: number): void => {
+    const changeBarColorByPosition = (pointerLeft: number): string => {
       const barElem = barRef;
       if (barElem !== null) {
         const { width } = barElem.getBoundingClientRect();
@@ -165,7 +165,9 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           color: targetColorRgb,
           pointerLeft: restrictNumber(pointerLeft, 0, width),
         });
+        return targetColorRgb;
       }
+      return bar.color;
     };
 
     const updateBarColor = (e: any): void => {
@@ -174,7 +176,9 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       if (barElem !== null) {
         const { left } = barElem.getBoundingClientRect();
         const pointerEvent = e.touches?.[0] || e;
-        changeBarColorByPosition(pointerEvent.pageX - left);
+        const barColor = changeBarColorByPosition(pointerEvent.pageX - left);
+
+        changeRangePickerColorByPosition(rangePicker.pointer.left, rangePicker.pointer.top, barColor);
       }
     };
 
@@ -184,7 +188,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         const { left, top, height, width } = rangePickerElem.getBoundingClientRect();
         const pointerLeft = e ? restrictNumber(e.pageX - left, 0, width) : rangePicker.pointer.left || 0;
         const pointerTop = e ? restrictNumber(e.pageY - top, 0, height) : rangePicker.pointer.left || 0;
-        changeRangePickerColorByPosition(pointerLeft, pointerTop);
+        changeRangePickerColorByPosition(pointerLeft, pointerTop, bar.color);
       }
     };
 
@@ -208,7 +212,8 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       if (currentDirection) {
         changeRangePickerColorByPosition(
           (rangePicker.pointer.left || 0) + (['ArrowLeft', 'ArrowRight'].includes(e.key) ? currentDirection : 0),
-          (rangePicker.pointer.top || 0) + (['ArrowUp', 'ArrowDown'].includes(e.key) ? currentDirection : 0)
+          (rangePicker.pointer.top || 0) + (['ArrowUp', 'ArrowDown'].includes(e.key) ? currentDirection : 0),
+          bar.color
         );
       }
     };
@@ -225,11 +230,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      changeRangePickerColorByPosition(rangePicker.pointer.left, rangePicker.pointer.top);
-    }, [bar.color]);
-
-    useEffect(() => {
-      changeBarAndRangeColors(rangePicker.color);
+      changeBarPosByColor(rangePicker.color);
       changeRangePickerPointerPosByColor(rangePicker.color);
     }, [barRef]);
 
@@ -301,7 +302,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           <Styled.Select value={inputType}>
             <Select size="sm" value={inputType} onChange={(ev: any) => setInputType(ev)} fullWidth>
               <MenuItem value="hex">Hex</MenuItem>
-              <MenuItem value="rgb">RGB</MenuItem>
+              {/* <MenuItem value="rgb">RGB</MenuItem> */}
             </Select>
           </Styled.Select>
 

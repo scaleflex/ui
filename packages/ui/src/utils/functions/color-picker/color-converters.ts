@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 export const rgbStringToArray = (rgbColorString: string) =>
   rgbColorString
     .replaceAll(/[^\d,]/gi, '')
@@ -58,17 +59,14 @@ export const rgbToHsl = (...rgbColor: any) => {
         h = (r - g) / diff + 4;
         break;
       default:
+        h = 0;
     }
-    if (h) {
-      h /= 6;
-    }
+
+    h /= 6;
   }
 
   // * 360 for having the hue in degrees
-  if (h) {
-    return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
-  }
-  return [0, 0, 0];
+  return [Math.round(h * 360), Math.round(s * 100), Math.round(l * 100)];
 };
 
 export const colorToHsl = (color: string) => {
@@ -153,7 +151,7 @@ export const hsvToHsl = (h: number, s: number, v: number) => {
 };
 
 // both hsv and hsl values are in [0, 1] except h is in [0, 360]
-export const hslToHsv = (h: number, s: number, l: number) => {
+export const hslToHsv = (h: number, s: number, l: number): Array<number> => {
   let newS = s;
 
   const newL = l * 2;
