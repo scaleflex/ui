@@ -30,14 +30,20 @@ const DEFAULT_EDITOR_COLOR = [
   '#27ae60',
 ];
 
-const defaultArgs = {
-  color: '#8f4646',
-};
+const defaultArgs = {};
 
 const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
-  const [pinnedColors, setPinnedColors] = useState<Array<string>>(DEFAULT_EDITOR_COLOR);
+  const [pinnedColors, setPinnedColors] = useState<Array<string> | undefined>(DEFAULT_EDITOR_COLOR);
+  const [color, setColor] = useState('#d35c9d');
 
-  const [color, setColor] = useState(() => args.color);
+  const handleChange = (
+    hexColor: string,
+    rgbColor: string | undefined,
+    colorPickerPinnedColors: Array<string> | undefined
+  ): void => {
+    setColor(hexColor);
+    setPinnedColors(colorPickerPinnedColors);
+  };
 
   return (
     <>
@@ -53,12 +59,7 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
         }}
       />
 
-      <ColorPicker
-        pinnedColors={pinnedColors}
-        defaultColor={color}
-        setPinnedColors={setPinnedColors}
-        onChange={setColor}
-      />
+      <ColorPicker {...args} defaultColor={color} pinnedColors={pinnedColors} onChange={handleChange} />
     </>
   );
 };

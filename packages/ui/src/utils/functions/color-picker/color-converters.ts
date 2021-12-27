@@ -163,3 +163,7 @@ export const hslToHsv = (h: number, s: number, l: number): Array<number> => {
   const isBlack = checkIsBlack(newS, l);
   return [isBlack || checkIsWhite(newS, l) ? 0 : h, isBlack ? 0 : Math.round(newS * 100), Math.round(v * 100)];
 };
+
+// TODO: validating 3 color code for Hex
+// /^#([\da-f]{3}){1,2}$/i.test(color)colorToHex
+export const validateHex = (color: string): boolean => /^#[\da-f]{6}$/i.test(color);

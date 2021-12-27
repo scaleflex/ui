@@ -77,18 +77,18 @@ const BlackGradient = styled.div.attrs({
   pointer-events: none;
 `;
 
-const ColorPointer = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'pointer'),
-})(
-  ({
-    theme,
-    left = 0,
-    top = 0,
-    considerTopWidth = false,
-  }: With<WithTheme, { left: number; top: number; considerTopWidth: boolean }>) => css`
+const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTopWidth: boolean }>(
+  ({ left = 0, top = 0, considerTopWidth = false, style }) => ({
+    className: generateClassNames(baseClassName, 'pointer'),
+    style: {
+      left: left - 7, // 7
+      top: top - (considerTopWidth ? 7 : 0), // 7 = 5  (half width) + 2 (border width)
+      ...style,
+    },
+  })
+)(
+  ({ theme }: With<WithTheme, { left: number; top?: number; considerTopWidth: boolean }>) => css`
     display: inline-block;
-    left: ${left - 7}px; // 7
-    top: ${top - (considerTopWidth ? 7 : 0)}px; // 7 = 5  (half width) + 2 (border width)
     width: 10px;
     height: 10px;
     border-radius: 20px;
@@ -121,9 +121,12 @@ const Bar = styled.table.attrs({
   border-collapse: collapse;
 `;
 
-const BarColorStop = styled.td.attrs({
+const BarColorStop = styled.td.attrs<{ $color: string }>(({ $color }) => ({
   className: generateClassNames(baseClassName, 'stop'),
-})`
+  style: {
+    backgroundColor: $color,
+  },
+}))<{ $color: string }>`
   padding: 0;
   user-select: none;
   pointer-events: none;
@@ -138,6 +141,7 @@ const BarColorStop = styled.td.attrs({
     border-bottom-right-radius: 4px;
   }
 `;
+
 const ColorPickerAction = styled.div.attrs({
   className: generateClassNames(baseClassName, 'action'),
 })`

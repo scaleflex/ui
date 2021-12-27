@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable no-constant-condition */
 /* eslint-disable react/no-array-index-key */
@@ -21,6 +22,10 @@ import {
   restrictNumber,
   mapNumber,
   colorToHex,
+  getElemDocumentCoords,
+  rgbToHex,
+  validateHex,
+  rgbStringToArray,
 } from '../../utils/functions';
 import type { ColorPickerProps } from './color-picker.props';
 import Styled from './color-picker.styles';
@@ -28,22 +33,19 @@ import ColorItem from './color-item.component';
 
 const colorsHuesCount = 360;
 const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
-  (
-    { defaultColor = '#000000', onChange, setPinnedColors, pinnedColors = [], ...rest }: ColorPickerProps,
-    ref
-  ): JSX.Element => {
+  ({ defaultColor = '#000000', onChange, pinnedColors = [], ...rest }: ColorPickerProps, ref): JSX.Element => {
     const [bar, setBar] = useState({
       color: '#ff0000',
       pointerLeft: 0,
     });
     const [rangePicker, setRangePicker] = useState({
-      color: defaultColor,
+      color: colorToHex(defaultColor) || '#000000',
       pointer: { left: 0, top: 0 },
     });
     const [localPinnedColors, setLocalPinnedColors] = useState(pinnedColors);
 
     const [inputType, setInputType] = useState('hex');
-    const [rgbColorValue] = useState<number[]>([]);
+    const [rgbColorValue, setRgbColorValue] = useState<number[]>([]);
     const [hexInputValue, setHexInputValue] = useState(colorToHex(rangePicker.color));
     const [barRef, setBarRef] = useState<HTMLTableElement | null>(null);
     const [rangePickerRef, setRangePickerRef] = useState<HTMLDivElement | null>(null);
@@ -52,61 +54,63 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 
     const handlePinnedColors = (hexColor: string, type: string): void => {
       if (type === 'add') {
-        setLocalPinnedColors([...localPinnedColors, hexColor]);
-        if (setPinnedColors) {
-          setPinnedColors([...localPinnedColors, hexColor]);
+        const newLocalPinnedColors = [...localPinnedColors, hexColor];
+        setLocalPinnedColors(newLocalPinnedColors);
+
+        if (typeof onChange === 'function') {
+          onChange(rangePicker.color, `rgb(${hexToRgb(rangePicker.color).join(', ')})`, newLocalPinnedColors);
         }
       } else {
-        setLocalPinnedColors(localPinnedColors.filter((item) => item !== rangePicker.color));
-        if (setPinnedColors) {
-          setPinnedColors(localPinnedColors.filter((item) => item !== rangePicker.color));
+        const newLocalPinnedColors = localPinnedColors.filter((item) => item !== rangePicker.color);
+        setLocalPinnedColors(newLocalPinnedColors);
+
+        if (typeof onChange === 'function') {
+          onChange(rangePicker.color, `rgb(${hexToRgb(rangePicker.color).join(', ')})`, newLocalPinnedColors);
         }
       }
     };
 
     const changeBarPosByColor = (color: string): void => {
       if (barRef !== null) {
-        const { left } = barRef.getBoundingClientRect();
+        const { left } = getElemDocumentCoords(barRef)!;
         const [h] = colorToHsl(color || rangePicker.color);
         const targetColorElem = barRef.querySelector(`[data-hue='${h}']`) as HTMLElement;
         if (targetColorElem !== null) {
           const targetColorRgb = targetColorElem.style.backgroundColor || bar.color;
           setBar({
             color: targetColorRgb,
-            pointerLeft: targetColorElem.getBoundingClientRect().left - left || bar.pointerLeft,
+            pointerLeft: getElemDocumentCoords(targetColorElem)!.left - left || bar.pointerLeft,
           });
         }
       }
     };
 
-    // const handleRgbInput = (value, index) => {
-    //   const rgbArr = rgbColorValue;
-    //   rgbArr[index] = value;
-    //   console.log('rgbArrrrrr', rgbArr);
+    const handleRgbInput = (value: number, index: number) => {
+      const rgbArr = rgbColorValue;
+      rgbArr[index] = value;
+      const newHexColor = rgbToHex(...rgbArr);
 
-    //   console.log('handle', `rgb(${rgbArr.join(', ')})`);
+      setRgbColorValue([...rgbArr]);
+      if (validateHex(newHexColor)) {
+        setRangePicker({
+          ...rangePicker,
+          color: newHexColor,
+        });
+        changeBarPosByColor(newHexColor);
+      }
+    };
 
-    //   setRangePicker({
-    //     ...rangePicker,
-    //     color: colorToHex(`rgb(${rgbArr.join(', ')})`),
-    //   });
-    //   // setRgbColorValue([...rgbArr]);
-    //   changeBarAndRangeColors(colorToHex(`rgb(${rgbArr.join(', ')})`));
-    // };
-
-    // const updateRgb = (color: string): void => {
-    //   if (color.includes('rgb')) {
-    //     console.log('firstUpdateRgb', colorToHex(color));
-    //     setRgbColorValue(colorToHex(color));
-    //   } else {
-    //     console.log('secondUpdateRgb', hexToRgb(color));
-    //     setRgbColorValue(hexToRgb(color));
-    //   }
-    // };
+    const updateRgb = (color: string): void => {
+      if (color.includes('rgb')) {
+        setRgbColorValue(rgbStringToArray(color));
+      } else {
+        setRgbColorValue(hexToRgb(color));
+      }
+    };
 
     const changeRangePickerPointerPosByColor = (color: string): void => {
       if (rangePickerRef !== null) {
-        const { width, height } = rangePickerRef.getBoundingClientRect();
+        const { width, height } = getElemDocumentCoords(rangePickerRef)!;
         const colorHsl = colorToHsl(color);
         const colorHsv = hslToHsv(colorHsl[0], colorHsl[1] / 100, colorHsl[2] / 100);
         const left = mapNumber(colorHsv[1], 0, 100, 0, width);
@@ -117,13 +121,16 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           pointer: { left, top },
         });
         changeBarPosByColor(color);
-        // updateRgb(color);
+        updateRgb(color);
+        if (typeof onChange === 'function') {
+          onChange(color, `rgb(${hexToRgb(color).join(', ')})`, localPinnedColors);
+        }
       }
     };
 
     const changeRangePickerColorByPosition = (left: number, top: number, barColor: string): void => {
       if (rangePickerRef !== null) {
-        const { width, height } = rangePickerRef.getBoundingClientRect();
+        const { width, height } = getElemDocumentCoords(rangePickerRef)!;
 
         const [barColorHue] = colorToHsl(barColor);
 
@@ -143,7 +150,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         });
 
         if (typeof onChange === 'function') {
-          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`);
+          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`, localPinnedColors);
         }
       }
     };
@@ -151,7 +158,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     const changeBarColorByPosition = (pointerLeft: number): string => {
       const barElem = barRef;
       if (barElem !== null) {
-        const { width } = barElem.getBoundingClientRect();
+        const { width } = getElemDocumentCoords(barElem)!;
         const mappedPointerLeft = restrictNumber(
           Math.round(mapNumber(pointerLeft, 0, width, 0, colorsHuesCount)),
           0,
@@ -174,7 +181,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       const barElem = barRef;
 
       if (barElem !== null) {
-        const { left } = barElem.getBoundingClientRect();
+        const { left } = getElemDocumentCoords(barElem)!;
         const pointerEvent = e.touches?.[0] || e;
         const barColor = changeBarColorByPosition(pointerEvent.pageX - left);
 
@@ -185,7 +192,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     const updateRangePickerColor = (e: any): void => {
       const rangePickerElem = rangePickerRef;
       if (rangePickerElem !== null) {
-        const { left, top, height, width } = rangePickerElem.getBoundingClientRect();
+        const { left, top, height, width } = getElemDocumentCoords(rangePickerElem)!;
         const pointerLeft = e ? restrictNumber(e.pageX - left, 0, width) : rangePicker.pointer.left || 0;
         const pointerTop = e ? restrictNumber(e.pageY - top, 0, height) : rangePicker.pointer.left || 0;
         changeRangePickerColorByPosition(pointerLeft, pointerTop, bar.color);
@@ -218,10 +225,8 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
-    const validateHex = (color: string) => {
-      // TODO: validating 3 color code for Hex
-      // /^#([\da-f]{3}){1,2}$/i.test(color)
-      const testHex = /^#[\da-f]{6}$/i.test(color);
+    const validateHexAndUpdate = (color: string) => {
+      const testHex = validateHex(color);
 
       if (testHex) {
         changeRangePickerPointerPosByColor(color);
@@ -236,20 +241,13 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 
     useEffect(() => {
       setHexInputValue(rangePicker.color);
-      // updateRgb(rangePicker.color);
+      updateRgb(rangePicker.color);
     }, [rangePicker.color]);
 
     const barColors = useMemo(
       () =>
         [...new Array(colorsHuesCount + 1)].map((_, h) => (
-          <Styled.BarColorStop
-            key={h}
-            color={`hsl(${h}, 100%, 50%)`}
-            data-hue={h}
-            style={{
-              backgroundColor: `hsl(${h}, 100%, 50%)`,
-            }}
-          />
+          <Styled.BarColorStop key={h} $color={`hsl(${h}, 100%, 50%)`} data-hue={h} />
         )),
       []
     );
@@ -279,7 +277,6 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           <Styled.ColorPointer
             tabIndex={-1}
             left={bar.pointerLeft}
-            top={0}
             onKeyDown={moveBarPointerByArrows}
             considerTopWidth={false}
             style={{ top: -3 }}
@@ -302,7 +299,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           <Styled.Select value={inputType}>
             <Select size="sm" value={inputType} onChange={(ev: any) => setInputType(ev)} fullWidth>
               <MenuItem value="hex">Hex</MenuItem>
-              {/* <MenuItem value="rgb">RGB</MenuItem> */}
+              <MenuItem value="rgb">RGB</MenuItem>
             </Select>
           </Styled.Select>
 
@@ -311,7 +308,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
               size="sm"
               error={!/^#([\da-f]{3}){1,2}$/i.test(rangePicker.color)}
               value={hexInputValue}
-              onChange={(e: any) => validateHex(e.target.value)}
+              onChange={(e: any) => validateHexAndUpdate(e.target.value)}
               style={{ width: '45%' }}
             />
           ) : (
@@ -321,7 +318,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
                 key={index}
                 size="sm"
                 value={rgb}
-                // onChange={(e: any) => handleRgbInput(Number(e.target?.value), index)}
+                onChange={(e: any) => handleRgbInput(Number(e.target?.value), index)}
                 style={{ width: '20%' }}
               />
             ))
@@ -345,12 +342,14 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
   }
 );
 
-ColorPicker.defaultProps = {};
+ColorPicker.defaultProps = {
+  defaultColor: '#000000',
+  pinnedColors: [],
+};
 
 ColorPicker.propTypes = {
   defaultColor: PT.string,
   onChange: PT.func,
-  setPinnedColors: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   pinnedColors: PT.array,
 };
