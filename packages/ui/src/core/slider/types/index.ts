@@ -1,1 +1,1 @@
-export * from './number-of-sliders';
+export * from './label-tooltip';

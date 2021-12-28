@@ -1,273 +1,405 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable consistent-return */
-/* eslint-disable unicorn/prefer-number-properties */
-/* eslint-disable id-length */
 /* eslint-disable no-use-before-define */
 /* eslint-disable sonarjs/cognitive-complexity */
-/* eslint-disable radix */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import {
+  intrinsicComponent,
+  objectValues,
+  asc,
+  valueToPercent,
+  percentToValue,
+  roundValueToStep,
+  setValueIndex,
+  findClosest,
+  ownerDocument,
+  clamp,
+  trackFinger,
+} from '../../utils/functions';
+import useControlled from '../../hooks/use-controlled';
+import useEventCallback from '../../hooks/use-event-callback';
 import type { SliderProps } from './slider.props';
+import { LabelTooltip } from './types';
 import Styled from './slider.styles';
-import { NumberofSliders } from './types';
 
-const Slider = intrinsicComponent<SliderProps, HTMLDivElement>(
+const INTENTIONAL_DRAG_COUNT_THRESHOLD = 2;
+
+function focusThumb({
+  sliderRef,
+  activeIndex,
+  setActive,
+}: {
+  sliderRef: any;
+  activeIndex: number;
+  setActive?: any;
+}): void {
+  const doc = ownerDocument(sliderRef.current);
+  if (
+    !sliderRef.current.contains(doc.activeElement) ||
+    Number(doc.activeElement!.getAttribute('data-index')) !== activeIndex
+  ) {
+    sliderRef.current.querySelector(`[type="range"][data-index="${activeIndex}"]`)?.focus();
+  }
+
+  if (setActive) {
+    setActive(activeIndex);
+  }
+}
+
+const axisProps = {
+  horizontal: {
+    offset: (percent: number) => ({ left: `${percent}%` }),
+    leap: (percent: number) => ({ width: `${percent}%` }),
+  },
+  'horizontal-reverse': {
+    offset: (percent: number) => ({ right: `${percent}%` }),
+    leap: (percent: number) => ({ width: `${percent}%` }),
+  },
+  vertical: {
+    offset: (percent: number) => ({ bottom: `${percent}%` }),
+    leap: (percent: number) => ({ height: `${percent}%` }),
+  },
+};
+
+const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
   (
     {
-      value: { from = 10, to = 50 } = {},
+      defaultValue,
+      disabled = false,
+      disableSwap = false,
+      hideTrack = false,
+      value: valueProp,
       min = 0,
       max = 100,
-      onChange = () => '',
+      // orientation = 'horizontal',
+      onChange,
+      onMouseDown,
+      onMouseUp,
       step = 1,
-      isActive = false,
+      labelTooltip = LabelTooltip.Off,
       annotation = '',
-      numberOfSliders = NumberofSliders.One,
       ...rest
     }: SliderProps,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ref
   ): JSX.Element => {
-    const [slider1Value, setSlider1Value] = useState<number | undefined>(parseInt(from.toString()));
-    const [slider2Value, setSlider2Value] = useState<number | undefined>(
-      numberOfSliders === 1 ? 0 : parseInt(to.toString())
-    );
-    const [heldSlider, setHeldSlider] = useState<number | null>(null);
-    const [isSliding, setIsSliding] = useState(false);
-    const [slidersContainer, setSlidersContainer] = useState<HTMLElement | null>(null);
-    const slidersContainerRef = useRef<any | null>(null);
-    const slider1Ref = useRef(null);
-    const slider2Ref = useRef(null);
-    const firstRender = useRef(true);
+    const [active, setActive] = useState(-1);
+    const [open, setOpen] = useState(-1);
+    const [dragging, setDragging] = useState(false);
 
-    useEffect(() => {
-      if (firstRender.current) {
-        firstRender.current = false;
-        return;
-      }
+    const moveCount = useRef(0);
+    const previousIndex = useRef(0);
+    const touchId = useRef();
+    const sliderRef = useRef<HTMLSpanElement | null>(null);
 
-      let slidersVals = { from: slider1Value, to: slider2Value };
+    const [valueDerived, setValueState] = useControlled({
+      controlled: valueProp,
+      default: defaultValue ?? min,
+    });
 
-      if (slider1Value && slider2Value && slider1Value > slider2Value) {
-        slidersVals = { from: slider2Value, to: slider1Value };
-      }
+    const axis = 'horizontal';
+    const range = Array.isArray(valueDerived);
 
-      onChange(slidersVals);
-    }, [slider1Value, slider2Value]);
+    const values = range ? valueDerived.slice().sort(asc) : [valueDerived];
 
-    useEffect(() => {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (slidersContainerRef.current) {
-        setSlidersContainer(slidersContainerRef.current);
-      }
-    }, [slidersContainerRef]);
+    const getFingerNewValue = ({
+      finger,
+      move = false,
+      values: values2,
+    }: {
+      finger: any;
+      move?: boolean;
+      values: any;
+    }): { newValue: number | number[]; activeIndex: number } | null => {
+      const { current: slider } = sliderRef;
+      if (slider) {
+        const { width, height, bottom, left } = slider.getBoundingClientRect();
+        let percent;
 
-    const onDragSlider1 = (e: any): void => {
-      dragSlider(prepareIfTouchEvent(e), setSlider1Value);
-    };
-
-    const onDragSlider2 = (e: any): void => {
-      dragSlider(prepareIfTouchEvent(e), setSlider2Value);
-    };
-
-    const prepareIfTouchEvent = (e: any): TouchEvent => {
-      if (e.touches) {
-        e.pageX = e.touches[0].pageX;
-      }
-
-      return e;
-    };
-
-    const activateSlider1Dragging = (e: any): void => {
-      setIsSliding(true);
-      e.preventDefault();
-      document.body.addEventListener('mousemove', onDragSlider1);
-      document.body.addEventListener('touchmove', onDragSlider1);
-      setHeldSlider(1);
-      disablingEvents();
-    };
-
-    const activateSlider2Dragging = (e: any): void => {
-      setIsSliding(true);
-      e.preventDefault();
-      document.body.addEventListener('mousemove', onDragSlider2);
-      document.body.addEventListener('touchmove', onDragSlider2);
-      setHeldSlider(2);
-      disablingEvents();
-    };
-
-    const disableSlidersDragging = (): void => {
-      document.body.removeEventListener('mousemove', onDragSlider1);
-      document.body.removeEventListener('touchmove', onDragSlider1);
-      document.body.removeEventListener('mousemove', onDragSlider2);
-      document.body.removeEventListener('touchmove', onDragSlider2);
-      document.body.removeEventListener('mouseup', disableSlidersDragging);
-      document.body.removeEventListener('mouseleave', disableSlidersDragging);
-      document.body.removeEventListener('touchend', disableSlidersDragging);
-      document.body.removeEventListener('touchleave', disableSlidersDragging);
-      document.body.removeEventListener('touchcancel', disableSlidersDragging);
-      setTimeout(() => setIsSliding(false), 0);
-    };
-
-    const disablingEvents = (): void => {
-      document.body.addEventListener('mouseup', disableSlidersDragging);
-      document.body.addEventListener('touchend', disableSlidersDragging);
-      document.body.addEventListener('touchleave', disableSlidersDragging);
-      document.body.addEventListener('touchcancel', disableSlidersDragging);
-    };
-
-    const dragSlider = (
-      { pageX }: any,
-      setSliderPosition: React.Dispatch<React.SetStateAction<number | undefined>>
-    ): number | void => {
-      if (pageX) {
-        let containerLeft: any;
-        if (slidersContainer?.getBoundingClientRect()) {
-          containerLeft = slidersContainer.getBoundingClientRect().left;
+        if (axis.indexOf('vertical') === 0) {
+          percent = (bottom - finger.y) / height;
+        } else {
+          percent = (finger.x - left) / width;
         }
 
-        setSliderPosition(() => {
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          let newPosition = mapValueBySlidersWidth(pageX - containerLeft, false)!;
+        if (axis.includes('-reverse')) {
+          percent = 1 - percent;
+        }
 
-          if (newPosition < min) {
-            newPosition = min;
-          } else if (newPosition > max) {
-            newPosition = max;
+        let newValue;
+        newValue = percentToValue(percent, min, max);
+        if (step) {
+          newValue = roundValueToStep(newValue, step, min);
+        }
+
+        newValue = clamp(newValue, min, max);
+        let activeIndex = 0;
+
+        if (range) {
+          if (!move) {
+            activeIndex = findClosest(values2, newValue);
+          } else {
+            activeIndex = previousIndex.current;
           }
 
-          let position;
-          if (newPosition || newPosition === 0) {
-            position = newPosition.toString();
+          if (disableSwap) {
+            newValue = clamp(newValue, values2[activeIndex - 1] || -Infinity, values2[activeIndex + 1] || Infinity);
           }
-          return parseNumber(position);
+
+          const previousValue = newValue;
+
+          newValue = setValueIndex({
+            values: values2,
+            newValue,
+            index: activeIndex,
+          });
+
+          if (!(disableSwap && move) && Array.isArray(newValue)) {
+            activeIndex = newValue.indexOf(previousValue);
+
+            previousIndex.current = activeIndex;
+          }
+        }
+
+        return { newValue, activeIndex };
+      }
+      return null;
+    };
+
+    const handleChange = (event: any, value: number | number[], thumbIndex: number): void => {
+      if (onChange) {
+        onChange(event, value, thumbIndex);
+      }
+    };
+
+    const handleHiddenInputChange = (event: any) => {
+      const index = Number(event.currentTarget.getAttribute('data-index'));
+
+      let newValue = event.target.valueAsNumber;
+
+      if (range) {
+        if (disableSwap) {
+          newValue = clamp(newValue, values[index - 1] || -Infinity, values[index + 1] || Infinity);
+        }
+
+        const previousValue = newValue;
+        newValue = setValueIndex({
+          values,
+          newValue,
+          index,
         });
 
-        document.body.addEventListener('mouseleave', disableSlidersDragging);
+        let activeIndex = index;
+
+        if (!disableSwap) {
+          activeIndex = newValue.indexOf(previousValue);
+        }
+
+        focusThumb({ sliderRef, activeIndex });
+      }
+
+      setValueState(newValue);
+
+      if (handleChange) {
+        handleChange(event, newValue, index);
+      }
+
+      if (onMouseUp) {
+        onMouseUp(event);
       }
     };
 
-    const mapValueBySlidersWidth = (value: number | undefined, mapToWidth = true): number | undefined => {
-      if (!slidersContainer) {
+    const handleTouchMove = useEventCallback((nativeEvent: any) => {
+      const finger = trackFinger(nativeEvent, touchId);
+
+      if (!finger) {
         return;
       }
-      if (!value) {
-        return 0;
+
+      moveCount.current += 1;
+      if (nativeEvent.type === 'mousemove' && nativeEvent.buttons === 0) {
+        // eslint-disable-next-line @typescript-eslint/no-use-before-define
+        handleTouchEnd(nativeEvent);
+        return;
       }
-      // 10 = the slider controls circle's width
-      const slidersContainerWidth = slidersContainer.getBoundingClientRect().width - 10;
-      const mapRangeFromMin = mapToWidth ? min : 0;
-      const mapRangeFromMax = mapToWidth ? max : slidersContainerWidth;
-      const mapRangeToMin = mapToWidth ? 0 : min;
-      const mapRangeToMax = mapToWidth ? slidersContainerWidth : max;
 
-      return (
-        ((value - mapRangeFromMin) / (mapRangeFromMax - mapRangeFromMin)) *
-        (mapRangeToMax - mapRangeToMin + mapRangeToMin)
-      );
-    };
+      const { newValue, activeIndex } = getFingerNewValue({
+        finger,
+        move: true,
+        values,
+      })!;
 
-    const changeSliderValueByClick = ({ nativeEvent }: any): void => {
-      let { offsetX } = nativeEvent;
-      const offsetValue = mapValueBySlidersWidth(offsetX, false)?.toString();
-      offsetX = parseNumber(offsetValue);
-      const slider1Reminder = Math.abs(offsetX - slider1Value!);
-      const slider2Reminder = Math.abs(offsetX - slider2Value!);
-      if (numberOfSliders === 2) {
-        if (slider1Reminder < slider2Reminder) {
-          setSlider1Value(offsetX);
-        } else {
-          setSlider2Value(offsetX);
+      focusThumb({ sliderRef, activeIndex, setActive });
+      setValueState(newValue);
+
+      if (!dragging && moveCount.current > INTENTIONAL_DRAG_COUNT_THRESHOLD) {
+        setDragging(true);
+      }
+
+      if (handleChange) {
+        handleChange(nativeEvent, newValue, activeIndex);
+      }
+    });
+
+    const handleTouchEnd = useEventCallback((nativeEvent: any) => {
+      const finger = trackFinger(nativeEvent, touchId);
+      setDragging(false);
+
+      if (!finger) {
+        return;
+      }
+
+      setActive(-1);
+      if (nativeEvent.type === 'touchend') {
+        setOpen(-1);
+      }
+
+      if (onMouseUp) {
+        onMouseUp(nativeEvent);
+      }
+
+      touchId.current = undefined;
+
+      stopListening();
+    });
+
+    const handleTouchStart = useEventCallback((nativeEvent: any) => {
+      const touch = nativeEvent.changedTouches[0];
+      if (touch != null) {
+        touchId.current = touch.identifier;
+      }
+      const finger = trackFinger(nativeEvent, touchId);
+      const { newValue, activeIndex } = getFingerNewValue({ finger, values })!;
+      focusThumb({ sliderRef, activeIndex, setActive });
+
+      setValueState(newValue);
+
+      handleChange(nativeEvent, newValue, activeIndex);
+
+      moveCount.current = 0;
+      const doc = ownerDocument(sliderRef.current);
+      doc.addEventListener('touchmove', handleTouchMove);
+      doc.addEventListener('touchend', handleTouchEnd);
+    });
+
+    const handleMouseOver = useEventCallback((event: any) => {
+      const index = Number(event.currentTarget.getAttribute('data-index'));
+      setOpen(index);
+    });
+
+    const handleMouseLeave = useEventCallback(() => {
+      setOpen(-1);
+    });
+
+    const handleMouseDown = useEventCallback((event: any) => {
+      if (!disabled) {
+        if (onMouseDown) {
+          onMouseDown(event);
         }
+
+        if (event.button !== 0) {
+          return;
+        }
+
+        // Avoid text selection
+        event.preventDefault();
+        const finger = trackFinger(event, touchId);
+
+        const { newValue, activeIndex } = getFingerNewValue({ finger, values })!;
+        focusThumb({ sliderRef, activeIndex, setActive });
+
+        setValueState(newValue);
+
+        if (handleChange) {
+          handleChange(event, newValue, activeIndex);
+        }
+
+        moveCount.current = 0;
+        const doc = ownerDocument(sliderRef.current);
+        doc.addEventListener('mousemove', handleTouchMove);
+        doc.addEventListener('mouseup', handleTouchEnd);
       } else {
-        setSlider1Value(offsetX);
+        // Avoid text selection
+        event.preventDefault();
       }
-    };
+    });
 
-    const parseNumber = (number: string | undefined): number | undefined => {
-      if (number || number === '0') {
-        return step % 1 === 0 ? parseInt(number) : +parseFloat(number).toFixed(2);
-      }
-    };
+    const stopListening = useCallback(() => {
+      const doc = ownerDocument(sliderRef.current);
+      doc.removeEventListener('mousemove', handleTouchMove);
+      doc.removeEventListener('mouseup', handleTouchEnd);
+      doc.removeEventListener('touchmove', handleTouchMove);
+      doc.removeEventListener('touchend', handleTouchEnd);
+    }, [handleTouchEnd, handleTouchMove]);
 
-    const absToPercentage = (value: number | undefined): number | undefined => {
-      if (slidersContainer && value) {
-        return (value / slidersContainer.getBoundingClientRect().width) * 100;
+    useEffect(() => {
+      const { current: slider } = sliderRef;
+      if (slider) {
+        return () => {
+          stopListening();
+        };
       }
-      return value;
-    };
+    }, [stopListening, handleTouchStart]);
 
-    if (slidersContainer) {
-      let minSliderPercentage: number | undefined = 0;
-      let maxSliderPercentage: number | undefined = 0;
-      if (numberOfSliders === 1) {
-        if (slider1Value) {
-          minSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
-          maxSliderPercentage = absToPercentage(mapValueBySlidersWidth(slider1Value));
-        }
-      } else if (slider1Value && slider2Value) {
-        minSliderPercentage = absToPercentage(
-          mapValueBySlidersWidth(slider1Value > slider2Value ? slider2Value : slider1Value)
-        );
-        maxSliderPercentage = absToPercentage(
-          mapValueBySlidersWidth(slider2Value > slider1Value ? slider2Value : slider1Value)
-        );
+    useEffect(() => {
+      if (disabled) {
+        stopListening();
       }
+    }, [disabled, stopListening]);
 
-      if (slidersContainerRef.current && minSliderPercentage && maxSliderPercentage) {
-        if (numberOfSliders === 1) {
-          slidersContainerRef.current!.children[0].style.left = 0;
-          slidersContainerRef.current!.children[0].style.width = `${minSliderPercentage}%`;
-        } else if (numberOfSliders === 2) {
-          slidersContainerRef.current!.children[0].style.left = `${minSliderPercentage}%`;
-          slidersContainerRef.current!.children[0].style.width = `${maxSliderPercentage - minSliderPercentage}%`;
-        }
-      }
+    if (disabled && active !== -1) {
+      setActive(-1);
     }
 
+    const trackOffset = valueToPercent(range ? values[0] : min, min, max);
+    const trackLeap = valueToPercent(values[values.length - 1], min, max) - trackOffset;
+    const trackStyle = {
+      ...axisProps[axis].offset(trackOffset),
+      ...axisProps[axis].leap(trackLeap),
+    };
     const annotationText = annotation ? ` ${annotation}` : '';
-
     return (
-      <Styled.Slider {...rest} ref={ref}>
-        <Styled.SliderContainer onClick={isSliding ? undefined : changeSliderValueByClick} ref={slidersContainerRef}>
-          <Styled.SliderOverlay isActive={isActive} />
-          <Styled.SliderContainerLabel
-            onMouseDown={(e) => activateSlider1Dragging(e)}
-            onTouchStart={(e) => activateSlider1Dragging(e)}
-            ref={slider1Ref}
-            style={{
-              left: `${mapValueBySlidersWidth(slider1Value)}px`,
-              zIndex: heldSlider === 1 ? 1009 : undefined,
-            }}
-          >
-            <Styled.SliderContainerControlTooltip isActive={isActive}>
-              {slider1Value}
-              {annotationText}
-            </Styled.SliderContainerControlTooltip>
+      <Styled.Slider ref={sliderRef} disabled={disabled} onMouseDown={handleMouseDown} {...rest}>
+        <Styled.Rail />
+        {!hideTrack && <Styled.Track style={{ ...trackStyle }} />}
+        {values.map((value, index) => {
+          const percent = valueToPercent(value, min, max);
+          const style = axisProps[axis].offset(percent);
 
-            <Styled.SliderContainerControl isActive={isActive} />
-          </Styled.SliderContainerLabel>
-          {numberOfSliders === 2 && (
-            <Styled.SliderContainerLabel
-              onMouseDown={activateSlider2Dragging}
-              onTouchStart={activateSlider2Dragging}
-              ref={slider2Ref}
-              style={{
-                left: `${mapValueBySlidersWidth(slider2Value)}px`,
-                // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-                zIndex: heldSlider === 2 ? 1009 : undefined,
-              }}
-            >
-              <Styled.SliderContainerControlTooltip isActive={isActive}>
-                {slider2Value}
-                {annotationText}
-              </Styled.SliderContainerControlTooltip>
-              <Styled.SliderContainerControl isActive={isActive} />
-            </Styled.SliderContainerLabel>
-          )}
-        </Styled.SliderContainer>
+          return (
+            // eslint-disable-next-line react/no-array-index-key
+            <React.Fragment key={index}>
+              <Styled.Thumb
+                data-index={index}
+                onMouseOver={handleMouseOver}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  ...style,
+                  pointerEvents: disableSwap && active !== index ? 'none' : undefined,
+                }}
+              >
+                <input
+                  data-index={index}
+                  type="range"
+                  min={min}
+                  max={max}
+                  value={values[index]}
+                  step={step}
+                  disabled={disabled}
+                  onChange={handleHiddenInputChange}
+                />
+                <Styled.LabelTooltip
+                  open={open === index || active === index || labelTooltip === 'on'}
+                  disabled={disabled}
+                >
+                  {values[index]}
+                  {annotationText}
+                </Styled.LabelTooltip>
+              </Styled.Thumb>
+            </React.Fragment>
+          );
+        })}
         <Styled.SliderAnnotation>
           <span>
             {min}
@@ -284,23 +416,27 @@ const Slider = intrinsicComponent<SliderProps, HTMLDivElement>(
 );
 
 Slider.defaultProps = {
-  numberOfSliders: NumberofSliders.One,
   annotation: 'MB',
   min: 0,
   max: 100,
   step: 1,
+  labelTooltip: LabelTooltip.Off,
 };
 
 Slider.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  value: PT.object.isRequired,
+  defaultValue: PT.oneOfType([PT.array, PT.number]),
+  value: PT.oneOfType([PT.array, PT.number]),
   min: PT.number,
   max: PT.number,
-  onChange: PT.func.isRequired,
+  onChange: PT.func,
+  onMouseDown: PT.func,
+  onMouseUp: PT.func,
   step: PT.number,
-  isActive: PT.bool.isRequired,
   annotation: PT.string,
-  numberOfSliders: PT.oneOf(objectValues(NumberofSliders)),
+  disabled: PT.bool,
+  disableSwap: PT.bool,
+  hideTrack: PT.bool,
+  labelTooltip: PT.oneOf(objectValues(LabelTooltip)),
 };
 
 export default Slider;

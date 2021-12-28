@@ -2,121 +2,155 @@ import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
-import { Color as PColor } from '../../utils/types/palette';
+import { Color as PC } from '../../utils/types/palette';
 // import type { SliderProps } from './slider.props';
 
 const baseClassName = 'Slider';
 
-const Slider = styled.div.attrs({
+const Slider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
+})(
+  ({ theme, disabled = false }: With<WithTheme, { disabled: boolean }>) => css`
+    display: inline-block;
+    border-radius: 2px;
+    position: relative;
+    cursor: pointer;
+    touch-action: none;
+    color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.BorderActiveBottom]};
+    height: 4px;
+    width: 100%;
+    padding: 12px 0;
+  `
+);
+
+const Rail = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'rail'),
 })`
+  display: block;
+  position: absolute;
+  border-radius: inherit;
+  background-color: currentColor;
+  opacity: 0.38;
   width: 100%;
-  padding: 12px 0 0;
+  height: inherit;
+  top: 50%;
+  transform: translateY(-50%);
 `;
 
-const SliderContainerLabel = styled.label.attrs({
-  className: generateClassNames(baseClassName, 'label'),
-})``;
+const Track = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Track'),
+})`
+  display: block;
+  position: absolute;
+  border-radius: inherit;
+  border: 1px solid currentColor;
+  background-color: currentColor;
+  height: inherit;
+  top: 50%;
+  transform: translateY(-50%);
+`;
 
-const SliderContainer = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'container'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    display: block;
+const Thumb = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'thumb'),
+})`
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  outline: 0;
+  background-color: currentColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  & > input {
+    border: 0px;
+    clip: rect(0px, 0px, 0px, 0px);
+    height: 100%;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0px;
+    position: absolute;
+    white-space: nowrap;
     width: 100%;
-    height: 4px;
-    background: ${palette[PColor.BordersStrong]};
-    border-radius: 20px;
-    position: relative;
-    margin-top: 12px;
-    cursor: pointer;
+    direction: ltr;
+  }
 
-    ${SliderContainerLabel} {
-      position: absolute;
-      left: 0;
-      display: flex;
-      justify-content: center;
-    }
-  `
-);
+  &::before {
+    position: absolute;
+    content: '';
+    border-radius: inherit;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%), 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  }
 
-const SliderContainerControl = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'control'),
+  &::after {
+    position: absolute;
+    content: '';
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
+const LabelTooltip = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'label'),
 })(
-  ({ isActive = false }: { isActive: boolean }) => css`
-    height: 10px;
-    width: 10px;
-    border-radius: 20px;
-    border: 2px solid #d5d8dc;
-    border-color: ${isActive && '#6879EB'};
-    background: #fff;
-    display: inline-block;
-    position: relative;
-    top: -3px;
-    cursor: ew-resize;
-  `
-);
-
-const SliderContainerControlTooltip = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'control-tootip'),
-})(
-  ({ isActive = false }: { isActive: boolean }) => css`
-    cursor: pointer;
-    background: ${isActive ? '#5D6D7E' : '#cbd3da'};
-    color: #fff;
+  ({ theme, open = false, disabled = false }: With<WithTheme, { open: boolean; disabled: boolean }>) => css`
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 3px 6px;
+    padding: 6px 6px;
     border-radius: 2px;
     position: absolute;
-    top: -35px;
-    height: 18px;
+    top: -10px;
     font-size: 10px;
-    width: max-content;
-
-    &::after {
+    z-index: 1;
+    white-space: nowrap;
+    transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transform-origin: bottom center;
+    transform: ${open ? 'translateY(-100%) scale(1)' : 'translateY(-100%) scale(0)'};
+    background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkHover]};
+    color: #fff;
+    cursor: pointer;
+    &::before {
+      position: absolute;
       content: '';
-      background: ${isActive ? '#5D6D7E' : '#cbd3da'};
+      background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkHover]};
       width: 8px;
       height: 8px;
-      transform: rotate(45deg);
-      position: absolute;
-      bottom: -3px;
-      font-size: 14px;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%, 50%) rotate(45deg);
     }
-  `
-);
-
-const SliderOverlay = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'overlay'),
-})(
-  ({ isActive = false }: With<WithTheme, { isActive: boolean }>) => css`
-    background: ${isActive ? '#6879EB' : '#cbd3da'};
-    height: 100%;
-    pointer-events: none;
-    position: absolute;
-    display: block;
   `
 );
 
 const SliderAnnotation = styled.div.attrs({
   className: generateClassNames(baseClassName, 'annotation'),
-})`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 8px;
-`;
+})(
+  ({ theme }: WithTheme) => css`
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    color: ${theme.palette[PC.TextSecondary]};
+  `
+);
 
 const Styled = applyDisplayNames({
   Slider,
-  SliderContainer,
-  SliderContainerLabel,
-  SliderContainerControl,
-  SliderContainerControlTooltip,
-  SliderOverlay,
+  Rail,
+  Track,
+  Thumb,
   SliderAnnotation,
+  LabelTooltip,
 });
 
 export default Styled;

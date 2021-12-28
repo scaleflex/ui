@@ -9,3 +9,4 @@ export * from './color-picker/restrict-number';
 export * from './color-picker/map-number';
 export * from './color-picker/color-converters';
 export * from './get-elem-document-coords';
+export * from './slider/utils';
