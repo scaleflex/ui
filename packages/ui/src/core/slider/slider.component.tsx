@@ -348,7 +348,13 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
 
     const annotationText = annotation ? ` ${annotation}` : '';
     return (
-      <Styled.Slider ref={sliderRef} disabled={disabled} onMouseDown={handleMouseDown} {...rest}>
+      <Styled.Slider
+        ref={sliderRef}
+        disabled={disabled}
+        onTouchStart={handleTouchStart}
+        onMouseDown={handleMouseDown}
+        {...rest}
+      >
         {Rail}
         {Track}
         {values.map((value, index) => {
