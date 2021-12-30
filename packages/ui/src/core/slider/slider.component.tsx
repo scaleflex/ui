@@ -27,7 +27,7 @@ import { LabelTooltip } from './types';
 import Styled from './slider.styles';
 
 const INTENTIONAL_DRAG_COUNT_THRESHOLD = 2;
-const dataIndex = 'date-index';
+const dataIndex = 'data-index';
 
 const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
   (
