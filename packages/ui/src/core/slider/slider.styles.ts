@@ -3,14 +3,14 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PC } from '../../utils/types/palette';
-// import type { SliderProps } from './slider.props';
+import type { SliderProps } from './slider.props';
 
 const baseClassName = 'Slider';
 
 const Slider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme, disabled = false }: With<WithTheme, { disabled: boolean }>) => css`
+  ({ theme, disabled = false }: With<WithTheme, SliderProps>) => css`
     display: inline-block;
     border-radius: 2px;
     position: relative;

@@ -87,3 +87,40 @@ export function trackFinger(event: any, touchId: any): { x: number | null; y: nu
     y: event.clientY,
   };
 }
+
+export const axisProps = {
+  horizontal: {
+    offset: (percent: number) => ({ left: `${percent}%` }),
+    leap: (percent: number) => ({ width: `${percent}%` }),
+  },
+  'horizontal-reverse': {
+    offset: (percent: number) => ({ right: `${percent}%` }),
+    leap: (percent: number) => ({ width: `${percent}%` }),
+  },
+  vertical: {
+    offset: (percent: number) => ({ bottom: `${percent}%` }),
+    leap: (percent: number) => ({ height: `${percent}%` }),
+  },
+};
+
+export function focusThumb({
+  sliderRef,
+  activeIndex,
+  setActive,
+}: {
+  sliderRef: any;
+  activeIndex: number;
+  setActive?: any;
+}): void {
+  const doc = ownerDocument(sliderRef.current);
+  if (
+    !sliderRef.current.contains(doc.activeElement) ||
+    Number(doc.activeElement!.getAttribute('data-index')) !== activeIndex
+  ) {
+    sliderRef.current.querySelector(`[type="range"][data-index="${activeIndex}"]`)?.focus();
+  }
+
+  if (setActive) {
+    setActive(activeIndex);
+  }
+}

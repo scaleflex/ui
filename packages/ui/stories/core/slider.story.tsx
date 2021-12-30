@@ -9,6 +9,16 @@ export const Slider = _Slider;
 export default {
   title: `${StoryGroup.Inputs}/Sliders/Slider`,
   component: Slider,
+  argTypes: {
+    components: {
+      description:
+        'To replace components used for each slot inside the Slider:	`{ Rail?: React.ElementType, Track?: React.ElementType, `<br />` Thumb?: React.ElementType, LabelTooltip?: React.ElementType }`',
+    },
+    componentsProps: {
+      description:
+        'Props passed to each slot inside the Slider:	`{ rail?: object, thumb?: object; track?: object, labelTooltip?: object }`',
+    },
+  },
   excludeStories: ['Slider'],
 } as Meta;
 

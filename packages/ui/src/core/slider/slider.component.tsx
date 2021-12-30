@@ -1,8 +1,9 @@
+/* eslint-disable no-shadow */
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-use-before-define */
 /* eslint-disable sonarjs/cognitive-complexity */
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import PT from 'prop-types';
+import PT, { Validator } from 'prop-types';
 
 import {
   intrinsicComponent,
@@ -16,51 +17,17 @@ import {
   ownerDocument,
   clamp,
   trackFinger,
+  focusThumb,
+  axisProps,
 } from '../../utils/functions';
 import useControlled from '../../hooks/use-controlled';
 import useEventCallback from '../../hooks/use-event-callback';
-import type { SliderProps } from './slider.props';
+import type { SliderProps, ComponentsType } from './slider.props';
 import { LabelTooltip } from './types';
 import Styled from './slider.styles';
 
 const INTENTIONAL_DRAG_COUNT_THRESHOLD = 2;
-
-function focusThumb({
-  sliderRef,
-  activeIndex,
-  setActive,
-}: {
-  sliderRef: any;
-  activeIndex: number;
-  setActive?: any;
-}): void {
-  const doc = ownerDocument(sliderRef.current);
-  if (
-    !sliderRef.current.contains(doc.activeElement) ||
-    Number(doc.activeElement!.getAttribute('data-index')) !== activeIndex
-  ) {
-    sliderRef.current.querySelector(`[type="range"][data-index="${activeIndex}"]`)?.focus();
-  }
-
-  if (setActive) {
-    setActive(activeIndex);
-  }
-}
-
-const axisProps = {
-  horizontal: {
-    offset: (percent: number) => ({ left: `${percent}%` }),
-    leap: (percent: number) => ({ width: `${percent}%` }),
-  },
-  'horizontal-reverse': {
-    offset: (percent: number) => ({ right: `${percent}%` }),
-    leap: (percent: number) => ({ width: `${percent}%` }),
-  },
-  vertical: {
-    offset: (percent: number) => ({ bottom: `${percent}%` }),
-    leap: (percent: number) => ({ height: `${percent}%` }),
-  },
-};
+const dataIndex = 'date-index';
 
 const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
   (
@@ -69,6 +36,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       disabled = false,
       disableSwap = false,
       hideTrack = false,
+      hideAnnotation = false,
       value: valueProp,
       min = 0,
       max = 100,
@@ -79,6 +47,8 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       step = 1,
       labelTooltip = LabelTooltip.Off,
       annotation = '',
+      components = {},
+      componentsProps = {},
       ...rest
     }: SliderProps,
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -174,7 +144,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     };
 
     const handleHiddenInputChange = (event: any) => {
-      const index = Number(event.currentTarget.getAttribute('data-index'));
+      const index = Number(event.currentTarget.getAttribute(dataIndex));
 
       let newValue = event.target.valueAsNumber;
 
@@ -201,9 +171,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
 
       setValueState(newValue);
 
-      if (handleChange) {
-        handleChange(event, newValue, index);
-      }
+      handleChange(event, newValue, index);
 
       if (onMouseUp) {
         onMouseUp(event);
@@ -237,9 +205,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
         setDragging(true);
       }
 
-      if (handleChange) {
-        handleChange(nativeEvent, newValue, activeIndex);
-      }
+      handleChange(nativeEvent, newValue, activeIndex);
     });
 
     const handleTouchEnd = useEventCallback((nativeEvent: any) => {
@@ -284,7 +250,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     });
 
     const handleMouseOver = useEventCallback((event: any) => {
-      const index = Number(event.currentTarget.getAttribute('data-index'));
+      const index = Number(event.currentTarget.getAttribute(dataIndex));
       setOpen(index);
     });
 
@@ -311,9 +277,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
 
         setValueState(newValue);
 
-        if (handleChange) {
-          handleChange(event, newValue, activeIndex);
-        }
+        handleChange(event, newValue, activeIndex);
 
         moveCount.current = 0;
         const doc = ownerDocument(sliderRef.current);
@@ -358,11 +322,35 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       ...axisProps[axis].offset(trackOffset),
       ...axisProps[axis].leap(trackLeap),
     };
+
+    const railProps = componentsProps.rail;
+    const Rail =
+      typeof components.Rail === 'function' ? (
+        <components.Rail {...railProps} style={{ ...railProps?.style }} />
+      ) : (
+        <Styled.Rail {...railProps} style={{ ...railProps?.style }} />
+      );
+
+    const trackProps = componentsProps.track;
+    const Track =
+      !hideTrack &&
+      (typeof components.Track === 'function' ? (
+        <components.Track {...trackProps} style={{ ...trackStyle, ...trackProps?.style }} />
+      ) : (
+        <Styled.Track {...trackProps} style={{ ...trackStyle, ...trackProps?.style }} />
+      ));
+
+    const thumbProps = componentsProps.thumb;
+    const Thumb = components.Thumb || Styled.Thumb;
+
+    const LabelTooltip = components.LabelTooltip || Styled.LabelTooltip;
+    const labelTooltipProps = componentsProps.labelTooltip;
+
     const annotationText = annotation ? ` ${annotation}` : '';
     return (
       <Styled.Slider ref={sliderRef} disabled={disabled} onMouseDown={handleMouseDown} {...rest}>
-        <Styled.Rail />
-        {!hideTrack && <Styled.Track style={{ ...trackStyle }} />}
+        {Rail}
+        {Track}
         {values.map((value, index) => {
           const percent = valueToPercent(value, min, max);
           const style = axisProps[axis].offset(percent);
@@ -370,13 +358,15 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
           return (
             // eslint-disable-next-line react/no-array-index-key
             <React.Fragment key={index}>
-              <Styled.Thumb
+              <Thumb
                 data-index={index}
                 onMouseOver={handleMouseOver}
                 onMouseLeave={handleMouseLeave}
+                {...thumbProps}
                 style={{
                   ...style,
                   pointerEvents: disableSwap && active !== index ? 'none' : undefined,
+                  ...thumbProps?.style,
                 }}
               >
                 <input
@@ -389,27 +379,30 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
                   disabled={disabled}
                   onChange={handleHiddenInputChange}
                 />
-                <Styled.LabelTooltip
+                <LabelTooltip
                   open={open === index || active === index || labelTooltip === 'on'}
                   disabled={disabled}
+                  style={{ ...labelTooltipProps?.style }}
                 >
                   {values[index]}
                   {annotationText}
-                </Styled.LabelTooltip>
-              </Styled.Thumb>
+                </LabelTooltip>
+              </Thumb>
             </React.Fragment>
           );
         })}
-        <Styled.SliderAnnotation>
-          <span>
-            {min}
-            {annotationText}
-          </span>
-          <span>
-            {max}
-            {annotationText}
-          </span>
-        </Styled.SliderAnnotation>
+        {!hideAnnotation && (
+          <Styled.SliderAnnotation>
+            <span>
+              {min}
+              {annotationText}
+            </span>
+            <span>
+              {max}
+              {annotationText}
+            </span>
+          </Styled.SliderAnnotation>
+        )}
       </Styled.Slider>
     );
   }
@@ -436,7 +429,16 @@ Slider.propTypes = {
   disabled: PT.bool,
   disableSwap: PT.bool,
   hideTrack: PT.bool,
+  hideAnnotation: PT.bool,
   labelTooltip: PT.oneOf(objectValues(LabelTooltip)),
+  components: PT.shape({
+    Rail: PT.elementType,
+    Track: PT.elementType,
+    Thumb: PT.elementType,
+    LabelTooltip: PT.elementType,
+  }) as Validator<ComponentsType>,
+  // eslint-disable-next-line react/forbid-prop-types
+  componentsProps: PT.object,
 };
 
 export default Slider;
