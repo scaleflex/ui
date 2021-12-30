@@ -123,7 +123,7 @@ const LabelTooltip = styled.span.attrs({
     &::before {
       position: absolute;
       content: '';
-      background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkHover]};
+      background-color: inherit;
       width: 8px;
       height: 8px;
       bottom: 0px;
