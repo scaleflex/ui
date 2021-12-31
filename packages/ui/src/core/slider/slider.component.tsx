@@ -19,6 +19,7 @@ import {
   trackFinger,
   focusThumb,
   axisProps,
+  useForkRef,
 } from '../../utils/functions';
 import useControlled from '../../hooks/use-controlled';
 import useEventCallback from '../../hooks/use-event-callback';
@@ -62,6 +63,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     const previousIndex = useRef(0);
     const touchId = useRef();
     const sliderRef = useRef<HTMLSpanElement | null>(null);
+    const handleRef = useForkRef(ref, sliderRef);
 
     const [valueDerived, setValueState] = useControlled({
       controlled: valueProp,
@@ -348,7 +350,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     const annotationText = annotation ? ` ${annotation}` : '';
     return (
       <Styled.Slider
-        ref={sliderRef}
+        ref={handleRef}
         disabled={disabled}
         onTouchStart={handleTouchStart}
         onMouseDown={handleMouseDown}
@@ -356,7 +358,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       >
         {Rail}
         {Track}
-        {values.map((value, index) => {
+        {values.map((value: number, index: number) => {
           const percent = valueToPercent(value, min, max);
           const style = axisProps[axis].offset(percent);
 

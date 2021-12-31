@@ -1,11 +1,11 @@
-function useDrag(onMove, onStart, onEnd) {
-  const onDragging = (e) => {
+function useDrag(onMove: any, onStart: any, onEnd: any) {
+  const onDragging = (e: any) => {
     if (typeof onMove === 'function') {
       onMove(e.touches?.[0] || e);
     }
   };
 
-  const disableSliding = (e) => {
+  const disableSliding = (e: any) => {
     document.removeEventListener('mousemove', onDragging);
     document.removeEventListener('mouseup', disableSliding);
     document.removeEventListener('mouseleave', disableSliding);
@@ -18,7 +18,7 @@ function useDrag(onMove, onStart, onEnd) {
     }
   };
 
-  const enableDrag = (e) => {
+  const enableDrag = (e: any) => {
     document.addEventListener('mousemove', onDragging);
     document.addEventListener('mouseup', disableSliding);
     document.addEventListener('mouseleave', disableSliding);
