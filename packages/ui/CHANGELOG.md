@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.62](https://github.com/scaleflex/ui/compare/1.0.0-beta.61...1.0.0-beta.62) (2021-12-31)
+
+
+### Bug Fixes
+
+* **colorPicker:** rgb input ([d09778d](https://github.com/scaleflex/ui/commit/d09778d665da8d20c4c25e2ef56756bca1f38a45))
+* **colorPicker:** when selecting color picker from pinned colors ([8e80e0f](https://github.com/scaleflex/ui/commit/8e80e0f13451e3ec383af72c52cb63558508f7c1))
+* **Slider:** tooltip showing on hover ([78c2525](https://github.com/scaleflex/ui/commit/78c2525be3bb4f7e53335f1ca1596f98ab049c30))
+* theme font should be object instead of string ([27334f6](https://github.com/scaleflex/ui/commit/27334f6e534e90a09d608797465e07ab48bb44d8))
+
+
+### Features
+
+* **menu:** add hideScroll prop ([8a638af](https://github.com/scaleflex/ui/commit/8a638af9c335e72a50083ccd95d477fef7ba41fb))
+* **Slider:**  mobile touch support ([39640ee](https://github.com/scaleflex/ui/commit/39640ee2edeea682e7ea33ba9778591b9c77621a))
+
+
+
+
+
 # [1.0.0-beta.61](https://github.com/scaleflex/ui/compare/1.0.0-beta.60...1.0.0-beta.61) (2021-12-17)
 
 
