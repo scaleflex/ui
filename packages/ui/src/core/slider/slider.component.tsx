@@ -187,7 +187,6 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
 
       moveCount.current += 1;
       if (nativeEvent.type === 'mousemove' && nativeEvent.buttons === 0) {
-        // eslint-disable-next-line @typescript-eslint/no-use-before-define
         handleTouchEnd(nativeEvent);
         return;
       }
