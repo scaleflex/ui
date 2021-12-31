@@ -15,14 +15,14 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Refactors
 
-- **colorPicker:** change the logic for colorPicker ([e42fd9a]https://github.com/scaleflex/ui/commit/e42fd9a3a6fec3aa617557d2236e36cef26a0d96))
-- **Slider:** new implentation for slider component ([bd8faba]https://github.com/scaleflex/ui/commit/bd8fabaaeed2d1a466fb7b69abce7b53685bc879))
-- **RotationSlider:** new implentation for RotationsSlider component [7ba1225]https://github.com/scaleflex/ui/commit/7ba1225020a60583949fc1bd737d284d02c2a8b7))
-- **ContinuousSlider:** remove component [0d69740]https://github.com/scaleflex/ui/commit/0d6974097e99e73de107fea3b47529062407a10c))
+- **colorPicker:** change the logic for colorPicker ([e42fd9a](https://github.com/scaleflex/ui/commit/e42fd9a3a6fec3aa617557d2236e36cef26a0d96))
+- **Slider:** new implentation for slider component ([bd8faba](https://github.com/scaleflex/ui/commit/bd8fabaaeed2d1a466fb7b69abce7b53685bc879))
+- **RotationSlider:** new implentation for RotationsSlider component [7ba1225](https://github.com/scaleflex/ui/commit/7ba1225020a60583949fc1bd737d284d02c2a8b7))
+- **ContinuousSlider:** remove component [0d69740](https://github.com/scaleflex/ui/commit/0d6974097e99e73de107fea3b47529062407a10c))
 
 ### Docs
 
-- **Slider:** add new examples ([95c00fe]https://github.com/scaleflex/ui/commit/95c00fede240fb3d3e22a00bcf19de57fd3c3397))
+- **Slider:** add new examples ([95c00fe](https://github.com/scaleflex/ui/commit/95c00fede240fb3d3e22a00bcf19de57fd3c3397))
 
 ### Features
 
