@@ -2,118 +2,85 @@
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+`
 
 # [1.0.0-beta.62](https://github.com/scaleflex/ui/compare/1.0.0-beta.61...1.0.0-beta.62) (2021-12-31)
 
-
 ### Bug Fixes
 
-* **colorPicker:** rgb input ([d09778d](https://github.com/scaleflex/ui/commit/d09778d665da8d20c4c25e2ef56756bca1f38a45))
-* **colorPicker:** when selecting color picker from pinned colors ([8e80e0f](https://github.com/scaleflex/ui/commit/8e80e0f13451e3ec383af72c52cb63558508f7c1))
-* **Slider:** tooltip showing on hover ([78c2525](https://github.com/scaleflex/ui/commit/78c2525be3bb4f7e53335f1ca1596f98ab049c30))
-* theme font should be object instead of string ([27334f6](https://github.com/scaleflex/ui/commit/27334f6e534e90a09d608797465e07ab48bb44d8))
+- **colorPicker:** rgb input ([d09778d](https://github.com/scaleflex/ui/commit/d09778d665da8d20c4c25e2ef56756bca1f38a45))
+- **colorPicker:** when selecting color picker from pinned colors ([8e80e0f](https://github.com/scaleflex/ui/commit/8e80e0f13451e3ec383af72c52cb63558508f7c1))
+- **Slider:** tooltip showing on hover ([78c2525](https://github.com/scaleflex/ui/commit/78c2525be3bb4f7e53335f1ca1596f98ab049c30))
+- theme font should be object instead of string ([27334f6](https://github.com/scaleflex/ui/commit/27334f6e534e90a09d608797465e07ab48bb44d8))
 
+### Refactors
+
+- **colorPicker:** change the logic for colorPicker ([e42fd9a]https://github.com/scaleflex/ui/commit/e42fd9a3a6fec3aa617557d2236e36cef26a0d96))
+- **Slider:** new implentation for slider component ([bd8faba]https://github.com/scaleflex/ui/commit/bd8fabaaeed2d1a466fb7b69abce7b53685bc879))
+- **RotationSlider:** new implentation for RotationsSlider component [7ba1225]https://github.com/scaleflex/ui/commit/7ba1225020a60583949fc1bd737d284d02c2a8b7))
+- **ContinuousSlider:** remove component [0d69740]https://github.com/scaleflex/ui/commit/0d6974097e99e73de107fea3b47529062407a10c))
+
+### Docs
+
+- **Slider:** add new examples ([95c00fe]https://github.com/scaleflex/ui/commit/95c00fede240fb3d3e22a00bcf19de57fd3c3397))
 
 ### Features
 
-* **menu:** add hideScroll prop ([8a638af](https://github.com/scaleflex/ui/commit/8a638af9c335e72a50083ccd95d477fef7ba41fb))
-* **Slider:**  mobile touch support ([39640ee](https://github.com/scaleflex/ui/commit/39640ee2edeea682e7ea33ba9778591b9c77621a))
-
-
-
-
+- **menu:** add hideScroll prop ([8a638af](https://github.com/scaleflex/ui/commit/8a638af9c335e72a50083ccd95d477fef7ba41fb))
+- **Slider:** mobile touch support ([39640ee](https://github.com/scaleflex/ui/commit/39640ee2edeea682e7ea33ba9778591b9c77621a))
 
 # [1.0.0-beta.61](https://github.com/scaleflex/ui/compare/1.0.0-beta.60...1.0.0-beta.61) (2021-12-17)
 
-
 ### Features
 
-* **accordion:** add iconProps ([ca7e91b](https://github.com/scaleflex/ui/commit/ca7e91b4a4261502eda910e923620d5f24f280b6))
-* **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
-* **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
-* **uploadInput:** add buttonColor prop ([2852c97](https://github.com/scaleflex/ui/commit/2852c97bdd6bba76c4d8c1c9e781108ccd9ec6b8))
-
-
-
-
+- **accordion:** add iconProps ([ca7e91b](https://github.com/scaleflex/ui/commit/ca7e91b4a4261502eda910e923620d5f24f280b6))
+- **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
+- **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
+- **uploadInput:** add buttonColor prop ([2852c97](https://github.com/scaleflex/ui/commit/2852c97bdd6bba76c4d8c1c9e781108ccd9ec6b8))
 
 # [1.0.0-beta.60](https://github.com/scaleflex/ui/compare/1.0.0-beta.59...1.0.0-beta.60) (2021-12-03)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [1.0.0-beta.59](https://github.com/scaleflex/ui/compare/1.0.0-beta.58...1.0.0-beta.59) (2021-12-03)
-
 
 ### Features
 
-* **Ui&Icons:** Tree shaking support ([b7b036a](https://github.com/scaleflex/ui/commit/b7b036a10de915e5792acc13d2c64e49ba1fb10c))
-
-
-
-
+- **Ui&Icons:** Tree shaking support ([b7b036a](https://github.com/scaleflex/ui/commit/b7b036a10de915e5792acc13d2c64e49ba1fb10c))
 
 # [1.0.0-beta.58](https://github.com/scaleflex/ui/compare/1.0.0-beta.57...1.0.0-beta.58) (2021-12-03)
 
-
 ### Features
 
-* **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
-
-
-
-
+- **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
 
 # [1.0.0-beta.57](https://github.com/scaleflex/ui/compare/1.0.0-beta.56...1.0.0-beta.57) (2021-11-24)
 
-
 ### Bug Fixes
 
-* **continuousSlider:** slider label ([4002822](https://github.com/scaleflex/ui/commit/400282215a61f15fa179a7b6d7801b5aa91ce021))
-
-
-
-
+- **continuousSlider:** slider label ([4002822](https://github.com/scaleflex/ui/commit/400282215a61f15fa179a7b6d7801b5aa91ce021))
 
 # [1.0.0-beta.56](https://github.com/scaleflex/ui/compare/1.0.0-beta.55...1.0.0-beta.56) (2021-11-19)
 
-
 ### Bug Fixes
 
-* **ColorPicker:** styles ([bfa7268](https://github.com/scaleflex/ui/commit/bfa7268a5dab9a9d3ba6ce31d1d7b4fe13a58216))
-* **continuousSlider:** fix slider when start value is negative ([6aed750](https://github.com/scaleflex/ui/commit/6aed75095f7dcf0e6296cfb65bd33e3869e58619))
-* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
-
+- **ColorPicker:** styles ([bfa7268](https://github.com/scaleflex/ui/commit/bfa7268a5dab9a9d3ba6ce31d1d7b4fe13a58216))
+- **continuousSlider:** fix slider when start value is negative ([6aed750](https://github.com/scaleflex/ui/commit/6aed75095f7dcf0e6296cfb65bd33e3869e58619))
+- **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
 
 ### Features
 
-* **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
-
-
-
-
+- **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
 
 # [1.0.0-beta.55](https://github.com/scaleflex/ui/compare/1.0.0-beta.54...1.0.0-beta.55) (2021-11-16)
 
-
 ### Features
 
-* **continuoutsSlider:** add hideOverlay prop ([aa5a78c](https://github.com/scaleflex/ui/commit/aa5a78cff9a919e7e1413d6b800b16b973c06e2f))
-
-
-
-
+- **continuoutsSlider:** add hideOverlay prop ([aa5a78c](https://github.com/scaleflex/ui/commit/aa5a78cff9a919e7e1413d6b800b16b973c06e2f))
 
 # [1.0.0-beta.54](https://github.com/scaleflex/ui/compare/1.0.0-beta.53...1.0.0-beta.54) (2021-11-16)
 
 **Note:** Version bump only for package ui
-
-
-
-
 
 # [1.0.0-beta.53](https://github.com/scaleflex/ui/compare/1.0.0-beta.52...1.0.0-beta.53) (2021-11-15)
 
