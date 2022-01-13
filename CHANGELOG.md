@@ -2,7 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
-`
+
+# [1.0.0-beta.63](https://github.com/scaleflex/ui/compare/1.0.0-beta.62...1.0.0-beta.63) (2022-01-13)
+
+
+### Bug Fixes
+
+* types ([d92f85a](https://github.com/scaleflex/ui/commit/d92f85aa242d954501f9218f08d43a10fa10dfdf))
+
+
+### Features
+
+* **RotationSlider:** add angle prop ([ca809b4](https://github.com/scaleflex/ui/commit/ca809b4bc133d3164df699f465b80bb7af374ea5))
+
+
+
+
+
+
 
 # [1.0.0-beta.62](https://github.com/scaleflex/ui/compare/1.0.0-beta.61...1.0.0-beta.62) (2021-12-31)
 
