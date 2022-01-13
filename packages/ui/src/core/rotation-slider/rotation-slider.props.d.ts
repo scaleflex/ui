@@ -8,6 +8,7 @@ export interface RotationSliderProps extends React.HTMLAttributes<HTMLSpanElemen
   value?: number | number[];
   min?: number;
   max?: number;
+  angle?: number;
   onChange?: (event: Event, value: Array<number> | number) => void;
   onMouseDown?: (event: Event) => void;
   onMouseUp?: (event: Event) => void;

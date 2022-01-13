@@ -13,6 +13,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
     {
       min = 0,
       max = 100,
+      angle = 10,
       onChange,
       onMouseDown,
       onMouseUp,
@@ -42,7 +43,8 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
       let barDiv;
 
       for (let i = min; i <= max; i += step) {
-        if (i % 10 === 0 || i === max || (step === 1 && i % 5 === 0)) {
+        barDiv = [];
+        if (i % angle === 0 || i === max) {
           barDiv = (
             <Styled.RotationSliderMark key={i} style={{ ...markStyles }}>
               {!hideMarkText && (
@@ -54,14 +56,16 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
               <Styled.RotationSliderBigDot />
             </Styled.RotationSliderMark>
           );
-        } else {
+        } else if (i % 10 === 0) {
           barDiv = (
             <Styled.RotationSliderSmallDotWrapper key={i}>
               <Styled.RotationSliderSmallDot />
             </Styled.RotationSliderSmallDotWrapper>
           );
         }
-        barDom.push(barDiv);
+        if (!Array.isArray(barDiv)) {
+          barDom.push(barDiv);
+        }
       }
       return barDom;
     };
@@ -146,6 +150,7 @@ RotationSlider.propTypes = {
   value: PT.oneOfType([PT.array, PT.number]),
   min: PT.number,
   max: PT.number,
+  angle: PT.number,
   onChange: PT.func,
   onMouseDown: PT.func,
   onMouseUp: PT.func,

@@ -13,10 +13,11 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  min: -60,
-  max: 60,
+  min: -180,
+  max: 180,
   step: 1,
   value: 0,
+  angle: 60,
   labelTooltipOptions: LabelTooltip.Auto,
 };
 
@@ -26,11 +27,7 @@ const BasicTemplate: Story<RotationSliderProps> = ({ ...args }) => {
   const handleChange = (event: any, newValue: number | number[]): void => {
     setValue(newValue);
   };
-  return (
-    <>
-      <RotationSLider {...args} onChange={handleChange} value={value} style={{ marginTop: '50px' }} />
-    </>
-  );
+  return <RotationSLider {...args} onChange={handleChange} value={value} style={{ marginTop: '50px' }} />;
 };
 
 // Basic
