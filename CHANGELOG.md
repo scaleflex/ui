@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.64](https://github.com/scaleflex/ui/compare/1.0.0-beta.63...1.0.0-beta.64) (2022-01-14)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add zindex for select menu ([07963b9](https://github.com/scaleflex/ui/commit/07963b98c0ec0a9d7976c7c6c8b4cbed77ed5581))
+
+
+
+
+
 # [1.0.0-beta.63](https://github.com/scaleflex/ui/compare/1.0.0-beta.62...1.0.0-beta.63) (2022-01-13)
 
 
