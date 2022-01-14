@@ -89,6 +89,7 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
 )(
   ({ theme }: With<WithTheme, { left: number; top?: number; considerTopWidth: boolean }>) => css`
     display: inline-block;
+    box-sizing: content-box;
     width: 10px;
     height: 10px;
     border-radius: 20px;

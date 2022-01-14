@@ -297,7 +297,17 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 
         <Styled.ColorPickerAction>
           <Styled.Select value={inputType}>
-            <Select size="sm" value={inputType} onChange={(ev: any) => setInputType(ev)} fullWidth>
+            <Select
+              size="sm"
+              value={inputType}
+              MenuProps={{
+                style: {
+                  zIndex: 11112,
+                },
+              }}
+              onChange={(ev: any) => setInputType(ev)}
+              fullWidth
+            >
               <MenuItem value="hex">Hex</MenuItem>
               <MenuItem value="rgb">RGB</MenuItem>
             </Select>
