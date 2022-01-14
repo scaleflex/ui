@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.65](https://github.com/scaleflex/ui/compare/1.0.0-beta.64...1.0.0-beta.65) (2022-01-14)
+
+
+### Bug Fixes
+
+* **ColorPicker:** type ([8f2f241](https://github.com/scaleflex/ui/commit/8f2f2413c37fab6c83871424f6d9a38243ac4ece))
+
+
+
+
+
 # [1.0.0-beta.64](https://github.com/scaleflex/ui/compare/1.0.0-beta.63...1.0.0-beta.64) (2022-01-14)
 
 
