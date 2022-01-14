@@ -300,11 +300,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             <Select
               size="sm"
               value={inputType}
-              MenuProps={{
-                style: {
-                  zIndex: 11112,
-                },
-              }}
+              MenuProps={{ zIndex: 11112 }}
               onChange={(ev: any) => setInputType(ev)}
               fullWidth
             >
