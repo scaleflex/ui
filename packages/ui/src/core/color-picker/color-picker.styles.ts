@@ -154,7 +154,7 @@ const ColorPickerAction = styled.div.attrs({
 const ColorItemWrapper = styled.label.attrs({
   className: generateClassNames(colorItemClassName, 'label'),
 })(
-  ({ size, color, stroke }: { size: number; color: string; stroke: string }) => css`
+  ({ size, color, stroke, value }: { size: number; color: string; stroke: string; value: string }) => css`
     border-radius: 2px;
     border: ${`1px solid ${stroke}`};
     box-sizing: border-box;
@@ -168,6 +168,8 @@ const ColorItemWrapper = styled.label.attrs({
     cursor: pointer;
     transition: all 300ms;
     margin-bottom: 8px;
+    background: ${value === 'rgba(0,0,0,0)' &&
+    `linear-gradient(to top right, ${value} calc(50% - 1px), #f30606, ${value} calc(50% + 1px))`};
     input {
       display: none;
     }

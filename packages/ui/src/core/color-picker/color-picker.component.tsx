@@ -31,9 +31,15 @@ import type { ColorPickerProps } from './color-picker.props';
 import Styled from './color-picker.styles';
 import ColorItem from './color-item.component';
 
+const transparentColor = ['rgba(0,0,0,0)'];
+const transparentColorHex = '#00000000';
 const colorsHuesCount = 360;
 const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
-  ({ defaultColor = '#000000', onChange, pinnedColors = [], ...rest }: ColorPickerProps, ref): JSX.Element => {
+  (
+    { defaultColor = '#000000', onChange, pinnedColors = [], showTransparentColors = false, ...rest }: ColorPickerProps,
+    ref
+  ): JSX.Element => {
+    const showedColors = showTransparentColors ? transparentColor.concat(pinnedColors) : pinnedColors;
     const [bar, setBar] = useState({
       color: '#ff0000',
       pointerLeft: 0,
@@ -42,15 +48,19 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       color: colorToHex(defaultColor) || '#000000',
       pointer: { left: 0, top: 0 },
     });
-    const [localPinnedColors, setLocalPinnedColors] = useState(pinnedColors);
-
+    const [localPinnedColors, setLocalPinnedColors] = useState(showedColors);
     const [inputType, setInputType] = useState('hex');
     const [rgbColorValue, setRgbColorValue] = useState<number[]>([]);
     const [hexInputValue, setHexInputValue] = useState(colorToHex(rangePicker.color));
     const [barRef, setBarRef] = useState<HTMLTableElement | null>(null);
     const [rangePickerRef, setRangePickerRef] = useState<HTMLDivElement | null>(null);
 
-    const isColorChecked = (checkedColor: string): boolean => checkedColor === rangePicker.color;
+    const isColorChecked = (checkedColor: string): boolean => {
+      if (checkedColor === transparentColor[0] && rangePicker.color === transparentColorHex) {
+        return true;
+      }
+      return checkedColor === rangePicker.color;
+    };
 
     const handlePinnedColors = (hexColor: string, type: string): void => {
       if (type === 'add') {
@@ -108,6 +118,13 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
+    const filterTransparentColor = (): string[] => localPinnedColors.filter((item) => item !== 'rgba(0,0,0,0)');
+
+    const getRgbColor = (color: string): string =>
+      color === transparentColor[0] ? transparentColor[0] : `rgb(${hexToRgb(color).join(', ')})`;
+
+    const getHexColor = (color: string): string => (color === transparentColor[0] ? transparentColorHex : color);
+
     const changeRangePickerPointerPosByColor = (color: string): void => {
       if (rangePickerRef !== null) {
         const { width, height } = getElemDocumentCoords(rangePickerRef)!;
@@ -117,13 +134,14 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         const top = height - mapNumber(colorHsv[2], 0, 100, 0, height);
 
         setRangePicker({
-          color,
+          color: getHexColor(color),
           pointer: { left, top },
         });
         changeBarPosByColor(color);
         updateRgb(color);
+
         if (typeof onChange === 'function') {
-          onChange(color, `rgb(${hexToRgb(color).join(', ')})`, localPinnedColors);
+          onChange(getHexColor(color), getRgbColor(color), filterTransparentColor());
         }
       }
     };
@@ -150,7 +168,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         });
 
         if (typeof onChange === 'function') {
-          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`, localPinnedColors);
+          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`, filterTransparentColor());
         }
       }
     };
@@ -288,7 +306,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             <div className="item" key={color}>
               <ColorItem
                 value={color}
-                checked={color === rangePicker.color}
+                checked={isColorChecked(color)}
                 onChange={(ev) => changeRangePickerPointerPosByColor(ev.target.value)}
               />
             </div>
@@ -329,19 +347,21 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
               />
             ))
           )}
-          <Styled.ColorPickerIcon
-            onClick={() =>
-              localPinnedColors.some((checkedColor) => isColorChecked(checkedColor))
-                ? handlePinnedColors(rangePicker.color, 'delete')
-                : handlePinnedColors(rangePicker.color, 'add')
-            }
-          >
-            {localPinnedColors.some((checkedColor) => isColorChecked(checkedColor)) ? (
-              <DeleteOutline />
-            ) : (
-              <PinOutline />
-            )}
-          </Styled.ColorPickerIcon>
+          {rangePicker.color !== transparentColorHex && (
+            <Styled.ColorPickerIcon
+              onClick={() =>
+                localPinnedColors.some((checkedColor) => isColorChecked(checkedColor))
+                  ? handlePinnedColors(rangePicker.color, 'delete')
+                  : handlePinnedColors(rangePicker.color, 'add')
+              }
+            >
+              {localPinnedColors.some((checkedColor) => isColorChecked(checkedColor)) ? (
+                <DeleteOutline />
+              ) : (
+                <PinOutline />
+              )}
+            </Styled.ColorPickerIcon>
+          )}
         </Styled.ColorPickerAction>
       </Styled.ColorPickerWrapper>
     );
@@ -351,6 +371,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 ColorPicker.defaultProps = {
   defaultColor: '#000000',
   pinnedColors: [],
+  showTransparentColors: false,
 };
 
 ColorPicker.propTypes = {
@@ -358,6 +379,7 @@ ColorPicker.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   pinnedColors: PT.array,
+  showTransparentColors: PT.bool,
 };
 
 export default ColorPicker;
