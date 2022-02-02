@@ -41,6 +41,8 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
     rgbColor: string | undefined,
     colorPickerPinnedColors: Array<string> | undefined
   ): void => {
+    console.log('test', hexColor, rgbColor);
+    console.log('colorPickerPinned', colorPickerPinnedColors);
     setColor(hexColor);
     setPinnedColors(colorPickerPinnedColors);
   };
@@ -59,7 +61,13 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
         }}
       />
 
-      <ColorPicker {...args} defaultColor={color} pinnedColors={pinnedColors} onChange={handleChange} />
+      <ColorPicker
+        {...args}
+        defaultColor={color}
+        pinnedColors={pinnedColors}
+        onChange={handleChange}
+        showTransparentColors
+      />
     </>
   );
 };
