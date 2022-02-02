@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.67](https://github.com/scaleflex/ui/compare/1.0.0-beta.66...1.0.0-beta.67) (2022-02-02)
+
+
+### Bug Fixes
+
+* **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
+
+
+### Features
+
+* **ColorPicker:** add support for transparent colors ([25d4337](https://github.com/scaleflex/ui/commit/25d4337589c50b9119f6b2d2d188539672e04a28))
+
+
+
+
+
 # [1.0.0-beta.66](https://github.com/scaleflex/ui/compare/1.0.0-beta.65...1.0.0-beta.66) (2022-01-14)
 
 
