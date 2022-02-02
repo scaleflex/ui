@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.68](https://github.com/scaleflex/ui/compare/1.0.0-beta.67...1.0.0-beta.68) (2022-02-02)
+
+
+### Bug Fixes
+
+* **ColorPicker:** on setting defaultColor to transparent color ([f51c1ca](https://github.com/scaleflex/ui/commit/f51c1cab3aa3262e368bdadc76849cdebfdbde3a))
+
+
+
+
+
 # [1.0.0-beta.67](https://github.com/scaleflex/ui/compare/1.0.0-beta.66...1.0.0-beta.67) (2022-02-02)
 
 
