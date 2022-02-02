@@ -3,7 +3,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { SelectSimpleValueType } from '../select/select.props';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
-// import { Color as PColor } from '../../utils/types/palette';
+import { Color as PColor } from '../../utils/types/palette';
 
 const baseClassName = 'ColorPicker';
 
@@ -20,7 +20,7 @@ const colorItemClassName = 'ColorItem';
 const ColorPickerWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  background-color: ${({ theme }) => theme.palette['bg-secondary']};
+  background-color: ${({ theme }) => theme.palette[PColor.BackgroundSecondary]};
   box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
   border-radius: 2px;
   padding: 12px;
@@ -94,8 +94,8 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     height: 15px;
     border-radius: 20px;
     box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
-    border: 2px solid ${theme.palette['bg-secondary']};
-    background-color: ${theme.palette['accent-primary']};
+    border: 2px solid ${theme.palette[PColor.BackgroundSecondary]};
+    background-color: ${theme.palette[PColor.AccentPrimary]};
     position: absolute;
     cursor: pointer;
     z-index: 11;
@@ -154,7 +154,13 @@ const ColorPickerAction = styled.div.attrs({
 const ColorItemWrapper = styled.label.attrs({
   className: generateClassNames(colorItemClassName, 'label'),
 })(
-  ({ size, color, stroke, value }: { size: number; color: string; stroke: string; value: string }) => css`
+  ({
+    theme,
+    size,
+    color,
+    stroke,
+    value,
+  }: With<WithTheme, { size: number; color: string; stroke: string; value: string }>) => css`
     border-radius: 2px;
     border: ${`1px solid ${stroke}`};
     box-sizing: border-box;
@@ -169,7 +175,7 @@ const ColorItemWrapper = styled.label.attrs({
     transition: all 300ms;
     margin-bottom: 8px;
     background: ${value === 'rgba(0,0,0,0)' &&
-    `linear-gradient(to top right, ${value} calc(50% - 1px), #f30606, ${value} calc(50% + 1px))`};
+    `repeating-conic-gradient(${theme.palette[PColor.LinkPrimary]} 0% 25%, transparent 0% 50%) 50% / 8px 8px`};
     input {
       display: none;
     }

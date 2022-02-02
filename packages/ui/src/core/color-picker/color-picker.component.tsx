@@ -36,16 +36,18 @@ const transparentColorHex = '#00000000';
 const colorsHuesCount = 360;
 const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
   (
-    { defaultColor = '#000000', onChange, pinnedColors = [], showTransparentColors = false, ...rest }: ColorPickerProps,
+    { defaultColor = '#000000', onChange, pinnedColors = [], showTransparentColor = false, ...rest }: ColorPickerProps,
     ref
   ): JSX.Element => {
-    const showedColors = showTransparentColors ? transparentColor.concat(pinnedColors) : pinnedColors;
+    const showedColors = showTransparentColor ? transparentColor.concat(pinnedColors) : pinnedColors;
+    const isTransparentColor = (color: string): boolean =>
+      color === transparentColorHex || color === transparentColor[0];
     const [bar, setBar] = useState({
       color: '#ff0000',
       pointerLeft: 0,
     });
     const [rangePicker, setRangePicker] = useState({
-      color: colorToHex(defaultColor) || '#000000',
+      color: isTransparentColor(defaultColor) ? '#00000000' : colorToHex(defaultColor) || '#000000',
       pointer: { left: 0, top: 0 },
     });
     const [localPinnedColors, setLocalPinnedColors] = useState(showedColors);
@@ -62,20 +64,24 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       return checkedColor === rangePicker.color;
     };
 
+    const filterTransparentColor = (colors: string[]): string[] => colors.filter((item) => item !== 'rgba(0,0,0,0)');
+    const getRgbColor = (color: string): string =>
+      isTransparentColor(color) ? transparentColor[0] : `rgb(${hexToRgb(color).join(', ')})`;
+
     const handlePinnedColors = (hexColor: string, type: string): void => {
       if (type === 'add') {
         const newLocalPinnedColors = [...localPinnedColors, hexColor];
         setLocalPinnedColors(newLocalPinnedColors);
 
         if (typeof onChange === 'function') {
-          onChange(rangePicker.color, `rgb(${hexToRgb(rangePicker.color).join(', ')})`, newLocalPinnedColors);
+          onChange(rangePicker.color, getRgbColor(hexColor), filterTransparentColor(newLocalPinnedColors));
         }
       } else {
         const newLocalPinnedColors = localPinnedColors.filter((item) => item !== rangePicker.color);
         setLocalPinnedColors(newLocalPinnedColors);
 
         if (typeof onChange === 'function') {
-          onChange(rangePicker.color, `rgb(${hexToRgb(rangePicker.color).join(', ')})`, newLocalPinnedColors);
+          onChange(rangePicker.color, getRgbColor(hexColor), filterTransparentColor(newLocalPinnedColors));
         }
       }
     };
@@ -118,12 +124,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
-    const filterTransparentColor = (): string[] => localPinnedColors.filter((item) => item !== 'rgba(0,0,0,0)');
-
-    const getRgbColor = (color: string): string =>
-      color === transparentColor[0] ? transparentColor[0] : `rgb(${hexToRgb(color).join(', ')})`;
-
-    const getHexColor = (color: string): string => (color === transparentColor[0] ? transparentColorHex : color);
+    const getHexColor = (color: string): string => (isTransparentColor(color) ? transparentColorHex : color);
 
     const changeRangePickerPointerPosByColor = (color: string): void => {
       if (rangePickerRef !== null) {
@@ -141,7 +142,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         updateRgb(color);
 
         if (typeof onChange === 'function') {
-          onChange(getHexColor(color), getRgbColor(color), filterTransparentColor());
+          onChange(getHexColor(color), getRgbColor(color), filterTransparentColor(localPinnedColors));
         }
       }
     };
@@ -168,7 +169,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         });
 
         if (typeof onChange === 'function') {
-          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`, filterTransparentColor());
+          onChange(hexColor, `rgb(${hexToRgb(hexColor).join(', ')})`, filterTransparentColor(localPinnedColors));
         }
       }
     };
@@ -371,7 +372,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 ColorPicker.defaultProps = {
   defaultColor: '#000000',
   pinnedColors: [],
-  showTransparentColors: false,
+  showTransparentColor: false,
 };
 
 ColorPicker.propTypes = {
@@ -379,7 +380,7 @@ ColorPicker.propTypes = {
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types
   pinnedColors: PT.array,
-  showTransparentColors: PT.bool,
+  showTransparentColor: PT.bool,
 };
 
 export default ColorPicker;
