@@ -266,3 +266,5 @@ export { Cdn } from './cdn';
 export { Optimization } from './optimization';
 export { Storage } from './storage';
 export { NoFiles } from './no-files';
+export { Store } from './store';
+export { Purchased } from './purchased';
