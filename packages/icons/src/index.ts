@@ -268,3 +268,4 @@ export { Storage } from './storage';
 export { NoFiles } from './no-files';
 export { Store } from './store';
 export { Purchased } from './purchased';
+export { Automations } from './automations';

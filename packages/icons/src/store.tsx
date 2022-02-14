@@ -3,7 +3,7 @@ import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
 
 export const Store = intrinsicComponent<IconProps, SVGSVGElement>(
-  ({ color = 'currentColor', size = 28, ...rest }, ref): JSX.Element => (
+  ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
     <svg
       ref={ref}
       width={size}
