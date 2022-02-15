@@ -10,7 +10,7 @@ import { Size } from './types';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
-  ({ list, depth = 0, children, ...props }, ref): JSX.Element => {
+  ({ list, depth = 0, children, disableHover, ...props }, ref): JSX.Element => {
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
     const [selectedIds, setSelectedIds] = React.useState<Array<string>>([]);
@@ -59,6 +59,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               active={Boolean(option.active)}
               onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
               onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
+              disableHover={disableHover || option.disableHover}
             >
               {option.prefix && (
                 <Styled.MenuPrefix>
@@ -86,7 +87,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
     if (!list) {
       return (
         <Styled.MenuItemWrapper disabled={false}>
-          <Styled.MenuItem {...props} ref={ref}>
+          <Styled.MenuItem {...props} ref={ref} disableHover={disableHover}>
             {children}
           </Styled.MenuItem>
         </Styled.MenuItemWrapper>

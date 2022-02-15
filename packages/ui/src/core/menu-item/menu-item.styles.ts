@@ -55,7 +55,7 @@ const MenuItemWrapper = styled.div.attrs({
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, active, theme }: With<WithTheme, MenuItemProps>) => css`
+  ({ size = Size.Md, active, theme, disableHover = false }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -69,7 +69,7 @@ const MenuItem = styled.div.attrs({
     &:focus-within,
     &:focus,
     &:hover {
-      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
+      ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundPrimaryHover]}`};
     }
   `
 );

@@ -16,6 +16,7 @@ export type MenuItemListType = {
   active?: boolean;
   subMenuProps?: MenuProps;
   className?: string;
+  disableHover?: boolean;
 };
 export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;
@@ -30,4 +31,5 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   value?: string | number | null;
   list?: MenuItemListType[] | null | undefined;
   depth?: number | undefined;
+  disableHover?: boolean;
 }
