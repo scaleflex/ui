@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -7,13 +7,22 @@ import { Type } from './types';
 import Styled from './label.styles';
 
 const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
-  ({ children, icon, error, type, ...rest }: LabelProps, ref): JSX.Element => (
-    <Styled.Label ref={ref} error={error} type={type} {...rest}>
-      {icon && <Styled.Icon error={Boolean(error)}>{typeof icon === 'function' ? icon() : icon}</Styled.Icon>}
-      {children}
-      {/* TODO Select for type: localization */}
-    </Styled.Label>
-  )
+  ({ children, iconStart, iconEnd, error, type, ...rest }: LabelProps, ref): JSX.Element => {
+    const renderIcon = (icon: ReactNode, end: boolean): ReactNode => (
+      <Styled.Icon error={Boolean(error)} end={end}>
+        {typeof icon === 'function' ? icon() : icon}
+      </Styled.Icon>
+    );
+
+    return (
+      <Styled.Label ref={ref} error={error} type={type} {...rest}>
+        {iconStart && renderIcon(iconStart, false)}
+        {children}
+        {iconEnd && renderIcon(iconEnd, true)}
+        {/* TODO Select for type: localization */}
+      </Styled.Label>
+    );
+  }
 );
 
 Label.defaultProps = {
@@ -23,7 +32,8 @@ Label.defaultProps = {
 
 export const propTypes = {
   type: PT.oneOf(objectValues(Type)),
-  icon: PT.oneOfType([PT.node, PT.func]),
+  iconStart: PT.oneOfType([PT.node, PT.func]),
+  iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
   htmlFor: PT.string,
 };

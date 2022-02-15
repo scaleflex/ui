@@ -24,9 +24,15 @@ const BasicTemplate: Story<LabelProps> = ({ ...args }) => <Label {...args} />;
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
-// WithIcon
-export const WithIcon = BasicTemplate.bind({});
-WithIcon.args = {
+// WithIconStart
+export const WithIconStart = BasicTemplate.bind({});
+WithIconStart.args = {
   ...defaultArgs,
-  icon: (props: any) => <QuestionMarkOutline {...props} />,
+  iconStart: (props: any) => <QuestionMarkOutline {...props} />,
+};
+// WithIconEnd
+export const WithIconEnd = BasicTemplate.bind({});
+WithIconEnd.args = {
+  ...defaultArgs,
+  iconEnd: (props: any) => <QuestionMarkOutline {...props} />,
 };

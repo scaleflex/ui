@@ -28,9 +28,9 @@ const Label = styled.label.attrs({
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ error = false, theme: { palette } }: With<WithTheme, { error: boolean }>) => css`
+  ({ error = false, theme: { palette }, end = false }: With<WithTheme, { error: boolean; end: boolean }>) => css`
     display: flex;
-    margin-right: 4px;
+    ${end ? 'margin-left: 4px' : 'margin-right: 4px'};
     color: ${palette[PColor.IconsPrimary]};
 
     ${error ? `color: ${palette[PColor.Error]};` : ''}

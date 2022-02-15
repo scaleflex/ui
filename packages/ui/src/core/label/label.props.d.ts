@@ -6,7 +6,8 @@ export type LabelTypesType = Values<typeof Type>;
 
 export interface LabelProps extends PropsWithChildren, React.HTMLAttributes<HTMLLabelElement> {
   type?: LabelTypesType;
-  icon?: React.ReactNode;
+  iconStart?: React.ReactNode;
+  iconEnd?: React.ReactNode;
   error?: boolean;
   htmlFor?: string;
 }
