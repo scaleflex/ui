@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.71](https://github.com/scaleflex/ui/compare/1.0.0-beta.70...1.0.0-beta.71) (2022-02-15)
+
+
+### Features
+
+* **label:** add iconStart and iconEnd props ([298a1af](https://github.com/scaleflex/ui/commit/298a1af6206eb4117e52a7a4ad8f2be31275c094))
+* **MenuItem:** add disableHover prop ([da2be59](https://github.com/scaleflex/ui/commit/da2be591e89cfa24419a5f00cdb17df292b31137))
+
+
+
+
+
 # [1.0.0-beta.70](https://github.com/scaleflex/ui/compare/1.0.0-beta.69...1.0.0-beta.70) (2022-02-13)
 
 **Note:** Version bump only for package @scaleflex/ui
