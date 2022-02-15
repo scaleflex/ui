@@ -52,11 +52,20 @@ SelectMultiple.args = {
   multiple: true,
 };
 
-// Select with icon
-export const SelectWithIcon = BasicTemplate.bind({});
-SelectWithIcon.args = {
+// Select with iconStart
+export const SelectWithIconStart = BasicTemplate.bind({});
+SelectWithIconStart.args = {
   ...defaultArgs,
   LabelProps: {
-    icon: (props: any) => <QuestionMarkOutline {...props} />,
+    iconStart: (props: any) => <QuestionMarkOutline {...props} />,
+  },
+};
+
+// Select with iconEnd
+export const SelectWithIconEnd = BasicTemplate.bind({});
+SelectWithIconEnd.args = {
+  ...defaultArgs,
+  LabelProps: {
+    iconEnd: (props: any) => <QuestionMarkOutline {...props} />,
   },
 };

@@ -42,12 +42,21 @@ const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
 export const Input = BasicTemplate.bind({});
 Input.args = { ...defaultArgs };
 
-// Input with icon
-export const InputWithIcon = BasicTemplate.bind({});
-InputWithIcon.args = {
+// Input with iconStart
+export const InputWithIconStart = BasicTemplate.bind({});
+InputWithIconStart.args = {
   ...defaultArgs,
   LabelProps: {
-    icon: (props: any) => <QuestionMarkOutline {...props} />,
+    iconStart: (props: any) => <QuestionMarkOutline {...props} />,
+  },
+};
+
+// Input with iconEnd
+export const InputWithIconEnd = BasicTemplate.bind({});
+InputWithIconEnd.args = {
+  ...defaultArgs,
+  LabelProps: {
+    iconEnd: (props: any) => <QuestionMarkOutline {...props} />,
   },
 };
 
