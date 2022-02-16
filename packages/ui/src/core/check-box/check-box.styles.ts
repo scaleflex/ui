@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
-// import type { With } from '../../utils/types';
+import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import type { CheckBoxProps } from './check-box.props';
 
@@ -28,11 +28,11 @@ const Input = styled.input.attrs({
 const CheckBox = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<CheckBoxProps>(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, disabled = false }: With<WithTheme, CheckBoxProps>) => css`
     position: relative;
     display: inline-flex;
     cursor: pointer;
-    color: ${palette[PColor.AccentPrimary]};
+    color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.AccentPrimary]};
   `
 );
 

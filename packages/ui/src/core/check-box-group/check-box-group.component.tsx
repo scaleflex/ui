@@ -13,7 +13,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       <CheckBox key="checkbox" checkBoxProps={checkBoxProps} disabled={disabled} readOnly={readOnly} {...rest} />,
     ];
     const labelContent = (
-      <Styled.Label key="label" labelPosition={labelPosition}>
+      <Styled.Label key="label" disabled={Boolean(disabled)} labelPosition={labelPosition}>
         {label}
       </Styled.Label>
     );

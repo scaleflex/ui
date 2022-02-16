@@ -9,7 +9,7 @@ import Styled from './check-box.styles';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
   ({ checked, onChange, checkBoxProps, readOnly, disabled, ...rest }: CheckBoxProps, ref): JSX.Element => (
-    <Styled.CheckBox {...rest} ref={ref}>
+    <Styled.CheckBox disabled={Boolean(disabled)} ref={ref} {...rest}>
       <Styled.Input
         checked={checked}
         disabled={disabled}

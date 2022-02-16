@@ -12,13 +12,17 @@ const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
   type: 'checkbox',
 })(
-  ({ theme, labelPosition = 'after' }: With<WithTheme, { labelPosition: LabelPositionType | undefined }>) => css`
+  ({
+    theme,
+    labelPosition = 'after',
+    disabled,
+  }: With<WithTheme, { labelPosition: LabelPositionType | undefined; disabled: boolean }>) => css`
     display: flex;
     align-items: center;
     font-size: 12px;
     line-height: 14px;
     ${`margin-${labelPosition === 'after' ? 'left' : 'right'}`}:8px;
-    color: ${theme.palette[PColor.TextPrimary]};
+    color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.TextPrimary]};
   `
 );
 
