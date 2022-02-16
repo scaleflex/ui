@@ -9,7 +9,7 @@ import Styled from './label.styles';
 const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
   ({ children, iconStart, iconEnd, error, type, ...rest }: LabelProps, ref): JSX.Element => {
     const renderIcon = (icon: ReactNode, end: boolean): ReactNode => (
-      <Styled.Icon error={Boolean(error)} end={end}>
+      <Styled.Icon error={Boolean(error)} $end={end}>
         {typeof icon === 'function' ? icon() : icon}
       </Styled.Icon>
     );
