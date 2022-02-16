@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.72](https://github.com/scaleflex/ui/compare/1.0.0-beta.71...1.0.0-beta.72) (2022-02-16)
+
+
+### Features
+
+* **CheckBoxGroup,CheckBox:** change color on disable ([dbea790](https://github.com/scaleflex/ui/commit/dbea7904f9b6e5444f35a8543d81c76afccddaa5))
+* **MenuItem:** add disableHover prop ([9e8aa6d](https://github.com/scaleflex/ui/commit/9e8aa6d6776f18cb1ed4180a97d597d9cc596483))
+
+
+
+
+
 # [1.0.0-beta.71](https://github.com/scaleflex/ui/compare/1.0.0-beta.70...1.0.0-beta.71) (2022-02-15)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@scaleflex/ui",
-  "version": "1.0.0-beta.71",
+  "version": "1.0.0-beta.72",
   "description": "React UI components library by Scaleflex Company",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
