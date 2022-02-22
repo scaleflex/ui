@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.73](https://github.com/scaleflex/ui/compare/1.0.0-beta.72...1.0.0-beta.73) (2022-02-22)
+
+
+### Features
+
+* **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
+
+
+
+
+
 # [1.0.0-beta.72](https://github.com/scaleflex/ui/compare/1.0.0-beta.71...1.0.0-beta.72) (2022-02-16)
 
 
