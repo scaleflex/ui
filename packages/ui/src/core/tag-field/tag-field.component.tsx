@@ -26,6 +26,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       disabled,
       readOnly,
       label,
+      suggestionLabel,
       LabelProps: LabelPropsData,
       error,
       hint,
@@ -124,9 +125,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               <Styled.TagFieldSuggestionIcon>
                 <QuestionMarkOutline size={12} color="#778285" />
               </Styled.TagFieldSuggestionIcon>
-              <span>Suggested Tags</span>
+              {suggestionLabel || <span>Suggested Tags</span>}
             </Styled.TagFieldSuggestionLabel>
-
             <Styled.TagFieldSuggestionWrapperList>
               {filteredSuggestions.map((suggestion: TagType) => (
                 <Tag
@@ -177,6 +177,7 @@ TagField.propTypes = {
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
   background: PT.oneOf(objectValues(Background)),
+  suggestionLabel: PT.node,
 };
 
 export default TagField;

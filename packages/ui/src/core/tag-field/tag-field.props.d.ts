@@ -29,6 +29,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   background?: TagFieldBackgroundType;
   suggestionsFilter?: SuggestionsFilterFnType;
+  suggestionLabel?: React.ReactNode;
 }
 
 export interface TagFieldWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
