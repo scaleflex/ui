@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.74](https://github.com/scaleflex/ui/compare/1.0.0-beta.73...1.0.0-beta.74) (2022-03-14)
+
+
+### Features
+
+* **TagField:** add new prop ([a84b3b3](https://github.com/scaleflex/ui/commit/a84b3b398caa8f6e84946e06510d2d77a3a4d7b3))
+
+
+
+
+
 # [1.0.0-beta.73](https://github.com/scaleflex/ui/compare/1.0.0-beta.72...1.0.0-beta.73) (2022-02-22)
 
 **Note:** Version bump only for package @scaleflex/ui
