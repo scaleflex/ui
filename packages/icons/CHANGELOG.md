@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.75](https://github.com/scaleflex/ui/compare/1.0.0-beta.74...1.0.0-beta.75) (2022-03-15)
+
+
+### Features
+
+* **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
+
+
+
+
+
 # [1.0.0-beta.74](https://github.com/scaleflex/ui/compare/1.0.0-beta.73...1.0.0-beta.74) (2022-03-14)
 
 
