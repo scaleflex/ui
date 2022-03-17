@@ -22,6 +22,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       onClick,
       overlay = false,
       zIndex,
+      disableUnderlayingEvent,
     }: PopperProps,
     ref
     // eslint-disable-next-line sonarjs/cognitive-complexity
@@ -87,7 +88,9 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       if (onClick) {
         onClick(event);
       }
-      passEventToUnderlayingEvent(event);
+      if (!disableUnderlayingEvent) {
+        passEventToUnderlayingEvent(event);
+      }
     };
 
     const render = (): JSX.Element => (
@@ -110,7 +113,6 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     return (
       <>
         {createPortal(render(), target)}
-
         {overlay && createPortal(renderOverlay(), overlayTarget)}
       </>
     );
@@ -153,6 +155,7 @@ export const propTypes = {
   overlay: PT.bool,
   arrow: PT.bool,
   zIndex: PT.number,
+  disableUnderlayingEvent: PT.bool,
 };
 
 Popper.propTypes = propTypes;
