@@ -26,7 +26,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       enableOverlay = true,
       zIndex,
       hideScroll = true,
-      disableUnderlayingEvent = false,
+      enableUnderlayingEvent = false,
       ...rest
     },
     ref
@@ -108,7 +108,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           onClick={handleClose}
           popperOptions={popperOptions}
           zIndex={zIndex}
-          disableUnderlayingEvent={disableUnderlayingEvent}
+          enableUnderlayingEvent={enableUnderlayingEvent}
         >
           <Styled.Menu
             {...containerProps}
@@ -158,7 +158,7 @@ export const propTypes = {
   enableOverlay: PT.bool,
   zIndex: PT.number,
   hideScroll: PT.bool,
-  disableUnderlayingEvent: PT.bool,
+  enableUnderlayingEvent: PT.bool,
 };
 
 Menu.propTypes = propTypes;
