@@ -11,9 +11,13 @@ const baseClassName = 'Popper';
 
 const Popper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
+})(() => css``);
+
+const PopperWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'wrapper'),
 })(
-  () => css`
-    z-index: 1300;
+  ({ zIndex }: { zIndex: number }) => css`
+    z-index: ${zIndex};
   `
 );
 
@@ -49,9 +53,8 @@ const Overlay = styled.div.attrs({
     top: 0px;
     left: 0px;
     background-color: transparent;
-    z-index: 1200;
   `
 );
-const Styled = applyDisplayNames({ Popper, Overlay, Arrow });
+const Styled = applyDisplayNames({ Popper, Overlay, Arrow, PopperWrapper });
 
 export default Styled;

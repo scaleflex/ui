@@ -21,15 +21,13 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       popperOptions,
       onClick,
       overlay = false,
-      zIndex,
+      zIndex = 1300,
       enableUnderlayingEvent,
     }: PopperProps,
     ref
     // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-    const overlayTarget = document.querySelector('body')!;
     const Ref = useRef(null);
     const ownRef = useForkRef(Ref, ref);
     const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
@@ -93,29 +91,27 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       }
     };
 
-    const render = (): JSX.Element => (
-      <Styled.Popper ref={handleRef} style={{ ...popper.styles.popper, zIndex }} {...popper.attributes.popper}>
-        {children}
-        {arrow && (
-          <Styled.Arrow
-            position={popper.state?.placement || initialPlacement}
-            ref={setArrowElement}
-            style={popper.styles.arrow}
-          />
-        )}
-      </Styled.Popper>
-    );
-
     const renderOverlay = (): JSX.Element => (
       <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
     );
 
-    return (
-      <>
-        {createPortal(render(), target)}
-        {overlay && createPortal(renderOverlay(), overlayTarget)}
-      </>
+    const render = (): JSX.Element => (
+      <Styled.PopperWrapper zIndex={zIndex}>
+        {overlay && renderOverlay()}
+        <Styled.Popper ref={handleRef} style={{ ...popper.styles.popper }} {...popper.attributes.popper}>
+          {children}
+          {arrow && (
+            <Styled.Arrow
+              position={popper.state?.placement || initialPlacement}
+              ref={setArrowElement}
+              style={popper.styles.arrow}
+            />
+          )}
+        </Styled.Popper>
+      </Styled.PopperWrapper>
     );
+
+    return createPortal(render(), target);
   }
 );
 
