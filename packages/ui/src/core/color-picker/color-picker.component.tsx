@@ -101,10 +101,14 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       }
     };
 
-    const handleRgbInput = (value: number, index: number) => {
+    const handleRgbInput = (value: number, index: number): void | undefined => {
       const rgbArr = rgbColorValue;
       rgbArr[index] = value;
       const newHexColor = rgbToHex(...rgbArr);
+
+      if (value > 255 || Number.isNaN(value)) {
+        return;
+      }
 
       setRgbColorValue([...rgbArr]);
       if (validateHex(newHexColor)) {
