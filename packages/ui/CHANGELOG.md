@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.76](https://github.com/scaleflex/ui/compare/1.0.0-beta.75...1.0.0-beta.76) (2022-03-17)
+
+
+### Bug Fixes
+
+* **ColorPicker:** rgb input accepting more than 255 ([81dfb23](https://github.com/scaleflex/ui/commit/81dfb236b5566b6bc2c02ba98dcb6dc7c5e47959))
+
+
+### Features
+
+* **Popper,Menu,Tooltip:** add disableUnderlayingEvent prop ([0788908](https://github.com/scaleflex/ui/commit/0788908ce9b9f4c5a60a08c53c269b02259b82d0))
+* **Popper,Menu,Tooltip:** change disableUnderlayingEvent to enableUnderlayingEvent prop ([f83e50f](https://github.com/scaleflex/ui/commit/f83e50f74985295e602c191914ffcbfb12d0d924))
+
+
+
+
+
 # [1.0.0-beta.75](https://github.com/scaleflex/ui/compare/1.0.0-beta.74...1.0.0-beta.75) (2022-03-15)
 
 **Note:** Version bump only for package @scaleflex/ui
