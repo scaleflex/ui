@@ -32,42 +32,40 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     const popperRef = useRef(null);
     const handlePopperRef = useForkRef(popperRef, ref);
 
-    const arrowModifier = [
-      { name: 'arrow', options: { element: '[data-popper-arrow]' } },
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10],
-        },
-      },
-    ];
-
-    let popperModifiers: Modifiers = arrow ? arrowModifier : [];
-
-    if (popperOptions && popperOptions.modifiers != null) {
-      popperModifiers = popperModifiers.concat(popperOptions.modifiers);
-    }
-
     useEffect(() => {
-      if (anchorEl && popperRef.current !== null) {
-        const popper = createPopper(anchorEl, popperRef.current, {
-          placement: initialPlacement,
-          ...popperOptions,
-          modifiers: popperModifiers,
-        });
-
-        handlePopperRef.current = popper;
-
-        return () => {
-          popper.destroy();
-          handlePopperRef.current = null;
-        };
+      if (!anchorEl || !open || popperRef.current === null) {
+        return undefined;
       }
-    }, [anchorEl]);
 
-    if (!open) {
-      return <div ref={handlePopperRef} />;
-    }
+      const defaultModifiers = [
+        { name: 'arrow', options: { element: '[data-popper-arrow]' } },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10],
+          },
+        },
+      ];
+
+      let popperModifiers: Modifiers = arrow ? defaultModifiers : [];
+
+      if (popperOptions && popperOptions.modifiers != null) {
+        popperModifiers = popperModifiers.concat(popperOptions.modifiers);
+      }
+
+      const popper = createPopper(anchorEl, popperRef.current, {
+        placement: initialPlacement,
+        ...popperOptions,
+        modifiers: popperModifiers,
+      });
+
+      handlePopperRef.current = popper;
+
+      return () => {
+        popper.destroy();
+        handlePopperRef.current = null;
+      };
+    }, [anchorEl, open, popperOptions, initialPlacement, arrow]);
 
     const passEventToUnderlayingEvent = (event: React.MouseEvent<HTMLDivElement>): void => {
       setTimeout(() => {
@@ -96,6 +94,10 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     const renderOverlay = (): JSX.Element => (
       <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
     );
+
+    if (!open) {
+      return <div ref={handlePopperRef} />;
+    }
 
     const render = (): JSX.Element => (
       <Styled.PopperWrapper zIndex={zIndex} style={{ ...wrapperStyles }}>

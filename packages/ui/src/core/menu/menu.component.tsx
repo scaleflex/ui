@@ -27,6 +27,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       zIndex,
       hideScroll = true,
       enableUnderlayingEvent = false,
+      popperWrapperStyles = {},
       ...rest
     },
     ref
@@ -109,6 +110,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           popperOptions={popperOptions}
           zIndex={zIndex}
           enableUnderlayingEvent={enableUnderlayingEvent}
+          wrapperStyles={popperWrapperStyles}
         >
           <Styled.Menu
             {...containerProps}
@@ -159,6 +161,8 @@ export const propTypes = {
   zIndex: PT.number,
   hideScroll: PT.bool,
   enableUnderlayingEvent: PT.bool,
+  // eslint-disable-next-line react/forbid-prop-types
+  popperWrapperStyles: PT.object,
 };
 
 Menu.propTypes = propTypes;

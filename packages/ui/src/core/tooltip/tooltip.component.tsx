@@ -13,7 +13,15 @@ import Popper from '../popper';
 
 const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
   (
-    { children, position = Position.Top, popperOptions, arrow = true, enableUnderlayingEvent, ...rest }: TooltipProps,
+    {
+      children,
+      position = Position.Top,
+      popperOptions,
+      arrow = true,
+      enableUnderlayingEvent,
+      popperWrapperStyles = {},
+      ...rest
+    }: TooltipProps,
     ref
   ): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
@@ -51,6 +59,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
         popperOptions={popperOptions}
         arrow={arrow}
         enableUnderlayingEvent={enableUnderlayingEvent}
+        wrapperStyles={popperWrapperStyles}
       >
         <Styled.TooltipContainer {...rest} open={open}>
           <Styled.Tooltip>{rest.title}</Styled.Tooltip>
@@ -112,6 +121,7 @@ Tooltip.propTypes = {
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
   enableUnderlayingEvent: PT.bool,
+  popperWrapperStyles: PT.object,
 };
 
 export default Tooltip;
