@@ -17,7 +17,7 @@ const PopperWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
 })(
   ({ zIndex }: { zIndex: number }) => css`
-    position: absolute;
+    position: relative;
     z-index: ${zIndex};
   `
 );

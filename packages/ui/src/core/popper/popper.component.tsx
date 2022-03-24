@@ -1,8 +1,8 @@
 /* eslint-disable react/forbid-prop-types */
-import React, { useRef, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
-import { usePopper } from 'react-popper';
+import { createPopper } from '@popperjs/core';
 
 import usePortal from '../../hooks/use-portal';
 import { intrinsicComponent, generateClassNames, useForkRef, objectValues } from '../../utils/functions';
@@ -23,17 +23,17 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       overlay = false,
       zIndex = 1300,
       enableUnderlayingEvent,
+      wrapperStyles = {},
     }: PopperProps,
     ref
     // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
-    const Ref = useRef(null);
-    const ownRef = useForkRef(Ref, ref);
-    const [arrowElement, setArrowElement] = useState<HTMLElement | null>(null);
+    const popperRef = useRef(null);
+    const handlePopperRef = useForkRef(popperRef, ref);
 
     const arrowModifier = [
-      { name: 'arrow', options: { element: arrowElement } },
+      { name: 'arrow', options: { element: '[data-popper-arrow]' } },
       {
         name: 'offset',
         options: {
@@ -48,23 +48,25 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       popperModifiers = popperModifiers.concat(popperOptions.modifiers);
     }
 
-    const popper = usePopper(anchorEl, Ref.current, {
-      placement: initialPlacement,
-      ...popperOptions,
-      modifiers: popperModifiers,
-    });
+    useEffect(() => {
+      if (anchorEl && popperRef.current !== null) {
+        const popper = createPopper(anchorEl, popperRef.current, {
+          placement: initialPlacement,
+          ...popperOptions,
+          modifiers: popperModifiers,
+        });
 
-    const handleRef = React.useCallback(
-      (node) => {
-        if (typeof ownRef === 'function') {
-          ownRef(node);
-        }
-      },
-      [ownRef]
-    );
+        handlePopperRef.current = popper;
+
+        return () => {
+          popper.destroy();
+          handlePopperRef.current = null;
+        };
+      }
+    }, [anchorEl]);
 
     if (!open) {
-      return <div ref={handleRef} />;
+      return <div ref={handlePopperRef} />;
     }
 
     const passEventToUnderlayingEvent = (event: React.MouseEvent<HTMLDivElement>): void => {
@@ -96,17 +98,11 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     );
 
     const render = (): JSX.Element => (
-      <Styled.PopperWrapper zIndex={zIndex}>
+      <Styled.PopperWrapper zIndex={zIndex} style={{ ...wrapperStyles }}>
         {overlay && renderOverlay()}
-        <Styled.Popper ref={handleRef} style={{ ...popper.styles.popper }} {...popper.attributes.popper}>
+        <Styled.Popper ref={handlePopperRef}>
           {children}
-          {arrow && (
-            <Styled.Arrow
-              position={popper.state?.placement || initialPlacement}
-              ref={setArrowElement}
-              style={popper.styles.arrow}
-            />
-          )}
+          {arrow && <Styled.Arrow data-popper-arrow position={handlePopperRef?.state?.placement || initialPlacement} />}
         </Styled.Popper>
       </Styled.PopperWrapper>
     );
@@ -152,6 +148,7 @@ export const propTypes = {
   arrow: PT.bool,
   zIndex: PT.number,
   enableUnderlayingEvent: PT.bool,
+  wrapperStyles: PT.object,
 };
 
 Popper.propTypes = propTypes;
