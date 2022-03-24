@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'packages/icons/node_modules/@types/react';
+import { InputHTMLAttributes } from 'react';
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import type { InputProps } from '../input';

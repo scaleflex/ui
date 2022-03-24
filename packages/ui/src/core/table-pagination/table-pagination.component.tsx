@@ -119,6 +119,7 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
 );
 
 TablePagination.propTypes = {
+  children: PT.node,
   page: PT.number.isRequired,
   count: PT.number.isRequired,
   rowsPerPage: PT.number,

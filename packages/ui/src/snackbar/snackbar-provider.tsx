@@ -10,7 +10,6 @@ function SnackbarProvider({ children, ...rest }: SnackbarProviderProps): JSX.Ele
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState({
     ...defaultProps,
-    message: '',
     ...rest,
   });
   const handleShowMessage = (message = '', { variant = MessageVariant.Default, ...restOptions } = {}): void => {

@@ -1,4 +1,4 @@
-import React from 'packages/icons/node_modules/@types/react';
+import React from 'react';
 
 export interface TableContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
