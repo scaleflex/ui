@@ -1,4 +1,5 @@
 const pathsToWebpackAlias = require('../scripts/paths-to-webpack-alias');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
   stories: ['../packages/**/*.story.tsx'],
@@ -14,7 +15,7 @@ module.exports = {
   ],
   webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.inline.svg$/;
-
+   
     config.module.rules.push(
       {
         test: /\.(ts|tsx|jsx)$/,
@@ -32,6 +33,8 @@ module.exports = {
     config.resolve.extensions.push('.ts', '.tsx', '.jsx');
 
     config.resolve.modules = ['node_modules'];
+
+    config.plugins.push(new BundleAnalyzerPlugin());
 
     Object.assign(config.resolve.alias, pathsToWebpackAlias());
 
