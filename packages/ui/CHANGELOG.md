@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.79](https://github.com/scaleflex/ui/compare/1.0.0-beta.78...1.0.0-beta.79) (2022-03-24)
+
+
+### Bug Fixes
+
+* **colorPicker:** Values above 255 can entered in the RGB colour ([a4e8a31](https://github.com/scaleflex/ui/commit/a4e8a312d36749920b8db997e94dc542eadb99b7))
+
+
+### Features
+
+* **popper:** add popperWrapperStyles and wrapperStyles props ([735d969](https://github.com/scaleflex/ui/commit/735d969273088f8ca11b9568c78c3373e207a646))
+
+
+
+
+
 # [1.0.0-beta.78](https://github.com/scaleflex/ui/compare/1.0.0-beta.77...1.0.0-beta.78) (2022-03-17)
 
 **Note:** Version bump only for package @scaleflex/ui
