@@ -5,215 +5,133 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 # [1.0.0-beta.79](https://github.com/scaleflex/ui/compare/1.0.0-beta.78...1.0.0-beta.79) (2022-03-24)
 
-
 ### Bug Fixes
 
-* **colorPicker:** Values above 255 can entered in the RGB colour ([a4e8a31](https://github.com/scaleflex/ui/commit/a4e8a312d36749920b8db997e94dc542eadb99b7))
-
+- **colorPicker:** Values above 255 can entered in the RGB colour ([a4e8a31](https://github.com/scaleflex/ui/commit/a4e8a312d36749920b8db997e94dc542eadb99b7))
 
 ### Features
 
-* **popper:** add popperWrapperStyles and wrapperStyles props ([735d969](https://github.com/scaleflex/ui/commit/735d969273088f8ca11b9568c78c3373e207a646))
+- **popper:** add popperWrapperStyles and wrapperStyles props ([735d969](https://github.com/scaleflex/ui/commit/735d969273088f8ca11b9568c78c3373e207a646))
 
+### Refactor
 
+- **popper:** migrate from react popper to popper js ([5d1f2e7](https://github.com/scaleflex/ui/commit/5d1f2e76f1be9e28993953e1ed3bff127c6d4d83))
 
+### Chore
 
+- add bundle analyzer ([0be79f6](https://github.com/scaleflex/ui/commit/0be79f61d41a117843462de481753879ac79afea))
 
 # [1.0.0-beta.78](https://github.com/scaleflex/ui/compare/1.0.0-beta.77...1.0.0-beta.78) (2022-03-17)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [1.0.0-beta.77](https://github.com/scaleflex/ui/compare/1.0.0-beta.76...1.0.0-beta.77) (2022-03-17)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [1.0.0-beta.76](https://github.com/scaleflex/ui/compare/1.0.0-beta.75...1.0.0-beta.76) (2022-03-17)
-
 
 ### Bug Fixes
 
-* **ColorPicker:** rgb input accepting more than 255 ([81dfb23](https://github.com/scaleflex/ui/commit/81dfb236b5566b6bc2c02ba98dcb6dc7c5e47959))
-
+- **ColorPicker:** rgb input accepting more than 255 ([81dfb23](https://github.com/scaleflex/ui/commit/81dfb236b5566b6bc2c02ba98dcb6dc7c5e47959))
 
 ### Features
 
-* **Popper,Menu,Tooltip:** add disableUnderlayingEvent prop ([0788908](https://github.com/scaleflex/ui/commit/0788908ce9b9f4c5a60a08c53c269b02259b82d0))
-* **Popper,Menu,Tooltip:** change disableUnderlayingEvent to enableUnderlayingEvent prop ([f83e50f](https://github.com/scaleflex/ui/commit/f83e50f74985295e602c191914ffcbfb12d0d924))
-
-
-
-
+- **Popper,Menu,Tooltip:** add disableUnderlayingEvent prop ([0788908](https://github.com/scaleflex/ui/commit/0788908ce9b9f4c5a60a08c53c269b02259b82d0))
+- **Popper,Menu,Tooltip:** change disableUnderlayingEvent to enableUnderlayingEvent prop ([f83e50f](https://github.com/scaleflex/ui/commit/f83e50f74985295e602c191914ffcbfb12d0d924))
 
 # [1.0.0-beta.75](https://github.com/scaleflex/ui/compare/1.0.0-beta.74...1.0.0-beta.75) (2022-03-15)
 
-
 ### Features
 
-* **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
-
-
-
-
+- **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
 
 # [1.0.0-beta.74](https://github.com/scaleflex/ui/compare/1.0.0-beta.73...1.0.0-beta.74) (2022-03-14)
 
-
 ### Bug Fixes
 
-* **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
-
+- **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
 
 ### Features
 
-* **TagField:** add new prop ([a84b3b3](https://github.com/scaleflex/ui/commit/a84b3b398caa8f6e84946e06510d2d77a3a4d7b3))
-
-
-
-
+- **TagField:** add new prop ([a84b3b3](https://github.com/scaleflex/ui/commit/a84b3b398caa8f6e84946e06510d2d77a3a4d7b3))
 
 # [1.0.0-beta.73](https://github.com/scaleflex/ui/compare/1.0.0-beta.72...1.0.0-beta.73) (2022-02-22)
 
-
 ### Features
 
-* **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
-
-
-
-
+- **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
 
 # [1.0.0-beta.72](https://github.com/scaleflex/ui/compare/1.0.0-beta.71...1.0.0-beta.72) (2022-02-16)
 
-
 ### Features
 
-* **CheckBoxGroup,CheckBox:** change color on disable ([dbea790](https://github.com/scaleflex/ui/commit/dbea7904f9b6e5444f35a8543d81c76afccddaa5))
-* **MenuItem:** add disableHover prop ([9e8aa6d](https://github.com/scaleflex/ui/commit/9e8aa6d6776f18cb1ed4180a97d597d9cc596483))
-
-
-
-
+- **CheckBoxGroup,CheckBox:** change color on disable ([dbea790](https://github.com/scaleflex/ui/commit/dbea7904f9b6e5444f35a8543d81c76afccddaa5))
+- **MenuItem:** add disableHover prop ([9e8aa6d](https://github.com/scaleflex/ui/commit/9e8aa6d6776f18cb1ed4180a97d597d9cc596483))
 
 # [1.0.0-beta.71](https://github.com/scaleflex/ui/compare/1.0.0-beta.70...1.0.0-beta.71) (2022-02-15)
 
-
 ### Features
 
-* **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
-* **label:** add iconStart and iconEnd props ([298a1af](https://github.com/scaleflex/ui/commit/298a1af6206eb4117e52a7a4ad8f2be31275c094))
-* **MenuItem:** add disableHover prop ([da2be59](https://github.com/scaleflex/ui/commit/da2be591e89cfa24419a5f00cdb17df292b31137))
-
-
-
-
+- **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
+- **label:** add iconStart and iconEnd props ([298a1af](https://github.com/scaleflex/ui/commit/298a1af6206eb4117e52a7a4ad8f2be31275c094))
+- **MenuItem:** add disableHover prop ([da2be59](https://github.com/scaleflex/ui/commit/da2be591e89cfa24419a5f00cdb17df292b31137))
 
 # [1.0.0-beta.70](https://github.com/scaleflex/ui/compare/1.0.0-beta.69...1.0.0-beta.70) (2022-02-13)
 
-
 ### Features
 
-* **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
-
-
-
-
+- **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
 
 # [1.0.0-beta.69](https://github.com/scaleflex/ui/compare/1.0.0-beta.68...1.0.0-beta.69) (2022-02-03)
 
-
 ### Features
 
-* **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
-
-
-
-
+- **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
 
 # [1.0.0-beta.68](https://github.com/scaleflex/ui/compare/1.0.0-beta.67...1.0.0-beta.68) (2022-02-02)
 
-
 ### Bug Fixes
 
-* **ColorPicker:** on setting defaultColor to transparent color ([f51c1ca](https://github.com/scaleflex/ui/commit/f51c1cab3aa3262e368bdadc76849cdebfdbde3a))
-
-
-
-
+- **ColorPicker:** on setting defaultColor to transparent color ([f51c1ca](https://github.com/scaleflex/ui/commit/f51c1cab3aa3262e368bdadc76849cdebfdbde3a))
 
 # [1.0.0-beta.67](https://github.com/scaleflex/ui/compare/1.0.0-beta.66...1.0.0-beta.67) (2022-02-02)
 
-
 ### Bug Fixes
 
-* **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
-
+- **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
 
 ### Features
 
-* **ColorPicker:** add support for transparent colors ([25d4337](https://github.com/scaleflex/ui/commit/25d4337589c50b9119f6b2d2d188539672e04a28))
-
-
-
-
+- **ColorPicker:** add support for transparent colors ([25d4337](https://github.com/scaleflex/ui/commit/25d4337589c50b9119f6b2d2d188539672e04a28))
 
 # [1.0.0-beta.66](https://github.com/scaleflex/ui/compare/1.0.0-beta.65...1.0.0-beta.66) (2022-01-14)
 
-
 ### Bug Fixes
 
-* **ColorPicker:** pointer size ([227d8dd](https://github.com/scaleflex/ui/commit/227d8ddfa0fb0a54d20b0263be3c6396c23b2fc5))
-
-
-
-
+- **ColorPicker:** pointer size ([227d8dd](https://github.com/scaleflex/ui/commit/227d8ddfa0fb0a54d20b0263be3c6396c23b2fc5))
 
 # [1.0.0-beta.65](https://github.com/scaleflex/ui/compare/1.0.0-beta.64...1.0.0-beta.65) (2022-01-14)
 
-
 ### Bug Fixes
 
-* **ColorPicker:** type ([8f2f241](https://github.com/scaleflex/ui/commit/8f2f2413c37fab6c83871424f6d9a38243ac4ece))
-
-
-
-
+- **ColorPicker:** type ([8f2f241](https://github.com/scaleflex/ui/commit/8f2f2413c37fab6c83871424f6d9a38243ac4ece))
 
 # [1.0.0-beta.64](https://github.com/scaleflex/ui/compare/1.0.0-beta.63...1.0.0-beta.64) (2022-01-14)
 
-
 ### Bug Fixes
 
-* **ColorPicker:** add zindex for select menu ([07963b9](https://github.com/scaleflex/ui/commit/07963b98c0ec0a9d7976c7c6c8b4cbed77ed5581))
-
-
-
-
+- **ColorPicker:** add zindex for select menu ([07963b9](https://github.com/scaleflex/ui/commit/07963b98c0ec0a9d7976c7c6c8b4cbed77ed5581))
 
 # [1.0.0-beta.63](https://github.com/scaleflex/ui/compare/1.0.0-beta.62...1.0.0-beta.63) (2022-01-13)
 
-
 ### Bug Fixes
 
-* types ([d92f85a](https://github.com/scaleflex/ui/commit/d92f85aa242d954501f9218f08d43a10fa10dfdf))
-
+- types ([d92f85a](https://github.com/scaleflex/ui/commit/d92f85aa242d954501f9218f08d43a10fa10dfdf))
 
 ### Features
 
-* **RotationSlider:** add angle prop ([ca809b4](https://github.com/scaleflex/ui/commit/ca809b4bc133d3164df699f465b80bb7af374ea5))
-
-
-
-
-
-
+- **RotationSlider:** add angle prop ([ca809b4](https://github.com/scaleflex/ui/commit/ca809b4bc133d3164df699f465b80bb7af374ea5))
 
 # [1.0.0-beta.62](https://github.com/scaleflex/ui/compare/1.0.0-beta.61...1.0.0-beta.62) (2021-12-31)
 
