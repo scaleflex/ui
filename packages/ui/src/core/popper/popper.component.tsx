@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 /* eslint-disable react/forbid-prop-types */
 import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
