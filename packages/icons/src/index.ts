@@ -273,3 +273,4 @@ export { SupportRequest } from './support-request';
 export { NoImages } from './no-images';
 export { Webhook } from './webhook';
 export { PostProcessing } from './post-processing';
+export { HistoryModified } from './history-modified';
