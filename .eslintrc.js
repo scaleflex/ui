@@ -91,6 +91,8 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/no-unnecessary-condition': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
 
     // 'immutable/no-let': 'error',
     // 'immutable/no-mutation': 'warn',
@@ -116,6 +118,7 @@ module.exports = {
       },
     ],
     'unicorn/no-reduce': 'off',
+    'unicorn/no-nested-ternary': 'off',
 
     'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }],
     'react/jsx-one-expression-per-line': 'off',
@@ -126,8 +129,12 @@ module.exports = {
     'react/prop-types': 'off',
     'react/default-props-match-prop-types': 'warn',
     'react/require-default-props': 'off',
+    'react/forbid-prop-types':'off',
+    'react/no-array-index-key': 'off',
+    
 
     'sonarjs/no-duplicate-string': 'warn',
+    'sonarjs/cognitive-complexity': 'off',
 
     'no-process-env': 'off',
     'id-length': ['warn', { exceptions: ['_'], min: 2 }],
@@ -142,7 +149,8 @@ module.exports = {
     'comma-dangle': 'off',
     'max-len': 'off',
     'no-param-reassign': 'off',
-    'no-prototype-builtins':'off'
+    'no-prototype-builtins':'off',
+    'id-length': 'off',
   },
   overrides: [
     {
