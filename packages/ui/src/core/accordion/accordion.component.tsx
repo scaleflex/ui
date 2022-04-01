@@ -59,9 +59,7 @@ Accordion.defaultProps = {
 Accordion.propTypes = {
   label: PT.node.isRequired,
   expanded: PT.bool,
-  // eslint-disable-next-line react/forbid-prop-types
   detailStyle: PT.object,
-  // eslint-disable-next-line react/forbid-prop-types
   headerStyle: PT.object,
   onChange: PT.func,
   onContextMenu: PT.func,

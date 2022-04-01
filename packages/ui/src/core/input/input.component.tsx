@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/cognitive-complexity */
 import React, { useRef, useEffect } from 'react';
 import PT from 'prop-types';
 
@@ -105,7 +104,6 @@ export const propTypes = {
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
   fullWidth: PT.bool,
-  // eslint-disable-next-line react/forbid-prop-types
   value: PT.any,
   readOnly: PT.bool,
   iconClickStart: PT.func,

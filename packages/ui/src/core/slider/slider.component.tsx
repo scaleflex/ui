@@ -1,7 +1,5 @@
-/* eslint-disable no-shadow */
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable no-use-before-define */
-/* eslint-disable sonarjs/cognitive-complexity */
+
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import PT, { Validator } from 'prop-types';
 
@@ -344,7 +342,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     const thumbProps = componentsProps.thumb;
     const Thumb = components.Thumb || Styled.Thumb;
 
-    const LabelTooltip = components.LabelTooltip || Styled.LabelTooltip;
+    const LabelTooltipComponent = components.LabelTooltip || Styled.LabelTooltip;
     const labelTooltipProps = componentsProps.labelTooltip;
 
     const annotationText = annotation ? ` ${annotation}` : '';
@@ -363,7 +361,6 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
           const style = axisProps[axis].offset(percent);
 
           return (
-            // eslint-disable-next-line react/no-array-index-key
             <React.Fragment key={index}>
               <Thumb
                 data-index={index}
@@ -386,14 +383,14 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
                   disabled={disabled}
                   onChange={handleHiddenInputChange}
                 />
-                <LabelTooltip
+                <LabelTooltipComponent
                   open={open === index || active === index || labelTooltip === 'on'}
                   disabled={disabled}
                   style={{ ...labelTooltipProps?.style }}
                 >
                   {values[index]}
                   {annotationText}
-                </LabelTooltip>
+                </LabelTooltipComponent>
               </Thumb>
             </React.Fragment>
           );
@@ -444,7 +441,6 @@ Slider.propTypes = {
     Thumb: PT.elementType,
     LabelTooltip: PT.elementType,
   }) as Validator<ComponentsType>,
-  // eslint-disable-next-line react/forbid-prop-types
   componentsProps: PT.object,
 };
 

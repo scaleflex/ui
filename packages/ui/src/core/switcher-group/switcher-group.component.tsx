@@ -24,7 +24,6 @@ SwitcherGroup.propTypes = {
   label: PT.string,
   checked: PT.bool,
   onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
   switcherProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,

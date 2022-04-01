@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-/* eslint-disable react/forbid-prop-types */
 import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
@@ -27,7 +25,6 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       wrapperStyles = {},
     }: PopperProps,
     ref
-    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
     const popperRef = useRef(null);

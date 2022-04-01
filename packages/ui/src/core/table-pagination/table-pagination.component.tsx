@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/cognitive-complexity */
 import React, { useState } from 'react';
 import PT from 'prop-types';
 

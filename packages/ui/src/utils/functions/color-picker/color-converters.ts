@@ -1,4 +1,3 @@
-/* eslint-disable id-length */
 export const rgbStringToArray = (rgbColorString: string) =>
   rgbColorString
     .replaceAll(/[^\d,]/gi, '')

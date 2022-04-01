@@ -151,7 +151,6 @@ export const propTypes = {
   fullWidth: PT.bool,
   onClose: PT.func,
   id: PT.string,
-  // eslint-disable-next-line react/forbid-prop-types
   containerProps: PT.object,
   alignCenter: PT.bool,
   maxHeight: PT.oneOfType([PT.string, PT.number]),
@@ -161,7 +160,6 @@ export const propTypes = {
   zIndex: PT.number,
   hideScroll: PT.bool,
   enableUnderlayingEvent: PT.bool,
-  // eslint-disable-next-line react/forbid-prop-types
   popperWrapperStyles: PT.object,
 };
 

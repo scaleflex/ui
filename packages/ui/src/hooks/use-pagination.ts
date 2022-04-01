@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/no-nested-ternary */
-
 /**
  * Borrows heavily from and inspired by material-ui https://github.com/mui-org/material-ui
  * basically a stripped-down version of it. Uing only the core functionalities and using what we need from it
@@ -7,7 +5,6 @@
 
 import useControlled from './use-controlled';
 
-// eslint-disable-next-line sonarjs/cognitive-complexity
 function usePagination({
   boundaryCount = 1,
   count = 1,
@@ -71,7 +68,6 @@ function usePagination({
     ...startPages,
 
     // Start ellipsis
-    // eslint-disable-next-line no-nested-ternary
     ...(siblingsStart > boundaryCount + 2
       ? ['start-ellipsis']
       : boundaryCount + 1 < count - boundaryCount
@@ -82,7 +78,6 @@ function usePagination({
     ...range(siblingsStart, siblingsEnd),
 
     // End ellipsis
-    // eslint-disable-next-line no-nested-ternary
     ...(siblingsEnd < count - boundaryCount - 1
       ? ['end-ellipsis']
       : count - boundaryCount > boundaryCount

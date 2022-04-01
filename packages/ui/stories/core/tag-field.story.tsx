@@ -1,6 +1,6 @@
-/* eslint-disable sonarjs/no-identical-functions */
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { AddTagType, Background } from '../../src/core/tag-field/types';
 import { StoryGroup } from './types';
@@ -24,6 +24,16 @@ const defaultArgs = {
   background: Background.Primary,
 };
 
+const handleRemove = (
+  index: number,
+  tags: TagType[],
+  setTags: React.Dispatch<React.SetStateAction<TagType[]>>
+): void => {
+  const newTags = [...tags];
+  newTags.splice(index, 1);
+  setTags(newTags);
+};
+
 const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
   const [tags, setTags] = useState(args.tags);
 
@@ -35,11 +45,7 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
       tags={tags}
       suggestedTags={args.suggestedTags}
       onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
-      onRemove={(index) => {
-        const newTags = [...tags];
-        newTags.splice(index, 1);
-        setTags(newTags);
-      }}
+      onRemove={(index) => handleRemove(index, tags, setTags)}
     />
   );
 };
@@ -61,11 +67,7 @@ const TagsObjectsTemplate: Story<TagFieldProps> = ({ ...args }) => {
       onAdd={(item, type) => {
         setTags([...tags, type === AddTagType.UserInput ? { id: item, label: item } : item]);
       }}
-      onRemove={(index: number): void => {
-        const newTags = [...tags];
-        newTags.splice(index, 1);
-        setTags(newTags);
-      }}
+      onRemove={(index) => handleRemove(index, tags, setTags)}
       getTagLabel={(item: any): string => item.label}
       getTagValue={(item: any): string => item.id}
     />

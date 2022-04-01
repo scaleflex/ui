@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import React, { useMemo } from 'react';
 import PT from 'prop-types';
 import Tick from '@scaleflex/icons/tick';

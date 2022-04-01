@@ -108,7 +108,6 @@ SelectGroup.propTypes = {
   hint: PT.node,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   SelectProps: PT.exact(selectPropTypes) as Validator<SelectProps>,
-  // eslint-disable-next-line react/forbid-prop-types
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,

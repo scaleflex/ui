@@ -38,7 +38,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       ...rest
     }: TagFieldProps,
     ref
-    // eslint-disable-next-line sonarjs/cognitive-complexity
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);

@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/cognitive-complexity */
 import React from 'react';
 import PT from 'prop-types';
 import ArrowTick from '@scaleflex/icons/arrow-tick';

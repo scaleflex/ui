@@ -29,7 +29,6 @@ CheckBox.defaultProps = {
 CheckBox.propTypes = {
   checked: PT.bool,
   onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
   checkBoxProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,

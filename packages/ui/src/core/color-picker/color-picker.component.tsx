@@ -1,9 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */
-/* eslint-disable no-constant-condition */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable sonarjs/cognitive-complexity */
-/* eslint-disable id-length */
 import React, { useState, useMemo, useEffect, KeyboardEvent } from 'react';
 import PT from 'prop-types';
 import { PinOutline, DeleteOutline } from '@scaleflex/icons';
@@ -343,7 +337,6 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
           ) : (
             rgbColorValue.map((rgb, index) => (
               <Input
-                // eslint-disable-next-line react/no-array-index-key
                 key={index}
                 size="sm"
                 value={rgb}
@@ -382,7 +375,6 @@ ColorPicker.defaultProps = {
 ColorPicker.propTypes = {
   defaultColor: PT.string,
   onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
   pinnedColors: PT.array,
   showTransparentColor: PT.bool,
 };

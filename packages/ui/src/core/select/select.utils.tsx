@@ -66,8 +66,7 @@ const generateChildren = (children: ReactNode, isActive = false, size: SelectSiz
 export const renderOption = (
   menuItem: JSX.Element,
   { value, multiple = false, size = Size.Md, onClose, onChange }: RenderOption
-): // eslint-disable-next-line sonarjs/cognitive-complexity
-JSX.Element => {
+): JSX.Element => {
   if (!React.isValidElement(menuItem)) {
     return menuItem;
   }
@@ -120,12 +119,7 @@ const renderOptionValue = (option: any) => {
   }
 };
 
-export const renderValue = ({
-  value,
-  multiple = false,
-  children,
-}: RenderValue): // eslint-disable-next-line sonarjs/cognitive-complexity
-SelectSimpleValueType => {
+export const renderValue = ({ value, multiple = false, children }: RenderValue): SelectSimpleValueType => {
   const optionsProps: { value: SelectSimpleValueType }[] = [];
 
   React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {

@@ -113,11 +113,9 @@ InputGroup.propTypes = {
   label: PT.node,
   hint: PT.node,
   error: PT.bool,
-  // eslint-disable-next-line react/forbid-prop-types
   value: PT.any,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  // eslint-disable-next-line react/forbid-prop-types
   inputProps: PT.object,
   inputRef: PT.oneOfType([PT.func, PT.object]),
   TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,

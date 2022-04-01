@@ -66,7 +66,7 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
         defaultColor={color}
         pinnedColors={pinnedColors}
         onChange={handleChange}
-        showTransparentColors
+        showTransparentColor
       />
     </>
   );
