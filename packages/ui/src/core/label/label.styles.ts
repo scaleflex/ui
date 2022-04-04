@@ -25,6 +25,13 @@ const Label = styled.label.attrs({
   `
 );
 
+const Text = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'text'),
+})`
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+`;
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
@@ -40,6 +47,7 @@ const Icon = styled.span.attrs({
 const Styled = applyDisplayNames({
   Label,
   Icon,
+  Text,
 });
 
 export default Styled;
