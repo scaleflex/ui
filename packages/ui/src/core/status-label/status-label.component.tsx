@@ -21,7 +21,7 @@ StatusLabel.defaultProps = {
 };
 
 StatusLabel.propTypes = {
-  label: PT.string.isRequired,
+  label: PT.node.isRequired,
   type: PT.oneOf(objectValues(Type)),
   size: PT.oneOf(objectValues(Size)),
 };
