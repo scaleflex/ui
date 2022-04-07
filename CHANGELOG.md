@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.81](https://github.com/scaleflex/ui/compare/1.0.0-beta.80...1.0.0-beta.81) (2022-04-07)
+
+
+### Features
+
+* **label:** ellipsis support ([2583cd0](https://github.com/scaleflex/ui/commit/2583cd0fdf18df2d387996036e19ed1439e126a6))
+* **StatusLabel:** change label prop type to node ([f451c4d](https://github.com/scaleflex/ui/commit/f451c4def50001b72630b2e37c3d10e7d890b6d8))
+
+
+
+
+
 # [1.0.0-beta.80](https://github.com/scaleflex/ui/compare/1.0.0-beta.79...1.0.0-beta.80) (2022-03-31)
 
 
