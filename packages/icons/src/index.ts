@@ -274,3 +274,8 @@ export { NoImages } from './no-images';
 export { Webhook } from './webhook';
 export { PostProcessing } from './post-processing';
 export { HistoryModified } from './history-modified';
+export { FaceScanner } from './face-scanner';
+export { Schema } from './schema';
+export { DominantColor } from './dominant-color';
+export { WhiteSpace } from './white-space';
+export { RemoveBg } from './remove-bg';
