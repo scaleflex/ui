@@ -34,7 +34,7 @@ module.exports = {
 
     config.resolve.modules = ['node_modules'];
 
-    config.plugins.push(new BundleAnalyzerPlugin());
+    // config.plugins.push(new BundleAnalyzerPlugin());
 
     Object.assign(config.resolve.alias, pathsToWebpackAlias());
 
