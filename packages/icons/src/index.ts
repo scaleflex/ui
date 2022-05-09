@@ -279,4 +279,4 @@ export { FaceScanner } from './face-scanner';
 export { Schema } from './schema';
 export { DominantColor } from './dominant-color';
 export { WhiteSpace } from './white-space';
-export { RemoveBg } from './remove-bg';
+export { RemoveBgOutline } from './remove-bg-outline';
