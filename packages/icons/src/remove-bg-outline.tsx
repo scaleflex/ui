@@ -4,7 +4,15 @@ import type { IconProps } from './icon.props';
 
 export const RemoveBgOutline = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
-    <svg ref={ref} width={size} height={size} viewBox="0 0 42 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      ref={ref}
+      width={size}
+      height={size}
+      viewBox="0 0 42 43"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      {...rest}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
