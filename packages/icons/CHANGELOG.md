@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.83](https://github.com/scaleflex/ui/compare/1.0.0-beta.82...1.0.0-beta.83) (2022-05-09)
+
+
+### Features
+
+* **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
+* **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
+
+
+
+
+
 # [1.0.0-beta.82](https://github.com/scaleflex/ui/compare/1.0.0-beta.81...1.0.0-beta.82) (2022-04-15)
 
 

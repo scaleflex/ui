@@ -1,13 +1,13 @@
 {
   "name": "@scaleflex/ui",
-  "version": "1.0.0-beta.82",
+  "version": "1.0.0-beta.83",
   "description": "React UI components library by Scaleflex Company",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "@scaleflex/icons": "^1.0.0-beta.82",
+    "@scaleflex/icons": "^1.0.0-beta.83",
     "lodash.merge": "^4.6.2",
     "lodash.throttle": "^4.1.1",
     "polished": "^3.6.6",
