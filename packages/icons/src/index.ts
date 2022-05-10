@@ -280,3 +280,4 @@ export { Schema } from './schema';
 export { DominantColor } from './dominant-color';
 export { WhiteSpace } from './white-space';
 export { RemoveBgOutline } from './remove-bg-outline';
+export { RemoveBg } from './remove-bg';
