@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -19,10 +19,12 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       arrow = true,
       enableUnderlayingEvent,
       popperWrapperStyles = {},
+      enableHover,
       ...rest
     }: TooltipProps,
     ref
   ): JSX.Element => {
+    const [isHovering, setIsHovering] = useState(true);
     const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
     const open = Boolean(anchorEl);
@@ -39,13 +41,37 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       }
     };
 
+    useEffect(() => {
+      setAnchorEl(null);
+    }, [isHovering]);
+
     const handleMouseLeave = (event: any): void => {
       const { onMouseLeave } = children.props;
 
-      setAnchorEl(null);
+      if (enableHover) {
+        setTimeout(() => {
+          if (!isHovering) {
+            setAnchorEl(null);
+          }
+        }, 200);
+      } else {
+        setAnchorEl(null);
+      }
 
       if (typeof onMouseLeave === 'function') {
         onMouseLeave(event);
+      }
+    };
+
+    const handleEnteringTooltip = (): void => {
+      if (enableHover) {
+        setIsHovering(true);
+      }
+    };
+
+    const handleLeavingTooltip = (): void => {
+      if (enableHover) {
+        setIsHovering(false);
       }
     };
 
@@ -60,7 +86,12 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
         enableUnderlayingEvent={enableUnderlayingEvent}
         wrapperStyles={popperWrapperStyles}
       >
-        <Styled.TooltipContainer {...rest} open={open}>
+        <Styled.TooltipContainer
+          {...rest}
+          open={open}
+          onMouseEnter={handleEnteringTooltip}
+          onMouseLeave={handleLeavingTooltip}
+        >
           <Styled.Tooltip>{rest.title}</Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
@@ -121,6 +152,7 @@ Tooltip.propTypes = {
   }) as Validator<PopperOptions>,
   enableUnderlayingEvent: PT.bool,
   popperWrapperStyles: PT.object,
+  enableHover: PT.bool,
 };
 
 export default Tooltip;

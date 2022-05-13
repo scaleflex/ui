@@ -35,4 +35,5 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   arrow?: boolean;
   enableUnderlayingEvent?: boolean;
   popperWrapperStyles?: object;
+  enableHover?: boolean;
 }
