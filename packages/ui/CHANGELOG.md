@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.85](https://github.com/scaleflex/ui/compare/1.0.0-beta.84...1.0.0-beta.85) (2022-05-13)
+
+
+### Features
+
+* **tooltip:** add enableHover prop ([94bc6c6](https://github.com/scaleflex/ui/commit/94bc6c6cf6e254465d86db3f76b051ff44a8fc4a))
+
+
+
+
+
 # [1.0.0-beta.84](https://github.com/scaleflex/ui/compare/1.0.0-beta.83...1.0.0-beta.84) (2022-05-10)
 
 **Note:** Version bump only for package @scaleflex/ui
