@@ -1,5 +1,4 @@
 export { CheckBoxUnchecked } from './check-box-unchecked';
-
 export { CheckBox } from './check-box';
 export { Dot } from './dot';
 export { FilerobotLabel } from './filerobot-label';
