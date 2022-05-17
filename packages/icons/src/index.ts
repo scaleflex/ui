@@ -283,5 +283,6 @@ export { WhiteSpace } from './white-space';
 export { RemoveBgOutline } from './remove-bg-outline';
 export { RemoveBg } from './remove-bg';
 export { Original } from './original';
+export { DownloadCart } from './download-cart';
 export { Ocr } from './ocr';
 export { TagOutline } from './tag-outline';
