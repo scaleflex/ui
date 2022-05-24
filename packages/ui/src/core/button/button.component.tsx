@@ -11,7 +11,7 @@ import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
   ({ children, icon, badge, color, size, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => (
-    <Styled.Button {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
+    <Styled.Button type="button" {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
       {icon && (
         <Styled.Icon $loading={loading}>
           {typeof icon === 'function' ? (
