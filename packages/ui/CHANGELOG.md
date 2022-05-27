@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.87](https://github.com/scaleflex/ui/compare/1.0.0-beta.86...1.0.0-beta.87) (2022-05-27)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
 # [1.0.0-beta.86](https://github.com/scaleflex/ui/compare/1.0.0-beta.85...1.0.0-beta.86) (2022-05-17)
 
 **Note:** Version bump only for package @scaleflex/ui
