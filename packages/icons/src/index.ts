@@ -285,3 +285,4 @@ export { Original } from './original';
 export { DownloadCart } from './download-cart';
 export { Ocr } from './ocr';
 export { TagOutline } from './tag-outline';
+export { Envelope } from './envelope';
