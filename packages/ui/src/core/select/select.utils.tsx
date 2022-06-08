@@ -109,7 +109,7 @@ export const renderOption = (
   });
 };
 
-const getoptionChild = (option: any) => option.props.children;
+const getOptionChild = (option: any) => option.props.children;
 
 const renderOptionValue = (option: any) => {
   if (option && option.children) {
@@ -118,7 +118,7 @@ const renderOptionValue = (option: any) => {
     }
     let child = option.children;
     while (typeof child !== 'string') {
-      child = getoptionChild(child);
+      child = getOptionChild(child);
     }
     return child;
   }
