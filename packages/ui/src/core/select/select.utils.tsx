@@ -109,13 +109,20 @@ export const renderOption = (
   });
 };
 
+const getOptionValue = (option: any): string => {
+  const children = option.props ? option.props.children : option;
+  if (Array.isArray(children)) return children.map((child: any) => getOptionValue(child)).join(' ');
+  if (typeof children === 'object') return getOptionValue(children.props.children);
+  return children;
+};
+
 const renderOptionValue = (option: any) => {
   if (option && option.children) {
-    if (Array.isArray(option.children)) {
-      return option.children?.filter((optionChild: any) => typeof optionChild === 'string')?.join(' ');
+    let child = option.children;
+    while (typeof child !== 'string') {
+      child = getOptionValue(child);
     }
-
-    return option.children;
+    return child;
   }
 };
 
