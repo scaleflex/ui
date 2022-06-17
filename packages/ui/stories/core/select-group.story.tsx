@@ -28,6 +28,7 @@ const defaultArgs = {
   hint: 'Some hint goes here',
   readOnly: false,
   disabled: false,
+  placeholder: 'placeholder',
 };
 
 const BasicTemplate: Story<SelectGroupProps> = ({ ...args }) => {

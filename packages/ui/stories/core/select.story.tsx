@@ -24,6 +24,7 @@ const defaultArgs = {
   multiple: false,
   readOnly: false,
   disabled: false,
+  placeholder: 'placeholder',
   background: Background.Primary,
 };
 

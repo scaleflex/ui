@@ -49,6 +49,13 @@ const Label = styled.label.attrs({
   overflow: hidden;
 `;
 
+const Placeholder = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Placeholder'),
+})`
+  width: 100%;
+  color: grey;
+`;
+
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   'aria-hidden': 'true',
@@ -69,6 +76,7 @@ const Styled = applyDisplayNames({
   Label,
   Icon,
   Input,
+  Placeholder,
 });
 
 export default Styled;
