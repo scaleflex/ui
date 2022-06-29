@@ -51,10 +51,12 @@ const Label = styled.label.attrs({
 
 const Placeholder = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Placeholder'),
-})`
-  width: 100%;
-  color: grey;
-`;
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    width: 100%;
+    color: ${palette[PColor.TextPlaceholder]};
+  `
+);
 
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
