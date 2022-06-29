@@ -44,7 +44,6 @@ import type { ColorsMap } from './colors-map';
 
 //   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 // };
-
 export const lightPalette = {
   [Color.TextPrimary]: 'rgba(55,65,75,1)',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)',
@@ -66,6 +65,7 @@ export const lightPalette = {
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
+  [Color.IconsPlaceholder]: '#DEE6ED',
 
   [Color.ButtonPrimaryText]: 'rgba(255,255,255,1)',
   [Color.ButtonDisabledText]: '#A9B6C2',
