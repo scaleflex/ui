@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.88](https://github.com/scaleflex/ui/compare/1.0.0-beta.87...1.0.0-beta.88) (2022-06-29)
+
+
+### Features
+
+* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
+
+
+
+
+
 # [1.0.0-beta.87](https://github.com/scaleflex/ui/compare/1.0.0-beta.86...1.0.0-beta.87) (2022-05-27)
 
 
