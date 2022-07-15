@@ -7,6 +7,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: InputSizeType;
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
+  secondIconEnd?: React.ReactNode;
   error?: boolean;
   fullWidth?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -14,6 +15,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   iconClickStart?: () => void;
   iconClickEnd?: () => void;
+  iconClickSecondEnd?: () => void;
   background?: InputBackgroundType;
   focusOnMount?: boolean;
   focusOnClick?: boolean;

@@ -23,8 +23,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
+      secondIconEnd,
       iconClickStart,
       iconClickEnd,
+      iconClickSecondEnd,
       size,
       className,
       style,
@@ -49,7 +51,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }
     }, []);
 
-    const handleIconClick = (type: string): void => {
+    const handleIconClick = (event: any, type: string): void => {
       if (focusOnClick) {
         handleFocus();
       }
@@ -57,14 +59,22 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         if (iconClickStart) {
           iconClickStart();
         }
-      } else if (iconClickEnd) {
-        iconClickEnd();
+      } else if (type === 'end') {
+        if (iconClickEnd) {
+          iconClickEnd();
+        }
+      } else if (iconClickSecondEnd) {
+        iconClickSecondEnd(event);
       }
     };
 
     const renderIcon = (_icon: React.ReactNode, type: string): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon onClick={() => handleIconClick(type)} iconClickStart={iconClickStart} iconClickEnd={iconClickEnd}>
+        <Styled.Icon
+          onClick={(event) => handleIconClick(event, type)}
+          iconClickStart={iconClickStart}
+          iconClickEnd={iconClickEnd}
+        >
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
       ) : undefined;
@@ -81,6 +91,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       >
         {renderIcon(iconStart, 'start')}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+        {renderIcon(secondIconEnd, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>
