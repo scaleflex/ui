@@ -65,7 +65,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         </Styled.Container>
         <Menu onClose={handleClose} open={open} anchorEl={anchorEl} {...MenuProps}>
           {filteredOptions?.map((item, index) => (
-            <MenuItem key={index} value={item} active={item === selectedItem} onClick={() => handleSelectedItem(item)}>
+            <MenuItem
+              key={index}
+              value={item}
+              disabled={item === 'No options'}
+              active={item === selectedItem}
+              onClick={item === 'No options' ? undefined : () => handleSelectedItem(item)}
+            >
               {item}
             </MenuItem>
           ))}
