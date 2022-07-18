@@ -141,6 +141,7 @@ export { Asc } from './asc';
 export { Censor } from './censor';
 export { Uncensor } from './uncensor';
 export { Clock } from './clock';
+export { ClockPending } from './clock-pending';
 export { Calendar } from './calendar';
 export { Target } from './target';
 export { Play } from './play';
