@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.90](https://github.com/scaleflex/ui/compare/1.0.0-beta.89...1.0.0-beta.90) (2022-07-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+# [1.0.0-beta.89](https://github.com/scaleflex/ui/compare/1.0.0-beta.88...1.0.0-beta.89) (2022-07-05)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+# [1.0.0-beta.88](https://github.com/scaleflex/ui/compare/1.0.0-beta.87...1.0.0-beta.88) (2022-06-29)
+
+
+### Bug Fixes
+
+* **SelectGroup:** select group limitation T-6592 ([1e11ab4](https://github.com/scaleflex/ui/commit/1e11ab45b5c1ddc136d0ad9ad0ae6e5d1dc3fc53))
+
+
+### Features
+
+* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
+* **Select:** add possibility to show placeholder - T8475 ([01af3bd](https://github.com/scaleflex/ui/commit/01af3bddd95d5782caae755d86e092f48e06995d))
+* **Select:** add possibility to show placeholder - T8475 ([533a678](https://github.com/scaleflex/ui/commit/533a67872cc979e3fae95044ef3fe0b8cf21fe0e))
+
+
+
+
+
 # [1.0.0-beta.87](https://github.com/scaleflex/ui/compare/1.0.0-beta.86...1.0.0-beta.87) (2022-05-27)
 
 **Note:** Version bump only for package @scaleflex/ui

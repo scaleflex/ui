@@ -18,6 +18,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       children,
       error,
       label,
+      placeholder,
       hint,
       LabelProps: LabelPropsData,
       SelectProps: SelectPropsData,
@@ -82,6 +83,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           selectProps={selectProps}
           readOnly={readOnly}
           disabled={disabled}
+          placeholder={placeholder}
         >
           {children}
         </Select>

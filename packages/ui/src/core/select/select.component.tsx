@@ -26,6 +26,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       MenuProps,
       readOnly,
       disabled,
+      placeholder,
       background,
       renderLabel,
       ...rest
@@ -51,6 +52,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           <Styled.Label>
             {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
           </Styled.Label>
+
+          {!value && <Styled.Placeholder>{placeholder}</Styled.Placeholder>}
 
           <Styled.Icon>
             <ArrowTick
