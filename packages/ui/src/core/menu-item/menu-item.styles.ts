@@ -41,7 +41,7 @@ const Label = styled.div.attrs({
 const MenuItemWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
 })(
-  ({ divider, disabled, theme }: With<WithTheme, { divider: boolean; disabled: boolean }>) => css`
+  ({ divider, noOptionsText, theme }: With<WithTheme, { divider: boolean; noOptionsText: boolean }>) => css`
     ${divider &&
     css`
       width: 100%;
@@ -49,7 +49,7 @@ const MenuItemWrapper = styled.div.attrs({
       background: ${theme.palette[PColor.BordersSecondary]};
       box-sizing: border-box;
     `}
-    ${disabled &&
+    ${noOptionsText &&
     css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
@@ -59,7 +59,7 @@ const MenuItemWrapper = styled.div.attrs({
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, active, theme, disableHover = false, disabled }: With<WithTheme, MenuItemProps>) => css`
+  ({ size = Size.Md, active, theme, disableHover = false, noOptionsText }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -74,7 +74,7 @@ const MenuItem = styled.div.attrs({
     &:focus,
     &:hover {
       ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundPrimaryHover]}`};
-      ${disabled &&
+      ${noOptionsText &&
       css`
         cursor: default;
         background-color: white;

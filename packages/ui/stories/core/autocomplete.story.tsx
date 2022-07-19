@@ -10,6 +10,8 @@ export default {
 
 const defaultArgs = {
   placeholder: 'placeholder',
+  label: 'Label',
+  hint: 'Some hint goes here',
 };
 
 const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {

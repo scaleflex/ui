@@ -13,17 +13,17 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ iconClickStart, iconClickEnd, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({ iconClickStart, iconClickEnd, clearIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
+    cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
 
     &:first-child {
       margin-right: 7px;
     }
 
     &:last-child {
-      margin-left: 7px;
+      margin-left: 10px;
     }
   `
 );

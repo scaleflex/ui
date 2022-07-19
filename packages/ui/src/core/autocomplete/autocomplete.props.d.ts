@@ -5,10 +5,14 @@ export interface AutocompleteProps extends PropsWithChildren, React.HTMLAttribut
   children?: React.ReactElementLike;
   size?: SelectSizeType;
   multiple?: boolean;
+  label?: React.ReactNode;
+  hint?: React.ReactNode;
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   options?: string[];
-  onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
-  MenuProps?: MenuProps;
-  readOnly?: boolean;
   disabled?: boolean;
+  noOptionsText?: boolean;
+  onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
+  onOpen?: (event: Event) => void;
+  onClose?: (event: Event) => void;
+  MenuProps?: MenuProps;
 }
