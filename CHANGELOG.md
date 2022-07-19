@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.91](https://github.com/scaleflex/ui/compare/1.0.0-beta.90...1.0.0-beta.91) (2022-07-19)
+
+
+### Features
+
+* **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
+
+
+
+
+
 # [1.0.0-beta.90](https://github.com/scaleflex/ui/compare/1.0.0-beta.89...1.0.0-beta.90) (2022-07-07)
 
 
