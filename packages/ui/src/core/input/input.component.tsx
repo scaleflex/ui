@@ -35,6 +35,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       background = 'primary',
       focusOnMount = false,
       focusOnClick = true,
+      value,
+      renderedValues,
       ...rest
     }: InputProps,
     ref
@@ -80,6 +82,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.Icon>
       ) : undefined;
 
+    if (value) rest.placeholder = '';
+
     return (
       <Styled.Input
         onClick={focusOnClick ? handleFocus : undefined}
@@ -91,6 +95,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
+        {renderedValues}
         <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
         {renderIcon(clearIcon, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}

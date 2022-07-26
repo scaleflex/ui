@@ -29,6 +29,7 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   icon?: React.ReactNode;
   active?: boolean;
   noOptionsText?: boolean;
+  getOptionDisabled?: boolean;
   value?: string | number | null;
   list?: MenuItemListType[] | null | undefined;
   depth?: number | undefined;
