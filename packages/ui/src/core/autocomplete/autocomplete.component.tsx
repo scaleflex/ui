@@ -105,26 +105,28 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'ArrowUp') {
-        if (currentItemIndex > 0) setCurrentItemIndex((prev) => prev - 1);
-        else {
-          setCurrentItemIndex(options?.length - 1);
+      if (open) {
+        if (event.key === 'ArrowUp') {
+          if (currentItemIndex > 0) setCurrentItemIndex((prev) => prev - 1);
+          else {
+            setCurrentItemIndex(options?.length - 1);
+          }
         }
-      }
 
-      if (event.key === 'ArrowDown') {
-        if (currentItemIndex < options?.length - 1) setCurrentItemIndex((prev) => prev + 1);
-        else {
-          setCurrentItemIndex(0);
+        if (event.key === 'ArrowDown') {
+          if (currentItemIndex < options?.length - 1) setCurrentItemIndex((prev) => prev + 1);
+          else {
+            setCurrentItemIndex(0);
+          }
         }
-      }
 
-      if (event.key === 'Enter') {
-        if (currentItemIndex >= 0) handleSelectedItem(event, options[currentItemIndex]);
-      }
+        if (event.key === 'Enter') {
+          if (currentItemIndex >= 0) handleSelectedItem(event, options[currentItemIndex]);
+        }
 
-      if (event.key === 'Escape') {
-        handleCloseClick(event);
+        if (event.key === 'Escape') {
+          handleCloseClick(event);
+        }
       }
     };
 
