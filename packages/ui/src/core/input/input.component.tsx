@@ -95,10 +95,15 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
-        <Styled.Container>
-          <Styled.Tags>{renderedValues}</Styled.Tags>
+        {renderedValues ? (
+          <Styled.Container>
+            <Styled.Tags>{renderedValues}</Styled.Tags>
+            <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+          </Styled.Container>
+        ) : (
           <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
-        </Styled.Container>
+        )}
+
         {renderIcon(clearIcon, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}

@@ -106,7 +106,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
         return <Tag style={{ marginRight: '4px' }}>{selectedItem}</Tag>;
       }
-      return selectedItem;
+      // return selectedItem;
     };
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
