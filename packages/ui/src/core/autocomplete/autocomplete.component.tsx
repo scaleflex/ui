@@ -44,6 +44,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
+    const [disabledOptions, setDisabledOptions] = useState<string[] | undefined>([]);
 
     const open = Boolean(anchorEl);
     const selectedItems = selectedItem.length > 0;
@@ -127,13 +128,20 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      const getFilteredOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
-      setFilteredOptions(getFilteredOptions);
-    }, [value]);
+      if (getOptionDisabled) {
+        const getDisabledOptions = options?.filter((opt, index) => getOptionDisabled(opt, index));
+        setDisabledOptions(getDisabledOptions);
+      }
+    }, [getOptionDisabled]);
 
     useEffect(() => {
       if (focusOnOpen) setAnchorEl(inputRef.current);
     }, [focusOnOpen]);
+
+    useEffect(() => {
+      const getFilteredOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
+      setFilteredOptions(getFilteredOptions);
+    }, [value]);
 
     if (!filteredOptions?.length && noOptionsText) {
       filteredOptions?.push('No options');
@@ -175,12 +183,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
                 key={index}
                 value={item}
                 noOptionsText={item === 'No options'}
-                getOptionDisabled={getOptionDisabled && getOptionDisabled(item, index)}
+                getOptionDisabled={disabledOptions.includes(item)}
                 active={
                   (multiple && selectedItem.includes(item)) || item === selectedItem || index === currentItemIndex
                 }
                 onClick={
-                  item === 'No options' || (getOptionDisabled && getOptionDisabled(item, index))
+                  item === 'No options' || disabledOptions.includes(item)
                     ? undefined
                     : (event) => handleSelectedItem(event, item)
                 }
