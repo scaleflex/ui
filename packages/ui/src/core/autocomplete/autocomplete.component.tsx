@@ -54,8 +54,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const handleOnRemoveItem = (itemIndex: number): void => {
-      setSelectedItem((prev) => prev.filter((_, index) => index !== itemIndex));
-      onChange(event, selectedItem);
+      const updatedSelectedItems = selectedItem.filter((_, index) => index !== itemIndex);
+      setSelectedItem(updatedSelectedItems);
+      onChange(event, updatedSelectedItems);
     };
 
     const handleOpenClick = (event: any): void => {
@@ -139,8 +140,21 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [focusOnOpen]);
 
     useEffect(() => {
-      const getFilteredOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
-      setFilteredOptions(getFilteredOptions);
+      if (multiple && value.length > 0) {
+        if (selectedItems) {
+          const lastValue = value[value.length - 1];
+          const getFilteredOptions = selectedItem.includes(lastValue)
+            ? options
+            : options?.filter((option) => option.includes(lastValue));
+          setFilteredOptions(getFilteredOptions);
+        } else {
+          const getFilteredOptions = options?.filter((option) => option.includes(value[0]));
+          setFilteredOptions(getFilteredOptions);
+        }
+      } else {
+        const getFilteredOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
+        setFilteredOptions(getFilteredOptions);
+      }
     }, [value]);
 
     if (!filteredOptions?.length && noOptionsText) {
