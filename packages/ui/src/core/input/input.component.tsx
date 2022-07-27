@@ -82,8 +82,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.Icon>
       ) : undefined;
 
-    if (value) rest.placeholder = '';
-
     return (
       <Styled.Input
         onClick={focusOnClick ? handleFocus : undefined}

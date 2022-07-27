@@ -40,7 +40,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(ref);
 
-    const [selectedItem, setSelectedItem] = useState<string[]>([]);
+    const [selectedItem, setSelectedItem] = useState<string | string[]>(multiple ? [] : '');
     const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
@@ -69,14 +69,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleClearIconClick = (event: any): void => {
       event?.stopPropagation();
-      multiple ? onChange(event, []) : onChange(event, '');
-      setSelectedItem([]);
+      if (multiple) {
+        onChange(event, []);
+        setSelectedItem([]);
+      } else {
+        onChange(event, '');
+        setSelectedItem('');
+      }
     };
 
     const handleSelectedItem = (event: any, item: string): void => {
       handleOnChange(event, item);
       handleCloseClick(event);
-      multiple ? setSelectedItem((prev) => [...prev, item]) : setSelectedItem([item]);
+      multiple ? setSelectedItem((prev) => [...prev, item]) : setSelectedItem(item);
     };
 
     const renderValue = (): JSX.Element[] | boolean | undefined => {
@@ -95,14 +100,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           ))
         );
       }
-      return (
-        selectedItems &&
-        selectedItem.map((item: string, index: number) => (
-          <span key={index} style={{ marginRight: '10px' }}>
-            {item}
-          </span>
-        ))
-      );
     };
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -179,7 +176,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
                 value={item}
                 noOptionsText={item === 'No options'}
                 getOptionDisabled={getOptionDisabled && getOptionDisabled(item, index)}
-                active={selectedItem.includes(item) || index === currentItemIndex}
+                active={
+                  (multiple && selectedItem.includes(item)) || item === selectedItem || index === currentItemIndex
+                }
                 onClick={
                   item === 'No options' || (getOptionDisabled && getOptionDisabled(item, index))
                     ? undefined
