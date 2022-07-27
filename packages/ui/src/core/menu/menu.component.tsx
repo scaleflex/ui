@@ -92,9 +92,9 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       }
     }, [open, updateRect]);
 
-    const handleClose = (): void => {
+    const handleClose = (event: any): void => {
       if (typeof onClose === 'function') {
-        onClose();
+        onClose(event);
       }
     };
 

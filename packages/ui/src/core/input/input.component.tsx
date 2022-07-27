@@ -23,10 +23,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
-      secondIconEnd,
+      clearIcon,
       iconClickStart,
       iconClickEnd,
-      iconClickSecondEnd,
+      clearIconClick,
       size,
       className,
       style,
@@ -35,11 +35,15 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       background = 'primary',
       focusOnMount = false,
       focusOnClick = true,
+      value,
+      renderedValues,
       ...rest
     }: InputProps,
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
+
+    if (value) rest.placeholder = '';
 
     const handleFocus = (): void => {
       inputRef.current?.focus();
@@ -63,8 +67,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         if (iconClickEnd) {
           iconClickEnd();
         }
-      } else if (iconClickSecondEnd) {
-        iconClickSecondEnd(event);
+      } else if (clearIconClick) {
+        clearIconClick(event);
       }
     };
 
@@ -74,6 +78,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           onClick={(event) => handleIconClick(event, type)}
           iconClickStart={iconClickStart}
           iconClickEnd={iconClickEnd}
+          clearIconClick={clearIconClick}
         >
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
@@ -90,8 +95,11 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
-        <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
-        {renderIcon(secondIconEnd, 'secondEnd')}
+        <Styled.Container>
+          <Styled.Tags>{renderedValues}</Styled.Tags>
+          <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+        </Styled.Container>
+        {renderIcon(clearIcon, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>

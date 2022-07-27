@@ -30,19 +30,16 @@ const defaultArgs = {
         { content: 'item1.1', key: 'Item 1.1' },
         {
           content: 'divider',
-          disabled: true,
           key: 'ITEM1.1_DIVIDER',
         },
         { content: 'item1.2', key: 'Item 1.2', onClick: () => console.log('item1.2') },
         {
           content: 'divider',
-          disabled: true,
           key: 'ITEM1.2_DIVIDER',
         },
         { content: 'item1.3', key: 'Item 1.3' },
         {
           content: 'divider',
-          disabled: true,
           key: 'ITEM1.3_DIVIDER',
         },
         {
