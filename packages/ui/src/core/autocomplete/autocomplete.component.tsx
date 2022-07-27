@@ -81,9 +81,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const handleSelectedItem = (event: any, item: string): void => {
-      handleOnChange(event, item);
+      if (!selectedItem.includes(item) || (!multiple && selectedItem !== item)) {
+        handleOnChange(event, item);
+        multiple ? setSelectedItem((prev) => [...prev, item]) : setSelectedItem(item);
+      }
       handleCloseClick(event);
-      multiple ? setSelectedItem((prev) => [...prev, item]) : setSelectedItem(item);
     };
 
     const renderValue = (): JSX.Element[] | boolean | undefined => {
