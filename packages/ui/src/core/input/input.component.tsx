@@ -43,6 +43,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
+    if (value) rest.placeholder = '';
+
     const handleFocus = (): void => {
       inputRef.current?.focus();
     };
@@ -93,8 +95,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
-        {renderedValues}
-        <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+        <Styled.Container>
+          <Styled.Tags>{renderedValues}</Styled.Tags>
+          <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+        </Styled.Container>
         {renderIcon(clearIcon, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}

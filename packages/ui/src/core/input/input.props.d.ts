@@ -10,6 +10,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   clearIcon?: React.ReactNode;
   error?: boolean;
   fullWidth?: boolean;
+  autocomplete?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value?: any;
   readOnly?: boolean;

@@ -40,7 +40,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(ref);
 
-    const [selectedItem, setSelectedItem] = useState<string | string[]>(multiple ? [] : '');
+    const [selectedItem, setSelectedItem] = useState<string[] | string>(multiple ? [] : '');
     const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
@@ -66,6 +66,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleCloseClick = (event: any): void => {
       setAnchorEl(undefined);
+      setCurrentItemIndex(-1);
       if (onClose) onClose(event);
     };
 
@@ -88,22 +89,24 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleCloseClick(event);
     };
 
-    const renderValue = (): JSX.Element[] | boolean | undefined => {
-      if (tags || multiple) {
-        return (
-          selectedItems &&
-          selectedItem.map((item: string, index: number) => (
+    const renderValue = (): JSX.Element[] | JSX.Element | boolean | undefined => {
+      if ((tags || multiple) && selectedItems) {
+        if (Array.isArray(selectedItem)) {
+          return selectedItem.map((item: string, index: number) => (
             <Tag
               key={index}
               tagIndex={index}
-              style={{ margin: '4px 4px 4px 0' }}
+              style={{ margin: '0px 4px 4px 0px' }}
               onRemove={() => handleOnRemoveItem(index)}
             >
               {item}
             </Tag>
-          ))
-        );
+          ));
+        }
+
+        return <Tag style={{ marginRight: '4px' }}>{selectedItem}</Tag>;
       }
+      return selectedItem;
     };
 
     const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -111,19 +114,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         if (event.key === 'ArrowUp') {
           if (currentItemIndex > 0) setCurrentItemIndex((prev) => prev - 1);
           else {
-            setCurrentItemIndex(options?.length - 1);
+            setCurrentItemIndex(filteredOptions.length - 1);
           }
         }
 
         if (event.key === 'ArrowDown') {
-          if (currentItemIndex < options?.length - 1) setCurrentItemIndex((prev) => prev + 1);
+          if (currentItemIndex < filteredOptions.length - 1) setCurrentItemIndex((prev) => prev + 1);
           else {
             setCurrentItemIndex(0);
           }
         }
 
         if (event.key === 'Enter') {
-          if (currentItemIndex >= 0) handleSelectedItem(event, options[currentItemIndex]);
+          if (currentItemIndex >= 0) handleSelectedItem(event, filteredOptions[currentItemIndex]);
         }
 
         if (event.key === 'Escape') {
@@ -170,13 +173,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         <Label>{label}</Label>
         <Styled.Container ref={inputRef}>
           <Input
-            onKeyDown={keyDownHandler}
             {...rest}
+            onKeyDown={keyDownHandler}
             size={size}
             value={value}
             renderedValues={renderValue()}
             readOnly={disabled}
-            tags={tags}
+            autocomplete
             focusOnMount={focusOnOpen}
             background={background}
             onClick={disabled ? undefined : handleOpenClick}

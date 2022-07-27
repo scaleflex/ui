@@ -42,6 +42,7 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     cursor: text;
+    height: min-content !important;
     width: ${fullWidth ? '100%' : '300px'};
     background: ${background === 'primary'
       ? theme.palette[PColor.BackgroundPrimary]
@@ -66,13 +67,45 @@ const Input = styled.div.attrs({
   `
 );
 
-const Base = styled.input.attrs({
-  className: generateClassNames(baseClassName, 'Base'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+const Container = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Container'),
+})<InputProps>(
+  () => css`
     display: block;
     color: inherit;
     width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+  `
+);
+
+const Tags = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Tags'),
+})<InputProps>(
+  () => css`
+    display: inline;
+    color: inherit;
+    width: max-content;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+  `
+);
+
+const Base = styled.input.attrs({
+  className: generateClassNames(baseClassName, 'Base'),
+})<InputProps>(
+  ({ autocomplete, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: ${autocomplete ? 'inline' : 'block'};
+    color: inherit;
+    width: ${autocomplete ? 'min-content' : '100%'};
     min-width: 0;
     margin: 0;
     padding: 0;
@@ -88,6 +121,8 @@ const Base = styled.input.attrs({
 
 const Styled = applyDisplayNames({
   Input,
+  Container,
+  Tags,
   Base,
   Icon,
 });
