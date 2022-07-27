@@ -102,10 +102,10 @@ const Tags = styled.div.attrs({
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<InputProps>(
-  ({ autocomplete, theme: { palette } }: With<WithTheme, InputProps>) => css`
-    display: ${autocomplete ? 'inline' : 'block'};
+  ({ renderedValues, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: ${renderedValues ? 'inline' : 'block'};
     color: inherit;
-    width: ${autocomplete ? 'min-content' : '100%'};
+    width: ${renderedValues ? 'min-content' : '100%'};
     min-width: 0;
     margin: 0;
     padding: 0;
