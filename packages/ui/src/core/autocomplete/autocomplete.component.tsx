@@ -50,7 +50,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const selectedItems = selectedItem.length > 0;
 
     const handleOnChange = (event: any, val: any): void => {
-      multiple ? onChange(event, [...selectedItem, val]) : onChange(event, val);
+      if (multiple) {
+        onChange(event, [...selectedItem, val]);
+      } else {
+        onChange(event, val);
+      }
     };
 
     const handleOnRemoveItem = (itemIndex: number): void => {
@@ -84,7 +88,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const handleSelectedItem = (event: any, item: string): void => {
       if (!selectedItem.includes(item) || (!multiple && selectedItem !== item)) {
         handleOnChange(event, item);
-        multiple ? setSelectedItem((prev) => [...prev, item]) : setSelectedItem(item);
+        if (multiple) {
+          setSelectedItem((prev) => [...prev, item]);
+        } else {
+          setSelectedItem(item);
+        }
       }
       handleCloseClick(event);
     };
