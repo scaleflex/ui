@@ -119,6 +119,8 @@ MenuItem.propTypes = {
   value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]),
   depth: PT.number,
   disableHover: PT.bool,
+  noOptionsText: PT.bool,
+  getOptionDisabled: PT.bool,
 };
 
 export default MenuItem;

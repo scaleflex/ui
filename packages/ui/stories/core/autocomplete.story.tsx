@@ -15,7 +15,6 @@ const defaultArgs = {
   hint: 'Some hint goes here',
   background: Background.Primary,
   size: Size.Md,
-  multiple: false,
 };
 
 const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {

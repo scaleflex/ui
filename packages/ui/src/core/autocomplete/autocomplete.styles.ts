@@ -1,18 +1,22 @@
 import styled from 'styled-components';
+import StyledLabel from '../label/label.styles';
+import StyledFormHint from '../form-hint/form-hint.styles';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'Autocomplete';
 
-const Container = styled.div.attrs({
+const Autocomplete = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  cursor: pointer;
-  width: 300px;
-  margin: 5px 0px 5px 0px;
+  ${StyledFormHint.FormHint} {
+    margin-top: 4px;
+  }
+
+  ${StyledLabel.Label} {
+    margin-bottom: 4px;
+  }
 `;
 
-const Styled = applyDisplayNames({
-  Container,
-});
+const Styled = applyDisplayNames({ Autocomplete });
 
 export default Styled;

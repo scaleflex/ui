@@ -135,6 +135,7 @@ module.exports = {
 
     'sonarjs/no-duplicate-string': 'warn',
     'sonarjs/cognitive-complexity': 'off',
+    'sonarjs/no-collapsible-if': 'off',
 
     'no-process-env': 'off',
     'id-length': ['warn', { exceptions: ['_'], min: 2 }],
