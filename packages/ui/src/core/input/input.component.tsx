@@ -35,15 +35,14 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       background = 'primary',
       focusOnMount = false,
       focusOnClick = true,
-      value,
-      renderedValues,
+      showTags,
       ...rest
     }: InputProps,
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
-    if (value) rest.placeholder = '';
+    if (rest.value || showTags) rest.placeholder = '';
 
     const handleFocus = (): void => {
       inputRef.current?.focus();
@@ -95,10 +94,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
-        {renderedValues ? (
+        {showTags ? (
           <Styled.Container>
-            <Styled.Tags>{renderedValues}</Styled.Tags>
-            <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+            <Styled.Tags>{showTags}</Styled.Tags>
+            <Styled.Base {...rest} ref={inputRef} showTags={showTags} readOnly={Boolean(readOnly)} />
           </Styled.Container>
         ) : (
           <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
@@ -126,15 +125,18 @@ export const propTypes = {
   size: PT.oneOf(objectValues(Size)),
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
+  clearIcon: PT.node,
   error: PT.bool,
   fullWidth: PT.bool,
   value: PT.any,
   readOnly: PT.bool,
   iconClickStart: PT.func,
   iconClickEnd: PT.func,
+  clearIconClick: PT.func,
   background: PT.oneOf(objectValues(Background)),
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
+  showTags: PT.node,
 };
 
 Input.propTypes = propTypes;

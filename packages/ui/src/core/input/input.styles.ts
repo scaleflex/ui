@@ -102,10 +102,10 @@ const Tags = styled.div.attrs({
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<InputProps>(
-  ({ renderedValues, theme: { palette } }: With<WithTheme, InputProps>) => css`
-    display: ${renderedValues ? 'inline' : 'block'};
+  ({ showTags, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: ${showTags ? 'inline' : 'block'};
     color: inherit;
-    width: ${renderedValues ? 'min-content' : '100%'};
+    width: ${showTags ? 'min-content' : '100%'};
     min-width: 0;
     margin: 0;
     padding: 0;
