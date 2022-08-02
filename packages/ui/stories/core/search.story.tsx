@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Search, { SearchProps } from '../../src/core/search';
-import { Size } from '../../src/core/input/types';
+import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Search = _Search;
@@ -13,7 +13,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  size: Size.Md,
+  size: InputSize.Md,
 };
 
 const BasicTemplate: Story<SearchProps> = ({ ...args }) => {

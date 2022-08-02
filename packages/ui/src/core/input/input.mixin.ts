@@ -2,10 +2,10 @@ import { css } from 'styled-components';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
-import { Size } from './types';
+import { InputSize } from '../../utils/types';
 
 export const sizeInputMixin = {
-  [Size.Sm]: ({
+  [InputSize.Sm]: ({
     theme: {
       typography: { font },
     },
@@ -15,7 +15,7 @@ export const sizeInputMixin = {
     ${font[FV.InputSm]}
   `,
 
-  [Size.Md]: ({
+  [InputSize.Md]: ({
     theme: {
       typography: { font },
     },

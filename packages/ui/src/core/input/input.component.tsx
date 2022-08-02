@@ -3,15 +3,15 @@ import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
-import { Size, Background } from './types';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined): number => {
   switch (sizeName) {
-    case Size.Md:
+    case InputSize.Md:
       return 16;
 
-    case Size.Sm:
+    case InputSize.Sm:
     default:
       return 14;
   }
@@ -23,8 +23,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
+      clearIcon,
       iconClickStart,
       iconClickEnd,
+      clearIconClick,
       size,
       className,
       style,
@@ -33,11 +35,14 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       background = 'primary',
       focusOnMount = false,
       focusOnClick = true,
+      // TODO: refactor how implement tags in input
+      // renderTags,
       ...rest
     }: InputProps,
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const placeholder = rest.value ? '' : rest.placeholder;
 
     const handleFocus = (): void => {
       inputRef.current?.focus();
@@ -49,7 +54,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }
     }, []);
 
-    const handleIconClick = (type: string): void => {
+    const handleIconClick = (event: any, type: string): void => {
       if (focusOnClick) {
         handleFocus();
       }
@@ -57,17 +62,44 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         if (iconClickStart) {
           iconClickStart();
         }
-      } else if (iconClickEnd) {
-        iconClickEnd();
+      } else if (type === 'end') {
+        if (iconClickEnd) {
+          iconClickEnd();
+        }
+      } else if (clearIconClick) {
+        clearIconClick(event);
       }
     };
 
     const renderIcon = (_icon: React.ReactNode, type: string): JSX.Element | undefined =>
       _icon ? (
-        <Styled.Icon onClick={() => handleIconClick(type)} iconClickStart={iconClickStart} iconClickEnd={iconClickEnd}>
+        <Styled.Icon
+          onClick={(event) => handleIconClick(event, type)}
+          iconClickStart={iconClickStart}
+          iconClickEnd={iconClickEnd}
+          clearIconClick={clearIconClick}
+        >
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
         </Styled.Icon>
       ) : undefined;
+
+    const renderField = (): JSX.Element | undefined => (
+      // TODO: refactor how implement tags in input
+      // return renderTags ? (
+      //   <Styled.Container>
+      //     <Styled.Tags>{renderTags}</Styled.Tags>
+      //     <Styled.Base
+      //       {...rest}
+      //       placeholder={placeholder}
+      //       ref={inputRef}
+      //       renderTags={renderTags}
+      //       readOnly={Boolean(readOnly)}
+      //     />
+      //   </Styled.Container>
+      // ) : (
+      <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
+      // );
+    );
 
     return (
       <Styled.Input
@@ -80,7 +112,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         background={background}
       >
         {renderIcon(iconStart, 'start')}
-        <Styled.Base {...rest} ref={inputRef} readOnly={Boolean(readOnly)} />
+        {renderField()}
+        {renderIcon(clearIcon, 'secondEnd')}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>
@@ -89,8 +122,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 );
 
 export const defaultProps = {
-  size: Size.Md,
-  background: Background.Primary,
+  size: InputSize.Md,
+  background: InputBackgroundColor.Primary,
   error: false,
   fullWidth: false,
   readOnly: false,
@@ -99,18 +132,22 @@ export const defaultProps = {
 Input.defaultProps = defaultProps;
 
 export const propTypes = {
-  size: PT.oneOf(objectValues(Size)),
+  size: PT.oneOf(objectValues(InputSize)),
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
+  clearIcon: PT.node,
   error: PT.bool,
   fullWidth: PT.bool,
   value: PT.any,
   readOnly: PT.bool,
   iconClickStart: PT.func,
   iconClickEnd: PT.func,
-  background: PT.oneOf(objectValues(Background)),
+  clearIconClick: PT.func,
+  background: PT.oneOf(objectValues(InputBackgroundColor)),
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
+  /// / TODO: refactor how implement tags in input
+  // renderTags: PT.node,
 };
 
 Input.propTypes = propTypes;

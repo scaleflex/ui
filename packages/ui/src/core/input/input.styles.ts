@@ -6,24 +6,24 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
 import { sizeInputMixin, errorMixin } from './input.mixin';
-import { Background, Size } from './types';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 
 const baseClassName = 'Input';
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ iconClickStart, iconClickEnd, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({ iconClickStart, iconClickEnd, clearIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
+    cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
 
     &:first-child {
       margin-right: 7px;
     }
 
     &:last-child {
-      margin-left: 7px;
+      margin-left: 10px;
     }
   `
 );
@@ -32,11 +32,11 @@ const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
   ({
-    size = Size.Md,
+    size = InputSize.Md,
     error = false,
     fullWidth = false,
     theme,
-    background = Background.Primary,
+    background = InputBackgroundColor.Primary,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
@@ -66,10 +66,48 @@ const Input = styled.div.attrs({
   `
 );
 
+const Container = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Container'),
+})<InputProps>(
+  () => css`
+    display: block;
+    color: inherit;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+  `
+);
+
+const Tags = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Tags'),
+})<InputProps>(
+  () => css`
+    display: inline;
+    color: inherit;
+    width: max-content;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+  `
+);
+// TODO: refactor how we implement tags in input
+//  display: ${renderTags ? 'inline' : 'block'};
+// width: ${renderTags ? 'min-content' : '100%'};
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<InputProps>(
+  ({
+    // TODO: refactor how implement tags in input
+    // renderTags,
+    theme: { palette },
+  }: With<WithTheme, InputProps>) => css`
     display: block;
     color: inherit;
     width: 100%;
@@ -88,6 +126,8 @@ const Base = styled.input.attrs({
 
 const Styled = applyDisplayNames({
   Input,
+  Container,
+  Tags,
   Base,
   Icon,
 });

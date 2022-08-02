@@ -3,6 +3,7 @@ export { default as AccordionDetails } from './accordion-details';
 export { default as AccordionHeader } from './accordion-header';
 export { default as Arrow } from './arrow';
 export { default as ArrowTick } from './arrow-tick';
+export { default as Autocomplete } from './autocomplete';
 export { default as Badge } from './badge';
 export { default as Button } from './button';
 export { default as CheckBox } from './check-box';

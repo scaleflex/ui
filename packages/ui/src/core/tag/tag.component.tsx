@@ -38,9 +38,9 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
       <Styled.Cross>
         <CrossIcon
           size={6}
-          onClick={() => {
+          onClick={(event) => {
             if (typeof onRemove === 'function') {
-              onRemove(tagIndex!);
+              onRemove(tagIndex!, event);
             }
           }}
         />

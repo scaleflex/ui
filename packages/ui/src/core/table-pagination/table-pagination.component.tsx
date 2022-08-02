@@ -8,7 +8,7 @@ import MenuItem from '../menu-item';
 import Pagination from '../pagination';
 import Input from '../input';
 import Button from '../button';
-import { Size, Background } from '../select/types';
+import { InputSize, InputBackgroundColor } from '../../utils/types';
 import Styled from './table-pagination.styles';
 
 const getTotalCount = (count: number, to: number): JSX.Element => (
@@ -72,7 +72,7 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             {rowsPerPageOptions.length > 1 && (
               <Select
                 style={{ width: '95px', border: 'none', fontWeight: 500 }}
-                background={Background.Secondary}
+                background={InputBackgroundColor.Secondary}
                 value={`${rowsPerPage} / page`}
                 onChange={onRowsPerPageChange}
               >
@@ -99,10 +99,10 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             style={{ width: '116px', paddingRight: '0px', marginLeft: '24px' }}
             value={buttonValue}
             onChange={handleChange}
-            background={Background.Primary}
+            background={InputBackgroundColor.Primary}
           >
             <Button
-              size={Size.Sm}
+              size={InputSize.Sm}
               style={{ paddingTop: '6.5px', paddingBottom: '6.5px', color: '#A9B6C2' }}
               onClick={(ev) =>
                 onPageChange(ev, buttonValue > paginationCount ? Number(paginationCount) : Number(buttonValue))

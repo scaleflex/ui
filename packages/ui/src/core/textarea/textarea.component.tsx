@@ -3,7 +3,7 @@ import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
-import { Background } from '../input/types';
+import { InputBackgroundColor } from '../../utils/types';
 import Styled from './textarea.styles';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
@@ -12,13 +12,13 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
 
 Textarea.defaultProps = {
   error: false,
-  background: Background.Primary,
+  background: InputBackgroundColor.Primary,
 };
 
 export const propTypes = {
   error: PT.bool,
   value: PT.string,
-  background: PT.oneOf(objectValues(Background)),
+  background: PT.oneOf(objectValues(InputBackgroundColor)),
 };
 
 Textarea.propTypes = propTypes;

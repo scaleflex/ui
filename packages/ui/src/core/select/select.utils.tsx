@@ -4,15 +4,15 @@ import TickIcon from '@scaleflex/icons/tick';
 import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
 import type { RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType } from './select.props';
-import { Size } from './types';
+import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
 
 export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
-    case Size.Md:
+    case InputSize.Md:
       return 13;
 
-    case Size.Sm:
+    case InputSize.Sm:
     default:
       return 11;
   }
@@ -23,11 +23,11 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
     <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
   ) : undefined;
 
-const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType = Size.Md): ReactNode => {
+const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType = InputSize.Md): ReactNode => {
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
-        <TickIcon size={size === Size.Md ? 11 : 9} />
+        <TickIcon size={size === InputSize.Md ? 11 : 9} />
       </MenuItemActions>
     );
 
@@ -65,7 +65,7 @@ const generateChildren = (children: ReactNode, isActive = false, size: SelectSiz
 
 export const renderOption = (
   menuItem: JSX.Element,
-  { value, multiple = false, size = Size.Md, onClose, onChange }: RenderOption
+  { value, multiple = false, size = InputSize.Md, onClose, onChange }: RenderOption
 ): JSX.Element => {
   if (!React.isValidElement(menuItem)) {
     return menuItem;

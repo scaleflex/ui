@@ -41,13 +41,22 @@ const Label = styled.div.attrs({
 const MenuItemWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
 })(
-  ({ disabled, theme }: With<WithTheme, { disabled: boolean }>) => css`
-    ${disabled &&
+  ({
+    divider = false,
+    noOptionsText = false,
+    disabled = false,
+    theme,
+  }: With<WithTheme, { divider?: boolean; noOptionsText?: boolean; disabled?: boolean }>) => css`
+    ${divider &&
     css`
       width: 100%;
       height: 1px;
       background: ${theme.palette[PColor.BordersSecondary]};
       box-sizing: border-box;
+    `}
+    ${(noOptionsText || disabled) &&
+    css`
+      color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
   `
 );
@@ -55,7 +64,14 @@ const MenuItemWrapper = styled.div.attrs({
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, active, theme, disableHover = false }: With<WithTheme, MenuItemProps>) => css`
+  ({
+    size = Size.Md,
+    active,
+    theme,
+    disableHover = false,
+    noOptionsText,
+    disabled,
+  }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -70,6 +86,11 @@ const MenuItem = styled.div.attrs({
     &:focus,
     &:hover {
       ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundPrimaryHover]}`};
+      ${(noOptionsText || disabled) &&
+      css`
+        cursor: default;
+        background-color: white;
+      `}
     }
   `
 );

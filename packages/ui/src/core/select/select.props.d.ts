@@ -1,10 +1,10 @@
 import type { Values } from '../../utils/types';
 import type { MenuProps } from '../menu';
-import { Size, Background } from './types';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 
-export type SelectSizeType = Values<typeof Size>;
+export type SelectSizeType = Values<typeof InputSize>;
 export type SelectSimpleValueType = string | number | null | undefined;
-export type SelectBackgroundType = Values<typeof Background>;
+export type SelectBackgroundType = Values<typeof InputBackgroundColor>;
 
 export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: SelectSizeType;
