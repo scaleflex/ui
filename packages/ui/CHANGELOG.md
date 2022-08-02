@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.92](https://github.com/scaleflex/ui/compare/1.0.0-beta.91...1.0.0-beta.92) (2022-08-02)
+
+
+### Bug Fixes
+
+* **Autocomplete:** disable keyboard events when menu is clossed - T6582 ([243d00e](https://github.com/scaleflex/ui/commit/243d00eb38e257c6ead0bc1404ecb82ca57db84d))
+* **Autocomplete:** each item should be selected only once - T6582 ([7cb69c3](https://github.com/scaleflex/ui/commit/7cb69c3876dbe139bd323b0166a5dc2d1be899d2))
+* **Autocomplete:** fix getOptionDisabled prop - T6582 ([5155509](https://github.com/scaleflex/ui/commit/51555094692cb42879b6d6d47d2df3dd4b19990b))
+* **Autocomplete:** fix input - T6582 ([28e4cb7](https://github.com/scaleflex/ui/commit/28e4cb7b35f917c827dc21e2a4e4a207ecd28392))
+* **Autocomplete:** fix menu options when multiple prop is active - T6582 ([022ea2f](https://github.com/scaleflex/ui/commit/022ea2fe32427661daae1bba8445c3bc7c846deb))
+* **Autocomplete:** fix render values - T6582 ([e625f66](https://github.com/scaleflex/ui/commit/e625f66d73c9dd2915bb3bd961fa7dda33a72230))
+* **Autocomplete:** select multiple items - T6582 ([642af4c](https://github.com/scaleflex/ui/commit/642af4c4d1fe0a8bc8ce41ff19f9be984a6a9250))
+
+
+### Features
+
+* **Autocomplete:** add 'no options' item when no matching items - T6582 ([82d6d48](https://github.com/scaleflex/ui/commit/82d6d4817190e5d01bf2644d882ce374df1e92e3))
+* **Autocomplete:** add some features to autocomplete - T6582 ([07bc7dc](https://github.com/scaleflex/ui/commit/07bc7dcfd45026e7d7027e5e81c45d709bf718b6))
+* **Autocomplete:** create component for autocomplete - T6582 ([1d3cdbd](https://github.com/scaleflex/ui/commit/1d3cdbd70b367c410d081db9c2b052b1ed63d040))
+* **Autocomplete:** create component for autocomplete - T6582 ([2645e77](https://github.com/scaleflex/ui/commit/2645e77a5782311033d15760552372e894507ef5))
+* **Autocomplete:** create component for autocomplete - T6582 ([3983c08](https://github.com/scaleflex/ui/commit/3983c08d8942ff031c27658241538536fdef48ef))
+
+
+
+
+
 # [1.0.0-beta.91](https://github.com/scaleflex/ui/compare/1.0.0-beta.90...1.0.0-beta.91) (2022-07-19)
 
 **Note:** Version bump only for package @scaleflex/ui
