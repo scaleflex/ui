@@ -17,6 +17,10 @@ const Autocomplete = styled.div.attrs({
   }
 `;
 
-const Styled = applyDisplayNames({ Autocomplete });
+const AutocompleteContainer = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'container'),
+})``;
+
+const Styled = applyDisplayNames({ Autocomplete, AutocompleteContainer });
 
 export default Styled;

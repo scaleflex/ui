@@ -1,8 +1,9 @@
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
-import { AddTagType, Background } from './types';
+import { AddTagType } from './types';
+import { InputBackgroundColor } from '../../utils/types';
 
-export type TagFieldBackgroundType = Values<typeof Background>;
+export type TagFieldBackgroundType = Values<typeof InputBackgroundColor>;
 export type AddTagTypesType = Values<typeof AddTagType>;
 export type TagType = string | object | null | undefined;
 export type SuggestionsFilterFnType = (

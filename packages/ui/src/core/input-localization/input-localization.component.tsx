@@ -9,7 +9,7 @@ import { renderValue, renderOption } from '../select/select.utils';
 import { propTypes as selectPropTypes } from '../select/select.component';
 import type { InputLocalizationProps } from './input-localization.props';
 import Styled from './input-localization.styles';
-import { Size } from '../select/types';
+import { InputSize } from '../../utils/types';
 
 const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElement>(
   (
@@ -40,7 +40,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
             renderOption(child, {
               value,
               multiple,
-              size: Size.Sm,
+              size: InputSize.Sm,
               onClose: handleClose,
               onChange: disabled || readOnly ? undefined : onChange,
             })

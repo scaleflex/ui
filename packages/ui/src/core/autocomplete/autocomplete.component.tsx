@@ -4,6 +4,8 @@ import Cross from '@scaleflex/icons/cross';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { AutocompleteProps } from './autocomplete.props';
 import { propTypes as labelPropTypes } from '../label/label.component';
+import { propTypes as inputPropTypes } from '../input/input.component';
+import type { InputProps } from '../input';
 import type { LabelProps } from '../label';
 import type { AnchorElType } from '../menu/menu.props';
 import Label from '../label';
@@ -12,8 +14,9 @@ import ArrowTick from '../arrow-tick';
 import Input from '../input';
 import Menu from '../menu';
 import MenuItem from '../menu-item';
-import Tag from '../tag';
-import { Size, Background } from './types';
+// TODO: refactor how implement tags in input
+// import Tag from '../tag';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 import Styled from './autocomplete.styles';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
@@ -22,6 +25,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       children,
       MenuProps,
       LabelProps: LabelPropsData,
+      InputProps: InputPropsData,
       error,
       label,
       hint,
@@ -37,6 +41,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       disabled,
       options,
       background,
+      placeholder,
+      fullWidth,
       ...rest
     },
     ref
@@ -44,10 +50,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
-    const [filteredOptions, setFilteredOptions] = useState<string[]>([]);
+    const [filteredOptions, setFilteredOptions] = useState(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
-    const [disabledOptions, setDisabledOptions] = useState<string[]>([]);
 
     const open = Boolean(anchorEl);
     const selectedItems = selected.length > 0;
@@ -65,15 +70,16 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
-    const handleOnRemoveItem = (event: any, itemIndex: number): void => {
-      const updatedSelectedItems = Array.isArray(selected)
-        ? selected.filter((_, index: number) => index !== itemIndex)
-        : '';
-      setSelected(updatedSelectedItems);
-      if (onChange) {
-        onChange(event, updatedSelectedItems);
-      }
-    };
+    // TODO: refactor how implement tags in input
+    // const handleOnRemoveItem = (event: any, itemIndex: number): void => {
+    //   const updatedSelectedItems = Array.isArray(selected)
+    //     ? selected.filter((_, index: number) => index !== itemIndex)
+    //     : '';
+    //   setSelected(updatedSelectedItems);
+    //   if (onChange) {
+    //     onChange(event, updatedSelectedItems);
+    //   }
+    // };
 
     const handleOpenClick = (event: any): void => {
       setAnchorEl(inputRef.current);
@@ -123,9 +129,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleCloseClick(event);
     };
 
-    const handleMenuItemClick = (event: any, item: string): void => {
+    const handleMenuItemClick = (event: any, item: string, index: number): void => {
       // menu item shouldn't be clickable if it's disabled or = 'No options'
-      if (item === noOptionsText || disabledOptions.includes(item)) {
+      if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return undefined;
       }
       return handleSelectedItem(event, item);
@@ -148,58 +154,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setAnchorEl(inputRef.current);
     };
 
-    const renderLabel = (): string | number | null | JSX.Element | any => {
-      if (label) {
-        if (typeof label === 'function') {
-          return label({ error });
-        }
-
-        if (typeof label === 'object') {
-          return label;
-        }
-
-        return (
-          <Label error={error} {...(LabelPropsData || {})}>
-            {label}
-          </Label>
-        );
-      }
-
-      return null;
-    };
-
-    const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
-      if (multiple && selectedItems && Array.isArray(selected)) {
-        return selected.map((item: string, index: number) => (
-          <Tag
-            key={index}
-            tagIndex={index}
-            style={{ margin: '0px 4px 4px 0px' }}
-            onRemove={(_, event) => handleOnRemoveItem(event, index)}
-          >
-            {item}
-          </Tag>
-        ));
-      }
-    };
-
-    const renderHint = (): string | number | null | JSX.Element | any => {
-      if (hint) {
-        if (typeof hint === 'function') {
-          return hint({ error });
-        }
-
-        if (typeof hint === 'object') {
-          return hint;
-        }
-
-        return <FormHint error={error}>{hint}</FormHint>;
-      }
-
-      return null;
-    };
-
-    const keyDownHandler = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
       if (open) {
         if (event.key === 'ArrowUp') {
           if (currentItemIndex > 0) setCurrentItemIndex((prev) => prev - 1);
@@ -225,12 +180,57 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
-    useEffect(() => {
-      if (getOptionDisabled) {
-        const disapledMenuOptions = options?.filter((opt, index) => getOptionDisabled(opt, index));
-        setDisabledOptions(disapledMenuOptions || []);
+    const renderLabel = (): string | number | null | JSX.Element | any => {
+      if (label) {
+        if (typeof label === 'function') {
+          return label({ error });
+        }
+
+        if (typeof label === 'object') {
+          return label;
+        }
+
+        return (
+          <Label error={error} {...(LabelPropsData || {})}>
+            {label}
+          </Label>
+        );
       }
-    }, [getOptionDisabled]);
+
+      return null;
+    };
+
+    // TODO: refactor how implement tags in input
+    // const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
+    //   if (multiple && selectedItems && Array.isArray(selected)) {
+    //     return selected.map((item: string, index: number) => (
+    //       <Tag
+    //         key={index}
+    //         tagIndex={index}
+    //         style={{ margin: '0px 4px 4px 0px' }}
+    //         onRemove={(_, event) => handleOnRemoveItem(event, index)}
+    //       >
+    //         {item}
+    //       </Tag>
+    //     ));
+    //   }
+    // };
+
+    const renderHint = (): string | number | null | JSX.Element | any => {
+      if (hint) {
+        if (typeof hint === 'function') {
+          return hint({ error });
+        }
+
+        if (typeof hint === 'object') {
+          return hint;
+        }
+
+        return <FormHint error={error}>{hint}</FormHint>;
+      }
+
+      return null;
+    };
 
     useEffect(() => {
       if (focusOnOpen) setAnchorEl(inputRef.current);
@@ -257,47 +257,58 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     }, [value]);
 
-    if (!filteredOptions?.length) {
-      filteredOptions?.push(noOptionsText);
-    }
+    useEffect(() => {
+      if (filteredOptions?.length === 0) {
+        setFilteredOptions([noOptionsText]);
+      }
+    }, [filteredOptions, value]);
 
     return (
-      <Styled.Autocomplete ref={ref}>
+      <Styled.Autocomplete ref={ref} {...rest}>
         {renderLabel()}
-        <Input
-          {...rest}
-          ref={inputRef}
-          onKeyDown={keyDownHandler}
-          size={size}
-          value={getValue()}
-          showTags={renderTags()}
-          readOnly={disabled}
-          focusOnMount={focusOnOpen}
-          background={background}
-          onClick={disabled ? undefined : handleOpenClick}
-          onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
-            handleInputChange(event);
+        <Styled.AutocompleteContainer onClick={disabled ? undefined : handleOpenClick}>
+          <Input
+            {...(InputPropsData || {})}
+            ref={inputRef}
+            size={size}
+            value={getValue()}
+            // TODO: refactor how implement tags in input
+            // renderTags={renderTags()}
+            readOnly={disabled}
+            focusOnMount={focusOnOpen}
+            background={background}
+            onKeyDown={handleKeyDown}
+            onChange={handleInputChange}
+            placeholder={placeholder}
+            fullWidth={fullWidth}
+            iconEnd={() => (
+              <ArrowTick
+                onClick={disabled ? undefined : handleOpenClick}
+                type={open ? 'top' : 'bottom'}
+                IconProps={{ size: 10 }}
+              />
+            )}
+            clearIcon={selectedItems && <Cross size={12} />}
+            clearIconClick={handleClearIconClick}
+          />
+        </Styled.AutocompleteContainer>
+        <Menu
+          onClose={handleCloseClick}
+          open={open}
+          anchorEl={anchorEl}
+          style={{
+            maxHeight: '250px',
           }}
-          iconEnd={() => (
-            <ArrowTick
-              onClick={disabled ? undefined : handleOpenClick}
-              type={open ? 'top' : 'bottom'}
-              IconProps={{ size: 10 }}
-            />
-          )}
-          clearIcon={selectedItems && <Cross size={12} />}
-          clearIconClick={handleClearIconClick}
-        />
-
-        <Menu onClose={handleCloseClick} open={open} anchorEl={anchorEl} {...MenuProps}>
+          {...MenuProps}
+        >
           {filteredOptions?.map((item, index) => (
             <MenuItem
               key={index}
               value={item}
               noOptionsText={item === noOptionsText}
-              getOptionDisabled={disabledOptions.includes(item)}
+              disabled={getOptionDisabled && getOptionDisabled(item, index)}
               active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item)}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
             >
               {item}
             </MenuItem>
@@ -309,37 +320,34 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   }
 );
 
-export const defaultProps = {
-  size: Size.Md,
-  multiple: false,
+Autocomplete.defaultProps = {
+  size: InputSize.Md,
+  background: InputBackgroundColor.Primary,
+  // multiple: false,
   disabled: false,
-  background: Background.Primary,
 };
 
-Autocomplete.defaultProps = defaultProps;
-
-export const simpleValuePropTypes = PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]);
-
-export const propTypes = {
+Autocomplete.propTypes = {
   children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
-  size: PT.oneOf(objectValues(Size)),
-  multiple: PT.bool,
+  size: PT.oneOf(objectValues(InputSize)),
+  LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
+  InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
+  background: PT.oneOf(objectValues(InputBackgroundColor)),
+  value: PT.oneOfType([PT.string, PT.array]).isRequired,
   label: PT.node,
   hint: PT.node,
-  value: PT.oneOfType([PT.string, PT.arrayOf(PT.string)]).isRequired,
-  options: PT.arrayOf(PT.string),
-  disabled: PT.bool,
+  options: PT.array.isRequired,
   noOptionsText: PT.string,
+  placeholder: PT.string,
+  fullWidth: PT.bool,
+  multiple: PT.bool,
+  disabled: PT.bool,
   focusOnOpen: PT.bool,
+  error: PT.bool,
   onChange: PT.func,
   onOpen: PT.func,
   onClose: PT.func,
-  getOptionDisabled: PT.bool,
-  LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
-  error: PT.bool,
-  background: PT.oneOf(objectValues(Background)),
+  getOptionDisabled: PT.func,
 };
-
-Autocomplete.propTypes = propTypes;
 
 export default Autocomplete;

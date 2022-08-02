@@ -8,7 +8,7 @@ import type { AnchorElType, MenuProps } from '../menu/menu.props';
 import { propTypes as menuPropTypes } from '../menu/menu.component';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
-import { Size, Background } from './types';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
@@ -82,13 +82,13 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 );
 
 export const defaultProps = {
-  size: Size.Md,
+  size: InputSize.Md,
   error: false,
   multiple: false,
   fullWidth: false,
   readOnly: false,
   disabled: false,
-  background: Background.Primary,
+  background: InputBackgroundColor.Primary,
 };
 
 Select.defaultProps = defaultProps;
@@ -96,7 +96,7 @@ Select.defaultProps = defaultProps;
 export const simpleValuePropTypes = PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]);
 
 export const propTypes = {
-  size: PT.oneOf(objectValues(Size)),
+  size: PT.oneOf(objectValues(InputSize)),
   error: PT.bool,
   multiple: PT.bool,
   fullWidth: PT.bool,
@@ -110,7 +110,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  background: PT.oneOf(objectValues(Background)),
+  background: PT.oneOf(objectValues(InputBackgroundColor)),
   renderLabel: PT.func,
 };
 

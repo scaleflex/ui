@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import InputStyled from '../input/input.styles';
 import type { SelectProps } from './select.props';
-import { Background } from './types';
+import { InputBackgroundColor } from '../../utils/types';
 
 const baseClassName = 'Select';
 
@@ -33,7 +33,7 @@ const Container = styled.div.attrs({
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette }, background = Background.Primary }: With<WithTheme, SelectProps>) => css`
+  ({ theme: { palette }, background = InputBackgroundColor.Primary }: With<WithTheme, SelectProps>) => css`
     cursor: pointer;
     user-select: none;
     background: ${background === 'primary' ? palette[PColor.BackgroundPrimary] : palette[PColor.BackgroundSecondary]};

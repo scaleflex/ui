@@ -10,7 +10,8 @@ import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
-import { AddTagType, Background } from './types';
+import { AddTagType } from './types';
+import { InputBackgroundColor } from '../../utils/types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import Styled from './tag-field.styles';
 
@@ -155,7 +156,7 @@ TagField.defaultProps = {
   placeholder: 'Add a tag (separate by pressing enter)',
   disabled: false,
   readOnly: false,
-  background: Background.Primary,
+  background: InputBackgroundColor.Primary,
 };
 
 TagField.propTypes = {
@@ -175,7 +176,7 @@ TagField.propTypes = {
   getTagValue: PT.func,
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
-  background: PT.oneOf(objectValues(Background)),
+  background: PT.oneOf(objectValues(InputBackgroundColor)),
   suggestionLabel: PT.node,
 };
 

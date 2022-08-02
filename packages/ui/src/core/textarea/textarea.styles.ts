@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
 import { errorMixin } from './textarea.mixin';
-import { Background } from '../input/types';
+import { InputBackgroundColor } from '../../utils/types';
 
 const baseClassName = 'Textarea';
 
@@ -14,7 +14,7 @@ const Textarea = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'root'),
   rows: 3,
 })<TextareaProps>(
-  ({ error = false, background = Background.Primary, theme }: With<WithTheme, TextareaProps>) => css`
+  ({ error = false, background = InputBackgroundColor.Primary, theme }: With<WithTheme, TextareaProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;

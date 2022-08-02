@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
 import { sizeInputMixin, errorMixin } from './input.mixin';
-import { Background, Size } from './types';
+import { InputBackgroundColor, InputSize } from '../../utils/types';
 
 const baseClassName = 'Input';
 
@@ -32,17 +32,16 @@ const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
   ({
-    size = Size.Md,
+    size = InputSize.Md,
     error = false,
     fullWidth = false,
     theme,
-    background = Background.Primary,
+    background = InputBackgroundColor.Primary,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
     cursor: text;
-    height: min-content !important;
     width: ${fullWidth ? '100%' : '300px'};
     background: ${background === 'primary'
       ? theme.palette[PColor.BackgroundPrimary]
@@ -98,14 +97,20 @@ const Tags = styled.div.attrs({
     outline: none;
   `
 );
-
+// TODO: refactor how we implement tags in input
+//  display: ${renderTags ? 'inline' : 'block'};
+// width: ${renderTags ? 'min-content' : '100%'};
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<InputProps>(
-  ({ showTags, theme: { palette } }: With<WithTheme, InputProps>) => css`
-    display: ${showTags ? 'inline' : 'block'};
+  ({
+    // TODO: refactor how implement tags in input
+    // renderTags,
+    theme: { palette },
+  }: With<WithTheme, InputProps>) => css`
+    display: block;
     color: inherit;
-    width: ${showTags ? 'min-content' : '100%'};
+    width: 100%;
     min-width: 0;
     margin: 0;
     padding: 0;
