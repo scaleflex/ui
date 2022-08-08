@@ -290,4 +290,5 @@ export { Envelope } from './envelope';
 export { NoActivity } from './no-activity';
 export { ImageSimilarity } from './image-similarity';
 export { BrandDetect } from './brand-detect';
+export { NoPage } from './no-page';
 export { Nsfw } from './nsfw';
