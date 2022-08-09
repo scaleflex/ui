@@ -20,7 +20,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
     };
 
     const handleScroll = (): void => {
-      menuItemRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      menuItemRef.current?.scrollIntoView({ behavior: 'auto', block: 'nearest' });
     };
 
     useEffect(() => {
