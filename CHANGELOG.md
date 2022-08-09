@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.93](https://github.com/scaleflex/ui/compare/1.0.0-beta.92...1.0.0-beta.93) (2022-08-09)
+
+
+### Bug Fixes
+
+* **Autocomplete:** can't scroll when using arrows - T9844 ([81bc6fc](https://github.com/scaleflex/ui/commit/81bc6fc85c4c4153b4e28c9e28b1b92509006463))
+
+
+
+
+
 # [1.0.0-beta.92](https://github.com/scaleflex/ui/compare/1.0.0-beta.91...1.0.0-beta.92) (2022-08-02)
 
 ### Features
