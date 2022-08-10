@@ -23,6 +23,7 @@ const defaultArgs = {
   label: 'Tags',
   hint: 'Some hint goes here',
   background: InputBackgroundColor.Primary,
+  disableOnEnter: false,
 };
 
 const handleRemove = (

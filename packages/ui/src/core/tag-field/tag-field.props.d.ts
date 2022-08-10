@@ -28,6 +28,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   hint?: React.ReactNode;
   error?: boolean;
   loading?: boolean;
+  disableOnEnter?: boolean;
   background?: TagFieldBackgroundType;
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;

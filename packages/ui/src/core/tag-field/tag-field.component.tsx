@@ -32,6 +32,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       error,
       hint,
       loading,
+      disableOnEnter,
       background = 'primary',
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
@@ -65,7 +66,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (event.key === 'Enter' && userInput) {
+      if (event.key === 'Enter' && userInput && !disableOnEnter) {
         event.preventDefault();
         handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
@@ -173,6 +174,7 @@ TagField.propTypes = {
   error: PT.bool,
   hint: PT.node,
   loading: PT.bool,
+  disableOnEnter: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
