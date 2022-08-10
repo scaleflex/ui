@@ -32,6 +32,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       value,
       noOptionsText = 'No options',
       focusOnOpen,
+      objectOptions,
       onChange,
       onOpen,
       onClose,
@@ -50,7 +51,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
-    const [filteredOptions, setFilteredOptions] = useState(options);
+    const [filteredOptions, setFilteredOptions] = useState<string[] | { id: number; label: string }[]>(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
 
@@ -134,6 +135,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return undefined;
       }
+
       return handleSelectedItem(event, item);
     };
 
@@ -171,7 +173,16 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         }
 
         if (event.key === 'Enter') {
-          if (currentItemIndex >= 0) handleSelectedItem(event, filteredOptions[currentItemIndex]);
+          if (currentItemIndex >= 0) {
+            if (typeof filteredOptions[0] === 'string') {
+              handleSelectedItem(event, filteredOptions[currentItemIndex]);
+            } else {
+              const option = filteredOptions.find(
+                (opt: { id: number; label: string }, index) => index === currentItemIndex
+              );
+              handleSelectedItem(event, option.label);
+            }
+          }
         }
 
         if (event.key === 'Escape') {
@@ -232,6 +243,40 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
+    const renderMenu = (): any => {
+      // if (objectOptions && !selectedItems && filteredOptions[0] !== noOptionsText) {
+      if (typeof filteredOptions[0] !== 'string') {
+        return Object.values(filteredOptions).map((opt, index) => {
+          const { label } = opt;
+          return (
+            <MenuItem
+              key={index}
+              value={label}
+              noOptionsText={label === noOptionsText}
+              disabled={getOptionDisabled && getOptionDisabled(label, index)}
+              active={(multiple && selected.includes(label)) || label === selected || index === currentItemIndex}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, label, index)}
+            >
+              {label}
+            </MenuItem>
+          );
+        });
+      }
+
+      return filteredOptions?.map((item, index) => (
+        <MenuItem
+          key={index}
+          value={item}
+          noOptionsText={item === noOptionsText}
+          disabled={getOptionDisabled && getOptionDisabled(item, index)}
+          active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
+        >
+          {item}
+        </MenuItem>
+      ));
+    };
+
     useEffect(() => {
       if (focusOnOpen) setAnchorEl(inputRef.current);
     }, [focusOnOpen]);
@@ -251,6 +296,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const filteredMenuOptions = options?.filter((option) => option.includes(value[0]));
           setFilteredOptions(filteredMenuOptions || []);
         }
+      } else if (objectOptions) {
+        const filteredMenuOptions = selectedItems
+          ? options.map((opt) => opt.label)
+          : options?.filter((option) => {
+              if (option.label?.includes(value)) {
+                return option.label;
+              }
+            });
+        setFilteredOptions(filteredMenuOptions || []);
       } else {
         const filteredMenuOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
         setFilteredOptions(filteredMenuOptions || []);
@@ -301,18 +355,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }}
           {...MenuProps}
         >
-          {filteredOptions?.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={item}
-              noOptionsText={item === noOptionsText}
-              disabled={getOptionDisabled && getOptionDisabled(item, index)}
-              active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
-            >
-              {item}
-            </MenuItem>
-          ))}
+          {renderMenu()}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>
@@ -324,6 +367,7 @@ Autocomplete.defaultProps = {
   size: InputSize.Md,
   background: InputBackgroundColor.Primary,
   // multiple: false,
+  objectOptions: false,
   disabled: false,
 };
 
@@ -343,6 +387,7 @@ Autocomplete.propTypes = {
   multiple: PT.bool,
   disabled: PT.bool,
   focusOnOpen: PT.bool,
+  objectOptions: PT.bool,
   error: PT.bool,
   onChange: PT.func,
   onOpen: PT.func,

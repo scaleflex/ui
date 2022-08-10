@@ -19,32 +19,72 @@ const defaultArgs = {
   background: InputBackgroundColor.Primary,
   size: InputSize.Md,
   // multiple: true,
+  objectOptions: true,
   fullWidth: false,
 };
 const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
 
 const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
-  const options = [
-    'item1',
-    'item2',
-    'item3',
-    'item4',
-    'item5',
-    'item6',
-    'item7',
-    'item8',
-    'item9',
-    'item10',
-    'item11',
-    'item12',
-  ];
+  const options = args.objectOptions
+    ? [
+        {
+          id: 1,
+          label: 'item1',
+        },
+        {
+          id: 2,
+          label: 'item2',
+        },
+        {
+          id: 3,
+          label: 'item3',
+        },
+        {
+          id: 4,
+          label: 'item4',
+        },
+        {
+          id: 5,
+          label: 'item5',
+        },
+        {
+          id: 6,
+          label: 'item6',
+        },
+        {
+          id: 7,
+          label: 'item7',
+        },
+        {
+          id: 8,
+          label: 'item8',
+        },
+        {
+          id: 9,
+          label: 'item9',
+        },
+        {
+          id: 10,
+          label: 'item10',
+        },
+        {
+          id: 11,
+          label: 'item11',
+        },
+        {
+          id: 12,
+          label: 'item12',
+        },
+      ]
+    : ['item1', 'item2', 'item3', 'item4', 'item5', 'item6', 'item7', 'item8', 'item9', 'item10', 'item11', 'item12'];
 
   return (
     <Autocomplete
       {...args}
       value={value}
       options={options}
+      objectOptions
       getOptionDisabled={getOptionDisabled}
       onChange={(event: any, val: any) => setValue(val)}
     />
