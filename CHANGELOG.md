@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.94](https://github.com/scaleflex/ui/compare/1.0.0-beta.93...1.0.0-beta.94) (2022-08-10)
+
+
+### Features
+
+* **TagField:** add disableOnEnter prop ([fc9ed31](https://github.com/scaleflex/ui/commit/fc9ed3195247b9b5a89fbfeed500a8b5daa0d7f4))
+
+
+
+
+
 # [1.0.0-beta.93](https://github.com/scaleflex/ui/compare/1.0.0-beta.92...1.0.0-beta.93) (2022-08-09)
 
 
