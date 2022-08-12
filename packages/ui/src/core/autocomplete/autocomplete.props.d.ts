@@ -13,7 +13,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   label?: React.ReactNode;
   hint?: React.ReactNode;
   value: any;
-  options: string[] | { id: number; label: string }[];
+  options: any;
   noOptionsText?: string;
   placeholder?: string;
   fullWidth?: boolean;
@@ -21,7 +21,6 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   disabled?: boolean;
   error?: boolean;
   focusOnOpen?: boolean;
-  objectOptions?: boolean;
   onChange?: (event: React.SyntheticEvent<HTMLInputElement>, value: string | AutocompleteValueType[]) => void;
   onOpen?: (event) => void;
   onClose?: (event: React.SyntheticEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => void;
