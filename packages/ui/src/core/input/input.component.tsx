@@ -110,6 +110,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         style={style}
         fullWidth={Boolean(fullWidth)}
         background={background}
+        {...rest}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
