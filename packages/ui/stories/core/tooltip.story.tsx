@@ -17,6 +17,8 @@ const defaultArgs = {
   title: 'Tooltip text',
   size: Size.Sm,
   arrow: true,
+  enterDelay: 200,
+  leaveDelay: 200,
 };
 
 const BasicTemplate: Story<TooltipProps> = (args) => (
