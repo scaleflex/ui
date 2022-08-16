@@ -48,6 +48,7 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
       suggestedTags={args.suggestedTags}
       onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
       onRemove={(index) => handleRemove(index, tags, setTags)}
+      alwaysShowSuggestedTags
     />
   );
 };

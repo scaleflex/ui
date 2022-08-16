@@ -9,7 +9,8 @@ export type TagType = string | object | null | undefined;
 export type SuggestionsFilterFnType = (
   suggestions: TagType[],
   userInput: string,
-  getTagLabel: (tag: TagType) => string
+  getTagLabel: (tag: TagType) => string,
+  alwaysShowSuggestedTags: boolean
 ) => TagType[];
 
 export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,6 +30,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean;
   loading?: boolean;
   disableOnEnter?: boolean;
+  alwaysShowSuggestedTags?: boolean;
   background?: TagFieldBackgroundType;
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;

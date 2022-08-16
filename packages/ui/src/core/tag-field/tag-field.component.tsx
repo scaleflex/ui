@@ -33,6 +33,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       hint,
       loading,
       disableOnEnter,
+      alwaysShowSuggestedTags = false,
       background = 'primary',
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
@@ -52,7 +53,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())
       );
 
-      return suggestionsFilter(filteredItems, userInput, getTagLabel);
+      return suggestionsFilter(filteredItems, userInput, getTagLabel, alwaysShowSuggestedTags);
     }, [userInput, suggestedTags, existingLabels, suggestionsFilter]);
 
     const handleTagAdd = (item: any, type: AddTagTypesType): void => {
@@ -175,6 +176,7 @@ TagField.propTypes = {
   hint: PT.node,
   loading: PT.bool,
   disableOnEnter: PT.bool,
+  alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
