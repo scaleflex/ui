@@ -23,6 +23,7 @@ const defaultArgs = {
   label: 'Tags',
   hint: 'Some hint goes here',
   background: InputBackgroundColor.Primary,
+  disableOnEnter: false,
 };
 
 const handleRemove = (
@@ -47,6 +48,7 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
       suggestedTags={args.suggestedTags}
       onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
       onRemove={(index) => handleRemove(index, tags, setTags)}
+      alwaysShowSuggestedTags
     />
   );
 };

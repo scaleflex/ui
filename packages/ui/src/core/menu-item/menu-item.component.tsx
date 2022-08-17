@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import ArrowTick from '@scaleflex/icons/arrow-tick';
 
@@ -10,12 +10,24 @@ import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
   ({ list, depth = 0, children, disableHover, noOptionsText, disabled, ...props }, ref): JSX.Element => {
+    const menuItemRef = useRef<HTMLDivElement | null>(null);
+
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
 
     const [selectedIds, setSelectedIds] = React.useState<Array<string>>([]);
     const handleOpenMenu = (event: React.MouseEvent<HTMLElement>): void => {
       setAnchorEl(event.currentTarget);
     };
+
+    const handleScroll = (): void => {
+      menuItemRef.current?.scrollIntoView({ behavior: 'auto', block: 'nearest' });
+    };
+
+    useEffect(() => {
+      if (props.active) {
+        handleScroll();
+      }
+    }, [props.active]);
 
     const handleSelectedId = (ev: React.MouseEvent<HTMLElement>, selected: string, depthLevel: number): void => {
       const updatedArray = selectedIds.slice(0);
@@ -88,7 +100,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
         <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
           <Styled.MenuItem
             {...props}
-            ref={ref}
+            ref={menuItemRef}
             disableHover={disableHover}
             noOptionsText={noOptionsText}
             disabled={disabled}
