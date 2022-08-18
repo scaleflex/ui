@@ -171,7 +171,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         }
 
         if (event.key === 'Enter') {
-          if (currentItemIndex >= 0) handleSelectedItem(event, filteredOptions[currentItemIndex]);
+          if (currentItemIndex >= 0) {
+            const selectedOption = filteredOptions[currentItemIndex];
+            const optionIndex = options.indexOf(selectedOption);
+            handleMenuItemClick(event, selectedOption, optionIndex);
+          }
         }
 
         if (event.key === 'Escape') {
@@ -301,18 +305,21 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }}
           {...MenuProps}
         >
-          {filteredOptions?.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={item}
-              noOptionsText={item === noOptionsText}
-              disabled={getOptionDisabled && getOptionDisabled(item, index)}
-              active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
-            >
-              {item}
-            </MenuItem>
-          ))}
+          {filteredOptions?.map((item, index) => {
+            const optionIndex = options.indexOf(item);
+            return (
+              <MenuItem
+                key={optionIndex}
+                value={item}
+                noOptionsText={item === noOptionsText}
+                disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
+                active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
+                onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
+              >
+                {item}
+              </MenuItem>
+            );
+          })}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>
