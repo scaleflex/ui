@@ -36,6 +36,14 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       handleOpenMenu(ev);
     };
 
+    const handleCloseMenu = (isSublist: boolean, depthLevel: number): void => {
+      setTimeout(() => {
+        if (isSublist && !selectedIds[depthLevel + 1]) {
+          setAnchorEl(null);
+        }
+      }, 500);
+    };
+
     const renderItems = (options: MenuItemListType[], depthLevel = 0): JSX.Element[] => {
       return options.map((option: MenuItemListType) => {
         const hasOptions = option.subList && option.subList.length > 0;
@@ -70,6 +78,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               active={Boolean(option.active)}
               onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
               onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
+              onMouseLeave={() => handleCloseMenu(Boolean(option.subList), depthLevel)}
               disableHover={disableHover || option.disableHover}
             >
               {option.prefix && (
