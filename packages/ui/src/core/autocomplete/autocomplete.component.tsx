@@ -284,13 +284,24 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [focusOnOpen]);
 
     useEffect(() => {
+      if (isItemSelected) {
+        filteredOptions.map((option: any, index: number) => {
+          if (option === selected) {
+            setCurrentItemIndex(index);
+          }
+          return null;
+        });
+      }
+    }, [anchorEl]);
+
+    useEffect(() => {
       if (multiple && value?.length > 0) {
         // TODO: refactor how implement tags in input
         // getMultipleFilteredOptions();
       } else {
         getFilteredOptions();
       }
-    }, [value]);
+    }, [value, anchorEl]);
 
     useEffect(() => {
       if (filteredOptions?.length === 0) {
