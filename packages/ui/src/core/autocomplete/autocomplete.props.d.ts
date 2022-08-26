@@ -6,6 +6,10 @@ import { InputBackgroundColor, InputSize } from '../../utils/types';
 
 export type AutocompleteBackgroundType = Values<typeof InputBackgroundColor>;
 export type AutocompleteSizeType = Values<typeof InputSize>;
+export type AutocompleteObjectOptionstype = {
+  id: number;
+  label: string;
+};
 
 export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactElementLike;
@@ -13,7 +17,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   label?: React.ReactNode;
   hint?: React.ReactNode;
   value: any;
-  options: any;
+  options: string[] | AutocompleteObjectOptionstype[];
   noOptionsText?: string;
   placeholder?: string;
   fullWidth?: boolean;
