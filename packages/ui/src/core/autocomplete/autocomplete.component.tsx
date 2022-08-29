@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import PT, { Validator } from 'prop-types';
 import Cross from '@scaleflex/icons/cross';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-import type { AutocompleteProps } from './autocomplete.props';
+import type { AutocompleteProps, AutocompleteObjectOptionstype } from './autocomplete.props';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import type { InputProps } from '../input';
@@ -50,12 +50,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
-    const [filteredOptions, setFilteredOptions] = useState(options);
+    const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
 
     const open = Boolean(anchorEl);
-    const selectedItems = selected.length > 0;
+    const isItemSelected = selected.length > 0;
 
     const handleOnChange = (event: any, val: any): void => {
       if (multiple) {
@@ -117,15 +117,17 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event: React.KeyboardEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
       item: string
     ): void => {
-      // make sure this item isn't already selected in both modes (multiple or single)
-      if (!selected.includes(item) || (!multiple && selected !== item)) {
+      // make sure this item isn't already selected
+      if (!multiple && selected !== item) {
         handleOnChange(event, item);
+
         if (multiple) {
           setSelected((prev) => [...prev, item]);
         } else {
           setSelected(item);
         }
       }
+
       handleCloseClick(event);
     };
 
@@ -134,6 +136,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return undefined;
       }
+
       return handleSelectedItem(event, item);
     };
 
@@ -170,14 +173,45 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }
         }
 
-        if (event.key === 'Enter') {
-          if (currentItemIndex >= 0) handleSelectedItem(event, filteredOptions[currentItemIndex]);
+        if (event.key === 'Enter' && currentItemIndex >= 0) {
+          const selectedOption = filteredOptions[currentItemIndex];
+
+          if (typeof selectedOption === 'string') {
+            handleSelectedItem(event, selectedOption);
+          }
         }
 
         if (event.key === 'Escape') {
           handleCloseClick(event);
         }
       }
+    };
+
+    // TODO: refactor how implement tags in input
+    // const getMultipleFilteredOptions = (): void => {
+    //   if (isItemSelected) {
+    //     // lastValue = selectedItem | enteredValue
+    //     // ["item1","ite"]
+    //     const lastValue = value[value.length - 1];
+    //     const filteredMenuOptions = selected.includes(lastValue)
+    //       ? options
+    //       : options?.filter((option: string) => option.includes(lastValue));
+    //     setFilteredOptions(filteredMenuOptions || []);
+    //   } else {
+    //     // filter menu options based on the value[0] as it's an array in multiple mode
+    //     const filteredMenuOptions = options?.filter((option: any) => option.includes(value[0]));
+    //     setFilteredOptions(filteredMenuOptions || []);
+    //   }
+    // };
+
+    const getFilteredOptions = (): void => {
+      let filteredMenuOptions = typeof options[0] === 'object' ? options.map((option: any) => option.label) : options;
+
+      if (!isItemSelected) {
+        filteredMenuOptions = filteredMenuOptions.filter((option: any) => option.includes(value));
+      }
+
+      setFilteredOptions(filteredMenuOptions || []);
     };
 
     const renderLabel = (): string | number | null | JSX.Element | any => {
@@ -202,7 +236,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     // TODO: refactor how implement tags in input
     // const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
-    //   if (multiple && selectedItems && Array.isArray(selected)) {
+    //   if (multiple && isItemSelected && Array.isArray(selected)) {
     //     return selected.map((item: string, index: number) => (
     //       <Tag
     //         key={index}
@@ -232,30 +266,42 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
+    const renderMenuItem = (item: string, index: number, id: number): any => (
+      <MenuItem
+        key={id >= 0 ? id : index}
+        value={item}
+        noOptionsText={item === noOptionsText}
+        disabled={getOptionDisabled && getOptionDisabled(item, index)}
+        active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
+        onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
+      >
+        {item}
+      </MenuItem>
+    );
+
     useEffect(() => {
       if (focusOnOpen) setAnchorEl(inputRef.current);
     }, [focusOnOpen]);
 
     useEffect(() => {
-      if (multiple && value?.length > 0) {
-        if (selectedItems) {
-          // lastValue = selectedItem | enteredValue
-          // ["item1","ite"]
-          const lastValue = value[value.length - 1];
-          const filteredMenuOptions = selected.includes(lastValue)
-            ? options
-            : options?.filter((option) => option.includes(lastValue));
-          setFilteredOptions(filteredMenuOptions || []);
-        } else {
-          // filter menu options based on the value[0] as it's an array in multiple mode
-          const filteredMenuOptions = options?.filter((option) => option.includes(value[0]));
-          setFilteredOptions(filteredMenuOptions || []);
-        }
-      } else {
-        const filteredMenuOptions = selectedItems ? options : options?.filter((option) => option.includes(value));
-        setFilteredOptions(filteredMenuOptions || []);
+      if (isItemSelected) {
+        filteredOptions.map((option: any, index: number) => {
+          if (option === selected) {
+            setCurrentItemIndex(index);
+          }
+          return null;
+        });
       }
-    }, [value]);
+    }, [anchorEl]);
+
+    useEffect(() => {
+      if (multiple && value?.length > 0) {
+        // TODO: refactor how implement tags in input
+        // getMultipleFilteredOptions();
+      } else {
+        getFilteredOptions();
+      }
+    }, [value, anchorEl]);
 
     useEffect(() => {
       if (filteredOptions?.length === 0) {
@@ -288,7 +334,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
                 IconProps={{ size: 10 }}
               />
             )}
-            clearIcon={selectedItems && <Cross size={12} />}
+            clearIcon={isItemSelected && <Cross size={12} />}
             clearIconClick={handleClearIconClick}
           />
         </Styled.AutocompleteContainer>
@@ -301,18 +347,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }}
           {...MenuProps}
         >
-          {filteredOptions?.map((item, index) => (
-            <MenuItem
-              key={index}
-              value={item}
-              noOptionsText={item === noOptionsText}
-              disabled={getOptionDisabled && getOptionDisabled(item, index)}
-              active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-              onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
-            >
-              {item}
-            </MenuItem>
-          ))}
+          {typeof filteredOptions[0] === 'object'
+            ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
+                renderMenuItem(option.label, index, option.id)
+              )
+            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index, -1))}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>
