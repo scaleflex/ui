@@ -35,6 +35,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       background = 'primary',
       focusOnMount = false,
       focusOnClick = true,
+      error,
       // TODO: refactor how implement tags in input
       // renderTags,
       ...rest
@@ -110,6 +111,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         style={style}
         fullWidth={Boolean(fullWidth)}
         background={background}
+        error={error}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
