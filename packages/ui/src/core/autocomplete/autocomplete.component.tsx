@@ -67,6 +67,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           onChange(event, val);
         }
         setSelected('');
+        setCurrentItemIndex(-1);
       }
     };
 
@@ -110,6 +111,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           onChange(event, '');
         }
         setSelected('');
+        setCurrentItemIndex(-1);
       }
     };
 
@@ -157,6 +159,22 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setAnchorEl(inputRef.current);
     };
 
+    const getOptionIndex = (option: any): number => {
+      let optionIndex = -1;
+
+      if (typeof options[0] === 'object') {
+        const optionObject = Object.entries(options).find(([_, optObject]) => optObject.label === option);
+
+        if (optionObject) {
+          optionIndex = Number(optionObject[0]);
+        }
+      } else {
+        optionIndex = options.indexOf(option);
+      }
+
+      return optionIndex;
+    };
+
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
       if (open) {
         if (event.key === 'ArrowUp') {
@@ -177,7 +195,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption);
+            const optionIndex = getOptionIndex(selectedOption);
+            handleMenuItemClick(event, selectedOption, optionIndex);
           }
         }
 
@@ -266,18 +285,22 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    const renderMenuItem = (item: string, index: number, id: number): any => (
-      <MenuItem
-        key={id >= 0 ? id : index}
-        value={item}
-        noOptionsText={item === noOptionsText}
-        disabled={getOptionDisabled && getOptionDisabled(item, index)}
-        active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-        onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, index)}
-      >
-        {item}
-      </MenuItem>
-    );
+    const renderMenuItem = (item: string, index: number): any => {
+      const optionIndex = getOptionIndex(item);
+
+      return (
+        <MenuItem
+          key={optionIndex}
+          value={item}
+          noOptionsText={item === noOptionsText}
+          disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
+          active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
+        >
+          {item}
+        </MenuItem>
+      );
+    };
 
     useEffect(() => {
       if (focusOnOpen) setAnchorEl(inputRef.current);
@@ -349,9 +372,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         >
           {typeof filteredOptions[0] === 'object'
             ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
-                renderMenuItem(option.label, index, option.id)
+                renderMenuItem(option.label, index)
               )
-            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index, -1))}
+            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index))}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>
