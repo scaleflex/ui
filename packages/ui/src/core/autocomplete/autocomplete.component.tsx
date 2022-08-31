@@ -175,19 +175,52 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return optionIndex;
     };
 
+    const getNextAvailableOption = (currentIndex: number, direction: string): void => {
+      while (currentIndex !== currentItemIndex) {
+        const selectedOption = filteredOptions[currentIndex];
+        const optionIndex = getOptionIndex(selectedOption);
+        let isDisabled = false;
+
+        if (getOptionDisabled && typeof selectedOption === 'string') {
+          isDisabled = getOptionDisabled(selectedOption, optionIndex);
+        }
+
+        if (!isDisabled) {
+          setCurrentItemIndex(currentIndex);
+          break;
+        }
+
+        if (direction === 'ArrowUp') {
+          if (currentIndex === 0) {
+            currentIndex = filteredOptions.length;
+          }
+          currentIndex -= 1;
+        }
+
+        if (direction === 'ArrowDown') {
+          if (currentIndex === filteredOptions.length - 1) {
+            currentIndex = -1;
+          }
+          currentIndex += 1;
+        }
+      }
+    };
+
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
       if (open) {
         if (event.key === 'ArrowUp') {
-          if (currentItemIndex > 0) setCurrentItemIndex((prev) => prev - 1);
-          else {
-            setCurrentItemIndex(filteredOptions.length - 1);
+          if (currentItemIndex > 0) {
+            getNextAvailableOption(currentItemIndex - 1, event.key);
+          } else {
+            getNextAvailableOption(filteredOptions.length - 1, event.key);
           }
         }
 
         if (event.key === 'ArrowDown') {
-          if (currentItemIndex < filteredOptions.length - 1) setCurrentItemIndex((prev) => prev + 1);
-          else {
-            setCurrentItemIndex(0);
+          if (currentItemIndex < filteredOptions.length - 1) {
+            getNextAvailableOption(currentItemIndex + 1, event.key);
+          } else {
+            getNextAvailableOption(0, event.key);
           }
         }
 
@@ -195,8 +228,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            const optionIndex = getOptionIndex(selectedOption);
-            handleMenuItemClick(event, selectedOption, optionIndex);
+            handleSelectedItem(event, selectedOption);
           }
         }
 

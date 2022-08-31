@@ -76,7 +76,7 @@ const MenuItem = styled.div.attrs({
     flex-direction: row;
     align-items: center;
     width: 100%;
-    background: ${theme.palette[active && !disabled ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
+    background: ${theme.palette[active ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
     cursor: pointer;
     box-sizing: border-box;
 
