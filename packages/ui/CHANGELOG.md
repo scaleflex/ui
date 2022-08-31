@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.95](https://github.com/scaleflex/ui/compare/1.0.0-beta.94...1.0.0-beta.95) (2022-08-16)
+
+
+### Features
+
+* **TagField:** add alwaysShowSuggestedTags prop ([718e86c](https://github.com/scaleflex/ui/commit/718e86cef244cd037fd23629d03b2772a24a9fc6))
+
+
+
+
+
+# [1.0.0-beta.94](https://github.com/scaleflex/ui/compare/1.0.0-beta.93...1.0.0-beta.94) (2022-08-10)
+
+
+### Features
+
+* **TagField:** add disableOnEnter prop ([fc9ed31](https://github.com/scaleflex/ui/commit/fc9ed3195247b9b5a89fbfeed500a8b5daa0d7f4))
+
+
+
+
+
+# [1.0.0-beta.93](https://github.com/scaleflex/ui/compare/1.0.0-beta.92...1.0.0-beta.93) (2022-08-09)
+
+
+### Bug Fixes
+
+* **Autocomplete:** can't scroll when using arrows - T9844 ([81bc6fc](https://github.com/scaleflex/ui/commit/81bc6fc85c4c4153b4e28c9e28b1b92509006463))
+
+
+
+
+
 # [1.0.0-beta.92](https://github.com/scaleflex/ui/compare/1.0.0-beta.91...1.0.0-beta.92) (2022-08-02)
 
 
