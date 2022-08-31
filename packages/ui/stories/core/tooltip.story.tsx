@@ -10,6 +10,14 @@ export const Tooltip = _Tooltip;
 export default {
   title: `${StoryGroup.DataDisplay}/Tooltip`,
   component: Tooltip,
+  argTypes: {
+    enterDelay: {
+      description: 'Set delay time in milliseconds',
+    },
+    leaveDelay: {
+      description: 'Set delay time in milliseconds',
+    },
+  },
   excludeStories: ['Tooltip'],
 } as Meta;
 
@@ -17,6 +25,8 @@ const defaultArgs = {
   title: 'Tooltip text',
   size: Size.Sm,
   arrow: true,
+  enterDelay: 200,
+  leaveDelay: 200,
 };
 
 const BasicTemplate: Story<TooltipProps> = (args) => (

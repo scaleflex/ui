@@ -20,6 +20,8 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       enableUnderlayingEvent,
       popperWrapperStyles = {},
       enableHover,
+      enterDelay,
+      leaveDelay,
       ...rest
     }: TooltipProps,
     ref
@@ -33,8 +35,11 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
 
     const handleMouseEnter = (event: any): void => {
       const { onMouseEnter } = children.props;
+      const { currentTarget } = event;
 
-      setAnchorEl(event.currentTarget);
+      setTimeout(() => {
+        setAnchorEl(currentTarget);
+      }, enterDelay);
 
       if (typeof onMouseEnter === 'function') {
         onMouseEnter(event);
@@ -55,7 +60,9 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           }
         }, 200);
       } else {
-        setAnchorEl(null);
+        setTimeout(() => {
+          setAnchorEl(null);
+        }, leaveDelay);
       }
 
       if (typeof onMouseLeave === 'function') {
@@ -122,6 +129,8 @@ Tooltip.propTypes = {
   title: PT.node,
   children: PT.element,
   arrow: PT.bool,
+  enterDelay: PT.number,
+  leaveDelay: PT.number,
   popperOptions: PT.shape({
     modifiers: PT.arrayOf(
       PT.shape({
