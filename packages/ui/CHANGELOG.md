@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.96](https://github.com/scaleflex/ui/compare/1.0.0-beta.95...1.0.0-beta.96) (2022-09-08)
+
+
+### Bug Fixes
+
+* **Input:** border color doesn't change to red when error is true - T9989 ([f163db1](https://github.com/scaleflex/ui/commit/f163db1e751b3e90d527e71cf284a74d71e52019))
+
+
+### Features
+
+* **Docs:** update tooltip docs ([15099ad](https://github.com/scaleflex/ui/commit/15099ad0f64edd5eaca86794fdb27bc595e2c7a4))
+* **Tooltip:** add delay time to tooltip - T9843 ([149e4f8](https://github.com/scaleflex/ui/commit/149e4f8029b3b1177f79135611dc03c378021467))
+
+
+
+
+
 # [1.0.0-beta.95](https://github.com/scaleflex/ui/compare/1.0.0-beta.94...1.0.0-beta.95) (2022-08-16)
 
 
