@@ -292,3 +292,4 @@ export { ImageSimilarity } from './image-similarity';
 export { BrandDetect } from './brand-detect';
 export { NoPage } from './no-page';
 export { Nsfw } from './nsfw';
+export { WarningOutline } from './warning-outline';
