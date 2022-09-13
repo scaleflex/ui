@@ -291,5 +291,6 @@ export { NoActivity } from './no-activity';
 export { ImageSimilarity } from './image-similarity';
 export { BrandDetect } from './brand-detect';
 export { NoPage } from './no-page';
+export { NoCollections } from './no-collections';
 export { Nsfw } from './nsfw';
 export { WarningOutline } from './warning-outline';
