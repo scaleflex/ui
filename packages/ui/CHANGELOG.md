@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.97](https://github.com/scaleflex/ui/compare/1.0.0-beta.96...1.0.0-beta.97) (2022-09-14)
+
+
+### Bug Fixes
+
+* **Autocomplete:** disabled options ([aa07952](https://github.com/scaleflex/ui/commit/aa079528dfefb48e478e4086dd5b9a4e0e8da47c))
+
+
+
+
+
 # [1.0.0-beta.96](https://github.com/scaleflex/ui/compare/1.0.0-beta.95...1.0.0-beta.96) (2022-09-08)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.97](https://github.com/scaleflex/ui/compare/1.0.0-beta.96...1.0.0-beta.97) (2022-09-14)
+
+
+### Features
+
+* **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
+
+
+
+
+
 # [1.0.0-beta.96](https://github.com/scaleflex/ui/compare/1.0.0-beta.95...1.0.0-beta.96) (2022-09-08)
 
 
