@@ -29,6 +29,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   onOpen?: (event) => void;
   onClose?: (event: React.SyntheticEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => void;
   getOptionDisabled?: (item: string, index: number) => boolean;
+  groupBy?: (option: any) => any;
   MenuProps?: MenuProps;
   LabelProps?: LabelProps;
   InputProps?: InputProps;

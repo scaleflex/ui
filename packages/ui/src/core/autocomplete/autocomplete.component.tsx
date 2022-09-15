@@ -36,6 +36,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       onOpen,
       onClose,
       getOptionDisabled,
+      groupBy,
       multiple,
       size,
       disabled,
@@ -51,6 +52,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
     const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
+    const [groupedOptions, setGroupedOptions] = useState<any>();
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
 
@@ -159,10 +161,25 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setAnchorEl(inputRef.current);
     };
 
+    const getGroupedOptionsArray = (groupedOption: any): any =>
+      groupedOption &&
+      groupedOption[0] !== noOptionsText &&
+      Object.values(groupedOption).reduce((acc, option) => {
+        option.map((opt) => acc.push(opt.label));
+        return acc;
+      }, []);
+
+    const getGroupedOptionIndex = (option: any, groupedOptionsArr: any): number => {
+      return groupedOptionsArr.indexOf(option);
+    };
+
     const getOptionIndex = (option: any): number => {
       let optionIndex = -1;
+      const groupedOptionsArr = getGroupedOptionsArray(groupedOptions);
 
-      if (typeof options[0] === 'object') {
+      if (groupBy && groupedOptionsArr) {
+        optionIndex = groupedOptionsArr.indexOf(option);
+      } else if (typeof options[0] === 'object') {
         const optionObject = Object.entries(options).find(([_, optObject]) => optObject.label === option);
 
         if (optionObject) {
@@ -175,10 +192,46 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return optionIndex;
     };
 
-    const getNextAvailableOption = (currentIndex: number, direction: string): void => {
+    const getGroupedOptions = (groupedOption: any): void => {
+      if (groupBy && typeof options[0] !== 'object') {
+        alert('Options must be an object');
+        return;
+      }
+
+      return groupedOption.reduce((acc: any, obj: any) => {
+        if (!groupBy) return {};
+
+        const groupKey = groupBy(obj);
+        const charCode = groupKey.charCodeAt(0);
+
+        if (charCode >= 48 && charCode <= 57) {
+          if (!acc['0-9']) {
+            acc['0-9'] = [];
+          }
+          acc['0-9'].push(obj);
+        } else {
+          if (!acc[groupKey]) {
+            acc[groupKey] = [];
+          }
+          acc[groupKey].push(obj);
+        }
+
+        return acc;
+      }, {});
+    };
+
+    const getNextAvailableOption = (optionsArray: any, currentIndex: number, direction: string): void => {
       while (currentIndex !== currentItemIndex) {
-        const selectedOption = filteredOptions[currentIndex];
-        const optionIndex = getOptionIndex(selectedOption);
+        if (optionsArray[0] === noOptionsText) return;
+
+        const selectedOption = optionsArray[currentIndex];
+        const groupedOption = getGroupedOptions(options);
+        const groupedOptionsArr = getGroupedOptionsArray(groupedOption);
+        const optionIndex =
+          groupBy && groupedOptionsArr
+            ? getGroupedOptionIndex(selectedOption, groupedOptionsArr)
+            : getOptionIndex(selectedOption);
+
         let isDisabled = false;
 
         if (getOptionDisabled && typeof selectedOption === 'string') {
@@ -192,13 +245,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
         if (direction === 'ArrowUp') {
           if (currentIndex === 0) {
-            currentIndex = filteredOptions.length;
+            currentIndex = optionsArray.length;
           }
           currentIndex -= 1;
         }
 
         if (direction === 'ArrowDown') {
-          if (currentIndex === filteredOptions.length - 1) {
+          if (currentIndex === optionsArray.length - 1) {
             currentIndex = -1;
           }
           currentIndex += 1;
@@ -208,24 +261,32 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
       if (open) {
+        let optionsArray;
+
+        if (groupBy) {
+          optionsArray = getGroupedOptionsArray(groupedOptions);
+        } else {
+          optionsArray = filteredOptions;
+        }
+
         if (event.key === 'ArrowUp') {
           if (currentItemIndex > 0) {
-            getNextAvailableOption(currentItemIndex - 1, event.key);
+            getNextAvailableOption(optionsArray, currentItemIndex - 1, event.key);
           } else {
-            getNextAvailableOption(filteredOptions.length - 1, event.key);
+            getNextAvailableOption(optionsArray, filteredOptions.length - 1, event.key);
           }
         }
 
         if (event.key === 'ArrowDown') {
           if (currentItemIndex < filteredOptions.length - 1) {
-            getNextAvailableOption(currentItemIndex + 1, event.key);
+            getNextAvailableOption(optionsArray, currentItemIndex + 1, event.key);
           } else {
-            getNextAvailableOption(0, event.key);
+            getNextAvailableOption(optionsArray, 0, event.key);
           }
         }
 
         if (event.key === 'Enter' && currentItemIndex >= 0) {
-          const selectedOption = filteredOptions[currentItemIndex];
+          const selectedOption = optionsArray[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
             handleSelectedItem(event, selectedOption);
@@ -317,21 +378,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    const renderMenuItem = (item: string, index: number): any => {
-      const optionIndex = getOptionIndex(item);
-
-      return (
-        <MenuItem
-          key={optionIndex}
-          value={item}
-          noOptionsText={item === noOptionsText}
-          disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
-          active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
-        >
-          {item}
-        </MenuItem>
-      );
+    const getFilteredGroupedOptions = (): any => {
+      return isItemSelected ? options : options.filter((option) => option.label.includes(value));
     };
 
     useEffect(() => {
@@ -340,7 +388,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     useEffect(() => {
       if (isItemSelected) {
-        filteredOptions.map((option: any, index: number) => {
+        let optionsArray;
+
+        if (groupBy) {
+          optionsArray = getGroupedOptionsArray(groupedOptions);
+        } else {
+          optionsArray = filteredOptions;
+        }
+
+        optionsArray.map((option: any, index: number) => {
           if (option === selected) {
             setCurrentItemIndex(index);
           }
@@ -353,6 +409,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (multiple && value?.length > 0) {
         // TODO: refactor how implement tags in input
         // getMultipleFilteredOptions();
+      } else if (groupBy) {
+        const filteredGroupedOptions = getFilteredGroupedOptions();
+        const groupByOptions = getGroupedOptions(filteredGroupedOptions);
+        setGroupedOptions(groupByOptions);
+        getFilteredOptions();
       } else {
         getFilteredOptions();
       }
@@ -362,7 +423,70 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (filteredOptions?.length === 0) {
         setFilteredOptions([noOptionsText]);
       }
+      if (groupedOptions && Object.keys(groupedOptions).length === 0) {
+        setGroupedOptions([noOptionsText]);
+      }
     }, [filteredOptions, value]);
+
+    const renderMenuItem = (item: string, index: number | string): any => {
+      const isGroupByKey = typeof index === 'string';
+
+      const groupedOption = getGroupedOptions(options);
+      const groupedOptionsArr = getGroupedOptionsArray(groupedOption);
+
+      let optionIndex = 0;
+      let groupedOptionIndex = -1;
+
+      if (!isGroupByKey) {
+        optionIndex = getOptionIndex(item);
+      }
+
+      if (groupBy && groupedOptionsArr) {
+        groupedOptionIndex = getGroupedOptionIndex(item, groupedOptionsArr);
+      }
+
+      return (
+        <MenuItem
+          key={isGroupByKey ? index : optionIndex}
+          value={item}
+          noOptionsText={item === noOptionsText}
+          groupBy={groupBy && isGroupByKey}
+          disabled={
+            (groupBy && getOptionDisabled && getOptionDisabled(item, groupedOptionIndex)) ||
+            (!groupBy && getOptionDisabled && getOptionDisabled(item, optionIndex))
+          }
+          active={
+            (multiple && selected.includes(item)) ||
+            (!groupBy && item === selected) ||
+            (!groupBy && index === currentItemIndex) ||
+            (optionIndex === currentItemIndex && item !== noOptionsText && !isGroupByKey)
+          }
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
+        >
+          {item}
+        </MenuItem>
+      );
+    };
+
+    const menuItem = (): any => {
+      if (groupedOptions && groupedOptions[0] === noOptionsText) {
+        return groupedOptions.map((option: any, index: number) => renderMenuItem(option, index));
+      }
+      if (groupBy && groupedOptions) {
+        return Object.keys(groupedOptions).map((key, index) => {
+          const menuItemKey = renderMenuItem(key, key);
+          const menuKeyOptions = groupedOptions[key].map((option: any) => renderMenuItem(option.label, index));
+
+          return [menuItemKey, menuKeyOptions];
+        });
+      }
+      if (typeof filteredOptions[0] === 'object') {
+        return Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
+          renderMenuItem(option.label, index)
+        );
+      }
+      return filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index));
+    };
 
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
@@ -402,11 +526,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }}
           {...MenuProps}
         >
-          {typeof filteredOptions[0] === 'object'
-            ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
-                renderMenuItem(option.label, index)
-              )
-            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index))}
+          {menuItem()}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>

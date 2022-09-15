@@ -45,8 +45,9 @@ const MenuItemWrapper = styled.div.attrs({
     divider = false,
     noOptionsText = false,
     disabled = false,
+    groupBy = false,
     theme,
-  }: With<WithTheme, { divider?: boolean; noOptionsText?: boolean; disabled?: boolean }>) => css`
+  }: With<WithTheme, { divider?: boolean; noOptionsText?: boolean; disabled?: boolean; groupBy?: boolean }>) => css`
     ${divider &&
     css`
       width: 100%;
@@ -57,6 +58,11 @@ const MenuItemWrapper = styled.div.attrs({
     ${(noOptionsText || disabled) &&
     css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
+    `}
+    ${groupBy &&
+    css`
+      color: gray;
+      margin-left: -5px;
     `}
   `
 );
@@ -71,6 +77,7 @@ const MenuItem = styled.div.attrs({
     disableHover = false,
     noOptionsText,
     disabled,
+    groupBy,
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     flex-direction: row;
@@ -86,7 +93,7 @@ const MenuItem = styled.div.attrs({
     &:focus,
     &:hover {
       ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundPrimaryHover]}`};
-      ${(noOptionsText || disabled) &&
+      ${(noOptionsText || disabled || groupBy) &&
       css`
         cursor: default;
         background-color: white;

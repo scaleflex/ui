@@ -9,7 +9,7 @@ import { Size } from './types';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
-  ({ list, depth = 0, children, disableHover, noOptionsText, disabled, ...props }, ref): JSX.Element => {
+  ({ list, depth = 0, children, disableHover, noOptionsText, disabled, groupBy, ...props }, ref): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -97,13 +97,14 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 
     if (!list) {
       return (
-        <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
+        <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)} groupBy={groupBy}>
           <Styled.MenuItem
             {...props}
             ref={menuItemRef}
             disableHover={disableHover}
             noOptionsText={noOptionsText}
             disabled={disabled}
+            groupBy={groupBy}
           >
             {children}
           </Styled.MenuItem>

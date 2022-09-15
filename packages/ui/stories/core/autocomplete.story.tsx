@@ -36,6 +36,7 @@ const defaultArgs = {
   fullWidth: false,
 };
 const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
+const groupBy = (option: any): any => option.firstLetter;
 
 const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
@@ -44,6 +45,7 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
     <Autocomplete
       {...args}
       value={value}
+      groupBy={groupBy}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
       onChange={(event: any, val: any) => setValue(val)}
@@ -69,18 +71,19 @@ const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
 };
 
 const options = [
-  { id: 1, label: 'item1' },
-  { id: 2, label: 'item2' },
-  { id: 3, label: 'item3' },
-  { id: 4, label: 'item4' },
-  { id: 5, label: 'item5' },
-  { id: 6, label: 'item6' },
-  { id: 7, label: 'item7' },
-  { id: 8, label: 'item8' },
-  { id: 9, label: 'item9' },
-  { id: 10, label: 'item10' },
-  { id: 11, label: 'item11' },
-  { id: 12, label: 'item12' },
+  { id: 1, label: 'zahraa', firstLetter: 'z' },
+  { id: 2, label: 'hazem', firstLetter: 'h' },
+  { id: 3, label: 'nermeen', firstLetter: 'n' },
+  { id: 4, label: 'eman', firstLetter: 'e' },
+  { id: 5, label: 'mohamed', firstLetter: 'm' },
+  { id: 6, label: 'amr', firstLetter: 'a' },
+  { id: 7, label: 'wagdy', firstLetter: 'w' },
+  { id: 8, label: '12item', firstLetter: '1' },
+  { id: 9, label: '2item', firstLetter: '2' },
+  { id: 10, label: 'mohy', firstLetter: 'm' },
+  { id: 11, label: 'sara', firstLetter: 's' },
+  { id: 12, label: '41item', firstLetter: '4' },
+  { id: 13, label: 'hamdy', firstLetter: 'h' },
 ];
 
 export const AutocompleteObjects = AutocompleteObjectsTemplate.bind({});
