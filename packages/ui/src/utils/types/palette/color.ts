@@ -23,6 +23,7 @@ export const Color = {
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
+  ButtonSecondaryDisabledText: 'btn-disabled-secondary-text',
 
   LinkPrimary: 'link-primary',
   LinkHover: 'link-hover',

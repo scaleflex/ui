@@ -78,13 +78,19 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         lineHeight: '1.3',
       },
 
-      [FontVariant.ButtonXs]: {
+      [FontVariant.ButtonSm]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '12px',
         lineHeight: '14px',
       },
-      [FontVariant.ButtonSm]: {
+      [FontVariant.ButtonSmM]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '13px',
+        lineHeight: '16px',
+      },
+      [FontVariant.ButtonSmUp]: {
         ...defaultFontValue,
         fontWeight: '500',
         fontSize: '13px',
@@ -93,7 +99,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       [FontVariant.ButtonMd]: {
         ...defaultFontValue,
         fontWeight: '500',
-        fontSize: '15px',
+        fontSize: '14px',
         lineHeight: '16px',
       },
       [FontVariant.ButtonLg]: {

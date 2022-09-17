@@ -12,7 +12,8 @@ export const colorButtonMixin = {
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
     ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background: transparent;
     }
 
     &:hover {
@@ -28,35 +29,42 @@ export const colorButtonMixin = {
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
-        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
+        color: ${palette[PaletteColor.ButtonDisabledText]};
+        background: transparent;
       }
     }
   `,
 
   [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.ActiveSecondary]};
-    color: ${palette[PaletteColor.IconsPrimary]};
+    color: ${palette[PaletteColor.AccentPrimary]};
+    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
 
     &:hover {
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
       background-color: ${palette[PaletteColor.ActiveSecondaryHover]};
+      border: 1px solid ${palette[PaletteColor.AccentPrimaryHover]};
     }
 
     &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
       background-color: ${palette[PaletteColor.ActiveSecondaryActive]};
+      border: 1px solid ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
+      background: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: 1px solid ${palette[PaletteColor.ButtonSecondaryDisabledText]};
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
       }
     }
 
     ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.IconsPrimary]};
+      color: ${palette[PaletteColor.AccentPrimary]};
+      background: transparent;
     }
   `,
 
@@ -64,11 +72,16 @@ export const colorButtonMixin = {
     background-color: transparent;
     color: ${palette[PaletteColor.LinkPrimary]};
 
+    ${StyledBadge.Badge} {
+      background-color: transparent;
+      color: ${palette[PaletteColor.LinkPrimary]};
+    }
+
     &:hover {
       color: ${palette[PaletteColor.LinkHover]};
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.LinkHover]};
+        color: ${palette[PaletteColor.LinkHover]};
       }
     }
 
@@ -76,15 +89,15 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.LinkActive]};
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.LinkActive]};
+        color: ${palette[PaletteColor.LinkActive]};
       }
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
       }
     }
   `,
@@ -117,11 +130,15 @@ export const colorButtonMixin = {
 };
 
 export const sizeButtonMixin = {
-  [ButtonSize.Xs]: css`
+  [ButtonSize.Sm]: css`
     padding: 4px 8px;
   `,
 
-  [ButtonSize.Sm]: css`
+  [ButtonSize.Sm_m]: css`
+    padding: 4px 8px;
+  `,
+
+  [ButtonSize.Sm_up]: css`
     padding: 6px 10px;
   `,
 
@@ -130,26 +147,32 @@ export const sizeButtonMixin = {
   `,
 
   [ButtonSize.Lg]: css`
-    padding: 10px 14px;
+    padding: 12px 16px;
   `,
 
   [ButtonSize.Xl]: css`
-    padding: 12px 16px;
+    padding: 14px 24px;
   `,
 };
 
 export const sizeButtonLabelMixin = {
-  [ButtonSize.Xs]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonXs]),
-
   [ButtonSize.Sm]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonSm]),
+
+  [ButtonSize.Sm_m]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonSmM]),
+
+  [ButtonSize.Sm_up]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonSmUp]),
 
   [ButtonSize.Md]: ({
     theme: {

@@ -51,10 +51,10 @@ export const lightPalette = {
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
 
-  [Color.AccentPrimary]: 'rgba(104,121,235,1)',
-  [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
-  [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
-  [Color.AccentPrimaryDisabled]: '#E9EEF2',
+  [Color.AccentPrimary]: '#6879EB',
+  [Color.AccentPrimaryHover]: '#606FD1',
+  [Color.AccentPrimaryActive]: '#4958BC',
+  [Color.AccentPrimaryDisabled]: 'rgba(104, 121, 235, 0.12)',
 
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)',
@@ -62,17 +62,18 @@ export const lightPalette = {
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
 
-  [Color.IconsPrimary]: 'rgba(93,109,126,1)',
+  [Color.IconsPrimary]: '#6879EB',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',
 
-  [Color.ButtonPrimaryText]: 'rgba(255,255,255,1)',
-  [Color.ButtonDisabledText]: '#A9B6C2',
+  [Color.ButtonPrimaryText]: '#FFFFFF',
+  [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)',
+  [Color.ButtonSecondaryDisabledText]: 'rgba(73, 88, 188, 0.4)',
 
-  [Color.LinkPrimary]: '#5D6D7E',
-  [Color.LinkHover]: '#768A9F',
-  [Color.LinkActive]: '#92A6BC',
+  [Color.LinkPrimary]: '#768A9F',
+  [Color.LinkHover]: '#4F6276',
+  [Color.LinkActive]: '#37414B',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)',
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
@@ -80,9 +81,9 @@ export const lightPalette = {
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
   [Color.BorderActiveBottom]: '#6879EB',
 
-  [Color.ActiveSecondary]: '#E9EEF2',
-  [Color.ActiveSecondaryHover]: '#DFE4E9',
-  [Color.ActiveSecondaryActive]: '#CBD3DA',
+  [Color.ActiveSecondary]: '#FFFFFF',
+  [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)',
+  [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)',
 
   [Color.Tag]: '#889AAC',
 

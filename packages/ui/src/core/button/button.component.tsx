@@ -42,7 +42,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
           <Badge
             inline
             size={14}
-            fontSize={10}
+            fontSize={ButtonSize.Md}
             padding="0 1px"
             badgeContent={badge}
             color={color === ButtonColor.Primary ? 'white' : 'secondary'}

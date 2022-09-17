@@ -7,14 +7,21 @@ export const getIconSize = (sizeName?: ButtonSizeType): number => {
       return 16;
 
     case ButtonSize.Lg:
+      return 14;
+
     case ButtonSize.Md:
       return 14;
+
+    case ButtonSize.Sm_up:
+      return 12;
+
+    case ButtonSize.Sm_m:
+      return 12;
 
     case ButtonSize.Sm:
       return 12;
 
-    case ButtonSize.Xs:
     default:
-      return 11;
+      return 12;
   }
 };

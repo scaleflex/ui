@@ -1,6 +1,7 @@
 export const ButtonSize = {
-  Xs: 'xs',
   Sm: 'sm',
+  Sm_m: 'sm-m',
+  Sm_up: 'sm-up',
   Md: 'md',
   Lg: 'lg',
   Xl: 'xl',
