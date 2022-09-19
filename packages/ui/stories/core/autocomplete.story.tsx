@@ -45,7 +45,6 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
     <Autocomplete
       {...args}
       value={value}
-      groupBy={groupBy}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
       onChange={(event: any, val: any) => setValue(val)}
@@ -63,6 +62,7 @@ const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
     <Autocomplete
       {...args}
       value={value}
+      groupBy={groupBy}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
       onChange={(_, val: any) => setValue(val)}

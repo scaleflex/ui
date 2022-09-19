@@ -222,7 +222,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const getNextAvailableOption = (optionsArray: any, currentIndex: number, direction: string): void => {
       while (currentIndex !== currentItemIndex) {
-        if (optionsArray[0] === noOptionsText) return;
+        if (
+          optionsArray[0] === noOptionsText ||
+          (optionsArray.length === 1 && getOptionDisabled && getOptionDisabled(optionsArray[0], 0))
+        )
+          return;
 
         const selectedOption = optionsArray[currentIndex];
         const groupedOption = getGroupedOptions(options);
