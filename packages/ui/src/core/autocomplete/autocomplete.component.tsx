@@ -164,8 +164,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getGroupedOptionsArray = (groupedOption: any): any =>
       groupedOption &&
       groupedOption[0] !== noOptionsText &&
-      Object.values(groupedOption).reduce((acc, option) => {
-        option.map((opt) => acc.push(opt.label));
+      Object.values(groupedOption).reduce((acc: any, option: any) => {
+        option.map((opt: any) => acc.push(opt.label));
         return acc;
       }, []);
 
@@ -195,29 +195,28 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getGroupedOptions = (groupedOption: any): void => {
       if (groupBy && typeof options[0] !== 'object') {
         alert('Options must be an object');
-        return;
+      } else {
+        return groupedOption.reduce((acc: any, obj: any) => {
+          if (!groupBy) return {};
+
+          const groupKey = groupBy(obj);
+          const charCode = groupKey.charCodeAt(0);
+
+          if (charCode >= 48 && charCode <= 57) {
+            if (!acc['0-9']) {
+              acc['0-9'] = [];
+            }
+            acc['0-9'].push(obj);
+          } else {
+            if (!acc[groupKey]) {
+              acc[groupKey] = [];
+            }
+            acc[groupKey].push(obj);
+          }
+
+          return acc;
+        }, {});
       }
-
-      return groupedOption.reduce((acc: any, obj: any) => {
-        if (!groupBy) return {};
-
-        const groupKey = groupBy(obj);
-        const charCode = groupKey.charCodeAt(0);
-
-        if (charCode >= 48 && charCode <= 57) {
-          if (!acc['0-9']) {
-            acc['0-9'] = [];
-          }
-          acc['0-9'].push(obj);
-        } else {
-          if (!acc[groupKey]) {
-            acc[groupKey] = [];
-          }
-          acc[groupKey].push(obj);
-        }
-
-        return acc;
-      }, {});
     };
 
     const getNextAvailableOption = (optionsArray: any, currentIndex: number, direction: string): void => {
@@ -383,7 +382,16 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getFilteredGroupedOptions = (): any => {
-      return isItemSelected ? options : options.filter((option) => option.label.includes(value));
+      if (isItemSelected) return options;
+
+      const filteredGroupedOptions: any = [];
+      options.forEach((option: any) => {
+        if (option.label.includes(value)) {
+          filteredGroupedOptions.push(option);
+        }
+      });
+
+      return filteredGroupedOptions;
     };
 
     useEffect(() => {
