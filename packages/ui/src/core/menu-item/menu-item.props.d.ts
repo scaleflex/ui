@@ -34,4 +34,5 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   list?: MenuItemListType[] | null | undefined;
   depth?: number | undefined;
   disableHover?: boolean;
+  enableScrollIntoView?: boolean;
 }

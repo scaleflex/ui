@@ -9,7 +9,10 @@ import { Size } from './types';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
-  ({ list, depth = 0, children, disableHover, noOptionsText, disabled, ...props }, ref): JSX.Element => {
+  (
+    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props },
+    ref
+  ): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
 
     const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -24,7 +27,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      if (props.active) {
+      if (props.active && enableScrollIntoView) {
         handleScroll();
       }
     }, [props.active]);
@@ -133,6 +136,7 @@ MenuItem.propTypes = {
   disableHover: PT.bool,
   noOptionsText: PT.bool,
   disabled: PT.bool,
+  enableScrollIntoView: PT.bool,
 };
 
 export default MenuItem;
