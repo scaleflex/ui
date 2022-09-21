@@ -72,8 +72,9 @@ export const lightPalette = {
   [Color.ButtonSecondaryDisabledText]: 'rgba(73, 88, 188, 0.4)',
 
   [Color.LinkPrimary]: '#768A9F',
-  [Color.LinkHover]: '#4F6276',
-  [Color.LinkActive]: '#37414B',
+  [Color.LinkHover]: '#606FD1',
+  [Color.LinkActive]: '#4958BC',
+  [Color.LinkDisabled]: 'rgba(73, 88, 188, 0.4)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)',
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',

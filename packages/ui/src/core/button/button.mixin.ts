@@ -41,21 +41,27 @@ export const colorButtonMixin = {
     border: 1px solid ${palette[PaletteColor.AccentPrimary]};
 
     &:hover {
-      color: ${palette[PaletteColor.AccentPrimaryHover]};
-      background-color: ${palette[PaletteColor.ActiveSecondaryHover]};
-      border: 1px solid ${palette[PaletteColor.AccentPrimaryHover]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${palette[PaletteColor.AccentPrimaryHover]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
     }
 
     &:active {
-      color: ${palette[PaletteColor.AccentPrimaryActive]};
-      background-color: ${palette[PaletteColor.ActiveSecondaryActive]};
-      border: 1px solid ${palette[PaletteColor.AccentPrimaryActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
-      background: ${palette[PaletteColor.ButtonPrimaryText]};
-      border: 1px solid ${palette[PaletteColor.ButtonSecondaryDisabledText]};
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      border: none;
 
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
@@ -94,10 +100,10 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
+      color: ${palette[PaletteColor.LinkDisabled]};
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
+        color: ${palette[PaletteColor.LinkDisabled]};
       }
     }
   `,
@@ -131,26 +137,14 @@ export const colorButtonMixin = {
 
 export const sizeButtonMixin = {
   [ButtonSize.Sm]: css`
-    padding: 4px 8px;
-  `,
-
-  [ButtonSize.Sm_m]: css`
-    padding: 4px 8px;
-  `,
-
-  [ButtonSize.Sm_up]: css`
-    padding: 6px 10px;
-  `,
-
-  [ButtonSize.Md]: css`
     padding: 8px 12px;
   `,
 
-  [ButtonSize.Lg]: css`
-    padding: 12px 16px;
+  [ButtonSize.Md]: css`
+    padding: 11px 16px;
   `,
 
-  [ButtonSize.Xl]: css`
+  [ButtonSize.Lg]: css`
     padding: 14px 24px;
   `,
 };
@@ -161,18 +155,6 @@ export const sizeButtonLabelMixin = {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonSm]),
-
-  [ButtonSize.Sm_m]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonSmM]),
-
-  [ButtonSize.Sm_up]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonSmUp]),
 
   [ButtonSize.Md]: ({
     theme: {
@@ -185,10 +167,4 @@ export const sizeButtonLabelMixin = {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonLg]),
-
-  [ButtonSize.Xl]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonXl]),
 };

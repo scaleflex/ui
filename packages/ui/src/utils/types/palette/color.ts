@@ -28,6 +28,7 @@ export const Color = {
   LinkPrimary: 'link-primary',
   LinkHover: 'link-hover',
   LinkActive: 'link-active',
+  LinkDisabled: 'link-disabled',
 
   BordersPrimary: 'borders-primary',
   BordersSecondary: 'borders-secondary',
