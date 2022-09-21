@@ -86,6 +86,9 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
+  [Color.TooltipBackgroundColor]: '#D8E0E8',
+  [Color.ToolTipText]: '#4F6276',
+
   [Color.Error]: 'rgba(232,91,70,1)',
   [Color.Success]: 'rgba(62,207,139,1)',
   [Color.Warning]: 'rgba(255,172,74,1)',

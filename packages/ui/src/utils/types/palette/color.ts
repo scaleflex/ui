@@ -40,6 +40,9 @@ export const Color = {
 
   Tag: 'tag',
 
+  TooltipBackgroundColor: 'ToolTip',
+  ToolTipText: 'ToolTipText',
+
   Error: 'error',
   Success: 'success',
   Warning: 'warning',

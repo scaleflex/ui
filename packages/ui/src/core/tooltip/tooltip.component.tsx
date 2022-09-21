@@ -99,7 +99,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           onMouseEnter={handleEnteringTooltip}
           onMouseLeave={handleLeavingTooltip}
         >
-          <Styled.Tooltip>{rest.title}</Styled.Tooltip>
+          <Styled.Tooltip {...rest}>{rest.title}</Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
     );

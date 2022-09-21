@@ -31,7 +31,7 @@ const Arrow = styled.div.attrs({
     position: absolute;
     &::before {
       content: '';
-      background: ${theme.palette[PColor.IconsPrimary]};
+      background: ${theme.palette[PColor.TooltipBackgroundColor]};
       width: 8px;
       height: 8px;
       transform: rotate(45deg);
