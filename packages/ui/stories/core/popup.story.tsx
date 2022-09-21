@@ -16,7 +16,7 @@ export default {
 
 const defaultArgs = {
   message: 'New folder “2022 annual event” was created',
-  status: Status.Happy,
+  status: Status.Success,
   open: false,
 };
 

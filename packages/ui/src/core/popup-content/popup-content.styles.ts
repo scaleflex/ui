@@ -3,20 +3,19 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
-import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 
 const baseClassName = 'PopupContent';
 
 const LabelWrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
-  ({ theme: { palette, shape } }: WithTheme) => css`
+  ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-grow: 1;
-    margin-left: 31px;
-    padding: 8px 8px 8px 39px;
+    margin-left: 44px;
+    margin-right: 28px;
+    padding: 16px;
     background: ${palette[PColor.ButtonPrimaryText]};
-    border-radius: ${shape.borderRadius[BRSize.Sm]};
     min-height: 41px;
   `
 );
@@ -45,28 +44,53 @@ const PopupContent = styled.div.attrs({
   display: flex;
   align-items: center;
   width: 256px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 4px;
+  filter: drop-shadow(0px 2px 6px rgba(146, 166, 188, 0.32));
+`;
+
+const CloseWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'PopupContent'),
+})`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 28px;
+  height: 100%;
+  background-color: #ffff;
+`;
+
+const CloseIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'PopupContent'),
+})`
+  width: 24px;
+  height: 24px;
+  padding: 8.7px;
 `;
 
 const Robot = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Robot'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    position: absolute;
-    left: 0;
-    display: flex;
-    z-index: 1;
-    border-radius: 50%;
-    background: ${palette[PColor.ButtonPrimaryText]};
-    border: 1px solid ${palette[PColor.BackgroundSecondary]};
-    box-sizing: border-box;
-  `
-);
+})`
+  position: absolute;
+  display: flex;
+  left: 0;
+  z-index: 1;
+  height: 100%;
+  min-width: 44px;
+  align-items: center;
+  justify-content: center;
+  background-color: #edfaf4;
+  box-sizing: border-box;
+`;
 
 const Styled = applyDisplayNames({
   PopupContent,
   Robot,
   LabelWrapper,
+  CloseWrapper,
+  CloseIcon,
   Label,
 });
 

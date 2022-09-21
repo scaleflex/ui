@@ -14,8 +14,8 @@ export const MessageVariant = {
 
 // Match our helper "variant" prop and @scaleflex/ui Popup "status"
 export const MessageVariantStatusMatch = {
-  [MessageVariant.Default]: Status.Neutral,
-  [MessageVariant.Success]: Status.Happy,
-  [MessageVariant.Warning]: Status.Worried,
-  [MessageVariant.Error]: Status.Sad,
+  [MessageVariant.Default]: Status.Info,
+  [MessageVariant.Success]: Status.Success,
+  [MessageVariant.Warning]: Status.Warning,
+  [MessageVariant.Error]: Status.Error,
 } as const;

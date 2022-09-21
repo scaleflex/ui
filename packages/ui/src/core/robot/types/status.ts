@@ -1,6 +1,6 @@
 export const Status = {
-  Happy: 'happy',
-  Neutral: 'neutral',
-  Sad: 'sad',
-  Worried: 'worried',
+  Success: 'success',
+  Info: 'info',
+  Error: 'error',
+  Warning: 'warning',
 } as const;

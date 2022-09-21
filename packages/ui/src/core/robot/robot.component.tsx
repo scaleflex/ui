@@ -1,10 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
-import RobotWorried from '@scaleflex/icons/robot-worried';
-import RobotSad from '@scaleflex/icons/robot-sad';
-import RobotNeutral from '@scaleflex/icons/robot-neutral';
-import RobotHappy from '@scaleflex/icons/robot-happy';
 
+import { Success, About, Error, Warning } from '@scaleflex/icons';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { RobotProps, RobotStatusType } from './robot.props';
 import { Status } from './types';
@@ -12,18 +9,18 @@ import Styled from './robot.styles';
 
 const getRobotIcon = (status?: RobotStatusType): JSX.Element => {
   switch (status) {
-    case Status.Worried:
-      return <RobotWorried />;
+    case Status.Warning:
+      return <Warning color="#FFAC4A" size={20} />;
 
-    case Status.Sad:
-      return <RobotSad />;
+    case Status.Error:
+      return <Error color="#E85B46" size={20} />;
 
-    case Status.Neutral:
-      return <RobotNeutral />;
+    case Status.Info:
+      return <About color="#297FB8" size={20} />;
 
-    case Status.Happy:
+    case Status.Success:
     default:
-      return <RobotHappy />;
+      return <Success color="#3ECF8B" />;
   }
 };
 
@@ -36,7 +33,7 @@ const Robot = intrinsicComponent<RobotProps, HTMLSpanElement>(
 );
 
 export const defaultProps = {
-  status: Status.Happy,
+  status: Status.Success,
 };
 
 Robot.defaultProps = defaultProps;

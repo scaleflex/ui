@@ -47,7 +47,7 @@ import type { ColorsMap } from './colors-map';
 export const lightPalette = {
   [Color.TextPrimary]: 'rgba(55,65,75,1)',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)',
-  [Color.TextSecondary]: 'rgba(118,129,132,1)',
+  [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
 
