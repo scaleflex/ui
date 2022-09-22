@@ -74,7 +74,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.Link]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
     background-color: transparent;
     color: ${palette[PaletteColor.LinkPrimary]};
 
