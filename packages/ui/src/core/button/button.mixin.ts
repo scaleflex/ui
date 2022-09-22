@@ -107,32 +107,6 @@ export const colorButtonMixin = {
       }
     }
   `,
-  [ButtonColor.Error]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.Error]};
-    color: ${palette[PaletteColor.ButtonPrimaryText]};
-
-    ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
-    }
-
-    &:hover {
-      background-color: rgba(224, 81, 44, 1); //need to be added to the general color palette in figma
-    }
-
-    &:active {
-      background-color: rgba(201, 58, 23, 1); //need to be added to the general color palette in figma
-    }
-
-    &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
-
-      ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
-        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
-      }
-    }
-  `,
 };
 
 export const sizeButtonMixin = {
