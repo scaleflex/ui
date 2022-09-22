@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import { LabelPosition } from '@scaleflex/ui/core/check-box-group/types';
+import { Size } from '@scaleflex/ui/core/check-box/size';
+
 import _CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
 import { StoryGroup } from './types';
 
@@ -23,6 +25,7 @@ const defaultArgs = {
   readOnly: false,
   disabled: false,
   labelPosition: LabelPosition.After,
+  size: Size.Sm,
 };
 
 const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {
@@ -38,3 +41,11 @@ const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
+
+// WithIcons
+export const CheckBoxGroupWithIcon = BasicTemplate.bind({});
+CheckBoxGroupWithIcon.args = {
+  ...defaultArgs,
+  withIcon: true,
+  title: 'Tooltip text',
+};
