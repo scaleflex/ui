@@ -62,6 +62,11 @@ export const lightPalette = {
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
 
+  [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
+  [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
+  [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
+  [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
@@ -86,15 +91,10 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
-  [Color.Error]: 'rgba(253, 244, 242, 1)',
-  [Color.Success]: 'rgba(237, 250, 244, 1)',
-  [Color.Warning]: 'rgba(255, 249, 242, 1)',
-  [Color.Info]: 'rgba(244, 249, 255, 1)',
-
-  [Color.ErrorIcon]: '#E85B46',
-  [Color.SuccessIcon]: '#3ECF8B',
-  [Color.WarningIcon]: '#FFAC4A',
-  [Color.InfoIcon]: '#297FB8',
+  [Color.Error]: '#E85B46',
+  [Color.Success]: '#3ECF8B',
+  [Color.Warning]: '#FFAC4A',
+  [Color.Info]: '#297FB8',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
   [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',

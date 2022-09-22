@@ -5,6 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
+import { popupContentMixin } from './popup-content.mixin';
 import { PopupContentProps } from './popup-content.props';
 
 const baseClassName = 'PopupContent';
@@ -88,7 +89,7 @@ const PopupStatus = styled.div.attrs({
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background-color: ${theme.palette[status]};
+    background-color: ${theme.palette[popupContentMixin[status]]};
   `
 );
 

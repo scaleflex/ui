@@ -4,11 +4,15 @@ import Cross from '@scaleflex/icons/cross-outline';
 import { Color } from '@scaleflex/ui/utils/types/palette';
 import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import PopupStatus from '../popup-status';
-import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../popup-status/popup-status.component';
+import {
+  defaultProps as popupStatusDefaultProps,
+  propTypes as popupStatusPropTypes,
+} from '../popup-status/popup-status.component';
 import type { PopupContentProps } from './popup-content.props';
 import Styled from './popup-content.styles';
+import { Status } from '../popup-status/types';
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
   ({ onClose, message, status, ...rest }, ref): JSX.Element => (
@@ -31,15 +35,16 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
 );
 
 export const defaultProps = {
-  ...robotDefaultProps,
+  ...popupStatusDefaultProps,
 };
 
 PopupContent.defaultProps = defaultProps;
 
 export const propTypes = {
-  ...robotPropTypes,
+  ...popupStatusPropTypes,
   message: PT.node.isRequired,
   onClose: PT.func,
+  status: PT.oneOf(objectValues(Status)),
 };
 
 PopupContent.propTypes = propTypes;

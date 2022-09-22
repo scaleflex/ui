@@ -12,17 +12,17 @@ import Styled from './popup-status.styles';
 const getPopupStatusIcon = (status?: PopupStatusType): JSX.Element => {
   switch (status) {
     case Status.Warning:
-      return <Warning color={lightPalette[Color.WarningIcon]} size={20} />;
+      return <Warning color={lightPalette[Color.Warning]} size={20} />;
 
     case Status.Error:
-      return <Error color={lightPalette[Color.ErrorIcon]} size={20} />;
+      return <Error color={lightPalette[Color.Error]} size={20} />;
 
     case Status.Info:
-      return <About color={lightPalette[Color.InfoIcon]} size={20} />;
+      return <About color={lightPalette[Color.Info]} size={20} />;
 
     case Status.Success:
     default:
-      return <Success color={lightPalette[Color.SuccessIcon]} />;
+      return <Success color={lightPalette[Color.Success]} size={20} />;
   }
 };
 
