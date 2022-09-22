@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Popup, { PopupProps } from '../../src/core/popup';
 import Button from '../../src/core/button';
-import { Status } from '../../src/core/robot/types';
+import { Status } from '../../src/core/popup-status/types';
 import { Horizontal, Vertical } from '../../src/core/popup/types';
 import { StoryGroup } from './types';
 

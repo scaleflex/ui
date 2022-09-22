@@ -86,12 +86,18 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
-  [Color.Error]: 'rgba(232,91,70,1)',
-  [Color.Success]: 'rgba(62,207,139,1)',
-  [Color.Warning]: 'rgba(255,172,74,1)',
-  [Color.Info]: 'rgba(110,123,178,1)',
+  [Color.Error]: 'rgba(253, 244, 242, 1)',
+  [Color.Success]: 'rgba(237, 250, 244, 1)',
+  [Color.Warning]: 'rgba(255, 249, 242, 1)',
+  [Color.Info]: 'rgba(244, 249, 255, 1)',
+
+  [Color.ErrorIcon]: '#E85B46',
+  [Color.SuccessIcon]: '#3ECF8B',
+  [Color.WarningIcon]: '#FFAC4A',
+  [Color.InfoIcon]: '#297FB8',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
+  [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;

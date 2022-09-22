@@ -1,8 +1,11 @@
+import { With } from '@scaleflex/ui/utils/types';
+
 import styled, { css } from 'styled-components';
-import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
+import { PopupContentProps } from './popup-content.props';
 
 const baseClassName = 'PopupContent';
 
@@ -39,14 +42,16 @@ const Label = styled.span.attrs({
 
 const PopupContent = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
-})`
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 256px;
-  border-radius: 4px;
-  filter: drop-shadow(0px 2px 6px rgba(146, 166, 188, 0.32));
-`;
+})<PopupContentProps>(
+  ({ theme }: With<WithTheme, PopupContentProps>) => css`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 256px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px ${theme.palette[PColor.HeavyShadow]};
+  `
+);
 
 const CloseWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
@@ -59,35 +64,37 @@ const CloseWrapper = styled.div.attrs({
   align-items: flex-start;
   width: 28px;
   height: 100%;
-  background-color: #ffff;
+  cursor: pointer;
 `;
 
 const CloseIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
 })`
-  width: 24px;
-  height: 24px;
+  width: 10px;
+  height: 10px;
   padding: 8.7px;
 `;
 
-const Robot = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Robot'),
-})`
-  position: absolute;
-  display: flex;
-  left: 0;
-  z-index: 1;
-  height: 100%;
-  min-width: 44px;
-  align-items: center;
-  justify-content: center;
-  background-color: #edfaf4;
-  box-sizing: border-box;
-`;
+const PopupStatus = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'PopupStatus'),
+})<PopupContentProps>(
+  ({ status = 'success', theme }: With<WithTheme, PopupContentProps>) => css`
+    position: absolute;
+    display: flex;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color: ${theme.palette[status]};
+  `
+);
 
 const Styled = applyDisplayNames({
   PopupContent,
-  Robot,
+  PopupStatus,
   LabelWrapper,
   CloseWrapper,
   CloseIcon,

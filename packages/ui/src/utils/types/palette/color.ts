@@ -45,5 +45,11 @@ export const Color = {
   Warning: 'warning',
   Info: 'info',
 
+  ErrorIcon: 'error-icon',
+  SuccessIcon: 'success-icon',
+  WarningIcon: 'warning-icon',
+  InfoIcon: 'info-icon',
+
   LightShadow: 'light-shadow',
+  HeavyShadow: 'heavy-shadow',
 } as const;

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
 import _PopupContent, { PopupContentProps } from '../../src/core/popup-content';
-import { Status } from '../../src/core/robot/types';
+import { Status } from '../../src/core/popup-status/types';
 import { StoryGroup } from './types';
 
 export const PopupContent = _PopupContent;

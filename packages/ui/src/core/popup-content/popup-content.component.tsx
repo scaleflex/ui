@@ -1,38 +1,21 @@
 import React from 'react';
 import PT from 'prop-types';
-
 import Cross from '@scaleflex/icons/cross-outline';
+import { Color } from '@scaleflex/ui/utils/types/palette';
+import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
+
 import { intrinsicComponent } from '../../utils/functions';
-import Robot from '../robot';
-import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../robot/robot.component';
+import PopupStatus from '../popup-status';
+import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../popup-status/popup-status.component';
 import type { PopupContentProps } from './popup-content.props';
 import Styled from './popup-content.styles';
-import { Status } from '../robot/types';
-import { RobotStatusType } from '../robot/robot.props';
-
-const getIconBackgroundColor = (status?: RobotStatusType): string => {
-  switch (status) {
-    case Status.Warning:
-      return '#FFF9F2';
-
-    case Status.Error:
-      return '#FDF4F2';
-
-    case Status.Info:
-      return '#F4F9FF';
-
-    case Status.Success:
-    default:
-      return '#EDFAF4';
-  }
-};
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
   ({ onClose, message, status, ...rest }, ref): JSX.Element => (
-    <Styled.PopupContent {...rest} ref={ref}>
-      <Styled.Robot style={{ backgroundColor: getIconBackgroundColor(status) }}>
-        <Robot status={status} />
-      </Styled.Robot>
+    <Styled.PopupContent message={message} {...rest} ref={ref}>
+      <Styled.PopupStatus status={status} message={message} {...rest}>
+        <PopupStatus status={status} />
+      </Styled.PopupStatus>
 
       <Styled.LabelWrapper>
         <Styled.Label>{message}</Styled.Label>
@@ -40,7 +23,7 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
 
       <Styled.CloseWrapper>
         <Styled.CloseIcon onClick={onClose}>
-          <Cross size={17.5} color="#768A9F" />
+          <Cross size={17.5} color={lightPalette[Color.TextSecondary]} />
         </Styled.CloseIcon>
       </Styled.CloseWrapper>
     </Styled.PopupContent>
