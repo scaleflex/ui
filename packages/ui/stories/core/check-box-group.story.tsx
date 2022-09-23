@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import { LabelPosition } from '@scaleflex/ui/core/check-box-group/types';
 import { Size } from '@scaleflex/ui/core/check-box/size';
+import { IconProps } from '@scaleflex/icons/icon.props';
+import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
 
 import _CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
 import { StoryGroup } from './types';
@@ -12,9 +14,14 @@ export default {
   title: `${StoryGroup.Inputs}/Checkbox/CheckBoxGroup`,
   component: CheckBoxGroup,
   excludeStories: ['CheckBoxGroup'],
+
   argTypes: {
     checkProps: {
       description: 'input attributes applied directly input element.',
+    },
+    icon: {
+      description:
+        'If you want to have proper icon you need to use icon function like `icon={(props) => <QuestionMarkOutline {...props} />}` otherwise `icon={<QuestionMarkOutline />}`',
     },
   },
 } as Meta;
@@ -48,4 +55,5 @@ CheckBoxGroupWithIcon.args = {
   ...defaultArgs,
   withIcon: true,
   title: 'Tooltip text',
+  icon: (props: IconProps) => <QuestionMarkOutline {...props} />,
 };

@@ -1,3 +1,4 @@
+import { IconProps } from '@scaleflex/icons/icon.props';
 import type { CheckBoxProps } from '../check-box';
 import type { Values } from '../../utils/types';
 import { LabelPosition } from './types';
@@ -14,4 +15,5 @@ export interface CheckBoxGroupProps extends CheckBoxProps {
   withIcon?: boolean;
   labelPosition?: LabelPositionType;
   size?: CheckBoxSizeType;
+  icon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
 }

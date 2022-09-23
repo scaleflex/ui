@@ -20,6 +20,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       labelPosition,
       withIcon = false,
       title,
+      icon,
       ...rest
     }: CheckBoxGroupProps,
     ref
@@ -48,7 +49,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     return (
       <Styled.CheckBoxGroup withIcon={withIcon} ref={ref}>
         {content}
-        {withIcon && <CheckBoxGroupWithIcon title={title} />}
+        {withIcon && <CheckBoxGroupWithIcon icon={icon} title={title} />}
       </Styled.CheckBoxGroup>
     );
   }
@@ -72,6 +73,7 @@ CheckBoxGroup.propTypes = {
   withIcon: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   labelPosition: PT.oneOf(objectValues(LabelPosition)),
+  icon: PT.oneOfType([PT.node, PT.func]),
 };
 
 export default CheckBoxGroup;
