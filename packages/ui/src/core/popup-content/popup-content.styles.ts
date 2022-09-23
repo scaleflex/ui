@@ -1,6 +1,5 @@
-import { With } from '@scaleflex/ui/utils/types';
-
 import styled, { css } from 'styled-components';
+import { With } from '@scaleflex/ui/utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
@@ -79,7 +78,7 @@ const CloseIcon = styled.span.attrs({
 const PopupStatus = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupStatus'),
 })<PopupContentProps>(
-  ({ status = 'success', theme }: With<WithTheme, PopupContentProps>) => css`
+  ({ status = 'success' }: With<WithTheme, PopupContentProps>) => css`
     position: absolute;
     display: flex;
     left: 0;
@@ -89,7 +88,7 @@ const PopupStatus = styled.div.attrs({
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    background-color: ${theme.palette[popupContentMixin[status]]};
+    ${popupContentMixin[status]}
   `
 );
 

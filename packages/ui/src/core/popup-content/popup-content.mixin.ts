@@ -1,6 +1,23 @@
+import { css } from 'styled-components';
+import { WithTheme } from '@scaleflex/ui/theme/entity';
+import { Color as PaletteColor } from '@scaleflex/ui/utils/types/palette';
+
+import { Status } from '../popup-status/types';
+
 export const popupContentMixin = {
-  success: 'bg-light-green',
-  info: 'bg-light-blue',
-  error: 'bg-light-red',
-  warning: 'bg-light-orange',
+  [Status.Success]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.BackgroundLightGreen]};
+  `,
+
+  [Status.Info]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.BackgroundLightBlue]};
+  `,
+
+  [Status.Error]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.BackgroundLightRed]};
+  `,
+
+  [Status.Warning]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.BackgroundLightOrange]};
+  `,
 };
