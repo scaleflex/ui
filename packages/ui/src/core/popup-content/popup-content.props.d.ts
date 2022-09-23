@@ -1,5 +1,6 @@
 import type { PopupStatusProps } from '../popup-status';
 import { Status } from '../popup-status/types';
+import type { Values } from '../../utils/types';
 
 export type PopupContentType = Values<typeof Status>;
 

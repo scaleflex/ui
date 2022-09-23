@@ -4,7 +4,7 @@ import { Color } from '@scaleflex/ui/utils/types/palette';
 import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 import Cross from '@scaleflex/icons/cross';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import PopupStatus from '../popup-status';
 import {
   defaultProps as popupStatusDefaultProps,
@@ -12,7 +12,6 @@ import {
 } from '../popup-status/popup-status.component';
 import type { PopupContentProps } from './popup-content.props';
 import Styled from './popup-content.styles';
-import { Status } from '../popup-status/types';
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
   ({ onClose, message, status, ...rest }, ref): JSX.Element => (
@@ -44,7 +43,6 @@ export const propTypes = {
   ...popupStatusPropTypes,
   message: PT.node.isRequired,
   onClose: PT.func,
-  status: PT.oneOf(objectValues(Status)),
 };
 
 PopupContent.propTypes = propTypes;

@@ -58,7 +58,7 @@ const AllTemplate: Story<PopupContentProps> = ({ ...args }) => (
 export const Basic = BasicTemplate.bind({});
 Basic.args = {
   ...defaultArgs,
-  message: 'New folder “2022 annual event” was created',
+  message: 'New folder “2022  annual event” was created',
   status: Status.Success,
 };
 
