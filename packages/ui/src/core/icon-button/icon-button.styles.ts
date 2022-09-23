@@ -23,10 +23,11 @@ const squarePaddingMixin = {
 const IconButton = styled(ButtonStyled.Button).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ square = true, size = ButtonSize.Md, theme }: With<WithTheme, IconButtonProps>) => css`
+  ({ square = true, disabled = false, size = ButtonSize.Md, theme }: With<WithTheme, IconButtonProps>) => css`
     ${squarePaddingMixin[size]}
 
     ${square &&
+    !disabled &&
     css`
       &:hover {
         color: ${theme.palette[PaletteColor.ButtonPrimaryText]};

@@ -8,5 +8,6 @@ export interface IconButtonProps extends React.HTMLAttributes<HTMLButtonElement>
   size?: IconButtonSizeType;
   color?: IconButtonColorType;
   square?: boolean;
+  disabled?: boolean;
   children: React.ReactNode | ((props: IconProps) => React.ReactNode);
 }
