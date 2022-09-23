@@ -37,7 +37,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
 
     return (
       <Styled.Popup {...props}>
-        <PopupContent {...rest} ref={ref} />
+        <PopupContent onClose={onClose} {...rest} ref={ref} />
       </Styled.Popup>
     );
   };

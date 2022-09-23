@@ -31,7 +31,7 @@ export { default as PopupContent } from './popup-content';
 export { default as Radio } from './radio';
 export { default as RadioGroup } from './radio-group';
 export { default as Rating } from './rating';
-export { default as Robot } from './robot';
+export { default as PopupStatus } from './popup-status';
 export { default as RotationSlider } from './rotation-slider';
 export { default as Search } from './search';
 export { default as Select } from './select';
