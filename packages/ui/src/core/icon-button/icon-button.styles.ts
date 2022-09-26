@@ -30,13 +30,13 @@ const IconButton = styled(ButtonStyled.Button).attrs({
     !disabled &&
     css`
       &:hover {
-        color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-        background-color: ${theme.palette[PaletteColor.AccentPrimaryHover]};
+        color: ${theme.palette[PaletteColor.IconButtonBasicHoverColor]};
+        background-color: ${theme.palette[PaletteColor.IconButtonBasicHoverBackground]};
       }
 
       &:active {
-        color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-        background-color: ${theme.palette[PaletteColor.AccentPrimaryActive]};
+        color: ${theme.palette[PaletteColor.IconButtonBasicActiveColor]};
+        background-color: ${theme.palette[PaletteColor.IconButtonBasicActiveBackground]};
       }
     `}
   `

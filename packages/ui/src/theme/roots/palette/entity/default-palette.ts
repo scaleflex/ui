@@ -66,6 +66,10 @@ export const lightPalette = {
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',
+  [Color.IconButtonBasicHoverColor]: ' #4f6276',
+  [Color.IconButtonBasicHoverBackground]: ' #f9fbfc',
+  [Color.IconButtonBasicActiveColor]: ' #37414b',
+  [Color.IconButtonBasicActiveBackground]: '#f3f7fa',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)',

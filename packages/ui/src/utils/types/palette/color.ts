@@ -20,6 +20,10 @@ export const Color = {
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
+  IconButtonBasicHoverColor: 'icon-button-basic-hover-color',
+  IconButtonBasicHoverBackground: 'icon-button-basic-hover-background',
+  IconButtonBasicActiveColor: 'icon-button-basic-active-color',
+  IconButtonBasicActiveBackground: 'icon-button-basic-active-background',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
