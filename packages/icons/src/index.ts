@@ -292,3 +292,5 @@ export { NoPage } from './no-page';
 export { NoCollections } from './no-collections';
 export { Nsfw } from './nsfw';
 export { WarningOutline } from './warning-outline';
+export { Success } from './success';
+export { Error } from './error';

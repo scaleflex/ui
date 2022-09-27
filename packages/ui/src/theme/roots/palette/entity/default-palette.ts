@@ -47,7 +47,7 @@ import type { ColorsMap } from './colors-map';
 export const lightPalette = {
   [Color.TextPrimary]: 'rgba(55,65,75,1)',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)',
-  [Color.TextSecondary]: 'rgba(118,129,132,1)',
+  [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
 
@@ -65,6 +65,11 @@ export const lightPalette = {
 
   [Color.BackgroundSwitcherOff]: 'rgb(216,224,232)',
   [Color.BackgroundSwitcherOn]: 'rgb(104,121,235)',
+
+  [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
+  [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
+  [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
+  [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
 
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -90,12 +95,13 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
-  [Color.Error]: 'rgba(232,91,70,1)',
-  [Color.Success]: 'rgba(62,207,139,1)',
-  [Color.Warning]: 'rgba(255,172,74,1)',
-  [Color.Info]: 'rgba(110,123,178,1)',
+  [Color.Error]: '#E85B46',
+  [Color.Success]: '#3ECF8B',
+  [Color.Warning]: '#FFAC4A',
+  [Color.Info]: '#297FB8',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
+  [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;

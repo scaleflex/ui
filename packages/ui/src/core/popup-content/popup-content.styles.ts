@@ -1,22 +1,24 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames, applyDisplayNames } from '../../utils/functions';
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
+import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
-import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
+import { popupContentMixin } from './popup-content.mixin';
+import { PopupContentProps } from './popup-content.props';
 
 const baseClassName = 'PopupContent';
 
 const LabelWrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
-  ({ theme: { palette, shape } }: WithTheme) => css`
+  ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-grow: 1;
-    margin-left: 31px;
-    padding: 8px 8px 8px 39px;
+    margin-left: 44px;
+    margin-right: 28px;
+    padding: 16px;
     background: ${palette[PColor.ButtonPrimaryText]};
-    border-radius: ${shape.borderRadius[BRSize.Sm]};
     min-height: 41px;
   `
 );
@@ -40,33 +42,63 @@ const Label = styled.span.attrs({
 
 const PopupContent = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
+})<PopupContentProps>(
+  ({ theme }: With<WithTheme, PopupContentProps>) => css`
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 256px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 6px ${theme.palette[PColor.HeavyShadow]};
+  `
+);
+
+const CloseWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'PopupContent'),
 })`
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   display: flex;
-  align-items: center;
-  width: 256px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  justify-content: center;
+  align-items: flex-start;
+  width: 28px;
+  height: 100%;
+  cursor: pointer;
 `;
 
-const Robot = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Robot'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+const CloseIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'PopupContent'),
+})`
+  width: 10px;
+  height: 10px;
+  padding: 8.7px;
+`;
+
+const PopupStatus = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'PopupStatus'),
+})<PopupContentProps>(
+  ({ status = 'success' }: PopupContentProps) => css`
     position: absolute;
-    left: 0;
     display: flex;
+    left: 0;
     z-index: 1;
-    border-radius: 50%;
-    background: ${palette[PColor.ButtonPrimaryText]};
-    border: 1px solid ${palette[PColor.BackgroundSecondary]};
+    height: 100%;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
     box-sizing: border-box;
+
+    ${popupContentMixin[status]}
   `
 );
 
 const Styled = applyDisplayNames({
   PopupContent,
-  Robot,
+  PopupStatus,
   LabelWrapper,
+  CloseWrapper,
+  CloseIcon,
   Label,
 });
 
