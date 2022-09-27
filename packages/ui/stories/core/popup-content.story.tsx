@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
 import _PopupContent, { PopupContentProps } from '../../src/core/popup-content';
-import { Status } from '../../src/core/robot/types';
+import { Status } from '../../src/core/popup-status/types';
 import { StoryGroup } from './types';
 
 export const PopupContent = _PopupContent;
@@ -18,19 +18,19 @@ const Item = styled.div`
 const items: PopupContentProps[] = [
   {
     message: 'New folder “2022 annual event” was created',
-    status: Status.Happy,
+    status: Status.Success,
   },
   {
     message: 'Image resolution is less than selected resize parameters',
-    status: Status.Neutral,
+    status: Status.Info,
   },
   {
     message: 'You cannot upload file bigger than 25MB',
-    status: Status.Sad,
+    status: Status.Error,
   },
   {
     message: 'You set visibility to public, everyone can view these files',
-    status: Status.Worried,
+    status: Status.Warning,
   },
 ];
 
@@ -58,8 +58,8 @@ const AllTemplate: Story<PopupContentProps> = ({ ...args }) => (
 export const Basic = BasicTemplate.bind({});
 Basic.args = {
   ...defaultArgs,
-  message: 'New folder “2022 annual event” was created',
-  status: Status.Happy,
+  message: 'New folder “2022  annual event” was created',
+  status: Status.Success,
 };
 
 // All
