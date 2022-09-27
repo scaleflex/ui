@@ -10,6 +10,8 @@ export const Color = {
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
 
+  CheckboxDisabled: 'check-box-disabled',
+
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',

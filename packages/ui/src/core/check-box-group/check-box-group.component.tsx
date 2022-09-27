@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -25,8 +25,22 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     }: CheckBoxGroupProps,
     ref
   ): JSX.Element => {
+    const [isHovering, setIsHovering] = useState(false);
+
+    const handleEnteringTooltip = (): void => {
+      setTimeout(() => {
+        setIsHovering(true);
+      }, 250);
+    };
+
+    const handleLeavingTooltip = (): void => {
+      setTimeout(() => {
+        setIsHovering(false);
+      }, 250);
+    };
     const content = [
       <CheckBox
+        isHovering={isHovering}
         size={size}
         key="checkbox"
         checkBoxProps={checkBoxProps}
@@ -47,7 +61,13 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       content.push(labelContent);
     }
     return (
-      <Styled.CheckBoxGroup withIcon={withIcon} ref={ref}>
+      <Styled.CheckBoxGroup
+        onMouseEnter={handleEnteringTooltip}
+        onMouseLeave={handleLeavingTooltip}
+        withIcon={withIcon}
+        disabled={disabled}
+        ref={ref}
+      >
         {content}
         {withIcon && <CheckBoxGroupWithIcon icon={icon} title={title} />}
       </Styled.CheckBoxGroup>

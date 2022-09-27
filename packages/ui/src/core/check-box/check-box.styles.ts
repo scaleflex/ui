@@ -11,7 +11,7 @@ const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'checkbox',
 })<CheckBoxProps>(
-  () => css`
+  ({ disabled = false }: With<WithTheme, CheckBoxProps>) => css`
     position: absolute;
     top: 0;
     left: 0;
@@ -20,7 +20,7 @@ const Input = styled.input.attrs({
     margin: 0;
     opacity: 0;
     padding: 0;
-    cursor: inherit;
+    cursor: ${disabled ? 'default' : 'pointer'};
     z-index: 1;
   `
 );
@@ -31,7 +31,7 @@ const CheckBox = styled.span.attrs({
   ({ theme: { palette }, disabled = false }: With<WithTheme, CheckBoxProps>) => css`
     position: relative;
     display: inline-flex;
-    cursor: pointer;
+    cursor: ${disabled ? 'default' : 'pointer'};
     color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.AccentPrimary]};
   `
 );

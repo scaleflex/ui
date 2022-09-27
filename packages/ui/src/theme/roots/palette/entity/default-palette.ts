@@ -56,6 +56,8 @@ export const lightPalette = {
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
   [Color.AccentPrimaryDisabled]: '#E9EEF2',
 
+  [Color.CheckboxDisabled]: '#D8E0E8',
+
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)',
   [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)',

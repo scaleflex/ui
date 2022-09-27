@@ -14,6 +14,7 @@ export const CheckBoxUnchecked = intrinsicComponent<IconProps, SVGSVGElement>(
       {...rest}
     >
       <rect x="0.5" y="0.5" width="15" height="15" rx="0.5" fill={disabled ? '#F3F7FA' : color} stroke={stroke} />
+      <rect x="0.5" y="0.5" width="15" height="15" rx="0.5" stroke="#CCD6DE" />
     </svg>
   )
 );

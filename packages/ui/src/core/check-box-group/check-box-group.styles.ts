@@ -28,18 +28,19 @@ const Label = styled.span.attrs({
     ${sizeCheckboxGroupMixin[size]}
     ${`margin-${labelPosition === 'after' ? 'left' : 'right'}`}:4px;
     color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.TextPrimary]};
+    cursor: ${disabled ? 'default' : 'pointer'};
   `
 );
 
 const CheckBoxGroup = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<CheckBoxGroupProps>(
-  ({ withIcon = false }: With<WithTheme, CheckBoxGroupProps>) => css`
+  ({ disabled, withIcon = false }: With<WithTheme, CheckBoxGroupProps>) => css`
     position: relative;
     display: inline-flex;
     column-gap: 4px;
     align-items: center;
-    cursor: pointer;
+    cursor: ${disabled ? 'default' : 'pointer'};
     margin-top: ${withIcon ? '20px' : ''};
   `
 );
