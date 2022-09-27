@@ -11,6 +11,9 @@ export const FontVariant = {
   LabelEmphasis: 'label-emphasis',
   LabelExtraLarge: 'label-extra-large',
 
+  TabLabelSmall: 'tab-label-small',
+  TabLabelMedium: 'tab-label-medium',
+
   ButtonXs: 'btn-xs',
   ButtonSm: 'btn-sm',
   ButtonMd: 'btn-md',

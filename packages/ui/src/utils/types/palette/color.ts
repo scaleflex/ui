@@ -32,6 +32,7 @@ export const Color = {
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
+  BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
 
   ActiveSecondary: 'active-secondary',
@@ -39,6 +40,10 @@ export const Color = {
   ActiveSecondaryActive: 'active-secondary-active',
 
   Tag: 'tag',
+  Tab: 'tab',
+  TabHover: 'tab-hover',
+  TabActive: 'tab-active',
+  TabPressed: 'tab-pressed',
 
   Error: 'error',
   Success: 'success',

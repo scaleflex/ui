@@ -38,6 +38,18 @@ const labelFontVariants = {
     fontSize: '24px',
     lineHeight: '28px',
   },
+  [FontVariant.TabLabelSmall]: {
+    ...defaultFontValue,
+    fontWeight: '400',
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.TabLabelMedium]: {
+    ...defaultFontValue,
+    fontWeight: '400',
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
 };
 
 export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> = {
