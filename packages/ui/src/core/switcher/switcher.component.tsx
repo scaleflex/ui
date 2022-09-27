@@ -1,30 +1,31 @@
 import React from 'react';
 import PT from 'prop-types';
-import SwitcherOnIcon from '@scaleflex/icons/switcher-on';
-import SwitcherOffIcon from '@scaleflex/icons/switcher-off';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
+import { Size } from '../menu-item/types';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
-  ({ checked, onChange, switcherProps, readOnly, disabled, ...rest }: SwitcherProps, ref): JSX.Element => (
-    <Styled.Switcher {...rest} ref={ref}>
+  ({ size, checked, onChange, switcherProps, readOnly, disabled, ...rest }: SwitcherProps, ref): JSX.Element => (
+    <Styled.Label disabled={disabled} {...rest}>
       <Styled.Input
+        ref={ref}
         checked={checked}
         onChange={readOnly || disabled ? undefined : onChange}
         readOnly={readOnly}
         disabled={disabled}
+        size={size}
         {...switcherProps}
       />
-
-      {checked ? <SwitcherOnIcon /> : <SwitcherOffIcon />}
-    </Styled.Switcher>
+      <Styled.Switcher disabled={disabled} size={size} />
+    </Styled.Label>
   )
 );
 
 Switcher.defaultProps = {
   checked: false,
+  size: Size.Sm,
 };
 
 Switcher.propTypes = {
@@ -33,6 +34,7 @@ Switcher.propTypes = {
   switcherProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  size: PT.oneOf(objectValues(Size)),
 };
 
 export default Switcher;

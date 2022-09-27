@@ -55,12 +55,16 @@ export const lightPalette = {
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
   [Color.AccentPrimaryDisabled]: '#E9EEF2',
+  [Color.AccentSecondaryDisabled]: '#F9FBFC',
 
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)',
   [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)',
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
+
+  [Color.BackgroundSwitcherOff]: 'rgb(216,224,232)',
+  [Color.BackgroundSwitcherOn]: 'rgb(104,121,235)',
 
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
