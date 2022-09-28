@@ -1,19 +1,20 @@
 import styled, { css } from 'styled-components';
 import { With } from '@scaleflex/ui/utils/types';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import type { SwitcherGroupProps } from './switcher-group.props';
 import { fontSizeSwitcherMixin } from '../switcher/switcher.mixin';
-import { Size } from '../menu-item/types';
+import { SwitcherSize } from '../switcher/switcher-size';
 
 const baseClassName = 'SwitcherGroup';
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
   type: 'checkbox',
-})(
-  ({ disabled, size = Size.Sm, theme }: With<WithTheme, SwitcherGroupProps>) => css`
+})<SwitcherGroupProps>(
+  ({ disabled, size = SwitcherSize.Sm, theme }: With<WithTheme, SwitcherGroupProps>) => css`
     display: flex;
     align-items: center;
     margin-left: 8px;

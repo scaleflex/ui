@@ -4,7 +4,7 @@ import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
-import { Size } from '../menu-item/types';
+import { SwitcherSize } from './switcher-size';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
   ({ size, checked, onChange, switcherProps, readOnly, disabled, ...rest }: SwitcherProps, ref): JSX.Element => (
@@ -25,7 +25,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
 
 Switcher.defaultProps = {
   checked: false,
-  size: Size.Sm,
+  size: SwitcherSize.Sm,
 };
 
 Switcher.propTypes = {
@@ -34,7 +34,7 @@ Switcher.propTypes = {
   switcherProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
+  size: PT.oneOf(objectValues(SwitcherSize)),
 };
 
 export default Switcher;

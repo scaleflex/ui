@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { Size } from '@scaleflex/ui/core/menu-item/types';
+import { SwitcherSize } from '@scaleflex/ui/core/switcher/switcher-size';
+
 import _SwitcherGroup, { SwitcherGroupProps } from '../../src/core/switcher-group';
 import { StoryGroup } from './types';
 
@@ -23,7 +24,7 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
-  size: Size.Sm,
+  size: SwitcherSize.Sm,
 };
 
 const BasicTemplate: Story<SwitcherGroupProps> = ({ checked, ...args }) => {

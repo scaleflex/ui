@@ -4,9 +4,9 @@ import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import type { SwitcherProps } from './switcher.props';
-import { SwitcherIconSize, SwitcherSize } from './switcher-size';
+import { SwitcherSize } from './switcher-size';
 import { sizeInnerSwitcherMixin, translateSwitcherMixin, translateInnerSwitcherMixin } from './switcher.mixin';
-import { Size } from '../menu-item/types';
+import { getSwitcherIconSize, getSwitcherSize } from './switcher.utils';
 
 const baseClassName = 'Switcher';
 
@@ -23,10 +23,10 @@ const Label = styled.div.attrs({
 const Switcher = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ disabled, size = Size.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
+  ({ disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
     position: relative;
-    width: ${SwitcherSize[size] * 2}px;
-    height: ${SwitcherSize[size]}px;
+    width: ${getSwitcherSize(size) * 2}px;
+    height: ${getSwitcherSize(size)}px;
     background: ${disabled ? palette[PColor.AccentSecondaryDisabled] : palette[PColor.BackgroundSwitcherOff]};
     border-radius: 20px;
     transition: 300ms all;
@@ -35,8 +35,8 @@ const Switcher = styled.div.attrs({
       transition: 300ms all;
       content: '';
       position: absolute;
-      width: ${SwitcherIconSize[size]}px;
-      height: ${SwitcherIconSize[size]}px;
+      width: ${getSwitcherIconSize(size)}px;
+      height: ${getSwitcherIconSize(size)}px;
       border-radius: 35px;
       top: 50%;
       left: 4px;
@@ -63,12 +63,12 @@ const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'checkbox',
 })<SwitcherProps>(
-  ({ disabled, size = Size.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
+  ({ disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
     opacity: 0;
     position: absolute;
     z-index: 99;
-    width: ${SwitcherSize[size] * 2}px;
-    height: ${SwitcherSize[size]}px;
+    width: ${getSwitcherSize(size) * 2}px;
+    height: ${getSwitcherSize(size)}px;
     cursor: ${disabled ? 'default' : 'pointer'};
 
     &:hover + ${Switcher}:after {

@@ -5,10 +5,10 @@ import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Switcher from '../switcher';
 import type { SwitcherGroupProps } from './switcher-group.props';
 import Styled from './switcher-group.styles';
-import { Size } from '../menu-item/types';
+import { SwitcherSize } from '../switcher/switcher-size';
 
 const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
-  ({ size = 'sm', label, switcherProps, readOnly, disabled, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
+  ({ size, label, switcherProps, readOnly, disabled, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
     <Styled.SwitcherGroup disabled={disabled} size={size} ref={ref}>
       <Switcher size={size} switcherProps={switcherProps} readOnly={readOnly} disabled={disabled} {...rest} />
 
@@ -21,7 +21,7 @@ const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
 
 SwitcherGroup.defaultProps = {
   checked: false,
-  size: Size.Sm,
+  size: SwitcherSize.Sm,
 };
 
 SwitcherGroup.propTypes = {
@@ -31,7 +31,7 @@ SwitcherGroup.propTypes = {
   switcherProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
+  size: PT.oneOf(objectValues(SwitcherSize)),
 };
 
 export default SwitcherGroup;
