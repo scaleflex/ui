@@ -21,7 +21,8 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  children: 'Audi Q7',
+  children: 'Cheerful woman',
+  crossIcon: false,
 };
 
 const BasicTemplate: Story<TagProps> = ({ ...args }) => (

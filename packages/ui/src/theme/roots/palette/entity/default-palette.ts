@@ -89,7 +89,12 @@ export const lightPalette = {
   [Color.ActiveSecondaryHover]: '#DFE4E9',
   [Color.ActiveSecondaryActive]: '#CBD3DA',
 
-  [Color.Tag]: '#889AAC',
+  [Color.TagLabel]: '#768a9f',
+  [Color.TagBorder]: '#ccd6de',
+  [Color.TagBackground]: '#f9fbfc',
+  [Color.TagLabelHovered]: '#4F6276',
+  [Color.TagBorderHovered]: '#768A9F',
+  [Color.TagBackgroundHovered]: '#F3F7FA',
 
   [Color.Error]: '#E85B46',
   [Color.Success]: '#3ECF8B',
