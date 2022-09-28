@@ -49,16 +49,16 @@ const Tab = styled.div.attrs({
           color: ${palette[PColor.TabHover]};
         }
 
-        ${Dot} {
-          display: none;
-        }
-
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderHoverBottom]}` : ''};
       }
 
       &:active {
         ${StyledBadge.Badge} {
           color: ${palette[PColor.TabActive]};
+        }
+
+        ${Dot} {
+          display: none;
         }
 
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderActiveBottom]}` : ''};
