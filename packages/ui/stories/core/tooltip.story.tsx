@@ -25,6 +25,7 @@ const defaultArgs = {
   title: 'Tooltip text',
   size: Size.Sm,
   arrow: true,
+  warning: false,
   enterDelay: 200,
   leaveDelay: 200,
 };

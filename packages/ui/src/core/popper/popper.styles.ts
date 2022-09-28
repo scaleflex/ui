@@ -25,13 +25,19 @@ const PopperWrapper = styled.div.attrs({
 const Arrow = styled.div.attrs({
   className: generateClassNames(baseClassName, 'arrow'),
 })(
-  ({ position = Position.Right, theme }: With<WithTheme, { position: PopperPositionType }>) => css`
+  ({
+    warning = false,
+    position = Position.Right,
+    theme,
+  }: With<WithTheme, { warning: boolean; position: PopperPositionType }>) => css`
     width: 8px;
     height: 8px;
     position: absolute;
     &::before {
       content: '';
-      background: ${theme.palette[PColor.TooltipBackgroundColor]};
+      background: ${warning
+        ? theme.palette[PColor.BackgroundLightOrange]
+        : theme.palette[PColor.TooltipBackgroundColor]};
       width: 8px;
       height: 8px;
       transform: rotate(45deg);

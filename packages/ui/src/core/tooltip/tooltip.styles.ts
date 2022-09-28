@@ -39,14 +39,14 @@ const TooltipContainer = styled.div.attrs({
 const Tooltip = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Sm, theme }: With<WithTheme, TooltipProps>) => css`
+  ({ warning, size = Size.Sm, theme }: With<WithTheme, TooltipProps>) => css`
     display: inline-flex;
     align-items: center;
     min-width: 54px;
     min-height: 20px;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    background: ${theme.palette[PColor.TooltipBackgroundColor]};
-    color: ${theme.palette[PColor.ToolTipText]};
+    background: ${warning ? theme.palette[PColor.BackgroundLightOrange] : theme.palette[PColor.TooltipBackgroundColor]};
+    color: ${warning ? theme.palette[PColor.WarningToolTipText] : theme.palette[PColor.ToolTipText]};
 
     ${sizeTooltipMixin[size]};
   `

@@ -1,35 +1,48 @@
 import React from 'react';
 import PT from 'prop-types';
+import { Color } from '@scaleflex/ui/utils/types/palette';
+import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
+import Cross from '@scaleflex/icons/cross';
 
 import { intrinsicComponent } from '../../utils/functions';
-import Robot from '../robot';
-import { defaultProps as robotDefaultProps, propTypes as robotPropTypes } from '../robot/robot.component';
+import PopupStatus from '../popup-status';
+import {
+  defaultProps as popupStatusDefaultProps,
+  propTypes as popupStatusPropTypes,
+} from '../popup-status/popup-status.component';
 import type { PopupContentProps } from './popup-content.props';
 import Styled from './popup-content.styles';
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
-  ({ message, status, ...rest }, ref): JSX.Element => (
-    <Styled.PopupContent {...rest} ref={ref}>
-      <Styled.Robot>
-        <Robot status={status} />
-      </Styled.Robot>
+  ({ onClose, message, status, ...rest }, ref): JSX.Element => (
+    <Styled.PopupContent message={message} {...rest} ref={ref}>
+      <Styled.PopupStatus status={status} message={message} {...rest}>
+        <PopupStatus status={status} />
+      </Styled.PopupStatus>
 
       <Styled.LabelWrapper>
         <Styled.Label>{message}</Styled.Label>
       </Styled.LabelWrapper>
+
+      <Styled.CloseWrapper>
+        <Styled.CloseIcon onClick={onClose}>
+          <Cross size={10.56} color={lightPalette[Color.TextSecondary]} />
+        </Styled.CloseIcon>
+      </Styled.CloseWrapper>
     </Styled.PopupContent>
   )
 );
 
 export const defaultProps = {
-  ...robotDefaultProps,
+  ...popupStatusDefaultProps,
 };
 
 PopupContent.defaultProps = defaultProps;
 
 export const propTypes = {
-  ...robotPropTypes,
+  ...popupStatusPropTypes,
   message: PT.node.isRequired,
+  onClose: PT.func,
 };
 
 PopupContent.propTypes = propTypes;

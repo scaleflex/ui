@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PT, { Validator } from 'prop-types';
 
+import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TooltipProps } from './tooltip.props';
 import type { PopperOptions, Modifiers } from '../popper/popper.props';
@@ -17,6 +17,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       position = Position.Top,
       popperOptions,
       arrow = true,
+      warning,
       enableUnderlayingEvent,
       popperWrapperStyles = {},
       enableHover,
@@ -87,6 +88,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
         ref={tooltipRef}
         position={position}
         anchorEl={anchorEl}
+        warning={warning}
         open={anchorEl ? open : false}
         popperOptions={popperOptions}
         arrow={arrow}
@@ -99,7 +101,9 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           onMouseEnter={handleEnteringTooltip}
           onMouseLeave={handleLeavingTooltip}
         >
-          <Styled.Tooltip {...rest}>{rest.title}</Styled.Tooltip>
+          <Styled.Tooltip warning={warning} {...rest}>
+            {rest.title}
+          </Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
     );
@@ -121,6 +125,7 @@ Tooltip.defaultProps = {
   position: Position.Top,
   size: Size.Sm,
   arrow: true,
+  warning: false,
 };
 
 Tooltip.propTypes = {
@@ -129,6 +134,7 @@ Tooltip.propTypes = {
   title: PT.node,
   children: PT.element,
   arrow: PT.bool,
+  warning: PT.bool,
   enterDelay: PT.number,
   leaveDelay: PT.number,
   popperOptions: PT.shape({

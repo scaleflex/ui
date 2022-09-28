@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Popup, { PopupProps } from '../../src/core/popup';
 import Button from '../../src/core/button';
-import { Status } from '../../src/core/robot/types';
+import { Status } from '../../src/core/popup-status/types';
 import { Horizontal, Vertical } from '../../src/core/popup/types';
 import { StoryGroup } from './types';
 
@@ -16,7 +16,7 @@ export default {
 
 const defaultArgs = {
   message: 'New folder “2022 annual event” was created',
-  status: Status.Happy,
+  status: Status.Success,
   open: false,
 };
 

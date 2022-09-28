@@ -16,6 +16,11 @@ export const Color = {
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
 
+  BackgroundLightGreen: 'bg-light-green',
+  BackgroundLightBlue: 'bg-light-blue',
+  BackgroundLightRed: 'bg-light-red',
+  BackgroundLightOrange: 'bg-light-orange',
+
   IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
@@ -40,8 +45,9 @@ export const Color = {
 
   Tag: 'tag',
 
-  TooltipBackgroundColor: 'ToolTip',
-  ToolTipText: 'ToolTipText',
+  TooltipBackgroundColor: 'tooltip-background-color',
+  ToolTipText: 'tooltip-text',
+  WarningToolTipText: 'warning-tooltip-text',
 
   Error: 'error',
   Success: 'success',
@@ -49,4 +55,5 @@ export const Color = {
   Info: 'info',
 
   LightShadow: 'light-shadow',
+  HeavyShadow: 'heavy-shadow',
 } as const;
