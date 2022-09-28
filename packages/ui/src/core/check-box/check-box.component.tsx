@@ -9,7 +9,7 @@ import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 import { Size } from './size';
-import { sizeCheckboxMixin } from './check-box.mixin';
+import { getCheckboxIconSize } from './check-box.utils';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
   (
@@ -37,10 +37,10 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
             checked={Boolean(checked)}
             isHovering={Boolean(isHovering)}
             disabled={Boolean(disabled)}
-            size={sizeCheckboxMixin[size]}
+            size={getCheckboxIconSize(size)}
           />
         ) : (
-          <CheckBoxUncheckedIcon disabled={Boolean(disabled)} size={sizeCheckboxMixin[size]} />
+          <CheckBoxUncheckedIcon disabled={Boolean(disabled)} size={getCheckboxIconSize(size)} />
         )}
       </Styled.CheckBox>
     );

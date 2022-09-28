@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { Size } from '@scaleflex/ui/core/modal/types';
 
+import { Size } from '@scaleflex/ui/core/check-box/size';
 import _CheckBox, { CheckBoxProps } from '../../src/core/check-box';
 import { StoryGroup } from './types';
 
