@@ -45,7 +45,7 @@ import type { ColorsMap } from './colors-map';
 //   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 // };
 export const lightPalette = {
-  [Color.TextPrimary]: 'rgba(55,65,75,1)',
+  [Color.TextPrimary]: '#37414B',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)',
   [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
@@ -90,13 +90,19 @@ export const lightPalette = {
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
   [Color.BordersStrong]: 'rgba(223,231,237,1)',
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
-  [Color.BorderActiveBottom]: '#6879EB',
+  [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
+  [Color.BorderActiveBottom]: '#4958BC',
 
   [Color.ActiveSecondary]: '#E9EEF2',
   [Color.ActiveSecondaryHover]: '#DFE4E9',
   [Color.ActiveSecondaryActive]: '#CBD3DA',
 
   [Color.Tag]: '#889AAC',
+
+  [Color.Tab]: '#37414B',
+  [Color.TabHover]: '#606fd1',
+  [Color.TabActive]: '#4958BC',
+  [Color.TabPressed]: ' #6879EB',
 
   [Color.Error]: '#E85B46',
   [Color.Success]: '#3ECF8B',
