@@ -18,8 +18,13 @@ const labelFontVariants = {
   },
   [FontVariant.LabelSmall]: {
     ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelMedium]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
   },
   [FontVariant.LabelNormal]: {
     ...defaultFontValue,
