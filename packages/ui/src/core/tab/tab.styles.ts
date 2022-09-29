@@ -34,7 +34,6 @@ const Tab = styled.div.attrs({
     align-items: center;
     text-align: center;
     color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.TextPrimary]};
-    cursor: pointer;
 
     ${StyledBadge.Badge} {
       color: ${palette[PColor.TextPrimary]};
@@ -44,6 +43,8 @@ const Tab = styled.div.attrs({
 
     ${!disabled &&
     css`
+      cursor: pointer;
+
       &:hover {
         ${StyledBadge.Badge} {
           color: ${palette[PColor.TabHover]};

@@ -91,6 +91,7 @@ export const lightPalette = {
   [Color.ActiveSecondaryActive]: '#CBD3DA',
 
   [Color.Tag]: '#889AAC',
+
   [Color.Tab]: '#37414B',
   [Color.TabHover]: '#606fd1',
   [Color.TabActive]: '#4958BC',

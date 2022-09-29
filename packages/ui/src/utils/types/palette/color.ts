@@ -45,6 +45,7 @@ export const Color = {
   ActiveSecondaryActive: 'active-secondary-active',
 
   Tag: 'tag',
+
   Tab: 'tab',
   TabHover: 'tab-hover',
   TabActive: 'tab-active',

@@ -18,8 +18,13 @@ const labelFontVariants = {
   },
   [FontVariant.LabelSmall]: {
     ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelMedium]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
   },
   [FontVariant.LabelNormal]: {
     ...defaultFontValue,
@@ -37,18 +42,6 @@ const labelFontVariants = {
     fontWeight: '500',
     fontSize: '24px',
     lineHeight: '28px',
-  },
-  [FontVariant.TabLabelSmall]: {
-    ...defaultFontValue,
-    fontWeight: '400',
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.TabLabelMedium]: {
-    ...defaultFontValue,
-    fontWeight: '400',
-    fontSize: '16px',
-    lineHeight: '18px',
   },
 };
 
