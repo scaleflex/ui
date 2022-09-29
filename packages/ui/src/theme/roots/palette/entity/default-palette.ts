@@ -63,8 +63,11 @@ export const lightPalette = {
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
 
-  [Color.BackgroundSwitcherOff]: 'rgb(216,224,232)',
+  [Color.BackgroundSwitcherOff]: '#D8E0E8',
   [Color.BackgroundSwitcherOn]: 'rgb(104,121,235)',
+  [Color.BackgroundInnerSwitcherOff]: '#A9B6C2',
+  [Color.BackgroundInnerSwitcherDisabled]: '#F3F7FA;',
+  [Color.BackgroundInnerSwitcherOn]: 'rgba(104, 121, 235, 0.4);',
 
   [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',

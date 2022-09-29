@@ -14,7 +14,6 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  label: 'label',
   checked: false,
   readOnly: false,
   disabled: false,

@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
@@ -10,7 +11,7 @@ import { getSwitcherIconSize, getSwitcherSize } from './switcher.utils';
 
 const baseClassName = 'Switcher';
 
-const Label = styled.div.attrs({
+const SwitcherWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<SwitcherProps>(
   ({ disabled }: With<WithTheme, SwitcherProps>) => css`
@@ -27,12 +28,10 @@ const Switcher = styled.div.attrs({
     position: relative;
     width: ${getSwitcherSize(size) * 2}px;
     height: ${getSwitcherSize(size)}px;
-    background: ${disabled ? palette[PColor.AccentSecondaryDisabled] : palette[PColor.BackgroundSwitcherOff]};
+    background: ${disabled ? palette[PColor.BackgroundInnerSwitcherDisabled] : palette[PColor.BackgroundSwitcherOff]};
     border-radius: 20px;
-    transition: 300ms all;
 
     &:before {
-      transition: 300ms all;
       content: '';
       position: absolute;
       width: ${getSwitcherIconSize(size)}px;
@@ -40,20 +39,21 @@ const Switcher = styled.div.attrs({
       border-radius: 35px;
       top: 50%;
       left: 4px;
-      background: ${disabled ? palette[PColor.BackgroundSwitcherOff] : palette[PColor.TextPrimaryInvert]};
+      transition: transform 0.3s ease 0s, opacity 0.5s ease 0s;
+      background: ${disabled ? palette[PColor.BackgroundSwitcherOff] : palette[PColor.BackgroundInnerSwitcherOff]};
       transform: translate(0, -50%);
     }
 
     &:after {
-      transition: 300ms all;
       content: '';
       position: absolute;
       ${sizeInnerSwitcherMixin[size]}
       border-radius: 20px;
       top: 50%;
       left: 5.9px;
-      background: rgba(104, 121, 235, 0.4);
+      background: ${palette[PColor.TextPrimaryInvert]};
       transform: translate(50%, -50%);
+      transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
       opacity: 0;
     }
   `
@@ -80,15 +80,17 @@ const Input = styled.input.attrs({
 
       &:before {
         ${!disabled && translateSwitcherMixin[size]}
+        background: ${palette[PColor.TextPrimaryInvert]};
       }
 
       &:after {
         ${translateInnerSwitcherMixin[size]}
+        background: ${palette[PColor.BackgroundInnerSwitcherOn]};
       }
     }
   `
 );
 
-const Styled = applyDisplayNames({ Switcher, Input, Label });
+const Styled = applyDisplayNames({ Switcher, Input, SwitcherWrapper });
 
 export default Styled;

@@ -20,7 +20,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  label: 'label',
+  label: 'Group',
   checked: false,
   readOnly: false,
   disabled: false,

@@ -19,6 +19,9 @@ export const Color = {
 
   BackgroundSwitcherOff: 'background-switcher-off',
   BackgroundSwitcherOn: 'background-switcher-on',
+  BackgroundInnerSwitcherDisabled: 'background-inner-switcher-disabled',
+  BackgroundInnerSwitcherOff: 'background-inner-switcher-off',
+  BackgroundInnerSwitcherOn: 'background-inner-switcher-on',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',

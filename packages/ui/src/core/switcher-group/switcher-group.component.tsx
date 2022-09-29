@@ -9,7 +9,7 @@ import { SwitcherSize } from '../switcher/switcher-size';
 
 const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
   ({ size, label, switcherProps, readOnly, disabled, ...rest }: SwitcherGroupProps, ref): JSX.Element => (
-    <Styled.SwitcherGroup disabled={disabled} size={size} ref={ref}>
+    <Styled.SwitcherGroup disabled={disabled} ref={ref}>
       <Switcher size={size} switcherProps={switcherProps} readOnly={readOnly} disabled={disabled} {...rest} />
 
       <Styled.Label disabled={disabled} size={size}>

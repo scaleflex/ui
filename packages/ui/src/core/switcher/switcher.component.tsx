@@ -8,7 +8,7 @@ import { SwitcherSize } from './switcher-size';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
   ({ size, checked, onChange, switcherProps, readOnly, disabled, ...rest }: SwitcherProps, ref): JSX.Element => (
-    <Styled.Label disabled={disabled} {...rest}>
+    <Styled.SwitcherWrapper disabled={disabled} {...rest}>
       <Styled.Input
         ref={ref}
         checked={checked}
@@ -19,7 +19,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLSpanElement>(
         {...switcherProps}
       />
       <Styled.Switcher disabled={disabled} size={size} />
-    </Styled.Label>
+    </Styled.SwitcherWrapper>
   )
 );
 

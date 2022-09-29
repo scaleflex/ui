@@ -12,5 +12,4 @@ export interface SwitcherProps extends React.HTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   disabled?: boolean;
   size?: SwitcherType;
-  iconSize?: SwitcherType;
 }
