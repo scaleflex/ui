@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { RadioSize } from '@scaleflex/ui/core/radio';
+
 import _RadioGroup, { RadioGroupProps } from '../../src/core/radio-group';
 import { StoryGroup } from './types';
 
@@ -21,6 +23,7 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
+  size: RadioSize.Sm,
 };
 
 const BasicTemplate: Story<RadioGroupProps> = ({ checked, ...args }) => {

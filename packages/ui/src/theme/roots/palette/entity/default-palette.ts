@@ -55,6 +55,8 @@ export const lightPalette = {
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
   [Color.AccentPrimaryDisabled]: '#E9EEF2',
+  [Color.AccentSecondaryDisabled]: '#D8E0E8',
+  [Color.RadioDisabled]: '#F3F7FA',
 
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)',
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)',
@@ -84,9 +86,12 @@ export const lightPalette = {
   [Color.BordersStrong]: 'rgba(223,231,237,1)',
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
   [Color.BorderActiveBottom]: '#6879EB',
+  [Color.BorderRadio]: '#ccd6de',
+  [Color.BorderRadioDisabled]: '#ECF0F3',
 
   [Color.ActiveSecondary]: '#E9EEF2',
   [Color.ActiveSecondaryHover]: '#DFE4E9',
+  [Color.RadioHover]: '#6879eb66',
   [Color.ActiveSecondaryActive]: '#CBD3DA',
 
   [Color.Tag]: '#889AAC',

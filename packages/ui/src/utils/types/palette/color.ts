@@ -9,6 +9,9 @@ export const Color = {
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
+  AccentSecondaryDisabled: 'accent-secondary-disabled',
+
+  RadioDisabled: 'radio-disabled',
 
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
@@ -39,8 +42,12 @@ export const Color = {
   BordersInvert: 'borders-invert',
   BorderActiveBottom: 'border-active-bottom',
 
+  BorderRadio: 'border-radio',
+  BorderRadioDisabled: 'border-radio-disabled',
+
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',
+  RadioHover: 'radio-hover',
   ActiveSecondaryActive: 'active-secondary-active',
 
   Tag: 'tag',

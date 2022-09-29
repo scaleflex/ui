@@ -1,29 +1,29 @@
 import React from 'react';
 import PT from 'prop-types';
-import RadioButtonIcon from '@scaleflex/icons/radio-button';
-import RadioButtonUncheckedIcon from '@scaleflex/icons/radio-button-unchecked';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { RadioProps } from './radio.props';
 import Styled from './radio.styles';
+import { RadioSize } from './size';
 
 const Radio = intrinsicComponent<RadioProps, HTMLSpanElement>(
-  ({ checked, onChange, radioProps, readOnly, disabled, ...rest }: RadioProps, ref): JSX.Element => (
-    <Styled.Radio {...rest} ref={ref}>
+  ({ size, checked, onChange, radioProps, readOnly, disabled, ...rest }: RadioProps, ref): JSX.Element => (
+    <Styled.Radio disabled={disabled} {...rest} ref={ref}>
       <Styled.Input
         checked={checked}
         onChange={readOnly || disabled ? undefined : onChange}
         disabled={disabled}
+        size={size}
         {...radioProps}
       />
-
-      {checked ? <RadioButtonIcon /> : <RadioButtonUncheckedIcon />}
+      <Styled.RadioBox disabled={disabled} size={size} />
     </Styled.Radio>
   )
 );
 
 Radio.defaultProps = {
   checked: false,
+  size: RadioSize.Sm,
 };
 
 Radio.propTypes = {
@@ -33,6 +33,7 @@ Radio.propTypes = {
   radioProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  size: PT.oneOf(objectValues(RadioSize)),
 };
 
 export default Radio;
