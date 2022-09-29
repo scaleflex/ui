@@ -27,6 +27,7 @@ export const colorButtonMixin = {
     &:disabled {
       color: ${palette[PaletteColor.ButtonDisabledText]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      cursor: default;
 
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.ButtonDisabledText]};
@@ -62,6 +63,7 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.ButtonDisabledText]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       border: none;
+      cursor: default;
 
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
@@ -101,6 +103,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.LinkDisabled]};
+      cursor: default;
 
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.LinkDisabled]};
