@@ -100,15 +100,15 @@ const Icon = styled.div.attrs({
 
       ${!disabled &&
       css`
-        ${Tab}:hover & {
+        ${Tab}:hover && {
           color: ${palette[PColor.TabHover]};
         }
 
-        ${Tab}:active & {
+        ${Tab}:active && {
           color: ${palette[PColor.TabActive]};
         }
 
-        ${Tab}.active & {
+        ${Tab}.active && {
           color: ${palette[PColor.TabPressed]};
         }
       `}
@@ -122,15 +122,15 @@ const Label = styled.div.attrs({
   ({ theme: { palette }, disabled = false }: With<WithTheme, TabProps>) => css`
     ${!disabled &&
     css`
-      ${Tab}:hover & {
+      ${Tab}:hover && {
         color: ${palette[PColor.TabHover]};
       }
 
-      ${Tab}:active & {
+      ${Tab}:active && {
         color: ${palette[PColor.TabActive]};
       }
 
-      ${Tab}.active & {
+      ${Tab}.active && {
         color: ${palette[PColor.TabPressed]};
       }
     `}
