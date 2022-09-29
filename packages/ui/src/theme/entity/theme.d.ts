@@ -1,12 +1,12 @@
 import type { DefaultTheme } from 'styled-components';
 import type { With } from '../../utils/types';
-import type { BreakpointsMap } from '../roots/breakpoints';
+import type { Breakpoints } from '../roots/breakpoints';
 import type { ColorsMap } from '../roots/palette';
 import type { TypographyProps } from '../roots/typography';
 import type { ShapeProps } from '../roots/shape';
 
 export interface Theme {
-  readonly breakpoints: BreakpointsMap;
+  readonly breakpoints: Breakpoints;
 
   readonly palette: ColorsMap;
 
@@ -16,7 +16,7 @@ export interface Theme {
 }
 
 export interface ThemeOverride extends Omit<Partial<Theme>> {
-  readonly breakpoints?: Partial<Theme['breakpoints']>;
+  readonly breakpoints?: Theme['breakpoints'];
 
   readonly palette?: Partial<Record<Partial<Theme['palette']>>>;
 
