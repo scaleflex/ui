@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
@@ -22,7 +21,7 @@ const SwitcherWrapper = styled.div.attrs({
 );
 
 const Switcher = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'root'),
+  className: generateClassNames(baseClassName, 'switcher'),
 })(
   ({ disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
     position: relative;
