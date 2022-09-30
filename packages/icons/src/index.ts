@@ -2,8 +2,6 @@ export { CheckBoxUnchecked } from './check-box-unchecked';
 export { CheckBox } from './check-box';
 export { Dot } from './dot';
 export { FilerobotLabel } from './filerobot-label';
-export { RadioButtonUnchecked } from './radio-button-unchecked';
-export { RadioButton } from './radio-button';
 export { RobotHappy } from './robot-happy';
 export { RobotNeutral } from './robot-neutral';
 export { RobotSad } from './robot-sad';
