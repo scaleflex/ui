@@ -16,7 +16,7 @@ const Icon = styled.span.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.AccentPrimary]};
   `
 );
 

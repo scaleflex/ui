@@ -31,7 +31,7 @@ const TooltipContainer = styled.div.attrs({
     ${fontTooltipMixin[size]}
 
     ${StyledArrowTick.ArrowTick} {
-      color: ${theme.palette[PColor.IconsPrimary]};
+      color: ${theme.palette[PColor.AccentPrimary]};
     }
   `
 );

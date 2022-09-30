@@ -27,7 +27,6 @@ export const Color = {
   BackgroundLightOrange: 'bg-light-orange',
   BackgroundGrey: 'bg-light-grey',
 
-  IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
