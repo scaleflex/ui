@@ -8,7 +8,7 @@ import { ButtonSize, ButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
   [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.AccentPrimary]};
+    background-color: ${palette[PaletteColor.AccentStateless]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
     ${StyledBadge.Badge} {
@@ -37,7 +37,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ActiveSecondary]};
+    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
     color: ${palette[PaletteColor.AccentPrimary]};
     border: 1px solid ${palette[PaletteColor.AccentPrimary]};
 
@@ -66,7 +66,7 @@ export const colorButtonMixin = {
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonSecondaryDisabledText]};
+        color: ${palette[PaletteColor.ButtonDisabledText]};
       }
     }
 
@@ -86,27 +86,27 @@ export const colorButtonMixin = {
     }
 
     &:hover {
-      color: ${palette[PaletteColor.LinkHover]};
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.LinkHover]};
+        color: ${palette[PaletteColor.AccentPrimaryHover]};
       }
     }
 
     &:active {
-      color: ${palette[PaletteColor.LinkActive]};
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.LinkActive]};
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
       }
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.LinkDisabled]};
+      color: ${palette[PaletteColor.ButtonDisabledText]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.LinkDisabled]};
+        color: ${palette[PaletteColor.ButtonDisabledText]};
       }
     }
   `,

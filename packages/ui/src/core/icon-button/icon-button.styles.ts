@@ -4,7 +4,8 @@ import ButtonStyled from '../button/button.styles';
 import type { IconButtonProps } from './icon-button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import type { WithTheme } from '../../theme/entity';
-import { ButtonSize, With } from '../../utils/types';
+import { colorButtonMixin } from '../button/button.mixin';
+import { ButtonSize, ButtonColor, With } from '../../utils/types';
 
 const baseClassName = 'IconButton';
 
@@ -23,20 +24,26 @@ const squarePaddingMixin = {
 const IconButton = styled(ButtonStyled.Button).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ square = true, disabled = false, size = ButtonSize.Md, theme }: With<WithTheme, IconButtonProps>) => css`
+  ({
+    color = ButtonColor.Secondary,
+    disabled = false,
+    size = ButtonSize.Md,
+    theme,
+  }: With<WithTheme, IconButtonProps>) => css`
     ${squarePaddingMixin[size]}
+    ${colorButtonMixin[color]}
 
-    ${square &&
-    !disabled &&
+    ${!disabled &&
+    color === ButtonColor.Basic &&
     css`
       &:hover {
-        color: ${theme.palette[PaletteColor.IconButtonBasicHoverColor]};
-        background-color: ${theme.palette[PaletteColor.IconButtonBasicHoverBackground]};
+        color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
+        background-color: ${theme.palette[PaletteColor.BackgroundHover]};
       }
 
       &:active {
-        color: ${theme.palette[PaletteColor.IconButtonBasicActiveColor]};
-        background-color: ${theme.palette[PaletteColor.IconButtonBasicActiveBackground]};
+        color: ${theme.palette[PaletteColor.LinkActive]};
+        background-color: ${theme.palette[PaletteColor.BackgroundActive]};
       }
     `}
   `
