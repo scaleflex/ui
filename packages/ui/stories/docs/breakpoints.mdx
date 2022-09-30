@@ -109,16 +109,22 @@ const theme = {
 
 #### Examples
 
-```js
-const styles = styled.div(
+```jsx
+const styled = styled.div(
   ({ theme }) => `
       background-color: blue;
       // Match [md, ∞)
       //       [1201px, ∞)
-      ${theme.breakpoints.getBreakpointClass(1201)} & {
+      ${theme.breakpoints.md} & {
          background-color: red;
       }
     `
+);
+
+return (
+  <div className={`${theme.breakpoints.getBreakpointClass(1201, true)}`}>
+    <Styled />
+  </div>
 );
 ```
 
