@@ -27,7 +27,7 @@ const Switcher = styled.div.attrs({
     position: relative;
     width: ${getSwitcherSize(size) * 2}px;
     height: ${getSwitcherSize(size)}px;
-    background: ${disabled ? palette[PColor.BackgroundInnerSwitcherDisabled] : palette[PColor.BackgroundSwitcherOff]};
+    background: ${disabled ? palette[PColor.BackgroundActive] : palette[PColor.BackgroundGrey]};
     border-radius: 20px;
 
     &:before {
@@ -37,9 +37,9 @@ const Switcher = styled.div.attrs({
       height: ${getSwitcherIconSize(size)}px;
       border-radius: 35px;
       top: 50%;
-      left: 4px;
+      left: 2px;
       transition: transform 0.3s ease 0s, opacity 0.5s ease 0s;
-      background: ${disabled ? palette[PColor.BackgroundSwitcherOff] : palette[PColor.BackgroundInnerSwitcherOff]};
+      background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.IconsMuted]};
       transform: translate(0, -50%);
     }
 
@@ -49,7 +49,7 @@ const Switcher = styled.div.attrs({
       ${sizeInnerSwitcherMixin[size]}
       border-radius: 20px;
       top: 50%;
-      left: 5.9px;
+      left: 3.9px;
       background: ${palette[PColor.TextPrimaryInvert]};
       transform: translate(50%, -50%);
       transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
@@ -74,17 +74,23 @@ const Input = styled.input.attrs({
       opacity: ${disabled ? 0 : 1};
     }
 
+    &:checked {
+      &:hover + ${Switcher} {
+        background: ${disabled ? palette[PColor.BackgroundActive] : palette[PColor.AccentPrimaryHover]};
+      }
+    }
+
     &:checked + ${Switcher} {
-      background: ${!disabled && palette[PColor.BackgroundSwitcherOn]};
+      background: ${!disabled && palette[PColor.AccentStateless]};
 
       &:before {
         ${!disabled && translateSwitcherMixin[size]}
-        background: ${palette[PColor.TextPrimaryInvert]};
+        background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.TextPrimaryInvert]};
       }
 
       &:after {
         ${translateInnerSwitcherMixin[size]}
-        background: ${palette[PColor.BackgroundInnerSwitcherOn]};
+        background: ${palette[PColor.AccentStateless_0_4_Opacity]};
       }
     }
   `

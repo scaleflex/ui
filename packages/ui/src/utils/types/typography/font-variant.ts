@@ -8,6 +8,7 @@ export const FontVariant = {
   LabelExtraSmall: 'label-extra-small',
   LabelSmall: 'label-small',
   LabelNormal: 'label-normal',
+  LabelLarge: 'label-large',
   LabelEmphasis: 'label-emphasis',
   LabelExtraLarge: 'label-extra-large',
 

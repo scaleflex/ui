@@ -11,18 +11,15 @@ export const Color = {
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
   AccentSecondaryDisabled: 'accent-secondary-disabled',
+  AccentStateless: 'accent-stateless',
+  AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
 
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
-
-  BackgroundSwitcherOff: 'background-switcher-off',
-  BackgroundSwitcherOn: 'background-switcher-on',
-  BackgroundInnerSwitcherDisabled: 'background-inner-switcher-disabled',
-  BackgroundInnerSwitcherOff: 'background-inner-switcher-off',
-  BackgroundInnerSwitcherOn: 'background-inner-switcher-on',
+  BackgroundActive: 'bg-active',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',
@@ -34,6 +31,7 @@ export const Color = {
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
+  IconsMuted: 'icons-muted',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
