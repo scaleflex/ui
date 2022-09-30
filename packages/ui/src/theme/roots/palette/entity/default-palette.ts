@@ -50,6 +50,7 @@ export const lightPalette = {
   [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
+  [Color.TextWarning]: 'rgba(196,110,0,1)',
 
   [Color.AccentPrimary]: 'rgba(104,121,235,1)',
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
@@ -66,6 +67,7 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -77,7 +79,7 @@ export const lightPalette = {
 
   [Color.LinkPrimary]: '#5D6D7E',
   [Color.LinkHover]: '#768A9F',
-  [Color.LinkActive]: '#92A6BC',
+  [Color.LinkActive]: 'rgba(55,65,75,1)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)',
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
