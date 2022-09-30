@@ -30,7 +30,7 @@ const Button = styled.button.attrs({
     flex-shrink: 0;
     flex-direction: row;
     align-items: center;
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 0;
     cursor: pointer;
     outline: none;
@@ -39,6 +39,10 @@ const Button = styled.button.attrs({
     ${sizeButtonMixin[size]}
 
     ${Label} {
+      ${sizeButtonLabelMixin[size]}
+    }
+
+    ${Badge} {
       ${sizeButtonLabelMixin[size]}
     }
   `

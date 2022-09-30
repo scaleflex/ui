@@ -28,7 +28,8 @@ const RadioBox = styled.div.attrs({
 })<RadioProps>(
   ({ disabled, size = RadioSize.Sm, theme }: With<WithTheme, RadioProps>) => css`
     border-radius: 50%;
-    border: 1px solid ${disabled ? theme.palette[PColor.BorderRadioDisabled] : theme.palette[PColor.BorderRadio]};
+    border: 1px solid
+      ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
 
     ${sizeRadioMixin[size]}
 
@@ -38,7 +39,7 @@ const RadioBox = styled.div.attrs({
       top: 50%;
       left: 50%;
       display: block;
-      background: ${theme.palette[PColor.TextPrimaryInvert]};
+      background: ${theme.palette[PColor.AccentStateless_0_4_Opacity]};
       border-radius: 50%;
       cursor: ${disabled ? 'default' : 'pointer'};
       transform: translate(-45%, -45%);
@@ -52,7 +53,7 @@ const RadioBox = styled.div.attrs({
       width: 100%;
       height: 100%;
       display: block;
-      background: ${disabled ? theme.palette[PColor.RadioDisabled] : theme.palette[PColor.BorderActiveBottom]};
+      background: ${disabled ? theme.palette[PColor.BackgroundActive] : theme.palette[PColor.AccentStateless]};
       border-radius: 50%;
       cursor: ${disabled ? 'default' : 'pointer'};
       opacity: ${disabled ? 1 : 0};

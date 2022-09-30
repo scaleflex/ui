@@ -15,6 +15,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       anchorEl,
       children,
       open,
+      warning = false,
       position: initialPlacement = 'bottom',
       arrow = false,
       popperOptions,
@@ -102,7 +103,13 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
         {overlay && renderOverlay()}
         <Styled.Popper ref={handlePopperRef}>
           {children}
-          {arrow && <Styled.Arrow data-popper-arrow position={handlePopperRef?.state?.placement || initialPlacement} />}
+          {arrow && (
+            <Styled.Arrow
+              warning={warning}
+              data-popper-arrow
+              position={handlePopperRef?.state?.placement || initialPlacement}
+            />
+          )}
         </Styled.Popper>
       </Styled.PopperWrapper>
     );
@@ -145,6 +152,7 @@ export const propTypes = {
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
   overlay: PT.bool,
+  warning: PT.bool,
   arrow: PT.bool,
   zIndex: PT.number,
   enableUnderlayingEvent: PT.bool,
