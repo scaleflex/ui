@@ -31,7 +31,7 @@ const defaultArgs = {
 };
 
 const BasicTemplate: Story<TooltipProps> = (args) => (
-  <div style={{ display: 'flex', marginTop: 20 }}>
+  <div style={{ display: 'flex', marginTop: 40 }}>
     <Tooltip {...args} position="right">
       <Button color="secondary" size="sm">
         Right
