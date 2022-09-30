@@ -13,18 +13,13 @@ const defaultFontValue = {
 const labelFontVariants = {
   [FontVariant.LabelExtraSmall]: {
     ...defaultFontValue,
-    fontSize: '10px',
+    fontSize: '11px',
     lineHeight: '12px',
   },
   [FontVariant.LabelSmall]: {
     ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LabelMedium]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
+    fontSize: '12px',
+    lineHeight: '14px',
   },
   [FontVariant.LabelNormal]: {
     ...defaultFontValue,
@@ -47,11 +42,26 @@ const labelFontVariants = {
 
 export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> = {
   breakpoints: {
-    [Breakpoint.Xs]: 0,
-    [Breakpoint.Sm]: 576,
-    [Breakpoint.Md]: 768,
-    [Breakpoint.Lg]: 992,
-    [Breakpoint.Xl]: 1200,
+    keys: [Breakpoint.Xs, Breakpoint.Sm, Breakpoint.Md, Breakpoint.Lg, Breakpoint.Xl],
+    values: {
+      [Breakpoint.Xs]: 0,
+      [Breakpoint.Sm]: 768,
+      [Breakpoint.Md]: 1201,
+      [Breakpoint.Lg]: 1921,
+      [Breakpoint.Xl]: 2560,
+    },
+    classes: {
+      [Breakpoint.Xs]: '.sfx-breakpoint-xs',
+      [Breakpoint.Sm]: '.sfx-breakpoint-sm',
+      [Breakpoint.Md]: '.sfx-breakpoint-md',
+      [Breakpoint.Lg]: '.sfx-breakpoint-lg',
+      [Breakpoint.Xl]: '.sfx-breakpoint-xl',
+    },
+    getBreakpointClass: () => '',
+    up: () => '',
+    down: () => '',
+    between: () => '',
+    only: () => '',
   },
 
   typography: {

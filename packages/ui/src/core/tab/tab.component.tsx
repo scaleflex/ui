@@ -33,7 +33,7 @@ const Tab = intrinsicComponent<TabProps, HTMLDivElement>(
           </Styled.Dot>
         )}
       </Styled.Icons>
-      {label && <Styled.Label disabled={disabled}>{label}</Styled.Label>}
+      {label && <Styled.Label>{label}</Styled.Label>}
       {badge && !disabled && (
         <Styled.Badge>
           <Badge inline size={14} fontSize={10} padding="0 1px" badgeContent={badge} />

@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { Position } from '../popper/types';
+import { Values } from '../../utils/types';
 import type { PopperOptions } from '../popper/popper.props';
 
 export type PopperPositionType = Values<typeof Position>;

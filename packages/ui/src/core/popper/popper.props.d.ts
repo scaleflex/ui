@@ -30,6 +30,7 @@ export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
   position: PopperPositionType;
   popperOptions?: PopperOptions;
   open: boolean;
+  warning?: boolean;
   overlay?: boolean;
   arrow?: boolean;
   zIndex?: number;

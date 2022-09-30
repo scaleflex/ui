@@ -23,6 +23,23 @@ const Dot = styled.span.attrs({
   `
 );
 
+const Icon = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Icon'),
+})(
+  ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
+    margin-right: 8px;
+    color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.LinkHover]};
+
+    svg {
+      ${iconSizeMixin[size]}
+    }
+  `
+);
+
+const Label = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Label'),
+})``;
+
 const Tab = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
@@ -50,6 +67,14 @@ const Tab = styled.div.attrs({
           color: ${palette[PColor.TabHover]};
         }
 
+        ${Icon} {
+          color: ${palette[PColor.TabHover]};
+        }
+
+        ${Label} {
+          color: ${palette[PColor.TabHover]};
+        }
+
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderHoverBottom]}` : ''};
       }
 
@@ -60,6 +85,14 @@ const Tab = styled.div.attrs({
 
         ${Dot} {
           display: none;
+        }
+
+        ${Icon} {
+          color: ${palette[PColor.TabActive]};
+        }
+
+        ${Label} {
+          color: ${palette[PColor.TabActive]};
         }
 
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderActiveBottom]}` : ''};
@@ -74,6 +107,14 @@ const Tab = styled.div.attrs({
           display: none;
         }
 
+        ${Icon} {
+          color: ${palette[PColor.TabPressed]};
+        }
+
+        ${Label} {
+          color: ${palette[PColor.TabPressed]};
+        }
+
         box-shadow: inset 0px -2px 0px ${palette[PColor.TabPressed]};
       }
     `}
@@ -85,55 +126,6 @@ const Icons = styled.span.attrs({
 })(
   () => css`
     position: relative;
-  `
-);
-
-const Icon = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
-    margin-right: 8px;
-    color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.LinkHover]};
-
-    svg {
-      ${iconSizeMixin[size]}
-
-      ${!disabled &&
-      css`
-        ${Tab}:hover && {
-          color: ${palette[PColor.TabHover]};
-        }
-
-        ${Tab}:active && {
-          color: ${palette[PColor.TabActive]};
-        }
-
-        ${Tab}.active && {
-          color: ${palette[PColor.TabPressed]};
-        }
-      `}
-    }
-  `
-);
-
-const Label = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Label'),
-})(
-  ({ theme: { palette }, disabled = false }: With<WithTheme, TabProps>) => css`
-    ${!disabled &&
-    css`
-      ${Tab}:hover && {
-        color: ${palette[PColor.TabHover]};
-      }
-
-      ${Tab}:active && {
-        color: ${palette[PColor.TabActive]};
-      }
-
-      ${Tab}.active && {
-        color: ${palette[PColor.TabPressed]};
-      }
-    `}
   `
 );
 

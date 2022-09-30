@@ -4,6 +4,7 @@ export const Color = {
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
+  TextWarning: 'txt-warning',
 
   AccentPrimary: 'accent-primary',
   AccentPrimaryHover: 'accent-primary-hover',
@@ -27,6 +28,7 @@ export const Color = {
   BackgroundLightBlue: 'bg-light-blue',
   BackgroundLightRed: 'bg-light-red',
   BackgroundLightOrange: 'bg-light-orange',
+  BackgroundGrey: 'bg-light-grey',
 
   IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
