@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape/border-radius-size';
 import StyledArrowTick from '../arrow-tick/arrow-tick.styles';
 import type { TooltipProps } from './tooltip.props';
-import { sizeTooltipMixin } from './tooltip.mixin';
+import { fontTooltipMixin, sizeTooltipMixin } from './tooltip.mixin';
 import { Size } from './types';
 
 const baseClassName = 'Tooltip';
@@ -28,7 +28,7 @@ const TooltipContainer = styled.div.attrs({
     visibility: ${open ? 'visible' : 'hidden'};
     opacity: ${open ? '1' : '0'};
 
-    ${sizeTooltipMixin[size]}
+    ${fontTooltipMixin[size]}
 
     ${StyledArrowTick.ArrowTick} {
       color: ${theme.palette[PColor.IconsPrimary]};
@@ -39,13 +39,16 @@ const TooltipContainer = styled.div.attrs({
 const Tooltip = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme }: WithTheme) => css`
+  ({ warning, size = Size.Sm, theme }: With<WithTheme, TooltipProps>) => css`
     display: inline-flex;
     align-items: center;
-    padding: 3px 6px;
+    min-width: 54px;
+    min-height: 20px;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    background: ${theme.palette[PColor.IconsPrimary]};
-    color: ${theme.palette[PColor.TextPrimaryInvert]};
+    background: ${warning ? theme.palette[PColor.BackgroundLightOrange] : theme.palette[PColor.BackgroundGrey]};
+    color: ${warning ? theme.palette[PColor.TextWarning] : theme.palette[PColor.LinkActive]};
+
+    ${sizeTooltipMixin[size]};
   `
 );
 

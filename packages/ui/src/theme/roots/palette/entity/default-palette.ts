@@ -48,8 +48,9 @@ export const lightPalette = {
   [Color.TextPrimary]: '#37414B',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)', // #ffffff
   [Color.TextSecondary]: 'rgb(118, 138, 159)',
-  [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)', // #d5d8dc
-  [Color.TextPlaceholder]: 'rgba(181,188,190,1)', // #b5bcbe
+  [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
+  [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
+  [Color.TextWarning]: 'rgba(196,110,0,1)',
 
   [Color.AccentPrimary]: '#6879EB',
   [Color.AccentPrimaryHover]: '#606FD1',
@@ -69,6 +70,7 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
   [Color.IconsPrimary]: '#6879EB',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -79,9 +81,9 @@ export const lightPalette = {
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66
 
-  [Color.LinkPrimary]: '#768A9F',
-  [Color.LinkHover]: '#606FD1',
-  [Color.LinkActive]: '#37414b',
+  [Color.LinkPrimary]: '#5D6D7E',
+  [Color.LinkHover]: '#768A9F',
+  [Color.LinkActive]: 'rgba(55,65,75,1)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)', // #dfe7ed
   [Color.BordersSecondary]: 'rgba(223,231,237,1)', // #dfe7ed
