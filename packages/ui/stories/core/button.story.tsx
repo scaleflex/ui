@@ -50,7 +50,7 @@ WithIcon.args = {
 export const WithBadge = BasicTemplate.bind({});
 WithBadge.args = {
   ...defaultArgs,
-  badge: 1,
+  badge: '(1)',
   children: 'Select',
 };
 
@@ -59,5 +59,5 @@ export const WithIconsAndBadge = BasicTemplate.bind({});
 WithIconsAndBadge.args = {
   ...defaultArgs,
   icon: (props: IconProps) => <UploadIcon {...props} />,
-  badge: 22,
+  badge: '(1)',
 };

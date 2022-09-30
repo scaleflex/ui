@@ -2,33 +2,50 @@ import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import ButtonStyled from '../button/button.styles';
 import type { IconButtonProps } from './icon-button.props';
-import { ButtonSize } from '../../utils/types';
+import { Color as PaletteColor } from '../../utils/types/palette';
+import type { WithTheme } from '../../theme/entity';
+import { colorButtonMixin } from '../button/button.mixin';
+import { ButtonSize, ButtonColor, With } from '../../utils/types';
 
 const baseClassName = 'IconButton';
 
 const squarePaddingMixin = {
-  [ButtonSize.Xs]: css`
-    padding: 6px;
-  `,
   [ButtonSize.Sm]: css`
-    padding: 8px;
+    padding: 9px;
   `,
   [ButtonSize.Md]: css`
-    padding: 8px;
+    padding: 12px;
   `,
   [ButtonSize.Lg]: css`
-    padding: 10px;
-  `,
-  [ButtonSize.Xl]: css`
-    padding: 11px;
+    padding: 15px;
   `,
 };
 
 const IconButton = styled(ButtonStyled.Button).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ square = false, size = ButtonSize.Md }: IconButtonProps) => css`
-    ${square && squarePaddingMixin[size]}
+  ({
+    color = ButtonColor.Secondary,
+    disabled = false,
+    size = ButtonSize.Md,
+    theme,
+  }: With<WithTheme, IconButtonProps>) => css`
+    ${squarePaddingMixin[size]}
+    ${colorButtonMixin[color]}
+
+    ${!disabled &&
+    color === ButtonColor.Basic &&
+    css`
+      &:hover {
+        color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
+        background-color: ${theme.palette[PaletteColor.BackgroundHover]};
+      }
+
+      &:active {
+        color: ${theme.palette[PaletteColor.LinkActive]};
+        background-color: ${theme.palette[PaletteColor.BackgroundActive]};
+      }
+    `}
   `
 );
 

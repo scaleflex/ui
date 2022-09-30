@@ -16,7 +16,7 @@ const Icon = styled.div.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.AccentPrimary]};
 
     &:first-child {
       margin-right: 8px;
