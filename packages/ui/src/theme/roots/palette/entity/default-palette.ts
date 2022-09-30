@@ -72,7 +72,6 @@ export const lightPalette = {
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
   [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
-  [Color.IconsPrimary]: '#6879EB',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',

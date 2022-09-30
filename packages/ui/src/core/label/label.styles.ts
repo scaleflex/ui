@@ -38,7 +38,7 @@ const Icon = styled.span.attrs({
   ({ error = false, theme: { palette }, $end = false }: With<WithTheme, { error: boolean; $end: boolean }>) => css`
     display: flex;
     ${$end ? 'margin-left: 4px' : 'margin-right: 4px'};
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.AccentPrimary]};
 
     ${error ? `color: ${palette[PColor.Error]};` : ''}
   `
