@@ -19,6 +19,11 @@ export const Color = {
   BackgroundHover: 'bg-hover',
   BackgroundActive: 'bg-active',
 
+  BackgroundLightGreen: 'bg-light-green',
+  BackgroundLightBlue: 'bg-light-blue',
+  BackgroundLightRed: 'bg-light-red',
+  BackgroundLightOrange: 'bg-light-orange',
+
   IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
@@ -36,6 +41,7 @@ export const Color = {
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
+  BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
 
   ActiveSecondary: 'active-secondary',
@@ -44,10 +50,16 @@ export const Color = {
 
   Tag: 'tag',
 
+  Tab: 'tab',
+  TabHover: 'tab-hover',
+  TabActive: 'tab-active',
+  TabPressed: 'tab-pressed',
+
   Error: 'error',
   Success: 'success',
   Warning: 'warning',
   Info: 'info',
 
   LightShadow: 'light-shadow',
+  HeavyShadow: 'heavy-shadow',
 } as const;

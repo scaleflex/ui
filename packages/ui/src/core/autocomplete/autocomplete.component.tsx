@@ -328,6 +328,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
           active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
           onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
+          enableScrollIntoView
         >
           {item}
         </MenuItem>

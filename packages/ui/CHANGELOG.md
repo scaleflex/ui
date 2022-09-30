@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.98](https://github.com/scaleflex/ui/compare/1.0.0-beta.97...1.0.0-beta.98) (2022-09-20)
+
+
+### Bug Fixes
+
+* disable scroll when opening select ([ecb7490](https://github.com/scaleflex/ui/commit/ecb74905bdd674428064709a79f9fbb8a6bf85ce))
+
+
+
+
+
 # [1.0.0-beta.97](https://github.com/scaleflex/ui/compare/1.0.0-beta.96...1.0.0-beta.97) (2022-09-14)
 
 

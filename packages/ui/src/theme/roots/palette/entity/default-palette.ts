@@ -45,9 +45,9 @@ import type { ColorsMap } from './colors-map';
 //   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 // };
 export const lightPalette = {
-  [Color.TextPrimary]: 'rgba(55,65,75,1)', // #37414b
+  [Color.TextPrimary]: '#37414B',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)', // #ffffff
-  [Color.TextSecondary]: 'rgba(118,129,132,1)', // #768184
+  [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)', // #d5d8dc
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)', // #b5bcbe
 
@@ -64,6 +64,11 @@ export const lightPalette = {
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)', // #ffffff
   [Color.BackgroundHover]: '#f9fbfc',
   [Color.BackgroundActive]: '#F3F7FA',
+
+  [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
+  [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
+  [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
+  [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
 
   [Color.IconsPrimary]: '#6879EB',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -82,7 +87,8 @@ export const lightPalette = {
   [Color.BordersSecondary]: 'rgba(223,231,237,1)', // #dfe7ed
   [Color.BordersStrong]: 'rgba(223,231,237,1)', // #dfe7ed
   [Color.BordersInvert]: 'rgba(85,99,115,1)', // #556373
-  [Color.BorderActiveBottom]: '#6879EB',
+  [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
+  [Color.BorderActiveBottom]: '#4958BC',
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
@@ -90,12 +96,18 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
-  [Color.Error]: 'rgba(232,91,70,1)', // #e85b46
-  [Color.Success]: 'rgba(62,207,139,1)', // #3ecf8b
-  [Color.Warning]: 'rgba(255,172,74,1)', // #ffac4a
-  [Color.Info]: 'rgba(110,123,178,1)', // #6e7bb2
+  [Color.Tab]: '#37414B',
+  [Color.TabHover]: '#606fd1',
+  [Color.TabActive]: '#4958BC',
+  [Color.TabPressed]: ' #6879EB',
+
+  [Color.Error]: '#E85B46',
+  [Color.Success]: '#3ECF8B',
+  [Color.Warning]: '#FFAC4A',
+  [Color.Info]: '#297FB8',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
+  [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;
