@@ -5,7 +5,7 @@ import merge from 'lodash.merge';
 
 import { record } from '../../utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '../../utils/functions';
-import { Breakpoint } from '../../utils/types/css';
+import { Breakpoint, BreakpointClass } from '../../utils/types/css';
 import { Color } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
@@ -15,6 +15,8 @@ import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 
 import type { ThemeProviderProps } from './theme-provider.props';
+import createBreakpoints from '../entity/create-breakpoints';
+import type { Breakpoint as BreakpointsKeys } from '../roots/breakpoints/entity/breakpoints-map';
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   const {
@@ -29,13 +31,11 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       ...defaultPalette,
       ...paletteOverride,
     };
+    const breakpoints = createBreakpoints(breakpointsOverride);
 
     return {
       palette,
-      breakpoints: {
-        ...defaultTheme.breakpoints,
-        ...breakpointsOverride,
-      },
+      breakpoints,
       typography: {
         ...merge(
           {
@@ -63,10 +63,12 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
 
   return (
     <SCThemeProvider theme={finalTheme}>
-      {applyPolymorphicFunctionProp(children, finalTheme)}
+      <>
+        {applyPolymorphicFunctionProp(children, finalTheme)}
 
-      <CommonStyles />
-      <Typography />
+        <CommonStyles />
+        <Typography />
+      </>
     </SCThemeProvider>
   );
 };
@@ -74,9 +76,18 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
 const { baseLineHeight, font, ...typography } = defaultTheme.typography;
 
 ThemeProvider.propTypes = {
-  children: PT.oneOfType([PT.node, PT.func]),
+  children: PT.oneOfType([PT.node, PT.func, PT.arrayOf(PT.node)]).isRequired,
   theme: PT.exact({
-    breakpoints: PT.exact(record(objectValues(Breakpoint), PT.number)),
+    breakpoints: PT.exact({
+      keys: PT.arrayOf(PT.string) as Validator<BreakpointsKeys[]>,
+      values: PT.exact(record(objectValues(Breakpoint), PT.number)),
+      classes: PT.exact(record(objectKeys(BreakpointClass), PT.string)),
+      getBreakpointClass: PT.func,
+      up: PT.func,
+      down: PT.func,
+      between: PT.func,
+      only: PT.func,
+    }),
     palette: PT.exact(record(objectValues(Color), PT.string)),
     shape: PT.exact({
       borderRadius: PT.exact(record(objectValues(BorderRadiusSize), PT.string)),
