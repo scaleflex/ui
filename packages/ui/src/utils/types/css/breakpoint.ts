@@ -5,3 +5,11 @@ export const Breakpoint = {
   Lg: 'lg',
   Xl: 'xl',
 } as const;
+
+export const BreakpointClass = {
+  Xs: '.sfx-breakpoint-xs',
+  Sm: '.sfx-breakpoint-sm',
+  Md: '.sfx-breakpoint-md',
+  Lg: '.sfx-breakpoint-lg',
+  Xl: '.sfx-breakpoint-xl',
+};
