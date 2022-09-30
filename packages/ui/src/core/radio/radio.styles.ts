@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
@@ -24,7 +23,7 @@ const Radio = styled.span.attrs({
 );
 
 const RadioBox = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'root'),
+  className: generateClassNames(baseClassName, 'radio'),
 })<RadioProps>(
   ({ disabled, size = RadioSize.Sm, theme }: With<WithTheme, RadioProps>) => css`
     border-radius: 50%;
@@ -68,7 +67,7 @@ const Input = styled.input.attrs({
   ({ disabled, size = RadioSize.Sm, theme }: With<WithTheme, RadioProps>) => css`
     position: absolute;
     opacity: 0;
-    border: 1px solid ${theme.palette[PColor.BorderRadio]};
+    border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
     border-radius: 50%;
     cursor: ${disabled ? 'default' : 'pointer'};
     margin: 0;
@@ -79,7 +78,6 @@ const Input = styled.input.attrs({
     &:hover + ${RadioBox} {
       &::before {
         opacity: ${disabled ? 0 : 1};
-        background-color: ${theme.palette[PColor.RadioHover]};
       }
     }
 
@@ -91,9 +89,7 @@ const Input = styled.input.attrs({
 
       &::after {
         opacity: 1;
-        background: ${disabled
-          ? theme.palette[PColor.AccentSecondaryDisabled]
-          : theme.palette[PColor.BorderActiveBottom]};
+        background: ${disabled ? theme.palette[PColor.BackgroundGrey] : theme.palette[PColor.AccentStateless]};
       }
     }
   `

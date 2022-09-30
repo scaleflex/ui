@@ -79,7 +79,7 @@ export const lightPalette = {
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
-  [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66
+  [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)',
 
   [Color.LinkPrimary]: '#5D6D7E',
   [Color.LinkHover]: '#768A9F',
@@ -92,6 +92,7 @@ export const lightPalette = {
   [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
   [Color.BorderActiveBottom]: '#4958BC',
   [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
+  [Color.BorderDisabled]: 'rgba(73, 88, 188, 0.4)',
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
