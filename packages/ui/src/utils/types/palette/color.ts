@@ -10,14 +10,15 @@ export const Color = {
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
+  AccentSecondaryDisabled: 'accent-secondary-disabled',
   AccentStateless: 'accent-stateless',
+  AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
 
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
-  BackgroundHover: 'bg-hover',
   BackgroundActive: 'bg-active',
 
   BackgroundLightGreen: 'bg-light-green',
@@ -29,7 +30,7 @@ export const Color = {
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
-  IconsPrimaryHover: 'icons-primary-hover',
+  IconsMuted: 'icons-muted',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',

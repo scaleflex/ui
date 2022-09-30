@@ -23,6 +23,11 @@ const labelFontVariants = {
   },
   [FontVariant.LabelNormal]: {
     ...defaultFontValue,
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelLarge]: {
+    ...defaultFontValue,
     fontSize: '16px',
     lineHeight: '18px',
   },

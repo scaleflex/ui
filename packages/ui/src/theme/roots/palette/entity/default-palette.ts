@@ -52,19 +52,20 @@ export const lightPalette = {
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
   [Color.TextWarning]: 'rgba(196,110,0,1)',
 
-  [Color.AccentPrimary]: '#6879EB',
-  [Color.AccentPrimaryHover]: '#606FD1',
-  [Color.AccentPrimaryActive]: '#4958BC',
-  [Color.AccentPrimaryDisabled]: 'rgba(104, 121, 235, 0.12)', // #6879eb
-  [Color.AccentStateless]: '#6879EB',
+  [Color.AccentPrimary]: 'rgba(104,121,235,1)',
+  [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
+  [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
+  [Color.AccentPrimaryDisabled]: '#E9EEF2',
+  [Color.AccentSecondaryDisabled]: '#F9FBFC',
+  [Color.AccentStateless]: 'rgba(104,121,235,1)',
+  [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
 
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)', // #eff3f6
   [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)', // #5d6d7e
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
-  [Color.BackgroundSecondary]: 'rgba(255,255,255,1)', // #ffffff
-  [Color.BackgroundHover]: '#f9fbfc',
-  [Color.BackgroundActive]: '#F3F7FA',
+  [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
+  [Color.BackgroundActive]: 'rgba(243,247,250,1)',
 
   [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
@@ -75,7 +76,7 @@ export const lightPalette = {
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',
-  [Color.IconsPrimaryHover]: '#4F6276',
+  [Color.IconsMuted]: 'rgba(169,182,194,1)',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66
