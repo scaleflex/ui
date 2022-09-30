@@ -1,1 +1,2 @@
-export type { BreakpointsMap } from './breakpoints-map';
+export type { BreakpointsMap, BreakpointClass } from './breakpoints-map';
+export type { Breakpoints } from './breakpoints';

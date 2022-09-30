@@ -132,7 +132,7 @@ export const defaultProps = {
   open: false,
   containerProps: {},
   maxHeight: 0,
-  position: 'bottom',
+  position: Position.Bottom,
   enableOverlay: true,
   hideScroll: true,
 };

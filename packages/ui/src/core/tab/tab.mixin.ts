@@ -9,26 +9,26 @@ export const tabSizeMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelSmall]}
+    ${font[FV.LabelNormal]}
     padding: 8px 0px;
   `,
 
-  [Size.Lg]: ({
+  [Size.Sm]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelNormal]}
-    padding: 15px 0px;
+    ${font[FV.LabelSmall]}
+    padding: 8px 0px;
   `,
 };
 
 export const iconSizeMixin = {
-  [Size.Md]: css`
-    width: 12px;
-    height: 12px;
+  [Size.Sm]: css`
+    width: 14px;
+    height: 14px;
   `,
-  [Size.Lg]: css`
+  [Size.Md]: css`
     width: 16px;
     height: 16px;
   `,

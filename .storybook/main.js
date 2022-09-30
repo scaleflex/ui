@@ -1,8 +1,8 @@
 const pathsToWebpackAlias = require('../scripts/paths-to-webpack-alias');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  stories: ['../packages/**/*.story.tsx'],
+  stories: ['../packages/**/*.story.@(tsx|mdx)'],
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -12,6 +12,8 @@ module.exports = {
       },
     },
     'storybook-addon-jsx',
+    'storybook-addon-breakpoints',
+    '@storybook/addon-docs'
   ],
   webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.inline.svg$/;
