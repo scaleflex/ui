@@ -14,7 +14,6 @@ Each breakpoint (a key) matches with a _fixed_ screen width (a value):
 - **lg,** large: 1921px
 - **xl,** extra-large: 2560px
 
-
 ## CSS Media Queries
 
 CSS media queries are the idiomatic approach to make your UI responsive.
@@ -30,25 +29,26 @@ In the Canvas for this story, we changed the [colors](https://github.com/scalefl
 ```jsx
 const StyledButton = styled(Button)(
   ({ theme }) => css`
-     ${theme.breakpoints.between('sm','md')} {
+    ${theme.breakpoints.between('sm', 'md')} {
       ${colorButtonMixin[ButtonColor.Secondary]}
-     }
-     ${theme.breakpoints.down('sm')} {
+    }
+    ${theme.breakpoints.down('sm')} {
       ${colorButtonMixin[ButtonColor.Link]}
-     }
-     ${theme.breakpoints.between('md', 'lg')} {
+    }
+    ${theme.breakpoints.between('md', 'lg')} {
       ${colorButtonMixin[ButtonColor.Primary]}
-     }
-     ${theme.breakpoints.up('xl')} {
+    }
+    ${theme.breakpoints.up('xl')} {
       ${colorButtonMixin[ButtonColor.Error]}
     }
- `
-) 
+  `
+);
 ```
+
 ## Breakpoints Classes
 
 We also provides a set of classes that can be used on the container that you need to apply the same breakpoints as the ones provided by the theme.
-This can be used if you want to depend on a container width instead of vewport width. It will be applied to all children inside this container. 
+This can be used if you want to depend on a container width instead of vewport width. It will be applied to all children inside this container.
 
 you can use this classes manually or you can this helper to return the right class depending on the width provided
 
@@ -83,24 +83,25 @@ const theme = {
       lg: 1200,
       xl: 1536,
     },
-    clasess:{
+    clasess: {
       xs: '.sfx-breakpoint-xs',
       sm: '.sfx-breakpoint-sm',
       md: '.sfx-breakpoint-md',
       lg: '.sfx-breakpoint-lg',
       xl: '.sfx-breakpoint-xl',
-    }
- },
+    },
+  },
 };
 ```
+
 ## API
 
-### `theme.breakpoints.getBreakpointClass(width) => breakpoint class`
-
+### `theme.breakpoints.getBreakpointClass(width, hideSelector) => breakpoint class`
 
 #### Arguments
 
 1. `width` (_number_): A breakpoint width.
+2. `hideSelector` (_boolean_): to remove the class css selector. `default: false`
 
 #### Returns
 
@@ -110,7 +111,7 @@ const theme = {
 
 ```js
 const styles = styled.div(
-   ({theme}) => `
+  ({ theme }) => `
       background-color: blue;
       // Match [md, ∞)
       //       [1201px, ∞)
@@ -118,11 +119,10 @@ const styles = styled.div(
          background-color: red;
       }
     `
-) 
+);
 ```
 
 ### `theme.breakpoints.up(key) => media query`
-
 
 #### Arguments
 
@@ -136,7 +136,7 @@ const styles = styled.div(
 
 ```js
 const styles = styled.div(
-   ({theme}) => `
+  ({ theme }) => `
       background-color: blue;
       // Match [md, ∞)
       //       [1201px, ∞)
@@ -144,11 +144,10 @@ const styles = styled.div(
          background-color: red;
       }
     `
-) 
+);
 ```
 
 ### `theme.breakpoints.down(key) => media query`
-
 
 #### Arguments
 
@@ -162,7 +161,7 @@ const styles = styled.div(
 
 ```js
 const styles = styled.div(
-   ({theme}) => `
+  ({ theme }) => `
       background-color: blue;
       // Match [0, md)
       //       [0, 1201px)
@@ -170,11 +169,10 @@ const styles = styled.div(
          background-color: red;
       }
     `
-) 
+);
 ```
 
 ### `theme.breakpoints.only(key) => media query`
-
 
 #### Arguments
 
@@ -188,7 +186,7 @@ const styles = styled.div(
 
 ```js
 const styles = styled.div(
-   ({theme}) => `
+  ({ theme }) => `
       background-color: blue;
       // Match [md, md + 1)
       //       [md, lg)
@@ -197,11 +195,10 @@ const styles = styled.div(
          background-color: red;
       }
     `
-) 
+);
 ```
 
 ### `theme.breakpoints.between(start, end) => media query`
-
 
 #### Arguments
 
@@ -216,7 +213,7 @@ const styles = styled.div(
 
 ```js
 const styles = styled.div(
-   ({theme}) => `
+  ({ theme }) => `
       background-color: blue;
       // Match [sm, md)
       //       [768px, 1201px)
@@ -224,6 +221,5 @@ const styles = styled.div(
          background-color: red;
       }
     `
-) 
+);
 ```
-

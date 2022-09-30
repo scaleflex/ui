@@ -32,23 +32,25 @@ const createBreakpoints = (breakpoints: Partial<Breakpoints>): Breakpoints => {
     return up(key);
   };
 
-  const getBreakpointClass = (width: number): string => {
+  const getBreakpointClass = (width: number, hideSelector: boolean | undefined): string => {
+    const removeSelector = (str: string) => str.slice(1);
+
     if (width >= values.xs && width <= values.sm) {
-      return classes.xs;
+      return hideSelector ? removeSelector(classes.xs) : classes.xs;
     }
     if (width >= values.sm && width < values.md) {
-      return classes.sm;
+      return hideSelector ? removeSelector(classes.sm) : classes.sm;
     }
     if (width >= values.md && width < values.lg) {
-      return classes.md;
+      return hideSelector ? removeSelector(classes.md) : classes.md;
     }
     if (width >= values.lg && width < values.xl) {
-      return classes.lg;
+      return hideSelector ? removeSelector(classes.lg) : classes.lg;
     }
     if (width >= values.xl) {
-      return classes.xl;
+      return hideSelector ? removeSelector(classes.xl) : classes.xl;
     }
-    return classes.md;
+    return hideSelector ? removeSelector(classes.md) : classes.md;
   };
 
   return {
