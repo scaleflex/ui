@@ -7,6 +7,9 @@ export interface TabProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: TabSizeType;
   icon?: ReactNode;
   label?: ReactNode;
+  badge?: React.ReactNode;
   value?: string | number;
   active?: boolean;
+  notification?: string;
+  disabled?: boolean;
 }

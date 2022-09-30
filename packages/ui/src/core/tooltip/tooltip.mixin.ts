@@ -8,13 +8,13 @@ export const fontTooltipMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelSmall],
+  }: WithTheme) => font[FV.LabelExtraSmall],
 
   [Size.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelNormal],
+  }: WithTheme) => font[FV.LabelSmall],
 };
 
 export const sizeTooltipMixin = {

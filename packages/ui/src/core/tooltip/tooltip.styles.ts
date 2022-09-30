@@ -45,8 +45,8 @@ const Tooltip = styled.div.attrs({
     min-width: 54px;
     min-height: 20px;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    background: ${warning ? theme.palette[PColor.BackgroundLightOrange] : theme.palette[PColor.TooltipBackgroundColor]};
-    color: ${warning ? theme.palette[PColor.WarningToolTipText] : theme.palette[PColor.ToolTipText]};
+    background: ${warning ? theme.palette[PColor.BackgroundLightOrange] : theme.palette[PColor.BackgroundGrey]};
+    color: ${warning ? theme.palette[PColor.TextWarning] : theme.palette[PColor.LinkActive]};
 
     ${sizeTooltipMixin[size]};
   `

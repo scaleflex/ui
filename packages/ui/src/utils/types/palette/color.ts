@@ -4,6 +4,7 @@ export const Color = {
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
+  TextWarning: 'txt-warning',
 
   AccentPrimary: 'accent-primary',
   AccentPrimaryHover: 'accent-primary-hover',
@@ -20,6 +21,7 @@ export const Color = {
   BackgroundLightBlue: 'bg-light-blue',
   BackgroundLightRed: 'bg-light-red',
   BackgroundLightOrange: 'bg-light-orange',
+  BackgroundGrey: 'bg-light-grey',
 
   IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
@@ -37,6 +39,7 @@ export const Color = {
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
+  BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
 
   ActiveSecondary: 'active-secondary',
@@ -45,9 +48,10 @@ export const Color = {
 
   Tag: 'tag',
 
-  TooltipBackgroundColor: 'tooltip-background-color',
-  ToolTipText: 'tooltip-text',
-  WarningToolTipText: 'warning-tooltip-text',
+  Tab: 'tab',
+  TabHover: 'tab-hover',
+  TabActive: 'tab-active',
+  TabPressed: 'tab-pressed',
 
   Error: 'error',
   Success: 'success',

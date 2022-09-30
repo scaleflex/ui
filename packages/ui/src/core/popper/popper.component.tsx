@@ -152,6 +152,7 @@ export const propTypes = {
     strategy: PT.oneOf(objectValues(Strategy)),
   }) as Validator<PopperOptions>,
   overlay: PT.bool,
+  warning: PT.bool,
   arrow: PT.bool,
   zIndex: PT.number,
   enableUnderlayingEvent: PT.bool,

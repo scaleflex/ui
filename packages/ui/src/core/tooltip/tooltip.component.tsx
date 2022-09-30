@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import PT, { Validator } from 'prop-types';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TooltipProps } from './tooltip.props';
 import type { PopperOptions, Modifiers } from '../popper/popper.props';

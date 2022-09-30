@@ -45,11 +45,12 @@ import type { ColorsMap } from './colors-map';
 //   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 // };
 export const lightPalette = {
-  [Color.TextPrimary]: 'rgba(55,65,75,1)',
+  [Color.TextPrimary]: '#37414B',
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)',
   [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(181,188,190,1)',
+  [Color.TextWarning]: 'rgba(196,110,0,1)',
 
   [Color.AccentPrimary]: 'rgba(104,121,235,1)',
   [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)',
@@ -66,6 +67,7 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
   [Color.IconsPrimary]: 'rgba(93,109,126,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -77,13 +79,14 @@ export const lightPalette = {
 
   [Color.LinkPrimary]: '#5D6D7E',
   [Color.LinkHover]: '#768A9F',
-  [Color.LinkActive]: '#92A6BC',
+  [Color.LinkActive]: 'rgba(55,65,75,1)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)',
   [Color.BordersSecondary]: 'rgba(223,231,237,1)',
   [Color.BordersStrong]: 'rgba(223,231,237,1)',
   [Color.BordersInvert]: 'rgba(85,99,115,1)',
-  [Color.BorderActiveBottom]: '#6879EB',
+  [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
+  [Color.BorderActiveBottom]: '#4958BC',
 
   [Color.ActiveSecondary]: '#E9EEF2',
   [Color.ActiveSecondaryHover]: '#DFE4E9',
@@ -91,9 +94,10 @@ export const lightPalette = {
 
   [Color.Tag]: '#889AAC',
 
-  [Color.TooltipBackgroundColor]: '#D8E0E8',
-  [Color.ToolTipText]: '#4F6276',
-  [Color.WarningToolTipText]: '#C46E00',
+  [Color.Tab]: '#37414B',
+  [Color.TabHover]: '#606fd1',
+  [Color.TabActive]: '#4958BC',
+  [Color.TabPressed]: ' #6879EB',
 
   [Color.Error]: '#E85B46',
   [Color.Success]: '#3ECF8B',
