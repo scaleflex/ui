@@ -9,7 +9,7 @@ export const tabSizeMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelMedium]}
+    ${font[FV.LabelNormal]}
     padding: 8px 0px;
   `,
 
