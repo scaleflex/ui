@@ -112,7 +112,96 @@ export const colorButtonMixin = {
   `,
 };
 
+export const warningButtonMixin = {
+  [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.StatesError]};
+    color: ${palette[PaletteColor.ButtonPrimaryText]};
+
+    ${StyledBadge.Badge} {
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background: transparent;
+    }
+
+    &:hover {
+      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+    }
+
+    &:active {
+      background-color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      background-color: ${palette[PaletteColor.StatesErrorOpacity_0_12]};
+      color: ${palette[PaletteColor.StatesErrorDisabledText]};
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.StatesErrorDisabledText]};
+        background: transparent;
+      }
+    }
+  `,
+
+  [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    color: ${palette[PaletteColor.AccentPrimary]};
+    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
+
+    ${StyledBadge.Badge} {
+      color: ${palette[PaletteColor.AccentPrimary]};
+      background-color: transparent;
+    }
+
+    &:hover {
+      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
+    }
+
+    &:active {
+      background-color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      border: none;
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonDisabledText]};
+      }
+    }
+  `,
+
+  [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.LinkHover]};
+    background-color: transparent;
+
+    &:hover {
+      color: ${palette[PaletteColor.StatesErrorHovered]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+}
+
 export const sizeButtonMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 5px 10px;
+  `,
+
   [ButtonSize.Sm]: css`
     padding: 8px 12px;
   `,
@@ -127,6 +216,12 @@ export const sizeButtonMixin = {
 };
 
 export const sizeButtonLabelMixin = {
+  [ButtonSize.Xs]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonXs]),
+
   [ButtonSize.Sm]: ({
     theme: {
       typography: { font },

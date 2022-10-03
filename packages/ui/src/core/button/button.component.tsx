@@ -4,16 +4,17 @@ import SpinnerIcon from '@scaleflex/icons/spinner';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
+import { iconDirection } from './types';
 import type { ButtonProps } from './button.props';
 import { ButtonSize, ButtonColor } from '../../utils/types';
 import { getIconSize } from './button.utils';
 import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
-  ({ children, icon, badge, color, size, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => (
-    <Styled.Button type="button" {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
+  ({ children, icon, badge, color, size, iconDirection, warning, link, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => (
+    <Styled.Button {...rest} link={link} iconDirection={iconDirection} warning={warning} disabled={loading || disabled} color={color} size={size} ref={ref}>
       {icon && (
-        <Styled.Icon $loading={loading}>
+        <Styled.Icon $loading={loading} iconDirection={iconDirection}>
           {typeof icon === 'function' ? (
             loading ? (
               <SpinnerIcon size={getIconSize(size)} />
@@ -55,15 +56,20 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 Button.defaultProps = {
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
+  link: false,
+  iconDirection: iconDirection.Left,
 };
 
 Button.propTypes = {
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(ButtonColor)),
   icon: PT.oneOfType([PT.node, PT.func]),
+  iconDirection: PT.oneOf(objectValues(iconDirection)),
   badge: PT.node,
   loading: PT.bool,
+  link: PT.bool,
   disabled: PT.bool,
+  warning: PT.bool,
 };
 
 export default Button;

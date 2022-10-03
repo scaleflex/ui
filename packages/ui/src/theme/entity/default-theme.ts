@@ -98,6 +98,12 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         lineHeight: '1.3',
       },
 
+      [FontVariant.ButtonXs]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
       [FontVariant.ButtonSm]: {
         ...defaultFontValue,
         fontWeight: '500',

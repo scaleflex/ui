@@ -103,6 +103,12 @@ export const lightPalette = {
   [Color.TabActive]: '#4958BC',
   [Color.TabPressed]: ' #6879EB',
 
+  [Color.StatesError]: '#FF564E',
+  [Color.StatesErrorOpacity_0_12]: 'rgba(255, 86, 78, 0.1)',
+  [Color.StatesErrorHovered]: '#D82E2E',
+  [Color.StatesErrorActive]: ' #B9212E',
+  [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
+
   [Color.Error]: '#E85B46',
   [Color.Success]: '#3ECF8B',
   [Color.Warning]: '#FFAC4A',

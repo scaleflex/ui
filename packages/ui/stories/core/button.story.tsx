@@ -1,9 +1,11 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+import Remove from '@scaleflex/icons/remove';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
+import { iconDirection } from '../../src/core/button/types';
 import { StoryGroup } from './types';
 
 export const Button = _Button;
@@ -27,6 +29,8 @@ const defaultArgs = {
   color: ButtonColor.Secondary,
   disabled: false,
   loading: false,
+  link: false,
+  iconDirection: iconDirection.Left,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {...args}>{children}</Button>;
@@ -34,10 +38,6 @@ const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {..
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
-
-// Disabled
-export const Disabled = BasicTemplate.bind({});
-Disabled.args = { ...defaultArgs, disabled: true };
 
 // WithIcon
 export const WithIcon = BasicTemplate.bind({});
@@ -60,4 +60,51 @@ WithIconsAndBadge.args = {
   ...defaultArgs,
   icon: (props: IconProps) => <UploadIcon {...props} />,
   badge: '(1)',
+};
+
+// Warning
+export const Warning = BasicTemplate.bind({});
+Warning.args = { ...defaultArgs, children: 'Delete', warning: true };
+
+// WarningWithIcon
+export const WarningWithIcon = BasicTemplate.bind({});
+WarningWithIcon.args = { 
+  ...defaultArgs,
+  children: 'Delete',
+  warning: true,
+  icon: (props: IconProps) => <Remove {...props} />
+};
+
+// WarningWithBadge
+export const WarningWithBadge = BasicTemplate.bind({});
+WarningWithBadge.args = { 
+  ...defaultArgs,
+  badge: '(1)',
+  warning: true,
+};
+
+// WarningWithIconsAndBadge
+export const WarningWithIconsAndBadge = BasicTemplate.bind({});
+WarningWithIconsAndBadge.args = { 
+  ...defaultArgs,
+  badge: '(1)',
+  warning: true,
+  icon: (props: IconProps) => <Remove {...props} />
+};
+
+// BasicWarning
+export const BasicWarning = BasicTemplate.bind({});
+BasicWarning.args = { 
+  ...defaultArgs,
+  children: 'Cancel',
+  warning: true,
+};
+
+// BasicWarningWithIcon
+export const BasicWarningWithIcon = BasicTemplate.bind({});
+BasicWarningWithIcon.args = { 
+  ...defaultArgs,
+  children: 'Cancel',
+  warning: true,
+  icon: (props: IconProps) => <Remove {...props} />
 };

@@ -57,6 +57,12 @@ export const Color = {
   TabActive: 'tab-active',
   TabPressed: 'tab-pressed',
 
+  StatesError: 'states-error',
+  StatesErrorOpacity_0_12: 'states-error-Opacity-0-12',
+  StatesErrorHovered: 'states-error-hovered',
+  StatesErrorActive: 'states-error-active',
+  StatesErrorDisabledText: 'states-error-disabled-text',
+
   Error: 'error',
   Success: 'success',
   Warning: 'warning',
