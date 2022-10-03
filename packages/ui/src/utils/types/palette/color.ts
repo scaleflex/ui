@@ -45,6 +45,8 @@ export const Color = {
   BordersInvert: 'borders-invert',
   BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
+  BorderPrimaryStateless: 'border-primary-stateless',
+  BorderDisabled: 'border-disabled',
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',

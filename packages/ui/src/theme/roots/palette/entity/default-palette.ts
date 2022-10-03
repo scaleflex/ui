@@ -79,18 +79,20 @@ export const lightPalette = {
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
-  [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66
+  [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)',
 
   [Color.LinkPrimary]: '#5D6D7E',
   [Color.LinkHover]: '#768A9F',
   [Color.LinkActive]: 'rgba(55,65,75,1)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)', // #dfe7ed
-  [Color.BordersSecondary]: 'rgba(223,231,237,1)', // #dfe7ed
+  [Color.BordersSecondary]: 'rgba(236,240,243,1)', // #dfe7ed
   [Color.BordersStrong]: 'rgba(223,231,237,1)', // #dfe7ed
   [Color.BordersInvert]: 'rgba(85,99,115,1)', // #556373
   [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
   [Color.BorderActiveBottom]: '#4958BC',
+  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
+  [Color.BorderDisabled]: 'rgba(73, 88, 188, 0.4)',
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
