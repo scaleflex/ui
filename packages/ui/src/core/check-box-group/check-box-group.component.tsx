@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PT from 'prop-types';
+import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
+import { Color } from '@scaleflex/ui/utils/types/palette';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import CheckBox from '../check-box';
@@ -7,7 +9,6 @@ import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
 import { LabelPosition } from './types';
 import { Size } from '../check-box/size';
-import CheckBoxGroupWithIcon from './check-box-group-with-icon.component';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   (
@@ -18,29 +19,14 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       readOnly,
       disabled,
       labelPosition,
-      withIcon = false,
       title,
       icon,
       ...rest
     }: CheckBoxGroupProps,
     ref
   ): JSX.Element => {
-    const [isHovering, setIsHovering] = useState(false);
-
-    const handleEnteringTooltip = (): void => {
-      setTimeout(() => {
-        setIsHovering(true);
-      }, 250);
-    };
-
-    const handleLeavingTooltip = (): void => {
-      setTimeout(() => {
-        setIsHovering(false);
-      }, 250);
-    };
     const content = [
       <CheckBox
-        isHovering={isHovering}
         size={size}
         key="checkbox"
         checkBoxProps={checkBoxProps}
@@ -49,6 +35,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
         {...rest}
       />,
     ];
+
     const labelContent = (
       <Styled.Label key="label" disabled={Boolean(disabled)} labelPosition={labelPosition} size={size}>
         {label}
@@ -61,15 +48,9 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       content.push(labelContent);
     }
     return (
-      <Styled.CheckBoxGroup
-        onMouseEnter={handleEnteringTooltip}
-        onMouseLeave={handleLeavingTooltip}
-        withIcon={withIcon}
-        disabled={disabled}
-        ref={ref}
-      >
+      <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref}>
         {content}
-        {withIcon && <CheckBoxGroupWithIcon icon={icon} title={title} />}
+        {typeof icon === 'function' ? icon({ size: 12, color: lightPalette[Color.LinkHover] }) : icon}
       </Styled.CheckBoxGroup>
     );
   }
@@ -90,7 +71,6 @@ CheckBoxGroup.propTypes = {
   checkBoxProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  withIcon: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   labelPosition: PT.oneOf(objectValues(LabelPosition)),
   icon: PT.oneOfType([PT.node, PT.func]),

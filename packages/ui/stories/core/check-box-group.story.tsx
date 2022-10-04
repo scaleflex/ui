@@ -50,10 +50,9 @@ export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
 // WithIcons
-export const CheckBoxGroupWithIcon = BasicTemplate.bind({});
-CheckBoxGroupWithIcon.args = {
+export const WithIcon = BasicTemplate.bind({});
+WithIcon.args = {
   ...defaultArgs,
-  withIcon: true,
   title: 'Tooltip text',
   icon: (props: IconProps) => <QuestionMarkOutline {...props} />,
 };

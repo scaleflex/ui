@@ -6,15 +6,18 @@ export const Color = {
   TextPlaceholder: 'txt-placeholder',
 
   AccentPrimary: 'accent-primary',
+  AccentPrimaryOpacity: 'accent-primary-opacity',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
 
-  CheckboxDisabled: 'check-box-disabled',
-
+  BackgroundGrey: 'bg-grey',
+  BackgroundStateless: 'bg-stateless',
+  BackgroundActive: 'bg-active',
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
+  BackgroundPrimaryStateless: 'bg-primary-stateless',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
 

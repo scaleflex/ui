@@ -1,10 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
-import CheckBoxIcon from '@scaleflex/icons/check-box';
-import CheckBoxUncheckedIcon from '@scaleflex/icons/check-box-unchecked';
-
+import Tick from '@scaleflex/icons/tick';
 import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 import { Color } from '@scaleflex/ui/utils/types/palette';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
@@ -13,17 +12,11 @@ import { getCheckboxIconSize } from './check-box.utils';
 
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
   (
-    { isHovering, size = Size.Sm, checked, onChange, checkBoxProps, readOnly, disabled, ...rest }: CheckBoxProps,
+    { size = Size.Sm, checked, onChange, checkBoxProps, readOnly, disabled, ...rest }: CheckBoxProps,
     ref
   ): JSX.Element => {
-    const getIconBackgroundColor = () => {
-      if (disabled) return lightPalette[Color.CheckboxDisabled];
-
-      if (isHovering && !checked) return lightPalette[Color.TextPrimaryInvert];
-    };
-
     return (
-      <Styled.CheckBox size={size} disabled={Boolean(disabled)} ref={ref} {...rest}>
+      <Styled.CheckBox size={size} disabled={Boolean(disabled)} checked={Boolean(checked)} ref={ref} {...rest}>
         <Styled.Input
           checked={checked}
           disabled={disabled}
@@ -31,16 +24,12 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
           onChange={readOnly || disabled ? undefined : onChange}
           {...checkBoxProps}
         />
-        {checked || (isHovering && !disabled) ? (
-          <CheckBoxIcon
-            getIconBackgroundColor={getIconBackgroundColor}
-            checked={Boolean(checked)}
-            isHovering={Boolean(isHovering)}
-            disabled={Boolean(disabled)}
-            size={getCheckboxIconSize(size)}
-          />
+        {checked ? (
+          <Tick color={lightPalette[Color.ButtonPrimaryText]} size={getCheckboxIconSize(size)} />
         ) : (
-          <CheckBoxUncheckedIcon disabled={Boolean(disabled)} size={getCheckboxIconSize(size)} />
+          <Styled.UnCheckedIcon>
+            <Tick color={lightPalette[Color.AccentPrimaryOpacity]} size={getCheckboxIconSize()} />
+          </Styled.UnCheckedIcon>
         )}
       </Styled.CheckBox>
     );

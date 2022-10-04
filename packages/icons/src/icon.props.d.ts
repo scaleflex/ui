@@ -11,8 +11,4 @@ export interface IconProps extends IntrinsicComponent<HTMLAttributes<SVGSVGEleme
   stroke?: string;
   stroke2?: string;
   viewBox?: string;
-  disabled?: boolean;
-  isHovering?: boolean;
-  checked?: boolean;
-  getIconBackgroundColor?: func;
 }

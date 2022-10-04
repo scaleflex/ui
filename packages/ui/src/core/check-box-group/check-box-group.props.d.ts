@@ -12,7 +12,6 @@ export interface CheckBoxGroupProps extends CheckBoxProps {
   checkBoxProps?: React.InputHTMLAttributes;
   readOnly?: boolean;
   disabled?: boolean;
-  withIcon?: boolean;
   labelPosition?: LabelPositionType;
   size?: CheckBoxSizeType;
   icon?: React.ReactNode | ((props: IconProps) => React.ReactNode);

@@ -1,15 +1,13 @@
 import { CheckBoxSizeType } from '../check-box-group/check-box-group.props';
 import { Size } from './size';
 
-export const getCheckboxIconSize = (sizeName?: CheckBoxSizeType): number => {
-  switch (sizeName) {
+export const getCheckboxIconSize = (size?: CheckBoxSizeType): number => {
+  switch (size) {
     case Size.Md:
-      return 20;
-
+      return 14;
     case Size.Sm:
-      return 16;
-
+      return 12;
     default:
-      return 16;
+      return 12;
   }
 };

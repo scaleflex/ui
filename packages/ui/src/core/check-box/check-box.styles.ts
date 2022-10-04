@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import type { CheckBoxProps } from './check-box.props';
+import { sizeCheckboxMixin } from './check-box.mixin';
+import { Size } from './size';
 
 const baseClassName = 'CheckBox';
 
@@ -25,17 +28,48 @@ const Input = styled.input.attrs({
   `
 );
 
-const CheckBox = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'root'),
+const UnCheckedIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'icon'),
 })<CheckBoxProps>(
-  ({ theme: { palette }, disabled = false }: With<WithTheme, CheckBoxProps>) => css`
-    position: relative;
-    display: inline-flex;
-    cursor: ${disabled ? 'default' : 'pointer'};
-    color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.AccentPrimary]};
+  () => css`
+    display: none;
   `
 );
 
-const Styled = applyDisplayNames({ CheckBox, Input });
+const CheckBox = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'root'),
+})<CheckBoxProps>(
+  ({ theme: { palette }, size = Size.Sm, checked, disabled = false }: With<WithTheme, CheckBoxProps>) => css`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: ${checked ? palette[PColor.AccentPrimary] : palette[PColor.BackgroundStateless]};
+    border: 1px solid ${checked ? palette[PColor.AccentPrimary] : palette[PColor.BackgroundPrimaryStateless]};
+    border-radius: 1px;
+    outline: none;
+    text-align: center;
+    cursor: ${disabled ? 'default' : 'pointer'};
+
+    ${sizeCheckboxMixin[size]}
+
+    &:hover {
+      ${UnCheckedIcon} {
+        ${!disabled &&
+        css`
+          display: block;
+        `}
+      }
+    }
+
+    ${disabled &&
+    css`
+      background: ${checked ? palette[PColor.BackgroundGrey] : palette[PColor.BackgroundActive]};
+      border: 1px solid ${checked ? palette[PColor.BackgroundGrey] : palette[PColor.BordersSecondary]};
+    `}
+  `
+);
+
+const Styled = applyDisplayNames({ CheckBox, Input, UnCheckedIcon });
 
 export default Styled;
