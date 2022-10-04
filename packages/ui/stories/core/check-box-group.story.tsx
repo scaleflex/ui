@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { LabelPosition } from '@scaleflex/ui/core/check-box-group/types';
-import { Size } from '@scaleflex/ui/core/check-box/size';
 import { IconProps } from '@scaleflex/icons/icon.props';
 import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
+
+import { LabelPosition } from '../../src/core/check-box-group/types';
+import { Size, Type } from '../../src/core/check-box/types';
 
 import _CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
 import { StoryGroup } from './types';
@@ -33,6 +34,7 @@ const defaultArgs = {
   disabled: false,
   labelPosition: LabelPosition.After,
   size: Size.Sm,
+  type: Type.Checkbox,
 };
 
 const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {

@@ -294,3 +294,4 @@ export { Nsfw } from './nsfw';
 export { WarningOutline } from './warning-outline';
 export { Success } from './success';
 export { Error } from './error';
+export { Intermediate } from './intermediate';

@@ -6,7 +6,7 @@ import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import type { CheckBoxProps } from './check-box.props';
 import { sizeCheckboxMixin } from './check-box.mixin';
-import { Size } from './size';
+import { Size } from './types';
 
 const baseClassName = 'CheckBox';
 
@@ -57,7 +57,7 @@ const CheckBox = styled.span.attrs({
       ${UnCheckedIcon} {
         ${!disabled &&
         css`
-          display: block;
+          display: flex;
         `}
       }
     }

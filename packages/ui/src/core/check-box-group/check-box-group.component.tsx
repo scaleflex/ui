@@ -8,7 +8,7 @@ import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
 import { LabelPosition } from './types';
-import { Size } from '../check-box/size';
+import { Size } from '../check-box/types';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   (

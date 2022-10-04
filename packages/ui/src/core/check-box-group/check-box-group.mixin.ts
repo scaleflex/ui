@@ -1,7 +1,7 @@
 import { WithTheme } from '@scaleflex/ui/theme/entity';
 import { FontVariant as FV } from '@scaleflex/ui/utils/types/typography';
 
-import { Size } from '../check-box/size';
+import { Size } from '../check-box/types';
 
 export const sizeCheckboxGroupMixin = {
   [Size.Sm]: ({

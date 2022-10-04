@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { Size } from './size';
+import { Size } from './types';
 
 export const sizeCheckboxMixin = {
   [Size.Sm]: () => css`

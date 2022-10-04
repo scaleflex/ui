@@ -4,10 +4,11 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
-import type { CheckBoxGroupProps, CheckBoxSizeType } from './check-box-group.props';
+import type { CheckBoxGroupProps } from './check-box-group.props';
+import type { CheckBoxSizeType } from '../check-box/check-box.props';
 import { LabelPositionType } from './check-box-group.props';
 import { sizeCheckboxGroupMixin } from './check-box-group.mixin';
-import { Size } from '../check-box/size';
+import { Size } from '../check-box/types';
 import StyledCheckbox from '../check-box/check-box.styles';
 
 const baseClassName = 'CheckBoxGroup';
@@ -48,7 +49,7 @@ const CheckBoxGroup = styled.label.attrs({
       ${StyledCheckbox.UnCheckedIcon} {
         ${!disabled &&
         css`
-          display: block;
+          display: flex;
         `}
       }
     }
