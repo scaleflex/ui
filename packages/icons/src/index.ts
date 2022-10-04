@@ -1,13 +1,9 @@
 export { Dot } from './dot';
 export { FilerobotLabel } from './filerobot-label';
-export { RadioButtonUnchecked } from './radio-button-unchecked';
-export { RadioButton } from './radio-button';
 export { RobotHappy } from './robot-happy';
 export { RobotNeutral } from './robot-neutral';
 export { RobotSad } from './robot-sad';
 export { RobotWorried } from './robot-worried';
-export { SwitcherOff } from './switcher-off';
-export { SwitcherOn } from './switcher-on';
 
 // From Figma
 export { NavigationGroupPrevious } from './navigation-group-previous';

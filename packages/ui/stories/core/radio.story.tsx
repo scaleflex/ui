@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _Radio, { RadioProps } from '../../src/core/radio';
+
+import _Radio, { RadioProps, RadioSize } from '../../src/core/radio';
 import { StoryGroup } from './types';
 
 export const Radio = _Radio;
@@ -15,6 +16,7 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
+  size: RadioSize.Sm,
 };
 
 const BasicTemplate: Story<RadioProps> = ({ checked, ...args }) => {

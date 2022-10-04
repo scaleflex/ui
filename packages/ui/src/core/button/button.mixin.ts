@@ -8,11 +8,12 @@ import { ButtonSize, ButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
   [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.AccentPrimary]};
+    background-color: ${palette[PaletteColor.AccentStateless]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
     ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background: transparent;
     }
 
     &:hover {
@@ -24,127 +25,108 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      cursor: default;
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
-        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
+        color: ${palette[PaletteColor.BorderDisabled]};
+        background: transparent;
       }
     }
   `,
 
   [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ActiveSecondary]};
-    color: ${palette[PaletteColor.IconsPrimary]};
+    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    color: ${palette[PaletteColor.AccentPrimary]};
+    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
 
     &:hover {
-      background-color: ${palette[PaletteColor.ActiveSecondaryHover]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${palette[PaletteColor.AccentPrimaryHover]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
     }
 
     &:active {
-      background-color: ${palette[PaletteColor.ActiveSecondaryActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      border: none;
+      cursor: default;
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
       }
     }
 
     ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.IconsPrimary]};
+      color: ${palette[PaletteColor.AccentPrimary]};
+      background: transparent;
     }
   `,
 
-  [ButtonColor.Link]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
     background-color: transparent;
     color: ${palette[PaletteColor.LinkPrimary]};
 
-    &:hover {
-      color: ${palette[PaletteColor.LinkHover]};
-
-      ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.LinkHover]};
-      }
-    }
-
-    &:active {
-      color: ${palette[PaletteColor.LinkActive]};
-
-      ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.LinkActive]};
-      }
-    }
-
-    &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
-
-      ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
-      }
-    }
-  `,
-  [ButtonColor.Error]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.Error]};
-    color: ${palette[PaletteColor.ButtonPrimaryText]};
-
     ${StyledBadge.Badge} {
-      background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: transparent;
+      color: ${palette[PaletteColor.LinkPrimary]};
     }
 
     &:hover {
-      background-color: rgba(224, 81, 44, 1); //need to be added to the general color palette in figma
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.AccentPrimaryHover]};
+      }
     }
 
     &:active {
-      background-color: rgba(201, 58, 23, 1); //need to be added to the general color palette in figma
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      color: ${palette[PaletteColor.BorderDisabled]};
+      cursor: default;
 
       ${StyledBadge.Badge} {
-        background-color: ${palette[PaletteColor.ButtonDisabledText]};
-        color: ${palette[PaletteColor.AccentPrimaryDisabled]};
+        color: ${palette[PaletteColor.BorderDisabled]};
       }
     }
   `,
 };
 
 export const sizeButtonMixin = {
-  [ButtonSize.Xs]: css`
-    padding: 4px 8px;
-  `,
-
   [ButtonSize.Sm]: css`
-    padding: 6px 10px;
-  `,
-
-  [ButtonSize.Md]: css`
     padding: 8px 12px;
   `,
 
-  [ButtonSize.Lg]: css`
-    padding: 10px 14px;
+  [ButtonSize.Md]: css`
+    padding: 11px 16px;
   `,
 
-  [ButtonSize.Xl]: css`
-    padding: 12px 16px;
+  [ButtonSize.Lg]: css`
+    padding: 14px 24px;
   `,
 };
 
 export const sizeButtonLabelMixin = {
-  [ButtonSize.Xs]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonXs]),
-
   [ButtonSize.Sm]: ({
     theme: {
       typography: { font },
@@ -162,10 +144,4 @@ export const sizeButtonLabelMixin = {
       typography: { font },
     },
   }: WithTheme) => css(font[FontVariant.ButtonLg]),
-
-  [ButtonSize.Xl]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FontVariant.ButtonXl]),
 };

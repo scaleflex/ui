@@ -49,7 +49,7 @@ const Close = styled.div.attrs({
     right: ${variant === Variant.WithIcon ? 12 : 16}px;
     color: ${palette[PColor.IconsSecondary]};
     &:hover {
-      color: ${palette[PColor.IconsPrimary]};
+      color: ${palette[PColor.AccentPrimary]};
     }
     cursor: pointer;
   `

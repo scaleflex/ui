@@ -1,6 +1,5 @@
 export const ButtonColor = {
   Primary: 'primary',
   Secondary: 'secondary',
-  Link: 'link',
-  Error: 'error',
+  Basic: 'basic',
 } as const;

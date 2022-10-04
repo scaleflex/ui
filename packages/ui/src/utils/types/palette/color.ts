@@ -4,12 +4,16 @@ export const Color = {
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
+  TextWarning: 'txt-warning',
 
   AccentPrimary: 'accent-primary',
   AccentPrimaryOpacity: 'accent-primary-opacity',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
+  AccentSecondaryDisabled: 'accent-secondary-disabled',
+  AccentStateless: 'accent-stateless',
+  AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
 
   BackgroundGrey: 'bg-grey',
   BackgroundStateless: 'bg-stateless',
@@ -20,16 +24,18 @@ export const Color = {
   BackgroundPrimaryStateless: 'bg-primary-stateless',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
+  BackgroundActive: 'bg-active',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',
   BackgroundLightRed: 'bg-light-red',
   BackgroundLightOrange: 'bg-light-orange',
+  BackgroundGrey: 'bg-light-grey',
 
-  IconsPrimary: 'icons-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
+  IconsMuted: 'icons-muted',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
@@ -44,6 +50,8 @@ export const Color = {
   BordersInvert: 'borders-invert',
   BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
+  BorderPrimaryStateless: 'border-primary-stateless',
+  BorderDisabled: 'border-disabled',
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',

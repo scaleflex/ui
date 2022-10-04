@@ -28,7 +28,7 @@ const Icon = styled.div.attrs({
 })(
   ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
     margin-right: 8px;
-    color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.LinkHover]};
+    color: ${disabled ? palette[PColor.IconsMuted] : palette[PColor.LinkHover]};
 
     svg {
       ${iconSizeMixin[size]}
