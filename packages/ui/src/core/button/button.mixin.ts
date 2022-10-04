@@ -110,10 +110,71 @@ export const colorButtonMixin = {
       }
     }
   `,
-};
 
-export const warningButtonMixin = {
-  [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkPrimary]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.AccentStateless]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.LinkHover]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.LinkBasic]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.AccentStateless]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.WarningPrimary]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.StatesError]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
@@ -142,7 +203,7 @@ export const warningButtonMixin = {
     }
   `,
 
-  [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.WarningSecondary]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.ButtonPrimaryText]};
     color: ${palette[PaletteColor.AccentPrimary]};
     border: 1px solid ${palette[PaletteColor.AccentPrimary]};
@@ -178,7 +239,7 @@ export const warningButtonMixin = {
     }
   `,
 
-  [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.WarningBasic]: ({ theme: { palette } }: WithTheme) => css`
     color: ${palette[PaletteColor.LinkHover]};
     background-color: transparent;
 
@@ -195,7 +256,7 @@ export const warningButtonMixin = {
       cursor: default;
     }
   `,
-}
+};
 
 export const sizeButtonMixin = {
   [ButtonSize.Xs]: css`

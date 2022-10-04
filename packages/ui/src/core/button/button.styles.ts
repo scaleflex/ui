@@ -4,8 +4,7 @@ import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { ButtonProps } from './button.props';
-import { colorButtonMixin, warningButtonMixin, sizeButtonMixin, sizeButtonLabelMixin } from './button.mixin';
-import { Color as PColor } from '../../utils/types/palette';
+import { colorButtonMixin, sizeButtonMixin, sizeButtonLabelMixin } from './button.mixin';
 import { ButtonSize, ButtonColor } from '../../utils/types';
 
 const baseClassName = 'Button';
@@ -26,62 +25,38 @@ const Badge = styled.span.attrs({
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, iconDirection, warning, link, theme }: With<WithTheme, ButtonProps>) => css`
+  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, endIcon, theme }: With<WithTheme, ButtonProps>) => css`
     display: inline-flex;
     flex-shrink: 0;
-    flex-direction: ${iconDirection === 'right' ? 'row-reverse' : 'row'};
+    flex-direction: ${endIcon ? 'row-reverse' : 'row'};
     align-items: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 0;
     cursor: pointer;
     outline: none;
 
-    ${warning ? warningButtonMixin[color] : colorButtonMixin[color]}
-    ${sizeButtonMixin[size]}
-
     ${Label} {
       ${sizeButtonLabelMixin[size]}
-
-      ${link && color === ButtonColor.Basic && `font-weight: 400`}
+      ${color === ButtonColor.LinkBasic && `font-weight: 400`}
     }
 
     ${Badge} {
       ${sizeButtonLabelMixin[size]}
     }
 
-    ${link && css`
-      color: ${theme.palette[PColor.AccentStateless]};
-      background-color: transparent;
-      border: none;
-      padding: 0px;
-
-      &:hover {
-        background-color: transparent;
-        color: ${theme.palette[PColor.AccentPrimaryHover]};
-      }
-
-      &:active {
-        color: ${theme.palette[PColor.AccentPrimaryActive]};
-      }
-
-      &:disabled {
-        background-color: transparent;
-        color: ${theme.palette[PColor.ButtonDisabledText]};
-      }`
-    }
-
-    ${link && color === ButtonColor.Secondary && `color: ${theme.palette[PColor.LinkHover]}`}}
+    ${colorButtonMixin[color]}
+    ${sizeButtonMixin[size]}
   `
 );
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ $loading, iconDirection }: ButtonProps) => css`
+  ({ $loading, endIcon }: ButtonProps) => css`
     display: flex;
     margin-right: 6px;
 
-    ${iconDirection === 'right' && css`
+    ${endIcon && css`
       margin-left: 6px;
     `}
 
