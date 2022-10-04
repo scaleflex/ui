@@ -25,12 +25,12 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
         background: transparent;
       }
     }
@@ -60,13 +60,13 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       border: none;
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
       }
     }
 
@@ -102,11 +102,11 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
       }
     }
   `,

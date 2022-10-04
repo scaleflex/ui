@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+
+import { Size, Type } from '../../src/core/check-box/types';
 import _CheckBox, { CheckBoxProps } from '../../src/core/check-box';
 import { StoryGroup } from './types';
 
@@ -15,6 +17,8 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
+  size: Size.Sm,
+  type: Type.Checkbox,
 };
 
 const BasicTemplate: Story<CheckBoxProps> = ({ checked, ...args }) => {
