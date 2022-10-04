@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { LabelPosition } from '@scaleflex/ui/core/check-box-group/types';
+import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
+import type { IconProps } from '@scaleflex/icons/icon.props';
+
+import { LabelPosition } from '../../src/core/check-box-group/types';
+import { Size, Type } from '../../src/core/check-box/types';
+
 import _CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
 import { StoryGroup } from './types';
 
@@ -10,9 +15,14 @@ export default {
   title: `${StoryGroup.Inputs}/Checkbox/CheckBoxGroup`,
   component: CheckBoxGroup,
   excludeStories: ['CheckBoxGroup'],
+
   argTypes: {
     checkProps: {
       description: 'input attributes applied directly input element.',
+    },
+    icon: {
+      description:
+        'To customize an icon you can do like `icon={(props) => <QuestionMarkOutline {...props} />}` otherwise `icon={<QuestionMarkOutline />}`',
     },
   },
 } as Meta;
@@ -23,6 +33,8 @@ const defaultArgs = {
   readOnly: false,
   disabled: false,
   labelPosition: LabelPosition.After,
+  size: Size.Sm,
+  type: Type.Checkbox,
 };
 
 const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {
@@ -38,3 +50,11 @@ const BasicTemplate: Story<CheckBoxGroupProps> = ({ checked, ...args }) => {
 // Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
+
+// WithIcons
+export const WithIcon = BasicTemplate.bind({});
+WithIcon.args = {
+  ...defaultArgs,
+  title: 'Tooltip text',
+  icon: (props: IconProps) => <QuestionMarkOutline {...props} />,
+};

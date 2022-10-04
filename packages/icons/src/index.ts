@@ -1,5 +1,3 @@
-export { CheckBoxUnchecked } from './check-box-unchecked';
-export { CheckBox } from './check-box';
 export { Dot } from './dot';
 export { FilerobotLabel } from './filerobot-label';
 export { RobotHappy } from './robot-happy';
@@ -292,3 +290,4 @@ export { Nsfw } from './nsfw';
 export { WarningOutline } from './warning-outline';
 export { Success } from './success';
 export { Error } from './error';
+export { Intermediate } from './intermediate';
