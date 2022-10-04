@@ -1,9 +1,11 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+import MoreDetails from '@scaleflex/icons/more-details';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
+import { ButtonTypes } from '@scaleflex/ui/core/button/types';
 import { StoryGroup } from './types';
 
 export const Button = _Button;
@@ -25,8 +27,12 @@ const defaultArgs = {
   children: 'Upload',
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
+  ButtonType: ButtonTypes.Default,
   disabled: false,
+  active: false,
   loading: false,
+  rightSlide: false,
+  leftSlide: false,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {...args}>{children}</Button>;
@@ -60,4 +66,15 @@ WithIconsAndBadge.args = {
   ...defaultArgs,
   icon: (props: IconProps) => <UploadIcon {...props} />,
   badge: '(1)',
+};
+
+// SidebarTrigger
+export const SidebarTrigger = BasicTemplate.bind({});
+SidebarTrigger.args = {
+  ...defaultArgs,
+  children: 'Details',
+  ButtonType: ButtonTypes.Sidebar,
+  active: true,
+  rightSlide: true,
+  icon: (props: IconProps) => <MoreDetails {...props} />,
 };

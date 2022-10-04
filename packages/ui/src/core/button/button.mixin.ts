@@ -126,6 +126,34 @@ export const sizeButtonMixin = {
   `,
 };
 
+export const sizeSidebarMixin = {
+  [ButtonSize.Sm]: css`
+    padding: 8px 12px;
+  `,
+
+  [ButtonSize.Md]: css`
+    padding: 11px 14px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    padding: 14px 16px;
+  `,
+};
+
+export const sizeSidebarDividerMixin = {
+  [ButtonSize.Sm]: css`
+    height: 16px;
+  `,
+
+  [ButtonSize.Md]: css`
+    height: 18px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    height: 20px;
+  `,
+};
+
 export const sizeButtonLabelMixin = {
   [ButtonSize.Sm]: ({
     theme: {

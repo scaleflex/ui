@@ -16,3 +16,19 @@ export const getIconSize = (sizeName?: ButtonSizeType): number => {
       return 16;
   }
 };
+
+export const getSlideIconSize = (sizeName?: ButtonSizeType): number => {
+  switch (sizeName) {
+    case ButtonSize.Lg:
+      return 12;
+
+    case ButtonSize.Md:
+      return 11;
+
+    case ButtonSize.Sm:
+      return 10;
+
+    default:
+      return 11;
+  }
+};

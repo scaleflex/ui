@@ -20,6 +20,7 @@ export const Color = {
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
   BackgroundActive: 'bg-active',
+  BackgroundAccentBlue_0_05_Opacity: 'bg-accent-blue-0-05-Opacity',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',

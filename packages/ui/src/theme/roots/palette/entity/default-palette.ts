@@ -66,6 +66,7 @@ export const lightPalette = {
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
   [Color.BackgroundActive]: 'rgba(243,247,250,1)',
+  [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
 
   [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
