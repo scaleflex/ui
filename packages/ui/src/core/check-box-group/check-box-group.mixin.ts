@@ -1,5 +1,5 @@
-import { WithTheme } from '@scaleflex/ui/theme/entity';
-import { FontVariant as FV } from '@scaleflex/ui/utils/types/typography';
+import { WithTheme } from '../../theme/entity';
+import { FontVariant as FV } from '../../utils/types/typography';
 
 import { Size } from '../check-box/types';
 

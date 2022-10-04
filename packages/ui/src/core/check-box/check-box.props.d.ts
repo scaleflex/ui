@@ -10,7 +10,6 @@ export interface CheckBoxProps extends React.HTMLAttributes<HTMLSpanElement> {
   checkBoxProps?: React.InputHTMLAttributes;
   readOnly?: boolean;
   disabled?: boolean;
-  isHovering?: boolean;
   size?: CheckBoxSizeType;
   type?: CheckBoxType;
 }

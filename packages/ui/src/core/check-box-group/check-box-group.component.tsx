@@ -1,7 +1,7 @@
 import React from 'react';
 import PT from 'prop-types';
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
-import { Color } from '@scaleflex/ui/utils/types/palette';
+import { lightPalette } from '../../theme/roots/palette';
+import { Color } from '../../utils/types/palette';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import CheckBox from '../check-box';
@@ -12,17 +12,7 @@ import { Size } from '../check-box/types';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   (
-    {
-      size = Size.Sm,
-      label,
-      checkBoxProps,
-      readOnly,
-      disabled,
-      labelPosition,
-      title,
-      icon,
-      ...rest
-    }: CheckBoxGroupProps,
+    { size = Size.Sm, label, checkBoxProps, readOnly, disabled, labelPosition, icon, ...rest }: CheckBoxGroupProps,
     ref
   ): JSX.Element => {
     const content = [
@@ -64,7 +54,6 @@ CheckBoxGroup.defaultProps = {
 
 CheckBoxGroup.propTypes = {
   label: PT.string,
-  title: PT.string,
   checked: PT.bool,
   onChange: PT.func,
   // eslint-disable-next-line react/forbid-prop-types

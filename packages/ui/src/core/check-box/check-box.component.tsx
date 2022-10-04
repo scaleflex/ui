@@ -2,8 +2,8 @@ import React from 'react';
 import PT from 'prop-types';
 import Tick from '@scaleflex/icons/tick';
 import Intermediate from '@scaleflex/icons/intermediate';
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
-import { Color } from '@scaleflex/ui/utils/types/palette';
+import { lightPalette } from '../../theme/roots/palette';
+import { Color } from '../../utils/types/palette';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
@@ -68,7 +68,6 @@ CheckBox.propTypes = {
   checkBoxProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  isHovering: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   type: PT.oneOf(objectValues(Type)),
 };
