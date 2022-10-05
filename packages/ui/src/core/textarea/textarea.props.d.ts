@@ -6,7 +6,8 @@ export type InputBackgroundType = Values<typeof InputBackgroundColor>;
 
 export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
-  value: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any;
   size?: InputSizeType;
   placeholder?: string;
   readOnly?: boolean;

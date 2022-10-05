@@ -59,8 +59,10 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   fullWidth: PT.bool,
-  value: PT.string,
+  value: PT.any,
   size: PT.oneOf(objectValues(InputSize)),
 };
+
+Textarea.propTypes = propTypes;
 
 export default Textarea;
