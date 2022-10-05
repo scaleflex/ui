@@ -77,6 +77,7 @@ export const lightPalette = {
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
+  [Color.IconsPrimaryHover]: '#4F6276',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66

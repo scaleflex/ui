@@ -31,6 +31,7 @@ export const Color = {
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
   IconsMuted: 'icons-muted',
+  IconsPrimaryHover: 'icons-primary-hover',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',

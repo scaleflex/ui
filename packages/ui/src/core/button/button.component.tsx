@@ -11,34 +11,39 @@ import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
   ({ children, badge, color, size, startIcon, endIcon, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => {
-    const icon = startIcon || endIcon;
 
     return(
-      <Styled.Button {...rest} endIcon={Boolean(endIcon)} disabled={loading || disabled} color={color} size={size} ref={ref}>
-        {icon && (
-          <Styled.Icon $loading={loading} endIcon={Boolean(endIcon)}>
-            {(typeof icon === 'function') ? (
+      <Styled.Button {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
+        {startIcon && (
+          <Styled.StartIcon $loading={loading}>
+            {(typeof startIcon === 'function') ? (
               loading ? (
                 <SpinnerIcon size={getIconSize(size)} />
               ) : (
-                icon({ size: getIconSize(size) })
+                startIcon({ size: getIconSize(size) })
               )
             ) : // eslint-disable-next-line unicorn/no-nested-ternary
             loading ? (
               <SpinnerIcon size={getIconSize(size)} />
             ) : (
-              icon
+              startIcon
             )}
-          </Styled.Icon>
+          </Styled.StartIcon>
         )}
 
-        {loading && !icon && (
-          <Styled.Icon $loading={loading}>
+        {loading && !startIcon && (
+          <Styled.StartIcon $loading={loading}>
             <SpinnerIcon size={getIconSize(size)} />
-          </Styled.Icon>
+          </Styled.StartIcon>
         )}
 
         <Styled.Label>{children}</Styled.Label>
+
+        {endIcon && (
+          <Styled.EndIcon>
+            {(typeof endIcon === 'function') ? endIcon({ size: getIconSize(size) }) : endIcon}
+          </Styled.EndIcon>
+        )}
 
         {badge && (
           <Styled.Badge>

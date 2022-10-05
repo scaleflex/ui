@@ -25,10 +25,10 @@ const Badge = styled.span.attrs({
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, endIcon, theme }: With<WithTheme, ButtonProps>) => css`
+  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, theme }: With<WithTheme, ButtonProps>) => css`
     display: inline-flex;
     flex-shrink: 0;
-    flex-direction: ${endIcon ? 'row-reverse' : 'row'};
+    flex-direction: row;
     align-items: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 0;
@@ -49,16 +49,12 @@ const Button = styled.button.attrs({
   `
 );
 
-const Icon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Icon'),
+const StartIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'StartIcon'),
 })(
-  ({ $loading, endIcon }: ButtonProps) => css`
+  ({ $loading }: ButtonProps) => css`
     display: flex;
     margin-right: 6px;
-
-    ${endIcon && css`
-      margin-left: 6px;
-    `}
 
     svg {
       animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'};
@@ -66,10 +62,18 @@ const Icon = styled.span.attrs({
   `
 );
 
+const EndIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'EndIcon'),
+})`
+    display: flex;
+    margin-left: 6px;
+  `;
+
 const Styled = applyDisplayNames({
   Button,
   Label,
-  Icon,
+  StartIcon,
+  EndIcon,
   Badge,
 });
 
