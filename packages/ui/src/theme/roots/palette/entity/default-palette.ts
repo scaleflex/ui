@@ -61,7 +61,7 @@ export const lightPalette = {
   [Color.AccentStateless]: 'rgba(104,121,235,1)',
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
 
-  [Color.BackgroundGrey]: '#D8E0E8',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
   [Color.BackgroundStateless]: '#FFFFFF',
   [Color.BackgroundActive]: '#F3F7FA',
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
@@ -72,18 +72,19 @@ export const lightPalette = {
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
   [Color.BackgroundActive]: 'rgba(243,247,250,1)',
   [Color.BackgroundHover]: 'rgba(249,251,252,1)',
+  [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
 
   [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
-  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
   [Color.IconsPrimary]: 'rgba(118,138,159,1)',
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: 'rgba(151,166,182,1)',
   [Color.IconsPlaceholder]: '#DEE6ED',
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
+  [Color.IconsPrimaryHover]: '#4F6276',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)',
@@ -101,6 +102,7 @@ export const lightPalette = {
   [Color.BorderActiveBottom]: '#4958BC',
   [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
   [Color.BorderDisabled]: 'rgba(73, 88, 188, 0.4)',
+  [Color.BorderButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
@@ -113,7 +115,13 @@ export const lightPalette = {
   [Color.TabActive]: '#4958BC',
   [Color.TabPressed]: ' #6879EB',
 
-  [Color.Error]: 'rgba(255,86,78,1)',
+  [Color.StatesError]: '#FF564E',
+  [Color.StatesErrorOpacity_0_12]: 'rgba(255, 86, 78, 0.1)',
+  [Color.StatesErrorHovered]: '#D82E2E',
+  [Color.StatesErrorActive]: ' #B9212E',
+  [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
+
+  [Color.Error]: 'rgba(255,86,78,1)', // #E85B46
   [Color.Success]: '#3ECF8B',
   [Color.Warning]: '#FFAC4A',
   [Color.Info]: '#297FB8',
