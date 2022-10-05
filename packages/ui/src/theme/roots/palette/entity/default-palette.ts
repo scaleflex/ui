@@ -82,6 +82,7 @@ export const lightPalette = {
   [Color.IconsSecondary]: '#959DA8',
   [Color.IconsPlaceholder]: '#DEE6ED',
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
+  [Color.IconsPrimaryHover]: '#4F6276',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
   [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)',
@@ -110,6 +111,12 @@ export const lightPalette = {
   [Color.TabHover]: '#606fd1',
   [Color.TabActive]: '#4958BC',
   [Color.TabPressed]: ' #6879EB',
+
+  [Color.StatesError]: '#FF564E',
+  [Color.StatesErrorOpacity_0_12]: 'rgba(255, 86, 78, 0.1)',
+  [Color.StatesErrorHovered]: '#D82E2E',
+  [Color.StatesErrorActive]: ' #B9212E',
+  [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
 
   [Color.Error]: '#E85B46',
   [Color.Success]: '#3ECF8B',

@@ -17,7 +17,8 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
   (
     {
       children,
-      icon,
+      startIcon,
+      endIcon,
       badge,
       color,
       active,
@@ -72,30 +73,36 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
         {sideBarType === SideBar.Left && getSideBarSection()}
 
         <Styled.Body>
-          {icon && (
-            <Styled.Icon $loading={loading}>
-              {typeof icon === 'function' ? (
+          {startIcon && (
+            <Styled.StartIcon $loading={loading}>
+              {typeof startIcon === 'function' ? (
                 loading ? (
                   <SpinnerIcon size={getIconSize(size)} />
                 ) : (
-                  icon({ size: getIconSize(size) })
+                  startIcon({ size: getIconSize(size) })
                 )
               ) : // eslint-disable-next-line unicorn/no-nested-ternary
               loading ? (
                 <SpinnerIcon size={getIconSize(size)} />
               ) : (
-                icon
+                startIcon
               )}
-            </Styled.Icon>
+            </Styled.StartIcon>
           )}
 
-          {loading && !icon && (
-            <Styled.Icon $loading={loading}>
+          {loading && !startIcon && (
+            <Styled.StartIcon $loading={loading}>
               <SpinnerIcon size={getIconSize(size)} />
-            </Styled.Icon>
+            </Styled.StartIcon>
           )}
 
           <Styled.Label>{children}</Styled.Label>
+
+          {endIcon && (
+            <Styled.EndIcon>
+              {typeof endIcon === 'function' ? endIcon({ size: getIconSize(size) }) : endIcon}
+            </Styled.EndIcon>
+          )}
         </Styled.Body>
 
         {sideBarType === SideBar.Right && getSideBarSection()}
@@ -128,7 +135,8 @@ Button.propTypes = {
   color: PT.oneOf(objectValues(ButtonColor)),
   buttonType: PT.oneOf(objectValues(ButtonType)),
   sideBarType: PT.oneOf(objectValues(SideBar)),
-  icon: PT.oneOfType([PT.node, PT.func]),
+  startIcon: PT.oneOfType([PT.node, PT.func]),
+  endIcon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
   active: PT.bool,
   loading: PT.bool,

@@ -12,6 +12,9 @@ export const getIconSize = (sizeName?: ButtonSizeType): number => {
     case ButtonSize.Sm:
       return 14;
 
+    case ButtonSize.Xs:
+      return 12;
+
     default:
       return 16;
   }
