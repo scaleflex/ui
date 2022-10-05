@@ -294,3 +294,5 @@ export { NoPage } from './no-page';
 export { NoCollections } from './no-collections';
 export { Nsfw } from './nsfw';
 export { WarningOutline } from './warning-outline';
+export { RemoveArtifacts } from './remove-artifacts';
+export { PlateRecognition } from './plate-recognition';
