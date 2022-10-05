@@ -1,5 +1,5 @@
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
-import { Color } from '@scaleflex/ui/utils/types/palette';
+import { lightPalette } from '../../theme/roots/palette';
+import { Color } from '../../utils/types/palette';
 
 export const getInputBackgroundColor = (readOnly?: boolean, disabled?: boolean): string | undefined => {
   if (readOnly || disabled) {
@@ -19,4 +19,8 @@ export const getInputTextColor = (readOnly?: boolean, disabled?: boolean): strin
   }
 
   return lightPalette[Color.TextPrimary];
+};
+
+export const handleCopyIcon = (value: string): void => {
+  navigator.clipboard.writeText(value);
 };

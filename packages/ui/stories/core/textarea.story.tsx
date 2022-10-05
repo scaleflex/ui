@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Textarea, { TextareaProps } from '../../src/core/textarea';
-import { InputBackgroundColor } from '../../src/utils/types';
+import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Textarea = _Textarea;
@@ -13,7 +13,10 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  background: InputBackgroundColor.Primary,
+  size: InputSize.Md,
+  placeholder: 'placeholder',
+  readOnly: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<TextareaProps> = ({ ...args }) => {

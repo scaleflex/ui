@@ -5,6 +5,7 @@ import CopyOutline from '@scaleflex/icons/copy-outline';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
+import { handleCopyIcon } from './input.utils';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined): number => {
@@ -72,10 +73,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }, 200);
     };
 
-    const handleCopyIcon = (): void => {
-      navigator.clipboard.writeText(rest.value);
-    };
-
     const handleIconClick = (event: any, type: string): void => {
       if (disabled) return;
 
@@ -109,14 +106,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly ? (
-        <Styled.CopyIcon
-          onClick={handleCopyIcon}
-          iconClickStart={iconClickStart}
-          iconClickEnd={iconClickEnd}
-          clearIconClick={clearIconClick}
-        >
-          {icon}
-        </Styled.CopyIcon>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>{icon}</Styled.CopyIcon>
       ) : undefined;
 
     const renderField = (): JSX.Element | undefined => (

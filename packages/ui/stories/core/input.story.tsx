@@ -18,8 +18,8 @@ const defaultArgs = {
   size: InputSize.Md,
   placeholder: 'placeholder',
   readOnly: false,
-  focusOnClick: true,
   disabled: false,
+  focusOnClick: true,
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {

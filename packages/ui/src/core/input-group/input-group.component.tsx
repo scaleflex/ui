@@ -33,6 +33,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       readOnly,
       disabled,
       size,
+      value,
       ...rest
     }: InputGroupProps,
     ref
@@ -58,7 +59,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | null => {
-      const fieldProps = { error, ...rest };
+      const fieldProps = { value, readOnly, disabled, size, error, ...rest };
 
       if (type === Type.Input) {
         return (
