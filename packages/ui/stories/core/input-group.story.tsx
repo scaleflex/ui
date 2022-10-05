@@ -4,6 +4,7 @@ import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
 import _InputGroup, { InputGroupProps } from '../../src/core/input-group';
 import { Type } from '../../src/core/input-group/types';
 import { StoryGroup } from './types';
+import { InputSize } from '../../src/utils/types';
 
 export const InputGroup = _InputGroup;
 
@@ -24,10 +25,12 @@ const defaultArgs = {
   label: 'Label',
   hint: 'Some hint goes here',
   readOnly: false,
+  disabled: false,
+  size: InputSize.Md,
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
-  const [valueState, setValueState] = useState('value');
+  const [valueState, setValueState] = useState('Text');
 
   return (
     <InputGroup
@@ -47,7 +50,7 @@ export const InputWithIconStart = BasicTemplate.bind({});
 InputWithIconStart.args = {
   ...defaultArgs,
   LabelProps: {
-    iconStart: (props: any) => <QuestionMarkOutline {...props} />,
+    iconStart: (props: any) => <QuestionMarkOutline size={12} {...props} />,
   },
 };
 
@@ -56,7 +59,7 @@ export const InputWithIconEnd = BasicTemplate.bind({});
 InputWithIconEnd.args = {
   ...defaultArgs,
   LabelProps: {
-    iconEnd: (props: any) => <QuestionMarkOutline {...props} />,
+    iconEnd: (props: any) => <QuestionMarkOutline size={12} {...props} />,
   },
 };
 

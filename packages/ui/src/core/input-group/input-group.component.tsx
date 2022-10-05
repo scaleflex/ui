@@ -8,6 +8,7 @@ import type { LabelProps } from '../label';
 import Input from '../input';
 import type { InputProps } from '../input';
 import { propTypes as inputPropTypes } from '../input/input.component';
+import { InputSize } from '../../utils/types';
 import type { TextareaProps } from '../textarea';
 import Textarea from '../textarea';
 import { propTypes as textareaPropTypes } from '../textarea/textarea.component';
@@ -30,6 +31,8 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       inputRef,
       TextareaProps: TextareaPropsData,
       readOnly,
+      disabled,
+      size,
       ...rest
     }: InputGroupProps,
     ref
@@ -45,7 +48,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
         }
 
         return (
-          <Label error={error} {...(LabelPropsData || {})}>
+          <Label size={size} error={error} {...(LabelPropsData || {})}>
             {label}
           </Label>
         );
@@ -65,6 +68,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
             {...inputProps}
             ref={inputRef?.ref || inputRef}
             readOnly={readOnly}
+            disabled={disabled}
           />
         );
       }
@@ -86,7 +90,11 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
           return hint;
         }
 
-        return <FormHint error={error}>{hint}</FormHint>;
+        return (
+          <FormHint size={size} error={error}>
+            {hint}
+          </FormHint>
+        );
       }
 
       return null;
@@ -110,6 +118,7 @@ InputGroup.defaultProps = {
 
 InputGroup.propTypes = {
   type: PT.oneOf(objectValues(Type)),
+  size: PT.oneOf(objectValues(InputSize)),
   label: PT.node,
   hint: PT.node,
   error: PT.bool,
@@ -120,6 +129,7 @@ InputGroup.propTypes = {
   inputRef: PT.oneOfType([PT.func, PT.object]),
   TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,
   readOnly: PT.bool,
+  disabled: PT.bool,
 };
 
 export default InputGroup;

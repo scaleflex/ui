@@ -20,6 +20,7 @@ export const Color = {
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
   BackgroundActive: 'bg-active',
+  BackgroundHover: 'bg-hover',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',
@@ -27,6 +28,7 @@ export const Color = {
   BackgroundLightOrange: 'bg-light-orange',
   BackgroundGrey: 'bg-light-grey',
 
+  IconsPrimary: 'icon-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
@@ -40,6 +42,7 @@ export const Color = {
   LinkActive: 'link-active',
 
   BordersPrimary: 'borders-primary',
+  BordersPrimaryHover: 'borders-primary-hover',
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
