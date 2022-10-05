@@ -72,7 +72,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
       >
         {sideBarType === SideBar.Left && getSideBarSection()}
 
-        <Styled.Body>
+        <Styled.Wrapper>
           {startIcon && (
             <Styled.StartIcon $loading={loading}>
               {typeof startIcon === 'function' ? (
@@ -103,7 +103,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
               {typeof endIcon === 'function' ? endIcon({ size: getIconSize(size) }) : endIcon}
             </Styled.EndIcon>
           )}
-        </Styled.Body>
+        </Styled.Wrapper>
 
         {sideBarType === SideBar.Right && getSideBarSection()}
 

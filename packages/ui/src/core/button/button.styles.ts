@@ -30,7 +30,7 @@ const Badge = styled.span.attrs({
   margin-left: 5px;
 `;
 
-const Body = styled.span.attrs({
+const Wrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Body'),
 })(
   () => css`
@@ -148,7 +148,7 @@ const EndIcon = styled.span.attrs({
 
 const Styled = applyDisplayNames({
   Button,
-  Body,
+  Wrapper,
   Label,
   SideArrows,
   Divider,
