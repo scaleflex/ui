@@ -1,19 +1,33 @@
 import React from 'react';
 import PT from 'prop-types';
+import { lightPalette } from '../../theme/roots/palette';
+import { Color } from '../../utils/types/palette';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
 import { LabelPosition } from './types';
+import { Size } from '../check-box/types';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
-  ({ label, checkBoxProps, readOnly, disabled, labelPosition, ...rest }: CheckBoxGroupProps, ref): JSX.Element => {
+  (
+    { size = Size.Sm, label, checkBoxProps, readOnly, disabled, labelPosition, icon, ...rest }: CheckBoxGroupProps,
+    ref
+  ): JSX.Element => {
     const content = [
-      <CheckBox key="checkbox" checkBoxProps={checkBoxProps} disabled={disabled} readOnly={readOnly} {...rest} />,
+      <CheckBox
+        size={size}
+        key="checkbox"
+        checkBoxProps={checkBoxProps}
+        disabled={disabled}
+        readOnly={readOnly}
+        {...rest}
+      />,
     ];
+
     const labelContent = (
-      <Styled.Label key="label" disabled={Boolean(disabled)} labelPosition={labelPosition}>
+      <Styled.Label key="label" disabled={Boolean(disabled)} labelPosition={labelPosition} size={size}>
         {label}
       </Styled.Label>
     );
@@ -23,13 +37,19 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     } else {
       content.push(labelContent);
     }
-    return <Styled.CheckBoxGroup ref={ref}>{content}</Styled.CheckBoxGroup>;
+    return (
+      <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref}>
+        {content}
+        {typeof icon === 'function' ? icon({ size: 12, color: lightPalette[Color.LinkHover] }) : icon}
+      </Styled.CheckBoxGroup>
+    );
   }
 );
 
 CheckBoxGroup.defaultProps = {
   checked: false,
   labelPosition: LabelPosition.After,
+  size: Size.Sm,
 };
 
 CheckBoxGroup.propTypes = {
@@ -40,7 +60,9 @@ CheckBoxGroup.propTypes = {
   checkBoxProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  size: PT.oneOf(objectValues(Size)),
   labelPosition: PT.oneOf(objectValues(LabelPosition)),
+  icon: PT.oneOfType([PT.node, PT.func]),
 };
 
 export default CheckBoxGroup;

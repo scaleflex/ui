@@ -36,6 +36,7 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   enableUnderlayingEvent?: boolean;
   popperWrapperStyles?: object;
   enableHover?: boolean;
+  warning?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
 }

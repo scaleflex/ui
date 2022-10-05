@@ -13,7 +13,7 @@ const defaultFontValue = {
 const labelFontVariants = {
   [FontVariant.LabelExtraSmall]: {
     ...defaultFontValue,
-    fontSize: '10px',
+    fontSize: '11px',
     lineHeight: '12px',
   },
   [FontVariant.LabelSmall]: {
@@ -25,6 +25,11 @@ const labelFontVariants = {
     ...defaultFontValue,
     fontSize: '14px',
     lineHeight: '16px',
+  },
+  [FontVariant.LabelLarge]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
   },
   [FontVariant.LabelEmphasis]: {
     ...defaultFontValue,
@@ -102,26 +107,20 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       [FontVariant.ButtonSm]: {
         ...defaultFontValue,
         fontWeight: '500',
-        fontSize: '13px',
+        fontSize: '14px',
         lineHeight: '16px',
       },
       [FontVariant.ButtonMd]: {
         ...defaultFontValue,
         fontWeight: '500',
-        fontSize: '15px',
-        lineHeight: '16px',
+        fontSize: '16px',
+        lineHeight: '18px',
       },
       [FontVariant.ButtonLg]: {
         ...defaultFontValue,
         fontWeight: '500',
-        fontSize: '15px',
-        lineHeight: '16px',
-      },
-      [FontVariant.ButtonXl]: {
-        ...defaultFontValue,
-        fontWeight: '500',
-        fontSize: '16px',
-        lineHeight: '16px',
+        fontSize: '18px',
+        lineHeight: '20px',
       },
 
       [FontVariant.InputSm]: {
@@ -133,6 +132,11 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         ...defaultFontValue,
         fontSize: '14px',
         lineHeight: '16px',
+      },
+      [FontVariant.InputLg]: {
+        ...defaultFontValue,
+        fontSize: '16px',
+        lineHeight: '18px',
       },
     },
   },

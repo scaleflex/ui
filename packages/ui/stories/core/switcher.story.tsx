@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { SwitcherSize } from '@scaleflex/ui/core/switcher/switcher-size';
+
 import _Switcher, { SwitcherProps } from '../../src/core/switcher';
 import { StoryGroup } from './types';
 
@@ -15,6 +17,7 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
+  size: SwitcherSize.Sm,
 };
 
 const BasicTemplate: Story<SwitcherProps> = ({ checked, ...args }) => {
@@ -24,7 +27,15 @@ const BasicTemplate: Story<SwitcherProps> = ({ checked, ...args }) => {
     setCheckedState(checked || false);
   }, [checked]);
 
-  return <Switcher {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
+  return (
+    <Switcher
+      {...args}
+      checked={checkedState}
+      onChange={(event) => {
+        setCheckedState(event.target.checked);
+      }}
+    />
+  );
 };
 
 // Basic

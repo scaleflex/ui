@@ -10,9 +10,9 @@ export const sizeInputMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 4px 8px;
-    height: 24px;
-    ${font[FV.InputSm]}
+    padding: 8px 12px;
+    height: 32px;
+    ${font[FV.InputMd]}
   `,
 
   [InputSize.Md]: ({
@@ -20,10 +20,24 @@ export const sizeInputMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 8px 12px;
-    height: 30px;
-    ${font[FV.InputMd]}
+    padding: 11px 16px;
+    height: 40px;
+    ${font[FV.InputLg]}
   `,
+};
+
+export const sizeInputLabelMixin = {
+  [InputSize.Sm]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FV.LabelSmall]),
+
+  [InputSize.Md]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FV.LabelNormal]),
 };
 
 export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
