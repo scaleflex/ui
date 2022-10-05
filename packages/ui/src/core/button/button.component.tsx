@@ -1,66 +1,76 @@
 import React from 'react';
 import PT from 'prop-types';
 import SpinnerIcon from '@scaleflex/icons/spinner';
+import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
+import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
+import type { IconProps } from '@scaleflex/icons/icon.props';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
 import { ButtonSize, ButtonColor } from '../../utils/types';
-import { ButtonTypes } from './types';
-import type { IconProps } from '@scaleflex/icons/icon.props';
-import { TwoArrowsRight } from '@scaleflex/icons/two-arrows-right';
-import { TwoArrowsLeft } from '@scaleflex/icons/two-arrows-left';
-import { getIconSize, getSlideIconSize } from './button.utils';
+import { ButtonType, SideBar } from './types';
+import { getIconSize, getSideBarIconSize } from './button.utils';
 import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
-  ({
-    children,
-    icon,
-    rightSlide,
-    leftSlide,
-    badge,
-    color,
-    active,
-    ButtonType,
-    size,
-    loading,
-    disabled,
-    ...rest
-  }: ButtonProps, ref): JSX.Element => {
+  (
+    {
+      children,
+      icon,
+      badge,
+      color,
+      active,
+      buttonType,
+      sideBarType = SideBar.Left,
+      size,
+      loading,
+      disabled,
+      ...rest
+    }: ButtonProps,
+    ref
+  ): JSX.Element => {
+    const getSideBarArrows = (props: IconProps): JSX.Element | undefined => {
+      switch (sideBarType) {
+        case SideBar.Left:
+          return active ? <TwoArrowsLeft {...props} /> : <TwoArrowsRight {...props} />;
+        case SideBar.Right:
+          return active ? <TwoArrowsRight {...props} /> : <TwoArrowsLeft {...props} />;
+        default:
+      }
+    };
 
-    const slidebar = rightSlide || leftSlide;
-    const getSlideIcon = (props: IconProps) => {
-      if(active){
-        if(rightSlide){
-          return <TwoArrowsRight {...props} />;
-        }
-        if(leftSlide){
-          return <TwoArrowsLeft {...props} />;
-        }
+    const getSideBarSection = (): any => {
+      const sideBarSection = [
+        <Styled.SideArrows key="arrows" sideBarType={sideBarType}>
+          {getSideBarArrows({ size: getSideBarIconSize(size) })}
+        </Styled.SideArrows>,
+      ];
+
+      const divider = <Styled.Divider key="divider" size={size} sideBarType={sideBarType} />;
+
+      if (sideBarType === SideBar.Right) {
+        sideBarSection.unshift(divider);
+      } else {
+        sideBarSection.push(divider);
       }
-      else{
-        if(rightSlide){
-          return <TwoArrowsLeft {...props} />;
-        }
-        if(leftSlide){
-          return <TwoArrowsRight {...props} />;
-        }
-      }
-  };
-  
+      return buttonType === ButtonType.Sidebar && sideBarSection;
+    };
+
     return (
       <Styled.Button
         type="button"
-        ButtonType={ButtonType}
+        buttonType={buttonType}
         {...rest}
         disabled={loading || disabled}
-        leftSlide={Boolean(leftSlide)}
+        sideBarType={sideBarType}
         color={color}
         active={active}
         size={size}
         ref={ref}
       >
+        {sideBarType === SideBar.Left && getSideBarSection()}
+
         <Styled.Body>
           {icon && (
             <Styled.Icon $loading={loading}>
@@ -88,15 +98,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
           <Styled.Label>{children}</Styled.Label>
         </Styled.Body>
 
-        {slidebar && (
-          <Styled.Divider size={size} leftSlide={leftSlide} />
-        )}
-
-        {slidebar && (
-          <Styled.Slidebar leftSlide={leftSlide}>
-            {getSlideIcon({ size: getSlideIconSize(size) })}
-          </Styled.Slidebar>
-        )}
+        {sideBarType === SideBar.Right && getSideBarSection()}
 
         {badge && (
           <Styled.Badge>
@@ -117,14 +119,15 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 Button.defaultProps = {
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
-  ButtonType: ButtonTypes.Default,
+  buttonType: ButtonType.Default,
   active: false,
 };
 
 Button.propTypes = {
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(ButtonColor)),
-  ButtonType: PT.oneOf(objectValues(ButtonTypes)),
+  buttonType: PT.oneOf(objectValues(ButtonType)),
+  sideBarType: PT.oneOf(objectValues(SideBar)),
   icon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
   active: PT.bool,

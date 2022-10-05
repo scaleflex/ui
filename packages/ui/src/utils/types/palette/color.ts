@@ -24,14 +24,12 @@ export const Color = {
   BackgroundPrimaryStateless: 'bg-primary-stateless',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
-  BackgroundActive: 'bg-active',
   BackgroundAccentBlue_0_05_Opacity: 'bg-accent-blue-0-05-Opacity',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',
   BackgroundLightRed: 'bg-light-red',
   BackgroundLightOrange: 'bg-light-orange',
-  BackgroundGrey: 'bg-light-grey',
 
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
@@ -53,6 +51,7 @@ export const Color = {
   BorderActiveBottom: 'border-active-bottom',
   BorderPrimaryStateless: 'border-primary-stateless',
   BorderDisabled: 'border-disabled',
+  BorderButton: 'border-button',
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',

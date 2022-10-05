@@ -13,7 +13,7 @@ import {
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
-import { ButtonTypes } from './types';
+import { ButtonType, SideBar } from './types';
 
 const baseClassName = 'Button';
 
@@ -41,18 +41,24 @@ const Body = styled.span.attrs({
 const Button = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, ButtonType, active, leftSlide, theme }: With<WithTheme, ButtonProps>) => css`
+  ({
+    color = ButtonColor.Secondary,
+    size = ButtonSize.Md,
+    buttonType,
+    active,
+    theme,
+  }: With<WithTheme, ButtonProps>) => css`
     display: inline-flex;
     flex-shrink: 0;
-    flex-direction: ${leftSlide ? 'row-reverse' : 'row'};
+    flex-direction: row;
     align-items: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 0;
     cursor: pointer;
     outline: none;
 
-    ${ButtonType !== ButtonTypes.Sidebar && colorButtonMixin[color]}
-    ${ButtonType === ButtonTypes.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
+    ${buttonType !== ButtonType.Sidebar && colorButtonMixin[color]}
+    ${buttonType === ButtonType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
 
     ${Label} {
       ${sizeButtonLabelMixin[size]}
@@ -62,12 +68,14 @@ const Button = styled.button.attrs({
       ${sizeButtonLabelMixin[size]}
     }
 
-    ${ButtonType === ButtonTypes.Sidebar && css `
+    ${buttonType === ButtonType.Sidebar &&
+    css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
       color: ${theme.palette[PaletteColor.LinkHover]};
-      border: 1px solid ${theme.palette[PaletteColor.LinkHover]};
+      border: 1px solid ${theme.palette[PaletteColor.BorderButton]};
 
-      ${!active && css `
+      ${!active &&
+      css`
         &:hover {
           color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
           background-color: ${theme.palette[PaletteColor.AccentPrimaryHover]};
@@ -75,15 +83,25 @@ const Button = styled.button.attrs({
         }
 
         &:active {
+          color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
           background-color: ${theme.palette[PaletteColor.AccentPrimaryActive]};
+          border: none;
         }
       `}
 
-      ${active && css`
+      ${active &&
+      css`
         background-color: ${theme.palette[PaletteColor.BackgroundAccentBlue_0_05_Opacity]};
         color: ${theme.palette[PaletteColor.AccentPrimaryActive]};
         border: 1px solid ${theme.palette[PaletteColor.AccentPrimaryActive]};
       `}
+
+      &:disabled {
+        color: ${theme.palette[PaletteColor.BorderDisabled]};
+        background: ${theme.palette[PaletteColor.AccentPrimaryDisabled]};
+        border: none;
+        cursor: default;
+      }
     `}
   `
 );
@@ -102,23 +120,23 @@ const Icon = styled.span.attrs({
   `
 );
 
-const Slidebar = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Slidebar'),
+const SideArrows = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'SideBar'),
 })(
-  ({ leftSlide }: ButtonProps) => css`
+  ({ sideBarType }: ButtonProps) => css`
     display: flex;
-    ${leftSlide ? 'margin-right: 12px': 'margin-left: 12px'};
+    ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
   `
 );
 
 const Divider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Divider'),
 })(
-  ({ leftSlide, size = ButtonSize.Md }: ButtonProps) => css`
+  ({ sideBarType, size = ButtonSize.Md }: ButtonProps) => css`
     border-left-style: solid;
     border-width: 1px;
     ${sizeSidebarDividerMixin[size]}
-    ${leftSlide ? 'margin-right: 12px': 'margin-left: 12px'};
+    ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
   `
 );
 
@@ -127,7 +145,7 @@ const Styled = applyDisplayNames({
   Body,
   Label,
   Icon,
-  Slidebar,
+  SideArrows,
   Divider,
   Badge,
 });

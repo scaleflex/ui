@@ -17,7 +17,7 @@ export const getIconSize = (sizeName?: ButtonSizeType): number => {
   }
 };
 
-export const getSlideIconSize = (sizeName?: ButtonSizeType): number => {
+export const getSideBarIconSize = (sizeName?: ButtonSizeType): number => {
   switch (sizeName) {
     case ButtonSize.Lg:
       return 12;

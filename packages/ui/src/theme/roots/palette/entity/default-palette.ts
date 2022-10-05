@@ -61,7 +61,7 @@ export const lightPalette = {
   [Color.AccentStateless]: 'rgba(104,121,235,1)',
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
 
-  [Color.BackgroundGrey]: '#D8E0E8',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
   [Color.BackgroundStateless]: '#FFFFFF',
   [Color.BackgroundActive]: '#F3F7FA',
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
@@ -77,7 +77,6 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
-  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
 
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
@@ -99,6 +98,7 @@ export const lightPalette = {
   [Color.BorderActiveBottom]: '#4958BC',
   [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
   [Color.BorderDisabled]: 'rgba(73, 88, 188, 0.4)',
+  [Color.BorderButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d

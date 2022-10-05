@@ -3,9 +3,9 @@ import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
 import MoreDetails from '@scaleflex/icons/more-details';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+import { ButtonType, SideBar } from '@scaleflex/ui/core/button/types';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
-import { ButtonTypes } from '@scaleflex/ui/core/button/types';
 import { StoryGroup } from './types';
 
 export const Button = _Button;
@@ -27,32 +27,26 @@ const defaultArgs = {
   children: 'Upload',
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
-  ButtonType: ButtonTypes.Default,
+  buttonType: ButtonType.Default,
   disabled: false,
   active: false,
   loading: false,
-  rightSlide: false,
-  leftSlide: false,
 };
 
 const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {...args}>{children}</Button>;
 
-// Basic
+//  Basic
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
-// Disabled
-export const Disabled = BasicTemplate.bind({});
-Disabled.args = { ...defaultArgs, disabled: true };
-
-// WithIcon
+//  WithIcon
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
   icon: (props: IconProps) => <UploadIcon {...props} />,
 };
 
-// WithBadge
+//  WithBadge
 export const WithBadge = BasicTemplate.bind({});
 WithBadge.args = {
   ...defaultArgs,
@@ -60,7 +54,7 @@ WithBadge.args = {
   children: 'Select',
 };
 
-// WithIconsAndBadge
+//  WithIconsAndBadge
 export const WithIconsAndBadge = BasicTemplate.bind({});
 WithIconsAndBadge.args = {
   ...defaultArgs,
@@ -68,13 +62,13 @@ WithIconsAndBadge.args = {
   badge: '(1)',
 };
 
-// SidebarTrigger
+//  SidebarTrigger
 export const SidebarTrigger = BasicTemplate.bind({});
 SidebarTrigger.args = {
-  ...defaultArgs,
+  size: ButtonSize.Md,
   children: 'Details',
-  ButtonType: ButtonTypes.Sidebar,
-  active: true,
-  rightSlide: true,
+  buttonType: ButtonType.Sidebar,
+  sideBarType: SideBar.Left,
+  active: false,
   icon: (props: IconProps) => <MoreDetails {...props} />,
 };
