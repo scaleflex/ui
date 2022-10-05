@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PT from 'prop-types';
+import CopyOutline from '@scaleflex/icons/copy-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
-import { InputBackgroundColor, InputSize } from '../../utils/types';
+import { InputSize } from '../../utils/types';
+import { handleCopyIcon } from './input.utils';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined): number => {
@@ -32,7 +34,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       style,
       fullWidth,
       readOnly,
-      background = 'primary',
+      disabled,
       focusOnMount = false,
       focusOnClick = true,
       error,
@@ -42,10 +44,14 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     }: InputProps,
     ref
   ): JSX.Element => {
+    const [isHovering, setIsHovering] = useState(false);
+
     const inputRef = useRef<HTMLInputElement | null>(null);
     const placeholder = rest.value ? '' : rest.placeholder;
 
     const handleFocus = (): void => {
+      if (disabled) return;
+
       inputRef.current?.focus();
     };
 
@@ -55,7 +61,21 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }
     }, []);
 
+    const handleEntering = (): void => {
+      setTimeout(() => {
+        setIsHovering(true);
+      }, 150);
+    };
+
+    const handleLeaving = (): void => {
+      setTimeout(() => {
+        setIsHovering(false);
+      }, 200);
+    };
+
     const handleIconClick = (event: any, type: string): void => {
+      if (disabled) return;
+
       if (focusOnClick) {
         handleFocus();
       }
@@ -84,6 +104,11 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.Icon>
       ) : undefined;
 
+    const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
+      isHovering && readOnly ? (
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>{icon}</Styled.CopyIcon>
+      ) : undefined;
+
     const renderField = (): JSX.Element | undefined => (
       // TODO: refactor how implement tags in input
       // return renderTags ? (
@@ -107,15 +132,19 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         onClick={focusOnClick ? handleFocus : undefined}
         ref={ref}
         size={size}
+        onMouseEnter={handleEntering}
+        onMouseLeave={handleLeaving}
         className={className}
         style={style}
+        readOnly={readOnly}
+        disabled={disabled}
         fullWidth={Boolean(fullWidth)}
-        background={background}
         error={error}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
         {renderIcon(clearIcon, 'secondEnd')}
+        {renderCopyIcon(<CopyOutline size={16} />)}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>
@@ -125,10 +154,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
 export const defaultProps = {
   size: InputSize.Md,
-  background: InputBackgroundColor.Primary,
   error: false,
   fullWidth: false,
   readOnly: false,
+  disabled: false,
 };
 
 Input.defaultProps = defaultProps;
@@ -142,10 +171,10 @@ export const propTypes = {
   fullWidth: PT.bool,
   value: PT.any,
   readOnly: PT.bool,
+  disabled: PT.bool,
   iconClickStart: PT.func,
   iconClickEnd: PT.func,
   clearIconClick: PT.func,
-  background: PT.oneOf(objectValues(InputBackgroundColor)),
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
   /// / TODO: refactor how implement tags in input

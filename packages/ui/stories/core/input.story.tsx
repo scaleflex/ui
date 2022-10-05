@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react';
 import CensorIcon from '@scaleflex/icons/censor';
 import SearchIcon from '@scaleflex/icons/search';
 import _Input, { InputProps } from '../../src/core/input';
-import { InputSize, InputBackgroundColor } from '../../src/utils/types';
+import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Input = _Input;
@@ -18,7 +18,7 @@ const defaultArgs = {
   size: InputSize.Md,
   placeholder: 'placeholder',
   readOnly: false,
-  background: InputBackgroundColor.Primary,
+  disabled: false,
   focusOnClick: true,
 };
 

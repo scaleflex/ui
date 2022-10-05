@@ -1,54 +1,107 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
-import type { With } from '../../utils/types';
+import { InputSize, With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
-import { errorMixin } from './textarea.mixin';
-import { InputBackgroundColor } from '../../utils/types';
+import { errorMixin, sizeTextAreaMixin } from './textarea.mixin';
+import { getInputBackgroundColor, getInputTextColor } from '../input/input.utils';
 
 const baseClassName = 'Textarea';
 
-const Textarea = styled.textarea.attrs({
+const Textarea = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-  rows: 3,
-})<TextareaProps>(
-  ({ error = false, background = InputBackgroundColor.Primary, theme }: With<WithTheme, TextareaProps>) => css`
+})(
+  ({
+    size = InputSize.Md,
+    error = false,
+    fullWidth = false,
+    readOnly = false,
+    disabled = false,
+    theme,
+  }: With<WithTheme, TextareaProps>) => css`
     position: relative;
     display: inline-flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
     cursor: text;
-    width: 300px;
-    padding: 7px 12px;
-    background: ${background === 'primary'
-      ? theme.palette[PColor.BackgroundPrimary]
-      : theme.palette[PColor.BackgroundSecondary]};
-    border: 1px solid ${theme.palette[PColor.BordersSecondary]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
-    font-family: ${theme.typography.fontFamily};
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: normal;
-    line-height: 16px;
-    color: ${theme.palette[PColor.TextPrimary]};
-    outline: none;
-    resize: none;
+    width: ${fullWidth ? '100%' : '300px'};
+    pointer-events: ${disabled ? 'none' : 'auto'};
+    background-color: ${getInputBackgroundColor(readOnly, disabled)};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    border: 1px solid
+      ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
+    color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    &:focus-within {
-      background-color: ${theme.palette[PColor.BackgroundSecondary]} !important;
-      border: 1px solid ${theme.palette[PColor.AccentPrimary]};
-    }
+    ${sizeTextAreaMixin[size]}
+
+    ${!readOnly &&
+    !disabled &&
+    css`
+      &:focus-within {
+        background-color: ${theme.palette[PColor.BackgroundSecondary]}!important;
+        border: 1px solid ${theme.palette[PColor.AccentStateless]};
+
+        &:hover {
+          border: 1px solid ${theme.palette[PColor.AccentStateless]};
+        }
+      }
+
+      &:hover {
+        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
+        border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
+      }
+    `}
 
     &:hover {
-      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
+      color: ${getInputTextColor(readOnly, disabled)};
     }
 
     ${error && errorMixin}
   `
 );
 
-const Styled = applyDisplayNames({ Textarea });
+const Base = styled.textarea.attrs({
+  className: generateClassNames(baseClassName, 'Base'),
+})<TextareaProps>(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    outline: none;
+    resize: none;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+
+    &::placeholder {
+      color: ${palette[PColor.TextPlaceholder]};
+    }
+  `
+);
+
+const CopyIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'CopyIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
+    color: ${palette[PColor.IconsPrimary]};
+    cursor: pointer;
+  `
+);
+
+const Styled = applyDisplayNames({ Textarea, CopyIcon, Base });
 
 export default Styled;

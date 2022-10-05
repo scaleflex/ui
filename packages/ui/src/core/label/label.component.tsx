@@ -2,18 +2,17 @@ import React, { ReactNode, useState, useRef } from 'react';
 import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { InputSize } from '../../utils/types';
 import type { LabelProps } from './label.props';
 import { Type } from './types';
 import Styled from './label.styles';
 
 const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
-  ({ children, iconStart, iconEnd, error, type, ...rest }: LabelProps, ref): JSX.Element => {
+  ({ children, iconStart, iconEnd, error, size, type, ...rest }: LabelProps, ref): JSX.Element => {
     const textRef = useRef<HTMLSpanElement | null>(null);
     const [isEllipsisActive, setIsEllipsisActive] = useState(false);
     const renderIcon = (icon: ReactNode, end: boolean): ReactNode => (
-      <Styled.Icon error={Boolean(error)} $end={end}>
-        {typeof icon === 'function' ? icon() : icon}
-      </Styled.Icon>
+      <Styled.Icon $end={end}>{typeof icon === 'function' ? icon() : icon}</Styled.Icon>
     );
 
     const getTextTooltip = (): string | undefined => {
@@ -29,7 +28,7 @@ const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
     };
 
     return (
-      <Styled.Label ref={ref} error={error} type={type} {...rest}>
+      <Styled.Label ref={ref} error={error} size={size} type={type} {...rest}>
         {iconStart && renderIcon(iconStart, false)}
         <Styled.Text title={getTextTooltip()} onMouseOver={handleTextTooltip} ref={textRef}>
           {children}
@@ -51,6 +50,7 @@ export const propTypes = {
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
+  size: PT.oneOf(objectValues(InputSize)),
   htmlFor: PT.string,
 };
 

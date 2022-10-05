@@ -133,6 +133,11 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         fontSize: '14px',
         lineHeight: '16px',
       },
+      [FontVariant.InputLg]: {
+        ...defaultFontValue,
+        fontSize: '16px',
+        lineHeight: '18px',
+      },
     },
   },
 
