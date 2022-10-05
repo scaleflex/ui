@@ -153,6 +153,7 @@ export const colorButtonMixin = {
     }
   `,
 
+  // eslint-disable-next-line sonarjs/no-identical-functions
   [ButtonColor.LinkBasic]: ({ theme: { palette } }: WithTheme) => css`
     color: ${palette[PaletteColor.AccentStateless]};
     background-color: transparent;
@@ -277,6 +278,10 @@ export const sizeButtonMixin = {
 };
 
 export const sizeSidebarMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 5px 10px;
+  `,
+
   [ButtonSize.Sm]: css`
     padding: 8px 12px;
   `,
@@ -291,6 +296,10 @@ export const sizeSidebarMixin = {
 };
 
 export const sizeSidebarDividerMixin = {
+  [ButtonSize.Xs]: css`
+    height: 14px;
+  `,
+
   [ButtonSize.Sm]: css`
     height: 16px;
   `,
