@@ -44,9 +44,16 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
       <Styled.Label contentEditable={contentEditable} suppressContentEditableWarning={suppressContentEditableWarning}>
         {children}
       </Styled.Label>
-      {crossIcon && typeof onRemove === 'function' && (
+      {crossIcon && (
         <Styled.Cross>
-          <CrossIcon size={8} onClick={(event) => onRemove(tagIndex!, event)} />
+          <CrossIcon
+            size={8}
+            onClick={(event) => {
+              if (typeof onRemove === 'function') {
+                onRemove(tagIndex!, event);
+              }
+            }}
+          />
         </Styled.Cross>
       )}
     </Styled.Tag>

@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
-import { AddTagType } from '../../src/core/tag-field/types';
-import { InputBackgroundColor } from '../../src/utils/types';
+import { AddTagType, Size } from '../../src/core/tag-field/types';
 import { StoryGroup } from './types';
 
 export const TagField = _TagField;
@@ -16,14 +15,14 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  fullWidth: true,
-  tags: ['scaleflex', 'sfx'],
-  suggestedTags: ['scaleflex', 'scaleflexUi', 'scalefexIcons', 'web develompent', 'programming'],
-  placeholder: 'Add tag ...',
+  tags: ['Woman', 'Dance'],
+  suggestedTags: ['winter campaign', 'Q3 epic', 'roadmap', 'may 2021'],
+  placeholder: 'Add tag...',
   label: 'Tags',
   hint: 'Some hint goes here',
-  background: InputBackgroundColor.Primary,
   disableOnEnter: false,
+  size: Size.Md,
+  crossIcon: true,
 };
 
 const handleRemove = (

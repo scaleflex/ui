@@ -6,34 +6,33 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import type { TagFieldWrapperProps } from './tag-field.props';
+import { sizeTagFieldMixin, fontTagFieldMixin } from './tag-field.mixin';
+import type { TagFieldProps, TagFieldSizeType } from './tag-field.props';
 
 const baseClassName = 'TagField';
 
 const TagFieldRoot = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  () => css`
-    ${StyledFormHint.FormHint} {
-      margin-top: 4px;
-    }
+})`
+  ${StyledFormHint.FormHint} {
+    margin-top: 4px;
+  }
 
-    ${StyledLabel.Label} {
-      margin-bottom: 4px;
-    }
-  `
-);
+  ${StyledLabel.Label} {
+    margin-bottom: 4px;
+  }
+`;
+
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
 })(
-  (props: With<WithTheme, TagFieldWrapperProps>) => css`
+  ({ size, theme }: With<WithTheme, { size: TagFieldSizeType }>) => css`
     overflow: hidden;
-    border: 1px solid ${props.theme.palette[PColor.ActiveSecondary]};
+    border: 1px solid ${theme.palette[PColor.TagBorder]};
     border-radius: 2px;
-    width: ${props.fullWidth ? '100%' : '50%'};
-    background: ${props.background === 'primary'
-      ? props.theme.palette[PColor.BackgroundPrimary]
-      : props.theme.palette[PColor.BackgroundSecondary]};
+    background: transparent;
+    width: 310px;
+
     ${StyledFormHint.FormHint} {
       margin-top: 4px;
     }
@@ -42,16 +41,10 @@ const TagFieldWrapper = styled.div.attrs({
       margin-bottom: 4px;
     }
 
-    &:focus-within {
-      background-color: ${props.theme.palette[PColor.BackgroundSecondary]}!important;
-      border: 1px solid ${props.theme.palette[PColor.AccentPrimary]};
-    }
-
-    &:hover {
-      background-color: ${props.theme.palette[PColor.BackgroundPrimaryHover]};
-    }
+    ${sizeTagFieldMixin[size]}
   `
 );
+
 const TagFieldLoader = styled.span.attrs({
   className: generateClassNames(baseClassName, 'loader'),
 })`
@@ -64,15 +57,13 @@ const TagFieldListWrapper = styled.ul.attrs({
 })(
   ({ $loading }: { $loading: boolean | undefined }) => css`
     display: inline-flex;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     margin: 0;
-    padding: 8px 12px;
+    padding: 0;
     list-style: none;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 6px 8px;
     width: 100%;
+    min-height: 80px;
 
     ${TagFieldLoader} {
       svg {
@@ -87,40 +78,74 @@ const TagFieldInputWrapper = styled.li.attrs({
 })`
   background: none;
   flex-grow: 1;
-  padding: 5px 0;
+  padding: 4px 0px;
+  width: 100px;
 `;
 
 const TagFieldInput = styled.input.attrs({
   className: generateClassNames(baseClassName, 'input'),
+})(
+  ({ size, theme }: With<WithTheme, TagFieldProps>) => css`
+    background: transparent;
+    border: none;
+    width: 100%;
+    outline: none;
+    color: ${theme.palette[PColor.LinkHover]};
+
+    &::-webkit-input-placeholder {
+      color: ${theme.palette[PColor.LinkHover]};
+      ${fontTagFieldMixin[size]}
+    }
+  `
+);
+
+const TagFieldBottom = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagFieldBottom'),
+})(
+  ({ theme }: WithTheme) => css`
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding: 0px;
+  `
+);
+
+const TagFieldCopyIcon = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
 })`
-  background: transparent;
-  border: none;
-  width: 100%;
-  outline: none;
+  cursor: pointer;
 `;
+
 const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
 })`
   position: relative;
   margin-top: 16px;
 `;
+
 const TagFieldSuggestionLabel = styled.label.attrs({
   className: generateClassNames(baseClassName, 'suggestionLabel'),
-})`
-  display: flex;
-  align-items: center;
-  font-size: 12px;
-  padding: 4px 0;
-`;
+})(
+  ({ theme }: WithTheme) => css`
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 6px 0;
+    color: ${theme.palette[PColor.TagLabel]};
+  `
+);
 
 const TagFieldSuggestionIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   () => css`
     display: inline-flex;
-    margin-right: 4px;
+    margin-left: 4px;
   `
 );
+
 const TagFieldSuggestionWrapperList = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
@@ -164,6 +189,8 @@ const Styled = applyDisplayNames({
   TagFieldSuggestionWrapperList,
   TagFieldSuggestionList,
   TagFieldLoader,
+  TagFieldBottom,
+  TagFieldCopyIcon,
 });
 
 export default Styled;

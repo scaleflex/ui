@@ -1,10 +1,9 @@
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
-import { AddTagType } from './types';
-import { InputBackgroundColor } from '../../utils/types';
+import { Size, AddTagType } from './types';
 
-export type TagFieldBackgroundType = Values<typeof InputBackgroundColor>;
 export type AddTagTypesType = Values<typeof AddTagType>;
+export type TagFieldSizeType = Values<typeof Size>;
 export type TagType = string | object | null | undefined;
 export type SuggestionsFilterFnType = (
   suggestions: TagType[],
@@ -20,7 +19,6 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   onRemove: (index: number, value: string) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
-  fullWidth?: boolean;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
@@ -28,15 +26,11 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   LabelProps?: LabelProps;
   hint?: React.ReactNode;
   error?: boolean;
+  size?: TagFieldSizeType;
   loading?: boolean;
+  crossIcon?: boolean;
   disableOnEnter?: boolean;
   alwaysShowSuggestedTags?: boolean;
-  background?: TagFieldBackgroundType;
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;
-}
-
-export interface TagFieldWrapperProps extends React.HTMLAttributes<HTMLDivElement> {
-  fullWidth?: boolean;
-  background?: TagFieldBackgroundType;
 }
