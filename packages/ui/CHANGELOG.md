@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.99](https://github.com/scaleflex/ui/compare/1.0.0-beta.98...1.0.0-beta.99) (2022-10-05)
+
+
+### Features
+
+* **Theme:** add new breakpoint system T10855 ([1a4f9bd](https://github.com/scaleflex/ui/commit/1a4f9bdf35d7b3fe0aa92475e7b40b4ff222a765))
+* **Theme:** hide selector in getBreakpointClass ([5641c35](https://github.com/scaleflex/ui/commit/5641c358d146b65c644981d6ab07c09c03784eb5))
+
+
+
+
+
 # [1.0.0-beta.98](https://github.com/scaleflex/ui/compare/1.0.0-beta.97...1.0.0-beta.98) (2022-09-20)
 
 
