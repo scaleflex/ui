@@ -35,26 +35,26 @@ const Button = styled.button.attrs({
     cursor: pointer;
     outline: none;
 
-    ${colorButtonMixin[color]}
-    ${sizeButtonMixin[size]}
-
     ${Label} {
       ${sizeButtonLabelMixin[size]}
+      ${color === ButtonColor.LinkBasic && `font-weight: 400`}
     }
 
     ${Badge} {
       ${sizeButtonLabelMixin[size]}
     }
+
+    ${colorButtonMixin[color]}
+    ${sizeButtonMixin[size]}
   `
 );
 
-const Icon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Icon'),
+const StartIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'StartIcon'),
 })(
   ({ $loading }: ButtonProps) => css`
     display: flex;
-    margin-right: 4px;
-    margin-left: 1px;
+    margin-right: 6px;
 
     svg {
       animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'};
@@ -62,10 +62,18 @@ const Icon = styled.span.attrs({
   `
 );
 
+const EndIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'EndIcon'),
+})`
+    display: flex;
+    margin-left: 6px;
+  `;
+
 const Styled = applyDisplayNames({
   Button,
   Label,
-  Icon,
+  StartIcon,
+  EndIcon,
   Badge,
 });
 

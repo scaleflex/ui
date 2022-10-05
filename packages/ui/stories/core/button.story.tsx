@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+import Remove from '@scaleflex/icons/remove';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
@@ -14,7 +15,7 @@ export default {
   excludeStories: ['Button'],
 
   argTypes: {
-    icon: {
+    startIcon: {
       description:
         'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`',
     },
@@ -35,15 +36,11 @@ const BasicTemplate: Story<ButtonProps> = ({ children, ...args }) => <Button {..
 export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
-// Disabled
-export const Disabled = BasicTemplate.bind({});
-Disabled.args = { ...defaultArgs, disabled: true };
-
 // WithIcon
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  icon: (props: IconProps) => <UploadIcon {...props} />,
+  startIcon: (props: IconProps) => <UploadIcon {...props} />,
 };
 
 // WithBadge
@@ -58,6 +55,16 @@ WithBadge.args = {
 export const WithIconsAndBadge = BasicTemplate.bind({});
 WithIconsAndBadge.args = {
   ...defaultArgs,
-  icon: (props: IconProps) => <UploadIcon {...props} />,
+  startIcon: (props: IconProps) => <UploadIcon {...props} />,
   badge: '(1)',
 };
+
+// Warning
+export const Warning = BasicTemplate.bind({});
+Warning.args = {
+  ...defaultArgs,
+  children: 'Delete',
+  color: ButtonColor.WarningPrimary,
+  startIcon: (props: IconProps) => <Remove {...props} />
+};
+

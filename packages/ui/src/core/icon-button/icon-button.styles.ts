@@ -10,6 +10,9 @@ import { ButtonSize, ButtonColor, With } from '../../utils/types';
 const baseClassName = 'IconButton';
 
 const squarePaddingMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 6px;
+  `,
   [ButtonSize.Sm]: css`
     padding: 9px;
   `,
@@ -38,7 +41,7 @@ const IconButton = styled(ButtonStyled.Button).attrs({
     css`
       &:hover {
         color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
-        background-color: ${theme.palette[PaletteColor.BackgroundHover]};
+        background-color: ${theme.palette[PaletteColor.AccentSecondaryDisabled]};
       }
 
       &:active {

@@ -9,7 +9,8 @@ export type ButtonColorType = Values<typeof ButtonColor>;
 export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTMLButtonElement> {
   size?: ButtonSizeType;
   color?: ButtonColorType;
-  icon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  startIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  endIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   badge?: React.ReactNode;
   loading?: boolean;
   $loading?: boolean;

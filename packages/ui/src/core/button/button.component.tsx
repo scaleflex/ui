@@ -10,46 +10,55 @@ import { getIconSize } from './button.utils';
 import Styled from './button.styles';
 
 const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
-  ({ children, icon, badge, color, size, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => (
-    <Styled.Button type="button" {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
-      {icon && (
-        <Styled.Icon $loading={loading}>
-          {typeof icon === 'function' ? (
+  ({ children, badge, color, size, startIcon, endIcon, loading, disabled, ...rest }: ButtonProps, ref): JSX.Element => {
+
+    return(
+      <Styled.Button {...rest} disabled={loading || disabled} color={color} size={size} ref={ref}>
+        {startIcon && (
+          <Styled.StartIcon $loading={loading}>
+            {(typeof startIcon === 'function') ? (
+              loading ? (
+                <SpinnerIcon size={getIconSize(size)} />
+              ) : (
+                startIcon({ size: getIconSize(size) })
+              )
+            ) : // eslint-disable-next-line unicorn/no-nested-ternary
             loading ? (
               <SpinnerIcon size={getIconSize(size)} />
             ) : (
-              icon({ size: getIconSize(size) })
-            )
-          ) : // eslint-disable-next-line unicorn/no-nested-ternary
-          loading ? (
+              startIcon
+            )}
+          </Styled.StartIcon>
+        )}
+
+        {loading && !startIcon && (
+          <Styled.StartIcon $loading={loading}>
             <SpinnerIcon size={getIconSize(size)} />
-          ) : (
-            icon
-          )}
-        </Styled.Icon>
-      )}
+          </Styled.StartIcon>
+        )}
 
-      {loading && !icon && (
-        <Styled.Icon $loading={loading}>
-          <SpinnerIcon size={getIconSize(size)} />
-        </Styled.Icon>
-      )}
+        <Styled.Label>{children}</Styled.Label>
 
-      <Styled.Label>{children}</Styled.Label>
+        {endIcon && (
+          <Styled.EndIcon>
+            {(typeof endIcon === 'function') ? endIcon({ size: getIconSize(size) }) : endIcon}
+          </Styled.EndIcon>
+        )}
 
-      {badge && (
-        <Styled.Badge>
-          <Badge
-            inline
-            size={14}
-            padding="0 1px"
-            badgeContent={badge}
-            color={color === ButtonColor.Primary ? 'white' : 'secondary'}
-          />
-        </Styled.Badge>
-      )}
-    </Styled.Button>
-  )
+        {badge && (
+          <Styled.Badge>
+            <Badge
+              inline
+              size={14}
+              padding="0 1px"
+              badgeContent={badge}
+              color={color === ButtonColor.Primary ? 'white' : 'secondary'}
+            />
+          </Styled.Badge>
+        )}
+      </Styled.Button>
+    );
+  }
 );
 
 Button.defaultProps = {
@@ -60,7 +69,8 @@ Button.defaultProps = {
 Button.propTypes = {
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(ButtonColor)),
-  icon: PT.oneOfType([PT.node, PT.func]),
+  startIcon: PT.oneOfType([PT.node, PT.func]),
+  endIcon: PT.oneOfType([PT.node, PT.func]),
   badge: PT.node,
   loading: PT.bool,
   disabled: PT.bool,

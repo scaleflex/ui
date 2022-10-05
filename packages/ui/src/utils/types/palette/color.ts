@@ -36,6 +36,7 @@ export const Color = {
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
   IconsMuted: 'icons-muted',
+  IconsPrimaryHover: 'icons-primary-hover',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
@@ -63,6 +64,12 @@ export const Color = {
   TabHover: 'tab-hover',
   TabActive: 'tab-active',
   TabPressed: 'tab-pressed',
+
+  StatesError: 'states-error',
+  StatesErrorOpacity_0_12: 'states-error-Opacity-0-12',
+  StatesErrorHovered: 'states-error-hovered',
+  StatesErrorActive: 'states-error-active',
+  StatesErrorDisabledText: 'states-error-disabled-text',
 
   Error: 'error',
   Success: 'success',
