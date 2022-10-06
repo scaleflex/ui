@@ -25,12 +25,12 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
         background: transparent;
       }
     }
@@ -60,13 +60,13 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BorderDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       border: none;
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BorderDisabled]};
       }
     }
 
@@ -102,7 +102,136 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
+      color: ${palette[PaletteColor.BorderDisabled]};
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.BorderDisabled]};
+      }
+    }
+  `,
+
+  [ButtonColor.LinkPrimary]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.AccentStateless]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
       color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.LinkHover]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  // eslint-disable-next-line sonarjs/no-identical-functions
+  [ButtonColor.LinkBasic]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.AccentStateless]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.WarningPrimary]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.StatesError]};
+    color: ${palette[PaletteColor.ButtonPrimaryText]};
+
+    ${StyledBadge.Badge} {
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background: transparent;
+    }
+
+    &:hover {
+      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+    }
+
+    &:active {
+      background-color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      background-color: ${palette[PaletteColor.StatesErrorOpacity_0_12]};
+      color: ${palette[PaletteColor.StatesErrorDisabledText]};
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.StatesErrorDisabledText]};
+        background: transparent;
+      }
+    }
+  `,
+
+  [ButtonColor.WarningSecondary]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    color: ${palette[PaletteColor.AccentPrimary]};
+    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
+
+    ${StyledBadge.Badge} {
+      color: ${palette[PaletteColor.AccentPrimary]};
+      background-color: transparent;
+    }
+
+    &:hover {
+      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
+    }
+
+    &:active {
+      background-color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      border: none;
       cursor: default;
 
       ${StyledBadge.Badge} {
@@ -110,9 +239,31 @@ export const colorButtonMixin = {
       }
     }
   `,
+
+  [ButtonColor.WarningBasic]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.LinkHover]};
+    background-color: transparent;
+
+    &:hover {
+      color: ${palette[PaletteColor.StatesErrorHovered]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.StatesErrorActive]};
+    }
+
+    &:disabled {
+      color: ${palette[PaletteColor.ButtonDisabledText]};
+      cursor: default;
+    }
+  `,
 };
 
 export const sizeButtonMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 5px 10px;
+  `,
+
   [ButtonSize.Sm]: css`
     padding: 8px 12px;
   `,
@@ -126,7 +277,49 @@ export const sizeButtonMixin = {
   `,
 };
 
+export const sizeSidebarMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 5px 10px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    padding: 8px 12px;
+  `,
+
+  [ButtonSize.Md]: css`
+    padding: 11px 14px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    padding: 14px 16px;
+  `,
+};
+
+export const sizeSidebarDividerMixin = {
+  [ButtonSize.Xs]: css`
+    height: 14px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    height: 16px;
+  `,
+
+  [ButtonSize.Md]: css`
+    height: 18px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    height: 20px;
+  `,
+};
+
 export const sizeButtonLabelMixin = {
+  [ButtonSize.Xs]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css(font[FontVariant.ButtonXs]),
+
   [ButtonSize.Sm]: ({
     theme: {
       typography: { font },

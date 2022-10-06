@@ -12,10 +12,12 @@ export const FontVariant = {
   LabelEmphasis: 'label-emphasis',
   LabelExtraLarge: 'label-extra-large',
 
+  ButtonXs: 'btn-xs',
   ButtonSm: 'btn-sm',
   ButtonMd: 'btn-md',
   ButtonLg: 'btn-lg',
 
   InputSm: 'input-sm',
   InputMd: 'input-md',
+  InputLg: 'input-lg',
 } as const;

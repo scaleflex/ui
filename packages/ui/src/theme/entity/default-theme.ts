@@ -98,6 +98,12 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         lineHeight: '1.3',
       },
 
+      [FontVariant.ButtonXs]: {
+        ...defaultFontValue,
+        fontWeight: '500',
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
       [FontVariant.ButtonSm]: {
         ...defaultFontValue,
         fontWeight: '500',
@@ -126,6 +132,11 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         ...defaultFontValue,
         fontSize: '14px',
         lineHeight: '16px',
+      },
+      [FontVariant.InputLg]: {
+        ...defaultFontValue,
+        fontSize: '16px',
+        lineHeight: '18px',
       },
     },
   },

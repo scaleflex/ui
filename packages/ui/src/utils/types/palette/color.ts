@@ -7,6 +7,7 @@ export const Color = {
   TextWarning: 'txt-warning',
 
   AccentPrimary: 'accent-primary',
+  AccentPrimaryOpacity: 'accent-primary-opacity',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
   AccentPrimaryDisabled: 'accent-primary-disabled',
@@ -14,12 +15,17 @@ export const Color = {
   AccentStateless: 'accent-stateless',
   AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
 
+  BackgroundGrey: 'bg-grey',
+  BackgroundStateless: 'bg-stateless',
+  BackgroundActive: 'bg-active',
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
+  BackgroundPrimaryStateless: 'bg-primary-stateless',
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
-  BackgroundActive: 'bg-active',
+  BackgroundHover: 'bg-hover',
+  BackgroundAccentBlue_0_05_Opacity: 'bg-accent-blue-0-05-Opacity',
 
   BackgroundLightGreen: 'bg-light-green',
   BackgroundLightBlue: 'bg-light-blue',
@@ -28,10 +34,12 @@ export const Color = {
   BackgroundGrey: 'bg-light-grey',
   BackgroundStateless: 'bg-stateless',
 
+  IconsPrimary: 'icon-primary',
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
   IconsMuted: 'icons-muted',
+  IconsPrimaryHover: 'icons-primary-hover',
 
   ButtonPrimaryText: 'btn-primary-text',
   ButtonDisabledText: 'btn-disabled-text',
@@ -41,11 +49,15 @@ export const Color = {
   LinkActive: 'link-active',
 
   BordersPrimary: 'borders-primary',
+  BordersPrimaryHover: 'borders-primary-hover',
   BordersSecondary: 'borders-secondary',
   BordersStrong: 'borders-strong',
   BordersInvert: 'borders-invert',
   BorderHoverBottom: 'border-hover-bottom',
   BorderActiveBottom: 'border-active-bottom',
+  BorderPrimaryStateless: 'border-primary-stateless',
+  BorderDisabled: 'border-disabled',
+  BorderButton: 'border-button',
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',
@@ -57,6 +69,12 @@ export const Color = {
   TabHover: 'tab-hover',
   TabActive: 'tab-active',
   TabPressed: 'tab-pressed',
+
+  StatesError: 'states-error',
+  StatesErrorOpacity_0_12: 'states-error-Opacity-0-12',
+  StatesErrorHovered: 'states-error-hovered',
+  StatesErrorActive: 'states-error-active',
+  StatesErrorDisabledText: 'states-error-disabled-text',
 
   Error: 'error',
   Success: 'success',
