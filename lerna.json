@@ -1,13 +1,22 @@
 {
-  "version": "2.0.0-beta.0",
+  "version": "2.0.0-beta.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "packages": ["packages/*"],
-  "ignoreChanges": ["**/*.spec.{ts,tsx}", "**/*.story.tsx"],
+  "packages": [
+    "packages/*"
+  ],
+  "ignoreChanges": [
+    "**/*.spec.{ts,tsx}",
+    "**/*.story.tsx"
+  ],
   "command": {
     "version": {
       "message": "chore(release): publish new version %s🔥🚀",
-      "allowBranch": ["master", "hotfix-*", "release-*"],
+      "allowBranch": [
+        "master",
+        "hotfix-*",
+        "release-*"
+      ],
       "conventionalCommits": true
     }
   }
