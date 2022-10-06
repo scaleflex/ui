@@ -8,7 +8,7 @@ import type { UploadInputProps } from './upload-input.props';
 import IStyled from '../input/input.styles';
 import Styled from './upload-input.styles';
 import { ButtonColor } from '../../utils/types';
-import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';
+// import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';
 
 const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
   ({ error, size, buttonLabel, buttonColor, placeholder, onChange, ...rest }, ref): JSX.Element => {
@@ -18,7 +18,6 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
       <Styled.UploadInput ref={ref}>
         <IStyled.Input
           error={error}
-          size={size}
           onClick={({ currentTarget }: FormEvent<HTMLDivElement>) => {
             const fileInputElem: HTMLElement | null = currentTarget.querySelector('input[type=file]');
 
@@ -27,9 +26,9 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
             }
           }}
         >
-          <Button color={buttonColor}>{buttonLabel}</Button>
-
           <IStyled.Base placeholder={placeholder} readOnly value={valueState} />
+
+          <Button color={buttonColor}>{buttonLabel}</Button>
 
           <Styled.FileInput
             {...rest}
@@ -61,16 +60,16 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
 );
 
 UploadInput.defaultProps = {
-  ...inputDefaultProps,
+  // ...inputDefaultProps,
   buttonLabel: 'Choose file',
   placeholder: 'No file chosen',
   buttonColor: 'primary',
 };
 
-const { iconStart, iconEnd, ...restInputPropTypes } = inputPropTypes;
+// const { iconStart, iconEnd, ...restInputPropTypes } = inputPropTypes;
 
 UploadInput.propTypes = {
-  ...restInputPropTypes,
+  // ...restInputPropTypes,
   buttonLabel: PT.string,
   placeholder: PT.string,
   buttonColor: PT.oneOf(objectValues(ButtonColor)),
