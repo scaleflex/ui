@@ -72,7 +72,7 @@ const Button = styled.button.attrs({
     ${buttonType === ButtonType.Sidebar &&
     css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-      color: ${theme.palette[PaletteColor.LinkHover]};
+      color: ${theme.palette[PaletteColor.LinkStateless]};
       border: 1px solid ${theme.palette[PaletteColor.BorderButton]};
 
       ${!active &&

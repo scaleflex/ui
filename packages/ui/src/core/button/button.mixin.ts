@@ -133,7 +133,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    color: ${palette[PaletteColor.LinkHover]};
+    color: ${palette[PaletteColor.IconsPrimary]};
     background-color: transparent;
     padding: 0px !important;
 
@@ -241,7 +241,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.WarningBasic]: ({ theme: { palette } }: WithTheme) => css`
-    color: ${palette[PaletteColor.LinkHover]};
+    color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
 
     &:hover {
