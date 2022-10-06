@@ -8,4 +8,6 @@ export interface StatusLabelProps extends React.HTMLAttributes<HTMLDivElement> {
   label: React.ReactNode;
   size?: StatusLabelSizeType;
   type?: StatusLabelTypesType;
+  gridView?: boolean;
+  listView?: boolean;
 }

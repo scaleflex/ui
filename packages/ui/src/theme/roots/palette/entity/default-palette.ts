@@ -72,6 +72,7 @@ export const lightPalette = {
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
   [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
+  [Color.BackgroundStateless]: '#FFFFFF',
 
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: '#959DA8',
@@ -79,7 +80,7 @@ export const lightPalette = {
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
-  [Color.ButtonDisabledText]: 'rgba(73, 88, 188, 0.4)', // #4958bc66
+  [Color.ButtonDisabledText]: '#A9B6C2',
 
   [Color.LinkPrimary]: '#5D6D7E',
   [Color.LinkHover]: '#768A9F',
@@ -107,6 +108,7 @@ export const lightPalette = {
   [Color.Success]: '#3ECF8B',
   [Color.Warning]: '#FFAC4A',
   [Color.Info]: '#297FB8',
+  [Color.Modified]: '#A5A6F6',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
   [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',

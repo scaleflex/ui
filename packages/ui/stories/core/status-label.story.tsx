@@ -13,7 +13,9 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  label: 'Paid',
+  label: 'Label',
+  gridView: false,
+  listView: false,
 };
 
 const BasicTemplate: Story<StatusLabelProps> = ({ ...args }) => <StatusLabel {...args} />;

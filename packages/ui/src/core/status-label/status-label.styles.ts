@@ -5,44 +5,71 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { StatusLabelProps } from './status-label.props';
-import { sizeStatusLabelMixin } from './status-label.mixin';
+import { fontLabelMixin, statusLabelMixin } from './status-label.mixin';
+import { StatusLabelTypesType } from './status-label.props'
 import { Size, Type } from './types';
 
 const baseClassName = 'StatusLabel';
 
 const StatusLabel = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})(
-  ({ theme }: WithTheme) => `
+})`
   display: flex;
   align-items: center;
-  color: ${theme.palette[PColor.BackgroundSecondary]};
-  padding: 6px 16px;
   border-radius: inherit;
-`
+`;
+
+const StatusIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Icon'),
+})(
+  ({ type = Type.Received }:{type: StatusLabelTypesType}) => css`
+
+    height: 8px;
+    width: 8px;
+    border-radius: 50%;
+    display: inline-flex;
+    margin-right: 4px;
+    box-sizing: border-box;
+
+    ${statusLabelMixin[type]}
+  `
 );
 
 const StatusLabelWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, type = Type.Default, theme }: With<WithTheme, StatusLabelProps>) => css`
+  ({ size = Size.Md, gridView, listView, theme }: With<WithTheme, StatusLabelProps>) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: ${type === 'default' ? theme.palette[PColor.Tag] : theme.palette[type]};
+    padding: 2px 8px;
+    background-color: ${theme.palette[PColor.Success]};
+    color: ${theme.palette[PColor.BackgroundSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
 
-    ${StatusLabel} {
-      border: 1px solid ${type === 'default' ? theme.palette[PColor.Tag] : theme.palette[type]};
-      ${sizeStatusLabelMixin[size]}
-    }
+    ${listView && css`
+      background: transparent;
+      color: ${theme.palette[PColor.TextPrimary]};
+
+      ${StatusLabel} {
+        ${fontLabelMixin[size]}
+      }
+    `}
+
+    ${gridView && css`
+      background-color: ${theme.palette[PColor.BackgroundStateless]};
+      color: ${theme.palette[PColor.TextSecondary]};
+      padding: 2px 4px;
+      box-shadow: 0px 1px 3px rgba(77, 78, 78, 0.15);
+    `}
   `
 );
 
 const Styled = applyDisplayNames({
   StatusLabel,
+  StatusIcon,
   StatusLabelWrapper,
 });
 

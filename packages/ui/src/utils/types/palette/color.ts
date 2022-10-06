@@ -26,6 +26,7 @@ export const Color = {
   BackgroundLightRed: 'bg-light-red',
   BackgroundLightOrange: 'bg-light-orange',
   BackgroundGrey: 'bg-light-grey',
+  BackgroundStateless: 'bg-stateless',
 
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
@@ -61,6 +62,7 @@ export const Color = {
   Success: 'success',
   Warning: 'warning',
   Info: 'info',
+  Modified: 'modified',
 
   LightShadow: 'light-shadow',
   HeavyShadow: 'heavy-shadow',

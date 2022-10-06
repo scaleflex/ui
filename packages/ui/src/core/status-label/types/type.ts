@@ -1,6 +1,6 @@
 export const Type = {
-  Default: 'default',
-  Success: 'success',
-  Error: 'error',
-  Warning: 'warning',
+  Received: 'received',
+  Selected: 'selected',
+  Modified: 'modified',
+  Validated: 'validated',
 } as const;

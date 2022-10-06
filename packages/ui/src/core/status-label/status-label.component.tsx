@@ -7,8 +7,19 @@ import { Size, Type } from './types';
 import Styled from './status-label.styles';
 
 const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
-  ({ label, type, size, ...rest }: StatusLabelProps, ref): JSX.Element => (
-    <Styled.StatusLabelWrapper ref={ref} size={size} type={type} label={label} {...rest}>
+  ({ label, type, size, gridView, listView, ...rest }: StatusLabelProps, ref): JSX.Element => (
+    <Styled.StatusLabelWrapper
+      ref={ref}
+      size={size}
+      label={label}
+      gridView={gridView}
+      listView={listView}
+      {...rest}
+    >
+      {(gridView || listView) && (
+        <Styled.StatusIcon type={type} />
+      )}
+
       <Styled.StatusLabel>{label}</Styled.StatusLabel>
     </Styled.StatusLabelWrapper>
   )
@@ -16,14 +27,18 @@ const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
 
 StatusLabel.defaultProps = {
   label: '',
-  type: Type.Default,
+  type: Type.Received,
   size: Size.Md,
+  gridView: false,
+  listView: false,
 };
 
 StatusLabel.propTypes = {
   label: PT.node.isRequired,
   type: PT.oneOf(objectValues(Type)),
   size: PT.oneOf(objectValues(Size)),
+  gridView: PT.bool,
+  listView: PT.bool,
 };
 
 export default StatusLabel;
