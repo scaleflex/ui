@@ -15,13 +15,14 @@ export default {
       description: 'Actual only for "suggested" type.',
     },
     onRemove: {
-      description: 'Actual only for "default" type. On remove icon click.',
+      description: 'On remove icon click.',
     },
   },
 } as Meta;
 
 const defaultArgs = {
-  children: 'Audi Q7',
+  children: 'Cheerful woman',
+  crossIcon: false,
 };
 
 const BasicTemplate: Story<TagProps> = ({ ...args }) => (

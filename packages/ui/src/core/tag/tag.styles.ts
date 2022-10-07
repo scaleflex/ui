@@ -14,13 +14,8 @@ const Cross = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   ({ theme }: WithTheme) => css`
-    position: absolute;
-    display: none; // inline-flex
-    width: 6px;
-    height: 6px;
-    right: 3px;
-    top: 3px;
-    color: ${theme.palette[PColor.TextPrimaryInvert]};
+    display: inline-flex;
+    color: ${theme.palette[PColor.LinkHover]};
     cursor: pointer;
   `
 );
@@ -28,76 +23,76 @@ const Cross = styled.span.attrs({
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
-  ({ theme }: WithTheme) => `
-  display: flex;
-  align-items: center;
-  color: ${theme.palette[PColor.BackgroundSecondary]};
-  padding: 6px 16px;
-  border-radius: inherit;
-  outline: none;
-`
+  ({ theme }: WithTheme) => css`
+    display: flex;
+    align-items: center;
+    outline: none;
+    color: ${theme.palette[PColor.LinkHover]};
+  `
 );
 
 const Tag = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    size = Size.Md,
-    type = Type.Default,
-    onSelect,
-    hasRemoveHandler,
-    theme,
-  }: With<WithTheme, TagProps & { hasRemoveHandler: boolean }>) => css`
+  ({ size = Size.Md, type = Type.Default, onSelect, theme }: With<WithTheme, TagProps>) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    background-color: ${theme.palette[PColor.Tag]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
+    background-color: ${theme.palette[PColor.AccentSecondaryDisabled]};
+    border: 1px solid ${theme.palette[PColor.BackgroundPrimaryStateless]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+
+    ${sizeTagLabelMixin[size]}
 
     &:hover {
-      background-color: ${theme.palette[PColor.Error]};
+      background-color: ${theme.palette[PColor.BackgroundActive]};
+      border: 1px solid ${theme.palette[PColor.LinkHover]};
 
       ${Label} {
-        border-color: ${theme.palette[PColor.Error]};
+        color: ${theme.palette[PColor.IconsPrimaryHover]};
       }
 
-      ${type === Type.Default &&
-      hasRemoveHandler &&
-      css`
-        ${Cross} {
-          display: inline-flex;
-        }
-      `}
+      ${Cross} {
+        color: ${theme.palette[PColor.IconsPrimaryHover]};
+      }
 
       ${type === Type.Suggested &&
       onSelect &&
       css`
         cursor: pointer;
       `}
+
+      ${type === Type.Suggested &&
+      css`
+        border: 1px dashed ${theme.palette[PColor.LinkHover]};
+        background-color: ${theme.palette[PColor.BackgroundActive]};
+
+        ${Label} {
+          color: ${theme.palette[PColor.IconsPrimaryHover]};
+        }
+
+        ${Cross} {
+          color: ${theme.palette[PColor.IconsPrimaryHover]};
+        }
+      `}
     }
 
     &:not(:hover) {
       ${type === Type.Suggested &&
       css`
-        background-color: ${theme.palette[PColor.BackgroundSecondary]};
+        border: 1px dashed ${theme.palette[PColor.LinkHover]};
+        background: transparent;
 
         ${Label} {
-          border: 1px dashed ${theme.palette[PColor.BackgroundPrimaryActive]};
-          color: ${theme.palette[PColor.TextSecondary]};
+          color: ${theme.palette[PColor.LinkHover]};
+        }
+
+        ${Cross} {
+          color: ${theme.palette[PColor.LinkHover]};
         }
       `}
-    }
-
-    ${Label} {
-      border: 1px solid ${theme.palette[PColor.Tag]};
-      ${sizeTagLabelMixin[size]}
-
-      &:hover {
-        background-color: ${theme.palette[PColor.BackgroundPrimaryActive]};
-        border-color: ${theme.palette[PColor.BackgroundPrimaryActive]};
-      }
     }
 
     ${Cross} {

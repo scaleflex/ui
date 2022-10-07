@@ -1,18 +1,21 @@
 import React, { useState, useMemo } from 'react';
 import PT, { Validator } from 'prop-types';
-import { QuestionMarkOutline } from '@scaleflex/icons';
+import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { Color } from '../../utils/types/palette';
+import { lightPalette } from '../../theme/roots/palette';
 import Tag from '../tag';
 import Label from '../label';
+import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
-import { AddTagType } from './types';
-import { InputBackgroundColor } from '../../utils/types';
+import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
+import { handleCopyIcon } from '../input/input.utils';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -22,19 +25,20 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       tags = [],
       onAdd,
       onRemove,
-      fullWidth,
       placeholder,
       disabled,
       readOnly,
       label,
       suggestionLabel,
+      suggestionTooltipMessage,
       LabelProps: LabelPropsData,
       error,
       hint,
+      size = Size.Md,
+      crossIcon = true,
       loading,
       disableOnEnter,
       alwaysShowSuggestedTags = false,
-      background = 'primary',
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
@@ -85,14 +89,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
           </Label>
         )}
 
-        <Styled.TagFieldWrapper fullWidth={Boolean(fullWidth)} background={background} {...rest}>
+        <Styled.TagFieldWrapper size={size} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
             {filteredTags.map((tag: TagType, index: number) => (
               <Tag
                 key={getTagValue(tag)}
                 tagIndex={index}
+                crossIcon={crossIcon}
+                size={size}
                 onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
-                style={{ margin: '4px 4px 4px 0' }}
+                style={{ margin: '0px 8px 8px 0px' }}
               >
                 {getTagLabel(tag)}
               </Tag>
@@ -100,10 +106,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
             {loading ? (
               <Styled.TagFieldLoader>
-                <SpinnerIcon size={16} color="#768184" />
+                <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
               </Styled.TagFieldLoader>
             ) : (
-              <Styled.TagFieldInputWrapper>
+              <Styled.TagFieldInputWrapper size={size}>
                 <Styled.TagFieldInput
                   value={userInput}
                   type="text"
@@ -117,6 +123,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               </Styled.TagFieldInputWrapper>
             )}
           </Styled.TagFieldListWrapper>
+          <Styled.TagFieldBottom>
+            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput)}>
+              <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+            </Styled.TagFieldCopyIcon>
+          </Styled.TagFieldBottom>
         </Styled.TagFieldWrapper>
 
         {hint && <FormHint error={error}>{hint}</FormHint>}
@@ -124,21 +135,27 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         {filteredSuggestions.length > 0 && (
           <Styled.TagFieldSuggestionWrapper>
             <Styled.TagFieldSuggestionLabel>
-              <Styled.TagFieldSuggestionIcon>
-                <QuestionMarkOutline size={12} color="#778285" />
-              </Styled.TagFieldSuggestionIcon>
               {suggestionLabel || <span>Suggested Tags</span>}
+              {suggestionTooltipMessage && (
+                <Tooltip title={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
+                  <Styled.TagFieldSuggestionIcon>
+                    <InfoOutline size={12} color={lightPalette[Color.IconsSecondary]} />
+                  </Styled.TagFieldSuggestionIcon>
+                </Tooltip>
+              )}
             </Styled.TagFieldSuggestionLabel>
             <Styled.TagFieldSuggestionWrapperList>
               {filteredSuggestions.map((suggestion: TagType) => (
                 <Tag
                   key={getTagValue(suggestion)}
                   type="suggested"
+                  crossIcon={false}
                   onSelect={() => {
                     handleTagAdd(suggestion, AddTagType.Suggestion);
                     setUserInput('');
                   }}
                   style={{ margin: '0 8px 8px 0' }}
+                  size={size}
                 >
                   {getTagLabel(suggestion)}
                 </Tag>
@@ -154,11 +171,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 TagField.defaultProps = {
   tags: [],
   suggestedTags: [],
-  fullWidth: false,
   placeholder: 'Add a tag (separate by pressing enter)',
   disabled: false,
   readOnly: false,
-  background: InputBackgroundColor.Primary,
+  size: Size.Md,
 };
 
 TagField.propTypes = {
@@ -167,7 +183,6 @@ TagField.propTypes = {
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
-  fullWidth: PT.bool,
   placeholder: PT.string,
   readOnly: PT.bool,
   disabled: PT.bool,
@@ -176,12 +191,13 @@ TagField.propTypes = {
   hint: PT.node,
   loading: PT.bool,
   disableOnEnter: PT.bool,
+  size: PT.oneOf(objectValues(Size)),
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
   suggestionsFilter: PT.func,
-  background: PT.oneOf(objectValues(InputBackgroundColor)),
   suggestionLabel: PT.node,
+  suggestionTooltipMessage: PT.string,
 };
 
 export default TagField;
