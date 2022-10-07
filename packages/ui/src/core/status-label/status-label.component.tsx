@@ -18,7 +18,7 @@ const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
 
 StatusLabel.defaultProps = {
   label: '',
-  type: Type.Received,
+  type: Type.Default,
   size: Size.Md,
   variant: Variant.Filled,
 };
