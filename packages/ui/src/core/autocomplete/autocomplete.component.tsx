@@ -381,6 +381,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             // TODO: refactor how implement tags in input
             // renderTags={renderTags()}
             readOnly={readOnly}
+            error={error}
             focusOnMount={focusOnOpen}
             onKeyDown={handleKeyDown}
             onChange={handleInputChange}

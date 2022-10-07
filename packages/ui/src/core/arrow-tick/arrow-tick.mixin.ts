@@ -20,14 +20,14 @@ export const typeArrowTickMixin = {
 
   [Position.Top]: css`
     svg {
-      transform: rotate(-90deg);
+      transform: rotate(-180deg);
       transition: transform 150ms;
     }
   `,
 
   [Position.Bottom]: css`
     svg {
-      transform: rotate(90deg);
+      transform: rotate(0deg);
       transition: transform 150ms;
     }
   `,
