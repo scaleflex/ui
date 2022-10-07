@@ -9,7 +9,17 @@ import Styled from './tag.styles';
 
 const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
   (
-    { children, type, size, tagIndex, onRemove, contentEditable, suppressContentEditableWarning, ...rest }: TagProps,
+    {
+      children,
+      type,
+      crossIcon = true,
+      size,
+      tagIndex,
+      onRemove,
+      contentEditable,
+      suppressContentEditableWarning,
+      ...rest
+    }: TagProps,
     ref
   ): JSX.Element => (
     <Styled.Tag
@@ -17,7 +27,6 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
       size={size}
       type={type}
       {...rest}
-      hasRemoveHandler={typeof onRemove === 'function'}
       onClick={
         type === Type.Suggested
           ? (event: any) => {
@@ -35,16 +44,18 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
       <Styled.Label contentEditable={contentEditable} suppressContentEditableWarning={suppressContentEditableWarning}>
         {children}
       </Styled.Label>
-      <Styled.Cross>
-        <CrossIcon
-          size={6}
-          onClick={(event) => {
-            if (typeof onRemove === 'function') {
-              onRemove(tagIndex!, event);
-            }
-          }}
-        />
-      </Styled.Cross>
+      {crossIcon && (
+        <Styled.Cross>
+          <CrossIcon
+            size={8}
+            onClick={(event) => {
+              if (typeof onRemove === 'function') {
+                onRemove(tagIndex!, event);
+              }
+            }}
+          />
+        </Styled.Cross>
+      )}
     </Styled.Tag>
   )
 );
@@ -52,11 +63,13 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
 Tag.defaultProps = {
   size: Size.Md,
   type: Type.Default,
+  crossIcon: false,
 };
 
 Tag.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   type: PT.oneOf(objectValues(Type)),
+  crossIcon: PT.bool,
   onRemove: PT.func,
   onSelect: PT.func,
   tagIndex: PT.number,

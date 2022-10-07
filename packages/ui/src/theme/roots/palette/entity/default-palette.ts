@@ -81,9 +81,9 @@ export const lightPalette = {
   [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
   [Color.BackgroundStateless]: '#FFFFFF',
 
-  [Color.IconsPrimary]: 'rgba(118,138,159,1)',
+  [Color.IconsPrimary]: 'rgba(118,138,159,1)', // #768A9F
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
-  [Color.IconsSecondary]: 'rgba(151,166,182,1)',
+  [Color.IconsSecondary]: 'rgba(151,166,182,1)', // #97A6B6
   [Color.IconsPlaceholder]: '#DEE6ED',
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
   [Color.IconsPrimaryHover]: '#4F6276',
@@ -109,8 +109,6 @@ export const lightPalette = {
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
   [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
-
-  [Color.Tag]: '#889AAC',
 
   [Color.Tab]: '#37414B',
   [Color.TabHover]: '#606fd1',
