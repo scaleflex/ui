@@ -1,10 +1,10 @@
 import React from 'react';
 import PT from 'prop-types';
+import Dot from '@scaleflex/icons/dot';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TabProps } from './tab.props';
 import { Size } from './types';
-import Dot from '../../../../icons/src/dot';
 import Badge from '../badge';
 import Styled from './tab.styles';
 
