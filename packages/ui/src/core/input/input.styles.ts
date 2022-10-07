@@ -6,7 +6,8 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
 import { sizeInputMixin, errorMixin } from './input.mixin';
-import { InputBackgroundColor, InputSize } from '../../utils/types';
+import { InputSize } from '../../utils/types';
+import { getInputBackgroundColor, getInputTextColor } from './input.utils';
 
 const baseClassName = 'Input';
 
@@ -15,16 +16,35 @@ const Icon = styled.span.attrs({
 })(
   ({ iconClickStart, iconClickEnd, clearIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.AccentPrimary]};
     cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
+  `
+);
 
-    &:first-child {
-      margin-right: 7px;
-    }
+const CopyIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'CopyIcon'),
+})(
+  ({ theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: flex;
+    color: ${palette[PColor.IconsPrimary]};
+    cursor: pointer;
+  `
+);
 
-    &:last-child {
-      margin-left: 10px;
-    }
+const Container = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Container'),
+})<InputProps>(
+  () => css`
+    display: block;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
   `
 );
 
@@ -35,50 +55,49 @@ const Input = styled.div.attrs({
     size = InputSize.Md,
     error = false,
     fullWidth = false,
+    readOnly = false,
+    disabled = false,
     theme,
-    background = InputBackgroundColor.Primary,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
-    cursor: text;
-    width: ${fullWidth ? '100%' : '300px'};
-    background: ${background === 'primary'
-      ? theme.palette[PColor.BackgroundPrimary]
-      : theme.palette[PColor.BackgroundSecondary]};
-    border: 1px solid ${theme.palette[PColor.BordersSecondary]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
-    color: ${theme.palette[PColor.TextPrimary]};
+    cursor: text;
+    column-gap: 6px;
+    width: ${fullWidth ? '100%' : '300px'};
+    pointer-events: ${disabled ? 'none' : 'auto'};
+    background-color: ${getInputBackgroundColor(readOnly, disabled)};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    border: 1px solid
+      ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
+    color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
 
-    &:focus-within {
-      background-color: ${theme.palette[PColor.BackgroundSecondary]}!important;
-      border: 1px solid ${theme.palette[PColor.AccentPrimary]};
-    }
+    ${!readOnly &&
+    !disabled &&
+    css`
+      &:focus-within {
+        background-color: ${theme.palette[PColor.BackgroundSecondary]}!important;
+        border: 1px solid ${theme.palette[PColor.AccentStateless]};
+
+        &:hover {
+          border: 1px solid ${theme.palette[PColor.AccentStateless]};
+        }
+      }
+
+      &:hover {
+        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
+        border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
+      }
+    `}
 
     &:hover {
-      background-color: ${theme.palette[PColor.BackgroundPrimaryHover]};
+      color: ${getInputTextColor(readOnly, disabled)};
     }
 
     ${error && errorMixin}
-  `
-);
-
-const Container = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Container'),
-})<InputProps>(
-  () => css`
-    display: block;
-    color: inherit;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
   `
 );
 
@@ -130,6 +149,7 @@ const Styled = applyDisplayNames({
   Tags,
   Base,
   Icon,
+  CopyIcon,
 });
 
 export default Styled;

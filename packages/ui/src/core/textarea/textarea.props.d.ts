@@ -1,9 +1,16 @@
 import type { Values } from '../../utils/types';
 import { InputBackgroundColor } from '../../utils/types';
+import { InputSizeType } from '../input/input.props';
 
 export type InputBackgroundType = Values<typeof InputBackgroundColor>;
+
 export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   error?: boolean;
-  value?: string;
-  background?: InputBackgroundType;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  value: any;
+  size?: InputSizeType;
+  placeholder?: string;
+  readOnly?: boolean;
+  disabled?: boolean;
+  fullWidth?: boolean;
 }
