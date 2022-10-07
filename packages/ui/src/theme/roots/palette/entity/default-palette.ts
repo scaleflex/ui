@@ -78,6 +78,8 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
+  [Color.BackgroundStateless]: '#FFFFFF',
 
   [Color.IconsPrimary]: 'rgba(118,138,159,1)', // #768A9F
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
@@ -123,6 +125,7 @@ export const lightPalette = {
   [Color.Success]: '#3ECF8B',
   [Color.Warning]: '#FFAC4A',
   [Color.Info]: '#297FB8',
+  [Color.Modified]: '#A5A6F6',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
   [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',

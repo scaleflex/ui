@@ -76,6 +76,7 @@ export const Color = {
   Success: 'success',
   Warning: 'warning',
   Info: 'info',
+  Modified: 'modified',
 
   LightShadow: 'light-shadow',
   HeavyShadow: 'heavy-shadow',
