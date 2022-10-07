@@ -33,4 +33,5 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   alwaysShowSuggestedTags?: boolean;
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;
+  suggestionTooltipMessage?: string;
 }

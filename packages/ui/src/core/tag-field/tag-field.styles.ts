@@ -7,7 +7,8 @@ import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
 import { sizeTagFieldMixin, fontTagFieldMixin } from './tag-field.mixin';
-import type { TagFieldProps, TagFieldSizeType } from './tag-field.props';
+import type { TagFieldSizeType } from './tag-field.props';
+import { Size } from './types';
 
 const baseClassName = 'TagField';
 
@@ -28,7 +29,7 @@ const TagFieldWrapper = styled.div.attrs({
 })(
   ({ size, theme }: With<WithTheme, { size: TagFieldSizeType }>) => css`
     overflow: hidden;
-    border: 1px solid ${theme.palette[PColor.TagBorder]};
+    border: 1px solid ${theme.palette[PColor.BackgroundPrimaryStateless]};
     border-radius: 2px;
     background: transparent;
     width: 310px;
@@ -73,28 +74,32 @@ const TagFieldListWrapper = styled.ul.attrs({
   `
 );
 
-const TagFieldInputWrapper = styled.li.attrs({
-  className: generateClassNames(baseClassName, 'inputWrapper'),
-})`
-  background: none;
-  flex-grow: 1;
-  padding: 4px 0px;
-  width: 100px;
-`;
-
 const TagFieldInput = styled.input.attrs({
   className: generateClassNames(baseClassName, 'input'),
 })(
-  ({ size, theme }: With<WithTheme, TagFieldProps>) => css`
+  ({ theme }: WithTheme) => css`
     background: transparent;
     border: none;
     width: 100%;
     outline: none;
     color: ${theme.palette[PColor.LinkHover]};
+  `
+);
 
-    &::-webkit-input-placeholder {
-      color: ${theme.palette[PColor.LinkHover]};
-      ${fontTagFieldMixin[size]}
+const TagFieldInputWrapper = styled.li.attrs({
+  className: generateClassNames(baseClassName, 'inputWrapper'),
+})(
+  ({ size = Size.Md, theme }: With<WithTheme, { size: TagFieldSizeType }>) => css`
+    background: none;
+    flex-grow: 1;
+    padding: 4px 0px;
+    width: 100px;
+
+    ${TagFieldInput} {
+      &::-webkit-input-placeholder {
+        color: ${theme.palette[PColor.LinkHover]};
+        ${fontTagFieldMixin[size]}
+      }
     }
   `
 );
@@ -133,7 +138,7 @@ const TagFieldSuggestionLabel = styled.label.attrs({
     align-items: center;
     font-size: 12px;
     padding: 6px 0;
-    color: ${theme.palette[PColor.TagLabel]};
+    color: ${theme.palette[PColor.LinkHover]};
   `
 );
 

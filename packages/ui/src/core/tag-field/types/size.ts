@@ -1,4 +1,4 @@
 export const Size = {
-  Lg: 'lg',
+  Sm: 'sm',
   Md: 'md',
 } as const;

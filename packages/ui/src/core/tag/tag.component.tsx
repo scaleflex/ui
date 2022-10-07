@@ -12,7 +12,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
     {
       children,
       type,
-      crossIcon,
+      crossIcon = true,
       size,
       tagIndex,
       onRemove,

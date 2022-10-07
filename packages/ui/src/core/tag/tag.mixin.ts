@@ -1,6 +1,4 @@
 import { css } from 'styled-components';
-// import type { WithTheme } from '../../theme/entity';
-// import { Color as PaletteColor } from '../../utils/types/palette';
 import { Size } from './types';
 
 export const sizeTagLabelMixin = {

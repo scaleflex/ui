@@ -4,22 +4,22 @@ import type { WithTheme } from '../../theme/entity';
 import { Size } from './types';
 
 export const sizeTagFieldMixin = {
-  [Size.Lg]: css`
-    padding: 12px 16px;
+  [Size.Sm]: css`
+    padding: 8px 12px;
   `,
 
   [Size.Md]: css`
-    padding: 8px 12px;
+    padding: 12px 16px;
   `,
 };
 
 export const fontTagFieldMixin = {
-  [Size.Lg]: ({
+  [Size.Sm]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelNormal]}
+    ${font[FV.LabelSmall]}
     font-weight: 500;
   `,
 
@@ -28,7 +28,7 @@ export const fontTagFieldMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelSmall]}
+    ${font[FV.LabelNormal]}
     font-weight: 500;
   `,
 };
