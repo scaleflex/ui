@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 
 import { StoryGroup } from './types';
+import { Variant, Type, Size } from '../../src/core/status-label/types';
 import _StatusLabel, { StatusLabelProps } from '../../src/core/status-label';
 
 export const StatusLabel = _StatusLabel;
@@ -14,8 +15,9 @@ export default {
 
 const defaultArgs = {
   label: 'Label',
-  gridView: false,
-  listView: false,
+  variant: Variant.Filled,
+  type: Type.Default,
+  size: Size.Md,
 };
 
 const BasicTemplate: Story<StatusLabelProps> = ({ ...args }) => <StatusLabel {...args} />;

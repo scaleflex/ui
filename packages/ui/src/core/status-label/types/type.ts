@@ -1,4 +1,5 @@
 export const Type = {
+  Default: 'default',
   Received: 'received',
   Selected: 'selected',
   Modified: 'modified',

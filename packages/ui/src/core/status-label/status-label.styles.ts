@@ -6,8 +6,8 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { StatusLabelProps } from './status-label.props';
 import { fontLabelMixin, statusLabelMixin } from './status-label.mixin';
-import { StatusLabelTypesType } from './status-label.props'
-import { Size, Type } from './types';
+import { StatusLabelTypesType } from './status-label.props';
+import { Size, Type, Variant } from './types';
 
 const baseClassName = 'StatusLabel';
 
@@ -22,8 +22,7 @@ const StatusLabel = styled.span.attrs({
 const StatusIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ type = Type.Received }:{type: StatusLabelTypesType}) => css`
-
+  ({ type = Type.Received }: { type: StatusLabelTypesType }) => css`
     height: 8px;
     width: 8px;
     border-radius: 50%;
@@ -38,7 +37,7 @@ const StatusIcon = styled.span.attrs({
 const StatusLabelWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, gridView, listView, theme }: With<WithTheme, StatusLabelProps>) => css`
+  ({ size = Size.Md, type = Type.Default, variant = Variant.Filled, theme }: With<WithTheme, StatusLabelProps>) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;
@@ -49,7 +48,8 @@ const StatusLabelWrapper = styled.div.attrs({
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     box-sizing: border-box;
 
-    ${listView && css`
+    ${variant === Variant.Text &&
+    css`
       background: transparent;
       color: ${theme.palette[PColor.TextPrimary]};
 
@@ -58,7 +58,9 @@ const StatusLabelWrapper = styled.div.attrs({
       }
     `}
 
-    ${gridView && css`
+    ${variant === Variant.Filled &&
+    type !== Type.Default &&
+    css`
       background-color: ${theme.palette[PColor.BackgroundStateless]};
       color: ${theme.palette[PColor.TextSecondary]};
       padding: 2px 4px;

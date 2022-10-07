@@ -6,6 +6,9 @@ import { FontVariant as FV } from '../../utils/types/typography';
 import { Size, Type } from './types';
 
 export const statusLabelMixin = {
+  [Type.Default]: () => css`
+    border: none;
+  `,
   [Type.Received]: ({ theme: { palette } }: WithTheme) => css`
     border: 1px solid ${palette[PaletteColor.ButtonDisabledText]};
   `,
@@ -21,7 +24,7 @@ export const statusLabelMixin = {
   [Type.Validated]: ({ theme: { palette } }: WithTheme) => css`
     background-color: ${palette[PaletteColor.Success]};
   `,
-}
+};
 
 export const fontLabelMixin = {
   [Size.Sm]: ({
