@@ -295,3 +295,4 @@ export { Error } from './error';
 export { TwoArrowsRight } from './two-arrows-right';
 export { TwoArrowsLeft } from './two-arrows-left';
 export { Intermediate } from './intermediate';
+export { ErrorOutline } from './error-outline';

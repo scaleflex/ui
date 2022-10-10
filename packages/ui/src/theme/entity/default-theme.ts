@@ -21,6 +21,11 @@ const labelFontVariants = {
     fontSize: '12px',
     lineHeight: '14px',
   },
+  [FontVariant.LabelSmallUp]: {
+    ...defaultFontValue,
+    fontSize: '13px',
+    lineHeight: '16px',
+  },
   [FontVariant.LabelNormal]: {
     ...defaultFontValue,
     fontSize: '14px',
@@ -35,6 +40,12 @@ const labelFontVariants = {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LabelSmUpEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '13px',
     lineHeight: '16px',
   },
   [FontVariant.LabelExtraLarge]: {
@@ -78,12 +89,14 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       ...labelFontVariants,
 
       [FontVariant.TextExtraSmall]: {
-        ...labelFontVariants[FontVariant.LabelExtraSmall],
-        lineHeight: '1.3',
+        ...defaultFontValue,
+        fontSize: '11px',
+        lineHeight: '14px',
       },
       [FontVariant.TextSmall]: {
-        ...labelFontVariants[FontVariant.LabelSmall],
-        lineHeight: '1.3',
+        ...defaultFontValue,
+        fontSize: '12px',
+        lineHeight: '16.8px',
       },
       [FontVariant.TextNormal]: {
         ...labelFontVariants[FontVariant.LabelNormal],
@@ -96,6 +109,11 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       [FontVariant.TextExtraLarge]: {
         ...labelFontVariants[FontVariant.LabelExtraLarge],
         lineHeight: '1.3',
+      },
+      [FontVariant.TextSmallUp]: {
+        ...defaultFontValue,
+        fontSize: '13px',
+        lineHeight: '18.2px',
       },
 
       [FontVariant.ButtonXs]: {

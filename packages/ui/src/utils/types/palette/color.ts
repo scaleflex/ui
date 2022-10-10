@@ -5,6 +5,7 @@ export const Color = {
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
   TextWarning: 'txt-warning',
+  TextErrorLight: 'txt-error-light',
 
   AccentPrimary: 'accent-primary',
   AccentPrimaryOpacity: 'accent-primary-opacity',

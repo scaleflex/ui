@@ -51,6 +51,7 @@ export const lightPalette = {
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
   [Color.TextPlaceholder]: 'rgba(169,182,194,1)',
   [Color.TextWarning]: 'rgba(196,110,0,1)',
+  [Color.TextErrorLight]: '#AA2000',
 
   [Color.AccentPrimary]: 'rgba(104,121,235,1)',
   [Color.AccentPrimaryOpacity]: 'rgba(104, 121, 235, 0.4)',
