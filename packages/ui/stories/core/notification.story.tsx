@@ -17,7 +17,7 @@ const Item = styled.div`
 
 const items: NotificationProps[] = [
   {
-    message: <p>Direct link to the file in the storage container. Should not be used in production as the media asset is not acelerated and does not support on-the-fly image transformation. See <span style={{fontWeight: 'bold', textDecoration:'underline'}}>documentation</span> for more details.</p>,
+    message: <span>Direct link to the file in the storage container. Should not be used in production as the media asset is not acelerated and does not support on-the-fly image transformation. See <span style={{fontWeight: 'bold', textDecoration:'underline'}}>documentation</span> for more details.</span>,
     status: NotificationStatus.Warning,
   },
   {
