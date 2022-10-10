@@ -17,7 +17,7 @@ const Item = styled.div`
 
 const items: NotificationProps[] = [
   {
-    message: 'Direct link to the file in the storage container. Should not be used in production as the media asset is not acelerated and does not support on-the-fly image transformation. See documentation for more details.',
+    message: <p>Direct link to the file in the storage container. Should not be used in production as the media asset is not acelerated and does not support on-the-fly image transformation. See <span style={{fontWeight: 'bold', textDecoration:'underline'}}>documentation</span> for more details.</p>,
     status: NotificationStatus.Warning,
   },
   {
@@ -54,7 +54,7 @@ const AllTemplate: Story<NotificationProps> = ({ ...args }) => (
 export const Basic = BasicTemplate.bind({});
 Basic.args = {
   ...defaultArgs,
-  title: "Title",
+  title: <span>Title</span>,
   message: 'You made changes in settings. It takes few minutes to propagate and become effective',
   status: NotificationStatus.Info,
 };

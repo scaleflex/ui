@@ -8,8 +8,8 @@ export type NotificationStatus = Values<typeof NotificationStatus>;
 export interface NotificationProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   status?: NotificationStatus;
   background?: boolean;
-  message?: string;
-  title?: string;
+  message?: React.ReactNode;
+  title?: React.ReactNode;
   icon?: boolean;
   onClose?: () => void;
 }

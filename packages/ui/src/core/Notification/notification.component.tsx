@@ -63,16 +63,14 @@ Notification.defaultProps = {
   status: NotificationStatus.Info,
   background: true,
   icon: true,
-  title: "",
-  message: "",
 };
 
 Notification.propTypes = {
   status: PT.oneOf(objectValues(NotificationStatus)),
   background: PT.bool,
   icon: PT.bool,
-  title: PT.string,
-  message: PT.string,
+  title: PT.node,
+  message: PT.node,
   onClose: PT.func,
 };
 
