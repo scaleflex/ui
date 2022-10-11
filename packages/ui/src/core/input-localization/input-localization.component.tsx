@@ -24,7 +24,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
 
     return (
       <Styled.Container {...rest} ref={ref}>
-        <Styled.InputLocalization size={size} onClick={disabled || readOnly ? undefined : handleClick}>
+        <Styled.InputLocalization size={size} disabled={disabled} onClick={disabled || readOnly ? undefined : handleClick}>
           {icon && (
             <Styled.Icon>
               {typeof icon === 'function' ? icon({ size: getIconSize(size) }) : icon}

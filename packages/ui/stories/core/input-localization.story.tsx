@@ -5,7 +5,7 @@ import _InputLocalization, { InputLocalizationProps } from '../../src/core/input
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import MenuItem from '../../src/core/menu-item';
 import { StoryGroup } from './types';
-import { InputSize } from '@scaleflex/ui/utils/types';
+import { InputSize } from '../../src/utils/types';
 
 export const InputLocalization = _InputLocalization;
 
