@@ -41,7 +41,7 @@ const RadioBox = styled.div.attrs({
       background: ${theme.palette[PColor.AccentStateless_0_4_Opacity]};
       border-radius: 50%;
       cursor: ${disabled ? 'default' : 'pointer'};
-      transform: translate(-45%, -45%);
+      transform: translate(-50%, -50%);
       opacity: 0;
 
       ${sizeInnerRadioMixin[size]}

@@ -16,6 +16,9 @@ export default {
     switcherProps: {
       description: 'input attributes applied directly input element.',
     },
+    SwitcherProps: {
+      description: 'Props passed directly to root element.',
+    },
   },
 } as Meta;
 
