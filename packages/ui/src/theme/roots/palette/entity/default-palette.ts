@@ -78,10 +78,12 @@ export const lightPalette = {
   [Color.BackgroundLightBlue]: 'rgba(244, 249, 255, 1)',
   [Color.BackgroundLightRed]: 'rgba(253, 244, 242, 1)',
   [Color.BackgroundLightOrange]: 'rgba(255, 249, 242, 1)',
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)',
+  [Color.BackgroundStateless]: '#FFFFFF',
 
-  [Color.IconsPrimary]: 'rgba(118,138,159,1)',
+  [Color.IconsPrimary]: 'rgba(118,138,159,1)', // #768A9F
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
-  [Color.IconsSecondary]: 'rgba(151,166,182,1)',
+  [Color.IconsSecondary]: 'rgba(151,166,182,1)', // #97A6B6
   [Color.IconsPlaceholder]: '#DEE6ED',
   [Color.IconsMuted]: 'rgba(169,182,194,1)',
   [Color.IconsPrimaryHover]: '#4F6276',
@@ -109,8 +111,6 @@ export const lightPalette = {
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
   [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
 
-  [Color.Tag]: '#889AAC',
-
   [Color.Tab]: '#37414B',
   [Color.TabHover]: '#606fd1',
   [Color.TabActive]: '#4958BC',
@@ -126,6 +126,7 @@ export const lightPalette = {
   [Color.Success]: '#3ECF8B',
   [Color.Warning]: '#FFAC4A',
   [Color.Info]: '#297FB8',
+  [Color.Modified]: '#A5A6F6',
 
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
   [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',

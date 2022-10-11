@@ -1,8 +1,8 @@
 import React from 'react';
 import PT from 'prop-types';
-import { Color } from '@scaleflex/ui/utils/types/palette';
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 import Cross from '@scaleflex/icons/cross';
+import { Color } from '../../utils/types/palette';
+import { lightPalette } from '../../theme/roots/palette';
 
 import { intrinsicComponent } from '../../utils/functions';
 import PopupStatus from '../popup-status';

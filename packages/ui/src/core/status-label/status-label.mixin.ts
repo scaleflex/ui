@@ -1,19 +1,41 @@
 import { css } from 'styled-components';
 
-import { Size } from './types';
+import type { WithTheme } from '../../theme/entity';
+import { Color as PaletteColor } from '../../utils/types/palette';
+import { FontVariant as FV } from '../../utils/types/typography';
+import { Size, Type } from './types';
 
-export const sizeStatusLabelMixin = {
-  [Size.Sm]: css`
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    padding: 4px 8px;
+export const statusLabelMixin = {
+  [Type.Default]: () => css`
+    border: none;
+  `,
+  [Type.Received]: ({ theme: { palette } }: WithTheme) => css`
+    border: 1px solid ${palette[PaletteColor.ButtonDisabledText]};
   `,
 
-  [Size.Md]: css`
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 16px;
-    padding: 4px 12px;
+  [Type.Selected]: ({ theme: { palette } }: WithTheme) => css`
+    border: 1px solid ${palette[PaletteColor.AccentStateless]};
   `,
+
+  [Type.Modified]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.Modified]};
+  `,
+
+  [Type.Validated]: ({ theme: { palette } }: WithTheme) => css`
+    background-color: ${palette[PaletteColor.Success]};
+  `,
+};
+
+export const fontLabelMixin = {
+  [Size.Sm]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.LabelSmall],
+
+  [Size.Md]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.LabelNormal],
 };

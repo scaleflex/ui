@@ -36,7 +36,7 @@ export interface Breakpoints {
    * @param width - A breakpoint width..
    * @returns A breakpoint class ready to be used with styled components, it will be applied when it matches the nearest breakpoint intialized in the theme.
    */
-  getBreakpointClass: (width: number) => BreakpointClass;
+  getBreakpointClass: (width: number, hideSelector?: boolean) => BreakpointClass;
   /**
    * @param width - A breakpoint width.
    * @returns A media query string ready to be used with styled components, which matches screen width greater than the screen size given by the breakpoint key.

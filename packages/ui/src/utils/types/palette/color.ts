@@ -62,8 +62,6 @@ export const Color = {
   ActiveSecondaryHover: 'active-secondary-hover',
   ActiveSecondaryActive: 'active-secondary-active',
 
-  Tag: 'tag',
-
   Tab: 'tab',
   TabHover: 'tab-hover',
   TabActive: 'tab-active',
@@ -79,6 +77,7 @@ export const Color = {
   Success: 'success',
   Warning: 'warning',
   Info: 'info',
+  Modified: 'modified',
 
   LightShadow: 'light-shadow',
   HeavyShadow: 'heavy-shadow',
