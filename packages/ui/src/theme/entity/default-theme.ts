@@ -138,6 +138,19 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
         fontSize: '16px',
         lineHeight: '18px',
       },
+
+      [FontVariant.LabelSm]: {
+        ...defaultFontValue,
+        fontWeight: '400',
+        fontSize: '12px',
+        lineHeight: '14px',
+      },
+      [FontVariant.LabelMd]: {
+        ...defaultFontValue,
+        fontWeight: '400',
+        fontSize: '14px',
+        lineHeight: '16px',
+      },
     },
   },
 

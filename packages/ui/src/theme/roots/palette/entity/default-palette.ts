@@ -89,10 +89,11 @@ export const lightPalette = {
   [Color.IconsPrimaryHover]: '#4F6276',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',
-  [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)',
+  [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)', //#A9B6C2
 
   [Color.LinkPrimary]: '#5D6D7E',
-  [Color.LinkHover]: '#768A9F',
+  [Color.LinkStateless]: '#768A9F',
+  [Color.LinkHover]: '#4F6276',
   [Color.LinkActive]: 'rgba(55,65,75,1)',
 
   [Color.BordersPrimary]: 'rgba(223,231,237,1)', // #dfe7ed

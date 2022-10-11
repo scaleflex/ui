@@ -43,6 +43,7 @@ export const Color = {
   ButtonDisabledText: 'btn-disabled-text',
 
   LinkPrimary: 'link-primary',
+  LinkStateless: 'link-stateless',
   LinkHover: 'link-hover',
   LinkActive: 'link-active',
 
