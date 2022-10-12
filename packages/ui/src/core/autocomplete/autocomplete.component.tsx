@@ -16,7 +16,7 @@ import Menu from '../menu';
 import MenuItem from '../menu-item';
 // TODO: refactor how implement tags in input
 // import Tag from '../tag';
-import { InputBackgroundColor, InputSize } from '../../utils/types';
+import { InputSize } from '../../utils/types';
 import Styled from './autocomplete.styles';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
@@ -39,8 +39,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       multiple,
       size,
       disabled,
+      readOnly,
       options,
-      background,
       placeholder,
       fullWidth,
       ...rest
@@ -276,7 +276,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         }
 
         return (
-          <Label error={error} {...(LabelPropsData || {})}>
+          <Label size={size} error={error} {...(LabelPropsData || {})}>
             {label}
           </Label>
         );
@@ -311,7 +311,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           return hint;
         }
 
-        return <FormHint error={error}>{hint}</FormHint>;
+        return (
+          <FormHint size={size} error={error}>
+            {hint}
+          </FormHint>
+        );
       }
 
       return null;
@@ -368,7 +372,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
         {renderLabel()}
-        <Styled.AutocompleteContainer onClick={disabled ? undefined : handleOpenClick}>
+        <Styled.AutocompleteContainer onClick={disabled || readOnly ? undefined : handleOpenClick}>
           <Input
             {...(InputPropsData || {})}
             ref={inputRef}
@@ -376,15 +380,17 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             value={getValue()}
             // TODO: refactor how implement tags in input
             // renderTags={renderTags()}
-            readOnly={disabled}
+            readOnly={readOnly}
+            error={error}
             focusOnMount={focusOnOpen}
             onKeyDown={handleKeyDown}
             onChange={handleInputChange}
+            disabled={disabled}
             placeholder={placeholder}
             fullWidth={fullWidth}
             iconEnd={() => (
               <ArrowTick
-                onClick={disabled ? undefined : handleOpenClick}
+                onClick={disabled || readOnly ? undefined : handleOpenClick}
                 type={open ? 'top' : 'bottom'}
                 IconProps={{ size: 10 }}
               />
@@ -416,9 +422,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
 Autocomplete.defaultProps = {
   size: InputSize.Md,
-  background: InputBackgroundColor.Primary,
   // multiple: false,
   disabled: false,
+  readOnly: false,
 };
 
 Autocomplete.propTypes = {
@@ -426,13 +432,13 @@ Autocomplete.propTypes = {
   size: PT.oneOf(objectValues(InputSize)),
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  background: PT.oneOf(objectValues(InputBackgroundColor)),
   value: PT.oneOfType([PT.string, PT.array]).isRequired,
   label: PT.node,
   hint: PT.node,
   options: PT.array.isRequired,
   noOptionsText: PT.string,
   placeholder: PT.string,
+  readOnly: PT.bool,
   fullWidth: PT.bool,
   multiple: PT.bool,
   disabled: PT.bool,

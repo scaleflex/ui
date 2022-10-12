@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Autocomplete, { AutocompleteProps } from '../../src/core/autocomplete';
-import { InputSize, InputBackgroundColor } from '../../src/utils/types';
+import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Autocomplete = _Autocomplete;
@@ -15,8 +15,8 @@ export default {
 const defaultArgs = {
   placeholder: 'placeholder',
   label: 'Label',
+  readOnly: false,
   hint: 'Some hint goes here',
-  background: InputBackgroundColor.Primary,
   size: InputSize.Md,
   options: [
     'item1',

@@ -21,6 +21,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   noOptionsText?: string;
   placeholder?: string;
   fullWidth?: boolean;
+  readOnly?: boolean;
   multiple?: boolean;
   disabled?: boolean;
   error?: boolean;

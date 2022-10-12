@@ -40,7 +40,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     return (
       <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref}>
         {content}
-        {typeof icon === 'function' ? icon({ size: 12, color: lightPalette[Color.LinkHover] }) : icon}
+        {typeof icon === 'function' ? icon({ size: 12, color: lightPalette[Color.IconsPrimary] }) : icon}
       </Styled.CheckBoxGroup>
     );
   }

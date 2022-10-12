@@ -50,6 +50,7 @@ export const Color = {
   ButtonSecondaryText: 'btn-secondary-text',
 
   LinkPrimary: 'link-primary',
+  LinkStateless: 'link-stateless',
   LinkHover: 'link-hover',
   LinkActive: 'link-active',
   LinkStateless: 'link-stateless',
