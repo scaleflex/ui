@@ -8,7 +8,7 @@ export const fontSizeSwitcherMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelNormal],
+  }: WithTheme) => font[FV.LabelMedium],
 
   [SwitcherSize.Md]: ({
     theme: {

@@ -36,9 +36,7 @@ const Arrow = styled.div.attrs({
 
     &::before {
       content: '';
-      background: ${warning
-        ? theme.palette[PColor.BackgroundLightOrange]
-        : theme.palette[PColor.BackgroundGrey]};
+      background: ${warning ? theme.palette[PColor.BackgroundOrange] : theme.palette[PColor.BackgroundGrey]};
       width: 8px;
       height: 8px;
       transform: rotate(45deg);

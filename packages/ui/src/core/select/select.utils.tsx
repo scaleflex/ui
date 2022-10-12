@@ -120,7 +120,7 @@ const renderOptionValue = (option: any) => {
   if (option && option.children) {
     let child = option.children;
     while (typeof child !== 'string') {
-      child = getOptionValue(child);
+      Array.isArray(child) ? child = getOptionValue(child[1]) : child = getOptionValue(child);
     }
     return child;
   }

@@ -99,7 +99,6 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
             style={{ width: '116px', paddingRight: '0px', marginLeft: '24px' }}
             value={buttonValue}
             onChange={handleChange}
-            background={InputBackgroundColor.Primary}
           >
             <Button
               size={InputSize.Sm}

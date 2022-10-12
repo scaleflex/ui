@@ -8,10 +8,10 @@ export type PropsType = {
 };
 
 export type ComponentsType = {
-  Rail?: React.ElementType;
-  Track?: React.ElementType;
-  Thumb?: React.ElementType;
-  LabelTooltip?: React.ElementType;
+  Rail?: any;
+  Track?: any;
+  Thumb?: any;
+  LabelTooltip?: any;
 };
 
 export type ComponentsPropsType = {
