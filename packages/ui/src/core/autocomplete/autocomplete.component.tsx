@@ -378,7 +378,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             // renderTags={renderTags()}
             readOnly={disabled}
             focusOnMount={focusOnOpen}
-            background={background}
             onKeyDown={handleKeyDown}
             onChange={handleInputChange}
             placeholder={placeholder}
