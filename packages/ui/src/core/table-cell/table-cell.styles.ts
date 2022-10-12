@@ -12,7 +12,7 @@ const TableCellHeader = styled.th.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ theme: { palette, typography }, align, padding, size }: With<WithTheme, TableCellProps>) => css`
-    ${css(typography.font[FontVariant.TextEmphasis])}
+    ${css(typography.font[FontVariant.TextMedium])}
     display: table-cell;
     vertical-align: inherit;
     text-align: left;
@@ -34,7 +34,7 @@ const TableCellData = styled.td.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ theme: { palette, typography }, align, padding, size }: With<WithTheme, TableCellProps>) => css`
-    ${css(typography.font[FontVariant.TextNormal])}
+    ${css(typography.font[FontVariant.TextMedium])}
     display: table-cell;
     vertical-align: inherit;
     text-align: left;

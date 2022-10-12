@@ -8,7 +8,7 @@ export const sizeHintMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FV.LabelExtraSmall]),
+  }: WithTheme) => css(font[FV.LabelExtraSmallUp]),
 
   [InputSize.Md]: ({
     theme: {

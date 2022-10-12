@@ -23,6 +23,6 @@ export const sizeMenuItemMixin = {
   }: WithTheme) => css`
     padding: 8px 12px;
     min-height: 32px;
-    ${font[FV.LabelNormal]}
+    ${font[FV.LabelMedium]}
   `,
 };
