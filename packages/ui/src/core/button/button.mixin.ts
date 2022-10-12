@@ -25,12 +25,12 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.BorderDisabled]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.BorderDisabled]};
+        color: ${palette[PaletteColor.BordersDisabled]};
         background: transparent;
       }
     }
@@ -60,13 +60,13 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.BorderDisabled]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.AccentPrimaryDisabled]};
       border: none;
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.BorderDisabled]};
+        color: ${palette[PaletteColor.BordersDisabled]};
       }
     }
 
@@ -102,11 +102,11 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.BorderDisabled]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.BorderDisabled]};
+        color: ${palette[PaletteColor.BordersDisabled]};
       }
     }
   `,
@@ -133,7 +133,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    color: ${palette[PaletteColor.LinkHover]};
+    color: ${palette[PaletteColor.IconsPrimary]};
     background-color: transparent;
     padding: 0px !important;
 
@@ -176,7 +176,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.WarningPrimary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.StatesError]};
+    background-color: ${palette[PaletteColor.Error]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
     ${StyledBadge.Badge} {
@@ -185,15 +185,15 @@ export const colorButtonMixin = {
     }
 
     &:hover {
-      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+      background-color: ${palette[PaletteColor.ErrorHover]};
     }
 
     &:active {
-      background-color: ${palette[PaletteColor.StatesErrorActive]};
+      background-color: ${palette[PaletteColor.ErrorActive]};
     }
 
     &:disabled {
-      background-color: ${palette[PaletteColor.StatesErrorOpacity_0_12]};
+      background-color: ${palette[PaletteColor.Error_0_12_Opacity]};
       color: ${palette[PaletteColor.StatesErrorDisabledText]};
       cursor: default;
 
@@ -215,7 +215,7 @@ export const colorButtonMixin = {
     }
 
     &:hover {
-      background-color: ${palette[PaletteColor.StatesErrorHovered]};
+      background-color: ${palette[PaletteColor.ErrorHover]};
       color: ${palette[PaletteColor.ButtonPrimaryText]};
       border: none;
 
@@ -225,7 +225,7 @@ export const colorButtonMixin = {
     }
 
     &:active {
-      background-color: ${palette[PaletteColor.StatesErrorActive]};
+      background-color: ${palette[PaletteColor.ErrorActive]};
     }
 
     &:disabled {
@@ -245,11 +245,11 @@ export const colorButtonMixin = {
     background-color: transparent;
 
     &:hover {
-      color: ${palette[PaletteColor.StatesErrorHovered]};
+      color: ${palette[PaletteColor.ErrorHover]};
     }
 
     &:active {
-      color: ${palette[PaletteColor.StatesErrorActive]};
+      color: ${palette[PaletteColor.ErrorActive]};
     }
 
     &:disabled {
