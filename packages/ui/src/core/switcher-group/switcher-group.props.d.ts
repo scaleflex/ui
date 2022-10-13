@@ -1,7 +1,6 @@
-import type { SwitcherProps } from '../switcher';
 import { SwitcherType } from '../switcher/switcher.props';
 
-export interface SwitcherGroupProps extends SwitcherProps {
+export interface SwitcherGroupProps extends React.HTMLAttributes<HTMLLabelElement> {
   label?: string;
   switcherProps?: React.InputHTMLAttributes;
   SwitcherProps?: React.InputHTMLAttributes;
