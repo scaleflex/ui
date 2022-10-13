@@ -2,7 +2,7 @@ import React from 'react';
 import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
 
-export const Versioning = intrinsicComponent<IconProps, SVGSVGElement>(
+export const VersioningOutline = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
     <svg
       ref={ref}
@@ -25,4 +25,4 @@ export const Versioning = intrinsicComponent<IconProps, SVGSVGElement>(
   )
 );
 
-export default Versioning;
+export default VersioningOutline;
