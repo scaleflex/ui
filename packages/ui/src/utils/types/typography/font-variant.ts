@@ -40,7 +40,4 @@ export const FontVariant = {
   InputSmUp: 'input-sm-up',
   InputMd: 'input-md',
   InputLg: 'input-lg',
-
-  LabelMd: 'label-md',
-  LabelSm: 'label-sm',
 } as const;

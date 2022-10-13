@@ -1,12 +1,12 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
-import { InputSize } from '@scaleflex/ui/utils/types';
+import { InputSize } from '../../utils/types';
 import type { InputLocalizationProps } from './input-localization.props';
 import { sizeInputLabelMixin } from './input-localization.mixin';
-// import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 
 const baseClassName = 'InputLocalization';
 
@@ -39,11 +39,7 @@ const Container = styled.div.attrs({
 const InputLocalization = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    size = InputSize.Md,
-    disabled,
-    theme,
-  }: With<WithTheme, InputLocalizationProps>) => css`
+  ({ size = InputSize.Md, disabled, theme }: With<WithTheme, InputLocalizationProps>) => css`
     position: relative;
     display: flex;
     align-items: center;
@@ -54,7 +50,8 @@ const InputLocalization = styled.div.attrs({
       ${!disabled && `color: ${theme.palette[PColor.LinkHover]};`}
     }
 
-    ${disabled && css`
+    ${disabled &&
+    css`
       ${Icon} {
         color: ${theme.palette[PColor.ButtonDisabledText]};
         cursor: default;

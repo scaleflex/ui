@@ -9,11 +9,11 @@ export const sizeInputLabelMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.LabelSm]),
+  }: WithTheme) => css(font[FontVariant.LabelSmall]),
 
   [InputSize.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.LabelMd]),
+  }: WithTheme) => css(font[FontVariant.LabelMedium]),
 };

@@ -14,7 +14,19 @@ import { getIconSize, getArrowSize } from './input-localization.utils';
 
 const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElement>(
   (
-    { children, onChange, value, icon, size = InputSize.Sm, MenuProps, readOnly, disabled, renderLabel, multiple, ...rest },
+    {
+      children,
+      onChange,
+      value,
+      icon,
+      size = InputSize.Sm,
+      MenuProps,
+      readOnly,
+      disabled,
+      renderLabel,
+      multiple,
+      ...rest
+    },
     ref
   ): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -24,12 +36,12 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
 
     return (
       <Styled.Container {...rest} ref={ref}>
-        <Styled.InputLocalization size={size} disabled={disabled} onClick={disabled || readOnly ? undefined : handleClick}>
-          {icon && (
-            <Styled.Icon>
-              {typeof icon === 'function' ? icon({ size: getIconSize(size) }) : icon}
-            </Styled.Icon>
-          )}
+        <Styled.InputLocalization
+          size={size}
+          disabled={disabled}
+          onClick={disabled || readOnly ? undefined : handleClick}
+        >
+          {icon && <Styled.Icon>{typeof icon === 'function' ? icon({ size: getIconSize(size) }) : icon}</Styled.Icon>}
 
           <Styled.Label>
             {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, children, multiple })}
