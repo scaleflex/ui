@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.2](https://github.com/scaleflex/ui/compare/2.0.0-beta.1...2.0.0-beta.2) (2022-10-13)
+
+
+### Features
+
+* **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
+
+
+
+
+
 # [2.0.0-beta.1](https://github.com/scaleflex/ui/compare/2.0.0-beta.0...2.0.0-beta.1) (2022-10-06)
 
 **Note:** Version bump only for package @scaleflex/icons

@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.2](https://github.com/scaleflex/ui/compare/2.0.0-beta.1...2.0.0-beta.2) (2022-10-13)
+
+
+### Bug Fixes
+
+* arrowtick position ([cbad4af](https://github.com/scaleflex/ui/commit/cbad4afb9bc0f1c690e9b4a23cc128a0d89b38ba))
+* duplicate key ([c761473](https://github.com/scaleflex/ui/commit/c7614732552b4b1f74173c0f5a30a0d5bf7e33a1))
+* types ([d0d3bf3](https://github.com/scaleflex/ui/commit/d0d3bf38d703f0fcb92c7aeb9a95aefeed0c3fec))
+* types ([df12505](https://github.com/scaleflex/ui/commit/df12505df2650d6b5bd901e57cd264ae0fe3f4b2))
+* **Select:** error when menu item contains icon ([c481c16](https://github.com/scaleflex/ui/commit/c481c16ed7beb32b0af12f2bfa8489c9703f04cb))
+* types ([cf03e5a](https://github.com/scaleflex/ui/commit/cf03e5aad6764b5bbf121faee221e90fd6d1d472))
+
+
+### Features
+
+* **autocomplete:** change autocomplete design T11018 ([981ec4b](https://github.com/scaleflex/ui/commit/981ec4bc202f9274329eeb992a8fe940106e6f13))
+* **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
+* **Skeleton:** add new component ([d119e00](https://github.com/scaleflex/ui/commit/d119e0046307ab96e539efb9454983a7192d40e1))
+* **StatusLabel:** update status label design - T10804 ([fc4b918](https://github.com/scaleflex/ui/commit/fc4b9189409ee63a0b61af537843f92d8147a0d2))
+* **TagsField:** update tag and tag field design - T10803 ([9bdcb46](https://github.com/scaleflex/ui/commit/9bdcb4654014077c116b14e928b5477725c8d978))
+* **Theme:** update palette to v3 ([a2404ed](https://github.com/scaleflex/ui/commit/a2404ed99cc5c868dbe347d0a12e76072571cd16))
+* **Theme:** update typogrophy to v3 ([9d7e977](https://github.com/scaleflex/ui/commit/9d7e97734f326fb2f8e24c0492eabfd1e6a19086))
+
+
+
+
+
 # [2.0.0-beta.1](https://github.com/scaleflex/ui/compare/2.0.0-beta.0...2.0.0-beta.1) (2022-10-06)
 
 
