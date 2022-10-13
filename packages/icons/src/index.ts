@@ -81,7 +81,7 @@ export { QuestionMarkOutline } from './question-mark-outline';
 export { NotificationOff } from './notification-off';
 export { NotificationOn } from './notification-on';
 export { Spinner } from './spinner';
-export { Spinner2 } from './spinner-2';
+// export { Spinner2 } from './spinner-2';
 export { Spinner3 } from './spinner-3';
 export { Languages } from './languages';
 export { LanguagesOutline } from './languages-outline';
