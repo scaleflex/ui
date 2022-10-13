@@ -13,6 +13,7 @@ import { BorderRadiusSize } from '../../utils/types/shape';
 import { Theme, ThemeOverride, defaultTheme } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
+import { defaultShadows } from '../roots/shadows';
 
 import type { ThemeProviderProps } from './theme-provider.props';
 import createBreakpoints from '../entity/create-breakpoints';
@@ -24,6 +25,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     breakpoints: breakpointsOverride = {},
     typography: typographyOverride = {},
     shape: shapeOverride = {},
+    shadows: shadowsOverride = {},
   } = theme;
 
   const finalTheme = useMemo<Theme>(() => {
@@ -32,6 +34,10 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       ...paletteOverride,
     };
     const breakpoints = createBreakpoints(breakpointsOverride);
+    const shadows = {
+      ...defaultShadows,
+      ...shadowsOverride,
+    };
 
     return {
       palette,
@@ -56,11 +62,12 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
           }
         ),
       },
+      shadows,
     };
 
     return {} as Theme;
   }, [JSON.stringify(theme)]);
-
+  console.log('finalTheme', finalTheme);
   return (
     <SCThemeProvider theme={finalTheme}>
       <>
