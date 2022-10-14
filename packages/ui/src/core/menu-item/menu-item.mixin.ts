@@ -11,9 +11,9 @@ export const sizeMenuItemMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 4px 8px;
-    min-height: 22px;
-    ${font[FV.LabelSmall]}
+    padding: 8px 16px;
+    min-height: 32px;
+    ${font[FV.LabelNormal]}
   `,
 
   [Size.Md]: ({
@@ -21,8 +21,8 @@ export const sizeMenuItemMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 8px 12px;
-    min-height: 32px;
-    ${font[FV.LabelNormal]}
+    padding: 11px 16px;
+    min-height: 40px;
+    ${font[FV.LabelLarge]}
   `,
 };

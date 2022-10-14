@@ -15,7 +15,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  size: Size.Md,
+  size: Size.Sm,
   children: 'France',
   active: false,
 };

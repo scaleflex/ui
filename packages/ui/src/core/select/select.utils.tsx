@@ -1,6 +1,7 @@
 import React from 'react';
 import type { ReactNode, ReactElement } from 'react';
-import TickIcon from '@scaleflex/icons/tick';
+import { Tick } from '@scaleflex/icons/tick';
+
 import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
 import type { RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType } from './select.props';
@@ -23,11 +24,13 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
     <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
   ) : undefined;
 
-const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType = InputSize.Md): ReactNode => {
+const generateChildren = (children: ReactNode, isActive = false): ReactNode => {
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
-        <TickIcon size={size === InputSize.Md ? 11 : 9} />
+        <Styled.TickIcon>
+          <Tick size={12} />
+        </Styled.TickIcon>
       </MenuItemActions>
     );
 
@@ -82,7 +85,7 @@ export const renderOption = (
   return React.cloneElement(menuItem as ReactElement<MenuItemProps>, {
     active,
     size,
-    children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
+    children: generateChildren((menuItem as JSX.Element)?.props?.children, active),
     onClick: () => {
       if (!multiple && typeof onClose === 'function') {
         onClose();
@@ -120,7 +123,7 @@ const renderOptionValue = (option: any) => {
   if (option && option.children) {
     let child = option.children;
     while (typeof child !== 'string') {
-      child = getOptionValue(child);
+      Array.isArray(child) ? (child = getOptionValue(child[1])) : (child = getOptionValue(child));
     }
     return child;
   }

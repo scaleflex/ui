@@ -45,7 +45,7 @@ import type { ColorsMap } from './colors-map';
 //   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)',
 // };
 export const lightPalette = {
-  [Color.TextPrimary]: '#37414B',
+  [Color.TextPrimary]: 'rgba(55,65,75,1)', // #37414B
   [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)', // #ffffff
   [Color.TextSecondary]: 'rgb(118, 138, 159)',
   [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)',
@@ -58,12 +58,12 @@ export const lightPalette = {
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)',
   [Color.AccentPrimaryDisabled]: '#E9EEF2',
   [Color.AccentSecondaryDisabled]: '#F9FBFC',
-  [Color.AccentStateless]: 'rgba(104,121,235,1)',
+  [Color.AccentStateless]: 'rgba(104,121,235,1)', // #6879EB
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
 
-  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
+  [Color.BackgroundGrey]: 'rgba(216,224,232,1)', // #D8E0E8
   [Color.BackgroundStateless]: '#FFFFFF',
-  [Color.BackgroundActive]: '#F3F7FA',
+  [Color.BackgroundActive]: 'rgba(243,247,250,1)', // #F3F7FA
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)', // #eff3f6
   [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)', // #5d6d7e
@@ -71,7 +71,7 @@ export const lightPalette = {
   [Color.BackgroundPrimaryStateless]: '#CCD6DE',
   [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
   [Color.BackgroundActive]: 'rgba(243,247,250,1)',
-  [Color.BackgroundHover]: 'rgba(249,251,252,1)',
+  [Color.BackgroundHover]: 'rgba(249,251,252,1)', // #F9FBFC
   [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
 
   [Color.BackgroundLightGreen]: 'rgba(237, 250, 244, 1)',
@@ -85,7 +85,7 @@ export const lightPalette = {
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
   [Color.IconsSecondary]: 'rgba(151,166,182,1)', // #97A6B6
   [Color.IconsPlaceholder]: '#DEE6ED',
-  [Color.IconsMuted]: 'rgba(169,182,194,1)',
+  [Color.IconsMuted]: 'rgba(169,182,194,1)', // #A9B6C2
   [Color.IconsPrimaryHover]: '#4F6276',
 
   [Color.ButtonPrimaryText]: '#FFFFFF',

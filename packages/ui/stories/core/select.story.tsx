@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import _Select, { SelectProps } from '../../src/core/select';
 import MenuItem from '../../src/core/menu-item';
-import { InputSize, InputBackgroundColor } from '../../src/utils/types';
+import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const Select = _Select;
@@ -16,6 +16,9 @@ export default {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
     },
+    scroll: {
+      description: 'Prop directly change scroll design',
+    },
   },
 } as Meta;
 
@@ -24,8 +27,8 @@ const defaultArgs = {
   multiple: false,
   readOnly: false,
   disabled: false,
+  scroll: false,
   placeholder: 'placeholder',
-  background: InputBackgroundColor.Primary,
 };
 
 const BasicTemplate: Story<SelectProps> = ({ ...args }) => {

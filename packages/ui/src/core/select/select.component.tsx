@@ -8,7 +8,7 @@ import type { AnchorElType, MenuProps } from '../menu/menu.props';
 import { propTypes as menuPropTypes } from '../menu/menu.component';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
-import { InputBackgroundColor, InputSize } from '../../utils/types';
+import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
@@ -26,8 +26,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       MenuProps,
       readOnly,
       disabled,
+      scroll,
       placeholder,
-      background,
       renderLabel,
       ...rest
     },
@@ -43,7 +43,6 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
         <Styled.Select
           {...rest}
           size={size}
-          background={background}
           error={error}
           fullWidth={Boolean(fullWidth)}
           readOnly={readOnly}
@@ -59,13 +58,13 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
             <ArrowTick
               type={open ? 'top' : 'bottom'}
               // IconProps={{ size: size === Size.Md ? 13 : 11 }}
-              IconProps={{ size: 8 }}
+              IconProps={{ size: 10 }}
             />
           </Styled.Icon>
           <Styled.Input {...selectProps} />
         </Styled.Select>
 
-        <Menu onClose={handleClose} open={open} anchorEl={anchorEl} {...MenuProps}>
+        <Menu onClose={handleClose} scroll={scroll} open={open} anchorEl={anchorEl} {...MenuProps}>
           {React.Children.map(children, (child) =>
             renderOption(child, {
               value,
@@ -88,7 +87,6 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
-  background: InputBackgroundColor.Primary,
 };
 
 Select.defaultProps = defaultProps;
@@ -110,7 +108,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
-  background: PT.oneOf(objectValues(InputBackgroundColor)),
+  scroll: PT.bool,
   renderLabel: PT.func,
 };
 

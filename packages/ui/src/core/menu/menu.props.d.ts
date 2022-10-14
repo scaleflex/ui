@@ -22,6 +22,7 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   enableOverlay?: boolean;
   zIndex?: number;
   hideScroll?: boolean;
+  scroll?: boolean;
   enableUnderlayingEvent?: boolean;
   popperWrapperStyles?: object;
 }

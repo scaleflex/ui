@@ -26,6 +26,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       enableOverlay = true,
       zIndex,
       hideScroll = true,
+      scroll = false,
       enableUnderlayingEvent = false,
       popperWrapperStyles = {},
       ...rest
@@ -115,6 +116,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           <Styled.Menu
             {...containerProps}
             alignCenter={Boolean(alignCenter)}
+            scroll={scroll}
             rect={rect}
             {...rest}
             ref={ref}
@@ -131,10 +133,11 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
 export const defaultProps = {
   open: false,
   containerProps: {},
-  maxHeight: 0,
+  maxHeight: 250,
   position: Position.Bottom,
   enableOverlay: true,
   hideScroll: true,
+  scroll: false,
 };
 
 Menu.defaultProps = defaultProps;
@@ -159,6 +162,7 @@ export const propTypes = {
   enableOverlay: PT.bool,
   zIndex: PT.number,
   hideScroll: PT.bool,
+  scroll: PT.bool,
   enableUnderlayingEvent: PT.bool,
   popperWrapperStyles: PT.object,
 };

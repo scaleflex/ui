@@ -1,7 +1,8 @@
 import React from 'react';
 import PT, { Validator } from 'prop-types';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { InputSize } from '../../utils/types';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Label from '../label';
 import type { LabelProps } from '../label';
 import { propTypes as labelPropTypes } from '../label/label.component';
@@ -16,6 +17,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
   (
     {
       children,
+      size,
       error,
       label,
       placeholder,
@@ -23,6 +25,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       LabelProps: LabelPropsData,
       SelectProps: SelectPropsData,
       selectProps,
+      scroll,
       fullWidth,
       value,
       multiple,
@@ -76,6 +79,8 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
         <Select
           error={error}
           value={value}
+          size={size}
+          scroll={scroll}
           onChange={onChange}
           multiple={multiple}
           fullWidth={Boolean(fullWidth)}
@@ -106,12 +111,14 @@ const { size, ...restSelectPropTypes } = selectPropTypes;
 SelectGroup.propTypes = {
   ...restSelectPropTypes, // Extends from SelectProps: multiple, error, children, value, onChange
   fullWidth: PT.bool,
+  size: PT.oneOf(objectValues(InputSize)),
   label: PT.node,
   hint: PT.node,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   SelectProps: PT.exact(selectPropTypes) as Validator<SelectProps>,
   selectProps: PT.object,
   readOnly: PT.bool,
+  scroll: PT.bool,
   disabled: PT.bool,
 };
 

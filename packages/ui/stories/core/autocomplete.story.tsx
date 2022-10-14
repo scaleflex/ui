@@ -10,12 +10,18 @@ export default {
   title: `${StoryGroup.Inputs}/Autocomplete`,
   component: Autocomplete,
   excludeStories: ['Autocomplete'],
+  argTypes: {
+    scroll: {
+      description: 'Prop directly change scroll design',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
   placeholder: 'placeholder',
   label: 'Label',
   readOnly: false,
+  scroll: false,
   hint: 'Some hint goes here',
   size: InputSize.Md,
   options: [
