@@ -37,7 +37,7 @@ export const sizeInputLabelMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FV.LabelNormal]),
+  }: WithTheme) => css(font[FV.LabelMedium]),
 };
 
 export const errorMixin = ({ theme: { palette } }: WithTheme) => css`

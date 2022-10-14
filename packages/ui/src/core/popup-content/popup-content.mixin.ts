@@ -6,18 +6,18 @@ import { Status } from '../popup-status/types';
 
 export const popupContentMixin = {
   [Status.Success]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.BackgroundLightGreen]};
+    background-color: ${palette[PaletteColor.BackgroundGreen]};
   `,
 
   [Status.Info]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.BackgroundLightBlue]};
+    background-color: ${palette[PaletteColor.BackgroundBlue]};
   `,
 
   [Status.Error]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.BackgroundLightRed]};
+    background-color: ${palette[PaletteColor.BackgroundRed]};
   `,
 
   [Status.Warning]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.BackgroundLightOrange]};
+    background-color: ${palette[PaletteColor.BackgroundOrange]};
   `,
 };

@@ -117,7 +117,7 @@ const LabelTooltip = styled.span.attrs({
     transition: transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transform-origin: bottom center;
     transform: ${open ? 'translateY(-100%) scale(1)' : 'translateY(-100%) scale(0)'};
-    background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkHover]};
+    background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkStateless]};
     color: #fff;
     cursor: pointer;
     &::before {

@@ -28,7 +28,7 @@ const Icon = styled.div.attrs({
 })(
   ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
     margin-right: 8px;
-    color: ${disabled ? palette[PColor.IconsMuted] : palette[PColor.LinkHover]};
+    color: ${disabled ? palette[PColor.IconsMuted] : palette[PColor.IconsPrimary]};
 
     svg {
       ${iconSizeMixin[size]}
@@ -64,15 +64,15 @@ const Tab = styled.div.attrs({
 
       &:hover {
         ${StyledBadge.Badge} {
-          color: ${palette[PColor.TabHover]};
+          color: ${palette[PColor.AccentHover]};
         }
 
         ${Icon} {
-          color: ${palette[PColor.TabHover]};
+          color: ${palette[PColor.AccentHover]};
         }
 
         ${Label} {
-          color: ${palette[PColor.TabHover]};
+          color: ${palette[PColor.AccentHover]};
         }
 
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderHoverBottom]}` : ''};
@@ -80,7 +80,7 @@ const Tab = styled.div.attrs({
 
       &:active {
         ${StyledBadge.Badge} {
-          color: ${palette[PColor.TabActive]};
+          color: ${palette[PColor.AccentPrimaryActive]};
         }
 
         ${Dot} {
@@ -88,11 +88,11 @@ const Tab = styled.div.attrs({
         }
 
         ${Icon} {
-          color: ${palette[PColor.TabActive]};
+          color: ${palette[PColor.AccentPrimaryActive]};
         }
 
         ${Label} {
-          color: ${palette[PColor.TabActive]};
+          color: ${palette[PColor.AccentPrimaryActive]};
         }
 
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderActiveBottom]}` : ''};
@@ -100,7 +100,7 @@ const Tab = styled.div.attrs({
 
       &.active {
         ${StyledBadge.Badge} {
-          color: ${palette[PColor.TabPressed]};
+          color: ${palette[PColor.AccentPrimary]};
         }
 
         ${Dot} {
@@ -108,14 +108,14 @@ const Tab = styled.div.attrs({
         }
 
         ${Icon} {
-          color: ${palette[PColor.TabPressed]};
+          color: ${palette[PColor.AccentPrimary]};
         }
 
         ${Label} {
-          color: ${palette[PColor.TabPressed]};
+          color: ${palette[PColor.AccentPrimary]};
         }
 
-        box-shadow: inset 0px -2px 0px ${palette[PColor.TabPressed]};
+        box-shadow: inset 0px -2px 0px ${palette[PColor.AccentPrimary]};
       }
     `}
   `

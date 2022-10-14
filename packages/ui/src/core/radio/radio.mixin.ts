@@ -33,7 +33,7 @@ export const fontSizeRadioLabelMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.LabelNormal]),
+  }: WithTheme) => css(font[FontVariant.LabelMedium]),
 
   [RadioSize.Md]: ({
     theme: {

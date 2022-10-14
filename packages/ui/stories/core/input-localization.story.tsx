@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import LanguagesIcon from '@scaleflex/icons/languages';
 import _InputLocalization, { InputLocalizationProps } from '../../src/core/input-localization';
+import type { IconProps } from '@scaleflex/icons/icon.props';
 import MenuItem from '../../src/core/menu-item';
 import { StoryGroup } from './types';
+import { InputSize } from '../../src/utils/types';
 
 export const InputLocalization = _InputLocalization;
 
@@ -22,6 +24,7 @@ export default {
 const defaultArgs = {
   readOnly: false,
   disabled: false,
+  size: InputSize.Md,
 };
 
 const options = ['France', 'Germany', 'Ukraine'];
@@ -52,7 +55,7 @@ Multiple.args = { ...defaultArgs, multiple: true };
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  icon: <LanguagesIcon size={12} />,
+  icon: (props: IconProps) => <LanguagesIcon {...props} />,
 };
 
 // WithIconAndCustomLabel
