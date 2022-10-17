@@ -67,7 +67,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
 
     return {} as Theme;
   }, [JSON.stringify(theme)]);
-  console.log('finalTheme', finalTheme);
+
   return (
     <SCThemeProvider theme={finalTheme}>
       <>
