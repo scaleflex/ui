@@ -29,7 +29,7 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
       <Styled.Icon onContextMenu={onContextMenu}>
         <ArrowTick
           type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right}
-          IconProps={{ size: 8, ...iconPropsData }}
+          IconProps={{ size: 11, ...iconPropsData }}
         />
       </Styled.Icon>
 
