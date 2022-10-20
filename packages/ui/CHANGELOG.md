@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.4](https://github.com/scaleflex/ui/compare/2.0.0-beta.3...2.0.0-beta.4) (2022-10-20)
+
+
+### Bug Fixes
+
+* theme breakpoint classes type ([5c46df5](https://github.com/scaleflex/ui/commit/5c46df53e91b11065931e9e25e02cdbf9dd1d1d0))
+
+
+### Features
+
+* **Accordion:** add hideIcon prop ([9d78cd6](https://github.com/scaleflex/ui/commit/9d78cd6bae5bd81698e07ec29f8188e35b878ac6))
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/scaleflex/ui/compare/2.0.0-beta.2...2.0.0-beta.3) (2022-10-17)
 
 
