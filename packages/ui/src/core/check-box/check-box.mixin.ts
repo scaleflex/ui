@@ -3,16 +3,16 @@ import { Size } from './types';
 
 export const sizeCheckboxMixin = {
   [Size.Sm]: () => css`
-    min-height: 14px;
-    max-height: 14px;
-    min-width: 14px;
-    max-width: 14px;
+    min-height: 10px;
+    max-height: 10px;
+    min-width: 10px;
+    max-width: 10px;
   `,
 
   [Size.Md]: () => css`
-    min-height: 18px;
-    max-height: 18px;
-    min-width: 18px;
-    max-width: 18px;
+    min-height: 20px;
+    max-height: 20px;
+    min-width: 20px;
+    max-width: 20px;
   `,
 };
