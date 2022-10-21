@@ -20,6 +20,7 @@ export default {
 const defaultArgs = {
   label: 'Folders (5)',
   expanded: false,
+  hideIcon: false,
 };
 
 const BasicTemplate: Story<AccordionProps> = ({ expanded, ...args }) => {

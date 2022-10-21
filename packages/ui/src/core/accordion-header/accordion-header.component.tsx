@@ -10,7 +10,16 @@ import Styled from './accordion-header.styles';
 
 const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>(
   (
-    { expanded, label, onChange, onClick, onContextMenu, iconProps: iconPropsData, ...rest }: AccordionHeaderProps,
+    {
+      expanded,
+      label,
+      onChange,
+      onClick,
+      onContextMenu,
+      hideIcon,
+      iconProps: iconPropsData,
+      ...rest
+    }: AccordionHeaderProps,
     ref
   ): JSX.Element => (
     <Styled.AccordionHeader
@@ -26,13 +35,14 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
       }}
       {...rest}
     >
-      <Styled.Icon onContextMenu={onContextMenu}>
-        <ArrowTick
-          type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right}
-          IconProps={{ size: 11, ...iconPropsData }}
-        />
-      </Styled.Icon>
-
+      {!hideIcon && (
+        <Styled.Icon onContextMenu={onContextMenu}>
+          <ArrowTick
+            type={expanded ? ArrowTickType.Bottom : ArrowTickType.Right}
+            IconProps={{ size: 11, ...iconPropsData }}
+          />
+        </Styled.Icon>
+      )}
       <Styled.Label onContextMenu={onContextMenu}>{label}</Styled.Label>
     </Styled.AccordionHeader>
   )
@@ -40,11 +50,13 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
 
 AccordionHeader.defaultProps = {
   expanded: false,
+  hideIcon: false,
 };
 
 AccordionHeader.propTypes = {
   label: PT.node.isRequired,
   expanded: PT.bool,
+  hideIcon: PT.bool,
   onChange: PT.func,
   iconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
 };

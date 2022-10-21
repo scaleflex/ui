@@ -6,8 +6,8 @@ export const getCheckboxIconSize = (size?: CheckBoxSizeType): number => {
     case Size.Md:
       return 14;
     case Size.Sm:
-      return 12;
+      return 10;
     default:
-      return 12;
+      return 10;
   }
 };
