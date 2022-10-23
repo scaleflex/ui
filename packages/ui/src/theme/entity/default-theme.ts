@@ -198,31 +198,31 @@ const titleFontVariants = {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '12px',
-    lineHeight: '12px',
+    lineHeight: '14px',
   },
   [FontVariant.TitleH4]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '14px',
-    lineHeight: '14px',
+    lineHeight: '16px',
   },
   [FontVariant.TitleH3]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '16px',
-    lineHeight: '16px',
+    lineHeight: '18px',
   },
   [FontVariant.TitleH2]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '18px',
-    lineHeight: '18px',
+    lineHeight: '20px',
   },
   [FontVariant.TitleH1]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '20px',
-    lineHeight: '20px',
+    lineHeight: '22px',
   },
 };
 
