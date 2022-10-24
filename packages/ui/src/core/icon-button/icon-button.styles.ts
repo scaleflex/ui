@@ -20,7 +20,7 @@ const squarePaddingMixin = {
     padding: 12px;
   `,
   [ButtonSize.Lg]: css`
-    padding: 15px;
+    padding: 11px;
   `,
 };
 
