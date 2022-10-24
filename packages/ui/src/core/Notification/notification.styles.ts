@@ -97,11 +97,10 @@ className: generateClassNames(baseClassName, 'Close'),
     justify-content: center;
     align-items: center;
     gap: 4px;
-    width: 32px;
-    height: 32px;
+    padding: 8px;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 2px;
     cursor: pointer;
 `;
 

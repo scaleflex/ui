@@ -52,7 +52,7 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         </Styled.Notification>
         
         <Styled.Close onClick={onClose}>
-          <Cross size={background ? 12.32 : 10} color={lightPalette[Color.IconsPrimary]} />
+          <Cross size={background ? 10.56 : 0} color={lightPalette[Color.IconsPrimary]} />
         </Styled.Close>
       </Styled.NotificationWrapper>
     );
