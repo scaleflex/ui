@@ -356,3 +356,7 @@ export { Archieve } from './archieve';
 export { Audio } from './audio';
 export { Draft } from './draft';
 export { Vector } from './vector';
+export { ArrowSidebarLeftOutline } from './arrow-sidebar-left-outline';
+export { ArrowSidebarRightOutline } from './arrow-sidebar-right-outline';
+export { ArrowSidebarLeft } from './arrow-sidebar-left';
+export { ArrowSidebarRight } from './arrow-sidebar-right';
