@@ -15,7 +15,7 @@ const Cross = styled.span.attrs({
 })(
   ({ theme }: WithTheme) => css`
     display: inline-flex;
-    color: ${theme.palette[PColor.LinkHover]};
+    color: ${theme.palette[PColor.IconsPrimary]};
     cursor: pointer;
   `
 );
@@ -27,7 +27,7 @@ const Label = styled.span.attrs({
     display: flex;
     align-items: center;
     outline: none;
-    color: ${theme.palette[PColor.LinkHover]};
+    color: ${theme.palette[PColor.TextPrimary]};
   `
 );
 
@@ -40,18 +40,18 @@ const Tag = styled.div.attrs({
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    background-color: ${theme.palette[PColor.AccentSecondaryDisabled]};
-    border: 1px solid ${theme.palette[PColor.BackgroundPrimaryStateless]};
+    background-color: ${theme.palette[PColor.BordersSecondary]};
+    border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
 
     ${sizeTagLabelMixin[size]}
 
     &:hover {
       background-color: ${theme.palette[PColor.BackgroundActive]};
-      border: 1px solid ${theme.palette[PColor.LinkHover]};
+      border: 1px solid ${theme.palette[PColor.IconsSecondaryHover]};
 
       ${Label} {
-        color: ${theme.palette[PColor.IconsPrimaryHover]};
+        color: ${theme.palette[PColor.TextPrimary]};
       }
 
       ${Cross} {
@@ -66,11 +66,11 @@ const Tag = styled.div.attrs({
 
       ${type === Type.Suggested &&
       css`
-        border: 1px dashed ${theme.palette[PColor.LinkHover]};
+        border: 1px dashed ${theme.palette[PColor.IconsSecondaryHover]};
         background-color: ${theme.palette[PColor.BackgroundActive]};
 
         ${Label} {
-          color: ${theme.palette[PColor.IconsPrimaryHover]};
+          color: ${theme.palette[PColor.LinkHover]};
         }
 
         ${Cross} {
@@ -82,15 +82,15 @@ const Tag = styled.div.attrs({
     &:not(:hover) {
       ${type === Type.Suggested &&
       css`
-        border: 1px dashed ${theme.palette[PColor.LinkHover]};
+        border: 1px dashed ${theme.palette[PColor.BorderPrimaryStateless]};
         background: transparent;
 
         ${Label} {
-          color: ${theme.palette[PColor.LinkHover]};
+          color: ${theme.palette[PColor.LinkStateless]};
         }
 
         ${Cross} {
-          color: ${theme.palette[PColor.LinkHover]};
+          color: ${theme.palette[PColor.IconsPrimary]};
         }
       `}
     }

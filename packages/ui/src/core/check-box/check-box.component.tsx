@@ -49,7 +49,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
           getIcon({ size: getCheckboxIconSize(size), color: lightPalette[Color.ButtonPrimaryText] })
         ) : (
           <Styled.UnCheckedIcon>
-            {getIcon({ size: getCheckboxIconSize(size), color: lightPalette[Color.AccentPrimaryOpacity] })}
+            {getIcon({ size: getCheckboxIconSize(size), color: lightPalette[Color.Accent_4_0_Opacity] })}
           </Styled.UnCheckedIcon>
         )}
       </Styled.CheckBox>

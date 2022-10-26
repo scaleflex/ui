@@ -1,10 +1,12 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-// import type { With } from '../../utils/types';
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
-import { FontVariant as FV } from '../../utils/types/typography';
 import { Color as PColor } from '../../utils/types/palette';
-// import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
+import { InputSize } from '../../utils/types';
+import type { InputLocalizationProps } from './input-localization.props';
+import { sizeInputLabelMixin } from './input-localization.mixin';
 
 const baseClassName = 'InputLocalization';
 
@@ -14,14 +16,16 @@ const Icon = styled.span.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.IconsSecondary]};
+    color: ${palette[PColor.IconsPrimary]};
 
     &:first-child {
       margin-right: 4px;
+      margin-bottom: 2px;
     }
 
     &:last-child {
-      margin-left: 7px;
+      margin-left: 6px;
+      margin-top: 1px;
     }
   `
 );
@@ -35,19 +39,26 @@ const Container = styled.div.attrs({
 const InputLocalization = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    theme: {
-      palette,
-      typography: { font },
-    },
-  }: WithTheme) => css`
+  ({ size = InputSize.Md, disabled, theme }: With<WithTheme, InputLocalizationProps>) => css`
     position: relative;
     display: flex;
     align-items: center;
-    cursor: pointer;
-    color: ${palette[PColor.IconsSecondary]};
+    cursor: ${disabled ? 'default' : 'pointer'};
+    color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.LinkStateless]};
 
-    ${font[FV.LabelSmall]};
+    &:hover {
+      ${!disabled && `color: ${theme.palette[PColor.LinkHover]};`}
+    }
+
+    ${disabled &&
+    css`
+      ${Icon} {
+        color: ${theme.palette[PColor.ButtonDisabledText]};
+        cursor: default;
+      }
+    `}
+
+    ${sizeInputLabelMixin[size]}
   `
 );
 

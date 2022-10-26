@@ -13,21 +13,12 @@ export const PartiallyDone = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0)">
-        <path
-          d="M0 25.0005C0 11.1934 11.1929 0.000549316 25 0.000549316V50.0005C11.1929 50.0005 0 38.8077 0 25.0005Z"
-          fill={color}
-        />
-        <path
-          d="M50 25.0005C50 38.8077 38.8071 50.0005 25 50.0005L25 0.000547131C38.8071 0.000548338 50 11.1934 50 25.0005Z"
-          fill={color2}
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" transform="translate(0 0.000549316)" />
-        </clipPath>
-      </defs>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M50 25C50 38.8071 38.8071 50 25 50C11.1929 50 0 38.8071 0 25C0 11.1929 11.1929 0 25 0C38.8071 0 50 11.1929 50 25ZM26 47.9787C38.2386 47.4551 48 37.3675 48 25C48 12.6325 38.2386 2.5449 26 2.02135V47.9787Z"
+        fill={color}
+      />
     </svg>
   )
 );

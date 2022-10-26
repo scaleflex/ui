@@ -28,7 +28,7 @@ export const fontTagFieldMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelNormal]}
+    ${font[FV.LabelMedium]}
     font-weight: 500;
   `,
 };

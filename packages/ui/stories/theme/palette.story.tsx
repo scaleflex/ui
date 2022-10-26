@@ -15,7 +15,7 @@ export const Colors: Story<PaletteProps> = () => (
   <div>
     {objectKeys(Color).map((colorName) => (
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
-        <div style={{ backgroundColor: defaultPalette[Color[colorName]], width: 60, height: 40 }} />
+        <div style={{ background: defaultPalette[Color[colorName]], width: 60, height: 40 }} />
 
         <div
           style={{

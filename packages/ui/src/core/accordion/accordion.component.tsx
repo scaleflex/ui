@@ -21,6 +21,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
       onClick,
       onChange,
       onContextMenu,
+      hideIcon,
       ...rest
     }: AccordionProps,
     ref
@@ -31,6 +32,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
           label={label}
           expanded={expanded}
           style={{ ...headerStyle }}
+          hideIcon={hideIcon}
           onClick={(event) => {
             if (typeof onChange === 'function') {
               onChange(!expanded, event);
@@ -54,6 +56,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
 
 Accordion.defaultProps = {
   expanded: false,
+  hideIcon: false,
 };
 
 Accordion.propTypes = {
@@ -63,6 +66,7 @@ Accordion.propTypes = {
   headerStyle: PT.object,
   onChange: PT.func,
   onContextMenu: PT.func,
+  hideIcon: PT.bool,
   iconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
 };
 

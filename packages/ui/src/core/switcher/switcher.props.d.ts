@@ -5,10 +5,11 @@ import { SwitcherSize } from './switcher-size';
 
 export type SwitcherType = Values<typeof SwitcherSize>;
 
-export interface SwitcherProps extends React.HTMLAttributes<HTMLInputElement> {
+export interface SwitcherProps extends React.HTMLAttributes<HTMLDivElement> {
   checked?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   switcherProps?: React.InputHTMLAttributes;
+  SwitcherPropsData?: React.InputHTMLAttributes;
   readOnly?: boolean;
   disabled?: boolean;
   size?: SwitcherType;

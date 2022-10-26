@@ -143,7 +143,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
-        {renderIcon(clearIcon, 'secondEnd')}
+        {renderIcon(disabled || readOnly ? undefined : clearIcon, 'secondEnd')}
         {renderCopyIcon(<CopyOutline size={16} />)}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}

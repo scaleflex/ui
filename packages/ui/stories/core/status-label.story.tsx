@@ -18,6 +18,7 @@ const defaultArgs = {
   variant: Variant.Filled,
   type: Type.Default,
   size: Size.Md,
+  iconSize: 8,
 };
 
 const BasicTemplate: Story<StatusLabelProps> = ({ ...args }) => <StatusLabel {...args} />;

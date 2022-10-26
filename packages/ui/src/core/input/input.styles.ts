@@ -16,7 +16,7 @@ const Icon = styled.span.attrs({
 })(
   ({ iconClickStart, iconClickEnd, clearIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
-    color: ${palette[PColor.AccentPrimary]};
+    color: ${palette[PColor.IconsPrimary]};
     cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
   `
 );

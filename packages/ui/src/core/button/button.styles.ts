@@ -72,8 +72,8 @@ const Button = styled.button.attrs({
     ${buttonType === ButtonType.Sidebar &&
     css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-      color: ${theme.palette[PaletteColor.LinkHover]};
-      border: 1px solid ${theme.palette[PaletteColor.BorderButton]};
+      color: ${theme.palette[PaletteColor.LinkPrimary]};
+      border: 1px solid ${theme.palette[PaletteColor.BordersButton]};
 
       ${!active &&
       css`
@@ -98,7 +98,7 @@ const Button = styled.button.attrs({
       `}
 
       &:disabled {
-        color: ${theme.palette[PaletteColor.BorderDisabled]};
+        color: ${theme.palette[PaletteColor.BordersDisabled]};
         background: ${theme.palette[PaletteColor.AccentPrimaryDisabled]};
         border: none;
         cursor: default;
