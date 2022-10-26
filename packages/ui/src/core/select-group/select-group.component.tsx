@@ -25,7 +25,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       LabelProps: LabelPropsData,
       SelectProps: SelectPropsData,
       selectProps,
-      scroll,
+      scroll = true,
       fullWidth,
       value,
       multiple,
@@ -104,6 +104,7 @@ SelectGroup.defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  scroll: true,
 };
 
 const { size, ...restSelectPropTypes } = selectPropTypes;

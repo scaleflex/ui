@@ -5,7 +5,6 @@ import { Color as PaletteColor } from '../../utils/types/palette';
 export const menuScrollBar = ({ theme: { palette } }: WithTheme) => css`
   scrollbar-color: ${palette[PaletteColor.IconsMuted]} ${palette[PaletteColor.ActiveSecondary]};
   scrollbar-width: thin;
-  margin-block: 6px;
 
   ::-webkit-scrollbar {
     width: 12px;

@@ -27,7 +27,6 @@ const defaultArgs = {
   multiple: false,
   readOnly: false,
   disabled: false,
-  scroll: false,
   placeholder: 'placeholder',
 };
 

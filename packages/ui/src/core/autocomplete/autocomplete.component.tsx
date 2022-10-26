@@ -437,7 +437,7 @@ Autocomplete.defaultProps = {
   size: InputSize.Md,
   // multiple: false,
   disabled: false,
-  scroll: false,
+  scroll: true,
   readOnly: false,
 };
 

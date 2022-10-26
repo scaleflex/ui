@@ -21,7 +21,6 @@ const defaultArgs = {
   placeholder: 'placeholder',
   label: 'Label',
   readOnly: false,
-  scroll: false,
   hint: 'Some hint goes here',
   size: InputSize.Md,
   options: [

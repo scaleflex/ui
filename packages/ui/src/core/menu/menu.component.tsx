@@ -26,7 +26,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       enableOverlay = true,
       zIndex,
       hideScroll = true,
-      scroll = false,
+      scroll = true,
       enableUnderlayingEvent = false,
       popperWrapperStyles = {},
       ...rest
@@ -137,7 +137,7 @@ export const defaultProps = {
   position: Position.Bottom,
   enableOverlay: true,
   hideScroll: true,
-  scroll: false,
+  scroll: true,
 };
 
 Menu.defaultProps = defaultProps;

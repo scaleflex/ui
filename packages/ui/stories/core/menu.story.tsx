@@ -24,7 +24,6 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  scroll: false,
   list: [
     {
       content: 'item1',
@@ -70,7 +69,7 @@ const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
 
   return (
     <div>
-      <Button onClick={handleClick} color="link">
+      <Button onClick={handleClick} color="basic">
         Open menu
       </Button>
 

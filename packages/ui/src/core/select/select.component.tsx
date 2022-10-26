@@ -26,7 +26,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       MenuProps,
       readOnly,
       disabled,
-      scroll,
+      scroll = true,
       placeholder,
       renderLabel,
       ...rest
@@ -87,6 +87,7 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  scroll: true,
 };
 
 Select.defaultProps = defaultProps;

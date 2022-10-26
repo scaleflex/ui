@@ -38,7 +38,6 @@ const defaultArgs = {
   placeholder: 'placeholder',
   children: 'France',
   active: false,
-  scroll: false,
 };
 
 const BasicTemplate: Story<SelectGroupProps> = ({ ...args }) => {
