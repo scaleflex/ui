@@ -51,7 +51,7 @@ export const lightPalette = {
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
   [Color.IconsMuted]: 'rgba(169,182,194,1)', // #A9B6C2
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
-  [Color.IconsSecondaryHover]: 'rgba(151, 166, 182, 1)', // #97A6B6
+  [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
   [Color.ButtonPrimaryText]: 'rgba(255, 255, 255, 1)', // #FFFFFF
   [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)', // #A9B6C2
@@ -72,7 +72,7 @@ export const lightPalette = {
   [Color.BordersInvert]: 'rgba(85,99,115,1)', // #556373
   [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
   [Color.BorderActiveBottom]: '#4958BC',
-  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
+  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)', // #CCD6DE
   [Color.BordersDisabled]: 'rgba(73, 88, 188, 0.4)', // #4958BC66
   [Color.BordersButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.BordersItem]: 'rgba(226, 232, 236, 1)', // #E2E8EC
