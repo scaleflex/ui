@@ -22,12 +22,13 @@ const StatusLabel = styled.span.attrs({
 const StatusIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ type = Type.Received }: { type: StatusLabelTypesType }) => css`
-    height: 8px;
-    width: 8px;
+  ({ type = Type.Received, iconSize }: { type: StatusLabelTypesType; iconSize: number; }) => css`
+    width: ${iconSize}px;
+    height: ${iconSize}px;
     border-radius: 50%;
     display: inline-flex;
     margin-right: 4px;
+    margin-bottom: 2px;
     box-sizing: border-box;
 
     ${statusLabelMixin[type]}
