@@ -87,6 +87,10 @@ const MenuItem = styled.div.attrs({
         background-color: white;
       `}
     }
+    ${(noOptionsText || disabled) &&
+    css`
+      color: ${theme.palette[PColor.ButtonDisabledText]};
+    `}
   `
 );
 
