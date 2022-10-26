@@ -5,7 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
-import { sizeInputMixin, errorMixin } from './input.mixin';
+import { sizeInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
 import { InputSize } from '../../utils/types';
 import { getInputBackgroundColor, getInputTextColor } from './input.utils';
 
@@ -14,10 +14,24 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ iconClickStart, iconClickEnd, clearIconClick, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({
+    iconClickStart,
+    iconClickEnd,
+    clearIconClick,
+    iconType,
+    theme: { palette }
+  }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
+
+    ${iconType === 'start' && css`
+      margin-right: 8px;
+    `}
+
+     ${iconType === 'secondEnd' && css`
+       margin-left: 8px;
+     `}
   `
 );
 
@@ -57,6 +71,7 @@ const Input = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
+    isSearchInput = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
@@ -75,6 +90,10 @@ const Input = styled.div.attrs({
 
     ${sizeInputMixin[size]}
 
+    ${Base} {
+      ${fontSizeInputMixin[size]}
+    }
+
     ${!readOnly &&
     !disabled &&
     css`
@@ -84,12 +103,20 @@ const Input = styled.div.attrs({
 
         &:hover {
           border: 1px solid ${theme.palette[PColor.AccentStateless]};
+          ${Icon} {
+            color: ${theme.palette[PColor.IconsPrimary]};
+          }
         }
       }
 
       &:hover {
-        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
+        background-color: ${isSearchInput ?
+          theme.palette[PColor.BackgroundHover] : theme.palette[PColor.TextPrimaryInvert]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
+
+        ${Icon} {
+          color : ${theme.palette[PColor.IconsPrimaryHover]};
+        }
       }
     `}
 

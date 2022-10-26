@@ -14,16 +14,17 @@ export default {
 
 const defaultArgs = {
   size: InputSize.Md,
+  placeholder: 'Search',
 };
 
 const BasicTemplate: Story<SearchProps> = ({ ...args }) => {
-  const [value, setValue] = useState('Text');
+  const [value, setValue] = useState('');
 
   return (
     <Search
       {...args}
       value={value}
-      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
+      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget?.value || '')}
     />
   );
 };

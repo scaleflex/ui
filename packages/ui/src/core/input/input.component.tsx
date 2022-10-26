@@ -8,14 +8,15 @@ import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
 import Styled from './input.styles';
 
-const getIconSize = (sizeName: InputSizeType | undefined): number => {
+const getIconSize = (sizeName: InputSizeType | undefined,
+  isSearchInput: boolean | undefined, iconType: string): number => {
   switch (sizeName) {
     case InputSize.Md:
-      return 16;
+      return isSearchInput ? (iconType === 'start' ? 18 : 14) : 16;
 
     case InputSize.Sm:
     default:
-      return 14;
+      return isSearchInput ? (iconType === 'start' ? 16 : 12) : 14;
   }
 };
 
@@ -33,6 +34,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       className,
       style,
       fullWidth,
+      isSearchInput,
       readOnly,
       disabled,
       focusOnMount = false,
@@ -99,8 +101,9 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           iconClickStart={iconClickStart}
           iconClickEnd={iconClickEnd}
           clearIconClick={clearIconClick}
+          iconType={type}
         >
-          {typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}
+          {typeof _icon === 'function' ? _icon({ size: getIconSize(size, isSearchInput, type) }) : _icon}
         </Styled.Icon>
       ) : undefined;
 
@@ -140,6 +143,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         disabled={disabled}
         fullWidth={Boolean(fullWidth)}
         error={error}
+        isSearchInput={isSearchInput}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
