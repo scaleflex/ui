@@ -24,6 +24,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   readOnly?: boolean;
   multiple?: boolean;
   disabled?: boolean;
+  scroll?: boolean;
   error?: boolean;
   focusOnOpen?: boolean;
   onChange?: (event: React.SyntheticEvent<HTMLInputElement>, value: string | AutocompleteValueType[]) => void;
