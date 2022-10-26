@@ -7,9 +7,9 @@ export type NotificationStatus = Values<typeof NotificationStatus>;
 
 export interface NotificationProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   status?: NotificationStatus;
-  background?: boolean;
+  removeBackground?: boolean;
   message?: React.ReactNode;
   title?: React.ReactNode;
-  icon?: boolean;
+  hideIcon?: boolean;
   onClose?: () => void;
 }

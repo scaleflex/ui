@@ -14,8 +14,8 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
   (
     {
       status,
-      background,
-      icon,
+      removeBackground,
+      hideIcon,
       title,
       message,
       onClose,
@@ -28,14 +28,15 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
       <Styled.NotificationWrapper
         ref={ref}
         status={status}
-        background={background}
-        icon={icon}
+        removeBackground={removeBackground}
+        hideIcon={hideIcon}
+        title={title}
         {...rest}
       >
         <Styled.Notification>
-            {icon && (
-                <Styled.Icon background={background}>
-                    <PopupStatus status={status} notificationBackground={background} />
+            {!hideIcon && (
+                <Styled.Icon removeBackground={removeBackground}>
+                    <PopupStatus status={status} notificationBackground={!removeBackground} />
                 </Styled.Icon>
             )}
             <Styled.MessageWrapper>
@@ -52,7 +53,7 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         </Styled.Notification>
         
         <Styled.Close onClick={onClose}>
-          <Cross size={background ? 10.56 : 0} color={lightPalette[Color.IconsPrimary]} />
+          <Cross size={removeBackground ? 0 : 10.56 } color={lightPalette[Color.IconsPrimary]} />
         </Styled.Close>
       </Styled.NotificationWrapper>
     );
@@ -61,14 +62,14 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
 
 Notification.defaultProps = {
   status: NotificationStatus.Info,
-  background: true,
-  icon: true,
+  removeBackground: false,
+  hideIcon: false,
 };
 
 Notification.propTypes = {
   status: PT.oneOf(objectValues(NotificationStatus)),
-  background: PT.bool,
-  icon: PT.bool,
+  removeBackground: PT.bool,
+  hideIcon: PT.bool,
   title: PT.node,
   message: PT.node,
   onClose: PT.func,

@@ -21,8 +21,9 @@ const NotificationWrapper = styled.div.attrs({
 })(
   ({
     status = NotificationStatus.Info,
-    background,
-    icon,
+    removeBackground,
+    hideIcon,
+    title,
     theme,
   }: With<WithTheme, NotificationProps>) => css`
     display: flex;
@@ -36,13 +37,19 @@ const NotificationWrapper = styled.div.attrs({
     ${messageColorMixin[status]}
     ${theme.typography.font[FontVariant.TextExtraSmall]}
 
-    ${background && css`
+    ${!removeBackground && css`
         ${backgroundColorMixin[status]}
         ${messageFontMixin[status]}
     `}
 
-    ${icon && background && css`
+    ${!hideIcon && !removeBackground && css`
         ${messageWithIconMixin[status]}
+    `}
+
+    ${removeBackground && title && css`
+        ${Icon} {
+            margin-top: 1px;
+        }
     `}
   `
 );
@@ -60,8 +67,8 @@ const Notification = styled.div.attrs({
 const Icon = styled.span.attrs({
     className: generateClassNames(baseClassName, 'Icon'),
 }) <NotificationProps>(
-    ({ background = true }) => css`
-    margin-right: ${background ? '12' : '6' }px;
+    ({ removeBackground = true }) => css`
+    margin-right: ${removeBackground ? '6' : '12' }px;
 `);
 
 const MessageWrapper = styled.div.attrs({
