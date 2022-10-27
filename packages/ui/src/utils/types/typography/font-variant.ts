@@ -6,6 +6,7 @@ export const FontVariant = {
   TextLarge: 'text-large',
   TextExtraLarge: 'text-extra-large',
 
+  TitleH6: 'title-h6',
   TitleH5: 'title-h5',
   TitleH4: 'title-h4',
   TitleH3: 'title-h3',

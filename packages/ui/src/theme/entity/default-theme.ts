@@ -93,32 +93,32 @@ const labelFontVariants = {
 const textFontVariants = {
   [FontVariant.TextExtraSmall]: {
     ...labelFontVariants[FontVariant.LabelExtraSmall],
-    lineHeight: '1.3',
+    lineHeight: '14px',
   },
   [FontVariant.TextSmall]: {
     ...defaultFontValue,
     fontSize: '12px',
-    lineHeight: '16.8px',
+    lineHeight: '18px',
   },
   [FontVariant.TextSmallUp]: {
     ...defaultFontValue,
     fontSize: '13px',
-    lineHeight: '18.2px',
+    lineHeight: '18px',
   },
   [FontVariant.TextMedium]: {
     ...defaultFontValue,
     fontSize: '14px',
-    lineHeight: '19.6px',
+    lineHeight: '20px',
   },
   [FontVariant.TextLarge]: {
     ...defaultFontValue,
     fontSize: '16px',
-    lineHeight: '22.4px',
+    lineHeight: '22px',
   },
   [FontVariant.TextExtraLarge]: {
     ...defaultFontValue,
     fontSize: '18px',
-    lineHeight: '25.2px',
+    lineHeight: '26px',
   },
 };
 
@@ -194,35 +194,41 @@ const inputFontVariants = {
 };
 
 const titleFontVariants = {
-  [FontVariant.TitleH5]: {
+  [FontVariant.TitleH6]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
     fontSize: '12px',
-    lineHeight: '14px',
+    lineHeight: '18px',
+  },
+  [FontVariant.TitleH5]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Medium,
+    fontSize: '14px',
+    lineHeight: '21px',
   },
   [FontVariant.TitleH4]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
-    fontSize: '14px',
-    lineHeight: '16px',
+    fontSize: '16px',
+    lineHeight: '24px',
   },
   [FontVariant.TitleH3]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
-    fontSize: '16px',
-    lineHeight: '18px',
+    fontSize: '18px',
+    lineHeight: '27px',
   },
   [FontVariant.TitleH2]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
-    fontSize: '18px',
-    lineHeight: '20px',
+    fontSize: '20px',
+    lineHeight: '30px',
   },
   [FontVariant.TitleH1]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
-    fontSize: '20px',
-    lineHeight: '22px',
+    fontSize: '28px',
+    lineHeight: '42px',
   },
 };
 
