@@ -10,6 +10,7 @@ export interface LabelProps extends PropsWithChildren, React.HTMLAttributes<HTML
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   error?: boolean;
+  disabled?: boolean;
   size?: InputSizeType;
   htmlFor?: string;
 }

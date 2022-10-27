@@ -49,7 +49,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
         }
 
         return (
-          <Label size={size} error={error} {...(LabelPropsData || {})}>
+          <Label size={size} error={error} disabled={disabled} {...(LabelPropsData || {})}>
             {label}
           </Label>
         );
@@ -92,7 +92,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
         }
 
         return (
-          <FormHint size={size} error={error}>
+          <FormHint size={size} error={error} disabled={disabled}>
             {hint}
           </FormHint>
         );

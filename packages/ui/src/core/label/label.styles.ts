@@ -12,12 +12,19 @@ const baseClassName = 'Label';
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = InputSize.Md, error = false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
+  ({ size = InputSize.Md, error = false, disabled=false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
     display: flex;
     align-items: center;
     color: ${theme.palette[PColor.TextSecondary]};
     font-style: normal;
     font-weight: normal;
+
+    ${disabled && css`
+      color: ${theme.palette[PColor.ButtonDisabledText]};
+      ${Icon} {
+        color: ${theme.palette[PColor.IconsMuted]};
+      }
+    `}
 
     ${sizeInputLabelMixin[size]}
 
@@ -34,13 +41,14 @@ const Text = styled.span.attrs({
   text-overflow: ellipsis;
   overflow: hidden;
 `;
+
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   ({ theme: { palette }, $end = false }: With<WithTheme, { $end: boolean }>) => css`
     display: flex;
     ${$end ? 'margin-left: 4px' : 'margin-right: 4px'};
-    color: ${palette[PColor.IconsSecondary]};
+    color: ${palette[PColor.IconsPrimary]};
   `
 );
 
