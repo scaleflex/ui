@@ -4,6 +4,7 @@ import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
+import { menuScrollBar } from './menu.utils';
 
 const baseClassName = 'Menu';
 
@@ -27,9 +28,11 @@ const Menu = styled.div.attrs({
   ({
     rect,
     theme,
+    scroll,
     maxHeight = '',
-  }: With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number }>) => css`
+  }: With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number; scroll?: boolean }>) => css`
     min-width: ${rect.width}px;
+    width: 195px;
     min-height: 16px;
     overflow-x: hidden;
     overflow-y: auto;
@@ -37,24 +40,13 @@ const Menu = styled.div.attrs({
     outline: 0;
     box-shadow: 0 2px 4px ${theme.palette[PColor.LightShadow]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+
+    ${scroll && menuScrollBar}
+
     ${maxHeight &&
     css`
       max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};
     `}
-
-    ::-webkit-scrollbar {
-      width: 6px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: rgba(0, 0, 0, 0.35);
-      border-radius: 2px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(0, 0, 0, 0.5);
-    }
   `
 );
 
