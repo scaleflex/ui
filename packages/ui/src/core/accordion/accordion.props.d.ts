@@ -6,6 +6,7 @@ export interface AccordionProps extends React.HTMLAttributes<HTMLDivElement> {
   expanded?: boolean;
   detailStyle?: object;
   headerStyle?: object;
+  hideIcon?: boolean;
   onChange?: (value: boolean, event: SyntheticEvent) => void;
   onContextMenu?: (event: MouseEvent) => void;
   iconProps?: IconProps;

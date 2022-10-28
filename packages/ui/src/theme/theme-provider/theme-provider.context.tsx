@@ -5,7 +5,7 @@ import merge from 'lodash.merge';
 
 import { record } from '../../utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '../../utils/functions';
-import { Breakpoint, BreakpointClass } from '../../utils/types/css';
+import { Breakpoint } from '../../utils/types/css';
 import { Color } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
@@ -13,6 +13,7 @@ import { BorderRadiusSize } from '../../utils/types/shape';
 import { Theme, ThemeOverride, defaultTheme } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
+import { defaultShadows } from '../roots/shadows';
 
 import type { ThemeProviderProps } from './theme-provider.props';
 import createBreakpoints from '../entity/create-breakpoints';
@@ -24,6 +25,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     breakpoints: breakpointsOverride = {},
     typography: typographyOverride = {},
     shape: shapeOverride = {},
+    shadows: shadowsOverride = {},
   } = theme;
 
   const finalTheme = useMemo<Theme>(() => {
@@ -32,6 +34,10 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       ...paletteOverride,
     };
     const breakpoints = createBreakpoints(breakpointsOverride);
+    const shadows = {
+      ...defaultShadows,
+      ...shadowsOverride,
+    };
 
     return {
       palette,
@@ -56,6 +62,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
           }
         ),
       },
+      shadows,
     };
 
     return {} as Theme;
@@ -81,7 +88,7 @@ ThemeProvider.propTypes = {
     breakpoints: PT.exact({
       keys: PT.arrayOf(PT.string) as Validator<BreakpointsKeys[]>,
       values: PT.exact(record(objectValues(Breakpoint), PT.number)),
-      classes: PT.exact(record(objectKeys(BreakpointClass), PT.string)),
+      classes: PT.exact(record(objectValues(Breakpoint), PT.string)),
       getBreakpointClass: PT.func,
       up: PT.func,
       down: PT.func,

@@ -53,7 +53,6 @@ export const Color = {
   LinkStateless: 'link-stateless',
   LinkHover: 'link-hover',
   LinkActive: 'link-active',
-  LinkStateless: 'link-stateless',
   LinkMuted: 'link-muted',
   LinkPressed: 'link-pressed',
 

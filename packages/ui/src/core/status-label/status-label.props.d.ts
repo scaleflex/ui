@@ -9,5 +9,6 @@ export interface StatusLabelProps extends React.HTMLAttributes<HTMLDivElement> {
   label: React.ReactNode;
   size?: StatusLabelSizeType;
   type?: StatusLabelTypesType;
+  iconSize?: number;
   variant?: StatusLabelVariantType;
 }

@@ -1,5 +1,5 @@
 import type { SelectProps } from '../select';
-import { InputSize } from '../../utils/types';
+import { InputSize, Values } from '../../utils/types';
 
 export type InputSizeType = Values<typeof InputSize>;
 export interface InputLocalizationProps extends Omit<SelectProps, 'error' | 'size'> {

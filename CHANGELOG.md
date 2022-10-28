@@ -3,260 +3,198 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [2.0.0-beta.1](https://github.com/scaleflex/ui/compare/2.0.0-beta.0...2.0.0-beta.1) (2022-10-06)
+# [2.0.0-beta.4](https://github.com/scaleflex/ui/compare/2.0.0-beta.3...2.0.0-beta.4) (2022-10-20)
 
 
 ### Bug Fixes
 
-* icon import path ([9d6fbaa](https://github.com/scaleflex/ui/commit/9d6fbaa35f4962cc2be3e0bdae59314d10cd2404))
+* theme breakpoint classes type ([5c46df5](https://github.com/scaleflex/ui/commit/5c46df53e91b11065931e9e25e02cdbf9dd1d1d0))
+
+
+### Features
+
+* **Accordion:** add hideIcon prop ([9d78cd6](https://github.com/scaleflex/ui/commit/9d78cd6bae5bd81698e07ec29f8188e35b878ac6))
 
 
 
 
+
+# [2.0.0-beta.3](https://github.com/scaleflex/ui/compare/2.0.0-beta.2...2.0.0-beta.3) (2022-10-17)
+
+### Features
+
+- **Theme:** support shadows ([94b9be5](https://github.com/scaleflex/ui/commit/94b9be5f945bdbb466c50e1896a58628826a1ac7))
+- **Icons:** update all icons ([d0d3bf3](https://github.com/scaleflex/ui/commit/705ac814472089a8908bf985a11974724c5c1fa1))
+
+# [2.0.0-beta.2](https://github.com/scaleflex/ui/compare/2.0.0-beta.1...2.0.0-beta.2) (2022-10-13)
+
+### Bug Fixes
+
+- arrowtick position ([cbad4af](https://github.com/scaleflex/ui/commit/cbad4afb9bc0f1c690e9b4a23cc128a0d89b38ba))
+- duplicate key ([c761473](https://github.com/scaleflex/ui/commit/c7614732552b4b1f74173c0f5a30a0d5bf7e33a1))
+- types ([d0d3bf3](https://github.com/scaleflex/ui/commit/d0d3bf38d703f0fcb92c7aeb9a95aefeed0c3fec))
+- types ([df12505](https://github.com/scaleflex/ui/commit/df12505df2650d6b5bd901e57cd264ae0fe3f4b2))
+- **Select:** error when menu item contains icon ([c481c16](https://github.com/scaleflex/ui/commit/c481c16ed7beb32b0af12f2bfa8489c9703f04cb))
+- types ([cf03e5a](https://github.com/scaleflex/ui/commit/cf03e5aad6764b5bbf121faee221e90fd6d1d472))
+
+### Features
+
+- **autocomplete:** change autocomplete design T11018 ([981ec4b](https://github.com/scaleflex/ui/commit/981ec4bc202f9274329eeb992a8fe940106e6f13))
+- **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
+- **Skeleton:** add new component ([d119e00](https://github.com/scaleflex/ui/commit/d119e0046307ab96e539efb9454983a7192d40e1))
+- **StatusLabel:** update status label design - T10804 ([fc4b918](https://github.com/scaleflex/ui/commit/fc4b9189409ee63a0b61af537843f92d8147a0d2))
+- **TagsField:** update tag and tag field design - T10803 ([9bdcb46](https://github.com/scaleflex/ui/commit/9bdcb4654014077c116b14e928b5477725c8d978))
+- **Theme:** update palette to v3 ([a2404ed](https://github.com/scaleflex/ui/commit/a2404ed99cc5c868dbe347d0a12e76072571cd16))
+- **Theme:** update typogrophy to v3 ([9d7e977](https://github.com/scaleflex/ui/commit/9d7e97734f326fb2f8e24c0492eabfd1e6a19086))
+
+# [2.0.0-beta.1](https://github.com/scaleflex/ui/compare/2.0.0-beta.0...2.0.0-beta.1) (2022-10-06)
+
+### Bug Fixes
+
+- icon import path ([9d6fbaa](https://github.com/scaleflex/ui/commit/9d6fbaa35f4962cc2be3e0bdae59314d10cd2404))
 
 # [1.0.0-beta.99](https://github.com/scaleflex/ui/compare/1.0.0-beta.98...1.0.0-beta.99) (2022-10-05)
 
-
 ### Features
 
-* **Theme:** add new breakpoint system T10855 ([1a4f9bd](https://github.com/scaleflex/ui/commit/1a4f9bdf35d7b3fe0aa92475e7b40b4ff222a765))
-* **Theme:** hide selector in getBreakpointClass ([5641c35](https://github.com/scaleflex/ui/commit/5641c358d146b65c644981d6ab07c09c03784eb5))
-
-
-
-
+- **Theme:** add new breakpoint system T10855 ([1a4f9bd](https://github.com/scaleflex/ui/commit/1a4f9bdf35d7b3fe0aa92475e7b40b4ff222a765))
+- **Theme:** hide selector in getBreakpointClass ([5641c35](https://github.com/scaleflex/ui/commit/5641c358d146b65c644981d6ab07c09c03784eb5))
 
 # [1.0.0-beta.98](https://github.com/scaleflex/ui/compare/1.0.0-beta.97...1.0.0-beta.98) (2022-09-20)
 
-
 ### Bug Fixes
 
-* disable scroll when opening select ([ecb7490](https://github.com/scaleflex/ui/commit/ecb74905bdd674428064709a79f9fbb8a6bf85ce))
-
-
-
-
+- disable scroll when opening select ([ecb7490](https://github.com/scaleflex/ui/commit/ecb74905bdd674428064709a79f9fbb8a6bf85ce))
 
 # [1.0.0-beta.97](https://github.com/scaleflex/ui/compare/1.0.0-beta.96...1.0.0-beta.97) (2022-09-14)
 
-
 ### Bug Fixes
 
-* **Autocomplete:** disabled options ([aa07952](https://github.com/scaleflex/ui/commit/aa079528dfefb48e478e4086dd5b9a4e0e8da47c))
-
+- **Autocomplete:** disabled options ([aa07952](https://github.com/scaleflex/ui/commit/aa079528dfefb48e478e4086dd5b9a4e0e8da47c))
 
 ### Features
 
-* **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
-
-
-
-
+- **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
 
 # [1.0.0-beta.96](https://github.com/scaleflex/ui/compare/1.0.0-beta.95...1.0.0-beta.96) (2022-09-08)
 
-
 ### Bug Fixes
 
-* **Input:** border color doesn't change to red when error is true - T9989 ([f163db1](https://github.com/scaleflex/ui/commit/f163db1e751b3e90d527e71cf284a74d71e52019))
-
+- **Input:** border color doesn't change to red when error is true - T9989 ([f163db1](https://github.com/scaleflex/ui/commit/f163db1e751b3e90d527e71cf284a74d71e52019))
 
 ### Features
 
-* **Docs:** update tooltip docs ([15099ad](https://github.com/scaleflex/ui/commit/15099ad0f64edd5eaca86794fdb27bc595e2c7a4))
-* **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
-* **Tooltip:** add delay time to tooltip - T9843 ([149e4f8](https://github.com/scaleflex/ui/commit/149e4f8029b3b1177f79135611dc03c378021467))
-
-
-
-
+- **Docs:** update tooltip docs ([15099ad](https://github.com/scaleflex/ui/commit/15099ad0f64edd5eaca86794fdb27bc595e2c7a4))
+- **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
+- **Tooltip:** add delay time to tooltip - T9843 ([149e4f8](https://github.com/scaleflex/ui/commit/149e4f8029b3b1177f79135611dc03c378021467))
 
 # [1.0.0-beta.95](https://github.com/scaleflex/ui/compare/1.0.0-beta.94...1.0.0-beta.95) (2022-08-16)
 
-
 ### Features
 
-* **TagField:** add alwaysShowSuggestedTags prop ([718e86c](https://github.com/scaleflex/ui/commit/718e86cef244cd037fd23629d03b2772a24a9fc6))
-
-
-
-
+- **TagField:** add alwaysShowSuggestedTags prop ([718e86c](https://github.com/scaleflex/ui/commit/718e86cef244cd037fd23629d03b2772a24a9fc6))
 
 # [1.0.0-beta.94](https://github.com/scaleflex/ui/compare/1.0.0-beta.93...1.0.0-beta.94) (2022-08-10)
 
-
 ### Features
 
-* **TagField:** add disableOnEnter prop ([fc9ed31](https://github.com/scaleflex/ui/commit/fc9ed3195247b9b5a89fbfeed500a8b5daa0d7f4))
-
-
-
-
+- **TagField:** add disableOnEnter prop ([fc9ed31](https://github.com/scaleflex/ui/commit/fc9ed3195247b9b5a89fbfeed500a8b5daa0d7f4))
 
 # [1.0.0-beta.93](https://github.com/scaleflex/ui/compare/1.0.0-beta.92...1.0.0-beta.93) (2022-08-09)
 
-
 ### Bug Fixes
 
-* **Autocomplete:** can't scroll when using arrows - T9844 ([81bc6fc](https://github.com/scaleflex/ui/commit/81bc6fc85c4c4153b4e28c9e28b1b92509006463))
-
-
-
-
+- **Autocomplete:** can't scroll when using arrows - T9844 ([81bc6fc](https://github.com/scaleflex/ui/commit/81bc6fc85c4c4153b4e28c9e28b1b92509006463))
 
 # [1.0.0-beta.92](https://github.com/scaleflex/ui/compare/1.0.0-beta.91...1.0.0-beta.92) (2022-08-02)
 
 ### Features
- **Autocomplete:** add new component - T6582 ([1d3cdbd](https://github.com/scaleflex/ui/commit/
 
-
-
-
+**Autocomplete:** add new component - T6582 ([1d3cdbd](https://github.com/scaleflex/ui/commit/
 
 # [1.0.0-beta.91](https://github.com/scaleflex/ui/compare/1.0.0-beta.90...1.0.0-beta.91) (2022-07-19)
 
-
 ### Features
 
-* **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
-
-
-
-
+- **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
 
 # [1.0.0-beta.90](https://github.com/scaleflex/ui/compare/1.0.0-beta.89...1.0.0-beta.90) (2022-07-07)
 
-
 ### Features
 
-* **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
-
-
-
-
+- **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
 
 # [1.0.0-beta.89](https://github.com/scaleflex/ui/compare/1.0.0-beta.88...1.0.0-beta.89) (2022-07-05)
 
-
 ### Features
 
-* **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
-
-
-
-
+- **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
 
 # [1.0.0-beta.88](https://github.com/scaleflex/ui/compare/1.0.0-beta.87...1.0.0-beta.88) (2022-06-29)
 
-
 ### Bug Fixes
 
-* **SelectGroup:** select group limitation T-6592 ([1e11ab4](https://github.com/scaleflex/ui/commit/1e11ab45b5c1ddc136d0ad9ad0ae6e5d1dc3fc53))
-
+- **SelectGroup:** select group limitation T-6592 ([1e11ab4](https://github.com/scaleflex/ui/commit/1e11ab45b5c1ddc136d0ad9ad0ae6e5d1dc3fc53))
 
 ### Features
 
-* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
-* **Select:** add possibility to show placeholder - T8475 ([01af3bd](https://github.com/scaleflex/ui/commit/01af3bddd95d5782caae755d86e092f48e06995d))
-* **Select:** add possibility to show placeholder - T8475 ([533a678](https://github.com/scaleflex/ui/commit/533a67872cc979e3fae95044ef3fe0b8cf21fe0e))
-
-
-
-
+- **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
+- **Select:** add possibility to show placeholder - T8475 ([01af3bd](https://github.com/scaleflex/ui/commit/01af3bddd95d5782caae755d86e092f48e06995d))
+- **Select:** add possibility to show placeholder - T8475 ([533a678](https://github.com/scaleflex/ui/commit/533a67872cc979e3fae95044ef3fe0b8cf21fe0e))
 
 # [1.0.0-beta.87](https://github.com/scaleflex/ui/compare/1.0.0-beta.86...1.0.0-beta.87) (2022-05-27)
 
-
 ### Features
 
-* **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
-
-
-
-
+- **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
 
 # [1.0.0-beta.86](https://github.com/scaleflex/ui/compare/1.0.0-beta.85...1.0.0-beta.86) (2022-05-17)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [1.0.0-beta.85](https://github.com/scaleflex/ui/compare/1.0.0-beta.84...1.0.0-beta.85) (2022-05-13)
-
 
 ### Features
 
-* **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
-* **tooltip:** add enableHover prop ([94bc6c6](https://github.com/scaleflex/ui/commit/94bc6c6cf6e254465d86db3f76b051ff44a8fc4a))
-
-
-
-
+- **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
+- **tooltip:** add enableHover prop ([94bc6c6](https://github.com/scaleflex/ui/commit/94bc6c6cf6e254465d86db3f76b051ff44a8fc4a))
 
 # [1.0.0-beta.84](https://github.com/scaleflex/ui/compare/1.0.0-beta.83...1.0.0-beta.84) (2022-05-10)
 
-
 ### Features
 
-* **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
-
-
-
-
+- **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
 
 # [1.0.0-beta.83](https://github.com/scaleflex/ui/compare/1.0.0-beta.82...1.0.0-beta.83) (2022-05-09)
 
-
 ### Features
 
-* **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
-* **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
-
-
-
-
+- **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
+- **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
 
 # [1.0.0-beta.82](https://github.com/scaleflex/ui/compare/1.0.0-beta.81...1.0.0-beta.82) (2022-04-15)
 
-
 ### Features
 
-* **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
-* **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
-
-
-
-
+- **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
+- **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
 
 # [1.0.0-beta.81](https://github.com/scaleflex/ui/compare/1.0.0-beta.80...1.0.0-beta.81) (2022-04-07)
 
-
 ### Features
 
-* **label:** ellipsis support ([2583cd0](https://github.com/scaleflex/ui/commit/2583cd0fdf18df2d387996036e19ed1439e126a6))
-* **StatusLabel:** change label prop type to node ([f451c4d](https://github.com/scaleflex/ui/commit/f451c4def50001b72630b2e37c3d10e7d890b6d8))
-
-
-
-
+- **label:** ellipsis support ([2583cd0](https://github.com/scaleflex/ui/commit/2583cd0fdf18df2d387996036e19ed1439e126a6))
+- **StatusLabel:** change label prop type to node ([f451c4d](https://github.com/scaleflex/ui/commit/f451c4def50001b72630b2e37c3d10e7d890b6d8))
 
 # [1.0.0-beta.80](https://github.com/scaleflex/ui/compare/1.0.0-beta.79...1.0.0-beta.80) (2022-03-31)
 
-
 ### Bug Fixes
 
-* types ([bcd8f35](https://github.com/scaleflex/ui/commit/bcd8f35ccb976c3e4ad58d04bc76fefb159c95c5))
-
+- types ([bcd8f35](https://github.com/scaleflex/ui/commit/bcd8f35ccb976c3e4ad58d04bc76fefb159c95c5))
 
 ### Features
 
-* **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
-
-
-
-
+- **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
 
 # [1.0.0-beta.79](https://github.com/scaleflex/ui/compare/1.0.0-beta.78...1.0.0-beta.79) (2022-03-24)
 

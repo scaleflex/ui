@@ -7,7 +7,7 @@ import type { SwitcherGroupProps } from './switcher-group.props';
 import Styled from './switcher-group.styles';
 import { SwitcherSize } from '../switcher/switcher-size';
 
-const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLDivElement>(
+const SwitcherGroup = intrinsicComponent<SwitcherGroupProps, HTMLLabelElement>(
   (
     { size, label, switcherProps, SwitcherProps, checked, onChange, readOnly, disabled, ...rest }: SwitcherGroupProps,
     ref
