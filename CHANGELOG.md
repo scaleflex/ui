@@ -16,6 +16,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 * **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
 * **Notification:** create notification component - T10862 ([39fbcae](https://github.com/scaleflex/ui/commit/39fbcaeb212fd647426b9ed5c0c90afb9e710adb))
+* **Search:** update Search component design ([d93284d](https://github.com/scaleflex/ui/commit/d93284d1e61f15ad3349bc4fc1102ad5df3a6d8d))
 
 
 
