@@ -7,14 +7,10 @@ import { Size, Type, Variant } from './types';
 import Styled from './status-label.styles';
 
 const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
-  ({
-    label,
-    variant = Variant.Filled,
-    type = Type.Default,
-    size,
-    iconSize,
-    ...rest
-  }: StatusLabelProps, ref): JSX.Element => (
+  (
+    { label, variant = Variant.Filled, type = Type.Default, size, iconSize = 8, ...rest }: StatusLabelProps,
+    ref
+  ): JSX.Element => (
     <Styled.StatusLabelWrapper ref={ref} size={size} label={label} type={type} variant={variant} {...rest}>
       {type !== Type.Default && <Styled.StatusIcon type={type} iconSize={iconSize} />}
 

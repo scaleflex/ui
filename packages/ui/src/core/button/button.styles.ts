@@ -35,6 +35,7 @@ const Wrapper = styled.span.attrs({
 })(
   () => css`
     display: flex;
+    align-items: center;
   `
 );
 

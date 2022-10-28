@@ -22,7 +22,7 @@ const StatusLabel = styled.span.attrs({
 const StatusIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ type = Type.Received, iconSize = 8 }: { type: StatusLabelTypesType; iconSize: number; }) => css`
+  ({ type = Type.Received, iconSize }: { type: StatusLabelTypesType; iconSize: number }) => css`
     width: ${iconSize}px;
     height: ${iconSize}px;
     border-radius: 50%;
