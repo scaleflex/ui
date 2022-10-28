@@ -9,7 +9,7 @@ export interface NotificationProps extends PropsWithChildren, React.HTMLAttribut
   status?: NotificationStatus;
   removeBackground?: boolean;
   message?: React.ReactNode;
-  title?: React.ReactNode;
+  title?: string & (boolean | ReactChild | ReactFragment | ReactPortal | null);
   hideIcon?: boolean;
   onClose?: () => void;
 }

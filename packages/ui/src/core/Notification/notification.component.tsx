@@ -11,19 +11,7 @@ import { NotificationStatus } from './types';
 import { NotificationProps } from './notification.props';
 
 const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
-  (
-    {
-      status,
-      removeBackground,
-      hideIcon,
-      title,
-      message,
-      onClose,
-      ...rest
-    }: NotificationProps,
-    ref
-  ): JSX.Element => {
-
+  ({ status, removeBackground, hideIcon, title, message, onClose, ...rest }: NotificationProps, ref): JSX.Element => {
     return (
       <Styled.NotificationWrapper
         ref={ref}
@@ -34,26 +22,19 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         {...rest}
       >
         <Styled.Notification>
-            {!hideIcon && (
-                <Styled.Icon removeBackground={removeBackground}>
-                    <PopupStatus status={status} notificationBackground={!removeBackground} />
-                </Styled.Icon>
-            )}
-            <Styled.MessageWrapper>
-                {title && (
-                    <Styled.Title>
-                     {title}
-                    </Styled.Title>
-                )}
-                <Styled.Message>
-                    {message}
-                </Styled.Message>
-            </Styled.MessageWrapper>
-
+          {!hideIcon && (
+            <Styled.Icon removeBackground={removeBackground}>
+              <PopupStatus status={status} notificationBackground={!removeBackground} />
+            </Styled.Icon>
+          )}
+          <Styled.MessageWrapper>
+            {title && <Styled.Title>{title}</Styled.Title>}
+            <Styled.Message>{message}</Styled.Message>
+          </Styled.MessageWrapper>
         </Styled.Notification>
-        
+
         <Styled.Close onClick={onClose}>
-          <Cross size={removeBackground ? 0 : 10.56 } color={lightPalette[Color.IconsPrimary]} />
+          <Cross size={removeBackground ? 0 : 10.56} color={lightPalette[Color.IconsPrimary]} />
         </Styled.Close>
       </Styled.NotificationWrapper>
     );

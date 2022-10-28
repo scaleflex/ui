@@ -29,7 +29,7 @@ const BasicTemplate: Story<PopupProps> = ({ open, ...args }) => {
 
   return (
     <>
-      <Button color="link" size="sm" onClick={() => setOpenState(!openState)}>
+      <Button color="basic" size="sm" onClick={() => setOpenState(!openState)}>
         Open simple popup
       </Button>
       <Popup {...args} open={openState} autoHideDuration={3000} onClose={() => setOpenState(false)} />

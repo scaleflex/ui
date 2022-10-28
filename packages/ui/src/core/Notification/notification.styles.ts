@@ -5,16 +5,18 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { NotificationProps } from './notification.props';
 import { NotificationStatus } from './types';
-import {
-    backgroundColorMixin,
-    messageColorMixin,
-    messageWithIconMixin,
-    messageFontMixin,
-} from './notification.mixin';
+import { backgroundColorMixin, messageColorMixin, messageWithIconMixin, messageFontMixin } from './notification.mixin';
 import { FontVariant } from '../../utils/types/typography/font-variant';
 
 const baseClassName = 'Notification';
 
+const Icon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'Icon'),
+})<NotificationProps>(
+  ({ removeBackground = true }) => css`
+    margin-right: ${removeBackground ? '6' : '12'}px;
+  `
+);
 
 const NotificationWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
@@ -37,78 +39,78 @@ const NotificationWrapper = styled.div.attrs({
     ${messageColorMixin[status]}
     ${theme.typography.font[FontVariant.TextExtraSmall]}
 
-    ${!removeBackground && css`
-        ${backgroundColorMixin[status]}
-        ${messageFontMixin[status]}
+    ${!removeBackground &&
+    css`
+      ${backgroundColorMixin[status]}
+      ${messageFontMixin[status]}
     `}
 
-    ${!hideIcon && !removeBackground && css`
-        ${messageWithIconMixin[status]}
+    ${!hideIcon &&
+    !removeBackground &&
+    css`
+      ${messageWithIconMixin[status]}
     `}
 
-    ${removeBackground && title && css`
-        ${Icon} {
-            margin-top: 1px;
-        }
+    ${removeBackground &&
+    title &&
+    css`
+      ${Icon} {
+        margin-top: 1px;
+      }
     `}
   `
 );
 
 const Notification = styled.div.attrs({
-    className: generateClassNames(baseClassName, 'Notification'),
+  className: generateClassNames(baseClassName, 'Notification'),
 })(
-({ theme }: With<WithTheme, NotificationProps>) => css`
+  ({ theme }: With<WithTheme, NotificationProps>) => css`
     display: flex;
     padding: 12px 16px;
     gap: 12px;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-`);
-
-const Icon = styled.span.attrs({
-    className: generateClassNames(baseClassName, 'Icon'),
-}) <NotificationProps>(
-    ({ removeBackground = true }) => css`
-    margin-right: ${removeBackground ? '6' : '12' }px;
-`);
+  `
+);
 
 const MessageWrapper = styled.div.attrs({
-    className: generateClassNames(baseClassName, 'MessageWrapper'),
+  className: generateClassNames(baseClassName, 'MessageWrapper'),
 })`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 0px;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
 `;
 
 const Title = styled.span.attrs({
-className: generateClassNames(baseClassName, 'Title'),
+  className: generateClassNames(baseClassName, 'Title'),
 })(
-({ theme }: With<WithTheme, NotificationProps>) => css`
+  ({ theme }: With<WithTheme, NotificationProps>) => css`
     margin-bottom: 4px;
-    ${theme.typography.font[FontVariant.LabelSmUpEmphasis]};
-`);
+    ${theme.typography.font[FontVariant.LabelSmallUpEmphasis]};
+  `
+);
 
 const Message = styled.span.attrs({
-className: generateClassNames(baseClassName, 'Message'),
+  className: generateClassNames(baseClassName, 'Message'),
 })`
-    margin-right: 32px;
+  margin-right: 32px;
 `;
 
 const Close = styled.span.attrs({
-className: generateClassNames(baseClassName, 'Close'),
+  className: generateClassNames(baseClassName, 'Close'),
 })`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    padding: 8px;
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
 `;
 
 const Styled = applyDisplayNames({
@@ -118,7 +120,7 @@ const Styled = applyDisplayNames({
   MessageWrapper,
   Title,
   Message,
-  Close
+  Close,
 });
 
 export default Styled;

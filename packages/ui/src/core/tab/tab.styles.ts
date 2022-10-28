@@ -64,15 +64,15 @@ const Tab = styled.div.attrs({
 
       &:hover {
         ${StyledBadge.Badge} {
-          color: ${palette[PColor.AccentHover]};
+          color: ${palette[PColor.AccentPrimaryHover]};
         }
 
         ${Icon} {
-          color: ${palette[PColor.AccentHover]};
+          color: ${palette[PColor.AccentPrimaryHover]};
         }
 
         ${Label} {
-          color: ${palette[PColor.AccentHover]};
+          color: ${palette[PColor.AccentPrimaryHover]};
         }
 
         box-shadow: ${icon ? `inset 0px -2px 0px ${palette[PColor.BorderHoverBottom]}` : ''};

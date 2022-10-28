@@ -1,7 +1,6 @@
 import React from 'react';
 import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
-import colorPickerStory from 'packages/ui/stories/core/color-picker.story';
 
 export const ArrowSidebarRightOutline = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (

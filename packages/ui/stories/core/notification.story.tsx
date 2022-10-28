@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
-import _Notification, { NotificationProps } from '../../src/core/Notification';
-import { NotificationStatus } from '../../src/core/Notification/types';
+import _Notification, { NotificationProps } from '../../src/core/notification';
+import { NotificationStatus } from '../../src/core/notification/types';
 import { StoryGroup } from './types';
 
 export const Notification = _Notification;
@@ -17,7 +17,13 @@ const Item = styled.div`
 
 const items: NotificationProps[] = [
   {
-    message: <span>Direct link to the file in the storage container. Should not be used in production as the media asset is not acelerated and does not support on-the-fly image transformation. See <span style={{fontWeight: 'bold', textDecoration:'underline'}}>documentation</span> for more details.</span>,
+    message: (
+      <span>
+        Direct link to the file in the storage container. Should not be used in production as the media asset is not
+        acelerated and does not support on-the-fly image transformation. See{' '}
+        <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>documentation</span> for more details.
+      </span>
+    ),
     status: NotificationStatus.Warning,
   },
   {

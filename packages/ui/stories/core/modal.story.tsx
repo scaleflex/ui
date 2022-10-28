@@ -43,47 +43,49 @@ const StyledModalContainer = styled(ModalStyled.Container)`
   transform: none;
 `;
 
-const generateTemplate = ({ TitleProps = {} } = {}) => ({ ...args }) => {
-  const [open, setOpen] = useState(false);
-  const handleClick = (): void => setOpen(true);
-  const handleClose = (): void => setOpen(false);
+const generateTemplate =
+  ({ TitleProps = {} } = {}) =>
+  ({ ...args }) => {
+    const [open, setOpen] = useState(false);
+    const handleClick = (): void => setOpen(true);
+    const handleClose = (): void => setOpen(false);
 
-  const renderModalContent = () => (
-    <>
-      <ModalTitle {...TitleProps} primary="Delete file?" />
+    const renderModalContent = () => (
+      <>
+        <ModalTitle {...TitleProps} primary="Delete file?" />
 
-      <ModalContent>1 file will be deleted, ok?</ModalContent>
+        <ModalContent>1 file will be deleted, ok?</ModalContent>
 
-      <ModalActions>
-        <Button onClick={handleClose} color="link">
-          Cancel
+        <ModalActions>
+          <Button onClick={handleClose} color="basic">
+            Cancel
+          </Button>
+
+          <Button onClick={handleClose} color="primary" style={{ background: defaultPalette[Color.Error] }}>
+            Delete
+          </Button>
+        </ModalActions>
+      </>
+    );
+
+    return (
+      <div>
+        <div style={{ display: 'flex', marginBottom: 16 }}>
+          <StyledModalContainer {...args} open>
+            <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
+          </StyledModalContainer>
+        </div>
+
+        <Button onClick={handleClick} color="basic">
+          Open modal
         </Button>
 
-        <Button onClick={handleClose} color="primary" style={{ background: defaultPalette[Color.Error] }}>
-          Delete
-        </Button>
-      </ModalActions>
-    </>
-  );
-
-  return (
-    <div>
-      <div style={{ display: 'flex', marginBottom: 16 }}>
-        <StyledModalContainer {...args} open>
-          <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
-        </StyledModalContainer>
+        <Modal {...args} open={open} onClose={handleClose}>
+          {renderModalContent()}
+        </Modal>
       </div>
-
-      <Button onClick={handleClick} color="link">
-        Open modal
-      </Button>
-
-      <Modal {...args} open={open} onClose={handleClose}>
-        {renderModalContent()}
-      </Modal>
-    </div>
-  );
-};
+    );
+  };
 
 const BasicTemplate: Story<ModalProps> = generateTemplate();
 
@@ -134,7 +136,7 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
       </ModalContent>
 
       <ModalActions>
-        <Button onClick={handleClose} color="link">
+        <Button onClick={handleClose} color="basic">
           Cancel
         </Button>
 
@@ -153,7 +155,7 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
         </StyledModalContainer>
       </div>
 
-      <Button onClick={handleClick} color="link">
+      <Button onClick={handleClick} color="basic">
         Open modal
       </Button>
 
