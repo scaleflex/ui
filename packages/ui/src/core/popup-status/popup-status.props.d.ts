@@ -5,4 +5,5 @@ export type PopupStatusType = Values<typeof Status>;
 
 export interface PopupStatusProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: PopupStatusType;
+  notificationBackground?: boolean;
 }
