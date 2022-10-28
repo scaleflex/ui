@@ -10,6 +10,11 @@ export default {
   title: `${StoryGroup.Inputs}/Autocomplete`,
   component: Autocomplete,
   excludeStories: ['Autocomplete'],
+  argTypes: {
+    scroll: {
+      description: 'Prop directly change scroll design',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -41,13 +46,7 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   return (
-    <Autocomplete
-      {...args}
-      value={value}
-      options={args.options}
-      getOptionDisabled={getOptionDisabled}
-      onChange={(event: any, val: any) => setValue(val)}
-    />
+    <Autocomplete {...args} value={value} options={args.options} onChange={(event: any, val: any) => setValue(val)} />
   );
 };
 

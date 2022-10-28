@@ -5,13 +5,23 @@ import { FontVariant as FV } from '../../utils/types/typography';
 import { InputSize } from '../../utils/types';
 
 export const sizeInputMixin = {
+  [InputSize.Sm]: `
+    padding: 8px 12px;
+    height: 32px;
+  `,
+
+  [InputSize.Md]: `
+    padding: 11px 16px;
+    height: 40px;
+  `,
+};
+
+export const fontSizeInputMixin = {
   [InputSize.Sm]: ({
     theme: {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 8px 12px;
-    height: 32px;
     ${font[FV.InputMd]}
   `,
 
@@ -20,8 +30,6 @@ export const sizeInputMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 11px 16px;
-    height: 40px;
     ${font[FV.InputLg]}
   `,
 };

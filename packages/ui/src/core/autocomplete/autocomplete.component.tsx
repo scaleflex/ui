@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PT, { Validator } from 'prop-types';
 import Cross from '@scaleflex/icons/cross';
+import Tick from '@scaleflex/icons/tick';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { AutocompleteProps, AutocompleteObjectOptionstype } from './autocomplete.props';
 import { propTypes as labelPropTypes } from '../label/label.component';
@@ -13,7 +15,7 @@ import FormHint from '../form-hint';
 import ArrowTick from '../arrow-tick';
 import Input from '../input';
 import Menu from '../menu';
-import MenuItem from '../menu-item';
+import MenuItem, { MenuItemActions } from '../menu-item';
 // TODO: refactor how implement tags in input
 // import Tag from '../tag';
 import { InputSize } from '../../utils/types';
@@ -39,6 +41,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       multiple,
       size,
       disabled,
+      scroll,
       readOnly,
       options,
       placeholder,
@@ -323,11 +326,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const renderMenuItem = (item: string, index: number): any => {
       const optionIndex = getOptionIndex(item);
+      const miActions = (
+        <MenuItemActions>
+          <Styled.TickIcon>
+            <Tick size={12} />
+          </Styled.TickIcon>
+        </MenuItemActions>
+      );
 
       return (
         <MenuItem
           key={optionIndex}
           value={item}
+          size={size}
           noOptionsText={item === noOptionsText}
           disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
           active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
@@ -335,6 +346,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           enableScrollIntoView
         >
           {item}
+          {selected && index === currentItemIndex && miActions}
         </MenuItem>
       );
     };
@@ -402,6 +414,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         <Menu
           onClose={handleCloseClick}
           open={open}
+          scroll={scroll}
           anchorEl={anchorEl}
           style={{
             maxHeight: '250px',
@@ -424,6 +437,7 @@ Autocomplete.defaultProps = {
   size: InputSize.Md,
   // multiple: false,
   disabled: false,
+  scroll: true,
   readOnly: false,
 };
 
@@ -442,6 +456,7 @@ Autocomplete.propTypes = {
   fullWidth: PT.bool,
   multiple: PT.bool,
   disabled: PT.bool,
+  scroll: PT.bool,
   focusOnOpen: PT.bool,
   error: PT.bool,
   onChange: PT.func,

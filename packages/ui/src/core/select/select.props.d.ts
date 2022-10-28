@@ -18,7 +18,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   MenuProps?: MenuProps;
   readOnly?: boolean;
   disabled?: boolean;
-  background?: SelectBackgroundType;
+  scroll?: boolean;
   renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
 }
 

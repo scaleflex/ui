@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
+import Arrow from '@scaleflex/icons/arrow';
 import PT from 'prop-types';
-import ArrowTick from '@scaleflex/icons/arrow-tick';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { MenuItemProps, MenuItemListType } from './menu-item.props';
@@ -88,7 +88,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               {(option.suffix || option.subList) && (
                 <Styled.MenuSuffix>
                   {typeof option.suffix === 'function' ? option.suffix(props) : option.suffix}
-                  {option.subList && <ArrowTick size={8} color="#768184" />}
+                  {option.subList && <Arrow size={10} color="#768A9F" />}
                 </Styled.MenuSuffix>
               )}
             </Styled.MenuItem>
@@ -121,7 +121,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 MenuItem.displayName = 'MenuItem';
 
 export const defaultProps = {
-  size: Size.Md,
+  size: Size.Sm,
   active: false,
 };
 

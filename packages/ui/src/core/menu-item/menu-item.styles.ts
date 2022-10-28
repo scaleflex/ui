@@ -16,15 +16,7 @@ const Icon = styled.div.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.AccentPrimary]};
-
-    &:first-child {
-      margin-right: 8px;
-    }
-
-    &:last-child {
-      margin-left: 8px;
-    }
+    color: ${palette[PColor.IconsPrimary]};
   `
 );
 
@@ -65,7 +57,7 @@ const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({
-    size = Size.Md,
+    size = Size.Sm,
     active,
     theme,
     disableHover = false,
@@ -73,10 +65,13 @@ const MenuItem = styled.div.attrs({
     disabled,
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
+    justify-content: space-between;
+    column-gap: 8px;
     flex-direction: row;
     align-items: center;
     width: 100%;
-    background: ${theme.palette[active ? PColor.BackgroundPrimaryHover : PColor.BackgroundSecondary]};
+    background: ${theme.palette[active ? PColor.BackgroundActive : PColor.BackgroundSecondary]};
+    color: ${theme.palette[PColor.TextPrimary]};
     cursor: pointer;
     box-sizing: border-box;
 
@@ -85,13 +80,17 @@ const MenuItem = styled.div.attrs({
     &:focus-within,
     &:focus,
     &:hover {
-      ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundPrimaryHover]}`};
+      ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundHover]}`};
       ${(noOptionsText || disabled) &&
       css`
         cursor: default;
         background-color: white;
       `}
     }
+    ${(noOptionsText || disabled) &&
+    css`
+      color: ${theme.palette[PColor.ButtonDisabledText]};
+    `}
   `
 );
 
@@ -100,7 +99,6 @@ const MenuPrefix = styled.div.attrs({
 })(
   () => css`
     display: flex;
-    margin-right: 8px;
   `
 );
 
@@ -121,6 +119,7 @@ const MenuSuffix = styled.div.attrs({
     margin-left: 8px;
   `
 );
+
 const Styled = applyDisplayNames({
   MenuItemWrapper,
   MenuItem,
