@@ -11,8 +11,10 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   iconStart?: React.ReactNode;
   iconEnd?: React.ReactNode;
   clearIcon?: React.ReactNode;
+  iconType?: string;
   error?: boolean;
   fullWidth?: boolean;
+  isSearchInput?: boolean;
   value?: any;
   /// / TODO: refactor how implement tags in input
   // renderTags?: React.ReactNode;
