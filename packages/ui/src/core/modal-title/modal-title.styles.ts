@@ -26,8 +26,8 @@ const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
 })(
   () => css`
-    font-size: 18px;
-    line-height: 27px;
+    font-size: 16px;
+    line-height: 18px;
   `
 );
 
