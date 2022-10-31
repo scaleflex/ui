@@ -17,7 +17,7 @@ const defaultArgs = {};
 
 const BasicTemplate: Story<ModalActionsProps> = ({ ...args }) => (
   <ModalActions {...args}>
-    <Button color="link">Cancel</Button>
+    <Button color="basic">Cancel</Button>
 
     <Button color="primary">Save</Button>
   </ModalActions>

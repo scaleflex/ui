@@ -5,7 +5,7 @@ import merge from 'lodash.merge';
 
 import { record } from '../../utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '../../utils/functions';
-import { Breakpoint, BreakpointClass } from '../../utils/types/css';
+import { Breakpoint } from '../../utils/types/css';
 import { Color } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
@@ -88,7 +88,7 @@ ThemeProvider.propTypes = {
     breakpoints: PT.exact({
       keys: PT.arrayOf(PT.string) as Validator<BreakpointsKeys[]>,
       values: PT.exact(record(objectValues(Breakpoint), PT.number)),
-      classes: PT.exact(record(objectKeys(BreakpointClass), PT.string)),
+      classes: PT.exact(record(objectValues(Breakpoint), PT.string)),
       getBreakpointClass: PT.func,
       up: PT.func,
       down: PT.func,

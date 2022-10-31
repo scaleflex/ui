@@ -17,8 +17,8 @@ const Icon = styled.div.attrs({
     margin-bottom: 8px;
     padding: 12.5px;
     border-radius: 50%;
-    background: ${palette[PColor.BackgroundPrimary]};
-    color: ${palette[PColor.AccentPrimary]};
+    background: ${palette[PColor.Accent_1_2_Opacity]};
+    color: ${palette[PColor.AccentStateless]};
   `
 );
 
@@ -26,8 +26,9 @@ const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
 })(
   () => css`
-    font-size: 16px;
-    line-height: 18px;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 500;
   `
 );
 

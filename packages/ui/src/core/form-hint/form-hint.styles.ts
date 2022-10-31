@@ -11,10 +11,14 @@ const baseClassName = 'FormHint';
 const FormHint = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<FormHintProps>(
-  ({ size = InputSize.Md, error = false, theme }: With<WithTheme, FormHintProps>) => css`
+  ({ size = InputSize.Md, error = false, disabled = false, theme }: With<WithTheme, FormHintProps>) => css`
     display: flex;
     align-items: center;
     color: ${error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
+
+    ${disabled && css`
+      color: ${theme.palette[PColor.ButtonDisabledText]};
+    `}
 
     ${sizeHintMixin[size]}
   `

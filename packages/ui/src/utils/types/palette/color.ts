@@ -11,12 +11,12 @@ export const Color = {
   AccentPrimary: 'accent-primary',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
-  AccentHover: 'accent-hover',
   AccentPrimaryDisabled: 'accent-primary-disabled',
   AccentSecondaryDisabled: 'accent-secondary-disabled',
   AccentStateless: 'accent-stateless',
   AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
   Accent_0_5_Opacity: 'accent_0_5_opacity',
+  Accent_1_2_Opacity: 'accent_1_2_opacity',
   Accent_1_8_Opacity: 'accent_1_8_opacity',
   Accent_4_0_Opacity: 'accent_4_0_opacity',
 

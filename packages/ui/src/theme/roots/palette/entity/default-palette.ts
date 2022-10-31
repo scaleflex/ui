@@ -19,17 +19,16 @@ export const lightPalette = {
   [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)', // #4958BC
   [Color.AccentPrimaryDisabled]: 'rgba(233, 238, 242, 1)', // #E9EEF2
   [Color.AccentSecondaryDisabled]: '#F9FBFC',
-  [Color.AccentHover]: 'rgba(96, 111, 209, 1)', // #606FD1
-  [Color.AccentStateless]: 'rgba(104,121,235,1)',
+  [Color.AccentStateless]: 'rgba(104,121,235,1)', // #6879EB
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
+  [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)',
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
-  // Background
-  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
+  [Color.BackgroundGrey]: 'rgba(216,224,232,1)', // #D8E0E8
   [Color.BackgroundStateless]: 'rgba(255, 255, 255, 1)', // #FFFFFF
-  [Color.BackgroundActive]: '#F3F7FA',
+  [Color.BackgroundActive]: 'rgba(243,247,250,1)', // #F3F7FA
   [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
   [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)', // #eff3f6
   [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)', // #5d6d7e
@@ -51,7 +50,7 @@ export const lightPalette = {
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
   [Color.IconsMuted]: 'rgba(169,182,194,1)', // #A9B6C2
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
-  [Color.IconsSecondaryHover]: 'rgba(151, 166, 182, 1)', // #97A6B6
+  [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
   [Color.ButtonPrimaryText]: 'rgba(255, 255, 255, 1)', // #FFFFFF
   [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)', // #A9B6C2
@@ -72,7 +71,7 @@ export const lightPalette = {
   [Color.BordersInvert]: 'rgba(85,99,115,1)', // #556373
   [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
   [Color.BorderActiveBottom]: '#4958BC',
-  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)',
+  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)', // #CCD6DE
   [Color.BordersDisabled]: 'rgba(73, 88, 188, 0.4)', // #4958BC66
   [Color.BordersButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.BordersItem]: 'rgba(226, 232, 236, 1)', // #E2E8EC

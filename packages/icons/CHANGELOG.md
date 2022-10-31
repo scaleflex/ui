@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.5](https://github.com/scaleflex/ui/compare/2.0.0-beta.4...2.0.0-beta.5) (2022-10-28)
+
+
+### Bug Fixes
+
+* types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
+
+
+### Features
+
+* **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
+
+
+
+
+
+# [2.0.0-beta.4](https://github.com/scaleflex/ui/compare/2.0.0-beta.3...2.0.0-beta.4) (2022-10-20)
+
+**Note:** Version bump only for package @scaleflex/icons
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/scaleflex/ui/compare/2.0.0-beta.2...2.0.0-beta.3) (2022-10-17)
 
 **Note:** Version bump only for package @scaleflex/icons

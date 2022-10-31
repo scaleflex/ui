@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { Download } from '@scaleflex/icons';
+import { Documentation } from '@scaleflex/icons';
 import _Menu, { MenuProps } from '../../src/core/menu';
 import MenuItem from '../../src/core/menu-item';
 import Button from '../../src/core/button';
@@ -17,6 +17,9 @@ export default {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
     },
+    scroll: {
+      description: 'Prop directly change scroll design',
+    },
   },
 } as Meta;
 
@@ -25,7 +28,7 @@ const defaultArgs = {
     {
       content: 'item1',
       onClick: () => console.log('item1'),
-      prefix: <Download width="16" height="16" />,
+      prefix: <Documentation width="14" height="14" color="#768A9F" />,
       subList: [
         { content: 'item1.1', key: 'Item 1.1' },
         {
@@ -55,7 +58,7 @@ const defaultArgs = {
       key: 'Item 1',
     },
 
-    { content: 'item 2', key: 'Item 2' },
+    { content: 'item 2', prefix: <Documentation width="14" height="14" color="#768A9F" />, key: 'Item 2' },
   ],
 };
 
@@ -66,7 +69,7 @@ const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
 
   return (
     <div>
-      <Button onClick={handleClick} color="link">
+      <Button onClick={handleClick} color="basic">
         Open menu
       </Button>
 

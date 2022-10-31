@@ -6,7 +6,6 @@ import { Color as PColor } from '../../utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import InputStyled from '../input/input.styles';
 import type { SelectProps } from './select.props';
-import { InputBackgroundColor } from '../../utils/types';
 
 const baseClassName = 'Select';
 
@@ -16,7 +15,15 @@ const Icon = styled.span.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.AccentPrimary]};
+    color: ${palette[PColor.IconsPrimary]};
+  `
+);
+
+const TickIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'tickIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PColor.AccentStateless]};
   `
 );
 
@@ -33,10 +40,10 @@ const Container = styled.div.attrs({
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette }, background = InputBackgroundColor.Primary }: With<WithTheme, SelectProps>) => css`
+  ({ theme: { palette } }: With<WithTheme, SelectProps>) => css`
     cursor: pointer;
     user-select: none;
-    background: ${background === 'primary' ? palette[PColor.BackgroundPrimary] : palette[PColor.BackgroundSecondary]};
+    background: ${palette[PColor.BackgroundStateless]};
   `
 );
 
@@ -77,6 +84,7 @@ const Styled = applyDisplayNames({
   Select,
   Label,
   Icon,
+  TickIcon,
   Input,
   Placeholder,
 });

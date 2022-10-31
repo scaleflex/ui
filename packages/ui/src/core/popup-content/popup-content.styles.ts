@@ -19,7 +19,6 @@ const LabelWrapper = styled.span.attrs({
     margin-right: 28px;
     padding: 16px;
     background: ${palette[PColor.ButtonPrimaryText]};
-    min-height: 41px;
   `
 );
 
@@ -34,7 +33,7 @@ const Label = styled.span.attrs({
   }: WithTheme) => css`
     display: flex;
     align-items: center;
-    color: ${palette[PColor.TextSecondary]};
+    color: ${palette[PColor.TextPrimary]};
 
     ${font[FontVariant.LabelSmall]}
   `
@@ -47,7 +46,7 @@ const PopupContent = styled.div.attrs({
     position: relative;
     display: flex;
     align-items: center;
-    width: 256px;
+    width: 360px;
     border-radius: 4px;
     box-shadow: 0px 2px 6px ${theme.palette[PColor.HeavyShadow]};
   `
@@ -55,17 +54,20 @@ const PopupContent = styled.div.attrs({
 
 const CloseWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
-})`
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  width: 28px;
-  height: 100%;
-  cursor: pointer;
-`;
+})<PopupContentProps>(
+  ({ theme }: With<WithTheme, PopupContentProps>) => css`
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 28px;
+    height: 100%;
+    cursor: pointer;
+    background: ${theme.palette[PColor.BackgroundStateless]};
+  `
+);
 
 const CloseIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),

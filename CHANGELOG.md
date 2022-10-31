@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.5](https://github.com/scaleflex/ui/compare/2.0.0-beta.4...2.0.0-beta.5) (2022-10-28)
+
+
+### Bug Fixes
+
+* types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
+* **Button:** button styles ([c683994](https://github.com/scaleflex/ui/commit/c6839945315ca318982bb5ff81dbfa0fb80ec0ec))
+
+
+### Features
+
+* **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
+* **Notification:** create notification component - T10862 ([39fbcae](https://github.com/scaleflex/ui/commit/39fbcaeb212fd647426b9ed5c0c90afb9e710adb))
+* **Search:** update Search component design ([d93284d](https://github.com/scaleflex/ui/commit/d93284d1e61f15ad3349bc4fc1102ad5df3a6d8d))
+
+
+
+
+
+# [2.0.0-beta.4](https://github.com/scaleflex/ui/compare/2.0.0-beta.3...2.0.0-beta.4) (2022-10-20)
+
+
+### Bug Fixes
+
+* theme breakpoint classes type ([5c46df5](https://github.com/scaleflex/ui/commit/5c46df53e91b11065931e9e25e02cdbf9dd1d1d0))
+
+
+### Features
+
+* **Accordion:** add hideIcon prop ([9d78cd6](https://github.com/scaleflex/ui/commit/9d78cd6bae5bd81698e07ec29f8188e35b878ac6))
+
+
+
+
+
 # [2.0.0-beta.3](https://github.com/scaleflex/ui/compare/2.0.0-beta.2...2.0.0-beta.3) (2022-10-17)
 
 ### Features
