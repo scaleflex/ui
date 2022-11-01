@@ -14,20 +14,31 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ iconClickStart, iconClickEnd, clearIconClick, iconType, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({ iconClickStart, iconClickEnd, iconType, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
+    cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
 
     ${iconType === 'start' &&
     css`
       margin-right: 8px;
     `}
 
-    ${iconType === 'secondEnd' &&
+    ${iconType === 'end' &&
     css`
-      margin-left: 8px;
+      color: ${palette[PColor.IconsSecondary]};
     `}
+  `
+);
+
+const ClearIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'ClearIcon'),
+})(
+  ({ isSearchInput, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: flex;
+    cursor: pointer;
+    margin-left: 8px;
+    color: ${isSearchInput ? palette[PColor.IconsSecondary] : palette[PColor.IconsPrimary]};
   `
 );
 
@@ -36,7 +47,7 @@ const CopyIcon = styled.span.attrs({
 })(
   ({ theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.IconsSecondary]};
     cursor: pointer;
   `
 );
@@ -174,6 +185,7 @@ const Styled = applyDisplayNames({
   Tags,
   Base,
   Icon,
+  ClearIcon,
   CopyIcon,
 });
 
