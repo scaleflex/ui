@@ -66,7 +66,7 @@ const MenuItem = styled.div.attrs({
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     justify-content: space-between;
-    column-gap: 8px;
+    column-gap: 10px;
     flex-direction: row;
     align-items: center;
     width: 100%;
