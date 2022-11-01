@@ -5,36 +5,36 @@ import type { ColorsMap } from './colors-map';
 export const lightPalette = {
   // Text
   [Color.TextPrimary]: 'rgba(55, 65, 75, 1)', // #37414B
-  [Color.TextPrimaryInvert]: 'rgba(255,255,255,1)', // #ffffff
+  [Color.TextPrimaryInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.TextSecondary]: 'rgba(118, 138, 159, 1)', // #768184
-  [Color.TextSecondaryInvert]: 'rgba(213,216,220,1)', // #D5D8DC
-  [Color.TextPlaceholder]: 'rgba(169,182,194,1)', // #A9B6C2
-  [Color.TextWarning]: 'rgba(196,110,0,1)', // #768184
+  [Color.TextSecondaryInvert]: 'rgba(213, 216, 220, 1)', // #D5D8DC
+  [Color.TextPlaceholder]: 'rgba(169, 182, 194, 1)', // #A9B6C2
+  [Color.TextWarning]: 'rgba(196, 110, 0, 1)', // #768184
   [Color.TextError]: 'rgba(170, 32, 0, 1)', // #AA2000
   [Color.TextInfo]: 'rgba(35, 117, 171, 1)', // #2375AB
 
   // Accent
-  [Color.AccentPrimary]: 'rgba(104,121,235,1)', // #6879EB
-  [Color.AccentPrimaryHover]: 'rgba(96,111,209,1)', // #606FD1
-  [Color.AccentPrimaryActive]: 'rgba(73,88,188,1)', // #4958BC
+  [Color.AccentPrimary]: 'rgba(104, 121, 235, 1)', // #6879EB
+  [Color.AccentPrimaryHover]: 'rgba(96, 111, 209, 1)', // #606FD1
+  [Color.AccentPrimaryActive]: 'rgba(73, 88, 188, 1)', // #4958BC
   [Color.AccentPrimaryDisabled]: 'rgba(233, 238, 242, 1)', // #E9EEF2
   [Color.AccentSecondaryDisabled]: '#F9FBFC',
-  [Color.AccentStateless]: 'rgba(104,121,235,1)', // #6879EB
-  [Color.AccentStateless_0_4_Opacity]: 'rgba(104,121,235,0.4)',
+  [Color.AccentStateless]: 'rgba(104, 121, 235, 1)', // #6879EB
+  [Color.AccentStateless_0_4_Opacity]: 'rgba(104, 121, 235, 0.4)',
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
   [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)',
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
-  [Color.BackgroundGrey]: 'rgba(216,224,232,1)', // #D8E0E8
+  [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
   [Color.BackgroundStateless]: 'rgba(255, 255, 255, 1)', // #FFFFFF
-  [Color.BackgroundActive]: 'rgba(243,247,250,1)', // #F3F7FA
-  [Color.BackgroundPrimary]: 'rgba(248,250,251,1)', // #f8fafb
-  [Color.BackgroundPrimaryHover]: 'rgba(239,243,246,1)', // #eff3f6
-  [Color.BackgroundPrimaryActive]: 'rgba(93,109,126,1)', // #5d6d7e
-  [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255,255,255,0.500)',
+  [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
+  [Color.BackgroundPrimary]: 'rgba(248, 250, 251, 1)', // #f8fafb
+  [Color.BackgroundPrimaryHover]: 'rgba(239, 243, 246, 1)', // #eff3f6
+  [Color.BackgroundPrimaryActive]: 'rgba(93, 109, 126, 1)', // #5d6d7e
+  [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255, 255, 255, 0.500)',
   [Color.BackgroundPrimaryStateless]: '#CCD6DE',
-  [Color.BackgroundSecondary]: 'rgba(255,255,255,1)',
+  [Color.BackgroundSecondary]: 'rgba(255, 255, 255, 1)',
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
   [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
@@ -45,10 +45,10 @@ export const lightPalette = {
   [Color.BackgroundTooltip]: 'rgba(79, 98, 118, 1)', // #4F6276
 
   [Color.IconsPrimary]: 'rgba(118, 138, 159, 1)', // #768A9F
-  [Color.IconsPrimaryOpacity_0_6]: 'rgba(93,109,126,0.600)',
-  [Color.IconsSecondary]: 'rgba(151,166,182,1)', // #97A6B6
+  [Color.IconsPrimaryOpacity_0_6]: 'rgba(93, 109, 126, 0.600)',
+  [Color.IconsSecondary]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
-  [Color.IconsMuted]: 'rgba(169,182,194,1)', // #A9B6C2
+  [Color.IconsMuted]: 'rgba(169, 182, 194, 1)', // #A9B6C2
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
   [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
@@ -60,7 +60,7 @@ export const lightPalette = {
   [Color.LinkPrimary]: 'rgba(118, 138, 159, 1)', // #768A9F
   [Color.LinkStateless]: 'rgba(118, 138, 159, 1)', // #768A9F
   [Color.LinkHover]: 'rgba(79, 98, 118, 1)', // #4F6276
-  [Color.LinkActive]: 'rgba(55,65,75,1)', // #37414B
+  [Color.LinkActive]: 'rgba(55, 65, 75, 1)', // #37414B
   [Color.LinkPressed]: 'rgba(104, 121, 235, 1)', // #6879EB
   [Color.LinkMuted]: 'rgba(169, 182, 194, 1)', // #A9B6C2
 
@@ -68,10 +68,10 @@ export const lightPalette = {
   [Color.BordersPrimaryHover]: 'rgba(104, 118, 134, 1)', // #687686
   [Color.BordersSecondary]: 'rgba(236, 240, 243, 1)', // #ECF0F3
   [Color.BordersStrong]: 'rgba(204, 214, 222, 1)', // #CCD6DE
-  [Color.BordersInvert]: 'rgba(85,99,115,1)', // #556373
+  [Color.BordersInvert]: 'rgba(85, 99, 115, 1)', // #556373
   [Color.BorderHoverBottom]: 'rgba(104, 121, 235, 0.18)',
   [Color.BorderActiveBottom]: '#4958BC',
-  [Color.BorderPrimaryStateless]: 'rgba(204,214,222,1)', // #CCD6DE
+  [Color.BorderPrimaryStateless]: 'rgba(204, 214, 222, 1)', // #CCD6DE
   [Color.BordersDisabled]: 'rgba(73, 88, 188, 0.4)', // #4958BC66
   [Color.BordersButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.BordersItem]: 'rgba(226, 232, 236, 1)', // #E2E8EC
