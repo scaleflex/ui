@@ -16,7 +16,7 @@ const getIconSize = (sizeName: InputSizeType | undefined,
 
     case InputSize.Sm:
     default:
-      return isSearchInput ? (iconType === 'start' ? 16 : 12) : 14;
+      return isSearchInput ? (iconType === 'start' ? 16 : 11) : 14;
   }
 };
 
@@ -100,12 +100,22 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           onClick={(event) => handleIconClick(event, type)}
           iconClickStart={iconClickStart}
           iconClickEnd={iconClickEnd}
-          clearIconClick={clearIconClick}
           iconType={type}
         >
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size, isSearchInput, type) }) : _icon}
         </Styled.Icon>
       ) : undefined;
+
+    const renderClearIcon = (icon: React.ReactNode): JSX.Element | undefined =>
+    disabled || readOnly || !icon ? undefined
+    : (
+        <Styled.ClearIcon
+          onClick={(event) => handleIconClick(event, 'clear')}
+          isSearchInput={isSearchInput}
+        >
+          {typeof icon === 'function' ? icon({ size: getIconSize(size, isSearchInput, 'clear') }) : icon}
+        </Styled.ClearIcon>
+      );
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly ? (
@@ -147,7 +157,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
-        {renderIcon(disabled || readOnly ? undefined : clearIcon, 'secondEnd')}
+        {renderClearIcon(clearIcon)}
         {renderCopyIcon(<CopyOutline size={16} />)}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}

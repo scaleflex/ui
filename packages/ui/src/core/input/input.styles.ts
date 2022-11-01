@@ -17,21 +17,27 @@ const Icon = styled.span.attrs({
   ({
     iconClickStart,
     iconClickEnd,
-    clearIconClick,
     iconType,
     theme: { palette }
   }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
+    cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
 
     ${iconType === 'start' && css`
       margin-right: 8px;
     `}
+  `
+);
 
-     ${iconType === 'secondEnd' && css`
-       margin-left: 8px;
-     `}
+const ClearIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'ClearIcon'),
+})(
+  ({ isSearchInput, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: flex;
+    cursor: pointer;
+    margin-left: 8px;
+    color: ${isSearchInput ? palette[PColor.IconsSecondary] : palette[PColor.IconsPrimary]};
   `
 );
 
@@ -176,6 +182,7 @@ const Styled = applyDisplayNames({
   Tags,
   Base,
   Icon,
+  ClearIcon,
   CopyIcon,
 });
 
