@@ -13,6 +13,7 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       getMonthStr,
       currentMonth,
       setMonth,
+      _month,
       year = 0,
       setMonthDetails,
       getMonthDetails,
@@ -28,6 +29,10 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       setSelectedMonthIndex(index);
       setShowMonthsDatePicker?.(false);
       setMonthDetails?.(getMonthDetails?.(year, index));
+    };
+
+    const isMonthChanged = (index: number): boolean => {
+      return index === _month;
     };
 
     return (
@@ -46,6 +51,7 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
             <Styled.MonthButtons
               isMonthSelected={index === selectedMonthIndex}
               onClick={() => handleOnClickMonth(index)}
+              isMonthChanged={isMonthChanged(index)}
               key={month}
             >
               {month}

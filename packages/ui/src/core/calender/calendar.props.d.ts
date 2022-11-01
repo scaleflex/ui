@@ -1,10 +1,14 @@
 export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: string;
+  _month?: number;
   className?: string;
+  datepickerInput?: any;
   onChange?: (value: string | number) => void;
   open?: boolean;
   isSelectedDay?: boolean;
+  maxWidth?: boolean;
   isYearChanged?: boolean;
+  isMonthChanged?: boolean;
   isNextMonth?: boolean;
   isPrevMonth?: boolean;
   isMonthSelected?: boolean;

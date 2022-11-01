@@ -3,7 +3,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
-import { FontVariant } from '../../utils/types/typography';
+import { FontVariant as FV } from '../../utils/types/typography';
 import { Color as PColor } from '../../utils/types/palette';
 import { CalendarProps } from './calendar.props';
 import { getDatePickerDaysColor } from './calendar.utils';
@@ -92,7 +92,7 @@ const DatePickerHeadDay = styled.div.attrs({
     text-align: center;
     justify-content: center;
 
-    ${font[FontVariant.LabelSmall]}
+    ${font[FV.LabelSmall]}
   `
 );
 
@@ -144,7 +144,7 @@ const MonthButtonsWrapper = styled.div.attrs({
 const MonthButtons = styled.div.attrs({
   className: generateClassNames(baseClassName, 'month-buttons'),
 })<CalendarProps>(
-  ({ isYearChanged = false, isMonthSelected, theme: { palette } }: With<WithTheme, CalendarProps>) => css`
+  ({ isYearChanged = false, isMonthChanged = false, theme: { palette } }: With<WithTheme, CalendarProps>) => css`
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
@@ -158,8 +158,22 @@ const MonthButtons = styled.div.attrs({
     cursor: pointer;
     font-size: 13px;
     line-height: 14px;
-    background-color: ${isYearChanged || isMonthSelected ? palette[PColor.AccentPrimary] : ''};
-    color: ${isYearChanged || isMonthSelected ? palette[PColor.TextPrimaryInvert] : ''};
+
+    &:hover {
+      ${!isMonthChanged &&
+      !isYearChanged &&
+      css`
+        background-color: transparent;
+        border: 1px solid ${palette[PColor.AccentPrimaryHover]};
+        box-sizing: border-box;
+        line-height: 22px;
+      `}
+    }
+
+    background-color: ${isYearChanged || isMonthChanged
+      ? palette[PColor.AccentPrimary]
+      : palette[PColor.BackgroundStateless]};
+    color: ${isYearChanged || isMonthChanged ? palette[PColor.TextPrimaryInvert] : ''};
   `
 );
 
@@ -199,6 +213,7 @@ const DatePickerDay = styled.span.attrs({
     color: ${getDatePickerDaysColor(day, isSelectedDay)};
     pointer-events: ${day.month !== 0 ? 'none' : ''};
     cursor: pointer;
+
     background-color: ${isSelectedDay && day.month === 0
       ? palette[PColor.AccentStateless]
       : palette[PColor.TextPrimaryInvert]};
@@ -207,9 +222,9 @@ const DatePickerDay = styled.span.attrs({
       ${!isSelectedDay &&
       css`
         background-color: transparent;
-        border: 1px solid ${palette[PColor.AccentHover]};
+        border: 1px solid ${palette[PColor.AccentPrimaryHover]};
         box-sizing: border-box;
-        line-height: 22px;
+        line-height: 21px;
       `}
     }
   `
@@ -287,7 +302,7 @@ const HeaderBodyYear = styled.div.attrs({
     text-align: center;
     cursor: pointer;
 
-    ${font[FontVariant.InputSmUp]}
+    ${font[FV.InputSmUp]}
   `
 );
 
@@ -306,7 +321,7 @@ const HeaderBodyMonth = styled.div.attrs({
     color: ${palette[PColor.TextPrimary]};
     cursor: pointer;
 
-    ${font[FontVariant.InputSmUp]}
+    ${font[FV.InputSmUp]}
   `
 );
 
@@ -395,6 +410,62 @@ const ButtonWrapper = styled.span.attrs({
   `
 );
 
+const DatepickerWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'root'),
+})<CalendarProps>(
+  ({
+    theme: {
+      palette,
+      typography: { font },
+    },
+    maxWidth = false,
+  }: With<WithTheme, CalendarProps>) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: ${maxWidth ? '100%' : '153px'};
+    height: 32px;
+    padding: 8px 9px 9px 12px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: 1px solid ${palette[PColor.BordersPrimary]};
+    color: ${palette[PColor.TextPrimary]};
+
+    ${font[FV.LabelMedium]}
+  `
+);
+
+const DatepickerInput = styled.input.attrs({
+  className: generateClassNames(baseClassName, 'input'),
+  type: 'date',
+})<CalendarProps>(
+  ({
+    theme: {
+      typography: { font },
+    },
+  }: With<WithTheme, CalendarProps>) => css`
+    border: 0;
+    outline: unset;
+    width: 100%;
+
+    ${font[FV.LabelMedium]}
+
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
+  `
+);
+
+const DatepickerIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'icon'),
+})<CalendarProps>(
+  () => css`
+    margin-top: 6px;
+    cursor: pointer;
+  `
+);
+
 const Styled = applyDisplayNames({
   DatePicker,
   DatePickerWrapper,
@@ -421,6 +492,9 @@ const Styled = applyDisplayNames({
   HeaderRightArrow,
   MonthsHeaderRightArrow,
   HeaderLeftArrow,
+  DatepickerWrapper,
+  DatepickerInput,
+  DatepickerIcon,
 });
 
 export default Styled;

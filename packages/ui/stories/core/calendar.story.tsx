@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-
-import { Popper } from '@scaleflex/ui/core';
 import _Calendar, { CalendarProps } from '@scaleflex/ui/core/calender';
 import { StoryGroup } from './types';
-import { Input } from './input.story';
 
 export const Calendar = _Calendar;
 
@@ -15,7 +12,8 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  open: true,
+  open: false,
+  maxWidth: false,
 };
 
 const BasicTemplate: Story<CalendarProps> = ({ open, ...args }) => {
@@ -32,16 +30,13 @@ const BasicTemplate: Story<CalendarProps> = ({ open, ...args }) => {
 
   return (
     <>
-      <Input value={value} readOnly size="sm" onClick={() => setOpenState(!openState)} />
-      <Popper position="auto" open>
-        <Calendar
-          value={value}
-          open={openState}
-          setOpenState={setOpenState}
-          onChange={(newValue: string): void => handleChange(newValue)}
-          {...args}
-        />
-      </Popper>
+      <Calendar
+        value={value}
+        open={openState}
+        setOpenState={setOpenState}
+        onChange={(newValue: string): void => handleChange(newValue)}
+        {...args}
+      />
     </>
   );
 };

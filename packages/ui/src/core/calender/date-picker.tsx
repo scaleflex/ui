@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-plusplus */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import ArrowLeftOutline from '@scaleflex/icons/arrow-left-outline';
 import ArrowRightOutline from '@scaleflex/icons/arrow-right-outline';
@@ -8,18 +8,20 @@ import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
 import { intrinsicComponent } from '../../utils/functions';
-import { DAYS, HEADER_DAYS, MONTHS } from './calendar.utils';
+import { DAYS, HEADER_DAYS, MONTHS, getDateString } from './calendar.utils';
 import { CalendarProps } from './calendar.props';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
 import Styled from './calendar.styles';
 import Button from '../button';
+import DatepickerInput from './date-picker-input/date-picker-input';
+import Popper from '../popper';
 
 const oneDay = 60 * 60 * 24 * 1000;
 const todayTimestamp = Date.now() - (Date.now() % oneDay) + new Date().getTimezoneOffset() * 1000 * 60;
 
 const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
-  ({ onChange, open, value, setOpenState, ...rest }: CalendarProps, ref) => {
+  ({ onChange, open = false, value, maxWidth, setOpenState, ...rest }: CalendarProps, ref) => {
     const [year, setYear] = useState(() => new Date().getFullYear());
     const [month, setMonth] = useState(() => new Date().getMonth());
     const [selectedDay, setSelectedDay] = useState(() => todayTimestamp);
@@ -27,6 +29,8 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const [showYearsDatePicker, setShowYearsDatePicker] = useState(false);
     const [isNextMonth, setIsNextMonth] = useState(false);
     const [isPrevMonth, setIsPrevMonth] = useState(false);
+
+    const datepickerInput = useRef();
 
     const getNumberOfDays = (_year: number, _month: number): number => {
       return 40 - new Date(_year, _month, 40).getDate();
@@ -84,6 +88,7 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
     const getMonthDetails = (year: number, month: number): object[] => {
       const firstDay = new Date(year, month).getDay();
+
       const numberOfDays = getNumberOfDays(year, month);
       const monthArray = [];
 
@@ -185,6 +190,43 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       }
     };
 
+    const getDateFromDateString = (dateValue: any): object | null => {
+      const dateData = dateValue.split('-').map((d: string) => Number.parseInt(d, 10));
+
+      if (dateData.length < 3) {
+        return null;
+      }
+
+      const year = dateData[0];
+      const month = dateData[1];
+      const date = dateData[2];
+
+      return { year, month, date };
+    };
+
+    const setDate = (dateData: any): void => {
+      const selectedDay = new Date(dateData.year, dateData.month - 1, dateData.date).getTime();
+
+      setSelectedDay(selectedDay);
+
+      if (onChange) {
+        onChange(getDateString('ymd', '-', selectedDay));
+      }
+    };
+
+    const updateDateFromInput = (e: string | number): void => {
+      const dateData: any = getDateFromDateString(e);
+
+      if (dateData !== null) {
+        setDate(dateData);
+        setMonth(dateData.month - 1);
+        setYear(dateData.year);
+        setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
+      }
+
+      setOpenState?.(false);
+    };
+
     useEffect(() => {
       setTimeout(() => {
         setIsNextMonth(false);
@@ -222,63 +264,74 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
     return (
       <>
         <Styled.DatePicker ref={ref}>
-          <Styled.DatePickerWrapper open={open} {...rest}>
-            <MonthPicker
-              year={year}
-              setMonth={setMonth}
-              getMonthStr={getMonthStr}
-              currentMonth={getMonthStr(month)}
-              showMonthsDatePicker={showMonthsDatePicker}
-              setShowMonthsDatePicker={setShowMonthsDatePicker}
-              setMonthDetails={setMonthDetails}
-              getMonthDetails={getMonthDetails}
-              {...rest}
-            />
+          <DatepickerInput
+            maxWidth={maxWidth}
+            datepickerInput={datepickerInput}
+            value={value}
+            open={open}
+            setOpenState={setOpenState}
+            onChange={(e) => updateDateFromInput(e)}
+          />
+          <Popper anchorEl={datepickerInput.current} open={open} position="bottom-start">
+            <Styled.DatePickerWrapper open={open} {...rest}>
+              <MonthPicker
+                year={year}
+                setMonth={setMonth}
+                getMonthStr={getMonthStr}
+                _month={month}
+                currentMonth={getMonthStr(month)}
+                showMonthsDatePicker={showMonthsDatePicker}
+                setShowMonthsDatePicker={setShowMonthsDatePicker}
+                setMonthDetails={setMonthDetails}
+                getMonthDetails={getMonthDetails}
+                {...rest}
+              />
 
-            <YearPicker
-              showYearsDatePicker={showYearsDatePicker}
-              setShowYearsDatePicker={setShowYearsDatePicker}
-              setMonthDetails={setMonthDetails}
-              getMonthDetails={getMonthDetails}
-              setYear={setYear}
-              monthIndex={month}
-              _year={year}
-              {...rest}
-            />
-            <Styled.HeaderWrapper>
-              <Styled.HeaderLeftArrows onClick={() => handleNextYearButton(-1, false)}>
-                <TwoArrowsRight size={10} />
-              </Styled.HeaderLeftArrows>
+              <YearPicker
+                showYearsDatePicker={showYearsDatePicker}
+                setShowYearsDatePicker={setShowYearsDatePicker}
+                setMonthDetails={setMonthDetails}
+                getMonthDetails={getMonthDetails}
+                setYear={setYear}
+                monthIndex={month}
+                _year={year}
+                {...rest}
+              />
+              <Styled.HeaderWrapper>
+                <Styled.HeaderLeftArrows onClick={() => handleNextYearButton(-1, false)}>
+                  <TwoArrowsRight size={10} />
+                </Styled.HeaderLeftArrows>
 
-              <Styled.HeaderLeftArrow onClick={() => handleNextMonthButton(-1, true)}>
-                <ArrowLeftOutline size={10} />
-              </Styled.HeaderLeftArrow>
+                <Styled.HeaderLeftArrow onClick={() => handleNextMonthButton(-1, true)}>
+                  <ArrowLeftOutline size={10} />
+                </Styled.HeaderLeftArrow>
 
-              <Styled.HeaderBody>
-                <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
-                  {getMonthStr(month)}
-                </Styled.HeaderBodyMonth>
-                <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
-              </Styled.HeaderBody>
+                <Styled.HeaderBody>
+                  <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
+                    {getMonthStr(month)}
+                  </Styled.HeaderBodyMonth>
+                  <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
+                </Styled.HeaderBody>
 
-              <Styled.HeaderRightArrow onClick={() => handlePrevMonthButton(1, false)}>
-                <ArrowRightOutline size={10} />
-              </Styled.HeaderRightArrow>
+                <Styled.HeaderRightArrow onClick={() => handlePrevMonthButton(1, false)}>
+                  <ArrowRightOutline size={10} />
+                </Styled.HeaderRightArrow>
 
-              <Styled.HeaderRightArrows onClick={() => handleNextYearButton(1, true)}>
-                <TwoArrowsLeft size={10} />
-              </Styled.HeaderRightArrows>
-            </Styled.HeaderWrapper>
-            <Styled.DatePickerBody>{renderCalendar()}</Styled.DatePickerBody>
-            <Styled.ButtonWrapper>
-              <Button onClick={() => setOpenState?.(false)} size="sm" color="basic">
-                Cancel
-              </Button>
-              <Button onClick={handleTodayButton} size="sm" color="basic">
-                Today
-              </Button>
-            </Styled.ButtonWrapper>
-          </Styled.DatePickerWrapper>
+                <Styled.HeaderRightArrows onClick={() => handleNextYearButton(1, true)}>
+                  <TwoArrowsLeft size={10} />
+                </Styled.HeaderRightArrows>
+              </Styled.HeaderWrapper>
+              <Styled.DatePickerBody>{renderCalendar()}</Styled.DatePickerBody>
+              <Styled.ButtonWrapper>
+                <Button onClick={() => setOpenState?.(false)} size="sm" color="basic">
+                  Cancel
+                </Button>
+                <Button onClick={handleTodayButton} size="sm" color="basic">
+                  Today
+                </Button>
+              </Styled.ButtonWrapper>
+            </Styled.DatePickerWrapper>
+          </Popper>
         </Styled.DatePicker>
       </>
     );
@@ -291,6 +344,7 @@ export const propTypes = {
   value: PT.string,
   onChange: PT.func,
   open: PT.bool,
+  maxWidth: PT.bool,
 };
 
 DatePicker.propTypes = propTypes;
