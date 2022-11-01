@@ -27,6 +27,10 @@ const Icon = styled.span.attrs({
     ${iconType === 'start' && css`
       margin-right: 8px;
     `}
+
+    ${iconType === 'end' && css`
+      color: ${palette[PColor.IconsSecondary]};
+    `}
   `
 );
 
@@ -46,7 +50,7 @@ const CopyIcon = styled.span.attrs({
 })(
   ({ theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.IconsSecondary]};
     cursor: pointer;
   `
 );

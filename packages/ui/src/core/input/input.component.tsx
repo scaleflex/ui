@@ -158,7 +158,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderIcon(iconStart, 'start')}
         {renderField()}
         {renderClearIcon(clearIcon)}
-        {renderCopyIcon(<CopyOutline size={16} />)}
+        {renderCopyIcon(<CopyOutline size={getIconSize(size, isSearchInput, 'copy')} />)}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>
