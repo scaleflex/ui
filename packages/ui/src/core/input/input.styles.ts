@@ -14,24 +14,20 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({
-    iconClickStart,
-    iconClickEnd,
-    clearIconClick,
-    iconType,
-    theme: { palette }
-  }: With<WithTheme, InputProps>) => css`
+  ({ iconClickStart, iconClickEnd, clearIconClick, iconType, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${iconClickStart || iconClickEnd || clearIconClick ? 'pointer' : 'default'};
 
-    ${iconType === 'start' && css`
+    ${iconType === 'start' &&
+    css`
       margin-right: 8px;
     `}
 
-     ${iconType === 'secondEnd' && css`
-       margin-left: 8px;
-     `}
+    ${iconType === 'secondEnd' &&
+    css`
+      margin-left: 8px;
+    `}
   `
 );
 
@@ -86,6 +82,7 @@ const Input = styled.div.attrs({
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 1px solid
       ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
+
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
@@ -110,12 +107,13 @@ const Input = styled.div.attrs({
       }
 
       &:hover {
-        background-color: ${isSearchInput ?
-          theme.palette[PColor.BackgroundHover] : theme.palette[PColor.TextPrimaryInvert]};
+        background-color: ${isSearchInput
+          ? theme.palette[PColor.BackgroundHover]
+          : theme.palette[PColor.TextPrimaryInvert]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
 
         ${Icon} {
-          color : ${theme.palette[PColor.IconsPrimaryHover]};
+          color: ${theme.palette[PColor.IconsPrimaryHover]};
         }
       }
     `}

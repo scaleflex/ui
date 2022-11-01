@@ -6,6 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import InputStyled from '../input/input.styles';
 import type { SelectProps } from './select.props';
+import { fontSizeInputMixin } from '../input/input.mixin';
 
 const baseClassName = 'Select';
 
@@ -40,10 +41,12 @@ const Container = styled.div.attrs({
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette } }: With<WithTheme, SelectProps>) => css`
+  ({ theme: { palette }, disabled, size = 'sm' }: With<WithTheme, SelectProps>) => css`
     cursor: pointer;
     user-select: none;
-    background: ${palette[PColor.BackgroundStateless]};
+    background: ${disabled ? palette[PColor.BackgroundHover] : palette[PColor.BackgroundStateless]};
+
+    ${fontSizeInputMixin[size]};
   `
 );
 
