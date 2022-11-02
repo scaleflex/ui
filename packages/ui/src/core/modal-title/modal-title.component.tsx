@@ -4,6 +4,7 @@ import CrossOutline from '@scaleflex/icons/cross-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { ModalTitleProps } from './modal-title.props';
+import CrossButton from '../cross-button';
 import Styled from './modal-title.styles';
 import { Variant } from './types';
 
@@ -17,7 +18,9 @@ const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>(
       {rest.variant === Variant.WithIcon && secondary && <Styled.LabelSecondary>{secondary}</Styled.LabelSecondary>}
 
       <Styled.Close variant={rest.variant} onClick={onClose}>
-        <CrossOutline size={14} />
+        <CrossButton size='lg'>
+          {(iconProps: { size?: number }): JSX.Element => <CrossOutline {...iconProps} />}
+        </CrossButton>
       </Styled.Close>
     </Styled.ModalTitle>
   )
