@@ -49,7 +49,7 @@ const Container = styled.div.attrs({
     overflow-y: auto;
     transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     outline: 0;
-    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Lg]};
     background-color: ${theme.palette[PColor.BackgroundSecondary]};
     box-shadow: 0px 2px 4px ${theme.palette[PColor.LightShadow]};
 
