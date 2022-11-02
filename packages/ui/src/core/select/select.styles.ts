@@ -41,8 +41,8 @@ const Container = styled.div.attrs({
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette }, disabled, size = 'sm' }: With<WithTheme, SelectProps>) => css`
-    cursor: pointer;
+  ({ theme: { palette }, disabled, readOnly, size = 'sm' }: With<WithTheme, SelectProps>) => css`
+    cursor: ${disabled || readOnly ? 'default' : 'pointer'};
     user-select: none;
     background: ${disabled ? palette[PColor.BackgroundHover] : palette[PColor.BackgroundStateless]};
 
