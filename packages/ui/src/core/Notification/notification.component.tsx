@@ -1,6 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
-import Cross from '@scaleflex/icons/cross';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 import { Color } from '../../utils/types/palette';
 import { lightPalette } from '../../theme/roots/palette';
 
@@ -34,7 +34,7 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         </Styled.Notification>
 
         <Styled.Close onClick={onClose}>
-          <Cross size={removeBackground ? 0 : 10.56} color={lightPalette[Color.IconsPrimary]} />
+          <CrossOutline size={removeBackground ? 0 : 10.56} color={lightPalette[Color.IconsPrimary]} />
         </Styled.Close>
       </Styled.NotificationWrapper>
     );
