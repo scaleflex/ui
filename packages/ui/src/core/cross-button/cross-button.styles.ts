@@ -28,6 +28,7 @@ const CrossButton = styled(ButtonStyled.Button).attrs({
     ${crossButtonPaddingMixin[size]}
 
     color: ${theme.palette[PaletteColor.IconsSecondary]};
+    background: transparent;
     border: none;
     
     &:hover {

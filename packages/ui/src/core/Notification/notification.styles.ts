@@ -67,7 +67,7 @@ const Notification = styled.div.attrs({
   ({ theme }: With<WithTheme, NotificationProps>) => css`
     display: flex;
     padding: 12px 16px;
-    gap: 12px;
+    margin-right: 64px;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
   `
 );
@@ -106,7 +106,7 @@ const Close = styled.span.attrs({
   justify-content: center;
   align-items: center;
   gap: 4px;
-  padding: 8px;
+  padding: 2px;
   position: absolute;
   top: 2px;
   right: 2px;
