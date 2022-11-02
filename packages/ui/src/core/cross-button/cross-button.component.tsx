@@ -3,6 +3,7 @@ import PT from 'prop-types';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { CrossButtonProps, CrossButtonSizeType } from './cross-button.props';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 import { Size } from './types';
 import Styled from './cross-button.styles';
 
@@ -18,9 +19,9 @@ const getIconSize = (sizeName: CrossButtonSizeType | undefined): number => {
   };
 
 const CrossButton = intrinsicComponent<CrossButtonProps, HTMLButtonElement>(
-  ({ children, size }: CrossButtonProps, ref): JSX.Element => (
-    <Styled.CrossButton ref={ref} size={size}>
-      {children && (typeof children === 'function' ? children({ size: getIconSize(size) }) : children)}
+  ({ size, onClose }: CrossButtonProps, ref): JSX.Element => (
+    <Styled.CrossButton ref={ref} size={size} onClick={onClose}>
+      <CrossOutline size={getIconSize(size)} />
     </Styled.CrossButton>
   )
 );
@@ -30,7 +31,6 @@ CrossButton.defaultProps = {
 };
 
 CrossButton.propTypes = {
-  children: PT.oneOfType([PT.node, PT.func]).isRequired,
   size: PT.oneOf(objectValues(Size)),
 };
 
