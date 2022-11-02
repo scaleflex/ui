@@ -81,6 +81,7 @@ export const renderOption = (
   const menuItemValue = (menuItem as JSX.Element)?.props?.value;
   const valueArr = multiple ? (Array.isArray(value) ? value : []) : [value];
   const active = valueArr.length > 0 && valueArr.includes(menuItemValue);
+  const isDisabledMenuItem = (menuItem as JSX.Element)?.props?.disabled;
 
   return React.cloneElement(menuItem as ReactElement<MenuItemProps>, {
     active,
@@ -91,7 +92,7 @@ export const renderOption = (
         onClose();
       }
 
-      if (typeof onChange === 'function') {
+      if (typeof onChange === 'function' && !isDisabledMenuItem) {
         let newValue = menuItemValue;
 
         if (multiple) {
