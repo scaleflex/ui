@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
@@ -41,8 +40,8 @@ const Label = styled.span.attrs({
 
 const PopupContent = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
-})<PopupContentProps>(
-  ({ theme }: With<WithTheme, PopupContentProps>) => css`
+})(
+  ({ theme }: WithTheme) => css`
     position: relative;
     display: flex;
     align-items: center;
@@ -54,28 +53,21 @@ const PopupContent = styled.div.attrs({
 
 const CloseWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupContent'),
-})<PopupContentProps>(
-  ({ theme }: With<WithTheme, PopupContentProps>) => css`
+})(
+  ({ theme }: WithTheme) => css`
     position: absolute;
     top: 0;
     right: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 28px;
+    box-sizing: border-box;
+    padding: 2px;
     height: 100%;
     cursor: pointer;
     background: ${theme.palette[PColor.BackgroundStateless]};
   `
 );
-
-const CloseIcon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'PopupContent'),
-})`
-  width: 10px;
-  height: 10px;
-  padding: 8.7px;
-`;
 
 const PopupStatus = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupStatus'),
@@ -100,7 +92,6 @@ const Styled = applyDisplayNames({
   PopupStatus,
   LabelWrapper,
   CloseWrapper,
-  CloseIcon,
   Label,
 });
 

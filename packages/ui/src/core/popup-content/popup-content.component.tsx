@@ -1,11 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
-import CrossOutline from '@scaleflex/icons/cross-outline';
-import { Color } from '../../utils/types/palette';
-import { lightPalette } from '../../theme/roots/palette';
 
 import { intrinsicComponent } from '../../utils/functions';
 import PopupStatus from '../popup-status';
+import CrossButton from '../cross-button/cross-button.component';
 import {
   defaultProps as popupStatusDefaultProps,
   propTypes as popupStatusPropTypes,
@@ -15,7 +13,7 @@ import Styled from './popup-content.styles';
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
   ({ onClose, message, status, ...rest }, ref): JSX.Element => (
-    <Styled.PopupContent message={message} {...rest} ref={ref}>
+    <Styled.PopupContent {...rest} ref={ref}>
       <Styled.PopupStatus status={status} message={message} {...rest}>
         <PopupStatus status={status} />
       </Styled.PopupStatus>
@@ -24,10 +22,8 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
         <Styled.Label>{message}</Styled.Label>
       </Styled.LabelWrapper>
 
-      <Styled.CloseWrapper message={message}>
-        <Styled.CloseIcon onClick={onClose}>
-          <CrossOutline size={10.56} color={lightPalette[Color.TextSecondary]} />
-        </Styled.CloseIcon>
+      <Styled.CloseWrapper>
+        <CrossButton size='sm' onClose={onClose} />
       </Styled.CloseWrapper>
     </Styled.PopupContent>
   )
