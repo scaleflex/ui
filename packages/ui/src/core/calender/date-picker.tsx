@@ -272,7 +272,13 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
             setOpenState={setOpenState}
             onChange={(e) => updateDateFromInput(e)}
           />
-          <Popper anchorEl={datepickerInput.current} open={open} position="bottom-start">
+          <Popper
+            overlay
+            onClick={() => setOpenState?.(!open)}
+            anchorEl={datepickerInput.current}
+            open={open}
+            position="bottom-start"
+          >
             <Styled.DatePickerWrapper open={open} {...rest}>
               <MonthPicker
                 year={year}
