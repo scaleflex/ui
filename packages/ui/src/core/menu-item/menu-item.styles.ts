@@ -28,6 +28,9 @@ const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
   flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const MenuItemWrapper = styled.div.attrs({
