@@ -13,7 +13,7 @@ const DatepickerInput = intrinsicComponent<CalendarProps, HTMLDivElement>(
   ): JSX.Element => {
     return (
       <Styled.DatepickerWrapper maxWidth={maxWidth} ref={datepickerInput} {...rest}>
-        <Styled.DatepickerInput value={value} onChange={(e: any) => onChange?.(e.target.value)} />
+        <Styled.DatepickerInput value={value} onChange={(e: any) => onChange?.(e)} />
         <Styled.DatepickerIcon ref={ref} onClick={() => setOpenState?.(!open)}>
           <Calendar size={14} />
         </Styled.DatepickerIcon>

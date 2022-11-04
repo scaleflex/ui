@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { CalendarProps } from '../calendar.props';
 import { intrinsicComponent } from '../../../utils/functions';
@@ -15,13 +15,20 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       setMonth,
       _month,
       year = 0,
+      setSelectedDay,
       setMonthDetails,
       getMonthDetails,
+      getTimeStamp,
+      monthDetails,
     }: CalendarProps,
     ref
   ): JSX.Element => {
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
     const [selectedMonthIndex, setSelectedMonthIndex] = useState(currentMonth);
+
+    useEffect(() => {
+      if (getTimeStamp) setSelectedDay?.(getTimeStamp());
+    }, [monthDetails]);
 
     const handleOnClickMonth = (index: number): void => {
       setSelectedMonth?.(getMonthStr?.(index));

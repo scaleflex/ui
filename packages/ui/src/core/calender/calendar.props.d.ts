@@ -20,11 +20,14 @@ export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   monthIndex?: number;
   currentMonth?: number | string;
   getMonthStr?: (value: number) => number | string;
+  monthDetails?: array;
   setMonth?: (value: number) => void;
   setYear?: (value: number) => void;
+  setSelectedDay?: (value: number) => void;
   setMonthDetails?: (value: any) => void;
   setOpenState?: (value: boolean) => void;
   getMonthDetails?: (value: number, value: number) => object[];
+  getTimeStamp?: () => number;
   setShowMonthsDatePicker?: (value: boolean) => void;
   setShowYearsDatePicker?: (value: boolean) => void;
 }

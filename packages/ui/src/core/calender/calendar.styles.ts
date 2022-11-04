@@ -461,7 +461,7 @@ const DatepickerIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'icon'),
 })<CalendarProps>(
   () => css`
-    margin-top: 6px;
+    margin-top: 2px;
     cursor: pointer;
   `
 );

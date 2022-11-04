@@ -16,6 +16,9 @@ const YearPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       setYear,
       setMonthDetails,
       getMonthDetails,
+      setSelectedDay,
+      getTimeStamp,
+      monthDetails,
     }: CalendarProps,
     ref
   ): JSX.Element => {
@@ -45,6 +48,10 @@ const YearPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
         setEndYear(_year + 11);
       }
     }, [_year]);
+
+    useEffect(() => {
+      if (getTimeStamp) setSelectedDay?.(getTimeStamp());
+    }, [monthDetails]);
 
     return (
       <Styled.MonthDatePickerWrapper open={showYearsDatePicker} ref={ref}>

@@ -8,7 +8,7 @@ import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
 import { intrinsicComponent } from '../../utils/functions';
-import { DAYS, HEADER_DAYS, MONTHS, getDateString } from './calendar.utils';
+import { DAYS, HEADER_DAYS, MONTHS } from './calendar.utils';
 import { CalendarProps } from './calendar.props';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
@@ -25,6 +25,7 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const [year, setYear] = useState(() => new Date().getFullYear());
     const [month, setMonth] = useState(() => new Date().getMonth());
     const [selectedDay, setSelectedDay] = useState(() => todayTimestamp);
+    const [dayDate, setDayDate] = useState(0);
     const [showMonthsDatePicker, setShowMonthsDatePicker] = useState(false);
     const [showYearsDatePicker, setShowYearsDatePicker] = useState(false);
     const [isNextMonth, setIsNextMonth] = useState(false);
@@ -55,10 +56,10 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
     const getDateStringFromTimestamp = (timestamp: number): string | number => {
       const dateObject = new Date(timestamp);
-
-      const _month = dateObject.getMonth() + 1;
+      const _month = month + 1;
       const date = dateObject.getDate();
-      return `${dateObject.getFullYear()}-${_month < 10 ? `0${_month}` : _month}-${date < 10 ? `0${date}` : date}`;
+
+      return `${year}-${_month < 10 ? `0${_month}` : _month}-${date < 10 ? `0${date}` : date}`;
     };
 
     const getDayDetails = (args: any): object => {
@@ -117,14 +118,28 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const [monthDetails, setMonthDetails] = useState(() => getMonthDetails(year, month));
 
     useEffect(() => {
+      if (year.toString().length !== 4) return;
+
       if (onChange) {
         onChange(getDateStringFromTimestamp(selectedDay));
       }
     }, [selectedDay]);
 
-    const isSelectedDay = (day: any): boolean => {
-      return day.timestamp === selectedDay;
+    useEffect(() => {
+      const toDayDate: any = monthDetails.find((day: any) => day.timestamp === selectedDay);
+
+      if (toDayDate) {
+        setDayDate?.(toDayDate.date);
+      }
+    }, [selectedDay]);
+
+    const getTimeStamp = (): number => {
+      const toDayDate: any = monthDetails.find((day: any) => day.date === dayDate);
+
+      return toDayDate.timestamp;
     };
+
+    const isSelectedDay = (day: any): boolean => dayDate === day.date;
 
     const getMonthStr = (month: number): number | string => {
       return MONTHS[Math.max(Math.min(11, month), 0)] || 'Month';
@@ -204,21 +219,17 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       return { year, month, date };
     };
 
-    const setDate = (dateData: any): void => {
-      const selectedDay = new Date(dateData.year, dateData.month - 1, dateData.date).getTime();
-
-      setSelectedDay(selectedDay);
-
-      if (onChange) {
-        onChange(getDateString('ymd', '-', selectedDay));
-      }
-    };
-
-    const updateDateFromInput = (e: string | number): void => {
-      const dateData: any = getDateFromDateString(e);
+    const updateDateFromInput = (value: any): void => {
+      const dateData: any = getDateFromDateString(value);
+      const dayData: any = monthDetails.find((day: any) => day?.date === dateData?.date);
 
       if (dateData !== null) {
-        setDate(dateData);
+        if (onChange) onChange(value);
+
+        if (dayData?.timestamp && dateData.year.toString().length === 4) {
+          setSelectedDay(dayData?.timestamp);
+        }
+
         setMonth(dateData.month - 1);
         setYear(dateData.year);
         setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
@@ -270,7 +281,7 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
             value={value}
             open={open}
             setOpenState={setOpenState}
-            onChange={(e) => updateDateFromInput(e)}
+            onChange={(e: any) => updateDateFromInput(e.target.value)}
           />
           <Popper
             overlay
@@ -285,11 +296,14 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
                 setMonth={setMonth}
                 getMonthStr={getMonthStr}
                 _month={month}
+                getTimeStamp={getTimeStamp}
+                setSelectedDay={setSelectedDay}
                 currentMonth={getMonthStr(month)}
                 showMonthsDatePicker={showMonthsDatePicker}
                 setShowMonthsDatePicker={setShowMonthsDatePicker}
                 setMonthDetails={setMonthDetails}
                 getMonthDetails={getMonthDetails}
+                monthDetails={monthDetails}
                 {...rest}
               />
 
@@ -298,6 +312,9 @@ const DatePicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
                 setShowYearsDatePicker={setShowYearsDatePicker}
                 setMonthDetails={setMonthDetails}
                 getMonthDetails={getMonthDetails}
+                monthDetails={monthDetails}
+                getTimeStamp={getTimeStamp}
+                setSelectedDay={setSelectedDay}
                 setYear={setYear}
                 monthIndex={month}
                 _year={year}
