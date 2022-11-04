@@ -46,7 +46,7 @@ const StatusLabelWrapper = styled.div.attrs({
     padding: 2px 8px;
     background-color: ${theme.palette[PColor.Success]};
     color: ${theme.palette[PColor.BackgroundSecondary]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     box-sizing: border-box;
 
     ${variant === Variant.Text &&

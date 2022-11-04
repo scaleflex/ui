@@ -42,7 +42,7 @@ const Tag = styled.div.attrs({
     box-sizing: border-box;
     background-color: ${theme.palette[PColor.BordersSecondary]};
     border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
 
     ${sizeTagLabelMixin[size]}
 
