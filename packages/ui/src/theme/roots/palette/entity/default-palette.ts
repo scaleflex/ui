@@ -81,7 +81,7 @@ export const lightPalette = {
   [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
 
   // states
-  [Color.Error]: 'rgba(255, 86, 78, 1)', // #FF564E
+  [Color.Error]: 'rgba(246, 61, 61, 1)', // #F63D3D
   [Color.Error_0_28_Opacity]: 'rgba(185, 33, 46, 0.28)', // #B9212E47
   [Color.Error_0_12_Opacity]: 'rgba(255, 86, 78, 0.1)', // #FF564E1A
   [Color.ErrorHover]: 'rgba(216, 46, 46, 1)', // #D82E2E
