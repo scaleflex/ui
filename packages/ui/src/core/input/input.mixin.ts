@@ -16,6 +16,16 @@ export const sizeInputMixin = {
   `,
 };
 
+export const sizeSearchInputMixin = {
+  [InputSize.Sm]: `
+    padding: 8px 6px 8px 12px;
+  `,
+
+  [InputSize.Md]: `
+    padding: 0px 4px 0px 16px;
+  `,
+};
+
 export const fontSizeInputMixin = {
   [InputSize.Sm]: ({
     theme: {

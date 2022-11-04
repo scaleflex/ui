@@ -5,7 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
-import { sizeInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
+import { sizeInputMixin, sizeSearchInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
 import { InputSize } from '../../utils/types';
 import { getInputBackgroundColor, getInputTextColor } from './input.utils';
 
@@ -24,21 +24,14 @@ const Icon = styled.span.attrs({
       margin-right: 8px;
     `}
 
+    ${iconType === 'secondEnd' && css`
+      margin-left: 8px;
+    `}
+
     ${iconType === 'end' &&
     css`
       color: ${palette[PColor.IconsSecondary]};
     `}
-  `
-);
-
-const ClearIcon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'ClearIcon'),
-})(
-  ({ isSearchInput, theme: { palette } }: With<WithTheme, InputProps>) => css`
-    display: flex;
-    cursor: pointer;
-    margin-left: 8px;
-    color: ${isSearchInput ? palette[PColor.IconsSecondary] : palette[PColor.IconsPrimary]};
   `
 );
 
@@ -78,6 +71,7 @@ const Input = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
+    clearIcon,
     isSearchInput = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
@@ -96,7 +90,7 @@ const Input = styled.div.attrs({
 
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    ${sizeInputMixin[size]}
+    ${clearIcon && isSearchInput ? sizeSearchInputMixin[size] : sizeInputMixin[size] }
 
     ${Base} {
       ${fontSizeInputMixin[size]}
@@ -185,7 +179,6 @@ const Styled = applyDisplayNames({
   Tags,
   Base,
   Icon,
-  ClearIcon,
   CopyIcon,
 });
 
