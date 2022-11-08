@@ -78,32 +78,37 @@ export const colorButtonMixin = {
 
   [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
     background-color: transparent;
-    color: ${palette[PaletteColor.LinkPrimary]};
+    border: 1px solid ${palette[PaletteColor.BordersButton]};
+    color: ${palette[PaletteColor.LinkStateless]};
 
     ${StyledBadge.Badge} {
       background-color: transparent;
-      color: ${palette[PaletteColor.LinkPrimary]};
+      color: ${palette[PaletteColor.LinkStateless]};
     }
 
     &:hover {
-      color: ${palette[PaletteColor.AccentPrimaryHover]};
+      background-color: ${palette[PaletteColor.BackgroundHover]};
+      color: ${palette[PaletteColor.LinkHover]};
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.AccentPrimaryHover]};
+        color: ${palette[PaletteColor.LinkHover]};
       }
     }
 
     &:active {
-      color: ${palette[PaletteColor.AccentPrimaryActive]};
+      background-color: ${palette[PaletteColor.BackgroundActive]};
+      color: ${palette[PaletteColor.LinkHover]};
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.AccentPrimaryActive]};
+        color: ${palette[PaletteColor.LinkHover]};
       }
     }
 
     &:disabled {
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
       color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
+      border: none;
 
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.BordersDisabled]};

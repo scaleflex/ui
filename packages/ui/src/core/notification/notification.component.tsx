@@ -1,14 +1,13 @@
 import React from 'react';
 import PT from 'prop-types';
-import Cross from '@scaleflex/icons/cross';
-import { Color } from '../../utils/types/palette';
-import { lightPalette } from '../../theme/roots/palette';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-import Styled from './notification.styles';
 import PopupStatus from '../popup-status';
+import CrossButton from '../cross-button';
 import { NotificationStatus } from './types';
 import { NotificationProps } from './notification.props';
+import Styled from './notification.styles';
 
 const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
   ({ status, removeBackground, hideIcon, title, message, onClose, ...rest }: NotificationProps, ref): JSX.Element => {
@@ -33,9 +32,13 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
           </Styled.MessageWrapper>
         </Styled.Notification>
 
-        <Styled.Close onClick={onClose}>
-          <Cross size={removeBackground ? 0 : 10.56} color={lightPalette[Color.IconsPrimary]} />
-        </Styled.Close>
+        {!removeBackground && (
+          <Styled.Close onClick={onClose}>
+            <CrossButton size='sm'>
+             {(iconProps: { size?: number }): JSX.Element => <CrossOutline {...iconProps} />}
+            </CrossButton>
+          </Styled.Close>
+        )}
       </Styled.NotificationWrapper>
     );
   }

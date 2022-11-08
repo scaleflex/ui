@@ -61,6 +61,12 @@ const Button = styled.button.attrs({
     ${buttonType !== ButtonType.Sidebar && colorButtonMixin[color]}
     ${buttonType === ButtonType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
 
+    &:active {
+      ${StartIcon} {
+        color: ${theme.palette[PaletteColor.LinkActive]};
+      }
+    }
+
     ${Label} {
       ${sizeButtonLabelMixin[size]}
       ${color === ButtonColor.LinkBasic && `font-weight: 400`}

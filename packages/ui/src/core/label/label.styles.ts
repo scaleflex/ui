@@ -48,7 +48,7 @@ const Icon = styled.span.attrs({
   ({ theme: { palette }, $end = false }: With<WithTheme, { $end: boolean }>) => css`
     display: flex;
     ${$end ? 'margin-left: 4px' : 'margin-right: 4px'};
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${palette[PColor.IconsSecondary]};
   `
 );
 

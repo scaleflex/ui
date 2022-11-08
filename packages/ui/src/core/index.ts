@@ -60,3 +60,4 @@ export { default as Skeleton } from './skeleton';
 export { default as Notification } from './notification';
 export { default as Calendar } from './calendar';
 export { default as DatePicker } from './date-picker';
+export { default as CrossButton } from './cross-button';

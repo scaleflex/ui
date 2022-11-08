@@ -42,6 +42,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
         <Styled.Select
           {...rest}
+          disabled={disabled}
           size={size}
           error={error}
           fullWidth={Boolean(fullWidth)}

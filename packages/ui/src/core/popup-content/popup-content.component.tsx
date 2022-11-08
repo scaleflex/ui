@@ -1,6 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
-import Cross from '@scaleflex/icons/cross';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 import { Color } from '../../utils/types/palette';
 import { lightPalette } from '../../theme/roots/palette';
 
@@ -24,9 +24,9 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
         <Styled.Label>{message}</Styled.Label>
       </Styled.LabelWrapper>
 
-      <Styled.CloseWrapper>
+      <Styled.CloseWrapper message={message}>
         <Styled.CloseIcon onClick={onClose}>
-          <Cross size={10.56} color={lightPalette[Color.TextSecondary]} />
+          <CrossOutline size={10.56} color={lightPalette[Color.TextSecondary]} />
         </Styled.CloseIcon>
       </Styled.CloseWrapper>
     </Styled.PopupContent>

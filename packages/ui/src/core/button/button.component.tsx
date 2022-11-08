@@ -33,9 +33,9 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
   ): JSX.Element => {
     const getSideBarArrows = (props: IconProps): JSX.Element | undefined => {
       switch (sideBarType) {
-        case SideBar.Left:
-          return active ? <TwoArrowsLeft {...props} /> : <TwoArrowsRight {...props} />;
         case SideBar.Right:
+          return active ? <TwoArrowsLeft {...props} /> : <TwoArrowsRight {...props} />;
+        case SideBar.Left:
           return active ? <TwoArrowsRight {...props} /> : <TwoArrowsLeft {...props} />;
         default:
       }
