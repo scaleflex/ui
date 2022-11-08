@@ -116,5 +116,6 @@ export const Color = {
   Canvas: 'canvas',
 
   LightShadow: 'light-shadow',
+  MediumShadow: 'medium-shadow',
   HeavyShadow: 'heavy-shadow',
 } as const;
