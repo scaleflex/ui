@@ -58,3 +58,5 @@ export { default as Tooltip } from './tooltip';
 export { default as UploadInput } from './upload-input';
 export { default as Skeleton } from './skeleton';
 export { default as Notification } from './notification';
+export { default as Calendar } from './calendar';
+export { default as DatePicker } from './date-picker';

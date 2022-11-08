@@ -28,13 +28,24 @@ const leftDatePickerAnimation = css`
   animation: ${leftDatePickerKeyframes} 300ms ease-in-out;
 `;
 
-const DatePicker = styled.div.attrs({
+const Calendar = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<CalendarProps>(
-  () => css`
-    display: flex;
-    flex-direction: column;
-    column-gap: 12.6px;
+  ({ theme: { palette }, open }: With<WithTheme, CalendarProps>) => css`
+    position: absolute;
+    width: 224px;
+    height: 274px;
+    min-height: 200px;
+    max-height: 274px;
+    top: 4px;
+    background: ${palette[PColor.TextPrimaryInvert]};
+    box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
+    border-radius: 2px;
+    overflow: hidden;
+    padding: 14px 12px 12px 12px;
+    z-index: 1111;
+    user-select: none;
+    display: ${open ? '' : 'none'};
   `
 );
 
@@ -63,8 +74,8 @@ const DatePickerCalendarHead = styled.div.attrs({
 
 const DatePickerCalendarBody = styled.div.attrs({
   className: generateClassNames(baseClassName, 'date-picker-calendar-body'),
-})<CalendarProps>(
-  ({ isNextMonth = false, isPrevMonth = false }: CalendarProps) => css`
+})(
+  ({ isNextMonth = false, isPrevMonth = false }: { isNextMonth: boolean; isPrevMonth: boolean }) => css`
     position: relative;
     display: block;
     height: 174px;
@@ -96,28 +107,7 @@ const DatePickerHeadDay = styled.div.attrs({
   `
 );
 
-const DatePickerWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'date-picker-wrapper'),
-})<CalendarProps>(
-  ({ theme: { palette }, open }: With<WithTheme, CalendarProps>) => css`
-    position: absolute;
-    width: 224px;
-    height: 274px;
-    min-height: 200px;
-    max-height: 274px;
-    top: 4px;
-    background: ${palette[PColor.TextPrimaryInvert]};
-    box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
-    border-radius: 2px;
-    overflow: hidden;
-    padding: 14px 12px 12px 12px;
-    z-index: 1111;
-    user-select: none;
-    display: ${open ? '' : 'none'};
-  `
-);
-
-const MonthDatePickerWrapper = styled(DatePickerWrapper).attrs({
+const MonthDatePickerWrapper = styled(Calendar).attrs({
   className: generateClassNames(baseClassName, 'month-date-picker-wrapper'),
 })<CalendarProps>(
   ({ open = false }: CalendarProps) => css`
@@ -143,8 +133,12 @@ const MonthButtonsWrapper = styled.div.attrs({
 
 const MonthButtons = styled.div.attrs({
   className: generateClassNames(baseClassName, 'month-buttons'),
-})<CalendarProps>(
-  ({ isYearChanged = false, isMonthChanged = false, theme: { palette } }: With<WithTheme, CalendarProps>) => css`
+})(
+  ({
+    isYearChanged = false,
+    isMonthChanged = false,
+    theme: { palette },
+  }: With<WithTheme, { isYearChanged?: boolean; isMonthChanged?: boolean }>) => css`
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
@@ -177,7 +171,7 @@ const MonthButtons = styled.div.attrs({
   `
 );
 
-const DatePickerBody = styled.div.attrs({
+const CalendarBody = styled.div.attrs({
   className: generateClassNames(baseClassName, 'date-picker-body'),
 })<CalendarProps>(
   () => css`
@@ -200,34 +194,35 @@ const DatePickerDays = styled.div.attrs({
 
 const DatePickerDay = styled.span.attrs({
   className: generateClassNames(baseClassName, 'date-picker-day'),
-})<CalendarProps>(
-  ({ day, isSelectedDay = false, theme: { palette } }: With<WithTheme, CalendarProps>) => css`
-    width: 24.57px;
-    height: 24px;
-    margin-top: -15px;
-    left: 50%;
-    top: 50%;
-    font-weight: 400;
-    border-radius: 2px;
-    line-height: 23px;
-    color: ${getDatePickerDaysColor(day, isSelectedDay)};
-    pointer-events: ${day.month !== 0 ? 'none' : ''};
-    cursor: pointer;
+})(
+  ({ day, isSelectedDay = false, theme: { palette } }: With<WithTheme, { day: any; isSelectedDay: boolean }>) =>
+    css`
+      width: 24.57px;
+      height: 24px;
+      margin-top: -15px;
+      left: 50%;
+      top: 50%;
+      font-weight: 400;
+      border-radius: 2px;
+      line-height: 23px;
+      color: ${getDatePickerDaysColor(day, isSelectedDay)};
+      pointer-events: ${day.month !== 0 ? 'none' : ''};
+      cursor: pointer;
 
-    background-color: ${isSelectedDay && day.month === 0
-      ? palette[PColor.AccentStateless]
-      : palette[PColor.TextPrimaryInvert]};
+      background-color: ${isSelectedDay && day.month === 0
+        ? palette[PColor.AccentStateless]
+        : palette[PColor.TextPrimaryInvert]};
 
-    &:hover {
-      ${!isSelectedDay &&
-      css`
-        background-color: transparent;
-        border: 1px solid ${palette[PColor.AccentPrimaryHover]};
-        box-sizing: border-box;
-        line-height: 21px;
-      `}
-    }
-  `
+      &:hover {
+        ${!isSelectedDay &&
+        css`
+          background-color: transparent;
+          border: 1px solid ${palette[PColor.AccentPrimaryHover]};
+          box-sizing: border-box;
+          line-height: 21px;
+        `}
+      }
+    `
 );
 
 const DatePickerDayContainer = styled.div.attrs({
@@ -410,69 +405,12 @@ const ButtonWrapper = styled.span.attrs({
   `
 );
 
-const DatepickerWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'root'),
-})<CalendarProps>(
-  ({
-    theme: {
-      palette,
-      typography: { font },
-    },
-    maxWidth = false,
-  }: With<WithTheme, CalendarProps>) => css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: ${maxWidth ? '100%' : '153px'};
-    height: 32px;
-    padding: 8px 9px 9px 12px;
-    border-radius: 4px;
-    box-sizing: border-box;
-    border: 1px solid ${palette[PColor.BordersPrimary]};
-    color: ${palette[PColor.TextPrimary]};
-
-    ${font[FV.LabelMedium]}
-  `
-);
-
-const DatepickerInput = styled.input.attrs({
-  className: generateClassNames(baseClassName, 'input'),
-  type: 'date',
-})<CalendarProps>(
-  ({
-    theme: {
-      typography: { font },
-    },
-  }: With<WithTheme, CalendarProps>) => css`
-    border: 0;
-    outline: unset;
-    width: 100%;
-
-    ${font[FV.LabelMedium]}
-
-    &::-webkit-calendar-picker-indicator {
-      display: none;
-      -webkit-appearance: none;
-    }
-  `
-);
-
-const DatepickerIcon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'icon'),
-})<CalendarProps>(
-  () => css`
-    margin-top: 2px;
-    cursor: pointer;
-  `
-);
-
 const Styled = applyDisplayNames({
-  DatePicker,
-  DatePickerWrapper,
+  Calendar,
   MonthDatePickerWrapper,
   MonthButtonsWrapper,
   MonthButtons,
-  DatePickerBody,
+  CalendarBody,
   DatePickerDays,
   DatePickerDay,
   DatePickerDayContainer,
@@ -492,9 +430,6 @@ const Styled = applyDisplayNames({
   HeaderRightArrow,
   MonthsHeaderRightArrow,
   HeaderLeftArrow,
-  DatepickerWrapper,
-  DatepickerInput,
-  DatepickerIcon,
 });
 
 export default Styled;

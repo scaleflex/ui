@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _Calendar, { CalendarProps } from '@scaleflex/ui/core/calender';
+import _Calendar, { CalendarProps } from '../../src/core/calendar';
 import { StoryGroup } from './types';
 
 export const Calendar = _Calendar;
@@ -11,34 +11,10 @@ export default {
   excludeStories: ['Calender'],
 } as Meta;
 
-const defaultArgs = {
-  open: false,
-  maxWidth: false,
-};
+const defaultArgs = {};
 
-const BasicTemplate: Story<CalendarProps> = ({ open, ...args }) => {
-  const [openState, setOpenState] = useState(open || false);
-  const [value, setValue] = useState('');
-
-  const handleChange = (newValue: string): void => {
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    setOpenState(open || false);
-  }, [open]);
-
-  return (
-    <>
-      <Calendar
-        value={value}
-        open={openState}
-        setOpenState={setOpenState}
-        onChange={(newValue: string): void => handleChange(newValue)}
-        {...args}
-      />
-    </>
-  );
+const BasicTemplate: Story<CalendarProps> = () => {
+  return <Calendar open />;
 };
 
 // Basic

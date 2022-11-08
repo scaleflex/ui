@@ -118,7 +118,8 @@ module.exports = {
     'max-len': 'off',
     'no-param-reassign': 'off',
     'no-prototype-builtins': 'off',
-    'id-length': 'off'
+    'id-length': 'off',
+    'no-plusplus': 'off',
   },
   overrides: [{
     files: ['*.story.tsx'],

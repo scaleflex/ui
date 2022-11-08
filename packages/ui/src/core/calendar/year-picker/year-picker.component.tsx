@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 
-import { CalendarProps } from '../calendar.props';
+import { YearPickerProps } from '../calendar.props';
 import { intrinsicComponent } from '../../../utils/functions';
 import Styled from '../calendar.styles';
 
-const YearPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
+const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
   (
     {
       showYearsDatePicker = false,
@@ -19,7 +19,7 @@ const YearPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       setSelectedDay,
       getTimeStamp,
       monthDetails,
-    }: CalendarProps,
+    }: YearPickerProps,
     ref
   ): JSX.Element => {
     const [startYear, setStartYear] = useState(_year);

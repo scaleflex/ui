@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 
-import { CalendarProps } from '../calendar.props';
+import { MonthPickerProps } from '../calendar.props';
 import { intrinsicComponent } from '../../../utils/functions';
 import Styled from '../calendar.styles';
 import { MONTHS_PICKER } from '../calendar.utils';
 
-const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
+const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
   (
     {
       showMonthsDatePicker = false,
@@ -20,11 +20,10 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
       getMonthDetails,
       getTimeStamp,
       monthDetails,
-    }: CalendarProps,
+    }: MonthPickerProps,
     ref
   ): JSX.Element => {
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
-    const [selectedMonthIndex, setSelectedMonthIndex] = useState(currentMonth);
 
     useEffect(() => {
       if (getTimeStamp) setSelectedDay?.(getTimeStamp());
@@ -33,7 +32,6 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const handleOnClickMonth = (index: number): void => {
       setSelectedMonth?.(getMonthStr?.(index));
       setMonth?.(index);
-      setSelectedMonthIndex(index);
       setShowMonthsDatePicker?.(false);
       setMonthDetails?.(getMonthDetails?.(year, index));
     };
@@ -56,7 +54,6 @@ const MonthPicker = intrinsicComponent<CalendarProps, HTMLDivElement>(
         <Styled.MonthButtonsWrapper>
           {MONTHS_PICKER.map((month, index) => (
             <Styled.MonthButtons
-              isMonthSelected={index === selectedMonthIndex}
               onClick={() => handleOnClickMonth(index)}
               isMonthChanged={isMonthChanged(index)}
               key={month}
