@@ -27,10 +27,18 @@ const TickIcon = styled.span.attrs({
   `
 );
 
+const CrossIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'crossIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PColor.IconsSecondary]};
+  `
+);
+
 const AutocompleteContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'container'),
 })``;
 
-const Styled = applyDisplayNames({ Autocomplete, AutocompleteContainer, TickIcon });
+const Styled = applyDisplayNames({ Autocomplete, AutocompleteContainer, TickIcon, CrossIcon });
 
 export default Styled;

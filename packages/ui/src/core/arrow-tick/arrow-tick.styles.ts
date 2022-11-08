@@ -14,6 +14,7 @@ const ArrowTick = styled.span.attrs({
 })(
   ({ type = Position.Right }: With<WithTheme, ArrowTickProps>) => css`
     display: inline-flex;
+    margin-left: 6px;
 
     ${typeArrowTickMixin[type]}
   `

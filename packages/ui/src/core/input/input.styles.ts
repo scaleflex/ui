@@ -69,6 +69,32 @@ const Container = styled.div.attrs({
   `
 );
 
+const Base = styled.input.attrs({
+  className: generateClassNames(baseClassName, 'Base'),
+})<InputProps>(
+  ({
+    // TODO: refactor how implement tags in input
+    // renderTags,
+    theme: { palette },
+    size = InputSize.Md,
+  }: With<WithTheme, InputProps>) => css`
+    display: block;
+    color: inherit;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+    margin-right: ${size === InputSize.Md ? 10 : 6}px;
+
+    &::placeholder {
+      color: ${palette[PColor.TextPlaceholder]};
+    }
+  `
+);
+
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
@@ -86,7 +112,6 @@ const Input = styled.div.attrs({
     align-items: center;
     box-sizing: border-box;
     cursor: text;
-    column-gap: 6px;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
@@ -155,29 +180,6 @@ const Tags = styled.div.attrs({
 // TODO: refactor how we implement tags in input
 //  display: ${renderTags ? 'inline' : 'block'};
 // width: ${renderTags ? 'min-content' : '100%'};
-const Base = styled.input.attrs({
-  className: generateClassNames(baseClassName, 'Base'),
-})<InputProps>(
-  ({
-    // TODO: refactor how implement tags in input
-    // renderTags,
-    theme: { palette },
-  }: With<WithTheme, InputProps>) => css`
-    display: block;
-    color: inherit;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-
-    &::placeholder {
-      color: ${palette[PColor.TextPlaceholder]};
-    }
-  `
-);
 
 const Styled = applyDisplayNames({
   Input,

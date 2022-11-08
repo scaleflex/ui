@@ -8,8 +8,11 @@ import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
 import Styled from './input.styles';
 
-const getIconSize = (sizeName: InputSizeType | undefined,
-  isSearchInput: boolean | undefined, iconType: string): number => {
+const getIconSize = (
+  sizeName: InputSizeType | undefined,
+  isSearchInput: boolean | undefined,
+  iconType: string
+): number => {
   switch (sizeName) {
     case InputSize.Md:
       return isSearchInput ? (iconType === 'start' ? 18 : 14) : 16;
@@ -30,7 +33,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       iconClickStart,
       iconClickEnd,
       clearIconClick,
-      size,
+      size = InputSize.Md,
       className,
       style,
       fullWidth,
@@ -107,12 +110,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       ) : undefined;
 
     const renderClearIcon = (icon: React.ReactNode): JSX.Element | undefined =>
-    disabled || readOnly || !icon ? undefined
-    : (
-        <Styled.ClearIcon
-          onClick={(event) => handleIconClick(event, 'clear')}
-          isSearchInput={isSearchInput}
-        >
+      disabled || readOnly || !icon ? undefined : (
+        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')} isSearchInput={isSearchInput}>
           {typeof icon === 'function' ? icon({ size: getIconSize(size, isSearchInput, 'clear') }) : icon}
         </Styled.ClearIcon>
       );
@@ -136,7 +135,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       //     />
       //   </Styled.Container>
       // ) : (
-      <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
+      <Styled.Base size={size} {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
       // );
     );
 

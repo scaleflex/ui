@@ -10,6 +10,7 @@ import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
+import { Size } from '../menu-item/types';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   (
@@ -53,14 +54,10 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
             {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
           </Styled.Label>
 
-          {!value && <Styled.Placeholder>{placeholder}</Styled.Placeholder>}
+          {!value && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
 
           <Styled.Icon>
-            <ArrowTick
-              type={open ? 'top' : 'bottom'}
-              // IconProps={{ size: size === Size.Md ? 13 : 11 }}
-              IconProps={{ size: 10 }}
-            />
+            <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 16 : 14 }} />
           </Styled.Icon>
           <Styled.Input {...selectProps} />
         </Styled.Select>
