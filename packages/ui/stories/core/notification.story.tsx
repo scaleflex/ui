@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { Meta, Story } from '@storybook/react';
-import _Notification, { NotificationProps } from '../../src/core/notification';
-import { NotificationStatus } from '../../src/core/notification/types';
+import _Notification, { NotificationProps } from '../../src/core/Notification-test';
+import { NotificationStatus } from '../../src/core/Notification-test/types';
 import { StoryGroup } from './types';
 
 export const Notification = _Notification;
