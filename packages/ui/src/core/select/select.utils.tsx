@@ -25,6 +25,8 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
   ) : undefined;
 
 const generateChildren = (children: ReactNode, isActive = false): ReactNode => {
+  const miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
+
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
@@ -35,16 +37,9 @@ const generateChildren = (children: ReactNode, isActive = false): ReactNode => {
     );
 
     if (React.Children.count(children) === 1) {
-      let miChildren = children;
-
-      if (React.isValidElement(children) && (children as JSX.Element)?.type?.displayName !== 'MenuItemLabel') {
-        miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
-      }
-
       return (
         <>
           {miChildren}
-
           {miActions}
         </>
       );
@@ -63,7 +58,7 @@ const generateChildren = (children: ReactNode, isActive = false): ReactNode => {
     }
   }
 
-  return children;
+  return miChildren;
 };
 
 export const renderOption = (
