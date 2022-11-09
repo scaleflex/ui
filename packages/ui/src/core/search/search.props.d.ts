@@ -1,3 +1,3 @@
 import type { InputProps } from '../input';
 
-export type SearchProps = Omit<InputProps, 'iconStart'>;
+export interface SearchProps extends InputProps, React.HTMLAttributes<HTMLInputElement> {}

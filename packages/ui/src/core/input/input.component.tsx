@@ -8,18 +8,14 @@ import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
 import Styled from './input.styles';
 
-const getIconSize = (
-  sizeName: InputSizeType | undefined,
-  isSearchInput: boolean | undefined,
-  iconType: string
-): number => {
+const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): number => {
   switch (sizeName) {
     case InputSize.Md:
-      return isSearchInput ? (iconType === 'start' ? 18 : 14) : 16;
+      return iconType === 'start' ? 15 : 14;
 
     case InputSize.Sm:
     default:
-      return isSearchInput ? (iconType === 'start' ? 16 : 11) : 14;
+      return iconType === 'start' ? 13 : 10;
   }
 };
 
@@ -43,8 +39,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       focusOnMount = false,
       focusOnClick = true,
       error,
-      // TODO: refactor how implement tags in input
-      // renderTags,
       ...rest
     }: InputProps,
     ref
@@ -86,11 +80,11 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }
       if (type === 'start') {
         if (iconClickStart) {
-          iconClickStart();
+          iconClickStart(event);
         }
       } else if (type === 'end') {
         if (iconClickEnd) {
-          iconClickEnd();
+          iconClickEnd(event);
         }
       } else if (clearIconClick) {
         clearIconClick(event);
@@ -105,14 +99,14 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           iconClickEnd={iconClickEnd}
           iconType={type}
         >
-          {typeof _icon === 'function' ? _icon({ size: getIconSize(size, isSearchInput, type) }) : _icon}
+          {typeof _icon === 'function' ? _icon({ size: getIconSize(size, type) }) : _icon}
         </Styled.Icon>
       ) : undefined;
 
-    const renderClearIcon = (icon: React.ReactNode): JSX.Element | undefined =>
-      disabled || readOnly || !icon ? undefined : (
+    const renderClearIcon = (): JSX.Element | undefined =>
+      disabled || readOnly || !clearIcon ? undefined : (
         <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')} isSearchInput={isSearchInput}>
-          {typeof icon === 'function' ? icon({ size: getIconSize(size, isSearchInput, 'clear') }) : icon}
+          {typeof clearIcon === 'function' ? clearIcon({ size: getIconSize(size, 'clear') }) : clearIcon}
         </Styled.ClearIcon>
       );
 
@@ -122,21 +116,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       ) : undefined;
 
     const renderField = (): JSX.Element | undefined => (
-      // TODO: refactor how implement tags in input
-      // return renderTags ? (
-      //   <Styled.Container>
-      //     <Styled.Tags>{renderTags}</Styled.Tags>
-      //     <Styled.Base
-      //       {...rest}
-      //       placeholder={placeholder}
-      //       ref={inputRef}
-      //       renderTags={renderTags}
-      //       readOnly={Boolean(readOnly)}
-      //     />
-      //   </Styled.Container>
-      // ) : (
-      <Styled.Base size={size} {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
-      // );
+      <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
     );
 
     return (
@@ -156,8 +136,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
-        {renderClearIcon(clearIcon)}
-        {renderCopyIcon(<CopyOutline size={getIconSize(size, isSearchInput, 'copy')} />)}
+        {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
+        {renderClearIcon()}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}
       </Styled.Input>

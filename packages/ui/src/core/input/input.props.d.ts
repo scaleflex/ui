@@ -16,10 +16,8 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   fullWidth?: boolean;
   isSearchInput?: boolean;
   value?: any;
-  /// / TODO: refactor how implement tags in input
-  // renderTags?: React.ReactNode;
-  iconClickStart?: () => void;
-  iconClickEnd?: () => void;
+  iconClickStart?: (event: Event) => void;
+  iconClickEnd?: (event: Event) => void;
   clearIconClick?: (event: Event) => void;
   focusOnMount?: boolean;
   focusOnClick?: boolean;

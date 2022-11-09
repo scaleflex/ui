@@ -72,12 +72,7 @@ const Container = styled.div.attrs({
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<InputProps>(
-  ({
-    // TODO: refactor how implement tags in input
-    // renderTags,
-    theme: { palette },
-    size = InputSize.Md,
-  }: With<WithTheme, InputProps>) => css`
+  ({ theme: { palette } }: WithTheme) => css`
     display: block;
     color: inherit;
     width: 100%;
@@ -87,7 +82,6 @@ const Base = styled.input.attrs({
     border: 0;
     background-color: transparent;
     outline: none;
-    margin-right: ${size === InputSize.Md ? 10 : 6}px;
 
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
@@ -111,6 +105,7 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
+    column-gap: 6px;
     cursor: text;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
