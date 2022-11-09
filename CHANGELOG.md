@@ -18,8 +18,8 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * add cross button to popup content ([8f3d274](https://github.com/scaleflex/ui/commit/8f3d274997176113a23ad92c1db267a177270407))
 * create component for cross button ([ced7fd0](https://github.com/scaleflex/ui/commit/ced7fd04ee3aa8ea1e8ef4e4a8f4d34c232cb599))
 * truncate options and selected value in select ([961561d](https://github.com/scaleflex/ui/commit/961561d988de36027000520e45bc7918801f889f))
-* **Calendar:** change add calendar T10618 ([dd7c5be](https://github.com/scaleflex/ui/commit/dd7c5be82a76229fecbce25a69cfe145cef08180))
-
+* **Calendar:** add calendar T10618 ([dd7c5be](https://github.com/scaleflex/ui/commit/dd7c5be82a76229fecbce25a69cfe145cef08180))
+* **DatePicker:** add DatePicker T10618 ([f41bb57](https://github.com/scaleflex/ui/commit/f41bb57e07bfa14f6bfdb5435fdb59bb763d3eec))
 
 
 
