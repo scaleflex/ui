@@ -361,3 +361,4 @@ export { ArrowSidebarRightOutline } from './arrow-sidebar-right-outline';
 export { ArrowSidebarLeft } from './arrow-sidebar-left';
 export { ArrowSidebarRight } from './arrow-sidebar-right';
 export { Transformation } from './transformation';
+export { Sharebox } from './sharebox';
