@@ -40,10 +40,6 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       return toDayDate?.timestamp;
     };
 
-    const onDateClick = (day: any): void => {
-      setSelectedDay(day.timestamp);
-    };
-
     const setNewYear = (offset: number): void => {
       const newYear = year + offset;
       setYear(newYear);
@@ -105,6 +101,12 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       if (setOpen) setOpen(isOpen);
     };
 
+    const onDateClick = (day: any): void => {
+      setSelectedDay(day.timestamp);
+
+      if (handleOpen) handleOpen(false);
+    };
+
     useEffect(() => {
       if (year.toString().length !== 4) return;
 
@@ -137,8 +139,6 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
           setYear(dateData.year);
           setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
         }
-
-        handleOpen(false);
       }
     }, [value]);
 

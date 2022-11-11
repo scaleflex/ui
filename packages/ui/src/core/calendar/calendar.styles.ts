@@ -34,9 +34,6 @@ const Calendar = styled.div.attrs({
   ({ theme: { palette }, open }: With<WithTheme, CalendarProps>) => css`
     position: absolute;
     width: 224px;
-    height: 274px;
-    min-height: 200px;
-    max-height: 274px;
     top: 4px;
     background: ${palette[PColor.TextPrimaryInvert]};
     box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
@@ -402,6 +399,7 @@ const ButtonWrapper = styled.span.attrs({
     column-gap: 4px;
     width: 100%;
     height: 32px;
+    padding-top: 12px;
   `
 );
 
