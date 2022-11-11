@@ -25,7 +25,6 @@ const defaultArgs = {
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
   children: (props: IconProps) => <UploadIcon {...props} />,
-  disabled: false,
 };
 
 const BasicTemplate: Story<IconButtonProps> = ({ children, ...args }) => <IconButton {...args}>{children}</IconButton>;

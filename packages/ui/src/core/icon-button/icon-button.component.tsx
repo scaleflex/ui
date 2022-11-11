@@ -4,7 +4,7 @@ import PT from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { getIconSize } from '../button/button.utils';
 import type { IconButtonProps } from './icon-button.props';
-import { ButtonSize, ButtonColor } from '../../utils/types';
+import { ButtonSize, IconButtonColor } from '../../utils/types';
 import Styled from './icon-button.styles';
 
 const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
@@ -17,13 +17,13 @@ const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
 
 IconButton.defaultProps = {
   size: ButtonSize.Md,
-  color: ButtonColor.Secondary,
+  color: IconButtonColor.Secondary,
 };
 
 IconButton.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]).isRequired,
   size: PT.oneOf(objectValues(ButtonSize)),
-  color: PT.oneOf(objectValues(ButtonColor)),
+  color: PT.oneOf(objectValues(IconButtonColor)),
 };
 
 export default IconButton;
