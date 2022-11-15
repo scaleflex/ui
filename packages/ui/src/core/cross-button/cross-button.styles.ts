@@ -38,6 +38,7 @@ const CrossButton = styled(ButtonStyled.Button).attrs({
 
     &:active {
       color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
+      background: transparent;
     }
   `
 );

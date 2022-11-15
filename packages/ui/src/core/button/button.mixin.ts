@@ -231,6 +231,8 @@ export const colorButtonMixin = {
 
     &:active {
       background-color: ${palette[PaletteColor.ErrorActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
     }
 
     &:disabled {
