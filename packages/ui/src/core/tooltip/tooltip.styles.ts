@@ -12,7 +12,7 @@ import { Size } from './types';
 const baseClassName = 'Tooltip';
 
 const TooltipContainer = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'root'),
+  className: generateClassNames(baseClassName, 'container'),
 })(
   ({ open, size = Size.Sm, theme }: With<With<WithTheme, TooltipProps>, { open: boolean }>) => css`
     display: flex;

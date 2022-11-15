@@ -23,6 +23,6 @@ export const sizeTooltipMixin = {
   `,
 
   [Size.Md]: css`
-    padding: 8px 12px;
+    padding: 6px 12px;
   `,
 };
