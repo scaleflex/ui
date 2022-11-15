@@ -63,7 +63,11 @@ const Button = styled.button.attrs({
 
     &:active {
       ${StartIcon} {
-        color: ${theme.palette[PaletteColor.LinkActive]};
+        color: ${(color === ButtonColor.Primary ||
+          color === ButtonColor.Secondary ||
+          color === ButtonColor.WarningPrimary ||
+          color === ButtonColor.WarningSecondary) &&
+        theme.palette[PaletteColor.IconsInvert]};
       }
     }
 
@@ -79,7 +83,7 @@ const Button = styled.button.attrs({
     ${buttonType === ButtonType.Sidebar &&
     css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-      color: ${theme.palette[PaletteColor.LinkPrimary]};
+      color: ${theme.palette[PaletteColor.LinkStateless]};
       border: 1px solid ${theme.palette[PaletteColor.BordersButton]};
 
       ${!active &&

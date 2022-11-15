@@ -5,7 +5,6 @@ import type { ColorsMap } from './colors-map';
 export const lightPalette = {
   // Text
   [Color.TextPrimary]: 'rgba(55, 65, 75, 1)', // #37414B
-  [Color.TextPrimaryInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.TextSecondary]: 'rgba(118, 138, 159, 1)', // #768184
   [Color.TextSecondaryInvert]: 'rgba(213, 216, 220, 1)', // #D5D8DC
   [Color.TextPlaceholder]: 'rgba(169, 182, 194, 1)', // #A9B6C2
@@ -50,6 +49,7 @@ export const lightPalette = {
   [Color.IconsSecondary]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
   [Color.IconsMuted]: 'rgba(169, 182, 194, 1)', // #A9B6C2
+  [Color.IconsInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
   [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 

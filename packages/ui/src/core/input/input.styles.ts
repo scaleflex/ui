@@ -140,7 +140,7 @@ const Input = styled.div.attrs({
       &:hover {
         background-color: ${isSearchInput
           ? theme.palette[PColor.BackgroundHover]
-          : theme.palette[PColor.TextPrimaryInvert]};
+          : theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
 
         ${Icon} {

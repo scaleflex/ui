@@ -1,6 +1,5 @@
 export const Color = {
   TextPrimary: 'txt-primary',
-  TextPrimaryInvert: 'txt-primary-invert',
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
@@ -43,6 +42,7 @@ export const Color = {
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
   IconsMuted: 'icons-muted',
+  IconsInvert: 'icons-invert',
   IconsPrimaryHover: 'icons-primary-hover',
   IconsSecondaryHover: 'icons-secondary-hover',
 

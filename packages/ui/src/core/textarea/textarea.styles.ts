@@ -51,7 +51,7 @@ const Textarea = styled.div.attrs({
       }
 
       &:hover {
-        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
+        background-color: ${theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
       }
     `}

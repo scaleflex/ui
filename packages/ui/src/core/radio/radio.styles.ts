@@ -84,7 +84,7 @@ const Input = styled.input.attrs({
     &:checked + ${RadioBox} {
       &::before {
         opacity: 1;
-        background: ${theme.palette[PColor.TextPrimaryInvert]};
+        background: ${theme.palette[PColor.IconsInvert]};
       }
 
       &::after {
