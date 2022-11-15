@@ -15,7 +15,7 @@ export const colorBadgeMixin = {
   `,
 
   [BadgeColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ActiveSecondaryActive]};
+    background-color: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
     color: ${palette[PaletteColor.TextPrimary]};
   `,
 };

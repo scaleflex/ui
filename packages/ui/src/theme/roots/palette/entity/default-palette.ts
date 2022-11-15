@@ -38,6 +38,7 @@ export const lightPalette = {
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
   [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
+  [Color.BackgroundAccentBlue_0_12_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
@@ -78,7 +79,6 @@ export const lightPalette = {
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
-  [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
 
   // states
   [Color.Error]: 'rgba(246, 61, 61, 1)', // #F63D3D
