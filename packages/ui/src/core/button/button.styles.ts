@@ -10,6 +10,7 @@ import {
   sizeButtonLabelMixin,
   sizeSidebarMixin,
   sizeSidebarDividerMixin,
+  paddingIconLabelMixin,
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
@@ -121,13 +122,14 @@ const Button = styled.button.attrs({
 const StartIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'StartIcon'),
 })(
-  ({ $loading }: ButtonProps) => css`
+  ({ $loading, size = ButtonSize.Md }: ButtonProps) => css`
     display: flex;
-    margin-right: 6px;
 
     svg {
       animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'};
     }
+
+    ${paddingIconLabelMixin[size]}
   `
 );
 

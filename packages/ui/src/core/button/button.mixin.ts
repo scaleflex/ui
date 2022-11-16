@@ -320,6 +320,24 @@ export const sizeSidebarDividerMixin = {
   `,
 };
 
+export const paddingIconLabelMixin = {
+  [ButtonSize.Xs]: css`
+    margin-right: 5px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    margin-right: 6px;
+  `,
+
+  [ButtonSize.Md]: css`
+    margin-right: 7px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    margin-right: 8px;
+  `,
+};
+
 export const sizeButtonLabelMixin = {
   [ButtonSize.Xs]: ({
     theme: {
