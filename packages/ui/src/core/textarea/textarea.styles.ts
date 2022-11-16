@@ -28,6 +28,7 @@ const Textarea = styled.div.attrs({
     justify-content: space-between;
     cursor: text;
     box-sizing: border-box;
+    transition: all 100ms ease-out;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};

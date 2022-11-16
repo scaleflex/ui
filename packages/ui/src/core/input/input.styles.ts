@@ -107,6 +107,7 @@ const Input = styled.div.attrs({
     box-sizing: border-box;
     column-gap: 6px;
     cursor: text;
+    transition: all 100ms ease-out;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};

@@ -205,6 +205,7 @@ const DatePickerDay = styled.span.attrs({
       color: ${getDatePickerDaysColor(day, isSelectedDay)};
       pointer-events: ${day.month !== 0 ? 'none' : ''};
       cursor: pointer;
+      transition: all 100ms ease-out;
 
       background-color: ${isSelectedDay && day.month === 0
         ? palette[PColor.AccentStateless]

@@ -30,6 +30,7 @@ const CrossButton = styled(ButtonStyled.Button).attrs({
     color: ${theme.palette[PaletteColor.IconsSecondary]};
     background: transparent;
     border: none;
+    transition: all 100ms ease-out;
     
     &:hover {
       color: ${theme.palette[PaletteColor.IconsPrimary]};

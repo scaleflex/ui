@@ -77,6 +77,7 @@ const MenuItem = styled.div.attrs({
     color: ${theme.palette[PColor.TextPrimary]};
     cursor: pointer;
     box-sizing: border-box;
+    transition: all 100ms ease-out;
 
     ${sizeMenuItemMixin[size]}
 
