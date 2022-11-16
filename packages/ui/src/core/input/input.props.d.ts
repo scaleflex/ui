@@ -21,4 +21,5 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   clearIconClick?: (event: Event) => void;
   focusOnMount?: boolean;
   focusOnClick?: boolean;
+  setShowPlaceholder?: (value: boolean) => void;
 }

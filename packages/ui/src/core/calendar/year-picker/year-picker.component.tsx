@@ -5,6 +5,7 @@ import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import { YearPickerProps } from '../calendar.props';
 import { intrinsicComponent } from '../../../utils/functions';
 import Styled from '../calendar.styles';
+import { getDateStringFromTimestamp } from '../calendar.utils';
 
 const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
   (
@@ -14,10 +15,18 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
       monthIndex = 0,
       _year = 0,
       setYear,
+      maxDate,
+      value = '',
       setMonthDetails,
       getMonthDetails,
       setSelectedDay,
       getTimeStamp,
+      selectedDay = 0,
+      maxYear = 0,
+      minYear = 0,
+      maxMonth = 0,
+      isYearForm = false,
+      onChange,
       monthDetails,
     }: YearPickerProps,
     ref
@@ -26,6 +35,7 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
     const [endYear, setEndYear] = useState(_year + 11);
 
     const yearsArray = new Array(endYear - startYear + 1).fill(0).map((_, index) => startYear + index);
+    const _maxMonth = maxMonth + 1;
 
     const isYearChanged = (year: number): boolean => {
       return year === _year;
@@ -37,6 +47,10 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
     };
 
     const handleOnClickYear = (year: number): void => {
+      if (onChange) {
+        onChange(getDateStringFromTimestamp(selectedDay, monthIndex, year));
+      }
+
       setYear?.(year);
       setShowYearsDatePicker?.(false);
       setMonthDetails?.(getMonthDetails?.(year, monthIndex));
@@ -50,13 +64,22 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
     }, [_year]);
 
     useEffect(() => {
+      if (maxDate && isYearForm && _maxMonth && !value) {
+        setStartYear(maxYear - 11);
+        setEndYear(maxYear);
+        setYear?.(maxYear);
+        setMonthDetails?.(getMonthDetails?.(maxYear, maxMonth));
+      }
+    }, []);
+
+    useEffect(() => {
       if (getTimeStamp) setSelectedDay?.(getTimeStamp());
     }, [monthDetails]);
 
     return (
       <Styled.MonthDatePickerWrapper open={showYearsDatePicker} ref={ref}>
         <Styled.HeaderWrapper>
-          <Styled.MonthsHeaderLeftArrow onClick={() => nextYear(-10)}>
+          <Styled.MonthsHeaderLeftArrow isDisabled={startYear <= minYear} onClick={() => nextYear(-10)}>
             <TwoArrowsRight size={10} />
           </Styled.MonthsHeaderLeftArrow>
 
@@ -64,14 +87,19 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
             onClick={() => setShowYearsDatePicker?.(false)}
           >{`${startYear} - ${endYear}`}</Styled.YearsHeaderBody>
 
-          <Styled.MonthsHeaderRightArrow>
+          <Styled.MonthsHeaderRightArrow isDisabled={endYear >= maxYear}>
             <TwoArrowsLeft size={10} onClick={() => nextYear(10)} />
           </Styled.MonthsHeaderRightArrow>
         </Styled.HeaderWrapper>
 
         <Styled.MonthButtonsWrapper>
           {yearsArray.map((year) => (
-            <Styled.MonthButtons key={year} isYearChanged={isYearChanged(year)} onClick={() => handleOnClickYear(year)}>
+            <Styled.MonthButtons
+              isDisabled={year > maxYear || year < minYear}
+              key={year}
+              isYearChanged={isYearChanged(year)}
+              onClick={() => handleOnClickYear(year)}
+            >
               {year}
             </Styled.MonthButtons>
           ))}

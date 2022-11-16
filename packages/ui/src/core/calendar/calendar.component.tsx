@@ -19,20 +19,57 @@ import {
   getMonthStr,
   getDateFromDateString,
   getTodayTimestamp,
+  isYearFormRegex,
+  getNextPrevSelectedDayTimeStamp,
+  getNextPrevYearSelectedDayTimeStamp,
+  getMaxMinSelectedDay,
 } from './calendar.utils';
 import Styled from './calendar.styles';
 
 const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
-  ({ value, onChange, anchorEl, open = false, setOpen, ...rest }: CalendarProps, ref): JSX.Element => {
-    const [year, setYear] = useState(() => new Date().getFullYear());
-    const [month, setMonth] = useState(() => new Date().getMonth());
-    const [monthDetails, setMonthDetails] = useState(() => getMonthDetails(year, month));
-    const [selectedDay, setSelectedDay] = useState(() => getTodayTimestamp());
+  (
+    {
+      value,
+      onChange,
+      autoSelectToday,
+      maxDate = '',
+      minDate = '',
+      anchorEl,
+      open = false,
+      setOpen,
+      ...rest
+    }: CalendarProps,
+    ref
+  ): JSX.Element => {
+    const maxYear: any = new Date(maxDate).getFullYear();
+    const maxMonth = new Date(maxDate).getMonth();
+    const maxDay = new Date(maxDate).getDate();
+    const maxDateTimestamp = new Date(maxDate).getTime();
+
+    const minYear = new Date(minDate).getFullYear();
+    const minMonth = new Date(minDate).getMonth();
+    const minDay = new Date(minDate).getDate();
+    const minDateTimestamp = new Date(minDate).getTime();
+
+    const [year, setYear] = useState(maxDate ? maxYear : new Date().getFullYear());
+    const [month, setMonth] = useState(maxDate ? maxMonth : new Date().getMonth());
+    const [monthDetails, setMonthDetails] = useState(getMonthDetails(year, month));
+    const [selectedDay, setSelectedDay] = useState(
+      getMaxMinSelectedDay(maxDate, minDate, monthDetails, maxDay, minDay)
+    );
     const [dayDate, setDayDate] = useState(0);
     const [showMonthsDatePicker, setShowMonthsDatePicker] = useState(false);
     const [showYearsDatePicker, setShowYearsDatePicker] = useState(false);
     const [isNextMonth, setIsNextMonth] = useState(false);
     const [isPrevMonth, setIsPrevMonth] = useState(false);
+
+    const isYearForm = isYearFormRegex.test?.(maxYear);
+    const isTodayDateDisabled = getTodayTimestamp() > maxDateTimestamp || getTodayTimestamp() < minDateTimestamp;
+    const nextMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 1);
+    const prevtMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, -1);
+
+    const nextYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, 1);
+    const prevYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, -1);
 
     const getTimeStamp = (): number => {
       const toDayDate: any = monthDetails.find((day: any) => day.date === dayDate);
@@ -42,6 +79,11 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
     const setNewYear = (offset: number): void => {
       const newYear = year + offset;
+
+      if (onChange) {
+        onChange(getDateStringFromTimestamp(selectedDay, month, newYear));
+      }
+
       setYear(newYear);
       setMonthDetails(getMonthDetails(newYear, month));
     };
@@ -56,6 +98,10 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       } else if (month === 11 && !prev) {
         newMonth = 0;
         newYear++;
+      }
+
+      if (onChange) {
+        onChange(getDateStringFromTimestamp(selectedDay, newMonth, newYear));
       }
 
       setYear(newYear);
@@ -86,8 +132,11 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const handleTodayButton = (): void => {
       const currentYear = new Date().getFullYear();
       const currentMonth = new Date().getMonth();
+      const todayTimestamp = getTodayTimestamp();
 
-      setSelectedDay(getTodayTimestamp());
+      if (isTodayDateDisabled) return;
+
+      setSelectedDay(todayTimestamp);
       setYear(() => currentYear);
       setMonth(() => currentMonth);
       setMonthDetails(getMonthDetails(currentYear, currentMonth));
@@ -102,18 +151,23 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     };
 
     const onDateClick = (day: any): void => {
-      setSelectedDay(day.timestamp);
+      const newDay = day.timestamp;
+
+      if (onChange) {
+        onChange(getDateStringFromTimestamp(newDay, month, year));
+      }
 
       if (handleOpen) handleOpen(false);
+      setSelectedDay(newDay);
     };
 
     useEffect(() => {
       if (year.toString().length !== 4) return;
 
-      if (onChange) {
+      if (onChange && autoSelectToday && !isTodayDateDisabled) {
         onChange(getDateStringFromTimestamp(selectedDay, month, year));
       }
-    }, [selectedDay]);
+    }, [autoSelectToday]);
 
     useEffect(() => {
       const todayDate: any = monthDetails.find((day: any) => day.timestamp === selectedDay);
@@ -154,7 +208,12 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         return (
           <Styled.DatePickerDays key={index}>
             <Styled.DatePickerDayContainer>
-              <Styled.DatePickerDay onClick={() => onDateClick(day)} day={day} isSelectedDay={dayDate === day.date}>
+              <Styled.DatePickerDay
+                isDisabled={day.timestamp > maxDateTimestamp || day.timestamp < minDateTimestamp}
+                onClick={() => onDateClick(day)}
+                day={day}
+                isSelectedDay={dayDate === day.date}
+              >
                 {day.date}
               </Styled.DatePickerDay>
             </Styled.DatePickerDayContainer>
@@ -185,6 +244,8 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             getMonthStr={getMonthStr}
             _month={month}
             getTimeStamp={getTimeStamp}
+            selectedDay={selectedDay}
+            onChange={onChange}
             setSelectedDay={setSelectedDay}
             currentMonth={getMonthStr(month)}
             showMonthsDatePicker={showMonthsDatePicker}
@@ -192,6 +253,11 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             setMonthDetails={setMonthDetails}
             getMonthDetails={getMonthDetails}
             monthDetails={monthDetails}
+            maxMonth={maxMonth}
+            minMonth={minMonth}
+            maxYear={maxYear}
+            maxDate={maxDate}
+            value={value}
           />
 
           <YearPicker
@@ -202,17 +268,32 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             monthDetails={monthDetails}
             getTimeStamp={getTimeStamp}
             setSelectedDay={setSelectedDay}
+            selectedDay={selectedDay}
+            onChange={onChange}
             setYear={setYear}
             monthIndex={month}
             _year={year}
+            value={value}
+            maxDate={maxDate}
+            minDate={minDate}
+            minYear={minYear}
+            maxYear={maxYear}
+            maxMonth={maxMonth}
+            isYearForm={isYearForm}
           />
 
           <Styled.HeaderWrapper>
-            <Styled.HeaderLeftArrows onClick={() => handleNextYearButton(-1, false)}>
+            <Styled.HeaderLeftArrows
+              isDisabled={prevYearTimestamp < minDateTimestamp || (year === minYear && month <= minMonth)}
+              onClick={() => handleNextYearButton(-1, false)}
+            >
               <TwoArrowsRight size={10} />
             </Styled.HeaderLeftArrows>
 
-            <Styled.HeaderLeftArrow onClick={() => handleNextMonthButton(-1, true)}>
+            <Styled.HeaderLeftArrow
+              isDisabled={prevtMonthTimestamp < minDateTimestamp}
+              onClick={() => handleNextMonthButton(-1, true)}
+            >
               <ArrowLeftOutline size={10} />
             </Styled.HeaderLeftArrow>
 
@@ -223,11 +304,17 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
               <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
             </Styled.HeaderBody>
 
-            <Styled.HeaderRightArrow onClick={() => handlePrevMonthButton(1, false)}>
+            <Styled.HeaderRightArrow
+              isDisabled={nextMonthTimestamp >= maxDateTimestamp}
+              onClick={() => handlePrevMonthButton(1, false)}
+            >
               <ArrowRightOutline size={10} />
             </Styled.HeaderRightArrow>
 
-            <Styled.HeaderRightArrows onClick={() => handleNextYearButton(1, true)}>
+            <Styled.HeaderRightArrows
+              isDisabled={nextYearTimestamp > maxDateTimestamp || (year === maxYear && month >= maxYear)}
+              onClick={() => handleNextYearButton(1, true)}
+            >
               <TwoArrowsLeft size={10} />
             </Styled.HeaderRightArrows>
           </Styled.HeaderWrapper>
@@ -236,7 +323,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             <Button onClick={() => handleOpen(false)} size="sm" color="basic">
               Cancel
             </Button>
-            <Button onClick={handleTodayButton} size="sm" color="secondary">
+            <Button onClick={handleTodayButton} size="sm" color="secondary" disabled={isTodayDateDisabled}>
               Today
             </Button>
           </Styled.ButtonWrapper>

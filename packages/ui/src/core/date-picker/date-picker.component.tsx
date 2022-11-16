@@ -11,18 +11,41 @@ import { propTypes as calendarPropTypes } from '../calendar/calendar.component';
 
 import Styled from './date-picker.styles';
 import { InputProps } from '../input';
+import { isYearFormRegex } from '../calendar/calendar.utils';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
-    { value, onChange, InputProps: InputPropsData, CalendarProps: CalendarPropsData, ...rest }: DatePickerProps,
+    {
+      value = '',
+      onChange,
+      autoSelectToday,
+      maxDate = '',
+      minDate = '',
+      InputProps: InputPropsData,
+      CalendarProps: CalendarPropsData,
+      ...rest
+    }: DatePickerProps,
     ref
   ): JSX.Element => {
     const [open, setOpen] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+    const [showPlaceholder, setShowPlaceholder] = useState(true);
+
     const datePickerInputRef = useRef(null);
 
-    const handleInputChange = (inputValue: string): void => {
-      if (onChange) {
-        onChange(inputValue);
+    const maxDateTimestamp = new Date(maxDate).getTime();
+    const minDateTimestamp = new Date(minDate).getTime();
+    const maxYear: any = new Date(inputValue).getFullYear();
+    const isYearForm = isYearFormRegex.test?.(maxYear);
+
+    const handleOnChange = (dateInputValue: string): void => {
+      const dateInputTimestamp = new Date(dateInputValue).getTime();
+      const isDisabledDate = dateInputTimestamp >= maxDateTimestamp || dateInputTimestamp <= minDateTimestamp;
+
+      setInputValue(dateInputValue);
+
+      if (onChange && !isDisabledDate && isYearForm) {
+        onChange(dateInputValue);
       }
     };
 
@@ -31,10 +54,9 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
         <Styled.DatePickerInput
           label="Label"
           hint="Some hint goes here"
-          value={value}
-          onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) =>
-            handleInputChange(currentTarget.value)
-          }
+          setShowPlaceholder={setShowPlaceholder}
+          value={inputValue}
+          onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
             iconClickEnd: () => setOpen(!open),
@@ -44,11 +66,19 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           inputRef={datePickerInputRef}
           {...rest}
         />
+        {!inputValue && rest.placeholder && showPlaceholder && (
+          <Styled.Placeholder onClick={() => setShowPlaceholder(false)} {...rest}>
+            {rest.placeholder}
+          </Styled.Placeholder>
+        )}
         <Calendar
-          value={value}
+          value={inputValue}
           open={open}
           setOpen={setOpen}
-          onChange={onChange}
+          onChange={handleOnChange}
+          maxDate={maxDate}
+          minDate={minDate}
+          autoSelectToday={autoSelectToday}
           anchorEl={datePickerInputRef.current}
           {...CalendarPropsData}
         />
@@ -61,7 +91,9 @@ Datepicker.defaultProps = {};
 
 export const propTypes = {
   value: PT.string,
+  maxDate: PT.string,
   onChange: PT.func,
+  autoSelectToday: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   CalendarProps: PT.exact(calendarPropTypes) as Validator<CalendarProps>,
 };

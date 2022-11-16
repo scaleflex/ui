@@ -39,6 +39,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       focusOnMount = false,
       focusOnClick = true,
       error,
+      setShowPlaceholder,
       ...rest
     }: InputProps,
     ref
@@ -51,6 +52,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const handleFocus = (): void => {
       if (disabled) return;
 
+      setShowPlaceholder?.(false);
       inputRef.current?.focus();
     };
 
@@ -166,6 +168,7 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   iconClickStart: PT.func,
+  setShowPlaceholder: PT.func,
   iconClickEnd: PT.func,
   clearIconClick: PT.func,
   focusOnMount: PT.bool,
