@@ -1,10 +1,9 @@
 import styled, { css } from 'styled-components';
-import { generateClassNames, applyDisplayNames } from '../../utils/functions';
+import { generateClassNames, applyDisplayNames, scrollBar } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-import { menuScrollBar } from './menu.utils';
 
 const baseClassName = 'Menu';
 
@@ -41,7 +40,7 @@ const Menu = styled.div.attrs({
     box-shadow: 0 2px 4px ${theme.palette[PColor.LightShadow]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
 
-    ${scroll && menuScrollBar}
+    ${scroll && scrollBar}
 
     ${maxHeight &&
     css`
