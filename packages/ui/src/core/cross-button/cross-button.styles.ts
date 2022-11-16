@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import ButtonStyled from '../button/button.styles';
 import type { CrossButtonProps } from './cross-button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import type { WithTheme } from '../../theme/entity';
@@ -18,7 +17,7 @@ const crossButtonPaddingMixin = {
   `,
 };
 
-const CrossButton = styled(ButtonStyled.Button).attrs({
+const CrossButton = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({
