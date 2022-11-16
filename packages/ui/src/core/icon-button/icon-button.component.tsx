@@ -24,6 +24,7 @@ IconButton.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]).isRequired,
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(IconButtonColor)),
+  disabled: PT.bool,
 };
 
 export default IconButton;

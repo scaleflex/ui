@@ -24,6 +24,7 @@ export default {
 const defaultArgs = {
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
+  disabled: false,
   children: (props: IconProps) => <UploadIcon {...props} />,
 };
 
