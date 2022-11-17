@@ -13,6 +13,11 @@ const crossButtonPaddingMixin = {
   [Size.Sm]: css`
     padding: 6px;
   `,
+
+  [Size.Md]: css`
+    padding: 9px;
+  `,
+
   [Size.Lg]: css`
     padding: 12px;
   `,
@@ -33,11 +38,12 @@ const CrossButton = styled(ButtonStyled.Button).attrs({
     
     &:hover {
       color: ${theme.palette[PaletteColor.IconsPrimary]};
-      background: transparent;
+      background: ${theme.palette[PaletteColor.BackgroundHover]};;
     }
 
     &:active {
       color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
+      background: ${theme.palette[PaletteColor.BackgroundActive]};;
     }
   `
 );
