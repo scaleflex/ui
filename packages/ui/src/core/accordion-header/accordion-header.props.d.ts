@@ -4,6 +4,7 @@ export interface AccordionHeaderProps extends React.HTMLAttributes<HTMLDivElemen
   label: React.ReactNode;
   expanded?: boolean;
   hideIcon?: boolean;
+  fullWidth?: boolean;
   onChange?: (value: boolean) => void;
   iconProps?: IconProps;
 }

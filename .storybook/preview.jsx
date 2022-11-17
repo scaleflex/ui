@@ -175,7 +175,7 @@ export const parameters = {
         name: 'Small',
         styles : {
           width: '768px',
-          height : '1340px'
+          height : '681px'
         },
         type: 'tablet'
       },
@@ -183,7 +183,7 @@ export const parameters = {
         name: 'medium',
         styles : {
           width: '1201px',
-          height : '1340px'
+          height : '681px'
         },
         type: 'desktop'
       },
@@ -191,7 +191,7 @@ export const parameters = {
         name: 'large',
         styles : {
           width: '1921px',
-          height : '1340px'
+          height : '681px'
         },
         type: 'desktop'
       },
@@ -199,7 +199,7 @@ export const parameters = {
         name: 'xLarge',
         styles : {
           width: '2560px',
-          height : '1340px'
+          height : '681px'
         },
         type: 'desktop'
       },
