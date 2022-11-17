@@ -23,7 +23,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       cursor: default;
     }
   `,
@@ -39,7 +39,7 @@ export const colorButtonMixin = {
     }
 
     &:focus {
-      background-color: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
       color: ${palette[PaletteColor.AccentPrimaryActive]};
       border: 1px solid ${palette[PaletteColor.AccentPrimaryActive]};
     }
@@ -51,7 +51,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       border: none;
       cursor: default;
     }

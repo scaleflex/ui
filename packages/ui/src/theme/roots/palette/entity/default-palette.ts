@@ -21,7 +21,7 @@ export const lightPalette = {
   [Color.AccentStateless]: 'rgba(104, 121, 235, 1)', // #6879EB
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104, 121, 235, 0.4)',
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
-  [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)',
+  [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
@@ -36,8 +36,6 @@ export const lightPalette = {
   [Color.BackgroundSecondary]: 'rgba(255, 255, 255, 1)',
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
-  [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
-  [Color.BackgroundAccentBlue_0_12_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2

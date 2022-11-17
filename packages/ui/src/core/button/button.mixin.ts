@@ -26,7 +26,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       cursor: default;
 
       ${StyledBadge.Badge} {
@@ -37,9 +37,9 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
-    color: ${palette[PaletteColor.AccentPrimary]};
-    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
+    color: ${palette[PaletteColor.AccentStateless]};
+    border: 1px solid ${palette[PaletteColor.AccentStateless]};
 
     &:hover {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
@@ -61,7 +61,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       border: none;
       cursor: default;
 
@@ -71,7 +71,7 @@ export const colorButtonMixin = {
     }
 
     ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.AccentPrimary]};
+      color: ${palette[PaletteColor.AccentStateless]};
       background: transparent;
     }
   `,
@@ -198,7 +198,7 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      background-color: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
       color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
 
@@ -210,7 +210,7 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.WarningSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.LinkStateless]};
     border: 1px solid ${palette[PaletteColor.BordersButton]};
 
@@ -237,7 +237,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       border: none;
       cursor: default;
 

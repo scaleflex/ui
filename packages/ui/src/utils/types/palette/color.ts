@@ -29,8 +29,6 @@ export const Color = {
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
   BackgroundHover: 'bg-hover',
-  BackgroundAccentBlue_0_05_Opacity: 'bg-accent-blue-0-05-Opacity',
-  BackgroundAccentBlue_0_12_Opacity: 'bg-accent-blue-0-12-Opacity',
   BackgroundGreen: 'bg-green',
   BackgroundBlue: 'bg-blue',
   BackgroundRed: 'bg-red',
@@ -43,7 +41,6 @@ export const Color = {
   IconsPlaceholder: 'icons-placeholder',
   IconsInvert: 'icons-invert',
   IconsMuted: 'icons-muted',
-  IconsInvert: 'icons-invert',
   IconsPrimaryHover: 'icons-primary-hover',
   IconsSecondaryHover: 'icons-secondary-hover',
 

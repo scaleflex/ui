@@ -105,7 +105,7 @@ const Button = styled.button.attrs({
 
       ${active &&
       css`
-        background-color: ${theme.palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+        background-color: ${theme.palette[PaletteColor.Accent_1_2_Opacity]};
         color: ${theme.palette[PaletteColor.AccentPrimaryActive]};
         border: 1px solid ${theme.palette[PaletteColor.AccentPrimaryActive]};
       `}
