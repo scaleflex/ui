@@ -13,19 +13,23 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.AccentPrimaryHover]};
     }
 
+    &:focus {
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
     &:active {
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.ActiveSecondaryActive]};
+      background: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
       cursor: default;
     }
   `,
 
   [IconButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.AccentStateless]};
     border: 1px solid ${palette[PaletteColor.AccentStateless]};
 
@@ -34,6 +38,12 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.AccentPrimaryHover]};
     }
 
+    &:focus {
+      background-color: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+      border: 1px solid ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
     &:active {
       color: ${palette[PaletteColor.IconsInvert]};
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
@@ -41,7 +51,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.ActiveSecondaryActive]};
+      background: ${palette[PaletteColor.BackgroundAccentBlue_0_12_Opacity]};
       border: none;
       cursor: default;
     }
@@ -55,6 +65,11 @@ export const colorButtonMixin = {
     &:hover {
       background-color: ${palette[PaletteColor.BackgroundHover]};
       color: ${palette[PaletteColor.IconsPrimaryHover]};
+    }
+
+    &:focus {
+      background-color: ${palette[PaletteColor.BackgroundActive]};
+      color: ${palette[PaletteColor.LinkActive]};
     }
 
     &:active {
