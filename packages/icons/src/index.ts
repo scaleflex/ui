@@ -360,3 +360,4 @@ export { ArrowSidebarLeftOutline } from './arrow-sidebar-left-outline';
 export { ArrowSidebarRightOutline } from './arrow-sidebar-right-outline';
 export { ArrowSidebarLeft } from './arrow-sidebar-left';
 export { ArrowSidebarRight } from './arrow-sidebar-right';
+export { Transformation } from './transformation';

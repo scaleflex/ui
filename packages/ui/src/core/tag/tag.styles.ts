@@ -15,7 +15,7 @@ const Cross = styled.span.attrs({
 })(
   ({ theme }: WithTheme) => css`
     display: inline-flex;
-    color: ${theme.palette[PColor.IconsPrimary]};
+    color: ${theme.palette[PColor.IconsSecondary]};
     cursor: pointer;
   `
 );
@@ -42,7 +42,7 @@ const Tag = styled.div.attrs({
     box-sizing: border-box;
     background-color: ${theme.palette[PColor.BordersSecondary]};
     border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
+    border-radius: ${theme.shape.borderRadius[BRSize.Md]};
 
     ${sizeTagLabelMixin[size]}
 
@@ -55,7 +55,7 @@ const Tag = styled.div.attrs({
       }
 
       ${Cross} {
-        color: ${theme.palette[PColor.IconsPrimaryHover]};
+        color: ${theme.palette[PColor.IconsSecondaryHover]};
       }
 
       ${type === Type.Suggested &&
@@ -74,7 +74,7 @@ const Tag = styled.div.attrs({
         }
 
         ${Cross} {
-          color: ${theme.palette[PColor.IconsPrimaryHover]};
+          color: ${theme.palette[PColor.IconsSecondaryHover]};
         }
       `}
     }
@@ -90,7 +90,7 @@ const Tag = styled.div.attrs({
         }
 
         ${Cross} {
-          color: ${theme.palette[PColor.IconsPrimary]};
+          color: ${theme.palette[PColor.IconsSecondary]};
         }
       `}
     }

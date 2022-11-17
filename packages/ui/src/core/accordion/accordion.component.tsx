@@ -17,6 +17,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
       children,
       detailStyle,
       headerStyle,
+      fullWidth,
       iconProps: iconPropsData,
       onClick,
       onChange,
@@ -44,6 +45,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
           }}
           onContextMenu={onContextMenu}
           iconProps={iconPropsData}
+          fullWidth={fullWidth}
         />
 
         <AccordionDetails expanded={expanded} style={{ ...detailStyle }}>
@@ -67,6 +69,7 @@ Accordion.propTypes = {
   onChange: PT.func,
   onContextMenu: PT.func,
   hideIcon: PT.bool,
+  fullWidth: PT.bool,
   iconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
 };
 

@@ -7,6 +7,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import InputStyled from '../input/input.styles';
 import type { SelectProps } from './select.props';
 import { fontSizeInputMixin } from '../input/input.mixin';
+import { Size } from '../menu-item/types';
 
 const baseClassName = 'Select';
 
@@ -62,9 +63,10 @@ const Label = styled.label.attrs({
 const Placeholder = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Placeholder'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, size }: With<WithTheme, SelectProps>) => css`
     width: 100%;
     color: ${palette[PColor.TextPlaceholder]};
+    margin-right: ${size === Size.Md ? 10 : 6}px;
   `
 );
 

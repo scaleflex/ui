@@ -1,5 +1,6 @@
 import React from 'react';
 import PT from 'prop-types';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import PopupStatus from '../popup-status';
@@ -32,8 +33,10 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         </Styled.Notification>
 
         {!removeBackground && (
-          <Styled.Close>
-            <CrossButton size='sm' onClose={onClose}/>
+          <Styled.Close onClick={onClose}>
+            <CrossButton size='sm'>
+             {(iconProps: { size?: number }): JSX.Element => <CrossOutline {...iconProps} />}
+            </CrossButton>
           </Styled.Close>
         )}
       </Styled.NotificationWrapper>

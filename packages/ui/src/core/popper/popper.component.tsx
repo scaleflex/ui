@@ -122,7 +122,6 @@ Popper.defaultProps = {};
 
 export const propTypes = {
   anchorEl: PT.oneOfType([PT.instanceOf(Element), PT.object]),
-
   popperOptions: PT.shape({
     modifiers: PT.arrayOf(
       PT.shape({

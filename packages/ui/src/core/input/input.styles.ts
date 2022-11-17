@@ -24,7 +24,8 @@ const Icon = styled.span.attrs({
       margin-right: 8px;
     `}
 
-    ${iconType === 'secondEnd' && css`
+    ${iconType === 'secondEnd' &&
+    css`
       margin-left: 8px;
     `}
 
@@ -62,6 +63,26 @@ const Container = styled.div.attrs({
   `
 );
 
+const Base = styled.input.attrs({
+  className: generateClassNames(baseClassName, 'Base'),
+})<InputProps>(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: block;
+    color: inherit;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: ${palette[PColor.TextPlaceholder]};
+    }
+  `
+);
+
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<InputProps>(
@@ -79,8 +100,8 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
-    cursor: text;
     column-gap: 6px;
+    cursor: text;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
@@ -90,7 +111,7 @@ const Input = styled.div.attrs({
 
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    ${clearIcon && isSearchInput ? sizeSearchInputMixin[size] : sizeInputMixin[size] }
+    ${clearIcon && isSearchInput ? sizeSearchInputMixin[size] : sizeInputMixin[size]}
 
     ${Base} {
       ${fontSizeInputMixin[size]}
@@ -131,6 +152,17 @@ const Input = styled.div.attrs({
   `
 );
 
+const ClearIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'ClearIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
+    cursor: pointer;
+    margin-left: 8px;
+    color: ${palette[PColor.IconsPrimary]};
+  `
+);
+
 const Tags = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Tags'),
 })<InputProps>(
@@ -149,29 +181,6 @@ const Tags = styled.div.attrs({
 // TODO: refactor how we implement tags in input
 //  display: ${renderTags ? 'inline' : 'block'};
 // width: ${renderTags ? 'min-content' : '100%'};
-const Base = styled.input.attrs({
-  className: generateClassNames(baseClassName, 'Base'),
-})<InputProps>(
-  ({
-    // TODO: refactor how implement tags in input
-    // renderTags,
-    theme: { palette },
-  }: With<WithTheme, InputProps>) => css`
-    display: block;
-    color: inherit;
-    width: 100%;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-
-    &::placeholder {
-      color: ${palette[PColor.TextPlaceholder]};
-    }
-  `
-);
 
 const Styled = applyDisplayNames({
   Input,
@@ -180,6 +189,7 @@ const Styled = applyDisplayNames({
   Base,
   Icon,
   CopyIcon,
+  ClearIcon,
 });
 
 export default Styled;

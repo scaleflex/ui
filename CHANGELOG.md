@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.6](https://github.com/scaleflex/ui/compare/2.0.0-beta.5...2.0.0-beta.6) (2022-11-09)
+
+
+### Bug Fixes
+
+* cursor for select component in readOnly and disabled modes ([812f7fb](https://github.com/scaleflex/ui/commit/812f7fb733252e7c001a5d1e571079d4b67cc394))
+* disabled menu items can be selected ([855a9c2](https://github.com/scaleflex/ui/commit/855a9c2a164db96e78d94397fc3ad893c6a2747b))
+* handle search component error ([34c8d4e](https://github.com/scaleflex/ui/commit/34c8d4e159797f10bfba67da43e04db16c35bb7e))
+
+
+### Features
+
+* add cross button to popup content ([8f3d274](https://github.com/scaleflex/ui/commit/8f3d274997176113a23ad92c1db267a177270407))
+* create component for cross button ([ced7fd0](https://github.com/scaleflex/ui/commit/ced7fd04ee3aa8ea1e8ef4e4a8f4d34c232cb599))
+* truncate options and selected value in select ([961561d](https://github.com/scaleflex/ui/commit/961561d988de36027000520e45bc7918801f889f))
+* **Calendar:** add calendar T10618 ([dd7c5be](https://github.com/scaleflex/ui/commit/dd7c5be82a76229fecbce25a69cfe145cef08180))
+* **DatePicker:** add DatePicker T10618 ([f41bb57](https://github.com/scaleflex/ui/commit/f41bb57e07bfa14f6bfdb5435fdb59bb763d3eec))
+
+
+
+
 # [2.0.0-beta.5](https://github.com/scaleflex/ui/compare/2.0.0-beta.4...2.0.0-beta.5) (2022-10-28)
 
 

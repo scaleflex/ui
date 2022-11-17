@@ -20,6 +20,7 @@ import MenuItem, { MenuItemActions } from '../menu-item';
 // import Tag from '../tag';
 import { InputSize } from '../../utils/types';
 import Styled from './autocomplete.styles';
+import { Size } from '../menu-item/types';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (
@@ -404,10 +405,16 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
               <ArrowTick
                 onClick={disabled || readOnly ? undefined : handleOpenClick}
                 type={open ? 'top' : 'bottom'}
-                IconProps={{ size: 10 }}
+                IconProps={{ size: size === Size.Md ? 16 : 14 }}
               />
             )}
-            clearIcon={isItemSelected && <Cross size={12} />}
+            clearIcon={
+              isItemSelected && (
+                <Styled.CrossIcon>
+                  <Cross size={12} />
+                </Styled.CrossIcon>
+              )
+            }
             clearIconClick={handleClearIconClick}
           />
         </Styled.AutocompleteContainer>
