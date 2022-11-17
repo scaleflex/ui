@@ -6,7 +6,6 @@ import Assets from '@scaleflex/icons/assets';
 import Menu from '@scaleflex/icons/menu';
 import { IconProps } from '@scaleflex/icons/icon.props';
 import Share from '@scaleflex/icons/share';
-
 import Folders from '@scaleflex/icons/folders';
 import Collections from '@scaleflex/icons/collections';
 import Products from '@scaleflex/icons/products';
@@ -15,6 +14,7 @@ import Airbox from '@scaleflex/icons/airbox';
 import Remove from '@scaleflex/icons/remove';
 import Label from '@scaleflex/icons/label';
 import QuestionMark from '@scaleflex/icons/question-mark';
+
 import { ButtonColor, ButtonSize } from '../../src/utils/types';
 import _Drawer, {
   DrawerList,
