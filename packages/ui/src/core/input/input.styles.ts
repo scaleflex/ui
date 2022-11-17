@@ -5,7 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
-import { sizeInputMixin, sizeSearchInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
+import { sizeInputMixin, sizeCrossInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
 import { InputSize } from '../../utils/types';
 import { getInputBackgroundColor, getInputTextColor } from './input.utils';
 
@@ -18,16 +18,6 @@ const Icon = styled.span.attrs({
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
-
-    ${iconType === 'start' &&
-    css`
-      margin-right: 8px;
-    `}
-
-    ${iconType === 'secondEnd' &&
-    css`
-      margin-left: 8px;
-    `}
 
     ${iconType === 'end' &&
     css`
@@ -93,14 +83,13 @@ const Input = styled.div.attrs({
     readOnly = false,
     disabled = false,
     clearIcon,
-    isSearchInput = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
-    column-gap: 6px;
+    column-gap: 8px;
     cursor: text;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
@@ -111,7 +100,7 @@ const Input = styled.div.attrs({
 
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    ${clearIcon && isSearchInput ? sizeSearchInputMixin[size] : sizeInputMixin[size]}
+    ${clearIcon ? sizeCrossInputMixin[size] : sizeInputMixin[size]}
 
     ${Base} {
       ${fontSizeInputMixin[size]}
@@ -133,9 +122,7 @@ const Input = styled.div.attrs({
       }
 
       &:hover {
-        background-color: ${isSearchInput
-          ? theme.palette[PColor.BackgroundHover]
-          : theme.palette[PColor.TextPrimaryInvert]};
+        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
 
         ${Icon} {
@@ -158,7 +145,6 @@ const ClearIcon = styled.span.attrs({
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
     cursor: pointer;
-    margin-left: 8px;
     color: ${palette[PColor.IconsPrimary]};
   `
 );

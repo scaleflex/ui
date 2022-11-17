@@ -16,7 +16,7 @@ export const sizeInputMixin = {
   `,
 };
 
-export const sizeSearchInputMixin = {
+export const sizeCrossInputMixin = {
   [InputSize.Sm]: `
     padding: 8px 6px 8px 12px;
   `,

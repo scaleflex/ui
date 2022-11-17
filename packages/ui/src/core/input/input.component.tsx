@@ -33,7 +33,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       className,
       style,
       fullWidth,
-      isSearchInput,
       readOnly,
       disabled,
       focusOnMount = false,
@@ -133,7 +132,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         fullWidth={Boolean(fullWidth)}
         error={error}
         clearIcon={clearIcon}
-        isSearchInput={isSearchInput}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
