@@ -41,6 +41,7 @@ export const Color = {
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
+  IconsInvert: 'icons-invert',
   IconsMuted: 'icons-muted',
   IconsInvert: 'icons-invert',
   IconsPrimaryHover: 'icons-primary-hover',

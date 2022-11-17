@@ -8,9 +8,11 @@ import { Shadows as PShadows } from '../../utils/types/shadows';
 import { FontVariant as FV } from '../../utils/types/typography/font-variant';
 import Accordion from '../accordion/accordion.component';
 import AccordionHeaderStyled from '../accordion-header/accordion-header.styles';
+import AccordionDetailsStyled from '../accordion-details/accordion-details.styles';
 import { DrawerProps, Fonttype } from './drawer.props';
 
 const baseClassName = 'Drawer';
+const scrollBarWidth = 12;
 
 const TemproryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
@@ -67,9 +69,8 @@ const Drawer = styled.div.attrs({
     top: 0px;
     left: 0px;
     background-color: ${palette[PColor.BackgroundStateless]};
-    color: rgb(255, 255, 255);
     box-shadow: ${shadows[PShadows.LeftPanel]};
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     transform: ${open ? 'none' : 'translateX(-100%)'};
     visibility: ${!open && 'hidden'};
@@ -86,9 +87,8 @@ const Drawer = styled.div.attrs({
     }
     z-index: 1200;
     box-sizing: border-box;
-    width: ${isCollapsed ? '68px' : ' 250px'};
+    width: ${isCollapsed ? `${68 + scrollBarWidth}px` : `${250 + scrollBarWidth}px`};
     padding: ${isCollapsed && '12px'};
-
     ${scrollBar}
   `
 );
@@ -266,6 +266,9 @@ const DrawerAccordion = styled(Accordion).attrs({
           color: ${palette[PColor.AccentStateless]};
         }
       `}
+    }
+    ${AccordionDetailsStyled.AccordionDetails} {
+      padding: 0px 16px;
     }
   `
 );

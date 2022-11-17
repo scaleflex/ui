@@ -12,6 +12,7 @@ export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTM
   top?: number;
   iconsSize?: number;
   onClose?: () => void;
+  onCollapse?: (collapseState: boolean) => void;
 }
 
 export interface DrawerItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLLIElement> {
