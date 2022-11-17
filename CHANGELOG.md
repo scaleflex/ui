@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
+
+
+### Bug Fixes
+
+* update design - T11581 ([1f381b6](https://github.com/scaleflex/ui/commit/1f381b663f3e29298850dbd21aafbd0dc251f3f9))
+* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
+
+
+### Features
+
+* **Backdrop:** add Backdrop component ([d441402](https://github.com/scaleflex/ui/commit/d4414028e53badcecf1506d956e6644bd89cdf65))
+* **Divider:** add new divider component ([3b9a5c4](https://github.com/scaleflex/ui/commit/3b9a5c4c65c6d3646bc81ae902ac9515615a1e34))
+* **Drawer:** add Drawer component ([186ac51](https://github.com/scaleflex/ui/commit/186ac51229cbf15e8d485e22aa46ab71a07c3ba6))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/scaleflex/ui/compare/2.0.0-beta.5...2.0.0-beta.6) (2022-11-09)
 
 
