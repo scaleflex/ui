@@ -124,20 +124,6 @@ const Footer = styled.div.attrs({
   width: 100%;
 `;
 
-const BackdropComponent = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'backdrop'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    inset: 0px;
-    background-color: ${palette[PColor.Extra_0_3_Overlay]};
-    z-index: -1;
-  `
-);
-
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
 })`
@@ -200,6 +186,7 @@ const ItemText = styled.div.attrs({
     ${font[fontKey || FV.LabelLarge]};
     transition: color 100ms ease-out;
     display: ${isCollapsed && 'none'};
+    user-select: none;
   `
 );
 
@@ -296,7 +283,6 @@ const Styled = applyDisplayNames({
   Icon,
   ItemText,
   DrawerAccordion,
-  BackdropComponent,
 });
 
 export default Styled;

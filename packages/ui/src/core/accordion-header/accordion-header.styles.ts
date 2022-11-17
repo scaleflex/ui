@@ -36,6 +36,7 @@ const Header = styled.div.attrs({
     cursor: pointer;
     width: ${fullWidth ? '100%' : 'auto'};
     color: ${theme.palette[PColor.LinkPrimary]};
+    user-select: none;
   `
 );
 

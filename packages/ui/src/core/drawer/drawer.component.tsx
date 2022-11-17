@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import PT from 'prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
@@ -11,12 +11,12 @@ import DrawerItemButton from './drawer-item-button.component';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
+import Backdrop from '../Backdrop';
 import Styled from './drawer.styles';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   ({ children, open, iconsSize = 20, collpased = false, top, hideBackdrop, onClose, ...rest }, ref): JSX.Element => {
     const [isCollapsed, setIsCollapsed] = useState(collpased);
-    const collapsedButtonRef = useRef(null);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
@@ -44,7 +44,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     });
 
     const renderDrawer = (showCollapsedButton: boolean): JSX.Element => (
-      <Styled.Drawer open={open} top={top} {...rest} isCollapsed={isCollapsed} ref={ref}>
+      <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
         {children}
         {showCollapsedButton && (
           <DrawerItemButton onClick={() => setIsCollapsed(!isCollapsed)}>
@@ -59,13 +59,12 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       </Styled.Drawer>
     );
 
-    const Backdrop = (): JSX.Element | null =>
-      !hideBackdrop && open ? <Styled.BackdropComponent onClick={onClose} /> : null;
+    const renderBackdrop = (): JSX.Element | null => (!hideBackdrop && open ? <Backdrop onClick={onClose} /> : null);
 
     const temproryDrawer = (): JSX.Element =>
       createPortal(
-        <Styled.TemproryDrawer ref={collapsedButtonRef} open={open}>
-          {Backdrop()}
+        <Styled.TemproryDrawer open={open}>
+          {renderBackdrop()}
           {renderDrawer(false)}
         </Styled.TemproryDrawer>,
         target
@@ -73,16 +72,27 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const persistentDrawer = (): JSX.Element => <Styled.PersistentDrawer>{renderDrawer(true)}</Styled.PersistentDrawer>;
 
+    // using two conontex provider is a temprory fix until we support javascript media query
+    // to be able to hide/show depening on the breakpoint
     return (
-      <DrawerContext.Provider
-        value={{
-          isCollapsed,
-          size: DrawerIconsSize,
-        }}
-      >
-        {persistentDrawer()}
-        {temproryDrawer()}
-      </DrawerContext.Provider>
+      <>
+        <DrawerContext.Provider
+          value={{
+            isCollapsed,
+            size: DrawerIconsSize,
+          }}
+        >
+          {persistentDrawer()}
+        </DrawerContext.Provider>
+        <DrawerContext.Provider
+          value={{
+            isCollapsed: false,
+            size: DrawerIconsSize,
+          }}
+        >
+          {temproryDrawer()}
+        </DrawerContext.Provider>
+      </>
     );
   }
 );
