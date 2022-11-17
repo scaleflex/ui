@@ -9,7 +9,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 * update design - T11581 ([1f381b6](https://github.com/scaleflex/ui/commit/1f381b663f3e29298850dbd21aafbd0dc251f3f9))
-* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
 
 
 ### Features
