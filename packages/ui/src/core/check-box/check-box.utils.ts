@@ -11,3 +11,14 @@ export const getCheckboxIconSize = (size?: CheckBoxSizeType): number => {
       return 10;
   }
 };
+
+export const getCheckboxInfoIconSize = (size?: CheckBoxSizeType): number => {
+  switch (size) {
+    case Size.Md:
+      return 14;
+    case Size.Sm:
+      return 12;
+    default:
+      return 12;
+  }
+};

@@ -9,6 +9,7 @@ import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
 import { LabelPosition } from './types';
 import { Size } from '../check-box/types';
+import { getCheckboxInfoIconSize } from '../check-box/check-box.utils';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   (
@@ -40,7 +41,9 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     return (
       <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref}>
         {content}
-        {typeof icon === 'function' ? icon({ size: 12, color: lightPalette[Color.IconsPrimary] }) : icon}
+        {typeof icon === 'function'
+          ? icon({ size: getCheckboxInfoIconSize(size), color: lightPalette[Color.IconsSecondary] })
+          : icon}
       </Styled.CheckBoxGroup>
     );
   }
