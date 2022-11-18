@@ -17,6 +17,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   suggestedTags?: TagType[];
   onAdd: (item: TagType, type: AddTagTypesType) => void;
   onRemove: (index: number, value: string) => void;
+  onGenerate?: (event) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
   placeholder?: string;
@@ -30,6 +31,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   crossIcon?: boolean;
   disableOnEnter?: boolean;
+  showGenerateTags?: boolean;
   alwaysShowSuggestedTags?: boolean;
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;

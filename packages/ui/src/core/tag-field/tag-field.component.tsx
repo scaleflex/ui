@@ -10,6 +10,7 @@ import Tag from '../tag';
 import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
+import Button from '../button/button.component';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
@@ -25,6 +26,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       tags = [],
       onAdd,
       onRemove,
+      onGenerate,
       placeholder,
       disabled,
       readOnly,
@@ -38,6 +40,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       crossIcon = true,
       loading,
       disableOnEnter,
+      showGenerateTags = false,
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
@@ -114,7 +117,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   value={userInput}
                   type="text"
                   autoComplete="off"
-                  placeholder={placeholder}
+                  placeholder={filteredTags?.length ? '' : placeholder}
                   onChange={(ev) => setUserInput(ev.target.value)}
                   onKeyDown={handleUserInputKeyDown}
                   readOnly={readOnly}
@@ -124,6 +127,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             )}
           </Styled.TagFieldListWrapper>
           <Styled.TagFieldBottom>
+              <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTags}>
+                <Button color="link-primary" size={size} onClick={onGenerate}>
+                  Generate tags
+                </Button>
+              </Styled.TagFieldGenerateButton>
+
             <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput)}>
               <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
             </Styled.TagFieldCopyIcon>
@@ -183,6 +192,7 @@ TagField.propTypes = {
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
+  onGenerate: PT.func,
   placeholder: PT.string,
   readOnly: PT.bool,
   disabled: PT.bool,
@@ -195,6 +205,7 @@ TagField.propTypes = {
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
+  showGenerateTags: PT.bool,
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
