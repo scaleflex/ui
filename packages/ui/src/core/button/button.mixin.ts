@@ -132,13 +132,13 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
 
   [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    color: ${palette[PaletteColor.IconsPrimary]};
+    color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
     padding: 0px !important;
 
@@ -153,13 +153,13 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
 
   // eslint-disable-next-line sonarjs/no-identical-functions
-  [ButtonColor.LinkBasic]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkBasicPrimary]: ({ theme: { palette } }: WithTheme) => css`
     color: ${palette[PaletteColor.AccentStateless]};
     background-color: transparent;
     padding: 0px !important;
@@ -175,7 +175,28 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
+      cursor: default;
+    }
+  `,
+
+  [ButtonColor.LinkBasicSecondary]: ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PaletteColor.LinkStateless]};
+    background-color: transparent;
+    padding: 0px !important;
+
+    &:hover {
+      background-color: transparent;
+      color: ${palette[PaletteColor.AccentPrimaryHover]};
+    }
+
+    &:active {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
