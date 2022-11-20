@@ -10,7 +10,7 @@ export const getDatePickerDaysColor = (day: any, isSelectedDay: boolean, isDisab
 
 export const isYearFormRegex = /^\d{4}$/;
 
-export const getMaxDayTimeStamp = (monthDetails: any, maxDay: number): number => {
+export const getMaxMinDayTimeStamp = (monthDetails: any, maxDay: number): number => {
   const toDayDate: any = monthDetails.find((day: any) => day.date === maxDay);
 
   return toDayDate?.timestamp;
@@ -47,9 +47,9 @@ export const getMaxMinSelectedDay = (
   maxDay: number,
   minDay: number
 ): number => {
-  if (maxDate) return getMaxDayTimeStamp(monthDetails, maxDay);
+  if (maxDate) return getMaxMinDayTimeStamp(monthDetails, maxDay);
 
-  if (minDate) return getMaxDayTimeStamp(monthDetails, minDay);
+  if (minDate) return getMaxMinDayTimeStamp(monthDetails, minDay);
 
   return getTodayTimestamp();
 };

@@ -92,6 +92,7 @@ Datepicker.defaultProps = {};
 export const propTypes = {
   value: PT.string,
   maxDate: PT.string,
+  minDate: PT.string,
   onChange: PT.func,
   autoSelectToday: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
