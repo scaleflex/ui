@@ -365,3 +365,5 @@ export { Sharebox } from './sharebox';
 export { NoMembers }  from './no-members';
 export { PositionCenter } from './position-center';
 export { NoTags } from './no-tags';
+export { BoxApp } from './box-app';
+export { Annotation } from './annotation';
