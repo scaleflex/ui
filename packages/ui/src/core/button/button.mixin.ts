@@ -26,7 +26,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       cursor: default;
 
       ${StyledBadge.Badge} {
@@ -37,9 +37,9 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
-    color: ${palette[PaletteColor.AccentPrimary]};
-    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
+    color: ${palette[PaletteColor.AccentStateless]};
+    border: 1px solid ${palette[PaletteColor.AccentStateless]};
 
     &:hover {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
@@ -61,7 +61,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       border: none;
       cursor: default;
 
@@ -71,7 +71,7 @@ export const colorButtonMixin = {
     }
 
     ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.AccentPrimary]};
+      color: ${palette[PaletteColor.AccentStateless]};
       background: transparent;
     }
   `,
@@ -132,13 +132,13 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
 
   [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    color: ${palette[PaletteColor.IconsPrimary]};
+    color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
     padding: 0px !important;
 
@@ -153,7 +153,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
@@ -175,7 +175,7 @@ export const colorButtonMixin = {
 
     &:disabled {
       background-color: transparent;
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
@@ -198,24 +198,24 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      background-color: ${palette[PaletteColor.Error_0_12_Opacity]};
-      color: ${palette[PaletteColor.StatesErrorDisabledText]};
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.StatesErrorDisabledText]};
+        color: ${palette[PaletteColor.BordersDisabled]};
         background: transparent;
       }
     }
   `,
 
   [ButtonColor.WarningSecondary]: ({ theme: { palette } }: WithTheme) => css`
-    background-color: ${palette[PaletteColor.ButtonPrimaryText]};
-    color: ${palette[PaletteColor.AccentPrimary]};
-    border: 1px solid ${palette[PaletteColor.AccentPrimary]};
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
+    color: ${palette[PaletteColor.LinkStateless]};
+    border: 1px solid ${palette[PaletteColor.BordersButton]};
 
     ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.AccentPrimary]};
+      color: ${palette[PaletteColor.LinkStateless]};
       background-color: transparent;
     }
 
@@ -231,16 +231,18 @@ export const colorButtonMixin = {
 
     &:active {
       background-color: ${palette[PaletteColor.ErrorActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
-      background: ${palette[PaletteColor.AccentPrimaryDisabled]};
+      color: ${palette[PaletteColor.BordersDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
       border: none;
       cursor: default;
 
       ${StyledBadge.Badge} {
-        color: ${palette[PaletteColor.ButtonDisabledText]};
+        color: ${palette[PaletteColor.BordersDisabled]};
       }
     }
   `,
@@ -258,7 +260,7 @@ export const colorButtonMixin = {
     }
 
     &:disabled {
-      color: ${palette[PaletteColor.ButtonDisabledText]};
+      color: ${palette[PaletteColor.BordersDisabled]};
       cursor: default;
     }
   `,
@@ -315,6 +317,24 @@ export const sizeSidebarDividerMixin = {
 
   [ButtonSize.Lg]: css`
     height: 20px;
+  `,
+};
+
+export const paddingIconLabelMixin = {
+  [ButtonSize.Xs]: css`
+    margin-right: 5px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    margin-right: 6px;
+  `,
+
+  [ButtonSize.Md]: css`
+    margin-right: 7px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    margin-right: 8px;
   `,
 };
 

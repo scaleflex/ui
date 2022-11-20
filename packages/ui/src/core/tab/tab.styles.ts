@@ -29,6 +29,7 @@ const Icon = styled.div.attrs({
   ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
     margin-right: 8px;
     color: ${disabled ? palette[PColor.IconsMuted] : palette[PColor.IconsPrimary]};
+    transition: all 100ms ease-out;
 
     svg {
       ${iconSizeMixin[size]}
@@ -38,7 +39,9 @@ const Icon = styled.div.attrs({
 
 const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})``;
+})`
+  transition: all 100ms ease-out;
+`;
 
 const Tab = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
@@ -51,10 +54,12 @@ const Tab = styled.div.attrs({
     align-items: center;
     text-align: center;
     color: ${disabled ? palette[PColor.ButtonDisabledText] : palette[PColor.TextPrimary]};
+    transition: all 100ms ease-out;
 
     ${StyledBadge.Badge} {
       color: ${palette[PColor.TextPrimary]};
       background-color: transparent;
+      transition: all 100ms ease-out;
       ${tabSizeMixin[size]}
     }
 

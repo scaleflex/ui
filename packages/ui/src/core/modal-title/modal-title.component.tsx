@@ -17,7 +17,7 @@ const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>(
       {rest.variant === Variant.WithIcon && secondary && <Styled.LabelSecondary>{secondary}</Styled.LabelSecondary>}
 
       <Styled.Close variant={rest.variant}>
-        <CrossButton size='lg' onClose={onClose} />
+        <CrossButton size='lg' onClick={onClose} />
       </Styled.Close>
     </Styled.ModalTitle>
   )
