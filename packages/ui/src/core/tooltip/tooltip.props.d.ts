@@ -39,4 +39,5 @@ export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   warning?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
+  stayOpen?: boolean;
 }
