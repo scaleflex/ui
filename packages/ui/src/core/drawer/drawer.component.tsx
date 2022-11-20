@@ -11,7 +11,7 @@ import DrawerItemButton from './drawer-item-button.component';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
-import Backdrop from '../Backdrop';
+import Backdrop from '../backdrop';
 import Styled from './drawer.styles';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(

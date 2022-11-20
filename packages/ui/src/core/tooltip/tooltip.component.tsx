@@ -23,6 +23,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       enableHover,
       enterDelay,
       leaveDelay,
+      stayOpen,
       ...rest
     }: TooltipProps,
     ref
@@ -47,8 +48,14 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       }
     };
 
+    const closeTooltip = (): void => {
+      if (!stayOpen) {
+        setAnchorEl(null);
+      }
+    };
+
     useEffect(() => {
-      setAnchorEl(null);
+      closeTooltip();
     }, [isHovering]);
 
     const handleMouseLeave = (event: any): void => {
@@ -57,12 +64,12 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       if (enableHover) {
         setTimeout(() => {
           if (!isHovering) {
-            setAnchorEl(null);
+            closeTooltip();
           }
         }, 200);
       } else {
         setTimeout(() => {
-          setAnchorEl(null);
+          closeTooltip();
         }, leaveDelay);
       }
 
@@ -137,6 +144,7 @@ Tooltip.propTypes = {
   warning: PT.bool,
   enterDelay: PT.number,
   leaveDelay: PT.number,
+  stayOpen: PT.bool,
   popperOptions: PT.shape({
     modifiers: PT.arrayOf(
       PT.shape({
