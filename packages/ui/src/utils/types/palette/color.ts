@@ -115,6 +115,8 @@ export const Color = {
   FreeImages: 'free-images',
   FreeIcons: 'free-icons',
   Canvas: 'canvas',
+  Box: 'box',
+  ScreenCast: 'screen-cast',
 
   LightShadow: 'light-shadow',
   MediumShadow: 'medium-shadow',
