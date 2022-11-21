@@ -26,6 +26,9 @@ const CrossButton = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
   ({ size = Size.Lg, theme }: With<WithTheme, CrossButtonProps>) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     ${crossButtonPaddingMixin[size]}
 

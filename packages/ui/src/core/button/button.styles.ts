@@ -54,6 +54,7 @@ const Button = styled.button.attrs({
     flex-shrink: 0;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     transition: all 100ms ease-out;
     border: 0;
