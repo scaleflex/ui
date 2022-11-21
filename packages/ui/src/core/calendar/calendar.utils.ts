@@ -16,6 +16,24 @@ export const getMaxDayTimeStamp = (monthDetails: any, maxDay: number): number =>
   return toDayDate?.timestamp;
 };
 
+export const getMaxDate = (maxDate: string): any => {
+  return {
+    maxYear: new Date(maxDate).getFullYear(),
+    maxMonth: new Date(maxDate).getMonth(),
+    maxDay: new Date(maxDate).getDate(),
+    maxDateTimestamp: new Date(maxDate).getTime(),
+  };
+};
+
+export const getMinDate = (minDate: string): any => {
+  return {
+    minYear: new Date(minDate).getFullYear(),
+    minMonth: new Date(minDate).getMonth(),
+    minDay: new Date(minDate).getDate(),
+    minDateTimestamp: new Date(minDate).getTime(),
+  };
+};
+
 export const MONTHS = [
   'January',
   'February',

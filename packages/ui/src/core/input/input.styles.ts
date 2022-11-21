@@ -99,6 +99,7 @@ const Input = styled.div.attrs({
     readOnly = false,
     disabled = false,
     isSearchInput = false,
+    isHovering = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
@@ -136,6 +137,13 @@ const Input = styled.div.attrs({
           }
         }
       }
+
+      ${isHovering &&
+      css`
+        ${Icon} {
+          color: ${theme.palette[PColor.IconsPrimaryHover]};
+        }
+      `}
 
       &:hover {
         background-color: ${isSearchInput

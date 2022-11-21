@@ -32,7 +32,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
   ): JSX.Element => {
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 
-    const isMonthForm = maxMonth <= 12;
+    const isMonthValid = maxMonth <= 12;
 
     useEffect(() => {
       if (getTimeStamp) setSelectedDay?.(getTimeStamp());
@@ -50,7 +50,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      if (maxDate && maxMonth && isMonthForm && !value) {
+      if (maxDate && maxMonth && isMonthValid && !value) {
         setMonth?.(maxMonth);
         setMonthDetails?.(getMonthDetails?.(maxYear, maxMonth));
       }

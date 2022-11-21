@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { FontVariant } from '@scaleflex/ui/utils/types/typography';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
@@ -22,12 +23,9 @@ const Placeholder = styled.div.attrs({
     position: absolute;
     top: 32px;
     left: 19px;
+    z-index: 1000;
     width: ${fullWidth ? '95%' : '244px'};
-    font-family: 'Roboto';
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 18px;
-    z-index: 10000;
+    ${theme.typography.font[FontVariant.LabelLarge]}
     color: ${theme.palette[PColor.TextPlaceholder]};
     background: ${theme.palette[PColor.BackgroundStateless]};
   `
@@ -36,11 +34,16 @@ const Placeholder = styled.div.attrs({
 const DatePickerInput = styled(InputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
 })<InputProps>(
-  () => css`
+  ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
     & > input::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
     }
+
+    ${isHovering &&
+    css`
+      border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
+    `}
   `
 );
 

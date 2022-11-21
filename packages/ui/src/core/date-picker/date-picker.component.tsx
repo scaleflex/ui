@@ -30,6 +30,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState(value);
     const [showPlaceholder, setShowPlaceholder] = useState(true);
+    const [isHovering, setIsHovering] = useState(false);
 
     const datePickerInputRef = useRef(null);
 
@@ -54,8 +55,9 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
         <Styled.DatePickerInput
           label="Label"
           hint="Some hint goes here"
-          setShowPlaceholder={setShowPlaceholder}
+          showPlaceholder={setShowPlaceholder}
           value={inputValue}
+          isHovering={isHovering}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
@@ -67,7 +69,12 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           {...rest}
         />
         {!inputValue && rest.placeholder && showPlaceholder && (
-          <Styled.Placeholder onClick={() => setShowPlaceholder(false)} {...rest}>
+          <Styled.Placeholder
+            onClick={() => setShowPlaceholder(false)}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
+            {...rest}
+          >
             {rest.placeholder}
           </Styled.Placeholder>
         )}

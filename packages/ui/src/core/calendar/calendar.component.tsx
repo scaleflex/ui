@@ -23,6 +23,8 @@ import {
   getNextPrevSelectedDayTimeStamp,
   getNextPrevYearSelectedDayTimeStamp,
   getMaxMinSelectedDay,
+  getMaxDate,
+  getMinDate,
 } from './calendar.utils';
 import Styled from './calendar.styles';
 
@@ -41,15 +43,9 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     }: CalendarProps,
     ref
   ): JSX.Element => {
-    const maxYear: any = new Date(maxDate).getFullYear();
-    const maxMonth = new Date(maxDate).getMonth();
-    const maxDay = new Date(maxDate).getDate();
-    const maxDateTimestamp = new Date(maxDate).getTime();
+    const { maxYear, maxMonth, maxDay, maxDateTimestamp } = getMaxDate(maxDate);
 
-    const minYear = new Date(minDate).getFullYear();
-    const minMonth = new Date(minDate).getMonth();
-    const minDay = new Date(minDate).getDate();
-    const minDateTimestamp = new Date(minDate).getTime();
+    const { minYear, minMonth, minDay, minDateTimestamp } = getMinDate(minDate);
 
     const [year, setYear] = useState(maxDate ? maxYear : new Date().getFullYear());
     const [month, setMonth] = useState(maxDate ? maxMonth : new Date().getMonth());
