@@ -19,8 +19,9 @@ const Textarea = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
+    autoSize = false,
     theme,
-  }: With<WithTheme, TextareaProps>) => css`
+  }: With<With<WithTheme, TextareaProps>, { autoSize: boolean }>) => css`
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -62,6 +63,12 @@ const Textarea = styled.div.attrs({
     }
 
     ${error && errorMixin}
+
+    ${autoSize &&
+    css`
+      width: auto;
+      height: auto;
+    `}
   `
 );
 
