@@ -40,6 +40,7 @@ const Tag = styled.div.attrs({
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
+    transition: all 100ms ease-out;
     background-color: ${theme.palette[PColor.BordersSecondary]};
     border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};

@@ -10,6 +10,7 @@ import {
   sizeButtonLabelMixin,
   sizeSidebarMixin,
   sizeSidebarDividerMixin,
+  paddingIconLabelMixin,
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
@@ -54,6 +55,7 @@ const Button = styled.button.attrs({
     flex-direction: row;
     align-items: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    transition: all 100ms ease-out;
     border: 0;
     cursor: pointer;
     outline: none;
@@ -73,7 +75,7 @@ const Button = styled.button.attrs({
     ${buttonType === ButtonType.Sidebar &&
     css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
-      color: ${theme.palette[PaletteColor.LinkPrimary]};
+      color: ${theme.palette[PaletteColor.LinkStateless]};
       border: 1px solid ${theme.palette[PaletteColor.BordersButton]};
 
       ${!active &&
@@ -93,7 +95,7 @@ const Button = styled.button.attrs({
 
       ${active &&
       css`
-        background-color: ${theme.palette[PaletteColor.BackgroundAccentBlue_0_05_Opacity]};
+        background-color: ${theme.palette[PaletteColor.Accent_1_2_Opacity]};
         color: ${theme.palette[PaletteColor.AccentPrimaryActive]};
         border: 1px solid ${theme.palette[PaletteColor.AccentPrimaryActive]};
       `}
@@ -111,13 +113,14 @@ const Button = styled.button.attrs({
 const StartIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'StartIcon'),
 })(
-  ({ $loading }: ButtonProps) => css`
+  ({ $loading, size = ButtonSize.Md }: ButtonProps) => css`
     display: flex;
-    margin-right: 6px;
 
     svg {
       animation: ${$loading ? 'spinner 1.2s linear infinite' : '1.2s'};
     }
+
+    ${paddingIconLabelMixin[size]}
   `
 );
 

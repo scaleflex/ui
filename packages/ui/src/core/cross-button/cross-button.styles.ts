@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import ButtonStyled from '../button/button.styles';
 import type { CrossButtonProps } from './cross-button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import type { WithTheme } from '../../theme/entity';
@@ -23,19 +22,18 @@ const crossButtonPaddingMixin = {
   `,
 };
 
-const CrossButton = styled(ButtonStyled.Button).attrs({
+const CrossButton = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    size = Size.Lg,
-    theme,
-  }: With<WithTheme, CrossButtonProps>) => css`
+  ({ size = Size.Lg, theme }: With<WithTheme, CrossButtonProps>) => css`
+    cursor: pointer;
     ${crossButtonPaddingMixin[size]}
 
     color: ${theme.palette[PaletteColor.IconsSecondary]};
     background: transparent;
     border: none;
-    
+    transition: all 100ms ease-out;
+
     &:hover {
       color: ${theme.palette[PaletteColor.IconsPrimary]};
       background: ${theme.palette[PaletteColor.BackgroundHover]};;
@@ -43,7 +41,7 @@ const CrossButton = styled(ButtonStyled.Button).attrs({
 
     &:active {
       color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
-      background: ${theme.palette[PaletteColor.BackgroundActive]};;
+      background: ${theme.palette[PaletteColor.BackgroundActive]};
     }
   `
 );

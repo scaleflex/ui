@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.8](https://github.com/scaleflex/ui/compare/2.0.0-beta.7...2.0.0-beta.8) (2022-11-19)
+
+
+### Features
+
+* **Tooltip:** add stayOpen prop ([5e095fd](https://github.com/scaleflex/ui/commit/5e095fd598e61a8cfd847fdc2069da2d5c96fe61))
+
+
+
+
+
 # [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
 
 

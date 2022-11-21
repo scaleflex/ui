@@ -4,7 +4,7 @@ import { Color } from '../../utils/types/palette';
 export const getDatePickerDaysColor = (day: any, isSelectedDay: boolean): string => {
   if (day.month !== 0) return lightPalette[Color.TextSecondaryInvert];
 
-  if (isSelectedDay) return lightPalette[Color.TextPrimaryInvert];
+  if (isSelectedDay) return lightPalette[Color.IconsInvert];
 
   return lightPalette[Color.TextPrimary];
 };

@@ -120,6 +120,8 @@ const LabelTooltip = styled.span.attrs({
     background-color: ${disabled ? theme.palette[PC.AccentPrimaryDisabled] : theme.palette[PC.LinkStateless]};
     color: #fff;
     cursor: pointer;
+    transition: all 100ms ease-out;
+
     &::before {
       position: absolute;
       content: '';

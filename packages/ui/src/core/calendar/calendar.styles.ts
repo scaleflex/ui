@@ -35,7 +35,7 @@ const Calendar = styled.div.attrs({
     position: absolute;
     width: 224px;
     top: 4px;
-    background: ${palette[PColor.TextPrimaryInvert]};
+    background: ${palette[PColor.BackgroundStateless]};
     box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
     border-radius: 2px;
     overflow: hidden;
@@ -164,7 +164,7 @@ const MonthButtons = styled.div.attrs({
     background-color: ${isYearChanged || isMonthChanged
       ? palette[PColor.AccentPrimary]
       : palette[PColor.BackgroundStateless]};
-    color: ${isYearChanged || isMonthChanged ? palette[PColor.TextPrimaryInvert] : ''};
+    color: ${isYearChanged || isMonthChanged ? palette[PColor.IconsInvert] : ''};
   `
 );
 
@@ -205,10 +205,11 @@ const DatePickerDay = styled.span.attrs({
       color: ${getDatePickerDaysColor(day, isSelectedDay)};
       pointer-events: ${day.month !== 0 ? 'none' : ''};
       cursor: pointer;
+      transition: all 100ms ease-out;
 
       background-color: ${isSelectedDay && day.month === 0
         ? palette[PColor.AccentStateless]
-        : palette[PColor.TextPrimaryInvert]};
+        : palette[PColor.BackgroundStateless]};
 
       &:hover {
         ${!isSelectedDay &&
