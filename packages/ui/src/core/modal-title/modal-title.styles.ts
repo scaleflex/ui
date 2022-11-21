@@ -25,10 +25,10 @@ const Icon = styled.div.attrs({
 const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
 })(
-  () => css`
+  ({ variant = Variant.Default }: ModalTitleProps) => css`
     font-size: 18px;
     line-height: 27px;
-    font-weight: 500;
+    font-weight: ${variant === Variant.Default ? 400 : 500 };
   `
 );
 
