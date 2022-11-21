@@ -54,6 +54,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
               enableOverlay={false}
+              applyTransition={false}
               {...option.subMenuProps}
             >
               {/* {renderItems(option.subList, newDepthLevel)} */}
