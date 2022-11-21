@@ -26,8 +26,6 @@ const defaultArgs = {
   size: Size.Sm,
   arrow: true,
   warning: false,
-  enterDelay: 200,
-  leaveDelay: 200,
   stayOpen: false,
 };
 
