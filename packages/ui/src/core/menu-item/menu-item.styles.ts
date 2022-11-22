@@ -93,6 +93,11 @@ const MenuItem = styled.div.attrs({
     }
     ${(noOptionsText || disabled) &&
     css`
+      & > svg {
+        path {
+          fill: ${theme.palette[PColor.ButtonDisabledText]};
+        }
+      }
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
   `
