@@ -132,6 +132,12 @@ const Input = styled.div.attrs({
       }
     `}
 
+    ${disabled && css`
+      ${Icon} {
+        color: ${theme.palette[PColor.IconsMuted]};
+      }
+    `}
+
     &:hover {
       color: ${getInputTextColor(readOnly, disabled)};
     }
