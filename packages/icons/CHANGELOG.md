@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.9](https://github.com/scaleflex/ui/compare/2.0.0-beta.8...2.0.0-beta.9) (2022-11-23)
+
+
+### Features
+
+* add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
+* add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
+
+
+
+
+
 # [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
 
 

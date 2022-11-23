@@ -3,6 +3,48 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.9](https://github.com/scaleflex/ui/compare/2.0.0-beta.8...2.0.0-beta.9) (2022-11-23)
+
+
+### Bug Fixes
+
+* **MenuItem:** change icon color when disbaled ([8972485](https://github.com/scaleflex/ui/commit/89724857b6194277206432a4c8bc7d4eee1dd3dc))
+* add rest to cross button component - T11614 ([fa38639](https://github.com/scaleflex/ui/commit/fa38639d88e7be3395ecfdedb94b4062f629078b))
+* buttons styles - T11647 ([c92738e](https://github.com/scaleflex/ui/commit/c92738ebb0fca328c14e875738436be13b0dfeef))
+* cross and icon buttons styles in active state - T11614 ([dafe891](https://github.com/scaleflex/ui/commit/dafe8911cb9f10d29dedbd11daf55d1978d39460))
+* handle default cross in search ([80ddaa4](https://github.com/scaleflex/ui/commit/80ddaa412ef903326bb2c2547f69fc9507d8ea38))
+* select component padding - T11614 ([0714fe7](https://github.com/scaleflex/ui/commit/0714fe7c63bd32ed57f2c0b2adcce6c6c8959e18))
+
+
+### Features
+
+* **Textarea:** add new props ([928b9d9](https://github.com/scaleflex/ui/commit/928b9d92fab49548cbfc206b49ccbe74d1ce2ca9))
+* add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
+* **Popper:** add transition ([d7cb2db](https://github.com/scaleflex/ui/commit/d7cb2db276fb022529c1e2b37a3f857a980b96f6))
+* **Tooltip:** make tooltip delay 500 by default ([80de259](https://github.com/scaleflex/ui/commit/80de2592723c498678f6fe409831ee011d468158))
+* add link basic secondary variant to link buttons - T11647 ([f2ddb2d](https://github.com/scaleflex/ui/commit/f2ddb2d6e7a5535bb7f78f77365ce690ee8b1a5d))
+* add new colors - T11647 ([ed370de](https://github.com/scaleflex/ui/commit/ed370de0a441f0a278104813164c0146319d4e1f))
+* add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
+* add pressed state to icon buttons - T11614 ([d21eed9](https://github.com/scaleflex/ui/commit/d21eed947796a69ba7a9bafc1ac42b60c541200f))
+* add transition to all components - T11614 ([acc29bd](https://github.com/scaleflex/ui/commit/acc29bd7628db84bf1453652c2ebafaf104da953))
+* update background color for trigger buttons in active state - T11614 ([bbe5c13](https://github.com/scaleflex/ui/commit/bbe5c13ed6e0136bdc500891b03def926399e246))
+* update button's label padding - T11614 ([e871789](https://github.com/scaleflex/ui/commit/e8717898a02886cbdb723350ef609024de2d2962))
+* update buttons styles - T11614 ([a1daf03](https://github.com/scaleflex/ui/commit/a1daf03764e5958ffec2ca187815b1edd37f859a))
+* update cross button styles and add new size - T11647 ([00ca3d0](https://github.com/scaleflex/ui/commit/00ca3d01cc018536c5ff4bcd382631da6a200e74))
+* update font theme - T11614 ([efcaf10](https://github.com/scaleflex/ui/commit/efcaf105c792f1347f1e79800dd2335ae489d79b))
+* update invert color in all components and update buttons styles - T11614 ([e16a64b](https://github.com/scaleflex/ui/commit/e16a64b0c6d06d9ebb1a6a137ba74bce4b7f063b))
+* update menu item gap - T11614 ([a0635dc](https://github.com/scaleflex/ui/commit/a0635dc97abe1408e0117ebf5859857275e95e8e))
+* update modal header's font - T11647 ([11cd961](https://github.com/scaleflex/ui/commit/11cd96159a078fd6b09a2c38a8265073eae7ff6f))
+* update search component styles ([a9f6048](https://github.com/scaleflex/ui/commit/a9f6048e1a307fd02266cd28b740ea891a648d46))
+* update tags field component - T11647 ([c782fa4](https://github.com/scaleflex/ui/commit/c782fa4cb8afe7adc28a1e2d046a642b76c4fd55))
+* update text area padding and height - T11647 ([fa9b04d](https://github.com/scaleflex/ui/commit/fa9b04dc647740118bc3f08fc68048ba59b5b2a0))
+* update tooltip styles - T11614 ([e701f02](https://github.com/scaleflex/ui/commit/e701f02666e90c78d5d9f272dbaac200f7e18a78))
+* update tooltip styles and sizes - T11647 ([58e72e3](https://github.com/scaleflex/ui/commit/58e72e33e76bb048ff4c7c237937b069e800e03a))
+
+
+
+
+
 # [2.0.0-beta.8](https://github.com/scaleflex/ui/compare/2.0.0-beta.7...2.0.0-beta.8) (2022-11-19)
 
 
