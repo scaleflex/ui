@@ -9,8 +9,12 @@ export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTM
   open?: boolean;
   hideBackdrop?: boolean;
   collpased?: boolean;
+  disablePortal?: boolean;
   top?: number;
   iconsSize?: number;
+  collapseButtonLabel?: string;
+  persistentDrawerStyles?: object;
+  temproryDrawerStyles?: object;
   onClose?: () => void;
   onCollapse?: (collapseState: boolean) => void;
 }

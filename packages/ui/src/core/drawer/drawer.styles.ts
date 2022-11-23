@@ -12,7 +12,6 @@ import AccordionDetailsStyled from '../accordion-details/accordion-details.style
 import { DrawerProps, Fonttype } from './drawer.props';
 
 const baseClassName = 'Drawer';
-const scrollBarWidth = 12;
 
 const TemproryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
@@ -25,7 +24,7 @@ const TemproryDrawer = styled.div.attrs({
     ${breakpoints.classes.sm} & {
       display: block;
     }
-    position: fixed;
+    position: absolute;
     inset: 0px;
     z-index: 1200;
     visibility: ${!open && 'hidden'};
@@ -65,18 +64,14 @@ const Drawer = styled.div.attrs({
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
-    position: fixed;
-    top: 0px;
-    left: 0px;
     background-color: ${palette[PColor.BackgroundStateless]};
     box-shadow: ${shadows[PShadows.LeftPanel]};
-    overflow-y: scroll;
+    overflow-y: overlay;
     overflow-x: hidden;
     transform: ${open ? 'none' : 'translateX(-100%)'};
     visibility: ${!open && 'hidden'};
     transition: 200ms;
     height: calc(100% - ${top}px);
-    margin-top: ${top}px;
     ${breakpoints.down('md')} {
       margin-top: 0px;
       height: 100%;
@@ -85,9 +80,8 @@ const Drawer = styled.div.attrs({
       margin-top: 0px;
       height: 100%;
     }
-    z-index: 1200;
     box-sizing: border-box;
-    width: ${isCollapsed ? `${68 + scrollBarWidth}px` : `${250 + scrollBarWidth}px`};
+    width: ${isCollapsed ? '68px' : '250'};
     padding: ${isCollapsed && '12px'};
     ${scrollBar}
   `

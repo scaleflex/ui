@@ -16,7 +16,21 @@ import Styled from './drawer.styles';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   (
-    { children, open, iconsSize = 20, collpased = false, top, hideBackdrop, onClose, onCollapse, ...rest },
+    {
+      children,
+      open,
+      iconsSize = 20,
+      collpased = false,
+      top,
+      hideBackdrop,
+      disablePortal,
+      collapseButtonLabel = 'Collapse menu',
+      persistentDrawerStyles = {},
+      temproryDrawerStyles = {},
+      onClose,
+      onCollapse,
+      ...rest
+    },
     ref
   ): JSX.Element => {
     const [isCollapsed, setIsCollapsed] = useState(collpased);
@@ -62,7 +76,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
                 ? (props: IconProps) => <ArrowSidebarRightOutline {...props} size={iconsSize} />
                 : (props: IconProps) => <ArrowSidebarLeftOutline {...props} size={iconsSize} />}
             </DrawerItemIcon>
-            <DrawerItemText>Collapse menu</DrawerItemText>
+            <DrawerItemText>{collapseButtonLabel}</DrawerItemText>
           </DrawerItemButton>
         )}
       </Styled.Drawer>
@@ -71,15 +85,24 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     const renderBackdrop = (): JSX.Element | null => (!hideBackdrop && open ? <Backdrop onClick={onClose} /> : null);
 
     const temproryDrawer = (): JSX.Element =>
-      createPortal(
-        <Styled.TemproryDrawer open={open}>
+      disablePortal ? (
+        <Styled.TemproryDrawer style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
-        </Styled.TemproryDrawer>,
-        target
+        </Styled.TemproryDrawer>
+      ) : (
+        createPortal(
+          <Styled.TemproryDrawer style={{ ...temproryDrawerStyles }} open={open}>
+            {renderBackdrop()}
+            {renderDrawer(false)}
+          </Styled.TemproryDrawer>,
+          target
+        )
       );
 
-    const persistentDrawer = (): JSX.Element => <Styled.PersistentDrawer>{renderDrawer(true)}</Styled.PersistentDrawer>;
+    const persistentDrawer = (): JSX.Element => (
+      <Styled.PersistentDrawer style={{ ...persistentDrawerStyles }}>{renderDrawer(true)}</Styled.PersistentDrawer>
+    );
 
     // using two conontex provider is a temprory fix until we support javascript media query
     // to be able to hide/show depening on the breakpoint
@@ -123,6 +146,10 @@ export const propTypes = {
   open: PT.bool,
   hideBackdrop: PT.bool,
   collpased: PT.bool,
+  disablePortal: PT.bool,
+  collapseButtonLabel: PT.string,
+  persistentDrawerStyles: PT.object,
+  temproryDrawerStyles: PT.object,
 };
 
 Drawer.propTypes = propTypes;
