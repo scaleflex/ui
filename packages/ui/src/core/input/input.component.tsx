@@ -113,7 +113,9 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>{icon}</Styled.CopyIcon>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>
+          {typeof icon === 'function' ? icon() : icon}
+        </Styled.CopyIcon>
       ) : undefined;
 
     const renderField = (): JSX.Element | undefined => (

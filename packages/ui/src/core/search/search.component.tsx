@@ -31,17 +31,15 @@ const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
     };
 
     return (
-      <Styled.Search>
+      <Styled.Search size={size}>
         <Input
           ref={ref}
           value={value}
           size={size}
           {...rest}
           onChange={onChange}
-          iconStart={(iconProps: IconProps): JSX.Element => (
-            <SearchIcon {...iconProps} size={getSearchIconSize(size)} />
-          )}
-          clearIcon={value.length !== 0 ? <CrossButton size={size === 'md' ? 'lg' : 'sm'} /> : undefined}
+          iconStart={(iconProps: IconProps) => <SearchIcon {...iconProps} size={getSearchIconSize(size)} />}
+          clearIcon={value?.length !== 0 ? <CrossButton size={size === 'md' ? 'lg' : 'sm'} /> : undefined}
           clearIconClick={handleClearIconClick}
         />
       </Styled.Search>

@@ -5,7 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
-import { sizeInputMixin, sizeCrossInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
+import { sizeInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
 import { InputSize } from '../../utils/types';
 import { getInputBackgroundColor, getInputTextColor } from './input.utils';
 
@@ -82,7 +82,6 @@ const Input = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
-    clearIcon,
     isHovering = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
@@ -102,7 +101,7 @@ const Input = styled.div.attrs({
 
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    ${clearIcon ? sizeCrossInputMixin[size] : sizeInputMixin[size]}
+    ${sizeInputMixin[size]}
 
     ${Base} {
       ${fontSizeInputMixin[size]}
