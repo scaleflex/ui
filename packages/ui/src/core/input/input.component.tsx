@@ -38,6 +38,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       focusOnMount = false,
       focusOnClick = true,
       error,
+      showPlaceholder,
       ...rest
     }: InputProps,
     ref
@@ -50,6 +51,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const handleFocus = (): void => {
       if (disabled) return;
 
+      showPlaceholder?.(false);
       inputRef.current?.focus();
     };
 
@@ -132,6 +134,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         fullWidth={Boolean(fullWidth)}
         error={error}
         clearIcon={clearIcon}
+        isHovering={rest.isHovering}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
@@ -165,6 +168,7 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   iconClickStart: PT.func,
+  showPlaceholder: PT.func,
   iconClickEnd: PT.func,
   clearIconClick: PT.func,
   focusOnMount: PT.bool,

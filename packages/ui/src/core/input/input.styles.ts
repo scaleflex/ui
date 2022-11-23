@@ -83,6 +83,7 @@ const Input = styled.div.attrs({
     readOnly = false,
     disabled = false,
     clearIcon,
+    isHovering = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
@@ -122,6 +123,13 @@ const Input = styled.div.attrs({
         }
       }
 
+      ${isHovering &&
+      css`
+        ${Icon} {
+          color: ${theme.palette[PColor.IconsPrimaryHover]};
+        }
+      `}
+
       &:hover {
         background-color: ${theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
@@ -132,7 +140,8 @@ const Input = styled.div.attrs({
       }
     `}
 
-    ${disabled && css`
+    ${disabled &&
+    css`
       ${Icon} {
         color: ${theme.palette[PColor.IconsMuted]};
       }
