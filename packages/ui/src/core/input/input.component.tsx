@@ -33,7 +33,6 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       className,
       style,
       fullWidth,
-      isSearchInput,
       readOnly,
       disabled,
       focusOnMount = false,
@@ -107,14 +106,16 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderClearIcon = (): JSX.Element | undefined =>
       disabled || readOnly || !clearIcon ? undefined : (
-        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')} isSearchInput={isSearchInput}>
+        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')}>
           {typeof clearIcon === 'function' ? clearIcon({ size: getIconSize(size, 'clear') }) : clearIcon}
         </Styled.ClearIcon>
       );
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>{icon}</Styled.CopyIcon>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>
+          {typeof icon === 'function' ? icon() : icon}
+        </Styled.CopyIcon>
       ) : undefined;
 
     const renderField = (): JSX.Element | undefined => (
@@ -134,8 +135,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         disabled={disabled}
         fullWidth={Boolean(fullWidth)}
         error={error}
+        clearIcon={clearIcon}
         isHovering={rest.isHovering}
-        isSearchInput={isSearchInput}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}

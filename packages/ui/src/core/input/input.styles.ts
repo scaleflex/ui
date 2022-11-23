@@ -19,26 +19,10 @@ const Icon = styled.span.attrs({
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
 
-    ${iconType === 'start' &&
-    css`
-      margin-right: 8px;
-    `}
-
     ${iconType === 'end' &&
     css`
       color: ${palette[PColor.IconsSecondary]};
     `}
-  `
-);
-
-const ClearIcon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'ClearIcon'),
-})(
-  ({ isSearchInput, theme: { palette } }: With<WithTheme, InputProps>) => css`
-    display: flex;
-    cursor: pointer;
-    margin-left: 8px;
-    color: ${isSearchInput ? palette[PColor.IconsSecondary] : palette[PColor.IconsPrimary]};
   `
 );
 
@@ -98,7 +82,6 @@ const Input = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
-    isSearchInput = false,
     isHovering = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
@@ -106,7 +89,7 @@ const Input = styled.div.attrs({
     display: inline-flex;
     align-items: center;
     box-sizing: border-box;
-    column-gap: 6px;
+    column-gap: 8px;
     cursor: text;
     transition: all 100ms ease-out;
     width: ${fullWidth ? '100%' : '300px'};
@@ -147,9 +130,7 @@ const Input = styled.div.attrs({
       `}
 
       &:hover {
-        background-color: ${isSearchInput
-          ? theme.palette[PColor.BackgroundHover]
-          : theme.palette[PColor.BackgroundStateless]};
+        background-color: ${theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
 
         ${Icon} {
@@ -158,11 +139,28 @@ const Input = styled.div.attrs({
       }
     `}
 
+    ${disabled &&
+    css`
+      ${Icon} {
+        color: ${theme.palette[PColor.IconsMuted]};
+      }
+    `}
+
     &:hover {
       color: ${getInputTextColor(readOnly, disabled)};
     }
 
     ${error && errorMixin}
+  `
+);
+
+const ClearIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'ClearIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
+    cursor: pointer;
+    color: ${palette[PColor.IconsPrimary]};
   `
 );
 
@@ -191,8 +189,8 @@ const Styled = applyDisplayNames({
   Tags,
   Base,
   Icon,
-  ClearIcon,
   CopyIcon,
+  ClearIcon,
 });
 
 export default Styled;
