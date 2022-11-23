@@ -92,7 +92,7 @@ const labelFontVariants = {
 
 const textFontVariants = {
   [FontVariant.TextExtraSmall]: {
-    ...labelFontVariants[FontVariant.LabelExtraSmall],
+    ...labelFontVariants[FontVariant.LabelExtraSmallUp],
     lineHeight: '14px',
   },
   [FontVariant.TextSmall]: {

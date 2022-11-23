@@ -22,6 +22,7 @@ const defaultArgs = {
   hint: 'Some hint goes here',
   disableOnEnter: false,
   size: Size.Md,
+  showGenerateTags: false,
   suggestionTooltipMessage: 'Suggested tags',
 };
 

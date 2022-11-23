@@ -54,6 +54,7 @@ const Button = styled.button.attrs({
     flex-shrink: 0;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     transition: all 100ms ease-out;
     border: 0;
@@ -63,19 +64,9 @@ const Button = styled.button.attrs({
     ${buttonType !== ButtonType.Sidebar && colorButtonMixin[color]}
     ${buttonType === ButtonType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
 
-    &:active {
-      ${StartIcon} {
-        color: ${(color === ButtonColor.Primary ||
-          color === ButtonColor.Secondary ||
-          color === ButtonColor.WarningPrimary ||
-          color === ButtonColor.WarningSecondary) &&
-        theme.palette[PaletteColor.IconsInvert]};
-      }
-    }
-
     ${Label} {
       ${sizeButtonLabelMixin[size]}
-      ${color === ButtonColor.LinkBasic && `font-weight: 400`}
+      ${(color === ButtonColor.LinkBasicPrimary || color === ButtonColor.LinkBasicSecondary) && `font-weight: 400`}
     }
 
     ${Badge} {

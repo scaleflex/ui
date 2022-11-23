@@ -125,6 +125,8 @@ export const lightPalette = {
   [Color.FreeImages]: 'rgba(16, 163, 135, 1)', // #10A387
   [Color.FreeIcons]: 'rgba(62, 207, 139, 1)', // #3ECF8B
   [Color.Canvas]: 'rgba(36, 190, 202, 1)', // #24BECA
+  [Color.Box]: 'rgba(0, 97, 213, 1)', //#0061D5
+  [Color.ScreenCast]: 'rgba(48, 61, 78, 1)', //#303D4E
 
   // others
   [Color.Tag]: '#889AAC',
