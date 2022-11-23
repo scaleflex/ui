@@ -367,3 +367,4 @@ export { PositionCenter } from './position-center';
 export { NoTags } from './no-tags';
 export { BoxApp } from './box-app';
 export { Annotation } from './annotation';
+export { NoPins } from './no-pins';
