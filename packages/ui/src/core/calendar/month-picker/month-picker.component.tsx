@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { MonthPickerProps } from '../calendar.props';
 import { intrinsicComponent } from '../../../utils/functions';
 import Styled from '../calendar.styles';
-import { MONTHS_PICKER } from '../calendar.utils';
+import { getDateStringFromTimestamp, MONTHS_PICKER } from '../calendar.utils';
 
 const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
   (
@@ -15,6 +15,13 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
       setMonth,
       _month,
       year = 0,
+      maxMonth = 0,
+      minMonth = 0,
+      maxYear = 0,
+      maxDate,
+      value,
+      onChange,
+      selectedDay = 0,
       setSelectedDay,
       setMonthDetails,
       getMonthDetails,
@@ -25,6 +32,8 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
   ): JSX.Element => {
     const [selectedMonth, setSelectedMonth] = useState(currentMonth);
 
+    const isMonthValid = maxMonth <= 12;
+
     useEffect(() => {
       if (getTimeStamp) setSelectedDay?.(getTimeStamp());
     }, [monthDetails]);
@@ -34,7 +43,18 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
       setMonth?.(index);
       setShowMonthsDatePicker?.(false);
       setMonthDetails?.(getMonthDetails?.(year, index));
+
+      if (onChange) {
+        onChange(getDateStringFromTimestamp(selectedDay, index, year));
+      }
     };
+
+    useEffect(() => {
+      if (maxDate && maxMonth && isMonthValid && !value) {
+        setMonth?.(maxMonth);
+        setMonthDetails?.(getMonthDetails?.(maxYear, maxMonth));
+      }
+    }, []);
 
     const isMonthChanged = (index: number): boolean => {
       return index === _month;
@@ -57,6 +77,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
               onClick={() => handleOnClickMonth(index)}
               isMonthChanged={isMonthChanged(index)}
               key={month}
+              isDisabled={index > maxMonth || index < minMonth}
             >
               {month}
             </Styled.MonthButtons>

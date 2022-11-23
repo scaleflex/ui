@@ -9,6 +9,14 @@ export default {
   title: `${StoryGroup.Inputs}/DatePicker`,
   component: DatePicker,
   excludeStories: ['DatePicker'],
+  argTypes: {
+    maxDate: {
+      description: 'yyyy-mm-dd',
+    },
+    minDate: {
+      description: 'yyyy-mm-dd',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -16,7 +24,11 @@ const defaultArgs = {
   hint: 'Some hint goes here',
   readOnly: false,
   disabled: false,
-  placeholder: 'placeholder',
+  autoSelectToday: false,
+  placeholder: 'mm/dd/yyyy',
+  fullWidth: false,
+  maxDate: '',
+  minDate: '',
 };
 
 const BasicTemplate: Story<DatePickerProps> = ({ ...args }) => {
