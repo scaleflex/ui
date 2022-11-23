@@ -1,32 +1,48 @@
 import React from 'react';
 import SearchIcon from '@scaleflex/icons/search';
-import CrossOutline from '@scaleflex/icons/cross-outline';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { SearchProps } from './search.props';
+import type { InputSizeType } from '../input/input.props';
+import { InputSize } from '../../utils/types';
+import CrossButton from '../cross-button/cross-button.component';
 import Input from '../input';
+import Styled from './search.styles';
 import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';
 
 const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
-  ({ onChange, value, ...rest }: SearchProps, ref): JSX.Element => {
+  ({ onChange, value = '', size, ...rest }: SearchProps, ref): JSX.Element => {
     const handleClearIconClick = (event: any): void => {
       if (onChange) {
         onChange(event);
       }
     };
 
+    const getSearchIconSize = (sizeName: InputSizeType | undefined): number => {
+      switch (sizeName) {
+        case InputSize.Sm:
+          return 16;
+
+        case InputSize.Md:
+        default:
+          return 18;
+      }
+    };
+
     return (
-      <Input
-        ref={ref}
-        {...rest}
-        onChange={onChange}
-        iconStart={(iconProps: IconProps): JSX.Element => <SearchIcon {...iconProps} />}
-        iconEnd={
-          value.length !== 0 ? (iconProps: IconProps): JSX.Element => <CrossOutline {...iconProps} /> : undefined
-        }
-        iconClickEnd={handleClearIconClick}
-      />
+      <Styled.Search size={size}>
+        <Input
+          ref={ref}
+          value={value}
+          size={size}
+          {...rest}
+          onChange={onChange}
+          iconStart={(iconProps: IconProps) => <SearchIcon {...iconProps} size={getSearchIconSize(size)} />}
+          clearIcon={value?.length !== 0 ? <CrossButton size={size === 'md' ? 'lg' : 'sm'} /> : undefined}
+          clearIconClick={handleClearIconClick}
+        />
+      </Styled.Search>
     );
   }
 );

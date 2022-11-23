@@ -73,7 +73,7 @@ const labelFontVariants = {
   },
   [FontVariant.LabelLargeUp]: {
     ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
+    fontWeight: FontWeight.Regular,
     fontSize: '18px',
     lineHeight: '20px',
   },
@@ -92,7 +92,7 @@ const labelFontVariants = {
 
 const textFontVariants = {
   [FontVariant.TextExtraSmall]: {
-    ...labelFontVariants[FontVariant.LabelExtraSmall],
+    ...labelFontVariants[FontVariant.LabelExtraSmallUp],
     lineHeight: '14px',
   },
   [FontVariant.TextSmall]: {

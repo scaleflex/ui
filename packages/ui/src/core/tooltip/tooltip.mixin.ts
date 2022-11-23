@@ -8,13 +8,19 @@ export const fontTooltipMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelExtraSmallUp],
+  }: WithTheme) => font[FV.TextExtraSmall],
 
   [Size.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelSmall],
+  }: WithTheme) => font[FV.TextSmall],
+
+  [Size.Lg]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.TextSmall],
 };
 
 export const sizeTooltipMixin = {
@@ -23,6 +29,10 @@ export const sizeTooltipMixin = {
   `,
 
   [Size.Md]: css`
-    padding: 8px 12px;
+    padding: 6px 12px;
+  `,
+
+  [Size.Lg]: css`
+    padding: 12px 16px;
   `,
 };

@@ -97,7 +97,7 @@ const TagFieldInputWrapper = styled.li.attrs({
 
     ${TagFieldInput} {
       &::-webkit-input-placeholder {
-        color: ${theme.palette[PColor.LinkHover]};
+        color: ${theme.palette[PColor.TextPlaceholder]};
         ${fontTagFieldMixin[size]}
       }
     }
@@ -110,9 +110,8 @@ const TagFieldBottom = styled.div.attrs({
   ({ theme }: WithTheme) => css`
     border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
     padding: 0px;
   `
 );
@@ -139,6 +138,15 @@ const TagFieldSuggestionLabel = styled.label.attrs({
     font-size: 12px;
     padding: 6px 0;
     color: ${theme.palette[PColor.LinkHover]};
+  `
+);
+
+const TagFieldGenerateButton = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'GenerateTagButton'),
+})(
+  ({ showGenerateTags }: { showGenerateTags: boolean }) => css`
+    display: inline-flex;
+    visibility: ${showGenerateTags ? 'visible' : 'hidden'};
   `
 );
 
@@ -190,6 +198,7 @@ const Styled = applyDisplayNames({
   TagFieldInput,
   TagFieldSuggestionWrapper,
   TagFieldSuggestionLabel,
+  TagFieldGenerateButton,
   TagFieldSuggestionIcon,
   TagFieldSuggestionWrapperList,
   TagFieldSuggestionList,

@@ -34,6 +34,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         disabled={disabled}
         fullWidth={Boolean(fullWidth)}
         error={error}
+        autoSize={Boolean(rest?.cols) || Boolean(rest?.rows)}
       >
         <Styled.Base {...rest} value={value} ref={ref} readOnly={readOnly} disabled={disabled} />
         {isHovering && readOnly ? (

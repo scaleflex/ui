@@ -23,10 +23,13 @@ const UploadInput = styled.div.attrs({
       padding: unset;
       width: 299px;
       column-gap: 0;
+      transition: all 100ms ease-out;
+
 
       &:hover {
         ${BStyled.Button} {
           background-color: ${theme.palette[PaletteColor.AccentPrimaryHover]};
+          transition: all 100ms ease-out;
           border: none;
         }
       }

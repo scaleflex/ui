@@ -19,8 +19,9 @@ const Textarea = styled.div.attrs({
     fullWidth = false,
     readOnly = false,
     disabled = false,
+    autoSize = false,
     theme,
-  }: With<WithTheme, TextareaProps>) => css`
+  }: With<With<WithTheme, TextareaProps>, { autoSize: boolean }>) => css`
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -28,6 +29,7 @@ const Textarea = styled.div.attrs({
     justify-content: space-between;
     cursor: text;
     box-sizing: border-box;
+    transition: all 100ms ease-out;
     width: ${fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
@@ -51,7 +53,7 @@ const Textarea = styled.div.attrs({
       }
 
       &:hover {
-        background-color: ${theme.palette[PColor.TextPrimaryInvert]};
+        background-color: ${theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
       }
     `}
@@ -61,6 +63,12 @@ const Textarea = styled.div.attrs({
     }
 
     ${error && errorMixin}
+
+    ${autoSize &&
+    css`
+      width: auto;
+      height: auto;
+    `}
   `
 );
 

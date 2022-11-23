@@ -5,5 +5,4 @@ export type CrossButtonSizeType = Values<typeof Size>;
 
 export interface CrossButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   size?: CrossButtonSizeType;
-  onClose?: (event) => void;
 }

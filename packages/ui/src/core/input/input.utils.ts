@@ -6,7 +6,7 @@ export const getInputBackgroundColor = (readOnly?: boolean, disabled?: boolean):
     return lightPalette[Color.BackgroundHover];
   }
 
-  return lightPalette[Color.TextPrimaryInvert];
+  return lightPalette[Color.BackgroundStateless];
 };
 
 export const getInputTextColor = (readOnly?: boolean, disabled?: boolean): string | undefined => {

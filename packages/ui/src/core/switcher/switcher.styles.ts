@@ -50,7 +50,7 @@ const Switcher = styled.div.attrs({
       border-radius: 20px;
       top: 50%;
       left: 3.9px;
-      background: ${palette[PColor.TextPrimaryInvert]};
+      background: ${palette[PColor.IconsInvert]};
       transform: translate(50%, -50%);
       transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
       opacity: 0;
@@ -85,7 +85,7 @@ const Input = styled.input.attrs({
 
       &:before {
         ${!disabled && translateSwitcherMixin[size]}
-        background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.TextPrimaryInvert]};
+        background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.IconsInvert]};
       }
 
       &:after {

@@ -7,7 +7,7 @@ import type { DotProps } from './dot.props';
 import { activeDotMixin } from './dot.mixin';
 
 const baseClassName = 'Dot';
-const transitionDuration = 0.3;
+const transitionDuration = 100;
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
@@ -19,7 +19,7 @@ const Icon = styled.span.attrs({
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    transition: opacity ${transitionDuration}s;
+    transition: opacity ${transitionDuration}ms ease-out;
     opacity: ${visible ? 1 : 0};
     color: ${palette[on ? PColor.AccentPrimary : PColor.BordersStrong]};
   `
@@ -35,7 +35,7 @@ const Dot = styled.span.attrs({
     justify-content: center;
     width: 6px;
     height: 6px;
-    transition: background-color ${transitionDuration}s ease;
+    transition: background-color ${transitionDuration}ms ease-out;
 
     border: 1px solid transparent;
     border-radius: 50%;

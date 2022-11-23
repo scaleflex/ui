@@ -7,10 +7,11 @@ export type InputBackgroundType = Values<typeof InputBackgroundColor>;
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   disabled?: boolean;
+  isHovering?: boolean;
   size?: InputSizeType;
-  iconStart?: React.ReactNode;
-  iconEnd?: React.ReactNode;
-  clearIcon?: React.ReactNode;
+  iconStart?: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  iconEnd?: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  clearIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   iconType?: string;
   error?: boolean;
   fullWidth?: boolean;
@@ -21,4 +22,5 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   clearIconClick?: (event: Event) => void;
   focusOnMount?: boolean;
   focusOnClick?: boolean;
+  showPlaceholder?: (value: boolean) => void;
 }

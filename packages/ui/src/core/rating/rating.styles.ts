@@ -46,6 +46,7 @@ const Icon = styled.span.attrs({
   ({ active = false, theme: { palette } }: With<WithTheme, { active: boolean }>) => css`
     display: inline-flex;
     color: ${active ? palette[PColor.Warning] : palette[PColor.TextPrimary]};
+    transition: all 100ms ease-out;
   `
 );
 

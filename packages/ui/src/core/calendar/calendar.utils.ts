@@ -1,12 +1,37 @@
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
 
-export const getDatePickerDaysColor = (day: any, isSelectedDay: boolean): string => {
-  if (day.month !== 0) return lightPalette[Color.TextSecondaryInvert];
-
-  if (isSelectedDay) return lightPalette[Color.TextPrimaryInvert];
+export const getDatePickerDaysColor = (day: any, isSelectedDay: boolean, isDisabled: boolean): string => {
+  if (day.month !== 0 || isDisabled) return lightPalette[Color.TextSecondaryInvert];
+  if (isSelectedDay) return lightPalette[Color.IconsInvert];
 
   return lightPalette[Color.TextPrimary];
+};
+
+export const isYearFormRegex = /^\d{4}$/;
+
+export const getMaxMinDayTimeStamp = (monthDetails: any, maxDay: number): number => {
+  const toDayDate: any = monthDetails.find((day: any) => day.date === maxDay);
+
+  return toDayDate?.timestamp;
+};
+
+export const getMaxDate = (maxDate: string): any => {
+  return {
+    maxYear: new Date(maxDate).getFullYear(),
+    maxMonth: new Date(maxDate).getMonth(),
+    maxDay: new Date(maxDate).getDate(),
+    maxDateTimestamp: new Date(maxDate).getTime(),
+  };
+};
+
+export const getMinDate = (minDate: string): any => {
+  return {
+    minYear: new Date(minDate).getFullYear(),
+    minMonth: new Date(minDate).getMonth(),
+    minDay: new Date(minDate).getDate(),
+    minDateTimestamp: new Date(minDate).getTime(),
+  };
 };
 
 export const MONTHS = [
@@ -32,6 +57,20 @@ export const MONTHS_PICKER = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', '
 
 const oneDay = 60 * 60 * 24 * 1000;
 export const getTodayTimestamp = () => Date.now() - (Date.now() % oneDay) + new Date().getTimezoneOffset() * 1000 * 60;
+
+export const getMaxMinSelectedDay = (
+  maxDate: string,
+  minDate: string,
+  monthDetails: any,
+  maxDay: number,
+  minDay: number
+): number => {
+  if (maxDate) return getMaxMinDayTimeStamp(monthDetails, maxDay);
+
+  if (minDate) return getMaxMinDayTimeStamp(monthDetails, minDay);
+
+  return getTodayTimestamp();
+};
 
 export const getCurrentDate = (): string => {
   const date = new Date();
@@ -107,6 +146,23 @@ export const getMonthDetails = (year: number, month: number): object[] => {
   return monthArray;
 };
 
+export const getNextPrevSelectedDayTimeStamp = (year: any, month: number, offset: number): number => {
+  const toDayDate: any = getMonthDetails(year, month + offset).find((day: any) => day.month === 0 && day.date === 1);
+
+  return toDayDate?.timestamp;
+};
+
+export const getNextPrevYearSelectedDayTimeStamp = (
+  year: any,
+  month: number,
+  dayDate: number,
+  offset: number
+): number => {
+  const toDayDate: any = getMonthDetails(year + offset, month).find((day: any) => day.date === dayDate);
+
+  return toDayDate?.timestamp;
+};
+
 export const getDateStringFromTimestamp = (timestamp: number, month: number, year: number): string => {
   const dateObject = new Date(timestamp);
   const _month = month + 1;
@@ -131,4 +187,36 @@ export const getDateFromDateString = (dateValue: any): object | null => {
   const date = dateData[2];
 
   return { year, month, date };
+};
+
+export const getCalendarButtonsBackgroundColor = (
+  isYearChanged?: boolean,
+  isMonthChanged?: boolean,
+  isDisabled?: boolean
+): string | undefined => {
+  if (isYearChanged || isMonthChanged) {
+    return lightPalette[Color.AccentPrimary];
+  }
+
+  if (isDisabled) {
+    return lightPalette[Color.BackgroundStateless];
+  }
+
+  return lightPalette[Color.BackgroundStateless];
+};
+
+export const getCalendarButtonsColor = (
+  isYearChanged?: boolean,
+  isMonthChanged?: boolean,
+  isDisabled?: boolean
+): string | undefined => {
+  if (isYearChanged || isMonthChanged) {
+    return lightPalette[Color.IconsInvert];
+  }
+
+  if (isDisabled) {
+    return lightPalette[Color.TextPlaceholder];
+  }
+
+  return lightPalette[Color.TextPrimary];
 };

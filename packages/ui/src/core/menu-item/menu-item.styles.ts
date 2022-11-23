@@ -69,7 +69,7 @@ const MenuItem = styled.div.attrs({
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     justify-content: space-between;
-    column-gap: 10px;
+    column-gap: 16px;
     flex-direction: row;
     align-items: center;
     width: 100%;
@@ -77,6 +77,7 @@ const MenuItem = styled.div.attrs({
     color: ${theme.palette[PColor.TextPrimary]};
     cursor: pointer;
     box-sizing: border-box;
+    transition: all 100ms ease-out;
 
     ${sizeMenuItemMixin[size]}
 
@@ -92,6 +93,11 @@ const MenuItem = styled.div.attrs({
     }
     ${(noOptionsText || disabled) &&
     css`
+      & > svg {
+        path {
+          fill: ${theme.palette[PColor.ButtonDisabledText]};
+        }
+      }
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
   `

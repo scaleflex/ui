@@ -29,6 +29,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       scroll = true,
       enableUnderlayingEvent = false,
       popperWrapperStyles = {},
+      applyTransition,
       ...rest
     },
     ref
@@ -112,6 +113,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           zIndex={zIndex}
           enableUnderlayingEvent={enableUnderlayingEvent}
           wrapperStyles={popperWrapperStyles}
+          applyTransition={applyTransition}
         >
           <Styled.Menu
             {...containerProps}
@@ -165,6 +167,7 @@ export const propTypes = {
   scroll: PT.bool,
   enableUnderlayingEvent: PT.bool,
   popperWrapperStyles: PT.object,
+  applyTransition: PT.bool,
 };
 
 Menu.propTypes = propTypes;

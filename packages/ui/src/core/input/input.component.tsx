@@ -33,12 +33,12 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       className,
       style,
       fullWidth,
-      isSearchInput,
       readOnly,
       disabled,
       focusOnMount = false,
       focusOnClick = true,
       error,
+      showPlaceholder,
       ...rest
     }: InputProps,
     ref
@@ -51,6 +51,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const handleFocus = (): void => {
       if (disabled) return;
 
+      showPlaceholder?.(false);
       inputRef.current?.focus();
     };
 
@@ -105,14 +106,16 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderClearIcon = (): JSX.Element | undefined =>
       disabled || readOnly || !clearIcon ? undefined : (
-        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')} isSearchInput={isSearchInput}>
+        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')}>
           {typeof clearIcon === 'function' ? clearIcon({ size: getIconSize(size, 'clear') }) : clearIcon}
         </Styled.ClearIcon>
       );
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>{icon}</Styled.CopyIcon>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>
+          {typeof icon === 'function' ? icon() : icon}
+        </Styled.CopyIcon>
       ) : undefined;
 
     const renderField = (): JSX.Element | undefined => (
@@ -132,7 +135,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         disabled={disabled}
         fullWidth={Boolean(fullWidth)}
         error={error}
-        isSearchInput={isSearchInput}
+        clearIcon={clearIcon}
+        isHovering={rest.isHovering}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
@@ -166,6 +170,7 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   iconClickStart: PT.func,
+  showPlaceholder: PT.func,
   iconClickEnd: PT.func,
   clearIconClick: PT.func,
   focusOnMount: PT.bool,

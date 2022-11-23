@@ -74,7 +74,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 
         <Styled.Wrapper>
           {startIcon && (
-            <Styled.StartIcon $loading={loading}>
+            <Styled.StartIcon $loading={loading} size={size}>
               {typeof startIcon === 'function' ? (
                 loading ? (
                   <SpinnerIcon size={getIconSize(size)} />
