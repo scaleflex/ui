@@ -144,7 +144,7 @@ const TagFieldSuggestionLabel = styled.label.attrs({
 const TagFieldGenerateButton = styled.span.attrs({
   className: generateClassNames(baseClassName, 'GenerateTagButton'),
 })(
-  ({showGenerateTags}: { showGenerateTags: boolean }) => css`
+  ({ showGenerateTags }: { showGenerateTags: boolean }) => css`
     display: inline-flex;
     visibility: ${showGenerateTags ? 'visible' : 'hidden'};
   `
