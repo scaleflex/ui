@@ -80,5 +80,5 @@ SidebarButton.args = {
   buttonType: ButtonType.Sidebar,
   sideBarType: SideBar.Left,
   active: false,
-  icon: (props: IconProps) => <MoreDetails {...props} />,
+  startIcon: (props: IconProps) => <MoreDetails {...props} />,
 };

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -9,9 +9,32 @@ import { Position } from './types';
 
 const baseClassName = 'Popper';
 
+const opacityKeyframes = keyframes`
+  from { opacity: 0;  }
+  to { opacity: 1; }
+`;
+
+const transformKeyframes = keyframes`
+  from {  transform: scale(0); }
+  to { transform: scale(1); }
+`;
+
+const fadeInAnimation = css`
+  animation: ${opacityKeyframes} 251ms 0ms cubic-bezier(0.4, 0, 0.2, 1),
+    ${transformKeyframes} 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+`;
+
 const Popper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(() => css``);
+})(
+  ({ applyTransition = true }: { applyTransition?: boolean }) => css`
+    ${applyTransition &&
+    css`
+      transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+      ${fadeInAnimation}
+    `}
+  `
+);
 
 const PopperWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),

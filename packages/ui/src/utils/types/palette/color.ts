@@ -1,6 +1,5 @@
 export const Color = {
   TextPrimary: 'txt-primary',
-  TextPrimaryInvert: 'txt-primary-invert',
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
   TextPlaceholder: 'txt-placeholder',
@@ -30,7 +29,6 @@ export const Color = {
   BackgroundPrimary_0_5_Opacity: 'bg-primary-0-5-opacity',
   BackgroundSecondary: 'bg-secondary',
   BackgroundHover: 'bg-hover',
-  BackgroundAccentBlue_0_05_Opacity: 'bg-accent-blue-0-05-Opacity',
   BackgroundGreen: 'bg-green',
   BackgroundBlue: 'bg-blue',
   BackgroundRed: 'bg-red',
@@ -41,6 +39,7 @@ export const Color = {
   IconsPrimaryOpacity_0_6: 'icons-primary-opacity-0-6',
   IconsSecondary: 'icons-secondary',
   IconsPlaceholder: 'icons-placeholder',
+  IconsInvert: 'icons-invert',
   IconsMuted: 'icons-muted',
   IconsPrimaryHover: 'icons-primary-hover',
   IconsSecondaryHover: 'icons-secondary-hover',
@@ -70,7 +69,6 @@ export const Color = {
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',
-  ActiveSecondaryActive: 'active-secondary-active',
 
   Tag: 'tag',
   StatesErrorDisabledText: 'states-error-disabled-text',

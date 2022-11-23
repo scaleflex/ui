@@ -8,11 +8,11 @@ export const sizeCheckboxGroupMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelSmall],
+  }: WithTheme) => font[FV.LabelMedium],
 
   [Size.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelMedium],
+  }: WithTheme) => font[FV.LabelLarge],
 };

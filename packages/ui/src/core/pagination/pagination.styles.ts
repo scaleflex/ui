@@ -46,6 +46,7 @@ const PaginationItem = styled.button.attrs({
     cursor: pointer;
     user-select: none;
     background: transparent;
+    transition: all 100ms ease-out;
     color: ${selected ? theme.palette[PColor.AccentPrimaryHover] : theme.palette[PColor.TextPrimary]};
 
     ${theme.typography.font[FontVariant.LabelSmall]};

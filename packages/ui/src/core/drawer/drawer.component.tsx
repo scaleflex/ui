@@ -11,11 +11,14 @@ import DrawerItemButton from './drawer-item-button.component';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
-import Backdrop from '../Backdrop';
+import Backdrop from '../backdrop';
 import Styled from './drawer.styles';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
-  ({ children, open, iconsSize = 20, collpased = false, top, hideBackdrop, onClose, ...rest }, ref): JSX.Element => {
+  (
+    { children, open, iconsSize = 20, collpased = false, top, hideBackdrop, onClose, onCollapse, ...rest },
+    ref
+  ): JSX.Element => {
     const [isCollapsed, setIsCollapsed] = useState(collpased);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
@@ -25,6 +28,12 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     useEffect(() => {
       setIsCollapsed(collpased);
     }, [collpased]);
+
+    useEffect(() => {
+      if (onCollapse) {
+        onCollapse(isCollapsed);
+      }
+    }, [isCollapsed]);
 
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
@@ -107,6 +116,7 @@ Drawer.defaultProps = defaultProps;
 
 export const propTypes = {
   onClose: PT.func.isRequired,
+  onCollapse: PT.func,
   children: PT.node.isRequired,
   top: PT.number,
   iconsSize: PT.number,

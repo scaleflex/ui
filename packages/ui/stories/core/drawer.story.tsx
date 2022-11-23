@@ -6,6 +6,14 @@ import Assets from '@scaleflex/icons/assets';
 import Menu from '@scaleflex/icons/menu';
 import { IconProps } from '@scaleflex/icons/icon.props';
 import Share from '@scaleflex/icons/share';
+import Folders from '@scaleflex/icons/folders';
+import Collections from '@scaleflex/icons/collections';
+import Products from '@scaleflex/icons/products';
+import Heart from '@scaleflex/icons/heart';
+import Airbox from '@scaleflex/icons/airbox';
+import Remove from '@scaleflex/icons/remove';
+import Label from '@scaleflex/icons/label';
+import QuestionMark from '@scaleflex/icons/question-mark';
 
 import { ButtonColor, ButtonSize } from '../../src/utils/types';
 import _Drawer, {
@@ -20,7 +28,7 @@ import _Drawer, {
   DrawerBody,
   DrawerAccordion,
 } from '../../src/core/drawer';
-import Divider from '../../src/core/divider';
+import Divder from '../../src/core/divider';
 import IconButton from '../../src/core/icon-button';
 import { StoryGroup } from './types';
 import { FontVariant } from '../../src/utils/types/typography';
@@ -56,9 +64,62 @@ const StyledHeader = styled.div(
   `
 );
 
+const libraryItems = [
+  {
+    title: 'Hub',
+    icon: (props: IconProps) => <Hub {...props} />,
+  },
+  {
+    title: 'Assets',
+    icon: (props: IconProps) => <Assets {...props} />,
+  },
+  {
+    title: 'Folders',
+    icon: (props: IconProps) => <Folders {...props} />,
+    selected: true,
+  },
+  {
+    title: 'Collections',
+    icon: (props: IconProps) => <Collections {...props} />,
+  },
+  {
+    title: 'Labels',
+    icon: (props: IconProps) => <Label {...props} />,
+  },
+  {
+    title: 'Products',
+    icon: (props: IconProps) => <Products {...props} />,
+  },
+  {
+    title: 'My favorites ',
+    icon: (props: IconProps) => <Heart {...props} />,
+  },
+];
+
+const analyticsItems = [
+  {
+    title: 'Sharebox',
+    icon: (props: IconProps) => <Share {...props} />,
+  },
+  {
+    title: 'Airbox',
+    icon: (props: IconProps) => <Airbox {...props} />,
+  },
+  {
+    title: 'Trash',
+    icon: (props: IconProps) => <Remove {...props} />,
+  },
+];
+
 const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
   const [open, setOpen] = useState(true);
+  const [analyticsOpen, setAnalyticsOpen] = useState(false);
   const [isDrawerOpened, setIsDrawerOpened] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const onCollapse = (state: boolean) => {
+    setIsCollapsed(state);
+  };
 
   return (
     <>
@@ -77,7 +138,7 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
         </IconButton>
         Drawer
       </StyledHeader>
-      <Drawer {...args} open={isDrawerOpened} onClose={() => setIsDrawerOpened(false)}>
+      <Drawer {...args} open={isDrawerOpened} onClose={() => setIsDrawerOpened(false)} onCollapse={onCollapse}>
         <DrawerHeader>
           <IconButton
             style={{
@@ -95,43 +156,37 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
         </DrawerHeader>
         <DrawerBody>
           <DrawerList>
-            <DrawerItem selected>
+            <DrawerItem>
               <DrawerItemText font={FontVariant.LabelLargeEmphasis}>Home</DrawerItemText>
             </DrawerItem>
-
+            <DrawerAccordion label="Library" fullWidth expanded={open} onChange={(value) => setOpen(value)} selected>
+              {libraryItems.map((item) => (
+                <DrawerItemButton key={item.title} selected={item.selected}>
+                  <DrawerItemIcon>{item.icon}</DrawerItemIcon>
+                  <DrawerItemText>{item.title}</DrawerItemText>
+                </DrawerItemButton>
+              ))}
+            </DrawerAccordion>
+            {isCollapsed && <Divder style={{ margin: '8px 0px' }} />}
             <DrawerAccordion
-              label="Library"
+              label="Analytics"
               fullWidth
-              detailStyle={{ padding: '0 16px' }}
-              expanded={open}
-              onChange={(value) => setOpen(value)}
-              selected
+              expanded={analyticsOpen}
+              onChange={(value) => setAnalyticsOpen(value)}
             >
-              <DrawerItemButton selected>
-                <DrawerItemIcon>{(props: IconProps) => <Hub {...props} />}</DrawerItemIcon>
-                <DrawerItemText>Hub</DrawerItemText>
-              </DrawerItemButton>
-
-              <DrawerItemButton>
-                <DrawerItemIcon>{(props: IconProps) => <Assets {...props} />}</DrawerItemIcon>
-                <DrawerItemText>Assets</DrawerItemText>
-              </DrawerItemButton>
-              <Divider
-                style={{
-                  margin: '8px 0',
-                }}
-              />
-              <DrawerItemButton>
-                <DrawerItemIcon>{(props: IconProps) => <Share {...props} />}</DrawerItemIcon>
-                <DrawerItemText>Sharebox</DrawerItemText>
-              </DrawerItemButton>
+              {analyticsItems.map((item) => (
+                <DrawerItemButton key={item.title}>
+                  <DrawerItemIcon>{item.icon}</DrawerItemIcon>
+                  <DrawerItemText>{item.title}</DrawerItemText>
+                </DrawerItemButton>
+              ))}
             </DrawerAccordion>
           </DrawerList>
         </DrawerBody>
         <DrawerFooter>
           <DrawerItemButton>
-            <DrawerItemIcon>{(props: IconProps) => <Assets {...props} />}</DrawerItemIcon>
-            <DrawerItemText>Assets</DrawerItemText>
+            <DrawerItemIcon>{(props: IconProps) => <QuestionMark {...props} />}</DrawerItemIcon>
+            <DrawerItemText>Help</DrawerItemText>
           </DrawerItemButton>
         </DrawerFooter>
       </Drawer>

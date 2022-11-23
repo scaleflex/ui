@@ -8,20 +8,20 @@ import { Size } from './types';
 import Styled from './cross-button.styles';
 
 const getIconSize = (sizeName: CrossButtonSizeType | undefined): number => {
-    switch (sizeName) {
-      case Size.Lg:
-        return 16;
-  
-      case Size.Sm:
-      default:
-        return 12;
-    }
-  };
+  switch (sizeName) {
+    case Size.Lg:
+      return 16;
+
+    case Size.Sm:
+    default:
+      return 12;
+  }
+};
 
 const CrossButton = intrinsicComponent<CrossButtonProps, HTMLButtonElement>(
-  ({ size, onClose }: CrossButtonProps, ref): JSX.Element => (
-    <Styled.CrossButton ref={ref} size={size} onClick={onClose}>
-      <CrossOutline size={getIconSize(size)} />
+  ({ ...rest }: CrossButtonProps, ref): JSX.Element => (
+    <Styled.CrossButton {...rest} ref={ref}>
+      <CrossOutline size={getIconSize(rest.size)} />
     </Styled.CrossButton>
   )
 );
