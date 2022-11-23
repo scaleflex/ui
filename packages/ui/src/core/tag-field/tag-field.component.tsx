@@ -40,7 +40,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       crossIcon = true,
       loading,
       disableOnEnter,
-      showGenerateTags = false,
+      showGenerateTagsButton = false,
+      generateTagsButtonLabel = 'Generate tags',
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
@@ -127,11 +128,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             )}
           </Styled.TagFieldListWrapper>
           <Styled.TagFieldBottom>
-              <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTags}>
-                <Button color="link-primary" size={size} onClick={onGenerate}>
-                  Generate tags
-                </Button>
-              </Styled.TagFieldGenerateButton>
+            <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
+              <Button color="link-primary" size={size} onClick={onGenerate}>
+                {generateTagsButtonLabel}
+              </Button>
+            </Styled.TagFieldGenerateButton>
 
             <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput)}>
               <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
@@ -205,7 +206,8 @@ TagField.propTypes = {
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
-  showGenerateTags: PT.bool,
+  showGenerateTagsButton: PT.bool,
+  generateTagsButtonLabel: PT.string,
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
