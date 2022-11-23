@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+import InfoOutline from '@scaleflex/icons/info-outline';
 
 import { LabelPosition } from '../../src/core/check-box-group/types';
 import { Size, Type } from '../../src/core/check-box/types';
@@ -56,5 +56,5 @@ export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
   title: 'Tooltip text',
-  icon: (props: IconProps) => <QuestionMarkOutline {...props} />,
+  icon: (props: IconProps) => <InfoOutline {...props} />,
 };

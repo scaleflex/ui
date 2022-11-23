@@ -43,6 +43,7 @@ const InputLocalization = styled.div.attrs({
     position: relative;
     display: flex;
     align-items: center;
+    transition: all 100ms ease-out;
     cursor: ${disabled ? 'default' : 'pointer'};
     color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.LinkStateless]};
 

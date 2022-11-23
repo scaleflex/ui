@@ -35,7 +35,7 @@ const Calendar = styled.div.attrs({
     position: absolute;
     width: 224px;
     top: 4px;
-    background: ${palette[PColor.TextPrimaryInvert]};
+    background: ${palette[PColor.BackgroundStateless]};
     box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
     border-radius: 2px;
     overflow: hidden;
@@ -210,10 +210,11 @@ const DatePickerDay = styled.span.attrs({
       color: ${getDatePickerDaysColor(day, isSelectedDay, isDisabled)};
       pointer-events: ${day.month !== 0 || isDisabled ? 'none' : ''};
       cursor: pointer;
+      transition: all 100ms ease-out;
 
       background-color: ${isSelectedDay && day.month === 0
         ? palette[PColor.AccentStateless]
-        : palette[PColor.TextPrimaryInvert]};
+        : palette[PColor.BackgroundStateless]};
 
       &:hover {
         ${!isSelectedDay &&

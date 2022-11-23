@@ -3,7 +3,7 @@ import { Color } from '../../utils/types/palette';
 
 export const getDatePickerDaysColor = (day: any, isSelectedDay: boolean, isDisabled: boolean): string => {
   if (day.month !== 0 || isDisabled) return lightPalette[Color.TextSecondaryInvert];
-  if (isSelectedDay) return lightPalette[Color.TextPrimaryInvert];
+  if (isSelectedDay) return lightPalette[Color.IconsInvert];
 
   return lightPalette[Color.TextPrimary];
 };
@@ -211,7 +211,7 @@ export const getCalendarButtonsColor = (
   isDisabled?: boolean
 ): string | undefined => {
   if (isYearChanged || isMonthChanged) {
-    return lightPalette[Color.TextPrimaryInvert];
+    return lightPalette[Color.IconsInvert];
   }
 
   if (isDisabled) {

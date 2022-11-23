@@ -50,9 +50,11 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           readOnly={readOnly}
           onClick={readOnly || disabled ? undefined : handleClick}
         >
-          <Styled.Label>
-            {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
-          </Styled.Label>
+          {value && (
+            <Styled.Label>
+              {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
+            </Styled.Label>
+          )}
 
           {!value && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
 

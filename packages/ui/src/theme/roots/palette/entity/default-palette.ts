@@ -5,7 +5,6 @@ import type { ColorsMap } from './colors-map';
 export const lightPalette = {
   // Text
   [Color.TextPrimary]: 'rgba(55, 65, 75, 1)', // #37414B
-  [Color.TextPrimaryInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.TextSecondary]: 'rgba(118, 138, 159, 1)', // #768184
   [Color.TextSecondaryInvert]: 'rgba(213, 216, 220, 1)', // #D5D8DC
   [Color.TextPlaceholder]: 'rgba(169, 182, 194, 1)', // #A9B6C2
@@ -22,7 +21,7 @@ export const lightPalette = {
   [Color.AccentStateless]: 'rgba(104, 121, 235, 1)', // #6879EB
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104, 121, 235, 0.4)',
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
-  [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)',
+  [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
@@ -37,7 +36,6 @@ export const lightPalette = {
   [Color.BackgroundSecondary]: 'rgba(255, 255, 255, 1)',
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
-  [Color.BackgroundAccentBlue_0_05_Opacity]: 'rgba(104, 121, 235, 0.05)',
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
@@ -48,7 +46,9 @@ export const lightPalette = {
   [Color.IconsPrimaryOpacity_0_6]: 'rgba(93, 109, 126, 0.600)',
   [Color.IconsSecondary]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
+  [Color.IconsInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.IconsMuted]: 'rgba(169, 182, 194, 1)', // #A9B6C2
+  [Color.IconsInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
   [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
@@ -78,7 +78,6 @@ export const lightPalette = {
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
-  [Color.ActiveSecondaryActive]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
 
   // states
   [Color.Error]: 'rgba(246, 61, 61, 1)', // #F63D3D

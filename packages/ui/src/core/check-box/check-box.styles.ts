@@ -32,7 +32,9 @@ const UnCheckedIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'icon'),
 })<CheckBoxProps>(
   () => css`
-    display: none;
+    display: flex;
+    opacity: 0;
+    transition: all 100ms ease-out;
   `
 );
 
@@ -49,6 +51,7 @@ const CheckBox = styled.span.attrs({
     border-radius: 1px;
     outline: none;
     text-align: center;
+    transition: all 100ms ease-out;
     cursor: ${disabled ? 'default' : 'pointer'};
 
     ${sizeCheckboxMixin[size]}
@@ -57,7 +60,7 @@ const CheckBox = styled.span.attrs({
       ${UnCheckedIcon} {
         ${!disabled &&
         css`
-          display: flex;
+          opacity: 1;
         `}
       }
     }

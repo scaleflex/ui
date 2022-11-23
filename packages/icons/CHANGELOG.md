@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
+
+
+### Bug Fixes
+
+* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
+
+
+
+
+
 # [2.0.0-beta.6](https://github.com/scaleflex/ui/compare/2.0.0-beta.5...2.0.0-beta.6) (2022-11-09)
 
 **Note:** Version bump only for package @scaleflex/icons

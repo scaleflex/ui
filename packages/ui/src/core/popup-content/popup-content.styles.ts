@@ -17,6 +17,7 @@ const LabelWrapper = styled.span.attrs({
     margin-left: 44px;
     margin-right: 28px;
     padding: 16px;
+    padding-right: 0px;
     background: ${palette[PColor.ButtonPrimaryText]};
   `
 );
