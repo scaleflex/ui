@@ -138,7 +138,15 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
         </IconButton>
         Drawer
       </StyledHeader>
-      <Drawer {...args} open={isDrawerOpened} onClose={() => setIsDrawerOpened(false)} onCollapse={onCollapse}>
+      <Drawer
+        {...args}
+        open={isDrawerOpened}
+        onClose={() => setIsDrawerOpened(false)}
+        onCollapse={onCollapse}
+        style={{
+          marginTop: '46px',
+        }}
+      >
         <DrawerHeader>
           <IconButton
             style={{
