@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.10](https://github.com/scaleflex/ui/compare/2.0.0-beta.9...2.0.0-beta.10) (2022-11-26)
+
+
+### Bug Fixes
+
+* sub-list behavior when hover up / down T11619 ([8a05479](https://github.com/scaleflex/ui/commit/8a0547975e00d87eaf818f22c4738070e3264688))
+
+
+
+
+
 # [2.0.0-beta.9](https://github.com/scaleflex/ui/compare/2.0.0-beta.8...2.0.0-beta.9) (2022-11-23)
 
 
