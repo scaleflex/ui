@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { generateClassNames, applyDisplayNames, scrollBar } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -12,14 +12,29 @@ const Overlay = styled.div.attrs({
 })(
   () => css`
     position: fixed;
-    right: 0px;
-    bottom: 0px;
-    top: 0px;
-    left: 0px;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    left: 0;
     background-color: transparent;
     z-index: -1;
   `
 );
+
+const opacityKeyframes = keyframes`
+  from { opacity: 0;  }
+  to { opacity: 1; }
+`;
+
+const transformKeyframes = keyframes`
+  from {  transform: scale(0.97); margin-top: 0px; }
+  to { transform: scale(1); margin-top: 4px; }
+`;
+
+const fadeInAnimation = css`
+  animation: ${opacityKeyframes} 250ms 0ms cubic-bezier(0.4, 0, 0.2, 1),
+    ${transformKeyframes} 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`;
 
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
@@ -35,7 +50,8 @@ const Menu = styled.div.attrs({
     min-height: 16px;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0, 1), transform 250ms cubic-bezier(0.4, 0, 0, 1),
+      margin-top 250ms cubic-bezier(0.4, 0, 0, 1);
     outline: 0;
     box-shadow: 0 2px 4px ${theme.palette[PColor.LightShadow]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
@@ -46,6 +62,8 @@ const Menu = styled.div.attrs({
     css`
       max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};
     `}
+    margin-top: 4px;
+    ${fadeInAnimation}
   `
 );
 
