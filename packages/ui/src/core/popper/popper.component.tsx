@@ -24,6 +24,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       zIndex = 1300,
       enableUnderlayingEvent,
       wrapperStyles = {},
+      ...rest
     }: PopperProps,
     ref
   ): JSX.Element => {
@@ -101,7 +102,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     const render = (): JSX.Element => (
       <Styled.PopperWrapper zIndex={zIndex} style={{ ...wrapperStyles }}>
         {overlay && renderOverlay()}
-        <Styled.Popper ref={handlePopperRef}>
+        <Styled.Popper ref={handlePopperRef} {...rest}>
           {children}
           {arrow && (
             <Styled.Arrow
