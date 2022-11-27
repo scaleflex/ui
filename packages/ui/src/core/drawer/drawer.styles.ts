@@ -82,7 +82,7 @@ const Drawer = styled.div.attrs({
     }
     box-sizing: border-box;
     width: ${isCollapsed ? '68px' : '250px'};
-    padding: ${isCollapsed && '12px'};
+    padding: ${isCollapsed && '0px 12px'};
     ${scrollBar}
   `
 );
@@ -210,7 +210,7 @@ const ItemButton = styled.div.attrs({
     border-radius: 4px;
     box-sizing: border-box;
     text-align: left;
-    padding: ${isCollapsed ? '12px' : '13px 16px'};
+    padding: ${isCollapsed ? '13px' : '13px 16px'};
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     margin-bottom: 8px;
     cursor: pointer;
