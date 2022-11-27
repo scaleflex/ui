@@ -120,12 +120,14 @@ const Footer = styled.div.attrs({
 
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
-})`
-  list-style: none;
-  margin: 0px;
-  padding: 8px 0px;
-  position: relative;
-`;
+})(
+  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+    list-style: none;
+    margin: 0px;
+    padding: ${isCollapsed ? '8px 0px ' : '8px 8px'};
+    position: relative;
+  `
+);
 
 const Item = styled.li.attrs({
   className: generateClassNames(baseClassName, 'item'),
