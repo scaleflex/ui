@@ -65,7 +65,7 @@ const Drawer = styled.div.attrs({
     flex-direction: column;
     flex: 1 0 auto;
     background-color: ${palette[PColor.BackgroundStateless]};
-    box-shadow: ${shadows[PShadows.LeftPanel]};
+    box-shadow: ${shadows[PShadows.LeftPanelMd]};
     overflow-y: overlay;
     overflow-x: hidden;
     transform: ${open ? 'none' : 'translateX(-100%)'};

@@ -10,8 +10,10 @@ export const shadows = {
   [Shadows.Header]: ' 0px 6px 10px 0px rgba(146, 166, 188, 0.2)',
   [Shadows.HeaderPopup]: ' 0px 3px 7px 0px rgba(146, 166, 188, 0.16)',
   [Shadows.FooterPopup]: ' 0px -4px 8px 0px rgba(208, 215, 220, 0.22)',
-  [Shadows.LeftPanel]: ' 6px 8px 12px 0px rgba(146, 166, 188, 0.14)',
-  [Shadows.RightPanel]: '-6px 8px 12px 0px rgba(146, 166, 188, 0.14)',
+  [Shadows.LeftPanelMd]: ' 6px 8px 12px 0px rgba(146, 166, 188, 0.14)',
+  [Shadows.RightPanelMd]: '-6px 8px 12px 0px rgba(146, 166, 188, 0.14)',
+  [Shadows.LeftPanelSm]: '6px -4px 12px 0px rgba(146, 166, 188, 0.14)',
+  [Shadows.RightPanelSm]: '-6px -4px 12px 0px rgba(146, 166, 188, 0.14)',
 };
 
 export const defaultShadows: ShadowsMap = shadows;
