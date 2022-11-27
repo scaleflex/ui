@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.12](https://github.com/scaleflex/ui/compare/2.0.0-beta.11...2.0.0-beta.12) (2022-11-27)
+
+
+### Bug Fixes
+
+* **Drawer:** update styles ([129ed6f](https://github.com/scaleflex/ui/commit/129ed6fec82b9e91c7bab2b4976879a5e4f7604c))
+
+
+### Features
+
+* **Theme:** update shadows ([9eef578](https://github.com/scaleflex/ui/commit/9eef5782448851979be28fb05d3e36eb773bc67f))
+
+
+
+
+
 # [2.0.0-beta.11](https://github.com/scaleflex/ui/compare/2.0.0-beta.10...2.0.0-beta.11) (2022-11-27)
 
 
