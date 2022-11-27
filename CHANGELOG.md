@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.11](https://github.com/scaleflex/ui/compare/2.0.0-beta.10...2.0.0-beta.11) (2022-11-27)
+
+
+### Bug Fixes
+
+* **PopupContent:** update popup styles ([c0d6982](https://github.com/scaleflex/ui/commit/c0d6982d822902e3591b2433452127f73041e466))
+* item alignment in different states ([8e2df3a](https://github.com/scaleflex/ui/commit/8e2df3a414b65611752ce3487672aee81399f52e))
+
+
+
+
+
 # [2.0.0-beta.10](https://github.com/scaleflex/ui/compare/2.0.0-beta.9...2.0.0-beta.10) (2022-11-26)
 
 
