@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.13](https://github.com/scaleflex/ui/compare/2.0.0-beta.12...2.0.0-beta.13) (2022-11-28)
+
+
+### Bug Fixes
+
+* drawer alignment ([78f1c01](https://github.com/scaleflex/ui/commit/78f1c018c880fb523db1ae0e0c2839320ee72ded))
+
+
+
+
+
 # [2.0.0-beta.12](https://github.com/scaleflex/ui/compare/2.0.0-beta.11...2.0.0-beta.12) (2022-11-27)
 
 
