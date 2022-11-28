@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.14](https://github.com/scaleflex/ui/compare/2.0.0-beta.13...2.0.0-beta.14) (2022-11-28)
+
+
+### Features
+
+* **Drawer:** add onCollapseClick prop ([dbeaa87](https://github.com/scaleflex/ui/commit/dbeaa873c7b879cbdca5d07e721bc2cf0b0d8540))
+
+
+
+
+
 # [2.0.0-beta.13](https://github.com/scaleflex/ui/compare/2.0.0-beta.12...2.0.0-beta.13) (2022-11-28)
 
 
