@@ -7,7 +7,6 @@ import ArrowSidebarRightOutline from '@scaleflex/icons/arrow-sidebar-right-outli
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { DrawerProps } from './drawer.props';
-import DrawerItemButton from './drawer-item-button.component';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
@@ -20,7 +19,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       children,
       open,
       iconsSize = 20,
-      collpased = false,
+      collapsed = false,
       top,
       hideBackdrop,
       disablePortal,
@@ -33,15 +32,15 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     },
     ref
   ): JSX.Element => {
-    const [isCollapsed, setIsCollapsed] = useState(collpased);
+    const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
     const target = document.querySelector('body')!;
 
     useEffect(() => {
-      setIsCollapsed(collpased);
-    }, [collpased]);
+      setIsCollapsed(collapsed);
+    }, [collapsed]);
 
     useEffect(() => {
       if (onCollapse) {
@@ -70,14 +69,14 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
         {children}
         {showCollapsedButton && (
-          <DrawerItemButton onClick={() => setIsCollapsed(!isCollapsed)}>
+          <Styled.CollapsedButton onClick={() => setIsCollapsed(!isCollapsed)} isCollapsed={isCollapsed}>
             <DrawerItemIcon>
               {isCollapsed
                 ? (props: IconProps) => <ArrowSidebarRightOutline {...props} size={iconsSize} />
                 : (props: IconProps) => <ArrowSidebarLeftOutline {...props} size={iconsSize} />}
             </DrawerItemIcon>
             <DrawerItemText>{collapseButtonLabel}</DrawerItemText>
-          </DrawerItemButton>
+          </Styled.CollapsedButton>
         )}
       </Styled.Drawer>
     );
@@ -145,7 +144,7 @@ export const propTypes = {
   iconsSize: PT.number,
   open: PT.bool,
   hideBackdrop: PT.bool,
-  collpased: PT.bool,
+  collapsed: PT.bool,
   disablePortal: PT.bool,
   collapseButtonLabel: PT.string,
   persistentDrawerStyles: PT.object,

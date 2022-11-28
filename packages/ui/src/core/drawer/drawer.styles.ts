@@ -112,11 +112,14 @@ const Body = styled.div.attrs({
 
 const Footer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'footer'),
-})`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
+})(
+  ({ isCollapsed }: { isCollapsed: boolean }) => css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: ${isCollapsed ? '0px' : '0px 8px'};
+  `
+);
 
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
@@ -233,6 +236,17 @@ const ItemButton = styled.div.attrs({
   `
 );
 
+const CollapsedButton = styled(ItemButton).attrs({
+  className: generateClassNames(baseClassName, 'item-button'),
+})(
+  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+    ${!isCollapsed &&
+    css`
+      padding: 13px 24px;
+    `}
+  `
+);
+
 const DrawerAccordion = styled(Accordion).attrs({
   className: generateClassNames(baseClassName, 'accordion'),
 })(
@@ -282,6 +296,7 @@ const Styled = applyDisplayNames({
   Icon,
   ItemText,
   DrawerAccordion,
+  CollapsedButton,
 });
 
 export default Styled;

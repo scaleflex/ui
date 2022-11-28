@@ -8,7 +8,7 @@ export type Fonttype = Values<typeof FontVariant>;
 export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   hideBackdrop?: boolean;
-  collpased?: boolean;
+  collapsed?: boolean;
   disablePortal?: boolean;
   top?: number;
   iconsSize?: number;

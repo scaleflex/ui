@@ -141,6 +141,7 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
       <Drawer
         {...args}
         open={isDrawerOpened}
+        collapsed={isCollapsed}
         onClose={() => setIsDrawerOpened(false)}
         onCollapse={onCollapse}
         style={{
