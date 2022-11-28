@@ -133,7 +133,7 @@ export const lightPalette = {
   [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
   [Color.MediumShadow]: 'rgba(146, 166, 188, 0.24)',
-  [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',
+  [Color.LargeShadow]: 'rgba(146, 166, 188, 0.32)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;

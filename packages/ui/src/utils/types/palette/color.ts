@@ -117,5 +117,5 @@ export const Color = {
 
   LightShadow: 'light-shadow',
   MediumShadow: 'medium-shadow',
-  HeavyShadow: 'heavy-shadow',
+  LargeShadow: 'large-shadow',
 } as const;
