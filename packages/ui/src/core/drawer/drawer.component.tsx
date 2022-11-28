@@ -28,6 +28,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       temproryDrawerStyles = {},
       onClose,
       onCollapse,
+      onCollapseClick,
       ...rest
     },
     ref
@@ -47,6 +48,14 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
         onCollapse(isCollapsed);
       }
     }, [isCollapsed]);
+
+    const handleCollapse = (): void => {
+      const newCollpaseState = !isCollapsed;
+      setIsCollapsed(newCollpaseState);
+      if (onCollapseClick) {
+        onCollapseClick(newCollpaseState);
+      }
+    };
 
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
@@ -69,7 +78,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
         {children}
         {showCollapsedButton && (
-          <Styled.CollapsedButton onClick={() => setIsCollapsed(!isCollapsed)} isCollapsed={isCollapsed}>
+          <Styled.CollapsedButton onClick={handleCollapse} isCollapsed={isCollapsed}>
             <DrawerItemIcon>
               {isCollapsed
                 ? (props: IconProps) => <ArrowSidebarRightOutline {...props} size={iconsSize} />
@@ -139,6 +148,7 @@ Drawer.defaultProps = defaultProps;
 export const propTypes = {
   onClose: PT.func.isRequired,
   onCollapse: PT.func,
+  onCollapseClick: PT.func,
   children: PT.node.isRequired,
   top: PT.number,
   iconsSize: PT.number,
