@@ -50,6 +50,16 @@ export const colorButtonMixin = {
       }
     }
 
+    &:focus {
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
+      border: 1px solid ${palette[PaletteColor.AccentPrimaryActive]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
+    }
+
     &:active {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
