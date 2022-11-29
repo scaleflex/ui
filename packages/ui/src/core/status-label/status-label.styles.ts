@@ -44,7 +44,7 @@ const StatusLabelWrapper = styled.div.attrs({
     justify-content: center;
     align-items: center;
     padding: 2px 8px;
-    background-color: ${theme.palette[PColor.Success]};
+    background-color: ${type === Type.Inactive ? theme.palette[PColor.IconsSecondary] : theme.palette[PColor.Success]};
     color: ${theme.palette[PColor.BackgroundSecondary]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     box-sizing: border-box;
@@ -61,6 +61,7 @@ const StatusLabelWrapper = styled.div.attrs({
 
     ${variant === Variant.Filled &&
     type !== Type.Default &&
+    type !== Type.Inactive &&
     css`
       background-color: ${theme.palette[PColor.BackgroundStateless]};
       color: ${theme.palette[PColor.TextSecondary]};
