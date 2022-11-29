@@ -7,7 +7,7 @@ import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
 import { sizeInputMixin, fontSizeInputMixin, errorMixin } from './input.mixin';
 import { InputSize } from '../../utils/types';
-import { getInputBackgroundColor, getInputTextColor } from './input.utils';
+import { getInputBackgroundColor, getInputTextColor, getInputBorderColor } from './input.utils';
 
 const baseClassName = 'Input';
 
@@ -96,8 +96,7 @@ const Input = styled.div.attrs({
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    border: 1px solid
-      ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
+    border: 1px solid ${getInputBorderColor(readOnly, disabled)};
 
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
