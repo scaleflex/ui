@@ -37,6 +37,7 @@ export const lightPalette = {
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
+  [Color.BackgroundGreenMedium]: 'rgba(227, 250, 239, 1)', // #E3FAEF
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
   [Color.BackgroundOrange]: 'rgba(255, 249, 242, 1)', // #FFF9F2

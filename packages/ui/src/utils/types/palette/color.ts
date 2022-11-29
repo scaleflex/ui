@@ -30,6 +30,7 @@ export const Color = {
   BackgroundSecondary: 'bg-secondary',
   BackgroundHover: 'bg-hover',
   BackgroundGreen: 'bg-green',
+  BackgroundGreenMedium: 'bg-green-medium',
   BackgroundBlue: 'bg-blue',
   BackgroundRed: 'bg-red',
   BackgroundOrange: 'bg-orange',
