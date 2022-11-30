@@ -16,8 +16,8 @@ const TableCellHeader = styled.th.attrs({
     display: table-cell;
     vertical-align: inherit;
     text-align: left;
-    padding: ${size === 'small' ? '6px 16px' : '14px'};
-    color: ${palette[PColor.TextPrimary]};
+    padding: ${size === 'small' ? '6px 16px' : '14px 16px'};
+    color: ${palette[PColor.TextSecondary]};
     text-align: ${align};
     flex-direction: ${align === 'right' ? 'row-reverse' : ''};
     padding: ${padding === 'options'
@@ -38,7 +38,8 @@ const TableCellData = styled.td.attrs({
     display: table-cell;
     vertical-align: inherit;
     text-align: left;
-    padding: ${size === 'small' ? '6px 16px' : '12px'};
+    height: 56px;
+    padding: ${size === 'small' ? '6px 16px' : '12px 16px'};
     color: ${palette[PColor.TextPrimary]};
     border-bottom: 1px solid ${palette[PColor.BordersSecondary]};
     text-align: ${align};
