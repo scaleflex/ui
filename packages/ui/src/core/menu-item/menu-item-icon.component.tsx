@@ -13,7 +13,7 @@ const getIconSize = (sizeName: MenuItemSizeType | undefined): number => {
 
     case Size.Sm:
     default:
-      return 12;
+      return 14;
   }
 };
 
@@ -27,9 +27,11 @@ const MenuItemIcon = intrinsicComponent<MenuItemIconProps, HTMLDivElement>(
 
 MenuItemIcon.defaultProps = {
   size: Size.Md,
+  info: false,
 };
 
 MenuItemIcon.propTypes = {
+  info: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   children: PT.oneOfType([PT.node, PT.func]).isRequired,
 };

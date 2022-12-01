@@ -4,7 +4,7 @@ import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 // import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-import type { MenuItemProps } from './menu-item.props';
+import type { MenuItemProps, MenuItemIconProps } from './menu-item.props';
 import { sizeMenuItemMixin } from './menu-item.mixin';
 import { Size } from './types';
 
@@ -13,20 +13,27 @@ const baseClassName = 'MenuItem';
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ info , theme: { palette } }: With<WithTheme, MenuItemIconProps>) => css`
     display: flex;
     flex-shrink: 0;
-    color: ${palette[PColor.IconsPrimary]};
+    margin-right: ${info ? 0 : 10}px;
+    color: ${info ? palette[PColor.IconsSecondary] : palette[PColor.IconsPrimary]};
   `
 );
 
 const Actions = styled(Icon).attrs({
   className: generateClassNames(baseClassName, 'Actions'),
-})(() => css``);
+})(() => css`
+  margin-right: 0px;
+  margin-left: 16px;
+`);
 
 const Label = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
   flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -69,7 +76,6 @@ const MenuItem = styled.div.attrs({
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     justify-content: space-between;
-    column-gap: 16px;
     flex-direction: row;
     align-items: center;
     width: 100%;

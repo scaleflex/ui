@@ -20,6 +20,7 @@ export type MenuItemListType = {
 };
 export interface MenuItemIconProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;
+  info?: boolean;
 }
 
 export type MenuItemActionsProps = MenuItemIconProps;
