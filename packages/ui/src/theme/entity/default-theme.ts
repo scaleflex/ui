@@ -124,29 +124,29 @@ const textFontVariants = {
 };
 
 const buttonFontVariants = {
-  [FontVariant.ButtonXsLink]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.ButtonXs]: {
+  [FontVariant.ButtonSm]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '12px',
     lineHeight: '14px',
   },
-  [FontVariant.ButtonXsUp]: {
+  [FontVariant.ButtonSmLink]: {
+    ...defaultFontValue,
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
+  [FontVariant.ButtonSmUp]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '13px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonSmLink]: {
+  [FontVariant.ButtonSmUpLink]: {
     ...defaultFontValue,
-    fontSize: '14px',
+    fontSize: '13px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonSm]: {
+  [FontVariant.ButtonMd]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '14px',
@@ -154,18 +154,28 @@ const buttonFontVariants = {
   },
   [FontVariant.ButtonMdLink]: {
     ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.ButtonMd]: {
-    ...defaultFontValue,
-    fontWeight: '500',
-    fontSize: '16px',
-    lineHeight: '18px',
+    fontSize: '14px',
+    lineHeight: '16px',
   },
   [FontVariant.ButtonLg]: {
     ...defaultFontValue,
     fontWeight: '500',
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
+  [FontVariant.ButtonLgLink]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
+  [FontVariant.ButtonLgUp]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '18px',
+    lineHeight: '20px',
+  },
+  [FontVariant.ButtonLgUpLink]: {
+    ...defaultFontValue,
     fontSize: '18px',
     lineHeight: '20px',
   },
