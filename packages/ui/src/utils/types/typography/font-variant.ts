@@ -37,6 +37,17 @@ export const FontVariant = {
   ButtonMd: 'btn-md',
   ButtonLg: 'btn-lg',
 
+  LinkSmall: 'link-small',
+  LinkSmallEmphasis: 'link-small-emphasis',
+  LinkSmallUp: 'link-small-up',
+  LinkSmallUpEmphasis: 'link-small-up-emphasis',
+  LinkMedium: 'link-medium',
+  LinkMediumEmphasis: 'link-medium-emphasis',
+  LinkLarge: 'link-large',
+  LinkLargeEmphasis: 'link-large-emphasis',
+  LinkLargeUp: 'link-large-up',
+  LinkLargeUpEmphasis: 'link-large-up-emphasis',
+
   InputSm: 'input-sm',
   InputSmUp: 'input-sm-up',
   InputMd: 'input-md',
