@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import PT from 'prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
@@ -35,6 +35,8 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   ): JSX.Element => {
     const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
+    const temproryDrawerRef = useRef();
+
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
     const target = document.querySelector('body')!;
@@ -63,16 +65,19 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       }
     };
 
+    const keyListener = (ev: KeyboardEvent): void => {
+      const isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+
+      if (ev.key === 'Escape' && isTemporaryDrawer) {
+        handleClose();
+      }
+    };
+
     useEffect(() => {
-      const keyListener = (ev: KeyboardEvent): void => {
-        if (ev.key === 'Escape') {
-          handleClose();
-        }
-      };
       document.addEventListener('keydown', keyListener);
 
       return () => document.removeEventListener('keydown', keyListener);
-    });
+    }, []);
 
     const renderDrawer = (showCollapsedButton: boolean): JSX.Element => (
       <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
@@ -94,13 +99,13 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const temproryDrawer = (): JSX.Element =>
       disablePortal ? (
-        <Styled.TemproryDrawer style={{ ...temproryDrawerStyles }} open={open}>
+        <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
         </Styled.TemproryDrawer>
       ) : (
         createPortal(
-          <Styled.TemproryDrawer style={{ ...temproryDrawerStyles }} open={open}>
+          <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
             {renderBackdrop()}
             {renderDrawer(false)}
           </Styled.TemproryDrawer>,
