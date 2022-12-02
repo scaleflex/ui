@@ -1,13 +1,15 @@
 import { css } from 'styled-components';
 
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import StyledBadge from '../badge/badge.styles';
+import type { ButtonProps } from './button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import { ButtonSize, ButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
-  [ButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Primary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: ${palette[PaletteColor.AccentStateless]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
@@ -24,6 +26,11 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.Accent_1_2_Opacity]};
@@ -36,7 +43,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Secondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.AccentStateless]};
     border: 1px solid ${palette[PaletteColor.AccentStateless]};
@@ -69,6 +76,16 @@ export const colorButtonMixin = {
       }
     }
 
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
+    `}
+
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.Accent_1_2_Opacity]};
@@ -86,7 +103,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.Basic]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: transparent;
     border: 1px solid ${palette[PaletteColor.BordersButton]};
     color: ${palette[PaletteColor.LinkStateless]};
@@ -114,6 +131,16 @@ export const colorButtonMixin = {
       }
     }
 
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.BackgroundActive]};
+      color: ${palette[PaletteColor.LinkHover]};
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.LinkHover]};
+      }
+    `}
+
     &:disabled {
       background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
       color: ${palette[PaletteColor.BordersDisabled]};
@@ -126,7 +153,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.LinkPrimary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.AccentStateless]};
     background-color: transparent;
     padding: 0px !important;
@@ -140,6 +167,11 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       background-color: transparent;
       color: ${palette[PaletteColor.BordersDisabled]};
@@ -147,7 +179,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.LinkSecondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkSecondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
     padding: 0px !important;
@@ -160,6 +192,11 @@ export const colorButtonMixin = {
     &:active {
       color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
+
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
 
     &:disabled {
       background-color: transparent;
@@ -169,7 +206,7 @@ export const colorButtonMixin = {
   `,
 
   // eslint-disable-next-line sonarjs/no-identical-functions
-  [ButtonColor.LinkBasicPrimary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkBasicPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.AccentStateless]};
     background-color: transparent;
     padding: 0px !important;
@@ -183,6 +220,11 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       background-color: transparent;
       color: ${palette[PaletteColor.BordersDisabled]};
@@ -190,7 +232,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.LinkBasicSecondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.LinkBasicSecondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
     padding: 0px !important;
@@ -204,6 +246,11 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       background-color: transparent;
       color: ${palette[PaletteColor.BordersDisabled]};
@@ -211,7 +258,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.WarningPrimary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.WarningPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: ${palette[PaletteColor.Error]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
 
@@ -228,6 +275,11 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.ErrorActive]};
     }
 
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.ErrorActive]};
+    `}
+
     &:disabled {
       background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
       color: ${palette[PaletteColor.BordersDisabled]};
@@ -240,7 +292,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.WarningSecondary]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.WarningSecondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.LinkStateless]};
     border: 1px solid ${palette[PaletteColor.BordersButton]};
@@ -266,6 +318,13 @@ export const colorButtonMixin = {
       border: none;
     }
 
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.ErrorActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
+    `}
+
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.Accent_1_2_Opacity]};
@@ -278,7 +337,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [ButtonColor.WarningBasic]: ({ theme: { palette } }: WithTheme) => css`
+  [ButtonColor.WarningBasic]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.LinkStateless]};
     background-color: transparent;
 
@@ -289,6 +348,11 @@ export const colorButtonMixin = {
     &:active {
       color: ${palette[PaletteColor.ErrorActive]};
     }
+
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.ErrorActive]};
+    `}
 
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
