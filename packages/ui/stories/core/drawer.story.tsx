@@ -122,7 +122,7 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
   };
 
   return (
-    <>
+    <div>
       <StyledHeader>
         <IconButton
           style={{
@@ -199,7 +199,7 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
           </DrawerItemButton>
         </DrawerFooter>
       </Drawer>
-    </>
+    </div>
   );
 };
 
