@@ -35,7 +35,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   ): JSX.Element => {
     const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
-    const temproryDrawerRef = useRef();
+    const temproryDrawerRef = useRef<HTMLDivElement>(null);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
@@ -66,7 +66,10 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     };
 
     const keyListener = (ev: KeyboardEvent): void => {
-      const isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+      let isTemporaryDrawer = false;
+      if (temproryDrawerRef?.current) {
+        isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+      }
 
       if (ev.key === 'Escape' && isTemporaryDrawer) {
         handleClose();
