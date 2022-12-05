@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.15](https://github.com/scaleflex/ui/compare/2.0.0-beta.14...2.0.0-beta.15) (2022-12-05)
+
+
+### Bug Fixes
+
+* **Drawer:** typescript error ([f0e1d33](https://github.com/scaleflex/ui/commit/f0e1d337f890d1d127bed49485bc95d6dd23ae44))
+
+
+
+
+
 # [2.0.0-beta.14](https://github.com/scaleflex/ui/compare/2.0.0-beta.13...2.0.0-beta.14) (2022-11-28)
 
 
