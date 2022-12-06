@@ -9,7 +9,7 @@ import Styled from './textarea.styles';
 import { handleCopyIcon } from '../input/input.utils';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
-  ({ fullWidth, size, value, readOnly, disabled, error, ...rest }: TextareaProps, ref): JSX.Element => {
+  ({ fullWidth, size, value, readOnly, disabled, error, cols, rows, ...rest }: TextareaProps, ref): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
 
     const handleEntering = (): void => {
@@ -34,7 +34,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         disabled={disabled}
         fullWidth={Boolean(fullWidth)}
         error={error}
-        autoSize={Boolean(rest?.cols) || Boolean(rest?.rows)}
+        autoSize={Boolean(cols) || Boolean(rows)}
       >
         <Styled.Base {...rest} value={value} ref={ref} readOnly={readOnly} disabled={disabled} />
         {isHovering && readOnly ? (
@@ -62,6 +62,8 @@ export const propTypes = {
   fullWidth: PT.bool,
   value: PT.any,
   size: PT.oneOf(objectValues(InputSize)),
+  cols: PT.number,
+  rows: PT.number,
 };
 
 Textarea.propTypes = propTypes;

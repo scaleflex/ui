@@ -39,6 +39,13 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       handleOpenMenu(ev);
     };
 
+    const handleCloseSubMenu = (depthLevel: number) => {
+      const updatedArray = selectedIds.slice(0);
+      updatedArray[depthLevel] = '';
+      setSelectedIds(updatedArray);
+      setAnchorEl(null);
+    };
+
     const renderItems = (options: MenuItemListType[], depthLevel = 0): JSX.Element[] => {
       return options.map((option: MenuItemListType) => {
         const hasOptions = option.subList && option.subList.length > 0;
@@ -54,7 +61,6 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               open={Boolean(anchorEl)}
               anchorEl={anchorEl}
               enableOverlay={false}
-              applyTransition={false}
               {...option.subMenuProps}
             >
               {/* {renderItems(option.subList, newDepthLevel)} */}
@@ -66,7 +72,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           return <Styled.MenuItemWrapper divider key={option.key} />;
         }
         return (
-          <Styled.MenuItemWrapper disabled={false} key={option.key}>
+          <Styled.MenuItemWrapper disabled={false} key={option.key} onMouseLeave={() => handleCloseSubMenu(depthLevel)}>
             <Styled.MenuItem
               {...props}
               className={option.className}

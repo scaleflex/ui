@@ -7,6 +7,8 @@ export const Shadows = {
   Header: 'header',
   HeaderPopup: 'header-popup',
   FooterPopup: 'footer-popup',
-  LeftPanel: 'left-panel',
-  RightPanel: 'right-panel',
+  LeftPanelMd: 'left-panel-md',
+  RightPanelMd: 'right-panel-md',
+  LeftPanelSm: 'left-panel-sm',
+  RightPanelSm: 'right-panel-sm',
 } as const;
