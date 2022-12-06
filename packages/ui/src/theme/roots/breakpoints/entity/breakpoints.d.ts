@@ -29,6 +29,10 @@ export interface Breakpoints {
    *    lg:'.sfx-breakpoint-lg',
    *    // extra-large
    *    xl: '.sfx-breakpoint-xl',
+   *    // extra-extra-large
+   *    xxl: '.sfx-breakpoint-xxl',
+   *    // extra-extra-extra-large
+   *    xxxl: '.sfx-breakpoint-xxxl',
    * }
    */
   classes: { [key in Breakpoint]: BreakpointClass };
