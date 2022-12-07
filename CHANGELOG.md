@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.16](https://github.com/scaleflex/ui/compare/2.0.0-beta.15...2.0.0-beta.16) (2022-12-07)
+
+
+### Features
+
+* **theme:** add new breakpoints ([9ebf055](https://github.com/scaleflex/ui/commit/9ebf055ae89e0962cad433029fddf762bd8b3fd4))
+* implement new table styles - T11897 ([43b90ac](https://github.com/scaleflex/ui/commit/43b90ac4690170ea16826b3656dc9883542ec411))
+
+
+
+
+
 # [2.0.0-beta.15](https://github.com/scaleflex/ui/compare/2.0.0-beta.14...2.0.0-beta.15) (2022-12-05)
 
 
