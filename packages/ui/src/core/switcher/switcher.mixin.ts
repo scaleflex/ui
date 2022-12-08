@@ -15,6 +15,12 @@ export const fontSizeSwitcherMixin = {
       typography: { font },
     },
   }: WithTheme) => font[FV.LabelLarge],
+
+  [SwitcherSize.Lg]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => font[FV.LabelLarge],
 };
 
 export const translateSwitcherMixin = {
@@ -25,6 +31,10 @@ export const translateSwitcherMixin = {
   [SwitcherSize.Md]: css`
     transform: translate(19.5px, -50%);
   `,
+
+  [SwitcherSize.Lg]: css`
+    transform: translate(30.5px, -50%);
+  `,
 };
 
 export const translateInnerSwitcherMixin = {
@@ -34,6 +44,10 @@ export const translateInnerSwitcherMixin = {
 
   [SwitcherSize.Md]: css`
     transform: translate(22.5px, -50%);
+  `,
+
+  [SwitcherSize.Lg]: css`
+    transform: translate(34.7px, -50%);
   `,
 };
 
@@ -46,5 +60,10 @@ export const sizeInnerSwitcherMixin = {
   [SwitcherSize.Md]: css`
     width: 6px;
     height: 6px;
+  `,
+
+  [SwitcherSize.Lg]: css`
+    width: 8px;
+    height: 8px;
   `,
 };

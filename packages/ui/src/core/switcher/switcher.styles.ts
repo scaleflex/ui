@@ -37,7 +37,7 @@ const Switcher = styled.div.attrs({
       height: ${getSwitcherIconSize(size)}px;
       border-radius: 35px;
       top: 50%;
-      left: 2px;
+      left: ${size === SwitcherSize.Lg ? '3' : '2'}px;
       transition: transform 0.3s ease 0s, opacity 0.5s ease 0s;
       background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.IconsMuted]};
       transform: translate(0, -50%);
@@ -49,7 +49,7 @@ const Switcher = styled.div.attrs({
       ${sizeInnerSwitcherMixin[size]}
       border-radius: 20px;
       top: 50%;
-      left: 3.9px;
+      left: ${size === SwitcherSize.Lg ? '6.9' : '3.9'}px;
       background: ${palette[PColor.IconsInvert]};
       transform: translate(50%, -50%);
       transition: transform 0.3s ease 0s, opacity 0.3s ease 0s;
