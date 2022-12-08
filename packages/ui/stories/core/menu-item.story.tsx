@@ -3,7 +3,6 @@ import type { Meta, Story } from '@storybook/react';
 import {
   Country,
   Download,
-  InfoOutline
 } from '@scaleflex/icons'
 import _MenuItem, { MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions } from '../../src/core/menu-item';
 import { Size } from '../../src/core/menu-item/types';
@@ -49,21 +48,6 @@ const WithIconTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
 // WithIcon
 export const WithIcon = WithIconTemplate.bind({});
 WithIcon.args = { ...defaultArgs };
-
-const WithInfoTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
-  <MenuItem {...args}>
-    <MenuItemLabel>
-    {children}
-    <MenuItemIcon info>
-      <InfoOutline size={args.size === 'md' ? 16 : 14} />
-    </MenuItemIcon>
-    </MenuItemLabel>
-  </MenuItem>
-);
-
-// WithInfo
-export const WithInfo = WithInfoTemplate.bind({});
-WithInfo.args = { ...defaultArgs };
 
 const WithIconAndActionsTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
   <MenuItem {...args}>
