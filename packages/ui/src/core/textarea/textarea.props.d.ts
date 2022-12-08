@@ -13,4 +13,6 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   readOnly?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  cols?: number;
+  rows?: number;
 }

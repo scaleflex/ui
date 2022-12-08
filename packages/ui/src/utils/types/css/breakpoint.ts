@@ -4,6 +4,8 @@ export const Breakpoint = {
   Md: 'md',
   Lg: 'lg',
   Xl: 'xl',
+  Xxl: 'xxl',
+  Xxxl: 'xxxl',
 } as const;
 
 export const BreakpointClass = {
@@ -12,4 +14,6 @@ export const BreakpointClass = {
   Md: '.sfx-breakpoint-md',
   Lg: '.sfx-breakpoint-lg',
   Xl: '.sfx-breakpoint-xl',
+  Xxl: '.sfx-breakpoint-xxl',
+  Xxxl: '.sfx-breakpoint-xxxl',
 };

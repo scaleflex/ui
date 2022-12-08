@@ -9,10 +9,13 @@ The breakpoints are used internally in various components to make them responsiv
 Each breakpoint (a key) matches with a _fixed_ screen width (a value):
 
 - **xs,** extra-small: 0px
-- **sm,** small: 768px
-- **md,** medium: 1201px
-- **lg,** large: 1921px
-- **xl,** extra-large: 2560px
+- **sm,** small: 577px
+- **md,** medium: 769px
+- **lg,** large: 1085px
+- **xl,** extra-large: 1343px
+- **xxl,** extra-extra-large: 1601px
+- **xxxl,** extra-extra-extra-large: 1921px
+
 
 ## CSS Media Queries
 
@@ -61,6 +64,8 @@ Each breakpoint (a key) matches with a class:
 - **md,** medium: '.sfx-breakpoint-md'
 - **lg,** large: '.sfx-breakpoint-lg'
 - **xl,** extra-large: '.sfx-breakpoint-xl'
+- **xxl,** extra-extra-large: '.sfx-breakpoint-xxl'
+- **xxxl,** extra-extra-extra-large: '.sfx-breakpoint-xxxl'
 
 **Note**: This classes will override media queries breakpoints.
 
@@ -82,6 +87,8 @@ const theme = {
       md: 900,
       lg: 1200,
       xl: 1536,
+      xxl: 1920,
+      xxxl: 2560,
     },
     clasess: {
       xs: '.sfx-breakpoint-xs',
@@ -89,6 +96,8 @@ const theme = {
       md: '.sfx-breakpoint-md',
       lg: '.sfx-breakpoint-lg',
       xl: '.sfx-breakpoint-xl',
+      xxl: '.sfx-breakpoint-xxl',
+      xxxl: '.sfx-breakpoint-xxxl',
     },
   },
 };

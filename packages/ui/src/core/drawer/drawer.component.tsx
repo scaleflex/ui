@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import PT from 'prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
@@ -7,7 +7,6 @@ import ArrowSidebarRightOutline from '@scaleflex/icons/arrow-sidebar-right-outli
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { DrawerProps } from './drawer.props';
-import DrawerItemButton from './drawer-item-button.component';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
@@ -16,18 +15,35 @@ import Styled from './drawer.styles';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   (
-    { children, open, iconsSize = 20, collpased = false, top, hideBackdrop, onClose, onCollapse, ...rest },
+    {
+      children,
+      open,
+      iconsSize = 20,
+      collapsed = false,
+      top,
+      hideBackdrop,
+      disablePortal,
+      collapseButtonLabel = 'Collapse menu',
+      persistentDrawerStyles = {},
+      temproryDrawerStyles = {},
+      onClose,
+      onCollapse,
+      onCollapseClick,
+      ...rest
+    },
     ref
   ): JSX.Element => {
-    const [isCollapsed, setIsCollapsed] = useState(collpased);
+    const [isCollapsed, setIsCollapsed] = useState(collapsed);
+
+    const temproryDrawerRef = useRef<HTMLDivElement>(null);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
     const target = document.querySelector('body')!;
 
     useEffect(() => {
-      setIsCollapsed(collpased);
-    }, [collpased]);
+      setIsCollapsed(collapsed);
+    }, [collapsed]);
 
     useEffect(() => {
       if (onCollapse) {
@@ -35,35 +51,49 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       }
     }, [isCollapsed]);
 
+    const handleCollapse = (): void => {
+      const newCollpaseState = !isCollapsed;
+      setIsCollapsed(newCollpaseState);
+      if (onCollapseClick) {
+        onCollapseClick(newCollpaseState);
+      }
+    };
+
     const handleClose = (): void => {
       if (typeof onClose === 'function') {
         onClose();
       }
     };
 
+    const keyListener = (ev: KeyboardEvent): void => {
+      let isTemporaryDrawer = false;
+      if (temproryDrawerRef?.current) {
+        isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+      }
+
+      if (ev.key === 'Escape' && isTemporaryDrawer) {
+        handleClose();
+      }
+    };
+
     useEffect(() => {
-      const keyListener = (ev: KeyboardEvent): void => {
-        if (ev.key === 'Escape') {
-          handleClose();
-        }
-      };
       document.addEventListener('keydown', keyListener);
 
       return () => document.removeEventListener('keydown', keyListener);
-    });
+    }, []);
 
     const renderDrawer = (showCollapsedButton: boolean): JSX.Element => (
       <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
         {children}
         {showCollapsedButton && (
-          <DrawerItemButton onClick={() => setIsCollapsed(!isCollapsed)}>
+          <Styled.CollapsedButton onClick={handleCollapse} isCollapsed={isCollapsed}>
             <DrawerItemIcon>
               {isCollapsed
                 ? (props: IconProps) => <ArrowSidebarRightOutline {...props} size={iconsSize} />
                 : (props: IconProps) => <ArrowSidebarLeftOutline {...props} size={iconsSize} />}
             </DrawerItemIcon>
-            <DrawerItemText>Collapse menu</DrawerItemText>
-          </DrawerItemButton>
+            <DrawerItemText>{collapseButtonLabel}</DrawerItemText>
+          </Styled.CollapsedButton>
         )}
       </Styled.Drawer>
     );
@@ -71,15 +101,24 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     const renderBackdrop = (): JSX.Element | null => (!hideBackdrop && open ? <Backdrop onClick={onClose} /> : null);
 
     const temproryDrawer = (): JSX.Element =>
-      createPortal(
-        <Styled.TemproryDrawer open={open}>
+      disablePortal ? (
+        <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
-        </Styled.TemproryDrawer>,
-        target
+        </Styled.TemproryDrawer>
+      ) : (
+        createPortal(
+          <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+            {renderBackdrop()}
+            {renderDrawer(false)}
+          </Styled.TemproryDrawer>,
+          target
+        )
       );
 
-    const persistentDrawer = (): JSX.Element => <Styled.PersistentDrawer>{renderDrawer(true)}</Styled.PersistentDrawer>;
+    const persistentDrawer = (): JSX.Element => (
+      <Styled.PersistentDrawer style={{ ...persistentDrawerStyles }}>{renderDrawer(true)}</Styled.PersistentDrawer>
+    );
 
     // using two conontex provider is a temprory fix until we support javascript media query
     // to be able to hide/show depening on the breakpoint
@@ -117,12 +156,17 @@ Drawer.defaultProps = defaultProps;
 export const propTypes = {
   onClose: PT.func.isRequired,
   onCollapse: PT.func,
+  onCollapseClick: PT.func,
   children: PT.node.isRequired,
   top: PT.number,
   iconsSize: PT.number,
   open: PT.bool,
   hideBackdrop: PT.bool,
-  collpased: PT.bool,
+  collapsed: PT.bool,
+  disablePortal: PT.bool,
+  collapseButtonLabel: PT.string,
+  persistentDrawerStyles: PT.object,
+  temproryDrawerStyles: PT.object,
 };
 
 Drawer.propTypes = propTypes;

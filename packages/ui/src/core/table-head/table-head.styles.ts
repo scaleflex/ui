@@ -8,9 +8,10 @@ const baseClassName = 'TableHead';
 const TableHead = styled.thead.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme }: WithTheme) => css`
+  ({ theme: { palette } }: WithTheme) => css`
     display: table-header-group;
-    background-color: ${theme.palette[PColor.BackgroundPrimary]};
+    height: 48px;
+    border-bottom: 1px solid ${palette[PColor.BordersSecondary]};
   `
 );
 

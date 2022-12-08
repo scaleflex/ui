@@ -8,11 +8,16 @@ export type Fonttype = Values<typeof FontVariant>;
 export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   hideBackdrop?: boolean;
-  collpased?: boolean;
+  collapsed?: boolean;
+  disablePortal?: boolean;
   top?: number;
   iconsSize?: number;
+  collapseButtonLabel?: string;
+  persistentDrawerStyles?: object;
+  temproryDrawerStyles?: object;
   onClose?: () => void;
   onCollapse?: (collapseState: boolean) => void;
+  onCollapseClick?: (collapseState: boolean) => void;
 }
 
 export interface DrawerItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLLIElement> {

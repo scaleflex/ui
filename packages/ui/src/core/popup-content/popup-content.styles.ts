@@ -35,7 +35,7 @@ const Label = styled.span.attrs({
     align-items: center;
     color: ${palette[PColor.TextPrimary]};
 
-    ${font[FontVariant.LabelSmall]}
+    ${font[FontVariant.LabelSmallUpEmphasis]}
   `
 );
 

@@ -12,7 +12,6 @@ import AccordionDetailsStyled from '../accordion-details/accordion-details.style
 import { DrawerProps, Fonttype } from './drawer.props';
 
 const baseClassName = 'Drawer';
-const scrollBarWidth = 12;
 
 const TemproryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
@@ -25,7 +24,7 @@ const TemproryDrawer = styled.div.attrs({
     ${breakpoints.classes.sm} & {
       display: block;
     }
-    position: fixed;
+    position: absolute;
     inset: 0px;
     z-index: 1200;
     visibility: ${!open && 'hidden'};
@@ -65,18 +64,14 @@ const Drawer = styled.div.attrs({
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
-    position: fixed;
-    top: 0px;
-    left: 0px;
     background-color: ${palette[PColor.BackgroundStateless]};
-    box-shadow: ${shadows[PShadows.LeftPanel]};
-    overflow-y: scroll;
+    box-shadow: ${shadows[PShadows.LeftPanelMd]};
+    overflow-y: overlay;
     overflow-x: hidden;
     transform: ${open ? 'none' : 'translateX(-100%)'};
     visibility: ${!open && 'hidden'};
     transition: 200ms;
     height: calc(100% - ${top}px);
-    margin-top: ${top}px;
     ${breakpoints.down('md')} {
       margin-top: 0px;
       height: 100%;
@@ -85,10 +80,9 @@ const Drawer = styled.div.attrs({
       margin-top: 0px;
       height: 100%;
     }
-    z-index: 1200;
     box-sizing: border-box;
-    width: ${isCollapsed ? `${68 + scrollBarWidth}px` : `${250 + scrollBarWidth}px`};
-    padding: ${isCollapsed && '12px'};
+    width: ${isCollapsed ? '68px' : '250px'};
+    padding: ${isCollapsed && '0px 12px'};
     ${scrollBar}
   `
 );
@@ -118,20 +112,25 @@ const Body = styled.div.attrs({
 
 const Footer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'footer'),
-})`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
+})(
+  ({ isCollapsed }: { isCollapsed: boolean }) => css`
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: ${isCollapsed ? '0px' : '0px 8px'};
+  `
+);
 
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
-})`
-  list-style: none;
-  margin: 0px;
-  padding: 8px 0px;
-  position: relative;
-`;
+})(
+  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+    list-style: none;
+    margin: 0px;
+    padding: ${isCollapsed ? '8px 0px ' : '8px 8px'};
+    position: relative;
+  `
+);
 
 const Item = styled.li.attrs({
   className: generateClassNames(baseClassName, 'item'),
@@ -216,7 +215,7 @@ const ItemButton = styled.div.attrs({
     border-radius: 4px;
     box-sizing: border-box;
     text-align: left;
-    padding: ${isCollapsed ? '12px' : '13px 16px'};
+    padding: ${isCollapsed ? '13px' : '13px 16px'};
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     margin-bottom: 8px;
     cursor: pointer;
@@ -233,6 +232,17 @@ const ItemButton = styled.div.attrs({
       & > * {
         color: ${palette[PColor.AccentStateless]};
       }
+    `}
+  `
+);
+
+const CollapsedButton = styled(ItemButton).attrs({
+  className: generateClassNames(baseClassName, 'item-button'),
+})(
+  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+    ${!isCollapsed &&
+    css`
+      padding: 13px 24px;
     `}
   `
 );
@@ -286,6 +296,7 @@ const Styled = applyDisplayNames({
   Icon,
   ItemText,
   DrawerAccordion,
+  CollapsedButton,
 });
 
 export default Styled;

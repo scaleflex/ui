@@ -15,9 +15,9 @@ const TableRow = styled.tr.attrs({
     display: table-row;
     vertical-align: middle;
     outline: 0;
-    background-color: ${selected ? `${palette[PColor.BackgroundPrimaryHover]}` : ''};
+    background-color: ${selected ? `${palette[PColor.BackgroundActive]}` : ''};
     &:hover {
-      background-color: ${hover ? `${palette[PColor.BackgroundPrimaryHover]}` : ''};
+      background-color: ${hover ? `${palette[PColor.BackgroundHover]}` : ''};
     }
   `
 );

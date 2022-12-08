@@ -3,6 +3,56 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
+
+
+### Features
+
+* **Icon:** add new icon ([9212a33](https://github.com/scaleflex/ui/commit/9212a3321e7d7c88c373061352dbab215c7337c6))
+
+
+
+
+
+# [2.0.0-beta.17](https://github.com/scaleflex/ui/compare/2.0.0-beta.16...2.0.0-beta.17) (2022-12-07)
+
+
+### Features
+
+* **Icon:** add new icon ([012ef79](https://github.com/scaleflex/ui/commit/012ef79508065f6c28a6da17e247da06f1d37d90))
+
+
+
+
+
+# [2.0.0-beta.16](https://github.com/scaleflex/ui/compare/2.0.0-beta.15...2.0.0-beta.16) (2022-12-07)
+
+**Note:** Version bump only for package @scaleflex/icons
+
+
+
+
+
+# [2.0.0-beta.13](https://github.com/scaleflex/ui/compare/2.0.0-beta.12...2.0.0-beta.13) (2022-11-28)
+
+**Note:** Version bump only for package @scaleflex/icons
+
+
+
+
+
+# [2.0.0-beta.9](https://github.com/scaleflex/ui/compare/2.0.0-beta.8...2.0.0-beta.9) (2022-11-23)
+
+
+### Features
+
+* add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
+* add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
+
+
+
+
+
 # [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
 
 
