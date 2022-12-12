@@ -64,3 +64,4 @@ export { default as CrossButton } from './cross-button';
 export { default as Divider } from './divider';
 export { default as Backdrop } from './backdrop';
 export { default as Drawer } from './drawer';
+export { default as GalleryButton } from './gallery-button';
