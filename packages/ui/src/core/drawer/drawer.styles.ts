@@ -18,10 +18,19 @@ const TemproryDrawer = styled.div.attrs({
 })(
   ({ open, theme: { breakpoints } }: With<WithTheme, DrawerProps>) => css`
     display: none;
-    ${breakpoints.down('md')} {
+    ${breakpoints.down('xl')} {
+      display: block;
+    }
+    ${breakpoints.classes.lg} & {
+      display: block;
+    }
+    ${breakpoints.classes.md} & {
       display: block;
     }
     ${breakpoints.classes.sm} & {
+      display: block;
+    }
+    ${breakpoints.classes.xs} & {
       display: block;
     }
     position: absolute;
@@ -36,10 +45,19 @@ const PersistentDrawer = styled.div.attrs({
 })(
   ({ theme: { breakpoints } }: WithTheme) => css`
     display: block;
-    ${breakpoints.down('md')} {
+    ${breakpoints.down('xl')} {
+      display: none;
+    }
+    ${breakpoints.classes.lg} & {
+      display: none;
+    }
+    ${breakpoints.classes.md} & {
       display: none;
     }
     ${breakpoints.classes.sm} & {
+      display: none;
+    }
+    ${breakpoints.classes.xs} & {
       display: none;
     }
   `
