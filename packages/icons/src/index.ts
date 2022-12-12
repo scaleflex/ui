@@ -370,3 +370,4 @@ export { Annotation } from './annotation';
 export { NoPins } from './no-pins';
 export { NoAssets } from './no-assets';
 export { Slash } from './slash';
+export { Activity } from './activity';
