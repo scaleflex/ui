@@ -14,13 +14,13 @@ export const fontSizeSwitcherMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelLarge],
+  }: WithTheme) => font[FV.InputLg],
 
   [SwitcherSize.Lg]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => font[FV.LabelLarge],
+  }: WithTheme) => font[FV.InputLg],
 };
 
 export const translateSwitcherMixin = {
