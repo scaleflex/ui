@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.19](https://github.com/scaleflex/ui/compare/2.0.0-beta.18...2.0.0-beta.19) (2022-12-12)
+
+
+### Features
+
+* **Drawer:** update drawer breakpoint T11890 ([a6269eb](https://github.com/scaleflex/ui/commit/a6269eb1ab592d17fbe5bbc2b62a4485a77ab764))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
 
 
