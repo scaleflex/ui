@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
 import { errorMixin, sizeTextAreaMixin } from './textarea.mixin';
-import { getInputBackgroundColor, getInputTextColor } from '../input/input.utils';
+import { getInputBackgroundColor, getInputTextColor, getInputBorderColor } from '../input/input.utils';
 
 const baseClassName = 'Textarea';
 
@@ -34,8 +34,7 @@ const Textarea = styled.div.attrs({
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    border: 1px solid
-      ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
+    border: 1px solid ${getInputBorderColor(readOnly, disabled)};
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeTextAreaMixin[size]}

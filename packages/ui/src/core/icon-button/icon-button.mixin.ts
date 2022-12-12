@@ -1,11 +1,13 @@
 import { css } from 'styled-components';
 
+import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
+import type { IconButtonProps } from './icon-button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, IconButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
-  [IconButtonColor.Primary]: ({ theme: { palette } }: WithTheme) => css`
+  [IconButtonColor.Primary]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
     background-color: ${palette[PaletteColor.AccentStateless]};
     color: ${palette[PaletteColor.IconsInvert]};
 
@@ -21,6 +23,11 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.Accent_1_2_Opacity]};
@@ -28,7 +35,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [IconButtonColor.Secondary]: ({ theme: { palette } }: WithTheme) => css`
+  [IconButtonColor.Secondary]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
     background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.AccentStateless]};
     border: 1px solid ${palette[PaletteColor.AccentStateless]};
@@ -49,6 +56,12 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
     }
 
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.IconsInvert]};
+      background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+    `}
+
     &:disabled {
       color: ${palette[PaletteColor.BordersDisabled]};
       background: ${palette[PaletteColor.Accent_1_2_Opacity]};
@@ -57,7 +70,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [IconButtonColor.Basic]: ({ theme: { palette } }: WithTheme) => css`
+  [IconButtonColor.Basic]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
     background-color: transparent;
     color: ${palette[PaletteColor.IconsPrimary]};
     border: none;
@@ -76,6 +89,12 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.BackgroundActive]};
       color: ${palette[PaletteColor.LinkActive]};
     }
+
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.BackgroundActive]};
+      color: ${palette[PaletteColor.LinkActive]};
+    `}
 
     &:disabled {
       background-color: transparent;

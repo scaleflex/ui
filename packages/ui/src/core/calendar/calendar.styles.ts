@@ -36,7 +36,7 @@ const Calendar = styled.div.attrs({
     width: 224px;
     top: 4px;
     background: ${palette[PColor.BackgroundStateless]};
-    box-shadow: 0px 1px 4px ${palette[PColor.MediumShadow]};
+    box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
     border-radius: 2px;
     overflow: hidden;
     padding: 14px 12px 12px 12px;

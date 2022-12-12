@@ -21,6 +21,18 @@ export const getInputTextColor = (readOnly?: boolean, disabled?: boolean): strin
   return lightPalette[Color.TextPrimary];
 };
 
+export const getInputBorderColor = (readOnly?: boolean, disabled?: boolean): string | undefined => {
+  if (readOnly) {
+    return lightPalette[Color.BordersItem];
+  }
+
+  if (disabled) {
+    return lightPalette[Color.BordersSecondary];
+  }
+
+  return lightPalette[Color.BorderPrimaryStateless];
+};
+
 export const handleCopyIcon = (value: string): void => {
   navigator.clipboard.writeText(value);
 };

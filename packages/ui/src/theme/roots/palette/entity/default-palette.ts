@@ -37,6 +37,7 @@ export const lightPalette = {
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
+  [Color.BackgroundGreenMedium]: 'rgba(227, 250, 239, 1)', // #E3FAEF
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
   [Color.BackgroundOrange]: 'rgba(255, 249, 242, 1)', // #FFF9F2
@@ -133,7 +134,7 @@ export const lightPalette = {
   [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
   [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
   [Color.MediumShadow]: 'rgba(146, 166, 188, 0.24)',
-  [Color.HeavyShadow]: 'rgba(146, 166, 188, 0.32)',
+  [Color.LargeShadow]: 'rgba(146, 166, 188, 0.32)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;

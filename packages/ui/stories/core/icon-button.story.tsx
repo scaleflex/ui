@@ -25,6 +25,7 @@ const defaultArgs = {
   size: ButtonSize.Md,
   color: ButtonColor.Secondary,
   disabled: false,
+  active: false,
   children: (props: IconProps) => <UploadIcon {...props} />,
 };
 

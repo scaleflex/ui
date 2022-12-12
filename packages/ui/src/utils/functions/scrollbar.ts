@@ -8,7 +8,6 @@ export const scrollBar = ({ theme: { palette } }: WithTheme): FlattenSimpleInter
 
   ::-webkit-scrollbar {
     width: 12px;
-    background: ${palette[PaletteColor.ActiveSecondary]};
   }
 
   ::-webkit-scrollbar-track {
@@ -16,7 +15,7 @@ export const scrollBar = ({ theme: { palette } }: WithTheme): FlattenSimpleInter
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${palette[PaletteColor.IconsMuted]};
+    background: ${palette[PaletteColor.Extra_0_3_Overlay]};
     border: 4px solid ${palette[PaletteColor.ActiveSecondary]};
     border-radius: 99px;
     padding: 4px 6px;

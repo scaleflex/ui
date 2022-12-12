@@ -11,11 +11,11 @@ import Styled from './select.styles';
 export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
     case InputSize.Md:
-      return 13;
+      return 16;
 
     case InputSize.Sm:
     default:
-      return 11;
+      return 14;
   }
 };
 
@@ -24,14 +24,14 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
     <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
   ) : undefined;
 
-const generateChildren = (children: ReactNode, isActive = false): ReactNode => {
+const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType ): ReactNode => {
   const miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
 
   if (isActive && children) {
     const miActions = (
       <MenuItemActions>
         <Styled.TickIcon>
-          <Tick size={12} />
+          <Tick size={getIconSize(size)} />
         </Styled.TickIcon>
       </MenuItemActions>
     );
@@ -81,7 +81,7 @@ export const renderOption = (
   return React.cloneElement(menuItem as ReactElement<MenuItemProps>, {
     active,
     size,
-    children: generateChildren((menuItem as JSX.Element)?.props?.children, active),
+    children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
     onClick: () => {
       if (!multiple && typeof onClose === 'function') {
         onClose();

@@ -18,6 +18,7 @@ const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
 IconButton.defaultProps = {
   size: ButtonSize.Md,
   color: IconButtonColor.Secondary,
+  active: false,
 };
 
 IconButton.propTypes = {
@@ -25,6 +26,7 @@ IconButton.propTypes = {
   size: PT.oneOf(objectValues(ButtonSize)),
   color: PT.oneOf(objectValues(IconButtonColor)),
   disabled: PT.bool,
+  active: PT.bool,
 };
 
 export default IconButton;
