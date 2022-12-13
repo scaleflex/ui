@@ -26,6 +26,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -60,6 +65,12 @@ export const colorButtonMixin = {
     css`
       color: ${palette[PaletteColor.IconsInvert]};
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.IconsInvert]};
+        background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -94,6 +105,12 @@ export const colorButtonMixin = {
     css`
       background-color: ${palette[PaletteColor.BackgroundActive]};
       color: ${palette[PaletteColor.LinkActive]};
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.BackgroundActive]};
+        color: ${palette[PaletteColor.LinkActive]};
+      }
     `}
 
     &:disabled {

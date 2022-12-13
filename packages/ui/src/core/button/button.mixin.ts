@@ -29,6 +29,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -47,6 +52,11 @@ export const colorButtonMixin = {
     background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.AccentStateless]};
     border: 1px solid ${palette[PaletteColor.AccentStateless]};
+
+    ${StyledBadge.Badge} {
+      color: ${palette[PaletteColor.AccentStateless]};
+      background: transparent;
+    }
 
     &:hover {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
@@ -84,6 +94,16 @@ export const colorButtonMixin = {
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.ButtonPrimaryText]};
       }
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+        background-color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+        ${StyledBadge.Badge} {
+          color: ${palette[PaletteColor.ButtonPrimaryText]};
+        }
+      }
     `}
 
     &:disabled {
@@ -95,11 +115,6 @@ export const colorButtonMixin = {
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.BordersDisabled]};
       }
-    }
-
-    ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.AccentStateless]};
-      background: transparent;
     }
   `,
 
@@ -139,6 +154,12 @@ export const colorButtonMixin = {
       ${StyledBadge.Badge} {
         color: ${palette[PaletteColor.LinkHover]};
       }
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.BackgroundActive]};
+        color: ${palette[PaletteColor.LinkHover]};
+      }
     `}
 
     &:disabled {
@@ -170,6 +191,10 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.AccentPrimaryActive]};
+      
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};  
     `}
 
     &:disabled {
@@ -196,6 +221,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -223,6 +253,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -249,6 +284,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.AccentPrimaryActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
+      }
     `}
 
     &:disabled {
@@ -278,6 +318,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       background-color: ${palette[PaletteColor.ErrorActive]};
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.ErrorActive]};
+      }
     `}
 
     &:disabled {
@@ -323,6 +368,11 @@ export const colorButtonMixin = {
       background-color: ${palette[PaletteColor.ErrorActive]};
       color: ${palette[PaletteColor.ButtonPrimaryText]};
       border: none;
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.ErrorActive]};
+      }
     `}
 
     &:disabled {
@@ -352,6 +402,11 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.ErrorActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.ErrorActive]};
+      }
     `}
 
     &:disabled {
