@@ -493,23 +493,23 @@ export const sizeButtonLabelMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.ButtonXs]),
+  }: WithTheme) => css(font[FontVariant.ButtonSm]),
 
   [ButtonSize.Sm]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.ButtonSm]),
+  }: WithTheme) => css(font[FontVariant.ButtonMd]),
 
   [ButtonSize.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.ButtonMd]),
+  }: WithTheme) => css(font[FontVariant.ButtonLg]),
 
   [ButtonSize.Lg]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FontVariant.ButtonLg]),
+  }: WithTheme) => css(font[FontVariant.ButtonLgUp]),
 };
