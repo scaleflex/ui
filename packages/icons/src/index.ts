@@ -377,3 +377,4 @@ export { Miniplayer } from './miniplayer';
 export { Teams } from './teams';
 export { Terms } from './terms';
 export { ArrowChange } from './arrow-change';
+export { Actions } from './actions';
