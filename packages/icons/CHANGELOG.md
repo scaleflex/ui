@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
+
+
+### Features
+
+* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
 
 

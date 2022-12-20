@@ -3,6 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
+
+
+### Bug Fixes
+
+* buttons with active prop enabled ([4dfef90](https://github.com/scaleflex/ui/commit/4dfef9014dbb354235538c68654c3dd8b4df5cca))
+* buttons' labels font ([3359db6](https://github.com/scaleflex/ui/commit/3359db648efee5fa4c0430c4b6e09cc440289b3e))
+* menu item - T11874 ([754b787](https://github.com/scaleflex/ui/commit/754b787a016aab4c429ed8a87f0c36e6620a61a0))
+* search's cross button size ([145fbfe](https://github.com/scaleflex/ui/commit/145fbfe05ea149b403a68366fb9960680301b04c))
+* slider tooltip when off - T12104 ([df9a502](https://github.com/scaleflex/ui/commit/df9a502d9364fbf92364cd95adcd6b91fdaac6e0))
+* styles ([c3c125f](https://github.com/scaleflex/ui/commit/c3c125f0294900bb0d3a9359b8be11c306e25cb7))
+
+
+### Features
+
+* add active prop to buttons - T11874 ([40bddec](https://github.com/scaleflex/ui/commit/40bddecf457ab54814cb579619649e0cb7035a34))
+* add active prop to icon button component - T11874 ([7352673](https://github.com/scaleflex/ui/commit/73526730435db16537d0428b048d990f3fb4637f))
+* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+* add green medium color - T11874 ([2d6759d](https://github.com/scaleflex/ui/commit/2d6759d1e94cc327bb0b462926b5f781f3522966))
+* add inactive status for labels - T11874 ([2a4b3b6](https://github.com/scaleflex/ui/commit/2a4b3b617d73fb62626196626c6523e1d83fda39))
+* add lg size for tab component - T12074 ([374f5d8](https://github.com/scaleflex/ui/commit/374f5d8a6a92696db1f80ec5e8eb942b9959a71b))
+* add lg size to switcher component - T11874 ([1cbec3b](https://github.com/scaleflex/ui/commit/1cbec3bcd0e31905f3baebd6a3413e0e634c5286))
+* add navigation button - T12052 ([6ec51c8](https://github.com/scaleflex/ui/commit/6ec51c84fcf1498b494aeebcd060d815a07d9b17))
+* add new font style - T11874 ([016d68e](https://github.com/scaleflex/ui/commit/016d68ea3f9d81a14a67613aed07dce55ea76de6))
+* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+* add new state and update menu item component - T11874 ([d8f1e42](https://github.com/scaleflex/ui/commit/d8f1e42a3c7069c23eec88edbc9b46db1568720d))
+* add pressed state for secondary buttons - T11874 ([6307b8b](https://github.com/scaleflex/ui/commit/6307b8b256530ae414bb0a31917881cf6de51875))
+* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
+* update button font styles - T11874 ([97d997c](https://github.com/scaleflex/ui/commit/97d997c11a55e8d39f4b457e354fda80aa85a44c))
+* update calender component - T11874 ([008605a](https://github.com/scaleflex/ui/commit/008605ae7bb6b8bbaab04cc1e84d89c86e562936))
+* update scroll bar component - T11874 ([5cb920e](https://github.com/scaleflex/ui/commit/5cb920e45882155f2d8b3c44fd13387615e3b6c2))
+* update stroke in input and textarea components ([8d7a087](https://github.com/scaleflex/ui/commit/8d7a087791a936c1932195dd1467c3734a8f3976))
+* update switcher labels - T11874 ([23bbc2e](https://github.com/scaleflex/ui/commit/23bbc2e875da975a286d00a5b21688dbd0e52838))
+
+
+
+
+
 # [2.0.0-beta.19](https://github.com/scaleflex/ui/compare/2.0.0-beta.18...2.0.0-beta.19) (2022-12-12)
 
 
