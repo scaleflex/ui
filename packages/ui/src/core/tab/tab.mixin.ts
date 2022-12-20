@@ -4,6 +4,15 @@ import { FontVariant as FV } from '../../utils/types/typography/font-variant';
 import { Size } from './types';
 
 export const tabSizeMixin = {
+  [Size.Lg]: ({
+    theme: {
+      typography: { font },
+    },
+  }: WithTheme) => css`
+    ${font[FV.LabelLargeUp]}
+    padding: 8px 0px;
+  `,
+
   [Size.Md]: ({
     theme: {
       typography: { font },
@@ -31,5 +40,9 @@ export const iconSizeMixin = {
   [Size.Md]: css`
     width: 16px;
     height: 16px;
+  `,
+  [Size.Lg]: css`
+    width: 20px;
+    height: 20px;
   `,
 };

@@ -39,7 +39,7 @@ const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
           {...rest}
           onChange={onChange}
           iconStart={(iconProps: IconProps) => <SearchIcon {...iconProps} size={getSearchIconSize(size)} />}
-          clearIcon={value?.length !== 0 ? <CrossButton size={size === 'md' ? 'lg' : 'sm'} /> : undefined}
+          clearIcon={value?.length !== 0 ? <CrossButton size={size} /> : undefined}
           clearIconClick={handleClearIconClick}
         />
       </Styled.Search>

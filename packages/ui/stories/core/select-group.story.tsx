@@ -91,21 +91,21 @@ const WithIconTemplate: Story<SelectProps> = ({ ...args }) => {
     <SelectGroup {...args} value={value} onChange={(ev: any) => setValue(ev)}>
       <MenuItem value="item1">
         <MenuItemIcon>
-          <CountryIcon size={args.size === 'md' ? 16 : 12} />
+          <CountryIcon size={args.size === 'md' ? 16 : 14} />
         </MenuItemIcon>
         <MenuItemLabel>{args.children}</MenuItemLabel>
       </MenuItem>
 
       <MenuItem value="item2">
         <MenuItemIcon>
-          <CountryIcon size={args.size === 'md' ? 16 : 12} />
+          <CountryIcon size={args.size === 'md' ? 16 : 14} />
         </MenuItemIcon>
         <MenuItemLabel>{args.children}</MenuItemLabel>
       </MenuItem>
 
       <MenuItem value="item3">
         <MenuItemIcon>
-          <CountryIcon size={args.size === 'md' ? 16 : 12} />
+          <CountryIcon size={args.size === 'md' ? 16 : 14} />
         </MenuItemIcon>
         <MenuItemLabel>{args.children}</MenuItemLabel>
       </MenuItem>

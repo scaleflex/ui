@@ -10,6 +10,7 @@ const defaultFontValue = {
   fontStyle: 'normal',
   fontWeight: FontWeight.Regular,
 };
+
 const labelFontVariants = {
   [FontVariant.LabelExtraSmall]: {
     ...defaultFontValue,
@@ -123,29 +124,29 @@ const textFontVariants = {
 };
 
 const buttonFontVariants = {
-  [FontVariant.ButtonXsLink]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.ButtonXs]: {
+  [FontVariant.ButtonSm]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '12px',
     lineHeight: '14px',
   },
-  [FontVariant.ButtonXsUp]: {
+  [FontVariant.ButtonSmLink]: {
+    ...defaultFontValue,
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
+  [FontVariant.ButtonSmUp]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '13px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonSmLink]: {
+  [FontVariant.ButtonSmUpLink]: {
     ...defaultFontValue,
-    fontSize: '14px',
+    fontSize: '13px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonSm]: {
+  [FontVariant.ButtonMd]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '14px',
@@ -153,22 +154,91 @@ const buttonFontVariants = {
   },
   [FontVariant.ButtonMdLink]: {
     ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
+    fontSize: '14px',
+    lineHeight: '16px',
   },
-  [FontVariant.ButtonMd]: {
+  [FontVariant.ButtonLg]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '16px',
     lineHeight: '18px',
   },
-  [FontVariant.ButtonLg]: {
+  [FontVariant.ButtonLgLink]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
+  [FontVariant.ButtonLgUp]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '18px',
+    lineHeight: '20px',
+  },
+  [FontVariant.ButtonLgUpLink]: {
+    ...defaultFontValue,
+    fontSize: '18px',
+    lineHeight: '20px',
+  },
+};
+
+const linkFontVariants = {
+  [FontVariant.LinkSmall]: {
+    ...defaultFontValue,
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
+  [FontVariant.LinkSmallEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
+  [FontVariant.LinkSmallUp]: {
+    ...defaultFontValue,
+    fontSize: '13px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LinkSmallUpEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '13px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LinkMedium]: {
+    ...defaultFontValue,
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LinkMediumEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '14px',
+    lineHeight: '16px',
+  },
+  [FontVariant.LinkLarge]: {
+    ...defaultFontValue,
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
+  [FontVariant.LinkLargeEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: '500',
+    fontSize: '16px',
+    lineHeight: '18px',
+  },
+  [FontVariant.LinkLargeUp]: {
+    ...defaultFontValue,
+    fontSize: '18px',
+    lineHeight: '20px',
+  },
+  [FontVariant.LinkLargeUpEmphasis]: {
     ...defaultFontValue,
     fontWeight: '500',
     fontSize: '18px',
     lineHeight: '20px',
   },
 };
+
 
 const inputFontVariants = {
   [FontVariant.InputSm]: {
@@ -269,6 +339,7 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
       ...labelFontVariants,
       ...textFontVariants,
       ...buttonFontVariants,
+      ...linkFontVariants,
       ...inputFontVariants,
       ...titleFontVariants,
     },

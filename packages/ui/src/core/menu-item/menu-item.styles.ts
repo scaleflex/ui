@@ -10,23 +10,28 @@ import { Size } from './types';
 
 const baseClassName = 'MenuItem';
 
-const Icon = styled.div.attrs({
+const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
-    display: flex;
     flex-shrink: 0;
+    margin-right: 10px;
     color: ${palette[PColor.IconsPrimary]};
   `
 );
 
 const Actions = styled(Icon).attrs({
   className: generateClassNames(baseClassName, 'Actions'),
-})(() => css``);
+})(() => css`
+  margin-right: 0px;
+  margin-left: 16px;
+`);
 
-const Label = styled.div.attrs({
+const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })`
+  align-items: center;
+  column-gap: 4px;
   flex-grow: 1;
   white-space: nowrap;
   overflow: hidden;
@@ -69,7 +74,6 @@ const MenuItem = styled.div.attrs({
   }: With<WithTheme, MenuItemProps>) => css`
     display: flex;
     justify-content: space-between;
-    column-gap: 16px;
     flex-direction: row;
     align-items: center;
     width: 100%;

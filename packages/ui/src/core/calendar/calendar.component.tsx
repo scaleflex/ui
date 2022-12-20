@@ -316,7 +316,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
           </Styled.HeaderWrapper>
           <Styled.CalendarBody>{renderCalendar()}</Styled.CalendarBody>
           <Styled.ButtonWrapper>
-            <Button onClick={() => handleOpen(false)} size="sm" color="basic">
+            <Button onClick={() => handleOpen(false)} size="xs" color="basic">
               Cancel
             </Button>
             <Button onClick={handleTodayButton} size="sm" color="secondary" disabled={isTodayDateDisabled}>

@@ -9,6 +9,11 @@ export const statusLabelMixin = {
   [Type.Default]: () => css`
     border: none;
   `,
+
+  [Type.Inactive]: () => css`
+    border: none;
+  `,
+
   [Type.Received]: ({ theme: { palette } }: WithTheme) => css`
     border: 1px solid ${palette[PaletteColor.ButtonDisabledText]};
   `,

@@ -13,7 +13,7 @@ const getIconSize = (sizeName: MenuItemSizeType | undefined): number => {
 
     case Size.Sm:
     default:
-      return 12;
+      return 14;
   }
 };
 

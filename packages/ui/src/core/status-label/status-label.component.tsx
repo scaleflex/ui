@@ -10,13 +10,17 @@ const StatusLabel = intrinsicComponent<StatusLabelProps, HTMLDivElement>(
   (
     { label, variant = Variant.Filled, type = Type.Default, size, iconSize = 8, ...rest }: StatusLabelProps,
     ref
-  ): JSX.Element => (
-    <Styled.StatusLabelWrapper ref={ref} size={size} label={label} type={type} variant={variant} {...rest}>
-      {type !== Type.Default && <Styled.StatusIcon type={type} iconSize={iconSize} />}
+  ): JSX.Element => {
+    const showStatusIcon = Boolean(type !== Type.Default && type !== Type.Inactive);
 
-      <Styled.StatusLabel>{label}</Styled.StatusLabel>
-    </Styled.StatusLabelWrapper>
-  )
+    return (
+      <Styled.StatusLabelWrapper ref={ref} size={size} label={label} type={type} variant={variant} {...rest}>
+        {showStatusIcon && <Styled.StatusIcon type={type} iconSize={iconSize} />}
+
+        <Styled.StatusLabel>{label}</Styled.StatusLabel>
+      </Styled.StatusLabelWrapper>
+    );
+  }
 );
 
 StatusLabel.defaultProps = {

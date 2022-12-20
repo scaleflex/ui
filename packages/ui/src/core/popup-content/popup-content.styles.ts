@@ -48,8 +48,7 @@ const PopupContent = styled.div.attrs({
     align-items: center;
     width: 360px;
     border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0px 2px 6px ${theme.palette[PColor.HeavyShadow]};
+    box-shadow: 0px 2px 6px ${theme.palette[PColor.LargeShadow]};
   `
 );
 
