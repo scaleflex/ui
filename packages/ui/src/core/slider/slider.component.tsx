@@ -384,7 +384,7 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
                   onChange={handleHiddenInputChange}
                 />
                 <LabelTooltipComponent
-                  open={open === index || active === index || labelTooltip === 'on'}
+                  open={(open === index || active === index || labelTooltip === 'on') && labelTooltip !== 'off'}
                   disabled={disabled}
                   style={{ ...labelTooltipProps?.style }}
                 >
