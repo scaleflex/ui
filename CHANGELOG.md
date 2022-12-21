@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
+
+
+### Features
+
+* **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
+
+
+
+
+
 # [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
 
 
