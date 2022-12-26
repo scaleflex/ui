@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.22](https://github.com/scaleflex/ui/compare/2.0.0-beta.21...2.0.0-beta.22) (2022-12-26)
+
+
+### Features
+
+* **Theme:** update breakpoints ([585c084](https://github.com/scaleflex/ui/commit/585c0844f017bf6ddb2703ac58d47ae437f184f5))
+
+
+
+
+
 # [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
 
 **Note:** Version bump only for package @scaleflex/ui
