@@ -35,7 +35,7 @@ const createBreakpoints = (breakpoints: Partial<Breakpoints>): Breakpoints => {
   const getBreakpointClass = (width: number, hideSelector: boolean | undefined): string => {
     const removeSelector = (str: string) => str.slice(1);
 
-    if (width >= values.xs && width <= values.sm) {
+    if (width >= values.xs && width < values.sm) {
       return hideSelector ? removeSelector(classes.xs) : classes.xs;
     }
     if (width >= values.sm && width < values.md) {
