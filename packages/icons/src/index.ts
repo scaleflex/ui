@@ -379,3 +379,4 @@ export { Terms } from './terms';
 export { ArrowChange } from './arrow-change';
 export { Actions } from './actions';
 export { Speed } from './speed';
+export { VariantPlaceholder } from './variant-placeholder'
