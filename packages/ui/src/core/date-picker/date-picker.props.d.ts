@@ -4,6 +4,7 @@ import { InputGroupProps } from '../input-group';
 
 export interface DatePickerProps extends InputGroupProps, React.HTMLAttributes<HTMLDivElement> {
   value?: string;
+  position?: string;
   maxDate?: string;
   minDate?: string;
   onChange?: (value: string) => void;

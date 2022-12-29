@@ -37,6 +37,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       maxDate = '',
       minDate = '',
       anchorEl,
+      position = 'bottom',
       open = false,
       setOpen,
       ...rest
@@ -232,7 +233,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     };
 
     return (
-      <Popper overlay onClick={() => handleOpen(!open)} anchorEl={anchorEl} open={open} position="bottom-start">
+      <Popper overlay onClick={() => handleOpen(!open)} anchorEl={anchorEl} open={open} position={position}>
         <Styled.Calendar open={open} {...rest} ref={ref}>
           <MonthPicker
             year={year}
@@ -331,6 +332,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
 Calendar.defaultProps = {
   open: false,
+  position: 'bottom-start',
 };
 
 export const propTypes = {

@@ -21,6 +21,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       autoSelectToday,
       maxDate = '',
       minDate = '',
+      position = 'bottom-start',
       InputProps: InputPropsData,
       CalendarProps: CalendarPropsData,
       ...rest
@@ -87,6 +88,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           minDate={minDate}
           autoSelectToday={autoSelectToday}
           anchorEl={datePickerInputRef.current}
+          position={position}
           {...CalendarPropsData}
         />
       </Styled.DatePicker>
@@ -98,6 +100,7 @@ Datepicker.defaultProps = {};
 
 export const propTypes = {
   value: PT.string,
+  position: PT.string,
   maxDate: PT.string,
   minDate: PT.string,
   onChange: PT.func,

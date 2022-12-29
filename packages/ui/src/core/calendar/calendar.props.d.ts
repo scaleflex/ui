@@ -3,6 +3,7 @@ export type AnchorElType = Element | null | undefined;
 export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: string;
   maxDate?: string;
+  position?: string;
   minDate?: string;
   anchorEl?: AnchorElType;
   open?: boolean;
