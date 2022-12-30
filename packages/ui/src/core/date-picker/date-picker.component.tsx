@@ -14,6 +14,7 @@ import Styled from './date-picker.styles';
 import { InputProps } from '../input';
 import { isYearFormRegex } from '../calendar/calendar.utils';
 import { Position } from '../popper/types';
+import { InputGroupProps } from '../input-group';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
@@ -40,7 +41,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const [showPlaceholder, setShowPlaceholder] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
 
-    const datePickerInputRef = useRef(null);
+    const datePickerRef = useRef(null);
 
     const maxDateTimestamp = new Date(maxDate).getTime();
     const minDateTimestamp = new Date(minDate).getTime();
@@ -59,7 +60,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     };
 
     return (
-      <Styled.DatePicker {...rest} ref={datePickerInputRef}>
+      <Styled.DatePicker {...rest} ref={datePickerRef}>
         <Styled.DatePickerInput
           label={label}
           fullWidth={fullWidth}
@@ -94,7 +95,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           maxDate={maxDate}
           minDate={minDate}
           autoSelectToday={autoSelectToday}
-          anchorEl={datePickerInputRef.current}
+          anchorEl={datePickerRef.current}
           position={position || 'bottom-start'}
           popperOptions={popperOptions}
           {...CalendarPropsData}
@@ -118,7 +119,7 @@ export const propTypes = {
   autoSelectToday: PT.bool,
   fullWidth: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  inputGroupProps: PT.exact(inputPropTypes) as Validator<InputProps>,
+  inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
   CalendarProps: PT.exact(calendarPropTypes) as Validator<CalendarProps>,
 };
 

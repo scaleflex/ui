@@ -1,4 +1,4 @@
-import { Values } from '@scaleflex/ui/utils/types';
+import type { Values } from '../../utils/types';
 
 import { PopperOptions } from '../popper/popper.props';
 import { Position } from '../popper/types';

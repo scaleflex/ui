@@ -1,4 +1,4 @@
-import { Values } from '@scaleflex/ui/utils/types';
+import type { Values } from '../../utils/types';
 import { CalendarProps } from '../calendar';
 import type { InputProps } from '../input';
 import { InputGroupProps } from '../input-group';
