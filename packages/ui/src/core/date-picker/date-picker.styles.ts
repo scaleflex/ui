@@ -12,9 +12,12 @@ const baseClassName = 'Date-picker';
 
 const DatePicker = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
-  position: relative;
-`;
+})(
+  ({ fullWidth }: With<WithTheme, InputProps>) => css`
+    position: relative;
+    width: ${fullWidth ? '100%' : '300px'};
+  `
+);
 
 const Placeholder = styled.div.attrs({
   className: generateClassNames(baseClassName, 'placeholder'),

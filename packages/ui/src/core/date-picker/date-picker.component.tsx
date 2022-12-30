@@ -3,15 +3,17 @@ import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import Calendar, { CalendarProps } from '../calendar';
 import { propTypes as calendarPropTypes } from '../calendar/calendar.component';
+import { propTypes as popperPropTypes } from '../popper/popper.component';
 
 import Styled from './date-picker.styles';
 import { InputProps } from '../input';
 import { isYearFormRegex } from '../calendar/calendar.utils';
+import { Position } from '../popper/types';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
@@ -21,9 +23,14 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       autoSelectToday,
       maxDate = '',
       minDate = '',
-      position = 'bottom-start',
+      position,
+      label,
+      hint,
+      popperOptions,
       InputProps: InputPropsData,
       CalendarProps: CalendarPropsData,
+      inputGroupProps,
+      fullWidth,
       ...rest
     }: DatePickerProps,
     ref
@@ -52,10 +59,11 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     };
 
     return (
-      <Styled.DatePicker ref={ref}>
+      <Styled.DatePicker {...rest} ref={datePickerInputRef}>
         <Styled.DatePickerInput
-          label="Label"
-          hint="Some hint goes here"
+          label={label}
+          fullWidth={fullWidth}
+          hint={hint}
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
           isHovering={isHovering}
@@ -66,15 +74,14 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             type: 'date',
             ...(InputPropsData || {}),
           }}
-          inputRef={datePickerInputRef}
-          {...rest}
+          ref={ref}
+          {...inputGroupProps}
         />
         {!inputValue && rest.placeholder && showPlaceholder && (
           <Styled.Placeholder
             onClick={() => setShowPlaceholder(false)}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
-            {...rest}
           >
             {rest.placeholder}
           </Styled.Placeholder>
@@ -88,7 +95,8 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           minDate={minDate}
           autoSelectToday={autoSelectToday}
           anchorEl={datePickerInputRef.current}
-          position={position}
+          position={position || 'bottom-start'}
+          popperOptions={popperOptions}
           {...CalendarPropsData}
         />
       </Styled.DatePicker>
@@ -100,12 +108,17 @@ Datepicker.defaultProps = {};
 
 export const propTypes = {
   value: PT.string,
-  position: PT.string,
+  position: PT.oneOf(objectValues(Position)),
   maxDate: PT.string,
   minDate: PT.string,
   onChange: PT.func,
+  label: PT.string,
+  hint: PT.string,
+  popperOptions: popperPropTypes.popperOptions,
   autoSelectToday: PT.bool,
+  fullWidth: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
+  inputGroupProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   CalendarProps: PT.exact(calendarPropTypes) as Validator<CalendarProps>,
 };
 

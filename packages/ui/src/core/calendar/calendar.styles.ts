@@ -411,8 +411,12 @@ const ButtonWrapper = styled.span.attrs({
     align-items: center;
     column-gap: 4px;
     width: 100%;
-    height: 32px;
+    height: 24px;
     padding-top: 12px;
+
+    .SfxButton-root {
+      max-height: 24px;
+    }
   `
 );
 
