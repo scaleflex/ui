@@ -241,7 +241,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         anchorEl={anchorEl}
         open={open}
         popperOptions={popperOptions}
-        position={position}
+        position={position || 'bottom-start'}
         overlay
       >
         <Styled.Calendar position={position} open={open} {...rest} ref={ref}>
