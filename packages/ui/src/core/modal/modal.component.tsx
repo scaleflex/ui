@@ -85,7 +85,7 @@ export const defaultProps = {
 Modal.defaultProps = defaultProps;
 
 export const propTypes = {
-  onClose: PT.func.isRequired,
+  onClose: PT.func,
   children: PT.node.isRequired,
   maxWidth: PT.oneOf(objectValues(Size)),
   open: PT.bool,

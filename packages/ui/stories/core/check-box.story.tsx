@@ -17,7 +17,7 @@ const defaultArgs = {
   checked: false,
   readOnly: false,
   disabled: false,
-  size: Size.Sm,
+  size: Size.Md,
   type: Type.Checkbox,
 };
 
