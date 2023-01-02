@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
+
+
+### Features
+
+* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
+
+
+
+
+
 # [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
 
 

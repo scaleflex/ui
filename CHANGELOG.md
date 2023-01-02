@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
+
+
+### Bug Fixes
+
+* typescript error ([b52b926](https://github.com/scaleflex/ui/commit/b52b9269fdfc5d048f68317e021cf23f8fd3b518))
+
+
+### Features
+
+* add new font theme - T12150 ([f7f2be4](https://github.com/scaleflex/ui/commit/f7f2be4710c5bfb7c85778dd4492181d64bebf47))
+* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
+* change checkbox default size to md - T12150 ([41f77f2](https://github.com/scaleflex/ui/commit/41f77f2c176e247a2a1e479043a89d5bb2377b02))
+* make onClose in the Modal component not required - T12150 ([6019b4b](https://github.com/scaleflex/ui/commit/6019b4b74298409f7865acfd1fb57a40b49d6434))
+
+
+
+
+
 # [2.0.0-beta.23](https://github.com/scaleflex/ui/compare/2.0.0-beta.22...2.0.0-beta.23) (2023-01-01)
 
 **Note:** Version bump only for package ui
