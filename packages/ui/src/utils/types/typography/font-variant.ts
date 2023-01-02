@@ -25,6 +25,7 @@ export const FontVariant = {
   LabelLarge: 'label-large',
   LabelLargeEmphasis: 'label-large-emphasis',
   LabelLargeUp: 'label-large-up',
+  LabelExtraLargeEmphasis: 'label-extra-large-emphasis',
   LabelExtraLarge: 'label-extra-large',
   LabelXExtraLarge: 'label-x-extra-large',
 
