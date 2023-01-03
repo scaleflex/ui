@@ -14,7 +14,7 @@ import { getCheckboxIconSize } from './check-box.utils';
 const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
   (
     {
-      size = Size.Sm,
+      size = Size.Md,
       type = Type.Checkbox,
       checked,
       onChange,
@@ -59,7 +59,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
 
 CheckBox.defaultProps = {
   checked: false,
-  size: Size.Sm,
+  size: Size.Md,
 };
 
 CheckBox.propTypes = {

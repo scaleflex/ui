@@ -78,16 +78,22 @@ const labelFontVariants = {
     fontSize: '18px',
     lineHeight: '20px',
   },
-  [FontVariant.LabelExtraLarge]: {
+  [FontVariant.LabelExtraLargeEmphasis]: {
     ...defaultFontValue,
     fontWeight: FontWeight.Medium,
+    fontSize: '24px',
+    lineHeight: '28px',
+  },
+  [FontVariant.LabelExtraLarge]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Regular,
     fontSize: '24px',
     lineHeight: '28px',
   },
   [FontVariant.LabelXExtraLarge]: {
     ...defaultFontValue,
     fontSize: '32px',
-    lineHeight: '36px',
+    lineHeight: '42px',
   },
 };
 
