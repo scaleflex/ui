@@ -54,6 +54,8 @@ export const lightPalette = {
   [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
   [Color.ButtonPrimaryText]: 'rgba(255, 255, 255, 1)', // #FFFFFF
+  [Color.ButtonPrimaryText_0_6]: 'rgba(255, 255, 255, 0.6)', // #FFFFFF 60%
+  [Color.ButtonPrimaryText_0_4]: 'rgba(255, 255, 255, 0.4)', // #FFFFFF 40%
   [Color.ButtonDisabledText]: 'rgba(169, 182, 194, 1)', // #A9B6C2
   [Color.ButtonSecondaryText]: 'rgba(0, 0, 0, 1)', // #000000
 
