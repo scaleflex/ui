@@ -35,6 +35,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       fullWidth,
       readOnly,
       disabled,
+      hideCopyIcon = false,
       focusOnMount = false,
       focusOnClick = true,
       error,
@@ -112,7 +113,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       );
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
-      isHovering && readOnly ? (
+      isHovering && readOnly && !hideCopyIcon ? (
         <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>
           {typeof icon === 'function' ? icon() : icon}
         </Styled.CopyIcon>
