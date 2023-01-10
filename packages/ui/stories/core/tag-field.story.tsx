@@ -3,6 +3,7 @@ import type { Meta, Story } from '@storybook/react';
 import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { AddTagType, Size } from '../../src/core/tag-field/types';
+import { InfoOutline } from '@scaleflex/icons';
 import { StoryGroup } from './types';
 
 export const TagField = _TagField;
@@ -73,12 +74,13 @@ const TagsObjectsTemplate: Story<TagFieldProps> = ({ ...args }) => {
       onRemove={(index) => handleRemove(index, tags, setTags)}
       getTagLabel={(item: any): string => item.label}
       getTagValue={(item: any): string => item.id}
+      getTagIcon={(item: any): string => item.startIcon}
     />
   );
 };
 
 const suggestedTags = [
-  { id: 'scaleflex', label: 'scaleflex' },
+  { id: 'scaleflex', label: 'scaleflex', startIcon: <InfoOutline size={16} /> },
   { id: 'sfx', label: 'sfx' },
   { id: 'scaleflexUi', label: 'scaleflexUi' },
   { id: 'scalefexIcons', label: 'scalefexIcons' },

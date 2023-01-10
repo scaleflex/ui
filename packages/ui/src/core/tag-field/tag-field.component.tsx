@@ -45,6 +45,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
+      getTagIcon = (tag: TagType): string => tag as string,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
       ...rest
     }: TagFieldProps,
@@ -100,6 +101,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                 key={getTagValue(tag)}
                 tagIndex={index}
                 crossIcon={crossIcon}
+                startIcon={typeof getTagIcon(tag) === 'object' && getTagIcon(tag)}
                 size={size}
                 onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
                 style={{ margin: '0px 8px 8px 0px' }}
@@ -188,7 +190,7 @@ TagField.defaultProps = {
 };
 
 TagField.propTypes = {
-  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])).isRequired,
+  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object, PT.node])).isRequired,
   suggestedTags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])),
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
@@ -206,6 +208,7 @@ TagField.propTypes = {
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
+  getTagIcon: PT.func,
   showGenerateTagsButton: PT.bool,
   generateTagsButtonLabel: PT.string,
   suggestionsFilter: PT.func,
