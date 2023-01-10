@@ -434,6 +434,24 @@ export const sizeButtonMixin = {
   `,
 };
 
+export const sizeSecondaryButtonMixin = {
+  [ButtonSize.Xs]: css`
+    padding: 4px 10px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    padding: 7px 12px;
+  `,
+
+  [ButtonSize.Md]: css`
+    padding: 10px 16px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    padding: 13px 24px;
+  `,
+};
+
 export const sizeSidebarMixin = {
   [ButtonSize.Xs]: css`
     padding: 5px 10px;
