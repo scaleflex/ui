@@ -17,7 +17,7 @@ const TableRow = styled.tr.attrs({
     outline: 0;
     background-color: ${selected ? `${palette[PColor.BackgroundActive]}` : ''};
     &:hover {
-      background-color: ${hover ? `${palette[PColor.BackgroundHover]}` : ''};
+      background-color: ${hover && !selected ? `${palette[PColor.BackgroundHover]}` : ''};
     }
   `
 );
