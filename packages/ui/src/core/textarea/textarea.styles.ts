@@ -93,6 +93,25 @@ const Base = styled.textarea.attrs({
     font-weight: inherit;
     font-family: inherit;
 
+    scrollbar-color: black grey;
+    scrollbar-width: thin;
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      margin-block: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: grey;
+      border: 4px solid white;
+      border-radius: 99px;
+      padding: 4px 6px;
+      background-clip: padding-box;
+    }    
+
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
     }
@@ -104,6 +123,9 @@ const CopyIcon = styled.span.attrs({
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
+    position: absolute;
+    right: 28px;
+    bottom: 0;
     color: ${palette[PColor.IconsPrimary]};
     cursor: pointer;
   `
