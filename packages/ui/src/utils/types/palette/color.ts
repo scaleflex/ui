@@ -46,6 +46,8 @@ export const Color = {
   IconsSecondaryHover: 'icons-secondary-hover',
 
   ButtonPrimaryText: 'btn-primary-text',
+  ButtonPrimaryText_0_6: 'btn-primary-text-0-6',
+  ButtonPrimaryText_0_4: 'btn-primary-text-0-4',
   ButtonDisabledText: 'btn-disabled-text',
   ButtonSecondaryText: 'btn-secondary-text',
 

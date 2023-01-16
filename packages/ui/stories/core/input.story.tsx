@@ -17,6 +17,7 @@ export default {
 const defaultArgs = {
   size: InputSize.Md,
   placeholder: 'placeholder',
+  hideCopyIcon: false,
   readOnly: false,
   disabled: false,
   focusOnClick: true,
