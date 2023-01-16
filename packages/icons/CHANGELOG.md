@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
+
+
+### Bug Fixes
+
+* bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
+
+
+### Features
+
+* update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
+
+
+
+
+
 # [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
 
 

@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
+
+
+### Features
+
+* **Theme:** add useMediaQuery hook ([83c0137](https://github.com/scaleflex/ui/commit/83c0137373bab4d2f6d392bd0265cdf7f7baf558))
+* add hide icon prop to input - T12191 ([a9930d6](https://github.com/scaleflex/ui/commit/a9930d6d3d17015cc54e1b9ff239223e14d1a7f6))
+* add new colors ([cd11992](https://github.com/scaleflex/ui/commit/cd11992bda5bf40cb9e4db1d8d8686c3498037ef))
+* **Theme:** add breakpoints to getBreakpointClass ([3d1e315](https://github.com/scaleflex/ui/commit/3d1e31529720d3b2862e9b74830198b8889049cd))
+
+
+
+
+
 # [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
 
 
