@@ -16,6 +16,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   error?: boolean;
   fullWidth?: boolean;
   isSearchInput?: boolean;
+  hideCopyIcon?: boolean;
   value?: any;
   iconClickStart?: (event: Event) => void;
   iconClickEnd?: (event: Event) => void;
