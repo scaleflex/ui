@@ -21,7 +21,7 @@ const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'label'),
 })(
   ({ theme }: WithTheme) => css`
-    ${theme.typography.font[FontVariant.ButtonXs]}
+    ${theme.typography.font[FontVariant.ButtonSm]}
   `
 );
 

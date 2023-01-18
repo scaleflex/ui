@@ -6,6 +6,7 @@ import ArrowSidebarLeftOutline from '@scaleflex/icons/arrow-sidebar-left-outline
 import ArrowSidebarRightOutline from '@scaleflex/icons/arrow-sidebar-right-outline';
 
 import { intrinsicComponent } from '../../utils/functions';
+import { useMediaQuery, useTheme } from '../../theme/hooks';
 import type { DrawerProps } from './drawer.props';
 import DrawerItemText from './drawer-item-text-component';
 import DrawerItemIcon from './drawer-item-icon.component';
@@ -33,6 +34,8 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     },
     ref
   ): JSX.Element => {
+    const theme = useTheme();
+    const matchDownXl = useMediaQuery(theme.breakpoints.down('xl'));
     const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
     const temproryDrawerRef = useRef<HTMLDivElement>(null);
@@ -100,18 +103,18 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const renderBackdrop = (): JSX.Element | null => (!hideBackdrop && open ? <Backdrop onClick={onClose} /> : null);
 
-    const temproryDrawer = (): JSX.Element =>
+    const temporaryDrawer = (): JSX.Element =>
       disablePortal ? (
-        <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+        <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
-        </Styled.TemproryDrawer>
+        </Styled.TemporaryDrawer>
       ) : (
         createPortal(
-          <Styled.TemproryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+          <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
             {renderBackdrop()}
             {renderDrawer(false)}
-          </Styled.TemproryDrawer>,
+          </Styled.TemporaryDrawer>,
           target
         )
       );
@@ -120,27 +123,15 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       <Styled.PersistentDrawer style={{ ...persistentDrawerStyles }}>{renderDrawer(true)}</Styled.PersistentDrawer>
     );
 
-    // using two conontex provider is a temprory fix until we support javascript media query
-    // to be able to hide/show depening on the breakpoint
     return (
-      <>
-        <DrawerContext.Provider
-          value={{
-            isCollapsed,
-            size: DrawerIconsSize,
-          }}
-        >
-          {persistentDrawer()}
-        </DrawerContext.Provider>
-        <DrawerContext.Provider
-          value={{
-            isCollapsed: false,
-            size: DrawerIconsSize,
-          }}
-        >
-          {temproryDrawer()}
-        </DrawerContext.Provider>
-      </>
+      <DrawerContext.Provider
+        value={{
+          isCollapsed: !matchDownXl ? isCollapsed : false,
+          size: DrawerIconsSize,
+        }}
+      >
+        {matchDownXl ? temporaryDrawer() : persistentDrawer()}
+      </DrawerContext.Provider>
     );
   }
 );

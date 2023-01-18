@@ -3,6 +3,126 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
+
+
+### Bug Fixes
+
+* bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
+
+
+### Features
+
+* **Theme:** add useMediaQuery hook ([83c0137](https://github.com/scaleflex/ui/commit/83c0137373bab4d2f6d392bd0265cdf7f7baf558))
+* add hide icon prop to input - T12191 ([a9930d6](https://github.com/scaleflex/ui/commit/a9930d6d3d17015cc54e1b9ff239223e14d1a7f6))
+* add new colors ([cd11992](https://github.com/scaleflex/ui/commit/cd11992bda5bf40cb9e4db1d8d8686c3498037ef))
+* update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
+* **Theme:** add breakpoints to getBreakpointClass ([3d1e315](https://github.com/scaleflex/ui/commit/3d1e31529720d3b2862e9b74830198b8889049cd))
+
+
+
+
+
+# [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
+
+
+### Bug Fixes
+
+* typescript error ([b52b926](https://github.com/scaleflex/ui/commit/b52b9269fdfc5d048f68317e021cf23f8fd3b518))
+
+
+### Features
+
+* add new font theme - T12150 ([f7f2be4](https://github.com/scaleflex/ui/commit/f7f2be4710c5bfb7c85778dd4492181d64bebf47))
+* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
+* change checkbox default size to md - T12150 ([41f77f2](https://github.com/scaleflex/ui/commit/41f77f2c176e247a2a1e479043a89d5bb2377b02))
+* make onClose in the Modal component not required - T12150 ([6019b4b](https://github.com/scaleflex/ui/commit/6019b4b74298409f7865acfd1fb57a40b49d6434))
+
+
+
+
+
+# [2.0.0-beta.23](https://github.com/scaleflex/ui/compare/2.0.0-beta.22...2.0.0-beta.23) (2023-01-01)
+
+**Note:** Version bump only for package ui
+
+
+
+
+
+# [2.0.0-beta.22](https://github.com/scaleflex/ui/compare/2.0.0-beta.21...2.0.0-beta.22) (2022-12-26)
+
+
+### Features
+
+* **Theme:** update breakpoints ([585c084](https://github.com/scaleflex/ui/commit/585c0844f017bf6ddb2703ac58d47ae437f184f5))
+
+
+
+
+
+# [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
+
+
+### Features
+
+* **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
+
+
+
+
+
+# [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
+
+
+### Bug Fixes
+
+* buttons with active prop enabled ([4dfef90](https://github.com/scaleflex/ui/commit/4dfef9014dbb354235538c68654c3dd8b4df5cca))
+* buttons' labels font ([3359db6](https://github.com/scaleflex/ui/commit/3359db648efee5fa4c0430c4b6e09cc440289b3e))
+* menu item - T11874 ([754b787](https://github.com/scaleflex/ui/commit/754b787a016aab4c429ed8a87f0c36e6620a61a0))
+* search's cross button size ([145fbfe](https://github.com/scaleflex/ui/commit/145fbfe05ea149b403a68366fb9960680301b04c))
+* slider tooltip when off - T12104 ([df9a502](https://github.com/scaleflex/ui/commit/df9a502d9364fbf92364cd95adcd6b91fdaac6e0))
+* styles ([c3c125f](https://github.com/scaleflex/ui/commit/c3c125f0294900bb0d3a9359b8be11c306e25cb7))
+
+
+### Features
+
+* add active prop to buttons - T11874 ([40bddec](https://github.com/scaleflex/ui/commit/40bddecf457ab54814cb579619649e0cb7035a34))
+* add active prop to icon button component - T11874 ([7352673](https://github.com/scaleflex/ui/commit/73526730435db16537d0428b048d990f3fb4637f))
+* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+* add green medium color - T11874 ([2d6759d](https://github.com/scaleflex/ui/commit/2d6759d1e94cc327bb0b462926b5f781f3522966))
+* add inactive status for labels - T11874 ([2a4b3b6](https://github.com/scaleflex/ui/commit/2a4b3b617d73fb62626196626c6523e1d83fda39))
+* add lg size for tab component - T12074 ([374f5d8](https://github.com/scaleflex/ui/commit/374f5d8a6a92696db1f80ec5e8eb942b9959a71b))
+* add lg size to switcher component - T11874 ([1cbec3b](https://github.com/scaleflex/ui/commit/1cbec3bcd0e31905f3baebd6a3413e0e634c5286))
+* add navigation button - T12052 ([6ec51c8](https://github.com/scaleflex/ui/commit/6ec51c84fcf1498b494aeebcd060d815a07d9b17))
+* add new font style - T11874 ([016d68e](https://github.com/scaleflex/ui/commit/016d68ea3f9d81a14a67613aed07dce55ea76de6))
+* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+* add new state and update menu item component - T11874 ([d8f1e42](https://github.com/scaleflex/ui/commit/d8f1e42a3c7069c23eec88edbc9b46db1568720d))
+* add pressed state for secondary buttons - T11874 ([6307b8b](https://github.com/scaleflex/ui/commit/6307b8b256530ae414bb0a31917881cf6de51875))
+* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
+* update button font styles - T11874 ([97d997c](https://github.com/scaleflex/ui/commit/97d997c11a55e8d39f4b457e354fda80aa85a44c))
+* update calender component - T11874 ([008605a](https://github.com/scaleflex/ui/commit/008605ae7bb6b8bbaab04cc1e84d89c86e562936))
+* update scroll bar component - T11874 ([5cb920e](https://github.com/scaleflex/ui/commit/5cb920e45882155f2d8b3c44fd13387615e3b6c2))
+* update stroke in input and textarea components ([8d7a087](https://github.com/scaleflex/ui/commit/8d7a087791a936c1932195dd1467c3734a8f3976))
+* update switcher labels - T11874 ([23bbc2e](https://github.com/scaleflex/ui/commit/23bbc2e875da975a286d00a5b21688dbd0e52838))
+
+
+
+
+
+# [2.0.0-beta.19](https://github.com/scaleflex/ui/compare/2.0.0-beta.18...2.0.0-beta.19) (2022-12-12)
+
+
+### Features
+
+* **Drawer:** update drawer breakpoint T11890 ([a6269eb](https://github.com/scaleflex/ui/commit/a6269eb1ab592d17fbe5bbc2b62a4485a77ab764))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
 
 

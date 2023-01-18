@@ -29,6 +29,7 @@ const defaultArgs = {
   fullWidth: false,
   maxDate: '',
   minDate: '',
+  position: 'bottom-start',
 };
 
 const BasicTemplate: Story<DatePickerProps> = ({ ...args }) => {

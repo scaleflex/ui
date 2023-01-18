@@ -84,7 +84,7 @@ const Input = styled.input.attrs({
       background: ${!disabled && palette[PColor.AccentStateless]};
 
       &:before {
-        ${!disabled && translateSwitcherMixin[size]}
+        ${translateSwitcherMixin[size]};
         background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.IconsInvert]};
       }
 

@@ -245,7 +245,6 @@ const linkFontVariants = {
   },
 };
 
-
 const inputFontVariants = {
   [FontVariant.InputSm]: {
     ...defaultFontValue,
@@ -313,12 +312,12 @@ export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> =
     keys: [Breakpoint.Xs, Breakpoint.Sm, Breakpoint.Md, Breakpoint.Lg, Breakpoint.Xl],
     values: {
       [Breakpoint.Xs]: 0,
-      [Breakpoint.Sm]: 577,
-      [Breakpoint.Md]: 769,
-      [Breakpoint.Lg]: 1085,
-      [Breakpoint.Xl]: 1343,
-      [Breakpoint.Xxl]: 1601,
-      [Breakpoint.Xxxl]: 1921,
+      [Breakpoint.Sm]: 576,
+      [Breakpoint.Md]: 768,
+      [Breakpoint.Lg]: 1084,
+      [Breakpoint.Xl]: 1342,
+      [Breakpoint.Xxl]: 1600,
+      [Breakpoint.Xxxl]: 1920,
     },
     classes: {
       [Breakpoint.Xs]: '.sfx-breakpoint-xs',
