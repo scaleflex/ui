@@ -13,14 +13,10 @@ import { DrawerProps, Fonttype } from './drawer.props';
 
 const baseClassName = 'Drawer';
 
-const TemproryDrawer = styled.div.attrs({
+const TemporaryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
 })(
   ({ open, theme: { breakpoints } }: With<WithTheme, DrawerProps>) => css`
-    display: none;
-    ${breakpoints.down('xl')} {
-      display: block;
-    }
     ${breakpoints.classes.lg} & {
       display: block;
     }
@@ -44,10 +40,6 @@ const PersistentDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'persistent'),
 })(
   ({ theme: { breakpoints } }: WithTheme) => css`
-    display: block;
-    ${breakpoints.down('xl')} {
-      display: none;
-    }
     ${breakpoints.classes.lg} & {
       display: none;
     }
@@ -302,7 +294,7 @@ const DrawerAccordion = styled(Accordion).attrs({
 );
 
 const Styled = applyDisplayNames({
-  TemproryDrawer,
+  TemporaryDrawer,
   PersistentDrawer,
   Drawer,
   Header,
