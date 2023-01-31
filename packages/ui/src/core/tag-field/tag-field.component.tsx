@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
@@ -78,24 +78,27 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleAddingTag = (): void => {
-      if(userInput){
+      if (userInput) {
         handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
       }
-    }
+    };
 
     const handleTagsValidation = (): void => {
+      if (!userInput?.length) return;
+
       if (typeof onValidate === 'function') {
         const isValid = onValidate(userInput);
 
         if (typeof isValid === 'string') {
           setTagsHint(isValid);
           setTagsError(true);
-        } else {
-          setTagsHint('');
-          setTagsError(false);
-          handleAddingTag();
+          return;
         }
+
+        setTagsHint('');
+        setTagsError(false);
+        handleAddingTag();
       } else {
         handleAddingTag();
       }
@@ -110,6 +113,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         onRemove(index, getTagValue(filteredTags[index]));
       }
     };
+
+    useEffect(() => {
+      setTagsError(error);
+      setTagsHint(hint);
+    }, [error, hint]);
 
     return (
       <Styled.TagFieldRoot ref={ref}>
