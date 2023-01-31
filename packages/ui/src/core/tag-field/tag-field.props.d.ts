@@ -20,6 +20,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   onGenerate?: (event) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
+  onValidate?: (tagInput: string) => string | boolean;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
