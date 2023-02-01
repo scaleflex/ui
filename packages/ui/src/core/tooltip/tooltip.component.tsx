@@ -86,7 +86,9 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
 
     const handleLeavingTooltip = (): void => {
       if (enableHover) {
-        setIsHovering(false);
+        setTimeout(() => {
+          setIsHovering(false);
+        }, leaveDelay);
       }
     };
 
