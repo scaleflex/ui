@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.26](https://github.com/scaleflex/ui/compare/2.0.0-beta.25...2.0.0-beta.26) (2023-01-18)
+
+
+### Features
+
+* **Drawer:** handle breakpoints by useMediaQuery ([fab59b2](https://github.com/scaleflex/ui/commit/fab59b2a953c693d63dac42f94bacfe4c0fef2f8))
+* add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
+* update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
+
+
+
+
+
 # [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
 
 
