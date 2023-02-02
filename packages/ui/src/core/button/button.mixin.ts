@@ -486,6 +486,11 @@ export const colorButtonMixin = {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
       border: none;
 
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+        background-color: transparent;
+      }
+
       &:hover,
       &:focus {
         background-color: ${palette[PaletteColor.WarningActive]};
