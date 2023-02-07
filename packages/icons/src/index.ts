@@ -390,3 +390,7 @@ export { EyeFilled } from './eye-filled';
 export { Reload } from './reload';
 export { WarningRound } from './warning-round';
 export { KnowledgeBase } from './knowledge-base';
+export { ActionRequired } from './action-required';
+export { NoEdit } from './no-edit';
+export { NoPayment } from './no-payment';
+export { Release } from './release';
