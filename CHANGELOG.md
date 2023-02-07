@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/scaleflex/ui/compare/2.0.0-beta.26...2.0.0-beta.27) (2023-02-07)
+
+
+### Bug Fixes
+
+* new icon names ([13ab23f](https://github.com/scaleflex/ui/commit/13ab23f3e648d34187d9cc877d9df5566a6bb37c))
+* **Tooltip:**  fix Tooltip onhover T12396 ([ec02312](https://github.com/scaleflex/ui/commit/ec02312f5fd6763a89e2855f798a88037d71e516))
+
+
+### Features
+
+* Add new icons T12432 ([0f6e3c0](https://github.com/scaleflex/ui/commit/0f6e3c0700a5d418cdcc6170adac0fabe21a5e25))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/scaleflex/ui/compare/2.0.0-beta.25...2.0.0-beta.26) (2023-01-18)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.27](https://github.com/scaleflex/ui/compare/2.0.0-beta.26...2.0.0-beta.27) (2023-02-07)
+
+
+### Bug Fixes
+
+* **Tooltip:**  fix Tooltip onhover T12396 ([ec02312](https://github.com/scaleflex/ui/commit/ec02312f5fd6763a89e2855f798a88037d71e516))
+
+
+
+
+
 # [2.0.0-beta.26](https://github.com/scaleflex/ui/compare/2.0.0-beta.25...2.0.0-beta.26) (2023-01-18)
 
 
