@@ -394,3 +394,4 @@ export { Release } from './release';
 export { ActionRequired } from './action-required';
 export { NoPayment } from './no-payment';
 export { NoEdit } from './no-edit';
+export { NoNotification } from './no-notification';
