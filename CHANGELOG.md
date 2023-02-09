@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.28](https://github.com/scaleflex/ui/compare/2.0.0-beta.27...2.0.0-beta.28) (2023-02-09)
+
+
+### Features
+
+* **icons:** add new icon ([13968bc](https://github.com/scaleflex/ui/commit/13968bcc1fab48a566992d3c5ec022778a1c5ffe))
+* change input tag behavior - T12351 ([56e801d](https://github.com/scaleflex/ui/commit/56e801d7ad815741f40d3bb8ea5ebb8f101c7d10))
+
+
+
+
+
 # [2.0.0-beta.27](https://github.com/scaleflex/ui/compare/2.0.0-beta.26...2.0.0-beta.27) (2023-02-07)
 
 
