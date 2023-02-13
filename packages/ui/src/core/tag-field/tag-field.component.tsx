@@ -40,6 +40,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       crossIcon = true,
       loading,
       disableOnEnter,
+      submitOnSpace,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
       alwaysShowSuggestedTags = false,
@@ -75,7 +76,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (event.key === 'Enter' && userInput && !disableOnEnter) {
+      if ((event.key === 'Enter' && userInput && !disableOnEnter) || (event.key === ' ' && submitOnSpace)) {
         event.preventDefault();
         handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
@@ -184,6 +185,7 @@ TagField.defaultProps = {
   placeholder: 'Add a tag (separate by pressing enter)',
   disabled: false,
   readOnly: false,
+  submitOnSpace: false,
   size: Size.Md,
 };
 
@@ -201,6 +203,7 @@ TagField.propTypes = {
   error: PT.bool,
   hint: PT.node,
   loading: PT.bool,
+  submitOnSpace: PT.bool,
   disableOnEnter: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   alwaysShowSuggestedTags: PT.bool,
