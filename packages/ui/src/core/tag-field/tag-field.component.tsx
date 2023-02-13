@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
@@ -27,6 +27,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       onAdd,
       onRemove,
       onGenerate,
+      onValidate,
       placeholder,
       disabled,
       readOnly,
@@ -34,7 +35,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       suggestionLabel,
       suggestionTooltipMessage,
       LabelProps: LabelPropsData,
-      error,
+      error = false,
       hint,
       size = Size.Md,
       crossIcon = true,
@@ -52,6 +53,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
+    const [tagsHint, setTagsHint] = useState(hint);
+    const [tagsError, setTagsError] = useState(error);
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
       () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
@@ -75,26 +78,57 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-      if ((event.key === 'Enter' && userInput && !disableOnEnter) || (event.key === ' ' && submitOnSpace)) {
-        event.preventDefault();
+    const handleAddingTag = (): void => {
+      if ((userInput)) {
         handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
+      }
+    };
+
+    const handleTagsValidation = (): void => {
+      if (!userInput?.length) return;
+
+      if (typeof onValidate === 'function') {
+        const isValid = onValidate(userInput);
+
+        if (typeof isValid === 'string') {
+          setTagsHint(isValid);
+          setTagsError(true);
+          return;
+        }
+
+        setTagsHint('');
+        setTagsError(false);
+        handleAddingTag();
+      } else {
+        handleAddingTag();
+      }
+    };
+
+    const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+      if (event.key === 'Enter' && !disableOnEnter  || (event.key === ' ' && submitOnSpace)) {
+        event.preventDefault();
+        handleTagsValidation();
       } else if (event.key === 'Backspace' && !userInput) {
         const index = filteredTags.length - 1;
         onRemove(index, getTagValue(filteredTags[index]));
       }
     };
 
+    useEffect(() => {
+      setTagsError(error);
+      setTagsHint(hint);
+    }, [error, hint]);
+
     return (
       <Styled.TagFieldRoot ref={ref}>
         {label && (
-          <Label error={error} {...(LabelPropsData || {})}>
+          <Label error={tagsError} {...(LabelPropsData || {})}>
             {label}
           </Label>
         )}
 
-        <Styled.TagFieldWrapper size={size} {...rest}>
+        <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
           <Styled.TagFieldListWrapper $loading={loading}>
             {filteredTags.map((tag: TagType, index: number) => (
               <Tag
@@ -122,6 +156,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   placeholder={filteredTags?.length ? '' : placeholder}
                   onChange={(ev) => setUserInput(ev.target.value)}
                   onKeyDown={handleUserInputKeyDown}
+                  onBlur={handleTagsValidation}
                   readOnly={readOnly}
                   disabled={disabled}
                 />
@@ -141,7 +176,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
           </Styled.TagFieldBottom>
         </Styled.TagFieldWrapper>
 
-        {hint && <FormHint error={error}>{hint}</FormHint>}
+        {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
 
         {filteredSuggestions.length > 0 && (
           <Styled.TagFieldSuggestionWrapper>
@@ -196,6 +231,7 @@ TagField.propTypes = {
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
   onGenerate: PT.func,
+  onValidate: PT.func,
   placeholder: PT.string,
   readOnly: PT.bool,
   disabled: PT.bool,
