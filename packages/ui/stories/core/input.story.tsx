@@ -21,6 +21,7 @@ const defaultArgs = {
   readOnly: false,
   disabled: false,
   focusOnClick: true,
+  copyTextMessage: 'Link copied to clipboard',
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {
