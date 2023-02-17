@@ -28,11 +28,13 @@ const BasicTemplate: Story<InputProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
   return (
-    <Input
-      {...args}
-      value={value}
-      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
-    />
+    <div style={{ marginTop: 20 }}>
+      <Input
+        {...args}
+        value={value}
+        onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
+      />
+    </div>
   );
 };
 

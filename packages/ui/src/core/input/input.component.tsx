@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 import Success from '@scaleflex/icons/success';
+
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
@@ -46,7 +47,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
-    const [showTextMessage, setShowTextMessage] = useState(false);
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
     const placeholder = rest.value ? '' : rest.placeholder;
@@ -65,8 +66,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     }, []);
 
     useEffect(() => {
-      setTimeout(() => setShowTextMessage(false), 1500);
-    }, [showTextMessage]);
+      setTimeout(() => setShowCopyMessage(false), 1500);
+    }, [showCopyMessage]);
 
     const handleEntering = (): void => {
       setTimeout(() => {
@@ -120,7 +121,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly && !hideCopyIcon ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowTextMessage)}>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowCopyMessage)}>
           {typeof icon === 'function' ? icon() : icon}
         </Styled.CopyIcon>
       ) : undefined;
@@ -159,7 +160,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderIcon(iconStart, 'start')}
         {renderField()}
         {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
-        {showTextMessage && renderCopyText()}
+        {showCopyMessage && renderCopyText()}
         {renderClearIcon()}
         {renderIcon(iconEnd, 'end')}
         {children && <>{children}</>}

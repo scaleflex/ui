@@ -28,6 +28,7 @@ const defaultArgs = {
   disabled: false,
   placeholder: 'placeholder',
   size: InputSize.Md,
+  copyTextMessage: 'Link copied to clipboard',
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {

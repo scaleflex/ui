@@ -89,7 +89,6 @@ const Input = styled.div.attrs({
     position: relative;
     display: inline-flex;
     align-items: center;
-    margin: 50px;
     box-sizing: border-box;
     column-gap: 8px;
     cursor: text;
