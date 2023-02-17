@@ -11,6 +11,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   size?: InputSizeType;
   iconStart?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   iconEnd?: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  iconChange?: React.ReactNode;
   clearIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   iconType?: string;
   error?: boolean;

@@ -35,11 +35,13 @@ const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState('Text');
 
   return (
-    <InputGroup
-      {...args}
-      value={valueState}
-      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(currentTarget.value)}
-    />
+    <div style={{ marginTop: 40 }}>
+      <InputGroup
+        {...args}
+        value={valueState}
+        onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(currentTarget.value)}
+      />
+    </div>
   );
 };
 

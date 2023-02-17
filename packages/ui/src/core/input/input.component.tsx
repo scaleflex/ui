@@ -26,6 +26,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
+      iconChange,
       clearIcon,
       iconClickStart,
       iconClickEnd,
@@ -66,7 +67,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     }, []);
 
     useEffect(() => {
-      setTimeout(() => setShowCopyMessage(false), 1500);
+      setTimeout(() => setShowCopyMessage(false), 2000);
     }, [showCopyMessage]);
 
     const handleEntering = (): void => {
@@ -163,6 +164,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {showCopyMessage && renderCopyText()}
         {renderClearIcon()}
         {renderIcon(iconEnd, 'end')}
+        {renderIcon(iconChange, '')}
         {children && <>{children}</>}
       </Styled.Input>
     );
@@ -183,6 +185,7 @@ export const propTypes = {
   size: PT.oneOf(objectValues(InputSize)),
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
+  iconChange: PT.oneOfType([PT.node, PT.func]),
   clearIcon: PT.node,
   error: PT.bool,
   fullWidth: PT.bool,
