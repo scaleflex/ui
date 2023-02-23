@@ -83,6 +83,8 @@ export const Color = {
   ErrorActive: 'error-active',
   Success: 'success',
   Warning: 'warning',
+  WarningHover: 'warning-hover',
+  WarningActive: 'warning-active',
   Info: 'info',
   Modified: 'modified',
 

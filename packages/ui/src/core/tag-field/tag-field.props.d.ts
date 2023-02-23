@@ -4,7 +4,7 @@ import { Size, AddTagType } from './types';
 
 export type AddTagTypesType = Values<typeof AddTagType>;
 export type TagFieldSizeType = Values<typeof Size>;
-export type TagType = string | object | null | undefined;
+export type TagType = string | object | React.ReactNode | null | undefined;
 export type SuggestionsFilterFnType = (
   suggestions: TagType[],
   userInput: string,
@@ -20,6 +20,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   onGenerate?: (event) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
+  getTagIcon?: (tag: TagType) => string;
   onValidate?: (tagInput: string) => string | boolean;
   placeholder?: string;
   readOnly?: boolean;
@@ -32,6 +33,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   crossIcon?: boolean;
   disableOnEnter?: boolean;
+  submitOnSpace?: boolean;
   showGenerateTagsButton?: boolean;
   generateTagsButtonLabel?: string;
   alwaysShowSuggestedTags?: boolean;

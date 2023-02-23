@@ -20,6 +20,17 @@ const Cross = styled.span.attrs({
   `
 );
 
+const StartIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'StartIcon'),
+})(
+  () => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+  `
+);
+
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
@@ -104,6 +115,7 @@ const Tag = styled.div.attrs({
 
 const Styled = applyDisplayNames({
   Tag,
+  StartIcon,
   Label,
   Cross,
 });

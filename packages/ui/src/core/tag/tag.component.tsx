@@ -13,6 +13,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
       children,
       type,
       crossIcon = true,
+      startIcon,
       size,
       tagIndex,
       onRemove,
@@ -41,6 +42,8 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
           : rest.onClick
       }
     >
+      {startIcon && <Styled.StartIcon>{startIcon}</Styled.StartIcon>}
+
       <Styled.Label contentEditable={contentEditable} suppressContentEditableWarning={suppressContentEditableWarning}>
         {children}
       </Styled.Label>
@@ -73,6 +76,7 @@ Tag.propTypes = {
   onRemove: PT.func,
   onSelect: PT.func,
   tagIndex: PT.number,
+  startIcon: PT.node,
 };
 
 export default Tag;
