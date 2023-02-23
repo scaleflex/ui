@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import CensorIcon from '@scaleflex/icons/censor';
 import SearchIcon from '@scaleflex/icons/search';
+import Success from '@scaleflex/icons/success';
+
 import _Input, { InputProps } from '../../src/core/input';
 import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
@@ -21,17 +23,21 @@ const defaultArgs = {
   readOnly: false,
   disabled: false,
   focusOnClick: true,
+  copyTextMessage: 'Link copied to clipboard',
+  copySuccessIcon: <Success size={16} />
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {
   const [value, setValue] = useState('Text');
 
   return (
-    <Input
-      {...args}
-      value={value}
-      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
-    />
+    <div style={{ marginTop: 40 }}>
+      <Input
+        {...args}
+        value={value}
+        onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
+      />
+    </div>
   );
 };
 
@@ -59,4 +65,11 @@ WithIcons.args = {
   ...defaultArgs,
   iconStart: (props: any) => <SearchIcon {...props} />,
   iconEnd: (props: any) => <CensorIcon {...props} />,
+};
+
+// WithIconChange
+export const WithIconChange = BasicTemplate.bind({});
+WithIconChange.args = {
+  ...defaultArgs,
+  iconChange: (props: any) => <Success {...props} />,
 };

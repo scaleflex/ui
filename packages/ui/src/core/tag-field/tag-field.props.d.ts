@@ -40,4 +40,6 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   suggestionsFilter?: SuggestionsFilterFnType;
   suggestionLabel?: React.ReactNode;
   suggestionTooltipMessage?: string;
+  copyTextMessage?: string;
+  copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
 }

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
+import { FontVariant as FV } from '../../utils/types/typography';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { InputProps } from './input.props';
@@ -178,6 +179,48 @@ const Tags = styled.div.attrs({
     outline: none;
   `
 );
+
+const NotificationBox = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'NotificationBox'),
+})<InputProps>(
+  ({ size = InputSize.Md, theme: { palette } }: With<WithTheme, InputProps>) => css`
+    display: flex;
+    position: absolute;
+    align-item: center;
+    max-height: 34px;
+    right: 0px;
+    padding: 8px 12px;
+    column-gap: 6px;
+    bottom: ${size === InputSize.Md ? '45px' : '35px'};
+    box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
+    background-color: ${palette[PColor.BackgroundStateless]};
+    border-radius: 4px;
+  `
+);
+
+const NotificationIcon = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'NotificationIcon'),
+})(
+  ({ theme: { palette } }: WithTheme) => css`
+    color: ${palette[PColor.IconsPrimary]};
+  `
+);
+
+const NotificationText = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'NotificationText'),
+})(
+  ({
+    theme: {
+      palette,
+      typography: { font },
+    },
+  }: WithTheme) => css`
+    white-space: nowrap;
+    ${font[FV.TextSmall]};
+    color: ${palette[PColor.TextPrimary]};
+  `
+);
+
 // TODO: refactor how we implement tags in input
 //  display: ${renderTags ? 'inline' : 'block'};
 // width: ${renderTags ? 'min-content' : '100%'};
@@ -190,6 +233,9 @@ const Styled = applyDisplayNames({
   Icon,
   CopyIcon,
   ClearIcon,
+  NotificationBox,
+  NotificationIcon,
+  NotificationText,
 });
 
 export default Styled;

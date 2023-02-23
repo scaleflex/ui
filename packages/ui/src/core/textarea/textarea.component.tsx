@@ -1,16 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
-import Styled from './textarea.styles';
 import { handleCopyIcon } from '../input/input.utils';
+import InputStyled from '../input/input.styles';
+import Styled from './textarea.styles';
+import { Size } from '../menu-item/types';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
-  ({ fullWidth, size, value, readOnly, disabled, error, cols, rows, ...rest }: TextareaProps, ref): JSX.Element => {
+  ({ fullWidth, size, value, readOnly, disabled, error, cols, rows, copyTextMessage = '',
+  copySuccessIcon, ...rest }: TextareaProps, ref): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
+
+    useEffect(() => {
+      setTimeout(() => setShowCopyMessage(false), 2000);
+    }, [showCopyMessage]);
 
     const handleEntering = (): void => {
       setTimeout(() => {
@@ -22,6 +30,15 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       setTimeout(() => {
         setIsHovering(false);
       }, 200);
+    };
+
+    const renderCopyText = (): JSX.Element | undefined => {
+      return (
+        <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 83 : 68 }}>
+          <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+          <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+        </InputStyled.NotificationBox>
+      );
     };
 
     return (
@@ -38,10 +55,11 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       >
         <Styled.Base {...rest} value={value} ref={ref} readOnly={readOnly} disabled={disabled} />
         {isHovering && readOnly ? (
-          <Styled.CopyIcon onClick={() => handleCopyIcon(value)}>
+          <Styled.CopyIcon onClick={() => handleCopyIcon(value, setShowCopyMessage)}>
             <CopyOutline size={16} />
           </Styled.CopyIcon>
         ) : undefined}
+        {showCopyMessage && renderCopyText()}
       </Styled.Textarea>
     );
   }
@@ -62,6 +80,8 @@ export const propTypes = {
   fullWidth: PT.bool,
   value: PT.any,
   size: PT.oneOf(objectValues(InputSize)),
+  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
+  copyTextMessage: PT.string,
   cols: PT.number,
   rows: PT.number,
 };
