@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.30](https://github.com/scaleflex/ui/compare/2.0.0-beta.29...2.0.0-beta.30) (2023-02-23)
+
+
+### Bug Fixes
+
+*  tooltip prop - T12233 ([cdf2678](https://github.com/scaleflex/ui/commit/cdf2678194571f9078d315677c6cc7000ebe79bb))
+* Add copy message to input ([84c43ea](https://github.com/scaleflex/ui/commit/84c43ea4f7154190ea75cf20936306e323eaf3c5))
+* Add copy message to input T12531 ([bbadbe5](https://github.com/scaleflex/ui/commit/bbadbe57b290ab3dd4f24552d36ad792ab9cc24f))
+* calendar prop error - T12544 ([4d5524b](https://github.com/scaleflex/ui/commit/4d5524bfbbbb07a880db5f09b4b1020e2d2efe7b))
+* input fields' copy message - T12531 ([9482a36](https://github.com/scaleflex/ui/commit/9482a36b90e1bf1a183cdf6e602d4a00193876fd))
+* resolve comments - T12233 ([3058267](https://github.com/scaleflex/ui/commit/30582677defd5eabb941738dfc010a8582c9b77e))
+* secondary buttons paddings - T12233 ([5eb3632](https://github.com/scaleflex/ui/commit/5eb3632ad68cab030c4be6c41822fc5ba2bf0665))
+* table row hovering when selected - T12233 ([a27f4ac](https://github.com/scaleflex/ui/commit/a27f4aca1e164de89262cfd3fdcb3f1bb1279e65))
+* tooltip title with components - T12428 ([94765b7](https://github.com/scaleflex/ui/commit/94765b7853bdf3eac27a7d212f63fdbd8b410956))
+* warning secondary button - T12449 ([71656db](https://github.com/scaleflex/ui/commit/71656db01aaac269b9f63e8be42bfb094d383dbe))
+
+
+### Features
+
+* add icon prop to tag field - T12233 ([9b16a44](https://github.com/scaleflex/ui/commit/9b16a441cb5e88a103fa2bd9d18fee4795f6b261))
+* add warning buttons - T12449 ([a260cc1](https://github.com/scaleflex/ui/commit/a260cc1ece2c222ef167132d16d191d92450b47d))
+* handle submit with space - T12510 ([ce8eb1c](https://github.com/scaleflex/ui/commit/ce8eb1c6bc415a3123aaad493c96ee4e33fe67cc))
+* make copied icon dynamic - T12531 ([bd1597b](https://github.com/scaleflex/ui/commit/bd1597b4b7436b8dff1795e8948815090920858b))
+* remove old warning button - T12449 ([efc51b7](https://github.com/scaleflex/ui/commit/efc51b7b74ec6674329f89c9fe717d2978d183d9))
+
+
+
+
+
 # [2.0.0-beta.29](https://github.com/scaleflex/ui/compare/2.0.0-beta.28...2.0.0-beta.29) (2023-02-22)
 
 **Note:** Version bump only for package @scaleflex/ui
