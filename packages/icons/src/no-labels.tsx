@@ -7,7 +7,7 @@ export const NoLabels = intrinsicComponent<IconProps, SVGSVGElement>(
     <svg
       ref={ref}
       width={size}
-      height={size}
+      height={size / (50 / 31)}
       viewBox="0 0 50 31"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
