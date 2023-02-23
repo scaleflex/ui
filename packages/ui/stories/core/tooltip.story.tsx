@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  tooltipTitle: 'Tooltip text',
+  title: 'Tooltip text',
   size: Size.Sm,
   arrow: true,
   warning: false,

@@ -24,6 +24,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       enterDelay = 500,
       leaveDelay = 500,
       stayOpen,
+      title,
       ...rest
     }: TooltipProps,
     ref
@@ -111,7 +112,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           onMouseLeave={handleLeavingTooltip}
         >
           <Styled.Tooltip warning={warning} {...rest}>
-            {rest.tooltipTitle}
+            {title}
           </Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
@@ -142,7 +143,7 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   position: PT.oneOf(objectValues(Position)),
   size: PT.oneOf(objectValues(Size)),
-  tooltipTitle: PT.node,
+  title: PT.node,
   children: PT.element,
   arrow: PT.bool,
   warning: PT.bool,

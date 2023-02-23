@@ -132,69 +132,69 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     return (
       <Styled.TagFieldRoot ref={ref}>
         <Styled.TagInputFieldWrapper>
-        {label && (
-          <Label error={tagsError} {...(LabelPropsData || {})}>
-            {label}
-          </Label>
-        )}
+          {label && (
+            <Label error={tagsError} {...(LabelPropsData || {})}>
+              {label}
+            </Label>
+          )}
 
-        <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
-          <Styled.TagFieldListWrapper $loading={loading}>
-            {filteredTags.map((tag: TagType, index: number) => (
-              <Tag
-                key={getTagValue(tag)}
-                tagIndex={index}
-                crossIcon={crossIcon}
-                startIcon={typeof getTagIcon(tag) === 'object' && getTagIcon(tag)}
-                size={size}
-                onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
-                style={{ margin: '0px 8px 8px 0px' }}
-              >
-                {getTagLabel(tag)}
-              </Tag>
-            ))}
+          <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
+            <Styled.TagFieldListWrapper $loading={loading}>
+              {filteredTags.map((tag: TagType, index: number) => (
+                <Tag
+                  key={getTagValue(tag)}
+                  tagIndex={index}
+                  crossIcon={crossIcon}
+                  startIcon={typeof getTagIcon?.(tag) === 'object' ? getTagIcon?.(tag) : null}
+                  size={size}
+                  onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
+                  style={{ margin: '0px 8px 8px 0px' }}
+                >
+                  {getTagLabel(tag)}
+                </Tag>
+              ))}
 
-            {loading ? (
-              <Styled.TagFieldLoader>
-                <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
-              </Styled.TagFieldLoader>
-            ) : (
-              <Styled.TagFieldInputWrapper size={size}>
-                <Styled.TagFieldInput
-                  value={userInput}
-                  type="text"
-                  autoComplete="off"
-                  placeholder={filteredTags?.length ? '' : placeholder}
-                  onChange={(ev) => setUserInput(ev.target.value)}
-                  onKeyDown={handleUserInputKeyDown}
-                  onBlur={handleTagsValidation}
-                  readOnly={readOnly}
-                  disabled={disabled}
-                />
-              </Styled.TagFieldInputWrapper>
-            )}
-          </Styled.TagFieldListWrapper>
-          <Styled.TagFieldBottom>
-            <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
-              <Button color="link-primary" size={size} onClick={onGenerate}>
-                {generateTagsButtonLabel}
-              </Button>
-            </Styled.TagFieldGenerateButton>
+              {loading ? (
+                <Styled.TagFieldLoader>
+                  <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
+                </Styled.TagFieldLoader>
+              ) : (
+                <Styled.TagFieldInputWrapper size={size}>
+                  <Styled.TagFieldInput
+                    value={userInput}
+                    type="text"
+                    autoComplete="off"
+                    placeholder={filteredTags?.length ? '' : placeholder}
+                    onChange={(ev) => setUserInput(ev.target.value)}
+                    onKeyDown={handleUserInputKeyDown}
+                    onBlur={handleTagsValidation}
+                    readOnly={readOnly}
+                    disabled={disabled}
+                  />
+                </Styled.TagFieldInputWrapper>
+              )}
+            </Styled.TagFieldListWrapper>
+            <Styled.TagFieldBottom>
+              <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
+                <Button color="link-primary" size={size} onClick={onGenerate}>
+                  {generateTagsButtonLabel}
+                </Button>
+              </Styled.TagFieldGenerateButton>
 
-            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
-              <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
-            </Styled.TagFieldCopyIcon>
+              <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
+                <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+              </Styled.TagFieldCopyIcon>
 
-            {showCopyMessage && 
-              <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
-                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
-                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
-              </InputStyled.NotificationBox>
-            }
-          </Styled.TagFieldBottom>
-        </Styled.TagFieldWrapper>
+              {showCopyMessage && (
+                <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
+                  <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                  <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+                </InputStyled.NotificationBox>
+              )}
+            </Styled.TagFieldBottom>
+          </Styled.TagFieldWrapper>
 
-        {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
+          {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
         </Styled.TagInputFieldWrapper>
 
         {filteredSuggestions.length > 0 && (
@@ -202,7 +202,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             <Styled.TagFieldSuggestionLabel>
               {suggestionLabel || <span>Suggested Tags</span>}
               {suggestionTooltipMessage && (
-                <Tooltip tooltipTitle={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
+                <Tooltip title={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
                   <Styled.TagFieldSuggestionIcon>
                     <InfoOutline size={12} color={lightPalette[Color.IconsSecondary]} />
                   </Styled.TagFieldSuggestionIcon>
@@ -270,7 +270,7 @@ TagField.propTypes = {
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
-  copyTextMessage: PT.string
+  copyTextMessage: PT.string,
 };
 
 export default TagField;
