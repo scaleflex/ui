@@ -13,6 +13,8 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   readOnly?: boolean;
   disabled?: boolean;
   fullWidth?: boolean;
+  copyTextMessage?: string;
+  copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   cols?: number;
   rows?: number;
 }

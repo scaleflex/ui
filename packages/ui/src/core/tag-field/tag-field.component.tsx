@@ -17,6 +17,7 @@ import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType }
 import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import { handleCopyIcon } from '../input/input.utils';
+import InputStyled from '../input/input.styles';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -41,17 +42,22 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       crossIcon = true,
       loading,
       disableOnEnter,
+      copyTextMessage = '',
+      copySuccessIcon,
+      submitOnSpace,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
+      getTagIcon = (tag: TagType): string => tag as string,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
       ...rest
     }: TagFieldProps,
     ref
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [tagsHint, setTagsHint] = useState(hint);
     const [tagsError, setTagsError] = useState(error);
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
@@ -105,7 +111,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
-      if (event.key === 'Enter' && !disableOnEnter) {
+      if ((event.key === 'Enter' && !disableOnEnter) || (event.key === ' ' && submitOnSpace)) {
         event.preventDefault();
         handleTagsValidation();
       } else if (event.key === 'Backspace' && !userInput) {
@@ -115,12 +121,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     useEffect(() => {
+      setTimeout(() => setShowCopyMessage(false), 2000);
+    }, [showCopyMessage]);
+
+    useEffect(() => {
       setTagsError(error);
       setTagsHint(hint);
     }, [error, hint]);
 
     return (
       <Styled.TagFieldRoot ref={ref}>
+        <Styled.TagInputFieldWrapper>
         {label && (
           <Label error={tagsError} {...(LabelPropsData || {})}>
             {label}
@@ -134,6 +145,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                 key={getTagValue(tag)}
                 tagIndex={index}
                 crossIcon={crossIcon}
+                startIcon={typeof getTagIcon(tag) === 'object' && getTagIcon(tag)}
                 size={size}
                 onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
                 style={{ margin: '0px 8px 8px 0px' }}
@@ -169,20 +181,28 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               </Button>
             </Styled.TagFieldGenerateButton>
 
-            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput)}>
+            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
               <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
             </Styled.TagFieldCopyIcon>
+
+            {showCopyMessage && 
+              <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
+                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+              </InputStyled.NotificationBox>
+            }
           </Styled.TagFieldBottom>
         </Styled.TagFieldWrapper>
 
         {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
+        </Styled.TagInputFieldWrapper>
 
         {filteredSuggestions.length > 0 && (
           <Styled.TagFieldSuggestionWrapper>
             <Styled.TagFieldSuggestionLabel>
               {suggestionLabel || <span>Suggested Tags</span>}
               {suggestionTooltipMessage && (
-                <Tooltip title={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
+                <Tooltip tooltipTitle={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
                   <Styled.TagFieldSuggestionIcon>
                     <InfoOutline size={12} color={lightPalette[Color.IconsSecondary]} />
                   </Styled.TagFieldSuggestionIcon>
@@ -223,7 +243,7 @@ TagField.defaultProps = {
 };
 
 TagField.propTypes = {
-  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])).isRequired,
+  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object, PT.node])).isRequired,
   suggestedTags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])),
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
   onAdd: PT.func.isRequired,
@@ -242,11 +262,15 @@ TagField.propTypes = {
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
+  getTagIcon: PT.func,
+  submitOnSpace: PT.bool,
   showGenerateTagsButton: PT.bool,
   generateTagsButtonLabel: PT.string,
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
+  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
+  copyTextMessage: PT.string
 };
 
 export default TagField;

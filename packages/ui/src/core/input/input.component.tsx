@@ -25,6 +25,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       children,
       iconStart,
       iconEnd,
+      iconChange,
       clearIcon,
       iconClickStart,
       iconClickEnd,
@@ -38,6 +39,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       hideCopyIcon = false,
       focusOnMount = false,
       focusOnClick = true,
+      copyTextMessage = '',
+      copySuccessIcon,
       error,
       showPlaceholder,
       ...rest
@@ -45,6 +48,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
     const placeholder = rest.value ? '' : rest.placeholder;
@@ -61,6 +65,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         handleFocus();
       }
     }, []);
+
+    useEffect(() => {
+      setTimeout(() => setShowCopyMessage(false), 2000);
+    }, [showCopyMessage]);
 
     const handleEntering = (): void => {
       setTimeout(() => {
@@ -114,7 +122,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       isHovering && readOnly && !hideCopyIcon ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value)}>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowCopyMessage)}>
           {typeof icon === 'function' ? icon() : icon}
         </Styled.CopyIcon>
       ) : undefined;
@@ -122,6 +130,15 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const renderField = (): JSX.Element | undefined => (
       <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
     );
+
+    const renderCopyText = (): JSX.Element | undefined => {
+      return (
+        <Styled.NotificationBox size={size}>
+          <Styled.NotificationIcon>{copySuccessIcon}</Styled.NotificationIcon>
+          <Styled.NotificationText>{copyTextMessage}</Styled.NotificationText>
+        </Styled.NotificationBox>
+      );
+    };
 
     return (
       <Styled.Input
@@ -142,8 +159,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderIcon(iconStart, 'start')}
         {renderField()}
         {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
+        {showCopyMessage && renderCopyText()}
         {renderClearIcon()}
         {renderIcon(iconEnd, 'end')}
+        {renderIcon(iconChange, '')}
         {children && <>{children}</>}
       </Styled.Input>
     );
@@ -164,6 +183,8 @@ export const propTypes = {
   size: PT.oneOf(objectValues(InputSize)),
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
+  iconChange: PT.oneOfType([PT.node, PT.func]),
+  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
   clearIcon: PT.node,
   error: PT.bool,
   fullWidth: PT.bool,
@@ -176,6 +197,7 @@ export const propTypes = {
   clearIconClick: PT.func,
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
+  copyTextMessage: PT.string,
   /// / TODO: refactor how implement tags in input
   // renderTags: PT.node,
 };

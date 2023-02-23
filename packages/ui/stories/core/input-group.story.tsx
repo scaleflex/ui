@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
+import Success from '@scaleflex/icons/success';
 import _InputGroup, { InputGroupProps } from '../../src/core/input-group';
 import { Type } from '../../src/core/input-group/types';
 import { StoryGroup } from './types';
@@ -28,17 +29,21 @@ const defaultArgs = {
   disabled: false,
   placeholder: 'placeholder',
   size: InputSize.Md,
+  copyTextMessage: 'Link copied to clipboard',
+  copySuccessIcon: <Success size={16} />
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
   const [valueState, setValueState] = useState('Text');
 
   return (
-    <InputGroup
-      {...args}
-      value={valueState}
-      onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(currentTarget.value)}
-    />
+    <div style={{ marginTop: 40 }}>
+      <InputGroup
+        {...args}
+        value={valueState}
+        onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValueState(currentTarget.value)}
+      />
+    </div>
   );
 };
 

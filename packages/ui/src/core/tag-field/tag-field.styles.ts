@@ -24,6 +24,13 @@ const TagFieldRoot = styled.div.attrs({
   }
 `;
 
+const TagInputFieldWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagInputFieldWrapper'),
+})`
+  position: relative;
+  width: fit-content;
+`;
+
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
 })(
@@ -193,6 +200,7 @@ const TagFieldSuggestionList = styled.li.attrs({
 
 const Styled = applyDisplayNames({
   TagFieldRoot,
+  TagInputFieldWrapper,
   TagFieldWrapper,
   TagFieldListWrapper,
   TagFieldInputWrapper,

@@ -43,6 +43,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       popperOptions,
       open = false,
       setOpen,
+      calendarStyles,
       ...rest
     }: CalendarProps,
     ref
@@ -244,7 +245,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         position={position || 'bottom-start'}
         overlay
       >
-        <Styled.Calendar position={position} open={open} {...rest} ref={ref}>
+        <Styled.Calendar position={position} open={open} style={{ ...calendarStyles }} {...rest} ref={ref}>
           <MonthPicker
             year={year}
             setMonth={setMonth}
@@ -348,6 +349,7 @@ Calendar.defaultProps = {
 export const propTypes = {
   value: PT.string,
   position: PT.oneOf(objectValues(Position)),
+  calendarStyles: PT.object,
   popperOptions: popperPropTypes.popperOptions,
   anchorEl: PT.instanceOf(Element),
   onChange: PT.func,
