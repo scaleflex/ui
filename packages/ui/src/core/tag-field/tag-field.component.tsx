@@ -185,7 +185,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             <Styled.TagFieldSuggestionLabel>
               {suggestionLabel || <span>Suggested Tags</span>}
               {suggestionTooltipMessage && (
-                <Tooltip title={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
+                <Tooltip tooltipTitle={suggestionTooltipMessage} size={Size.Sm} arrow position="right">
                   <Styled.TagFieldSuggestionIcon>
                     <InfoOutline size={12} color={lightPalette[Color.IconsSecondary]} />
                   </Styled.TagFieldSuggestionIcon>
