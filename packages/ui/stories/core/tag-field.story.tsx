@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import Success from '@scaleflex/icons/success';
 import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { AddTagType, Size } from '../../src/core/tag-field/types';
@@ -24,6 +25,8 @@ const defaultArgs = {
   size: Size.Md,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
+  copyTextMessage: 'Link copied to clipboard',
+  copySuccessIcon: <Success size={16} />
 };
 
 const handleRemove = (
@@ -42,7 +45,8 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
   useEffect(() => setTags(args.tags), [args.tags]);
 
   return (
-    <TagField
+    <div style={{ marginTop: 40 }}>
+      <TagField
       {...args}
       tags={tags}
       suggestedTags={args.suggestedTags}
@@ -50,6 +54,7 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
       onRemove={(index) => handleRemove(index, tags, setTags)}
       alwaysShowSuggestedTags
     />
+    </div>
   );
 };
 

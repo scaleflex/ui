@@ -193,6 +193,7 @@ const NotificationBox = styled.div.attrs({
     column-gap: 6px;
     bottom: ${size === InputSize.Md ? '45px' : '35px'};
     box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
+    background-color: ${palette[PColor.BackgroundStateless]};
     border-radius: 4px;
   `
 );

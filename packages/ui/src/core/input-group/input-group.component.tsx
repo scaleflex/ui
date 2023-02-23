@@ -32,7 +32,6 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       TextareaProps: TextareaPropsData,
       readOnly,
       disabled,
-      copyTextMessage = '',
       size,
       value,
       ...rest
@@ -71,7 +70,6 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
             ref={inputRef?.ref || inputRef}
             readOnly={readOnly}
             disabled={disabled}
-            copyTextMessage={copyTextMessage}
           />
         );
       }

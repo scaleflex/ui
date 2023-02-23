@@ -13,7 +13,6 @@ export interface InputGroupProps extends React.HTMLAttributes<Omit<HTMLDivElemen
   label?: React.ReactNode;
   hint?: React.ReactNode;
   type?: InputGroupTypesType;
-  copyTextMessage: string;
   error?: boolean;
   readOnly?: boolean;
   disabled?: boolean;

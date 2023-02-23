@@ -17,6 +17,7 @@ import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType }
 import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import { handleCopyIcon } from '../input/input.utils';
+import InputStyled from '../input/input.styles';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -41,6 +42,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       crossIcon = true,
       loading,
       disableOnEnter,
+      copyTextMessage = '',
+      copySuccessIcon,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
       alwaysShowSuggestedTags = false,
@@ -52,6 +55,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
+    const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [tagsHint, setTagsHint] = useState(hint);
     const [tagsError, setTagsError] = useState(error);
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
@@ -115,12 +119,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     useEffect(() => {
+      setTimeout(() => setShowCopyMessage(false), 2000);
+    }, [showCopyMessage]);
+
+    useEffect(() => {
       setTagsError(error);
       setTagsHint(hint);
     }, [error, hint]);
 
     return (
       <Styled.TagFieldRoot ref={ref}>
+        <Styled.TagInputFieldWrapper>
         {label && (
           <Label error={tagsError} {...(LabelPropsData || {})}>
             {label}
@@ -169,13 +178,21 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               </Button>
             </Styled.TagFieldGenerateButton>
 
-            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput)}>
+            <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
               <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
             </Styled.TagFieldCopyIcon>
+
+            {showCopyMessage && 
+              <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
+                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+              </InputStyled.NotificationBox>
+            }
           </Styled.TagFieldBottom>
         </Styled.TagFieldWrapper>
 
         {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
+        </Styled.TagInputFieldWrapper>
 
         {filteredSuggestions.length > 0 && (
           <Styled.TagFieldSuggestionWrapper>
@@ -247,6 +264,8 @@ TagField.propTypes = {
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
+  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
+  copyTextMessage: PT.string
 };
 
 export default TagField;
