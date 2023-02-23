@@ -19,6 +19,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   isSearchInput?: boolean;
   hideCopyIcon?: boolean;
   copyTextMessage?: string;
+  copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   value?: any;
   iconClickStart?: (event: Event) => void;
   iconClickEnd?: (event: Event) => void;

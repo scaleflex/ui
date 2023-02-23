@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
-import Success from '@scaleflex/icons/success';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
@@ -41,6 +40,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       focusOnMount = false,
       focusOnClick = true,
       copyTextMessage = '',
+      copySuccessIcon,
       error,
       showPlaceholder,
       ...rest
@@ -134,9 +134,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const renderCopyText = (): JSX.Element | undefined => {
       return (
         <Styled.NotificationBox size={size}>
-          <Styled.NotificationIcon>
-            <Success size={16} />
-          </Styled.NotificationIcon>
+          <Styled.NotificationIcon>{copySuccessIcon}</Styled.NotificationIcon>
           <Styled.NotificationText>{copyTextMessage}</Styled.NotificationText>
         </Styled.NotificationBox>
       );
@@ -186,6 +184,7 @@ export const propTypes = {
   iconStart: PT.oneOfType([PT.node, PT.func]),
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   iconChange: PT.oneOfType([PT.node, PT.func]),
+  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
   clearIcon: PT.node,
   error: PT.bool,
   fullWidth: PT.bool,
