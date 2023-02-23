@@ -8,6 +8,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: TagSizeType;
   type?: TagTypesType;
   crossIcon?: boolean;
+  startIcon?: React.ReactNode;
   onRemove?: (index: number, event?) => void;
   onSelect?: (event) => void;
   tagIndex?: number;

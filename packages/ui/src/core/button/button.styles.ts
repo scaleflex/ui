@@ -11,6 +11,7 @@ import {
   sizeSidebarMixin,
   sizeSidebarDividerMixin,
   paddingIconLabelMixin,
+  sizeSecondaryButtonMixin,
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
@@ -63,6 +64,8 @@ const Button = styled.button.attrs({
 
     ${buttonType !== ButtonType.Sidebar && colorButtonMixin[color]}
     ${buttonType === ButtonType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
+
+    ${color === ButtonColor.Secondary && sizeSecondaryButtonMixin[size]}
 
     ${Label} {
       ${sizeButtonLabelMixin[size]}
