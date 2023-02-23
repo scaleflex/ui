@@ -42,12 +42,7 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
           : rest.onClick
       }
     >
-      {startIcon && (
-        <Styled.StartIcon>
-          {startIcon}
-        </Styled.StartIcon>
-        )
-      }
+      {startIcon && <Styled.StartIcon>{startIcon}</Styled.StartIcon>}
 
       <Styled.Label contentEditable={contentEditable} suppressContentEditableWarning={suppressContentEditableWarning}>
         {children}

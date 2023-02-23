@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { InfoOutline } from '@scaleflex/icons';
 import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { AddTagType, Size } from '../../src/core/tag-field/types';
-import { InfoOutline } from '@scaleflex/icons';
 import { StoryGroup } from './types';
 
 export const TagField = _TagField;
