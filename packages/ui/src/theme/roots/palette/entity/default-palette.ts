@@ -90,6 +90,8 @@ export const lightPalette = {
   [Color.ErrorActive]: 'rgba(185, 33, 46, 1)', // #B9212E
   [Color.Success]: 'rgba(62, 207, 139, 1)', // #3ECF8B
   [Color.Warning]: 'rgba(255, 172, 74, 1)', // #FFAC4A
+  [Color.WarningHover]: 'rgba(237, 145, 7, 1)', // #ED9107
+  [Color.WarningActive]: 'rgba(224, 135, 0, 1)', // #E08700
   [Color.Info]: 'rgba(41, 127, 184, 1)', // #297FB8
   [Color.Modified]: 'rgba(165, 166, 246, 1)', // #A5A6F6
 

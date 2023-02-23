@@ -21,6 +21,7 @@ const defaultArgs = {
   label: 'Tags',
   hint: 'Some hint goes here',
   disableOnEnter: false,
+  submitOnSpace: false,
   size: Size.Md,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',

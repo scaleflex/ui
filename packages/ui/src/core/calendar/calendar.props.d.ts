@@ -17,6 +17,7 @@ export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   autoSelectToday?: boolean;
   isDisabled?: boolean;
+  calendarStyles?: object;
   onChange?: (value: string) => void;
   setOpen?: (value: boolean) => void;
 }
