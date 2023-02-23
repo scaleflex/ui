@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.26](https://github.com/scaleflex/ui/compare/2.0.0-beta.25...2.0.0-beta.26) (2023-01-18)
+
+
+### Features
+
+* add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
+* update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
+
+
+
+
+
+# [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
+
+
+### Bug Fixes
+
+* bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
+
+
+### Features
+
+* update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
+
+
+
+
+
+# [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
+
+
+### Features
+
+* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
+
+
+
+
+
+# [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
+
+
+### Features
+
+* **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
+
+
+
+
+
+# [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
+
+
+### Features
+
+* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
+
+
+
+
+
 # [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
 
 

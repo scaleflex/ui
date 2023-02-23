@@ -29,7 +29,7 @@ export type Modifiers = {
 export interface TooltipProps extends React.HTMLAttributes<HTMLSpanElement> {
   position?: TooltipPositionType;
   size?: TooltipSizeType;
-  title: ReactNode;
+  tooltipTitle: ReactNode;
   children: ReactElement;
   popperOptions?: PopperOptions;
   arrow?: boolean;

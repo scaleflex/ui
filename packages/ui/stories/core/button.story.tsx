@@ -2,7 +2,6 @@ import React from 'react';
 import type { Meta, Story } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
 import MoreDetails from '@scaleflex/icons/more-details';
-import Remove from '@scaleflex/icons/remove';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import { ButtonType, SideBar } from '@scaleflex/ui/core/button/types';
 import _Button, { ButtonProps } from '../../src/core/button';
@@ -61,15 +60,6 @@ WithIconsAndBadge.args = {
   ...defaultArgs,
   startIcon: (props: IconProps) => <UploadIcon {...props} />,
   badge: '(1)',
-};
-
-// Warning
-export const Warning = BasicTemplate.bind({});
-Warning.args = {
-  ...defaultArgs,
-  children: 'Delete',
-  color: ButtonColor.WarningPrimary,
-  startIcon: (props: IconProps) => <Remove {...props} />,
 };
 
 //  SidebarButton

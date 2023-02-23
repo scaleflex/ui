@@ -1,13 +1,23 @@
+import type { Values } from '../../utils/types';
+
+import { PopperOptions } from '../popper/popper.props';
+import { Position } from '../popper/types';
+
 export type AnchorElType = Element | null | undefined;
+
+export type PopperPositionType = Values<typeof Position>;
 
 export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   value?: string;
   maxDate?: string;
+  position?: PopperPositionType;
+  popperOptions?: PopperOptions;
   minDate?: string;
   anchorEl?: AnchorElType;
   open?: boolean;
   autoSelectToday?: boolean;
   isDisabled?: boolean;
+  calendarStyles?: object;
   onChange?: (value: string) => void;
   setOpen?: (value: boolean) => void;
 }

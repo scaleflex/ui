@@ -21,6 +21,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
   getTagIcon?: (tag: TagType) => string;
+  onValidate?: (tagInput: string) => string | boolean;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
@@ -32,6 +33,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   crossIcon?: boolean;
   disableOnEnter?: boolean;
+  submitOnSpace?: boolean;
   showGenerateTagsButton?: boolean;
   generateTagsButtonLabel?: string;
   alwaysShowSuggestedTags?: boolean;

@@ -86,7 +86,9 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
 
     const handleLeavingTooltip = (): void => {
       if (enableHover) {
-        setIsHovering(false);
+        setTimeout(() => {
+          setIsHovering(false);
+        }, leaveDelay);
       }
     };
 
@@ -109,7 +111,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           onMouseLeave={handleLeavingTooltip}
         >
           <Styled.Tooltip warning={warning} {...rest}>
-            {rest.title}
+            {rest.tooltipTitle}
           </Styled.Tooltip>
         </Styled.TooltipContainer>
       </Popper>
@@ -140,7 +142,7 @@ Tooltip.defaultProps = {
 Tooltip.propTypes = {
   position: PT.oneOf(objectValues(Position)),
   size: PT.oneOf(objectValues(Size)),
-  title: PT.node,
+  tooltipTitle: PT.node,
   children: PT.element,
   arrow: PT.bool,
   warning: PT.bool,

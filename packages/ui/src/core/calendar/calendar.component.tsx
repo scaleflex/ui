@@ -5,12 +5,13 @@ import ArrowRightOutline from '@scaleflex/icons/arrow-right-outline';
 import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Popper from '../popper';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
 import Button from '../button';
 import { CalendarProps } from './calendar.props';
+import { propTypes as popperPropTypes } from '../popper/popper.component';
 import {
   HEADER_DAYS,
   getCurrentDate,
@@ -27,6 +28,7 @@ import {
   getMinDate,
 } from './calendar.utils';
 import Styled from './calendar.styles';
+import { Position } from '../popper/types';
 
 const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
   (
@@ -37,8 +39,11 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       maxDate = '',
       minDate = '',
       anchorEl,
+      position,
+      popperOptions,
       open = false,
       setOpen,
+      calendarStyles,
       ...rest
     }: CalendarProps,
     ref
@@ -232,8 +237,15 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     };
 
     return (
-      <Popper overlay onClick={() => handleOpen(!open)} anchorEl={anchorEl} open={open} position="bottom-start">
-        <Styled.Calendar open={open} {...rest} ref={ref}>
+      <Popper
+        onClick={() => handleOpen(!open)}
+        anchorEl={anchorEl}
+        open={open}
+        popperOptions={popperOptions}
+        position={position || 'bottom-start'}
+        overlay
+      >
+        <Styled.Calendar position={position} open={open} style={{ ...calendarStyles }} {...rest} ref={ref}>
           <MonthPicker
             year={year}
             setMonth={setMonth}
@@ -319,7 +331,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             <Button onClick={() => handleOpen(false)} size="xs" color="basic">
               Cancel
             </Button>
-            <Button onClick={handleTodayButton} size="sm" color="secondary" disabled={isTodayDateDisabled}>
+            <Button onClick={handleTodayButton} size="xs" color="secondary" disabled={isTodayDateDisabled}>
               Today
             </Button>
           </Styled.ButtonWrapper>
@@ -331,10 +343,14 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
 Calendar.defaultProps = {
   open: false,
+  position: Position.BottomStart,
 };
 
 export const propTypes = {
   value: PT.string,
+  position: PT.oneOf(objectValues(Position)),
+  calendarStyles: PT.object,
+  popperOptions: popperPropTypes.popperOptions,
   anchorEl: PT.instanceOf(Element),
   onChange: PT.func,
   open: PT.bool,
