@@ -14,7 +14,7 @@ const baseClassName = 'Tooltip';
 const TooltipContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'container'),
 })(
-  ({ open, size = Size.Sm, theme }: With<With<WithTheme, TooltipProps>, { open: boolean }>) => css`
+  ({ open, size = Size.Sm, theme }: With<With<WithTheme, Partial<TooltipProps>>, { open: boolean }>) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +39,7 @@ const TooltipContainer = styled.div.attrs({
 const Tooltip = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ warning, size = Size.Sm, theme }: With<WithTheme, TooltipProps>) => css`
+  ({ warning, size = Size.Sm, theme }: With<WithTheme, Partial<TooltipProps>>) => css`
     display: inline-flex;
     align-items: center;
     min-width: 54px;
