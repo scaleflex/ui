@@ -25,7 +25,7 @@ const Placeholder = styled.div.attrs({
   ({ fullWidth, theme }: With<WithTheme, InputProps>) => css`
     position: absolute;
     top: 32px;
-    left: 19px;
+    left: 18px;
     z-index: 1000;
     width: ${fullWidth ? '95%' : '244px'};
     ${theme.typography.font[FontVariant.LabelLarge]}

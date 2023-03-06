@@ -73,6 +73,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
             iconClickEnd: () => setOpen(!open),
             type: 'date',
+            max: '9999-12-31',
             ...(InputPropsData || {}),
           }}
           ref={ref}
