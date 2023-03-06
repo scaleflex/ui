@@ -83,8 +83,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
+    const convertToLower = (value: string): string => value.toLocaleLowerCase();
+
+    const isSuggestedTag = (input: string) => suggestedTags.some((suggested: any) => convertToLower(suggested)?.includes(convertToLower(input)))
+
     const handleAddingTag = (): void => {
-      if (userInput) {
+      if (userInput && !isSuggestedTag(userInput)) {
         handleTagAdd(userInput, AddTagType.UserInput);
         setUserInput('');
       }
