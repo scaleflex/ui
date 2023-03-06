@@ -50,7 +50,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
-      getTagIcon = (tag: TagType): string => tag as string,
+      getTagIcon,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
       ...rest
     }: TagFieldProps,
