@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.32](https://github.com/scaleflex/ui/compare/2.0.0-beta.31...2.0.0-beta.32) (2023-03-06)
+
+
+### Bug Fixes
+
+* suggsted tag field - FRA-873 ([d834773](https://github.com/scaleflex/ui/commit/d834773ca4bc070b7008e72b73ff899d5f18460e))
+
+
+
+
+
+
 # [2.0.0-beta.31](https://github.com/scaleflex/ui/compare/2.0.0-beta.30...2.0.0-beta.31) (2023-02-23)
 
 **Note:** Version bump only for package ui
