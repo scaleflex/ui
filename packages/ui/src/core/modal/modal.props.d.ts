@@ -7,6 +7,7 @@ export type ModalSizeType = Values<typeof Size>;
 export interface ModalProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
   fullWidth?: boolean;
+  modalStyles?: object;
   maxWidth?: ModalSizeType;
   onClose?: () => void;
 }

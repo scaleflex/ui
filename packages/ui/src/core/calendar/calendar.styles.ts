@@ -109,6 +109,7 @@ const MonthDatePickerWrapper = styled(Calendar).attrs({
   ({ open = false }: CalendarProps) => css`
     top: 0;
     left: 0;
+    box-shadow: unset;
     transform: ${open ? 'translateY(0)' : 'translateY(-100%)'};
     transition: transform 0.4s ease-in-out;
   `

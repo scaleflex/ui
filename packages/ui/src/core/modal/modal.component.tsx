@@ -15,7 +15,7 @@ const isValidSingleFragmentChildren = (children?: any): boolean =>
   (children as JSX.Element).type === React.Fragment;
 
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
-  ({ children: _children, open, onClose, maxWidth, fullWidth, ...rest }, ref): JSX.Element => {
+  ({ children: _children, open, onClose, maxWidth, fullWidth, modalStyles, ...rest }, ref): JSX.Element => {
     const children = isValidSingleFragmentChildren(_children) ? (_children as JSX.Element).props.children : _children;
 
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
@@ -51,7 +51,7 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
 
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
-        <Styled.Wrapper open={Boolean(open)} ref={ref}>
+        <Styled.Wrapper style={{ ...modalStyles }} open={Boolean(open)} ref={ref}>
           <Styled.Overlay onClick={handleClose} open={Boolean(open)} />
 
           <Styled.Container {...rest} maxWidth={maxWidth} fullWidth={fullWidth} open={Boolean(open)}>
@@ -86,6 +86,7 @@ Modal.defaultProps = defaultProps;
 
 export const propTypes = {
   onClose: PT.func,
+  modalStyles: PT.object,
   children: PT.node.isRequired,
   maxWidth: PT.oneOf(objectValues(Size)),
   open: PT.bool,
