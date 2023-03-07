@@ -5,7 +5,7 @@ import type { IconProps } from '@scaleflex/icons/icon.props';
 import ArrowSidebarLeftOutline from '@scaleflex/icons/arrow-sidebar-left-outline';
 import ArrowSidebarRightOutline from '@scaleflex/icons/arrow-sidebar-right-outline';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { useMediaQuery, useTheme } from '../../theme/hooks';
 import type { DrawerProps } from './drawer.props';
 import DrawerItemText from './drawer-item-text-component';
@@ -13,6 +13,7 @@ import DrawerItemIcon from './drawer-item-icon.component';
 import DrawerContext from './drawer.context';
 import Backdrop from '../backdrop';
 import Styled from './drawer.styles';
+import { Variant } from './types';
 
 const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
   (
@@ -27,6 +28,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       collapseButtonLabel = 'Collapse menu',
       persistentDrawerStyles = {},
       temproryDrawerStyles = {},
+      variant = Variant.Auto,
       onClose,
       onCollapse,
       onCollapseClick,
@@ -123,6 +125,19 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       <Styled.PersistentDrawer style={{ ...persistentDrawerStyles }}>{renderDrawer(true)}</Styled.PersistentDrawer>
     );
 
+    const getDrawerVariant = (): JSX.Element => {
+      switch (variant) {
+        case Variant.Auto:
+          return matchDownXl ? temporaryDrawer() : persistentDrawer();
+        case Variant.Temporary:
+          return temporaryDrawer();
+        case Variant.Persistent:
+          return persistentDrawer();
+        default:
+          return matchDownXl ? temporaryDrawer() : persistentDrawer();
+      }
+    };
+
     return (
       <DrawerContext.Provider
         value={{
@@ -130,7 +145,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
           size: DrawerIconsSize,
         }}
       >
-        {matchDownXl ? temporaryDrawer() : persistentDrawer()}
+        {getDrawerVariant()}
       </DrawerContext.Provider>
     );
   }
@@ -140,6 +155,7 @@ export const defaultProps = {
   open: false,
   hideBackdrop: false,
   iconsSize: 20,
+  variant: Variant.Auto,
 };
 
 Drawer.defaultProps = defaultProps;
@@ -158,6 +174,7 @@ export const propTypes = {
   collapseButtonLabel: PT.string,
   persistentDrawerStyles: PT.object,
   temproryDrawerStyles: PT.object,
+  variant: PT.oneOf(objectValues(Variant)),
 };
 
 Drawer.propTypes = propTypes;

@@ -9,26 +9,14 @@ import { FontVariant as FV } from '../../utils/types/typography/font-variant';
 import Accordion from '../accordion/accordion.component';
 import AccordionHeaderStyled from '../accordion-header/accordion-header.styles';
 import AccordionDetailsStyled from '../accordion-details/accordion-details.styles';
-import { DrawerProps, Fonttype } from './drawer.props';
+import { DrawerProps, FontType } from './drawer.props';
 
 const baseClassName = 'Drawer';
 
 const TemporaryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
 })(
-  ({ open, theme: { breakpoints } }: With<WithTheme, DrawerProps>) => css`
-    ${breakpoints.classes.lg} & {
-      display: block;
-    }
-    ${breakpoints.classes.md} & {
-      display: block;
-    }
-    ${breakpoints.classes.sm} & {
-      display: block;
-    }
-    ${breakpoints.classes.xs} & {
-      display: block;
-    }
+  ({ open }: DrawerProps) => css`
     position: absolute;
     inset: 0px;
     z-index: 1200;
@@ -38,22 +26,7 @@ const TemporaryDrawer = styled.div.attrs({
 
 const PersistentDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'persistent'),
-})(
-  ({ theme: { breakpoints } }: WithTheme) => css`
-    ${breakpoints.classes.lg} & {
-      display: none;
-    }
-    ${breakpoints.classes.md} & {
-      display: none;
-    }
-    ${breakpoints.classes.sm} & {
-      display: none;
-    }
-    ${breakpoints.classes.xs} & {
-      display: none;
-    }
-  `
-);
+})``;
 
 const Drawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
@@ -189,7 +162,7 @@ const ItemText = styled.div.attrs({
     },
     font: fontKey,
     isCollapsed,
-  }: With<WithTheme, { isCollapsed?: boolean; font?: Fonttype }>) => css`
+  }: With<WithTheme, { isCollapsed?: boolean; font?: FontType }>) => css`
     flex: 1 1 auto;
     color: ${palette[PColor.TextPrimary]};
     ${font[fontKey || FV.LabelLarge]};
