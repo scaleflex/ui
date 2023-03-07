@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.33](https://github.com/scaleflex/ui/compare/2.0.0-beta.32...2.0.0-beta.33) (2023-03-07)
+
+
+### Bug Fixes
+
+* **calendar:** max year value FRA-894 ([9e39260](https://github.com/scaleflex/ui/commit/9e3926071b3e1764df78c0a10d286d2baf3ec041))
+* **Modal:** add style to modal wrapper FRA-893 ([fd18543](https://github.com/scaleflex/ui/commit/fd18543933a104185027d22fad2465bda22b82d8))
+* tag field icon prop - FRA-883 ([d14d761](https://github.com/scaleflex/ui/commit/d14d761afde63d12818d4d1631b428aad74ebb6f))
+
+
+
+
+
+
 # [2.0.0-beta.32](https://github.com/scaleflex/ui/compare/2.0.0-beta.31...2.0.0-beta.32) (2023-03-06)
 
 
