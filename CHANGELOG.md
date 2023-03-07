@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.34](https://github.com/scaleflex/ui/compare/2.0.0-beta.33...2.0.0-beta.34) (2023-03-07)
+
+
+### Features
+
+* **Drawer:** add variant prop ([f45613a](https://github.com/scaleflex/ui/commit/f45613a4787ce3b021be457e4d63c3b58b25b075))
+
+
+
+
+
 # [2.0.0-beta.33](https://github.com/scaleflex/ui/compare/2.0.0-beta.32...2.0.0-beta.33) (2023-03-07)
 
 
