@@ -7,6 +7,8 @@ import { record } from '../../utils/types/prop-types';
 import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '../../utils/functions';
 import { Breakpoint } from '../../utils/types/css';
 import { Color } from '../../utils/types/palette';
+import { Shadows } from '../../utils/types/shadows';
+
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
 
@@ -96,6 +98,7 @@ ThemeProvider.propTypes = {
       only: PT.func,
     }),
     palette: PT.exact(record(objectValues(Color), PT.string)),
+    shadows: PT.exact(record(objectValues(Shadows), PT.string)),
     shape: PT.exact({
       borderRadius: PT.exact(record(objectValues(BorderRadiusSize), PT.string)),
     }),
