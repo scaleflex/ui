@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
+import EyeOpen from '@scaleflex/icons/eye-open';
+import EyeClosed from '@scaleflex/icons/eye-closed';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
+import { Type } from './types';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): number => {
@@ -22,6 +25,7 @@ const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): num
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
     {
+      inputType,
       children,
       iconStart,
       iconEnd,
@@ -49,6 +53,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   ): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
     const [showCopyMessage, setShowCopyMessage] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
     const placeholder = rest.value ? '' : rest.placeholder;
@@ -130,6 +135,27 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const renderField = (): JSX.Element | undefined => (
       <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
     );
+
+    const toggleVisibility = (): void => {
+      return setIsVisible(!isVisible);
+    };
+
+    if (inputType === Type.WithPassword) {
+      return (
+        <Input
+          {...rest}
+          placeholder="Enter your password"
+          iconEnd={(iconProps) =>
+            isVisible ? (
+              <EyeClosed {...iconProps} onClick={toggleVisibility} />
+            ) : (
+              <EyeOpen {...iconProps} onClick={toggleVisibility} />
+            )
+          }
+          type={isVisible ? 'text' : 'password'}
+        />
+      );
+    }
 
     const renderCopyText = (): JSX.Element | undefined => {
       return (

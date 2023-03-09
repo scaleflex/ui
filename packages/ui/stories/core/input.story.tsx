@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { Type } from '@scaleflex/ui/core/input/types';
 import CensorIcon from '@scaleflex/icons/censor';
 import SearchIcon from '@scaleflex/icons/search';
 import Success from '@scaleflex/icons/success';
-import EyeOpen from '@scaleflex/icons/eye-open';
-import EyeClosed from '@scaleflex/icons/eye-closed';
 
 import _Input, { InputProps } from '../../src/core/input';
 import { InputSize } from '../../src/utils/types';
@@ -38,32 +37,6 @@ const BasicTemplate: Story<InputProps> = ({ ...args }) => {
         {...args}
         value={value}
         onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
-      />
-    </div>
-  );
-};
-
-const PasswordTemplate: Story<InputProps> = ({ ...args }) => {
-  const [value, setValue] = useState('Text');
-  const [isVisible, setIsVisible] = useState(false);
-  const toggleVisibility = (): void => {
-    return setIsVisible((state) => !state);
-  };
-
-  return (
-    <div style={{ marginTop: 40 }}>
-      <Input
-        {...args}
-        value={value}
-        onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => setValue(currentTarget.value)}
-        iconEnd={(iconProps) =>
-          isVisible ? (
-            <EyeClosed {...iconProps} onClick={toggleVisibility} />
-          ) : (
-            <EyeOpen {...iconProps} onClick={toggleVisibility} />
-          )
-        }
-        type={isVisible ? 'text' : 'password'}
       />
     </div>
   );
@@ -103,8 +76,8 @@ WithIconChange.args = {
 };
 
 // WithPassword
-export const WithPassword = PasswordTemplate.bind({});
+export const WithPassword = BasicTemplate.bind({});
 WithPassword.args = {
   ...defaultArgs,
-  placeholder: 'Enter your password',
+  inputType: Type.WithPassword,
 };
