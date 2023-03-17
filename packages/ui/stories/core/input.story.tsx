@@ -79,5 +79,6 @@ WithIconChange.args = {
 export const WithPassword = BasicTemplate.bind({});
 WithPassword.args = {
   ...defaultArgs,
-  inputType: Type.WithPassword,
+  placeholder: 'Enter your password',
+  inputType: Type.Password,
 };

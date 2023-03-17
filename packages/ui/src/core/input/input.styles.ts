@@ -37,6 +37,10 @@ const CopyIcon = styled.span.attrs({
   `
 );
 
+const PasswordIcon = styled(CopyIcon).attrs({
+  className: generateClassNames(baseClassName, 'PasswordIcon'),
+})``;
+
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
 })<InputProps>(
@@ -232,6 +236,7 @@ const Styled = applyDisplayNames({
   Base,
   Icon,
   CopyIcon,
+  PasswordIcon,
   ClearIcon,
   NotificationBox,
   NotificationIcon,

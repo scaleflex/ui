@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
 import LanguagesIcon from '@scaleflex/icons/languages';
-import _InputLocalization, { InputLocalizationProps } from '../../src/core/input-localization';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+import _InputLocalization, { InputLocalizationProps } from '../../src/core/input-localization';
 import MenuItem from '../../src/core/menu-item';
 import { StoryGroup } from './types';
 import { InputSize } from '../../src/utils/types';

@@ -1,4 +1,4 @@
 export const Type = {
-  Input: 'input',
-  WithPassword: 'withPassword',
+  Text: 'text',
+  Password: 'password',
 } as const;

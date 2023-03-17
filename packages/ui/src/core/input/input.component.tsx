@@ -22,10 +22,21 @@ const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): num
   }
 };
 
+const getPasswordIconSize = (sizeName: InputSizeType | undefined): number => {
+  switch (sizeName) {
+    case InputSize.Md:
+      return 16;
+
+    case InputSize.Sm:
+    default:
+      return 14;
+  }
+};
+
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
     {
-      inputType,
+      inputType = Type.Text,
       children,
       iconStart,
       iconEnd,
@@ -120,7 +131,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderClearIcon = (): JSX.Element | undefined =>
       disabled || readOnly || !clearIcon ? undefined : (
-        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')}>
+        <Styled.ClearIcon onClick={(event: any) => handleIconClick(event, 'clear')}>
           {typeof clearIcon === 'function' ? clearIcon({ size: getIconSize(size, 'clear') }) : clearIcon}
         </Styled.ClearIcon>
       );
@@ -132,30 +143,31 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.CopyIcon>
       ) : undefined;
 
-    const renderField = (): JSX.Element | undefined => (
-      <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
+    const toggleVisibility = (): void => setIsVisible(!isVisible);
+
+    const renderPasswordIcon = (): JSX.Element | undefined => (
+      <Styled.PasswordIcon onClick={toggleVisibility}>
+        {isVisible ? <EyeClosed size={getPasswordIconSize(size)} /> : <EyeOpen size={getPasswordIconSize(size)} />}
+      </Styled.PasswordIcon>
     );
 
-    const toggleVisibility = (): void => {
-      return setIsVisible(!isVisible);
+    const getInputType = (): string => {
+      if (inputType === Type.Password && !isVisible) {
+        return Type.Password;
+      }
+
+      return Type.Text;
     };
 
-    if (inputType === Type.WithPassword) {
-      return (
-        <Input
-          {...rest}
-          placeholder="Enter your password"
-          iconEnd={(iconProps) =>
-            isVisible ? (
-              <EyeClosed {...iconProps} onClick={toggleVisibility} />
-            ) : (
-              <EyeOpen {...iconProps} onClick={toggleVisibility} />
-            )
-          }
-          type={isVisible ? 'text' : 'password'}
-        />
-      );
-    }
+    const renderField = (): JSX.Element | undefined => (
+      <Styled.Base
+        {...rest}
+        placeholder={placeholder}
+        ref={inputRef}
+        readOnly={Boolean(readOnly)}
+        type={getInputType()}
+      />
+    );
 
     const renderCopyText = (): JSX.Element | undefined => {
       return (
@@ -187,6 +199,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
         {showCopyMessage && renderCopyText()}
         {renderClearIcon()}
+        {inputType === Type.Password && renderPasswordIcon()}
         {renderIcon(iconEnd, 'end')}
         {renderIcon(iconChange, '')}
         {children && <>{children}</>}
@@ -224,6 +237,7 @@ export const propTypes = {
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
   copyTextMessage: PT.string,
+  inputType: PT.string,
   /// / TODO: refactor how implement tags in input
   // renderTags: PT.node,
 };
