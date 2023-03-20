@@ -143,10 +143,13 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.CopyIcon>
       ) : undefined;
 
-    const toggleVisibility = (): void => setIsVisible(!isVisible);
+    const toggleVisibility = (event: React.MouseEvent<HTMLDivElement>): void => {
+      event.stopPropagation();
+      setIsVisible(!isVisible);
+    };
 
     const renderPasswordIcon = (): JSX.Element | undefined => (
-      <Styled.PasswordIcon onClick={toggleVisibility}>
+      <Styled.PasswordIcon onClick={(event: React.MouseEvent<HTMLDivElement>) => toggleVisibility(event)}>
         {isVisible ? <EyeClosed size={getPasswordIconSize(size)} /> : <EyeOpen size={getPasswordIconSize(size)} />}
       </Styled.PasswordIcon>
     );
