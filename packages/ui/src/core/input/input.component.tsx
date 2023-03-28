@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
+import EyeOpen from '@scaleflex/icons/eye-open';
+import EyeClosed from '@scaleflex/icons/eye-closed';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
+import { Type } from './types';
 import Styled from './input.styles';
 
 const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): number => {
@@ -19,9 +22,21 @@ const getIconSize = (sizeName: InputSizeType | undefined, iconType: string): num
   }
 };
 
+const getPasswordIconSize = (sizeName: InputSizeType | undefined): number => {
+  switch (sizeName) {
+    case InputSize.Md:
+      return 16;
+
+    case InputSize.Sm:
+    default:
+      return 14;
+  }
+};
+
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
     {
+      inputType = Type.Text,
       children,
       iconStart,
       iconEnd,
@@ -49,6 +64,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   ): JSX.Element => {
     const [isHovering, setIsHovering] = useState(false);
     const [showCopyMessage, setShowCopyMessage] = useState(false);
+    const [isVisible, setIsVisible] = useState(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
     const placeholder = rest.value ? '' : rest.placeholder;
@@ -115,7 +131,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderClearIcon = (): JSX.Element | undefined =>
       disabled || readOnly || !clearIcon ? undefined : (
-        <Styled.ClearIcon onClick={(event) => handleIconClick(event, 'clear')}>
+        <Styled.ClearIcon onClick={(event: any) => handleIconClick(event, 'clear')}>
           {typeof clearIcon === 'function' ? clearIcon({ size: getIconSize(size, 'clear') }) : clearIcon}
         </Styled.ClearIcon>
       );
@@ -127,8 +143,33 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         </Styled.CopyIcon>
       ) : undefined;
 
+    const toggleVisibility = (event: React.MouseEvent<HTMLDivElement>): void => {
+      event.stopPropagation();
+      setIsVisible(!isVisible);
+    };
+
+    const renderPasswordIcon = (): JSX.Element | undefined => (
+      <Styled.PasswordIcon onClick={(event: React.MouseEvent<HTMLDivElement>) => toggleVisibility(event)}>
+        {isVisible ? <EyeClosed size={getPasswordIconSize(size)} /> : <EyeOpen size={getPasswordIconSize(size)} />}
+      </Styled.PasswordIcon>
+    );
+
+    const getInputType = (): string => {
+      if (inputType === Type.Password && !isVisible) {
+        return Type.Password;
+      }
+
+      return Type.Text;
+    };
+
     const renderField = (): JSX.Element | undefined => (
-      <Styled.Base {...rest} placeholder={placeholder} ref={inputRef} readOnly={Boolean(readOnly)} />
+      <Styled.Base
+        {...rest}
+        placeholder={placeholder}
+        ref={inputRef}
+        readOnly={Boolean(readOnly)}
+        type={getInputType()}
+      />
     );
 
     const renderCopyText = (): JSX.Element | undefined => {
@@ -161,6 +202,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
         {showCopyMessage && renderCopyText()}
         {renderClearIcon()}
+        {inputType === Type.Password && renderPasswordIcon()}
         {renderIcon(iconEnd, 'end')}
         {renderIcon(iconChange, '')}
         {children && <>{children}</>}
@@ -198,6 +240,7 @@ export const propTypes = {
   focusOnMount: PT.bool,
   focusOnClick: PT.bool,
   copyTextMessage: PT.string,
+  inputType: PT.string,
   /// / TODO: refactor how implement tags in input
   // renderTags: PT.node,
 };
