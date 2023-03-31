@@ -39,7 +39,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       hideCopyIcon = false,
       focusOnMount = false,
       focusOnClick = true,
-      copyTextMessage = '',
+      copyTextMessage,
       copySuccessIcon,
       error,
       showPlaceholder,
@@ -175,6 +175,7 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  copyTextMessage: 'Copied!',
 };
 
 Input.defaultProps = defaultProps;
