@@ -25,6 +25,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       leaveDelay = 500,
       stayOpen,
       title,
+      tooltipProps,
       ...rest
     }: TooltipProps,
     ref
@@ -111,7 +112,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
           onMouseEnter={handleEnteringTooltip}
           onMouseLeave={handleLeavingTooltip}
         >
-          <Styled.Tooltip warning={warning} {...rest}>
+          <Styled.Tooltip warning={warning} {...tooltipProps}>
             {title}
           </Styled.Tooltip>
         </Styled.TooltipContainer>
@@ -180,6 +181,7 @@ Tooltip.propTypes = {
   }) as Validator<PopperOptions>,
   enableUnderlayingEvent: PT.bool,
   popperWrapperStyles: PT.object,
+  tooltipProps: PT.object,
   enableHover: PT.bool,
 };
 
