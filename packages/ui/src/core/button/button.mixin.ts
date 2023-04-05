@@ -191,10 +191,10 @@ export const colorButtonMixin = {
     ${active &&
     css`
       color: ${palette[PaletteColor.AccentPrimaryActive]};
-      
+
       &:hover,
       &:focus {
-        color: ${palette[PaletteColor.AccentPrimaryActive]};  
+        color: ${palette[PaletteColor.AccentPrimaryActive]};
     `}
 
     &:disabled {
@@ -548,7 +548,7 @@ export const sizeButtonMixin = {
   `,
 
   [ButtonSize.Md]: css`
-    padding: 11px 16px;
+    padding: 11px 56px;
   `,
 
   [ButtonSize.Lg]: css`
