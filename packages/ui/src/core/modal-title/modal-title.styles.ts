@@ -15,7 +15,7 @@ const Icon = styled.div.attrs({
   ({ theme: { palette } }: With<WithTheme, { iconShadow: boolean }>) => css`
     display: flex;
     margin-bottom: 8px;
-    padding: 14.5px 17.25px 14.51px 17.4px;
+    padding: 14.5px;
     border-radius: 50%;
     background: ${palette[PColor.Accent_1_2_Opacity]};
     color: ${palette[PColor.AccentStateless]};
@@ -72,9 +72,9 @@ const ModalTitle = styled.div.attrs({
 
     ${() => {
       const paddingY = variant === Variant.WithIcon ? 26 : 14;
-      const paddingX = variant === Variant.WithIcon ? 47 : 14;
-      const paddingLeft = 170;
-      const paddingRight = variant === Variant.WithIcon ? 172 : 40;
+      const paddingX = variant === Variant.WithIcon ? 12 : 14;
+      const paddingLeft = 18;
+      const paddingRight = variant === Variant.WithIcon ? paddingLeft : 40;
 
       return css`
         padding: ${paddingY}px ${paddingRight}px ${paddingX}px ${paddingLeft}px;

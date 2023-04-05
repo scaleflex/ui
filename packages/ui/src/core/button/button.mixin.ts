@@ -548,7 +548,7 @@ export const sizeButtonMixin = {
   `,
 
   [ButtonSize.Md]: css`
-    padding: 11px 56px;
+    padding: 11px 16px;
   `,
 
   [ButtonSize.Lg]: css`
