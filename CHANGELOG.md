@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.35](https://github.com/scaleflex/ui/compare/2.0.0-beta.34...2.0.0-beta.35) (2023-04-07)
+
+
+### Bug Fixes
+
+* **Input:** fix copy empty message FRA-1234 ([9d01bb2](https://github.com/scaleflex/ui/commit/9d01bb23031996a43a2c71fbf5491f8282795259))
+* autocomplete selected value - SHA-20 ([00ebc93](https://github.com/scaleflex/ui/commit/00ebc93205cac23299b9a2ef62d2ae2224d5bef0))
+* input focus problem FRA-902 ([bef80a2](https://github.com/scaleflex/ui/commit/bef80a2789d912eff328097486864173075b34c7))
+* input password type - FRA-902 ([6ef4913](https://github.com/scaleflex/ui/commit/6ef4913e2caccf666d2955afdd7c12e9a9ab8001))
+* **Input:** add password type to input ([41e9d19](https://github.com/scaleflex/ui/commit/41e9d19cc923742eba08057ba5ca4cacddc59da8))
+
+
+
+
+
+
 # [2.0.0-beta.34](https://github.com/scaleflex/ui/compare/2.0.0-beta.33...2.0.0-beta.34) (2023-03-07)
 
 
