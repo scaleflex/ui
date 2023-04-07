@@ -57,6 +57,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
+    const [renderedValue, setRenderedValue] = useState(value);
 
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0;
@@ -159,6 +160,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const handleInputChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
+      setRenderedValue('');
       handleOnChange(event, event.currentTarget.value);
       setAnchorEl(inputRef.current);
     };
@@ -262,7 +264,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getFilteredOptions = (): void => {
       let filteredMenuOptions = typeof options[0] === 'object' ? options.map((option: any) => option.label) : options;
 
-      if (!isItemSelected) {
+      if (!isItemSelected && value !== renderedValue) {
         filteredMenuOptions = filteredMenuOptions.filter((option: any) => option.includes(value));
       }
 
@@ -381,6 +383,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         setFilteredOptions([noOptionsText]);
       }
     }, [filteredOptions, value]);
+
+    useEffect(() => {
+      const filteredMenuOptions = typeof options[0] === 'object' ? options.map((option: any) => option.label) : options;
+
+      if (!multiple && value?.length !== 0) {
+        const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
+
+        if (valueOptionIndex !== -1) {
+          setCurrentItemIndex(valueOptionIndex);
+          setSelected(value);
+        }
+      }
+    }, []);
 
     return (
       <Styled.Autocomplete ref={ref} {...rest}>

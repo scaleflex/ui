@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { Type } from '@scaleflex/ui/core/input/types';
 import CensorIcon from '@scaleflex/icons/censor';
 import SearchIcon from '@scaleflex/icons/search';
 import Success from '@scaleflex/icons/success';
@@ -24,7 +25,7 @@ const defaultArgs = {
   disabled: false,
   focusOnClick: true,
   copyTextMessage: 'Link copied to clipboard',
-  copySuccessIcon: <Success size={16} />
+  copySuccessIcon: <Success size={16} />,
 };
 
 const BasicTemplate: Story<InputProps> = ({ ...args }) => {
@@ -72,4 +73,12 @@ export const WithIconChange = BasicTemplate.bind({});
 WithIconChange.args = {
   ...defaultArgs,
   iconChange: (props: any) => <Success {...props} />,
+};
+
+// WithPassword
+export const WithPassword = BasicTemplate.bind({});
+WithPassword.args = {
+  ...defaultArgs,
+  placeholder: 'Enter your password',
+  inputType: Type.Password,
 };
