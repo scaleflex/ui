@@ -44,7 +44,7 @@ const Scroll = styled.div.attrs({
 );
 
 const ClockBody = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'time-picker-body'),
+  className: generateClassNames(baseClassName, 'timePickerBody'),
 })<ClockProps>(
   () => css`
     display: block;
@@ -54,7 +54,7 @@ const ClockBody = styled.div.attrs({
 );
 
 const ClockTimeContainer = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'clock-time-container'),
+  className: generateClassNames(baseClassName, 'clockTimeContainer'),
 })<ClockProps>(
   ({ theme: { palette }, active }: With<WithTheme, { active?: boolean }>) => css`
     display: flex;
@@ -81,7 +81,7 @@ const ClockTimeContainer = styled.div.attrs({
 );
 
 const ClockNumberContainer = styled.div.attrs({
-  className: generateClassNames(baseClassName),
+  className: generateClassNames(baseClassName, 'clockNumberContainer'),
 })<ClockProps>(
   () => css`
     display: flex;

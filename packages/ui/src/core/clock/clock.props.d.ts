@@ -13,7 +13,7 @@ export interface ClockProps {
   clockStyles?: object;
   anchorEl?: AnchorElType;
   position?: PopperPositionType;
-  popperOptions?: PopperOptions;
+  popperPosition?: PopperPosition;
   onChange?: (value: string) => void;
   setOpen?: (value: boolean) => void;
 }

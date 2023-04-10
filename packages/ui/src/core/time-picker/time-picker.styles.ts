@@ -8,7 +8,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import InputGroup from '../input-group';
 import { InputProps } from '../input';
 
-const baseClassName = 'Time-picker';
+const baseClassName = 'TimePicker';
 
 const TimePicker = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),

@@ -3,7 +3,7 @@ import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import { ClockProps } from './clock.props';
-import { HOURS, MINUTES, PERIOD } from './clock.utils';
+import { HOURS, MINUTES, PERIOD } from './clock.constants';
 import Styled from './clock.styles';
 
 const Clock = intrinsicComponent<ClockProps, HTMLDivElement>(
@@ -19,7 +19,7 @@ const Clock = intrinsicComponent<ClockProps, HTMLDivElement>(
       setPeriod(newPeriod || PERIOD[0]);
     }, [value]);
 
-    const onHandleClick = (timeInputValue: string): void => {
+    const handleTimeClick = (timeInputValue: string): void => {
       if (onChange) {
         onChange(timeInputValue);
       }
@@ -28,14 +28,14 @@ const Clock = intrinsicComponent<ClockProps, HTMLDivElement>(
     return (
       <>
         {open && (
-          <Styled.ClockWrapper value={value} style={{ ...clockStyles }} {...rest} ref={ref}>
+          <Styled.ClockWrapper ref={ref} value={value} style={{ ...clockStyles }} {...rest}>
             <Styled.Scroll scroll={scroll}>
               <Styled.ClockBody>
                 {HOURS.map((hourItem) => (
                   <Styled.ClockTimeContainer
-                    active={hour === hourItem}
-                    onClick={() => onHandleClick(`${hourItem}:${minute} ${period}`)}
                     key={hourItem}
+                    active={hour === hourItem}
+                    onClick={() => handleTimeClick(`${hourItem}:${minute} ${period}`)}
                   >
                     <Styled.ClockNumberContainer>{hourItem}</Styled.ClockNumberContainer>
                   </Styled.ClockTimeContainer>
@@ -44,9 +44,9 @@ const Clock = intrinsicComponent<ClockProps, HTMLDivElement>(
               <Styled.ClockBody>
                 {MINUTES.map((minuteItem) => (
                   <Styled.ClockTimeContainer
-                    active={minute === minuteItem}
-                    onClick={() => onHandleClick(`${hour}:${minuteItem} ${period}`)}
                     key={minuteItem}
+                    active={minute === minuteItem}
+                    onClick={() => handleTimeClick(`${hour}:${minuteItem} ${period}`)}
                   >
                     <Styled.ClockNumberContainer>{minuteItem}</Styled.ClockNumberContainer>
                   </Styled.ClockTimeContainer>
@@ -56,9 +56,9 @@ const Clock = intrinsicComponent<ClockProps, HTMLDivElement>(
             <Styled.ClockBody>
               {PERIOD.map((periodItem) => (
                 <Styled.ClockTimeContainer
-                  active={period === periodItem}
-                  onClick={() => onHandleClick(`${hour}:${minute} ${periodItem}`)}
                   key={periodItem}
+                  active={period === periodItem}
+                  onClick={() => handleTimeClick(`${hour}:${minute} ${periodItem}`)}
                 >
                   <Styled.ClockNumberContainer>{periodItem}</Styled.ClockNumberContainer>
                 </Styled.ClockTimeContainer>

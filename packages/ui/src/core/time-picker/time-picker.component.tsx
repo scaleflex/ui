@@ -6,14 +6,14 @@ import type { IconProps } from '@scaleflex/icons/icon.props';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { TimePickerProps } from './time-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
-import Clock, { ClockProps } from '../clock ';
-import { propTypes as clockPropTypes } from '../clock /clock.component';
+import Clock, { ClockProps } from '../clock';
+import { propTypes as clockPropTypes } from '../clock/clock.component';
 import { propTypes as popperPropTypes } from '../popper/popper.component';
 
-import Styled from './time-picker.styles';
 import { InputProps } from '../input';
 import { Position } from '../popper/types';
 import { InputGroupProps } from '../input-group';
+import Styled from './time-picker.styles';
 
 const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
   (
@@ -23,7 +23,7 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       position,
       label,
       hint,
-      popperOptions,
+      popperPosition,
       InputProps: InputPropsData,
       ClockProps: ClockPropsData,
       inputGroupProps,
@@ -33,7 +33,6 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [open, setOpen] = useState(false);
-    const [showPlaceholder, setShowPlaceholder] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
 
     const timePickerRef = useRef(null);
@@ -45,29 +44,24 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     };
 
     return (
-      <Styled.TimePicker {...rest} ref={timePickerRef}>
+      <Styled.TimePicker ref={timePickerRef} {...rest}>
         <Styled.TimePickerInput
+          ref={ref}
           label={label}
           fullWidth={fullWidth}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           hint={hint}
           value={value}
           isHovering={isHovering}
-          showPlaceholder={setShowPlaceholder}
           inputProps={{
             iconEnd: (props: IconProps) => <ClockIcon {...props} />,
             iconClickEnd: () => setOpen(!open),
             ...(InputPropsData || {}),
           }}
-          ref={ref}
           {...inputGroupProps}
         />
-        {!value && rest.placeholder && showPlaceholder && (
-          <Styled.Placeholder
-            onClick={() => setShowPlaceholder(false)}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-          >
+        {!value && rest.placeholder && (
+          <Styled.Placeholder onMouseEnter={() => setIsHovering(true)} onMouseLeave={() => setIsHovering(false)}>
             {rest.placeholder}
           </Styled.Placeholder>
         )}
@@ -76,7 +70,7 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
           open={open}
           setOpen={setOpen}
           onChange={handleOnChange}
-          popperOptions={popperOptions}
+          popperPosition={popperPosition}
           position={position || 'bottom-start'}
           anchorEl={timePickerRef.current}
           {...ClockPropsData}
@@ -95,7 +89,7 @@ export const propTypes = {
   onChange: PT.func,
   fullWidth: PT.bool,
   position: PT.oneOf(objectValues(Position)),
-  popperOptions: popperPropTypes.popperOptions,
+  popperPosition: popperPropTypes.popperOptions,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
   ClockProps: PT.exact(clockPropTypes) as Validator<ClockProps>,

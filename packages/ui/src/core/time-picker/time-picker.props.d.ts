@@ -1,5 +1,5 @@
 import type { Values } from '../../utils/types';
-import { ClockProps } from '../clock ';
+import { ClockProps } from '../clock';
 import type { InputProps } from '../input';
 import { InputGroupProps } from '../input-group';
 import { Position } from '../popper/types';
@@ -13,7 +13,7 @@ export interface TimePickerProps extends InputGroupProps, React.HTMLAttributes<H
   label?: string;
   fullWidth?: boolean;
   position?: PopperPositionType;
-  popperOptions?: PopperOptions;
+  popperPosition?: PopperOptions;
   onChange?: (value: string) => void;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
