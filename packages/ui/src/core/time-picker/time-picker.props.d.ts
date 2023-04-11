@@ -12,8 +12,8 @@ export interface TimePickerProps extends InputGroupProps, React.HTMLAttributes<H
   hint?: string;
   label?: string;
   fullWidth?: boolean;
-  position?: PopperPositionType;
-  popperPosition?: PopperOptions;
+  popperPosition?: PopperPositionType;
+  popperOptions?: PopperOptions;
   onChange?: (value: string) => void;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;

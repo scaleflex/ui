@@ -20,10 +20,10 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     {
       value = '',
       onChange,
-      position,
       label,
       hint,
       popperPosition,
+      popperOptions,
       InputProps: InputPropsData,
       ClockProps: ClockPropsData,
       inputGroupProps,
@@ -70,8 +70,8 @@ const Timepicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
           open={open}
           setOpen={setOpen}
           onChange={handleOnChange}
-          popperPosition={popperPosition}
-          position={position || 'bottom-start'}
+          popperOptions={popperOptions}
+          popperPosition={popperPosition || 'bottom-start'}
           anchorEl={timePickerRef.current}
           {...ClockPropsData}
         />
@@ -88,8 +88,8 @@ export const propTypes = {
   hint: PT.string,
   onChange: PT.func,
   fullWidth: PT.bool,
-  position: PT.oneOf(objectValues(Position)),
-  popperPosition: popperPropTypes.popperOptions,
+  popperPosition: PT.oneOf(objectValues(Position)),
+  popperOptions: popperPropTypes.popperOptions,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
   ClockProps: PT.exact(clockPropTypes) as Validator<ClockProps>,
