@@ -17,6 +17,7 @@ export const Color = {
   Accent_0_5_Opacity: 'accent_0_5_opacity',
   Accent_1_2_Opacity: 'accent_1_2_opacity',
   Accent_1_8_Opacity: 'accent_1_8_opacity',
+  Accent_2_8_Opacity: 'accent_2_8_opacity',
   Accent_4_0_Opacity: 'accent_4_0_opacity',
 
   BackgroundGrey: 'bg-grey',

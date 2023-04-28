@@ -23,6 +23,7 @@ export const lightPalette = {
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
   [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
+  [Color.Accent_2_8_Opacity]: 'rgba(104, 121, 235, 0.28)', // #6879EB47
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
   [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
