@@ -22,6 +22,8 @@ export const Color = {
   BackgroundGrey: 'bg-grey',
   BackgroundStateless: 'bg-stateless',
   BackgroundActive: 'bg-active',
+  BackgroundBaseLight: 'bg-base-light',
+  BackgroundBaseMedium: 'bg-base-medium',
   BackgroundPrimary: 'bg-primary',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
@@ -33,6 +35,7 @@ export const Color = {
   BackgroundGreenMedium: 'bg-green-medium',
   BackgroundBlue: 'bg-blue',
   BackgroundRed: 'bg-red',
+  BackgroundRedMedium: 'background-red-medium',
   BackgroundOrange: 'bg-orange',
   BackgroundTooltip: 'bg-tooltip',
 
@@ -69,6 +72,11 @@ export const Color = {
   BordersDisabled: 'borders-disabled',
   BordersButton: 'borders-button',
   BordersItem: 'borders-item',
+  BordersBaseLight: 'borders-base-light',
+  BordersBaseMedium: 'borders-base-medium',
+  BordersGreen: 'borders-green',
+  BordersGreenMedium: 'borders-green-medium',
+  BordersRed: 'borders-red',
 
   ActiveSecondary: 'active-secondary',
   ActiveSecondaryHover: 'active-secondary-hover',
