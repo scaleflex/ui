@@ -8,7 +8,7 @@ const ModalContent = styled.div.attrs({
 })(
   () => css`
     position: relative;
-    padding: 15px 16px;
+    padding: 12px 24px 0px;
   `
 );
 
