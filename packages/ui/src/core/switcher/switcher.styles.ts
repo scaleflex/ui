@@ -76,16 +76,16 @@ const Input = styled.input.attrs({
 
     &:checked {
       &:hover + ${Switcher} {
-        background: ${disabled ? palette[PColor.BackgroundActive] : palette[PColor.AccentPrimaryHover]};
+        background: ${!disabled && palette[PColor.AccentPrimaryHover]};
       }
     }
 
     &:checked + ${Switcher} {
-      background: ${!disabled && palette[PColor.AccentStateless]};
+      background: ${disabled ? palette[PColor.Accent_2_8_Opacity] : palette[PColor.AccentStateless]};
 
       &:before {
         ${translateSwitcherMixin[size]};
-        background: ${disabled ? palette[PColor.BackgroundGrey] : palette[PColor.IconsInvert]};
+        background: ${palette[PColor.IconsInvert]};
       }
 
       &:after {
