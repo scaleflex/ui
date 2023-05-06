@@ -68,7 +68,7 @@ const ModalTitle = styled.div.attrs({
   }: With<WithTheme, ModalTitleProps>) => css`
     position: relative;
     color: ${palette[PColor.TextPrimary]};
-    border-radius: ${borderRadius[BRSize.Md]}px ${borderRadius[BRSize.Md]}px 0px 0px;
+    border-radius: ${borderRadius[BRSize.Md]} ${borderRadius[BRSize.Md]} 0px 0px;
 
     ${() => {
       const paddingY = variant === Variant.WithIcon ? 26 : 14;
