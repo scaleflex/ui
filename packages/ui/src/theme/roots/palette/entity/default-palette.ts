@@ -23,11 +23,14 @@ export const lightPalette = {
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
   [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
+  [Color.Accent_2_8_Opacity]: 'rgba(104, 121, 235, 0.28)', // #6879EB47
   [Color.Accent_4_0_Opacity]: 'rgba(104, 121, 235, 0.4)', // #6879EB66
 
   [Color.BackgroundGrey]: 'rgba(216, 224, 232, 1)', // #D8E0E8
   [Color.BackgroundStateless]: 'rgba(255, 255, 255, 1)', // #FFFFFF
   [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
+  [Color.BackgroundBaseLight]: 'rgba(235, 239, 252, 1)', // #EBEFFC
+  [Color.BackgroundBaseMedium]: 'rgba(227, 231, 251, 1)', // #E3E7FB
   [Color.BackgroundPrimary]: 'rgba(248, 250, 251, 1)', // #f8fafb
   [Color.BackgroundPrimaryHover]: 'rgba(239, 243, 246, 1)', // #eff3f6
   [Color.BackgroundPrimaryActive]: 'rgba(93, 109, 126, 1)', // #5d6d7e
@@ -40,6 +43,7 @@ export const lightPalette = {
   [Color.BackgroundGreenMedium]: 'rgba(227, 250, 239, 1)', // #E3FAEF
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
+  [Color.BackgroundRedMedium]: 'rgba(247, 228, 230, 1)', // #F7E4E6
   [Color.BackgroundOrange]: 'rgba(255, 249, 242, 1)', // #FFF9F2
   [Color.BackgroundTooltip]: 'rgba(79, 98, 118, 1)', // #4F6276
 
@@ -78,6 +82,11 @@ export const lightPalette = {
   [Color.BordersDisabled]: 'rgba(73, 88, 188, 0.4)', // #4958BC66
   [Color.BordersButton]: 'rgba(151, 166, 182, 1)', // #97A6B6
   [Color.BordersItem]: 'rgba(226, 232, 236, 1)', // #E2E8EC
+  [Color.BordersBaseLight]: 'rgba(211, 219, 250, 1)', // #D3DBFA
+  [Color.BordersBaseMedium]: 'rgba(164, 175, 227, 1)', // #A4AFE3
+  [Color.BordersGreen]: 'rgba(27, 161, 99, 0.22)', // #1BA163 22%
+  [Color.BordersGreenMedium]: 'rgba(27, 161, 99, 0.4)', // #1BA163 40%
+  [Color.BordersRed]: 'rgba(185, 33, 46, 0.4)', // #B9212E 40%
 
   [Color.ActiveSecondary]: '#FFFFFF',
   [Color.ActiveSecondaryHover]: 'rgba(104, 121, 235, 0.05)', // #6879eb0d
