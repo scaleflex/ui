@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.37](https://github.com/scaleflex/ui/compare/2.0.0-beta.36...2.0.0-beta.37) (2023-05-07)
+
+
+### Bug Fixes
+
+* **input:** add hideIconProp to input controls SHA-31 ([b66cca7](https://github.com/scaleflex/ui/commit/b66cca712fff2cb4b3e50db1d9fab194aa3d9164))
+
+
+### Features
+
+* add new colors ([8d9ae50](https://github.com/scaleflex/ui/commit/8d9ae50adf868eb9fcfe1f210c1e5e8ea4846588))
+
+
+
+
+
+
 # [2.0.0-beta.36](https://github.com/scaleflex/ui/compare/2.0.0-beta.35...2.0.0-beta.36) (2023-04-18)
 
 
