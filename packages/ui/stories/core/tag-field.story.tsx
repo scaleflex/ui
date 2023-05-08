@@ -24,11 +24,12 @@ const defaultArgs = {
   hint: 'Some hint goes here',
   disableOnEnter: false,
   submitOnSpace: false,
+  preventSubmitOnBlur: false,
   size: Size.Md,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
   copyTextMessage: 'Link copied to clipboard',
-  copySuccessIcon: <Success size={16} />
+  copySuccessIcon: <Success size={16} />,
 };
 
 const handleRemove = (
@@ -49,13 +50,13 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
   return (
     <div style={{ marginTop: 40 }}>
       <TagField
-      {...args}
-      tags={tags}
-      suggestedTags={args.suggestedTags}
-      onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
-      onRemove={(index) => handleRemove(index, tags, setTags)}
-      alwaysShowSuggestedTags
-    />
+        {...args}
+        tags={tags}
+        suggestedTags={args.suggestedTags}
+        onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
+        onRemove={(index) => handleRemove(index, tags, setTags)}
+        alwaysShowSuggestedTags
+      />
     </div>
   );
 };

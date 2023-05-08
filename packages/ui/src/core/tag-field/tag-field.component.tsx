@@ -45,6 +45,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       copyTextMessage = '',
       copySuccessIcon,
       submitOnSpace,
+      preventSubmitOnBlur,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
       alwaysShowSuggestedTags = false,
@@ -85,7 +86,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const convertToLower = (value: string): string => value.toLocaleLowerCase();
 
-    const isSuggestedTag = (input: string) => suggestedTags.some((suggested: any) => convertToLower(suggested)?.includes(convertToLower(input)))
+    const isSuggestedTag = (input: string) =>
+      suggestedTags.some((suggested: any) => convertToLower(suggested)?.includes(convertToLower(input)));
 
     const handleAddingTag = (): void => {
       if (userInput && !isSuggestedTag(userInput)) {
@@ -112,6 +114,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       } else {
         handleAddingTag();
       }
+    };
+
+    const handleOnBlur = (): void => {
+      if (preventSubmitOnBlur) return;
+
+      handleTagsValidation();
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
@@ -171,7 +179,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     placeholder={filteredTags?.length ? '' : placeholder}
                     onChange={(ev) => setUserInput(ev.target.value)}
                     onKeyDown={handleUserInputKeyDown}
-                    onBlur={handleTagsValidation}
+                    onBlur={handleOnBlur}
                     readOnly={readOnly}
                     disabled={disabled}
                   />
@@ -268,6 +276,7 @@ TagField.propTypes = {
   getTagLabel: PT.func,
   getTagIcon: PT.func,
   submitOnSpace: PT.bool,
+  preventSubmitOnBlur: PT.bool,
   showGenerateTagsButton: PT.bool,
   generateTagsButtonLabel: PT.string,
   suggestionsFilter: PT.func,
