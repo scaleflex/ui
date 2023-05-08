@@ -15,13 +15,14 @@ export type SuggestionsFilterFnType = (
 export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: TagType[];
   suggestedTags?: TagType[];
-  onAdd: (item: TagType, type: AddTagTypesType) => void;
-  onRemove: (index: number, value: string) => void;
+  onAdd: (item: TagType, type: AddTagTypesType, setUserInput) => void;
+  onRemove: (index: number, value: string, setUserInput) => void;
   onGenerate?: (event) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;
   getTagIcon?: (tag: TagType) => string;
   onValidate?: (tagInput: string) => string | boolean;
+  appliedValue: PT.string;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;

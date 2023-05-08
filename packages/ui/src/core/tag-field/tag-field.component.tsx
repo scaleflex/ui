@@ -41,6 +41,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       size = Size.Md,
       crossIcon = true,
       loading,
+      appliedValue,
       disableOnEnter,
       copyTextMessage = '',
       copySuccessIcon,
@@ -80,7 +81,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
 
       if (!filteredTags.some((tag: TagType) => getTagLabel(tag).toLowerCase() === tagLabel.toLowerCase())) {
-        onAdd(item, type);
+        onAdd(item, type, setUserInput);
       }
     };
 
@@ -128,9 +129,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         handleTagsValidation();
       } else if (event.key === 'Backspace' && !userInput) {
         const index = filteredTags.length - 1;
-        onRemove(index, getTagValue(filteredTags[index]));
+        onRemove(index, getTagValue(filteredTags[index]), setUserInput);
       }
     };
+
+    // TODO remove when add clear all button
+    useEffect(() => {
+      if (typeof appliedValue === 'string' && !appliedValue) {
+        setUserInput('');
+      }
+    }, [appliedValue]);
 
     useEffect(() => {
       setTimeout(() => setShowCopyMessage(false), 2000);
@@ -159,7 +167,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   crossIcon={crossIcon}
                   startIcon={typeof getTagIcon?.(tag) === 'object' ? getTagIcon?.(tag) : null}
                   size={size}
-                  onRemove={disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag))}
+                  onRemove={
+                    disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag), setUserInput)
+                  }
                   style={{ margin: '0px 8px 8px 0px' }}
                 >
                   {getTagLabel(tag)}
@@ -263,6 +273,7 @@ TagField.propTypes = {
   onGenerate: PT.func,
   onValidate: PT.func,
   placeholder: PT.string,
+  appliedValue: PT.string,
   readOnly: PT.bool,
   disabled: PT.bool,
   label: PT.node,
