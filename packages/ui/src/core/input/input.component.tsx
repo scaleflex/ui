@@ -36,7 +36,7 @@ const getPasswordIconSize = (sizeName: InputSizeType | undefined): number => {
 const Input = intrinsicComponent<InputProps, HTMLDivElement>(
   (
     {
-      inputType = Type.Text,
+      inputType,
       children,
       iconStart,
       iconEnd,
@@ -155,6 +155,10 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     );
 
     const getInputType = (): string => {
+      if (!inputType && rest?.type) {
+        return rest?.type;
+      }
+
       if (inputType === Type.Password && !isVisible) {
         return Type.Password;
       }
