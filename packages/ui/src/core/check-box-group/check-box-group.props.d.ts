@@ -8,6 +8,7 @@ export type LabelPositionType = Values<typeof LabelPosition>;
 export interface CheckBoxGroupProps extends CheckBoxProps {
   label?: string;
   checkBoxProps?: React.InputHTMLAttributes;
+  checkBoxGroupProps?: any;
   readOnly?: boolean;
   disabled?: boolean;
   labelPosition?: LabelPositionType;

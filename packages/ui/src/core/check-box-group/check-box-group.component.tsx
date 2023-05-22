@@ -13,7 +13,17 @@ import { getCheckboxInfoIconSize } from '../check-box/check-box.utils';
 
 const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
   (
-    { size = Size.Sm, label, checkBoxProps, readOnly, disabled, labelPosition, icon, ...rest }: CheckBoxGroupProps,
+    {
+      size = Size.Sm,
+      label,
+      checkBoxProps,
+      checkBoxGroupProps,
+      readOnly,
+      disabled,
+      labelPosition,
+      icon,
+      ...rest
+    }: CheckBoxGroupProps,
     ref
   ): JSX.Element => {
     const content = [
@@ -39,7 +49,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       content.push(labelContent);
     }
     return (
-      <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref}>
+      <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref} {...checkBoxGroupProps}>
         {content}
         {typeof icon === 'function'
           ? icon({ size: getCheckboxInfoIconSize(size), color: lightPalette[Color.IconsSecondary] })
