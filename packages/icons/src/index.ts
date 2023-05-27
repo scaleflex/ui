@@ -404,3 +404,4 @@ export { Compress } from './compress';
 export { Customization } from './customization';
 export { PublicEye } from './public-eye';
 export { NoTeams } from './no-teams';
+export { NoImageAvailable } from './no-image-available';
