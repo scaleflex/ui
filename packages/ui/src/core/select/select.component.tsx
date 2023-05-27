@@ -30,6 +30,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       scroll = true,
       placeholder,
       renderLabel,
+      onRequestClose,
       ...rest
     },
     ref
@@ -37,7 +38,14 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const open = Boolean(anchorEl);
     const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
-    const handleClose = (): void => setAnchorEl(undefined);
+
+    const handleClose = (): void => {
+      if (onRequestClose) {
+        onRequestClose();
+      }
+
+      setAnchorEl(undefined);
+    };
 
     return (
       <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
@@ -111,6 +119,7 @@ export const propTypes = {
   disabled: PT.bool,
   scroll: PT.bool,
   renderLabel: PT.func,
+  onRequestClose: PT.func,
 };
 
 Select.propTypes = propTypes;

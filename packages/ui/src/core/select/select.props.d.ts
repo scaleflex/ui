@@ -19,6 +19,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   readOnly?: boolean;
   disabled?: boolean;
   scroll?: boolean;
+  onRequestClose?: () => void;
   renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
 }
 
