@@ -405,3 +405,7 @@ export { Customization } from './customization';
 export { PublicEye } from './public-eye';
 export { NoTeams } from './no-teams';
 export { NoImageAvailable } from './no-image-available';
+export { Thesaurus } from './thesaurus';
+export { CursorPointer } from './cursor-pointer';
+export { Unsplash } from './unsplash';
+export { CollapseFolders } from './collapse-folders';
