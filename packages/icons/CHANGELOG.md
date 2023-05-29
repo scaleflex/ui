@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.43](https://github.com/scaleflex/ui/compare/2.0.0-beta.42...2.0.0-beta.43) (2023-05-29)
+
+
+### Features
+
+* **Icons:** add new icons to UI Kit ([a3b191c](https://github.com/scaleflex/ui/commit/a3b191c1fc3244e5917e3d1bc3026de19ddf8321))
+
+
+
+
+
 # [2.0.0-beta.42](https://github.com/scaleflex/ui/compare/2.0.0-beta.41...2.0.0-beta.42) (2023-05-27)
 
 
