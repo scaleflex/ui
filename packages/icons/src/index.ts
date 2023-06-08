@@ -409,3 +409,5 @@ export { Thesaurus } from './thesaurus';
 export { CursorPointer } from './cursor-pointer';
 export { Unsplash } from './unsplash';
 export { CollapseFolders } from './collapse-folders';
+export { PlateNumber } from './plate-number';
+export { Premuim } from './premuim';
