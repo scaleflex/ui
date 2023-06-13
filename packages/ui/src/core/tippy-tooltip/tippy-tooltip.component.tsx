@@ -16,8 +16,8 @@ const TippyTooltip = intrinsicComponent<TippyTooltipProps, HTMLSpanElement>(
     enableHover,
     enterDelay = 200,
     leaveDelay = 200,
-    shitXDirection = 0,
-    shitYDirection = 10,
+    shiftXDirection = 0,
+    shiftYDirection = 10,
     title,
     position = Position.Top,
     ...rest
@@ -34,7 +34,7 @@ const TippyTooltip = intrinsicComponent<TippyTooltipProps, HTMLSpanElement>(
         warning={warning}
         animation="scale"
         visible
-        offset={[shitXDirection, shitYDirection]}
+        offset={[shiftXDirection, shiftYDirection]}
         {...rest}
       >
         {children}
@@ -50,8 +50,8 @@ TippyTooltip.defaultProps = {
   warning: false,
   enterDelay: 200,
   leaveDelay: 200,
-  shitXDirection: 0,
-  shitYDirection: 10,
+  shiftXDirection: 0,
+  shiftYDirection: 10,
 };
 
 TippyTooltip.propTypes = {
@@ -62,8 +62,8 @@ TippyTooltip.propTypes = {
   warning: PT.bool,
   enterDelay: PT.number,
   leaveDelay: PT.number,
-  shitXDirection: PT.number,
-  shitYDirection: PT.number,
+  shiftXDirection: PT.number,
+  shiftYDirection: PT.number,
   enableHover: PT.bool,
   position: PT.oneOf(objectValues(Position)),
 };

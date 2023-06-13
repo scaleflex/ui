@@ -15,6 +15,6 @@ export interface TippyTooltipProps extends React.HTMLAttributes<HTMLSpanElement>
   warning?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
-  shitXDirection?: number;
-  shitYDirection?: number;
+  shiftXDirection?: number;
+  shiftYDirection?: number;
 }

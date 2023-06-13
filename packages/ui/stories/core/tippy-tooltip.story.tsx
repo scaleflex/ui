@@ -28,8 +28,8 @@ const defaultArgs = {
   warning: false,
   enableHover: true,
   position: 'top',
-  shitXDirection: 0,
-  shitYDirection: 10,
+  shiftXDirection: 0,
+  shiftYDirection: 10,
 };
 
 const BasicTemplate: Story<TippyTooltipProps> = (args) => (
