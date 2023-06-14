@@ -4,57 +4,62 @@ import 'tippy.js/dist/tippy.css';
 import 'tippy.js/animations/scale.css';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-import { TippyTooltipProps } from './tippy-tooltip.props';
+import { TooltipV2Props } from './tooltip-v2.props';
 import { Position, Size } from './types';
-import Styled from './tippy-tooltip.styles';
+import Styled from './tooltip-v2.styles';
 
-const TippyTooltip = intrinsicComponent<TippyTooltipProps, HTMLSpanElement>(
-  ({
-    children,
-    arrow = true,
-    warning,
-    enableHover,
-    enterDelay = 200,
-    leaveDelay = 200,
-    shiftXDirection = 0,
-    shiftYDirection = 10,
-    title,
-    position = Position.Top,
-    ...rest
-  }: TippyTooltipProps): JSX.Element => {
+const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
+  (
+    {
+      children,
+      arrow = true,
+      warning,
+      enableHover,
+      enterDelay = 200,
+      leaveDelay = 200,
+      offsetX = 0,
+      offsetY = 10,
+      title,
+      position = Position.Top,
+      size,
+      ...rest
+    }: TooltipV2Props,
+    ref
+  ): JSX.Element => {
     const renderTooltipContent = (): JSX.Element => <Styled.TooltipText warning={warning}>{title}</Styled.TooltipText>;
 
     return (
-      <Styled.TippyTooltip
+      <Styled.TooltipV2
+        ref={ref}
         placement={position}
         content={renderTooltipContent()}
         interactive={enableHover}
         arrow={arrow}
         delay={[enterDelay, leaveDelay]}
-        warning={warning}
+        $warning={warning || false}
+        $size={size || Size.Sm}
         animation="scale"
-        visible
-        offset={[shiftXDirection, shiftYDirection]}
+        offset={[offsetX, offsetY]}
         {...rest}
       >
         {children}
-      </Styled.TippyTooltip>
+      </Styled.TooltipV2>
     );
   }
 );
 
-TippyTooltip.defaultProps = {
+TooltipV2.defaultProps = {
   position: Position.Top,
   size: Size.Sm,
   arrow: true,
   warning: false,
   enterDelay: 200,
   leaveDelay: 200,
-  shiftXDirection: 0,
-  shiftYDirection: 10,
+  offsetX: 0,
+  offsetY: 10,
 };
 
-TippyTooltip.propTypes = {
+TooltipV2.propTypes = {
   title: PT.node,
   size: PT.oneOf(objectValues(Size)),
   children: PT.element,
@@ -62,10 +67,10 @@ TippyTooltip.propTypes = {
   warning: PT.bool,
   enterDelay: PT.number,
   leaveDelay: PT.number,
-  shiftXDirection: PT.number,
-  shiftYDirection: PT.number,
+  offsetX: PT.number,
+  offsetY: PT.number,
   enableHover: PT.bool,
   position: PT.oneOf(objectValues(Position)),
 };
 
-export default TippyTooltip;
+export default TooltipV2;
