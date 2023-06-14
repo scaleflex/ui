@@ -8,22 +8,15 @@ export const MoveUp = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 50 50"
+      viewBox="0 0 34 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0)">
-        <path
-          d="M20.7718 50L20.7721 19.729L8.39551 19.7296L24.9999 3.05176e-05L41.6048 19.7287L29.2276 19.729L29.2274 50H20.7718Z"
-          fill={color}
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" />
-        </clipPath>
-      </defs>
+      <path
+        d="M12.7718 50L12.7721 19.729L0.395508 19.7295L16.9999 0L33.6048 19.7287L21.2276 19.729L21.2274 50H12.7718Z"
+        fill={color}
+      />
     </svg>
   )
 );
