@@ -63,14 +63,20 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const isItemSelected = selected.length > 0;
 
     const handleOnChange = (event: any, val: any): void => {
-      if (multiple) {
+      if (multiple && Array.isArray(selected)) {
+        const selectedValues = selected.includes(val)
+          ? selected.filter((item: string) => item !== val)
+          : [...selected, val];
         if (onChange) {
-          onChange(event, [...selected, val]);
+          onChange(event, selectedValues);
         }
+
+        setSelected(selectedValues);
       } else {
         if (onChange) {
           onChange(event, val);
         }
+
         setSelected('');
         setCurrentItemIndex(-1);
       }
@@ -127,12 +133,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       // make sure this item isn't already selected
       if (!multiple && selected !== item) {
         handleOnChange(event, item);
+        setSelected(item);
+      }
 
-        if (multiple) {
-          setSelected((prev) => [...prev, item]);
-        } else {
-          setSelected(item);
-        }
+      if (multiple) {
+        handleOnChange(event, item);
       }
 
       handleCloseClick(event);
@@ -148,14 +153,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getValue = (): string | string[] => {
-      if (multiple) {
-        const lastValue = value[value.length - 1];
-        if (selected.includes(lastValue)) {
-          return '';
-        }
-
-        return lastValue;
+      if (multiple && Array.isArray(selected)) {
+        return selected.join(', ');
       }
+
       return value;
     };
 
@@ -349,7 +350,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           enableScrollIntoView
         >
           {item}
-          {selected && index === currentItemIndex && miActions}
+          {((multiple && selected.includes(item)) || item === selected) && miActions}
         </MenuItem>
       );
     };
