@@ -65,7 +65,7 @@ const Base = styled.input.attrs({
     display: block;
     color: inherit;
     width: 100%;
-    min-width: 0;
+    min-width: fit-content;
     margin: 0;
     padding: 0;
     border: 0;
@@ -168,22 +168,6 @@ const ClearIcon = styled.span.attrs({
   `
 );
 
-const Tags = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Tags'),
-})<InputProps>(
-  () => css`
-    display: inline;
-    color: inherit;
-    width: max-content;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-  `
-);
-
 const NotificationBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'NotificationBox'),
 })<InputProps>(
@@ -225,14 +209,32 @@ const NotificationText = styled.span.attrs({
   `
 );
 
-// TODO: refactor how we implement tags in input
-//  display: ${renderTags ? 'inline' : 'block'};
-// width: ${renderTags ? 'min-content' : '100%'};
+const FieldWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'fieldWrapper'),
+})`
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  overflow-x: auto;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+`;
+
+const TagsWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagsWrapper'),
+})(
+  ({ isSelectedItems }: { isSelectedItems: boolean }) => css`
+    display: flex;
+    gap: 4px;
+    ${isSelectedItems && `margin-right: 8px;`}
+  `
+);
 
 const Styled = applyDisplayNames({
   Input,
   Container,
-  Tags,
   Base,
   Icon,
   CopyIcon,
@@ -241,6 +243,8 @@ const Styled = applyDisplayNames({
   NotificationBox,
   NotificationIcon,
   NotificationText,
+  FieldWrapper,
+  TagsWrapper,
 });
 
 export default Styled;
