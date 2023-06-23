@@ -115,6 +115,7 @@ const Input = styled.div.attrs({
       ${Base} {
         max-width: fit-content;
         min-width: 20px;
+        flex-grow: 1;
         width: 40px;
       }
     `};
