@@ -169,8 +169,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | undefined => (
-      <Styled.FieldWrapper>
-        {renderTags && <Styled.TagsWrapper isSelectedItems={isSelectedItems}>{renderTags()}</Styled.TagsWrapper>}
+      <Styled.FieldWrapper isSelectedItems={Boolean(isSelectedItems)}>
+        {renderTags && renderTags()}
 
         <Styled.Base
           {...rest}
@@ -206,6 +206,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
+        isSelectedItems={Boolean(isSelectedItems)}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}

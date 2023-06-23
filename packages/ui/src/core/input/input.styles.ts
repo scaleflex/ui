@@ -88,6 +88,7 @@ const Input = styled.div.attrs({
     readOnly = false,
     disabled = false,
     isHovering = false,
+    isSelectedItems = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
@@ -106,6 +107,17 @@ const Input = styled.div.attrs({
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
+
+    ${isSelectedItems &&
+    `
+      height: fit-content;
+
+      ${Base} {
+        max-width: fit-content;
+        min-width: 20px;
+        width: 40px;
+      }
+    `};
 
     ${Base} {
       ${fontSizeInputMixin[size]}
@@ -211,24 +223,23 @@ const NotificationText = styled.span.attrs({
 
 const FieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'fieldWrapper'),
-})`
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  overflow-x: auto;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-`;
-
-const TagsWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'tagsWrapper'),
 })(
   ({ isSelectedItems }: { isSelectedItems: boolean }) => css`
-    display: flex;
-    gap: 4px;
-    ${isSelectedItems && `margin-right: 8px;`}
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 120px;
+
+    ${isSelectedItems &&
+    `
+      overflow-y: auto;
+    `};
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
   `
 );
 
@@ -244,7 +255,6 @@ const Styled = applyDisplayNames({
   NotificationIcon,
   NotificationText,
   FieldWrapper,
-  TagsWrapper,
 });
 
 export default Styled;

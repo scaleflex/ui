@@ -61,6 +61,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0;
 
+    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
+      const filteredItems: any[] = [];
+      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
+
+      return filteredItems;
+    };
+
     const handleOnChange = (event: any, val: any): void => {
       if (multiple) {
         if (onChange) {
@@ -76,6 +83,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const handleOnRemoveItem = (event: any, itemIndex: number): void => {
+      event.stopPropagation();
       const updatedSelectedItems = Array.isArray(selected)
         ? selected.filter((_, index: number) => index !== itemIndex)
         : '';
@@ -129,8 +137,17 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         handleOnChange(event, item);
         setSelected(item);
       } else if (multiple) {
-        handleOnChange(event, '');
-        setSelected((prev) => [...prev, item]);
+        if (Array.isArray(selected) && selected.includes(item)) {
+          const updatedSelectedItems = selected.filter((selectedItem) => selectedItem !== item);
+          setSelected(updatedSelectedItems);
+
+          if (onChange) {
+            onChange(event, [...updatedSelectedItems, '']);
+          }
+        } else {
+          handleOnChange(event, '');
+          setSelected((prev) => [...prev, item]);
+        }
       }
 
       handleCloseClick(event);
@@ -239,13 +256,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
-    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
-      const filteredItems: any[] = [];
-      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
-
-      return filteredItems;
-    };
-
     const getMultipleFilteredOptions = (): void => {
       let filteredMenuOptions = [];
 
@@ -254,7 +264,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         // ["item1","ite"]
         const lastValue = value[value.length - 1];
         filteredMenuOptions = getFilteredItems(options, (item: any) => {
-          if (item.includes(lastValue || '') && !selected.includes(item)) return true;
+          if (item.includes(lastValue || '')) return true;
 
           return false;
         });
@@ -347,12 +357,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           size={size}
           noOptionsText={item === noOptionsText}
           disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
-          active={item === selected || index === currentItemIndex}
+          active={item === selected || index === currentItemIndex || (multiple && selected.includes(item))}
           onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
           enableScrollIntoView
         >
           {item}
-          {item === selected && miActions}
+          {(item === selected || (multiple && selected.includes(item))) && miActions}
         </MenuItem>
       );
     };

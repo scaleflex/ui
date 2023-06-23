@@ -24,6 +24,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   value?: any;
   selectedItems?: any;
+  isSelectedItems?: boolean;
   renderTags?: () => React.ReactNode;
   iconClickStart?: (event: Event) => void;
   iconClickEnd?: (event: Event) => void;
