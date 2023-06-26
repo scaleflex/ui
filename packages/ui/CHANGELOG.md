@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.46](https://github.com/scaleflex/ui/compare/2.0.0-beta.45...2.0.0-beta.46) (2023-06-26)
+
+
+### Bug Fixes
+
+* **ColorPicker:** move action buttons to the top ([7f01f3c](https://github.com/scaleflex/ui/commit/7f01f3ce4752d3880b0eb86d2518f715770b43ef))
+
+
+
+
+
+
 # [2.0.0-beta.45](https://github.com/scaleflex/ui/compare/2.0.0-beta.44...2.0.0-beta.45) (2023-06-12)
 
 **Note:** Version bump only for package @scaleflex/ui

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.46](https://github.com/scaleflex/ui/compare/2.0.0-beta.45...2.0.0-beta.46) (2023-06-26)
+
+
+### Features
+
+* **Icons:** add mail outline icon ([3918dd1](https://github.com/scaleflex/ui/commit/3918dd1d3d0865a82b11ab57e5caa318bc2558f2))
+
+
+
+
+
+
 # [2.0.0-beta.45](https://github.com/scaleflex/ui/compare/2.0.0-beta.44...2.0.0-beta.45) (2023-06-12)
 
 **Note:** Version bump only for package @scaleflex/icons
