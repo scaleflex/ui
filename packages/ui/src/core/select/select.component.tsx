@@ -66,8 +66,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 
           {!value && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
 
-          <Styled.Icon>
-            <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 16 : 14 }} />
+          <Styled.Icon size={size}>
+            <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 11 : 10 }} />
           </Styled.Icon>
           <Styled.Input {...selectProps} />
         </Styled.Select>
