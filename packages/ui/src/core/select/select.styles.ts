@@ -14,10 +14,11 @@ const baseClassName = 'Select';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, size }: With<WithTheme, SelectProps>) => css`
     display: flex;
     flex-shrink: 0;
     color: ${palette[PColor.IconsPrimary]};
+    padding: ${size === Size.Md ? 5 : 4}px;
   `
 );
 

@@ -13,19 +13,21 @@ const baseClassName = 'MenuItem';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, disabled }: With<WithTheme, MenuItemProps>) => css`
     flex-shrink: 0;
     margin-right: 10px;
-    color: ${palette[PColor.IconsPrimary]};
+    color: ${disabled ? palette[PColor.TextPlaceholder] : palette[PColor.IconsPrimary]};
   `
 );
 
 const Actions = styled(Icon).attrs({
   className: generateClassNames(baseClassName, 'Actions'),
-})(() => css`
-  margin-right: 0px;
-  margin-left: 16px;
-`);
+})(
+  () => css`
+    margin-right: 0px;
+    margin-left: 16px;
+  `
+);
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
