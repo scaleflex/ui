@@ -20,6 +20,7 @@ const defaultArgs = {
   size: Size.Sm,
   children: 'France',
   active: false,
+  disabled: false,
 };
 
 const BasicTemplate: Story<MenuItemProps> = ({ ...args }) => <MenuItem {...args} />;
@@ -37,7 +38,7 @@ Active.args = {
 
 const WithIconTemplate: Story<MenuItemProps> = ({ children, ...args }) => (
   <MenuItem {...args}>
-    <MenuItemIcon>
+    <MenuItemIcon {...args}>
       <Country size={args.size === 'md' ? 16 : 14} />
     </MenuItemIcon>
 
