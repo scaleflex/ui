@@ -411,3 +411,4 @@ export { Unsplash } from './unsplash';
 export { CollapseFolders } from './collapse-folders';
 export { PlateNumber } from './plate-number';
 export { Premuim } from './premuim';
+export { MailOutline } from './mail-outline';
