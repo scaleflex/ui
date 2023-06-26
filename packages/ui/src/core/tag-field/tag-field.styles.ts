@@ -34,10 +34,9 @@ const TagInputFieldWrapper = styled.div.attrs({
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
 })(
-  ({ size, error, theme }: With<WithTheme, { size: TagFieldSizeType, error: boolean}>) => css`
+  ({ size, error, theme }: With<WithTheme, { size: TagFieldSizeType; error: boolean }>) => css`
     overflow: hidden;
-    border: 1px solid ${error ?
-      theme.palette[PColor.Error] : theme.palette[PColor.BackgroundPrimaryStateless]};
+    border: 1px solid ${error ? theme.palette[PColor.Error] : theme.palette[PColor.BackgroundPrimaryStateless]};
     border-radius: 2px;
     background: transparent;
     width: 310px;

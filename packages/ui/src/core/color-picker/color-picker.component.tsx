@@ -273,45 +273,6 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     const rangePickerPointSliding = useDrag(updateRangePickerColor, updateRangePickerColor, null);
     return (
       <Styled.ColorPickerWrapper ref={ref} {...rest}>
-        <Styled.RangePickerWrapper ref={setRangePickerRef} color={bar.color} {...rangePickerPointSliding}>
-          <Styled.WhiteGradient />
-          <Styled.BlackGradient />
-          <Styled.ColorPointer
-            tabIndex={-1}
-            left={rangePicker.pointer.left || 0}
-            top={rangePicker.pointer.top || 0}
-            onKeyDown={moveRangePickerPointerByArrows}
-            considerTopWidth
-          />
-        </Styled.RangePickerWrapper>
-
-        <Styled.BarWrapper {...barPointSliding}>
-          <Styled.Bar ref={setBarRef}>
-            <tbody>
-              <tr>{barColors}</tr>
-            </tbody>
-          </Styled.Bar>
-          <Styled.ColorPointer
-            tabIndex={-1}
-            left={bar.pointerLeft}
-            onKeyDown={moveBarPointerByArrows}
-            considerTopWidth={false}
-            style={{ top: -3 }}
-          />
-        </Styled.BarWrapper>
-
-        <Styled.ColorItemsContainer>
-          {localPinnedColors.map((color) => (
-            <div className="item" key={color}>
-              <ColorItem
-                value={color}
-                checked={isColorChecked(color)}
-                onChange={(ev) => changeRangePickerPointerPosByColor(ev.target.value)}
-              />
-            </div>
-          ))}
-        </Styled.ColorItemsContainer>
-
         <Styled.ColorPickerAction>
           <Styled.Select value={inputType}>
             <Select
@@ -361,6 +322,45 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             </Styled.ColorPickerIcon>
           )}
         </Styled.ColorPickerAction>
+
+        <Styled.RangePickerWrapper ref={setRangePickerRef} color={bar.color} {...rangePickerPointSliding}>
+          <Styled.WhiteGradient />
+          <Styled.BlackGradient />
+          <Styled.ColorPointer
+            tabIndex={-1}
+            left={rangePicker.pointer.left || 0}
+            top={rangePicker.pointer.top || 0}
+            onKeyDown={moveRangePickerPointerByArrows}
+            considerTopWidth
+          />
+        </Styled.RangePickerWrapper>
+
+        <Styled.BarWrapper {...barPointSliding}>
+          <Styled.Bar ref={setBarRef}>
+            <tbody>
+              <tr>{barColors}</tr>
+            </tbody>
+          </Styled.Bar>
+          <Styled.ColorPointer
+            tabIndex={-1}
+            left={bar.pointerLeft}
+            onKeyDown={moveBarPointerByArrows}
+            considerTopWidth={false}
+            style={{ top: -3 }}
+          />
+        </Styled.BarWrapper>
+
+        <Styled.ColorItemsContainer>
+          {localPinnedColors.map((color) => (
+            <div className="item" key={color}>
+              <ColorItem
+                value={color}
+                checked={isColorChecked(color)}
+                onChange={(ev) => changeRangePickerPointerPosByColor(ev.target.value)}
+              />
+            </div>
+          ))}
+        </Styled.ColorItemsContainer>
       </Styled.ColorPickerWrapper>
     );
   }
