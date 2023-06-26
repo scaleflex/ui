@@ -18,7 +18,8 @@ const Icon = styled.span.attrs({
     display: flex;
     flex-shrink: 0;
     color: ${palette[PColor.IconsPrimary]};
-    padding: ${size === Size.Md ? 5 : 4}px;
+    padding: ${size === Size.Md ? '2.5px' : '2px'};
+    margin-left: 6px;
   `
 );
 
