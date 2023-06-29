@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0-beta.47](https://github.com/scaleflex/ui/compare/2.0.0-beta.46...2.0.0-beta.47) (2023-06-29)
+
+
+### Bug Fixes
+
+* **TagField:** value.toLocalLowerCase() is not a function ([3f6bf21](https://github.com/scaleflex/ui/commit/3f6bf21373b44e7c6cdcdcb7570b8e1af1de2b37))
+
+
+### Features
+
+* **TagField:** show startIcon for suggestions ([beeca26](https://github.com/scaleflex/ui/commit/beeca26beac7a82bfa986b18e6f4818a96869162))
+
+
+
+
+
 # [2.0.0-beta.46](https://github.com/scaleflex/ui/compare/2.0.0-beta.45...2.0.0-beta.46) (2023-06-26)
 
 
