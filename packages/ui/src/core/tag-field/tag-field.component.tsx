@@ -241,6 +241,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     handleTagAdd(suggestion, AddTagType.Suggestion);
                     setUserInput('');
                   }}
+                  startIcon={typeof getTagIcon?.(suggestion) === 'object' ? getTagIcon?.(suggestion) : null}
                   style={{ margin: '0 8px 8px 0' }}
                   size={size}
                 >
