@@ -1,5 +1,4 @@
 import type { Values } from '../../utils/types';
-import { CalendarProps } from '../calendar';
 import type { InputProps } from '../input';
 import { InputGroupProps } from '../input-group';
 import { PopperOptions } from '../popper/popper.props';
@@ -20,5 +19,5 @@ export interface DatePickerProps extends InputGroupProps, React.HTMLAttributes<H
   autoSelectToday?: boolean;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
-  CalendarProps?: CalendarProps;
+  calendarStyles?: object;
 }

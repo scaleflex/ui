@@ -6,8 +6,7 @@ import type { IconProps } from '@scaleflex/icons/icon.props';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
-import Calendar, { CalendarProps } from '../calendar';
-import { propTypes as calendarPropTypes } from '../calendar/calendar.component';
+import Calendar from '../calendar';
 import { propTypes as popperPropTypes } from '../popper/popper.component';
 
 import Styled from './date-picker.styles';
@@ -29,7 +28,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       hint,
       popperOptions,
       InputProps: InputPropsData,
-      CalendarProps: CalendarPropsData,
+      calendarStyles,
       inputGroupProps,
       fullWidth,
       ...rest
@@ -60,7 +59,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     };
 
     return (
-      <Styled.DatePicker {...rest} ref={datePickerRef}>
+      <Styled.DatePicker ref={datePickerRef}>
         <Styled.DatePickerInput
           label={label}
           fullWidth={fullWidth}
@@ -78,6 +77,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           }}
           ref={ref}
           {...inputGroupProps}
+          {...rest}
         />
         {!inputValue && rest.placeholder && showPlaceholder && (
           <Styled.Placeholder
@@ -99,14 +99,16 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           anchorEl={datePickerRef.current}
           position={position || 'bottom-start'}
           popperOptions={popperOptions}
-          {...CalendarPropsData}
+          calendarStyles={calendarStyles}
         />
       </Styled.DatePicker>
     );
   }
 );
 
-Datepicker.defaultProps = {};
+Datepicker.defaultProps = {
+  calendarStyles: {},
+};
 
 export const propTypes = {
   value: PT.string,
@@ -121,7 +123,7 @@ export const propTypes = {
   fullWidth: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
-  CalendarProps: PT.exact(calendarPropTypes) as Validator<CalendarProps>,
+  calendarStyles: PT.object,
 };
 
 Datepicker.propTypes = propTypes;
