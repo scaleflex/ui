@@ -19,8 +19,7 @@ export const fontTagFieldMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelSmall]}
-    font-weight: 500;
+    ${font[FV.InputMd]}
   `,
 
   [Size.Md]: ({
@@ -28,7 +27,6 @@ export const fontTagFieldMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    ${font[FV.LabelMedium]}
-    font-weight: 500;
+    ${font[FV.InputLg]}
   `,
 };

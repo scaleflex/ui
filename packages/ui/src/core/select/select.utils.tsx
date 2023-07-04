@@ -8,14 +8,15 @@ import type { RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType }
 import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
 
+
 export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
     case InputSize.Md:
-      return 16;
+      return 11;
 
     case InputSize.Sm:
     default:
-      return 14;
+      return 10;
   }
 };
 

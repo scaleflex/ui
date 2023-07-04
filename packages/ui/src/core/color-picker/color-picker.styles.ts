@@ -149,6 +149,7 @@ const ColorPickerAction = styled.div.attrs({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
 `;
 
 const ColorItemWrapper = styled.label.attrs({
@@ -187,7 +188,6 @@ const ColorItemsContainer = styled.div`
   flex-wrap: wrap;
   align-content: space-between;
   margin-top: 14px;
-  margin-bottom: 12px;
   margin-left: 12px;
   & > .item {
     margin-right: 8px;
