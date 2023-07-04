@@ -55,14 +55,19 @@ Basic.args = { ...defaultArgs };
 
 const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
+  const [id, setID] = useState(args.multiple ? [] : '');
 
   return (
     <Autocomplete
       {...args}
       value={value}
+      id={id}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
-      onChange={(_, val: any) => setValue(val)}
+      onChange={(_, val: any, _id: any) => {
+        setID(_id);
+        setValue(val);
+      }}
     />
   );
 };
