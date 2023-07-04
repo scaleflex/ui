@@ -90,10 +90,32 @@ const labelFontVariants = {
     fontSize: '24px',
     lineHeight: '28px',
   },
+  [FontVariant.LabelXExtraLargeEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Medium,
+    fontSize: '32px',
+    lineHeight: '36px',
+  },
   [FontVariant.LabelXExtraLarge]: {
     ...defaultFontValue,
     fontSize: '32px',
-    lineHeight: '42px',
+    lineHeight: '36px',
+  },
+  [FontVariant.LabelXXExtraLargeEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Medium,
+    fontSize: '48px',
+    lineHeight: '54px',
+  },
+  [FontVariant.LabelXXExtraLarge]: {
+    ...defaultFontValue,
+    fontSize: '48px',
+    lineHeight: '54px',
+  },
+  [FontVariant.LabelXXXExtraLarge]: {
+    ...defaultFontValue,
+    fontSize: '60px',
+    lineHeight: '68px',
   },
 };
 
@@ -127,60 +149,65 @@ const textFontVariants = {
     fontSize: '18px',
     lineHeight: '26px',
   },
+  [FontVariant.TextXExtraLarge]: {
+    ...defaultFontValue,
+    fontSize: '28px',
+    lineHeight: '40px',
+  },
 };
 
 const buttonFontVariants = {
+  [FontVariant.ButtonSmEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Medium,
+    fontSize: '12px',
+    lineHeight: '14px',
+  },
   [FontVariant.ButtonSm]: {
     ...defaultFontValue,
-    fontWeight: '500',
     fontSize: '12px',
     lineHeight: '14px',
   },
-  [FontVariant.ButtonSmLink]: {
+  [FontVariant.ButtonSmUpEmphasis]: {
     ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.ButtonSmUp]: {
-    ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '13px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonSmUpLink]: {
+  [FontVariant.ButtonSmUp]: {
     ...defaultFontValue,
     fontSize: '13px',
+    lineHeight: '16px',
+  },
+  [FontVariant.ButtonMdEmphasis]: {
+    ...defaultFontValue,
+    fontWeight: FontWeight.Medium,
+    fontSize: '14px',
     lineHeight: '16px',
   },
   [FontVariant.ButtonMd]: {
     ...defaultFontValue,
-    fontWeight: '500',
     fontSize: '14px',
     lineHeight: '16px',
   },
-  [FontVariant.ButtonMdLink]: {
+  [FontVariant.ButtonLgEmphasis]: {
     ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
+    fontWeight: FontWeight.Medium,
+    fontSize: '16px',
+    lineHeight: '18px',
   },
   [FontVariant.ButtonLg]: {
     ...defaultFontValue,
-    fontWeight: '500',
     fontSize: '16px',
     lineHeight: '18px',
   },
-  [FontVariant.ButtonLgLink]: {
+  [FontVariant.ButtonLgUpEmphasis]: {
     ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.ButtonLgUp]: {
-    ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '18px',
     lineHeight: '20px',
   },
-  [FontVariant.ButtonLgUpLink]: {
+  [FontVariant.ButtonLgUp]: {
     ...defaultFontValue,
     fontSize: '18px',
     lineHeight: '20px',
@@ -195,7 +222,7 @@ const linkFontVariants = {
   },
   [FontVariant.LinkSmallEmphasis]: {
     ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '12px',
     lineHeight: '14px',
   },
@@ -206,7 +233,7 @@ const linkFontVariants = {
   },
   [FontVariant.LinkSmallUpEmphasis]: {
     ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '13px',
     lineHeight: '16px',
   },
@@ -217,7 +244,7 @@ const linkFontVariants = {
   },
   [FontVariant.LinkMediumEmphasis]: {
     ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '14px',
     lineHeight: '16px',
   },
@@ -228,7 +255,7 @@ const linkFontVariants = {
   },
   [FontVariant.LinkLargeEmphasis]: {
     ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '16px',
     lineHeight: '18px',
   },
@@ -239,7 +266,7 @@ const linkFontVariants = {
   },
   [FontVariant.LinkLargeUpEmphasis]: {
     ...defaultFontValue,
-    fontWeight: '500',
+    fontWeight: FontWeight.Medium,
     fontSize: '18px',
     lineHeight: '20px',
   },

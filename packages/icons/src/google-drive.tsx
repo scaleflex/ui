@@ -13,16 +13,9 @@ export const GoogleDrive = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0)">
-        <path d="M24.6953 18.28L8.92531 45.56L0.945312 31.75L16.7253 4.45996L24.6953 18.28Z" fill={color} />
-        <path d="M49.8655 30.92L33.9055 30.94L18.1655 3.63H34.1455L49.8655 30.92Z" fill={color} />
-        <path d="M49.9052 32.59L41.9352 46.4L10.3652 46.38L18.3452 32.58L49.9052 32.59Z" fill={color} />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" transform="translate(0.275391)" />
-        </clipPath>
-      </defs>
+      <path d="M24.2545 17.9611L8.14951 45.8206L0 31.7172L16.1152 3.84757L24.2545 17.9611Z" fill={color} />
+      <path d="M49.9592 30.8696L33.6601 30.8901L17.5858 2.99994H33.9052L49.9592 30.8696Z" fill={color} />
+      <path d="M50 32.5751L41.8607 46.6785L9.62011 46.658L17.7696 32.5649L50 32.5751Z" fill={color} />
     </svg>
   )
 );

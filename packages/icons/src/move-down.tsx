@@ -13,14 +13,7 @@ export const MoveDown = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0)">
-        <path d="M28.8315 -0.999969V29.2706H41.2074L24.6037 49L8 29.2706H20.376V-0.999969H28.8315Z" fill={color} />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="48.4848" fill="white" />
-        </clipPath>
-      </defs>
+      <path d="M28.8315 0V30.2706H41.2074L24.6037 50L8 30.2706H20.376V0H28.8315Z" fill={color} />
     </svg>
   )
 );

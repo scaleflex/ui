@@ -412,3 +412,6 @@ export { CollapseFolders } from './collapse-folders';
 export { PlateNumber } from './plate-number';
 export { Premuim } from './premuim';
 export { MailOutline } from './mail-outline';
+export { Script } from './script';
+export { Font } from './font';
+export { OtherOptions } from './other-options';
