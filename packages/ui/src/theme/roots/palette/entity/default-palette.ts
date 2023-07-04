@@ -139,15 +139,16 @@ export const lightPalette = {
   [Color.FreeImages]: 'rgba(16, 163, 135, 1)', // #10A387
   [Color.FreeIcons]: 'rgba(62, 207, 139, 1)', // #3ECF8B
   [Color.Canvas]: 'rgba(36, 190, 202, 1)', // #24BECA
-  [Color.Box]: 'rgba(0, 97, 213, 1)', //#0061D5
-  [Color.ScreenCast]: 'rgba(48, 61, 78, 1)', //#303D4E
+  [Color.Box]: 'rgba(0, 97, 213, 1)', // #0061D5
+  [Color.ScreenCast]: 'rgba(48, 61, 78, 1)', // #303D4E
 
   // others
   [Color.Tag]: '#889AAC',
   [Color.StatesErrorDisabledText]: 'rgba(185, 33, 46, 0.3)',
-  [Color.LightShadow]: 'rgba(77, 78, 78, 0.25)', // #4d4e4e40
+  [Color.LightShadow]: 'rgba(146, 166, 188, 0.2)', // #4d4e4e40
   [Color.MediumShadow]: 'rgba(146, 166, 188, 0.24)',
   [Color.LargeShadow]: 'rgba(146, 166, 188, 0.32)',
+  [Color.XLargeShadow]: 'rgba(146, 166, 188, 0.5)',
 };
 
 export const defaultPalette: ColorsMap = lightPalette;
