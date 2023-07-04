@@ -15,10 +15,17 @@ const baseClassName = 'Input';
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
 })(
-  ({ iconClickStart, iconClickEnd, iconType, theme: { palette } }: With<WithTheme, InputProps>) => css`
+  ({
+    iconClickStart,
+    iconClickEnd,
+    disabled,
+    readOnly,
+    iconType,
+    theme: { palette },
+  }: With<WithTheme, InputProps>) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
-    cursor: ${iconClickStart || iconClickEnd ? 'pointer' : 'default'};
+    cursor: ${(iconClickStart || iconClickEnd) && !disabled && !readOnly ? 'pointer' : 'default'};
 
     ${iconType === 'end' &&
     css`

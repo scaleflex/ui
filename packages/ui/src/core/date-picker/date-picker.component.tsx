@@ -46,6 +46,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const minDateTimestamp = new Date(minDate).getTime();
     const maxYear: any = new Date(inputValue).getFullYear();
     const isYearForm = isYearFormRegex.test?.(maxYear);
+    const { disabled, readOnly } = rest;
 
     const handleOnChange = (dateInputValue: string): void => {
       const dateInputTimestamp = new Date(dateInputValue).getTime();
@@ -56,6 +57,14 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       if (onChange && !isDisabledDate && isYearForm) {
         onChange(dateInputValue);
       }
+    };
+
+    const handleCalendarIcon = (): void => {
+      if (!disabled && !readOnly) setOpen(!open);
+    };
+
+    const handlePlaceholder = (): void => {
+      if (!disabled && !readOnly) setShowPlaceholder(false);
     };
 
     return (
@@ -70,7 +79,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
-            iconClickEnd: () => setOpen(!open),
+            iconClickEnd: handleCalendarIcon,
             type: 'date',
             max: '9999-12-31',
             ...(InputPropsData || {}),
@@ -81,9 +90,11 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
         />
         {!inputValue && rest.placeholder && showPlaceholder && (
           <Styled.Placeholder
-            onClick={() => setShowPlaceholder(false)}
+            onClick={handlePlaceholder}
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
+            disabled={disabled}
+            readOnly={readOnly}
           >
             {rest.placeholder}
           </Styled.Placeholder>

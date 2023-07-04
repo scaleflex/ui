@@ -70,7 +70,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const placeholder = rest.value ? '' : rest.placeholder;
 
     const handleFocus = (): void => {
-      if (disabled) return;
+      if (disabled || readOnly) return;
 
       showPlaceholder?.(false);
       inputRef.current?.focus();
@@ -99,7 +99,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     };
 
     const handleIconClick = (event: any, type: string): void => {
-      if (disabled) return;
+      if (disabled || readOnly) return;
 
       if (focusOnClick) {
         handleFocus();
@@ -124,6 +124,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           iconClickStart={iconClickStart}
           iconClickEnd={iconClickEnd}
           iconType={type}
+          disabled={disabled}
+          readOnly={readOnly}
         >
           {typeof _icon === 'function' ? _icon({ size: getIconSize(size, type) }) : _icon}
         </Styled.Icon>

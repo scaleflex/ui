@@ -22,15 +22,17 @@ const DatePicker = styled.div.attrs({
 const Placeholder = styled.div.attrs({
   className: generateClassNames(baseClassName, 'placeholder'),
 })(
-  ({ fullWidth, theme }: With<WithTheme, InputProps>) => css`
+  ({ fullWidth, theme, readOnly, disabled }: With<WithTheme, InputProps>) => css`
     position: absolute;
     top: 32px;
     left: 18px;
-    z-index: 1000;
     width: ${fullWidth ? '95%' : '244px'};
     ${theme.typography.font[FontVariant.LabelLarge]}
     color: ${theme.palette[PColor.TextPlaceholder]};
-    background: ${theme.palette[PColor.BackgroundStateless]};
+    background: ${readOnly || disabled
+      ? theme.palette[PColor.BackgroundHover]
+      : theme.palette[PColor.BackgroundStateless]};
+    pointer-events: ${readOnly || disabled ? 'none' : 'all'};
   `
 );
 
