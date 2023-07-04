@@ -13,17 +13,10 @@ export const Cursor = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0_22758_46196)">
-        <path
-          d="M25.332 0C26.6199 0 27.664 1.04406 27.664 2.33198V47.668C27.664 48.9559 26.6199 50 25.332 50C24.0441 50 23 48.9559 23 47.668V2.33198C23 1.04406 24.0441 0 25.332 0Z"
-          fill={color}
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_22758_46196">
-          <rect width="50" height="50" fill="white" transform="translate(0 0.000488281)" />
-        </clipPath>
-      </defs>
+      <path
+        d="M25.332 0.00012207C26.6199 0.00012207 27.664 1.04419 27.664 2.3321V47.6681C27.664 48.9561 26.6199 50.0001 25.332 50.0001C24.0441 50.0001 23 48.9561 23 47.6681V2.3321C23 1.04419 24.0441 0.00012207 25.332 0.00012207Z"
+        fill={color}
+      />
     </svg>
   )
 );

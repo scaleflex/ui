@@ -28,9 +28,7 @@ export const Shape = intrinsicComponent<IconProps, SVGSVGElement>(
         />
       </g>
       <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" transform="translate(0.274902)" />
-        </clipPath>
+        <rect width="50" height="50" fill="white" transform="translate(0.274902)" />
       </defs>
     </svg>
   )

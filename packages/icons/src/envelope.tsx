@@ -32,9 +32,7 @@ export const Envelope = intrinsicComponent<IconProps, SVGSVGElement>(
         />
       </g>
       <defs>
-        <clipPath id="clip0_4240_882">
-          <rect width="25" height="25" fill="white" transform="translate(0.943359 0.5)" />
-        </clipPath>
+        <rect width="25" height="25" fill="white" transform="translate(0.943359 0.5)" />
       </defs>
     </svg>
   )

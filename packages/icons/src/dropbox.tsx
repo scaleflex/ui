@@ -8,26 +8,19 @@ export const Dropbox = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 50 50"
+      viewBox="0 0 50 47"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <g clipPath="url(#clip0)">
-        <path d="M15.0952 2.81006L0.345215 12.4401L10.4852 20.6201L25.3952 11.4301L15.0952 2.81006Z" fill={color} />
-        <path d="M50.3455 12.46L35.6355 2.88L25.3955 11.43L40.2255 20.6L50.3455 12.46Z" fill={color} />
-        <path d="M25.3955 29.77L35.6355 38.35L50.3455 28.76L40.2255 20.6L25.3955 29.77Z" fill={color} />
-        <path d="M0.345215 28.8L15.0952 38.35L25.3952 29.77L10.4852 20.62L0.345215 28.8Z" fill={color} />
-        <path
-          d="M25.3956 31.62L15.1156 40.23L10.7056 37.38V40.57L25.3956 49.4L40.1456 40.55V37.38L35.7156 40.23L25.3956 31.62Z"
-          fill={color}
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" transform="translate(0.275391)" />
-        </clipPath>
-      </defs>
+      <path d="M14.75 0L0 9.63L10.14 17.81L25.05 8.62L14.75 0Z" fill={color} />
+      <path d="M50 9.65L35.29 0.0700002L25.05 8.62L39.88 17.79L50 9.65Z" fill={color} />
+      <path d="M25.05 26.96L35.29 35.54L50 25.95L39.88 17.79L25.05 26.96Z" fill={color} />
+      <path d="M0 25.99L14.75 35.54L25.05 26.96L10.14 17.81L0 25.99Z" fill={color} />
+      <path
+        d="M25.05 28.81L14.77 37.42L10.36 34.57V37.76L25.05 46.59L39.8 37.74V34.57L35.37 37.42L25.05 28.81Z"
+        fill={color}
+      />
     </svg>
   )
 );
