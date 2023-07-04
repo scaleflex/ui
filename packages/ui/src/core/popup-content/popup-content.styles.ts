@@ -9,7 +9,7 @@ import { PopupContentProps } from './popup-content.props';
 const baseClassName = 'PopupContent';
 
 const LabelWrapper = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Label'),
+  className: generateClassNames(baseClassName, 'LabelWrapper'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
@@ -35,7 +35,7 @@ const Label = styled.span.attrs({
     align-items: center;
     color: ${palette[PColor.TextPrimary]};
 
-    ${font[FontVariant.LabelSmallUpEmphasis]}
+    ${font[FontVariant.TextSmallUp]}
   `
 );
 

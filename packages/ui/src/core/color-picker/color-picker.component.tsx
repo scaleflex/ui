@@ -30,7 +30,14 @@ const transparentColorHex = '#00000000';
 const colorsHuesCount = 360;
 const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
   (
-    { defaultColor = '#000000', onChange, pinnedColors = [], showTransparentColor = false, ...rest }: ColorPickerProps,
+    {
+      defaultColor = '#000000',
+      onChange,
+      pinnedColors = [],
+      showTransparentColor = false,
+      containerProps,
+      ...rest
+    }: ColorPickerProps,
     ref
   ): JSX.Element => {
     const showedColors = showTransparentColor ? transparentColor.concat(pinnedColors) : pinnedColors;
@@ -278,7 +285,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             <Select
               size="sm"
               value={inputType}
-              MenuProps={{ zIndex: 11112 }}
+              MenuProps={{ zIndex: 11112, ...containerProps }}
               onChange={(ev: any) => setInputType(ev)}
               fullWidth
             >
@@ -331,6 +338,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             left={rangePicker.pointer.left || 0}
             top={rangePicker.pointer.top || 0}
             onKeyDown={moveRangePickerPointerByArrows}
+            pointerColor={hexInputValue}
             considerTopWidth
           />
         </Styled.RangePickerWrapper>
@@ -346,6 +354,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             left={bar.pointerLeft}
             onKeyDown={moveBarPointerByArrows}
             considerTopWidth={false}
+            pointerColor={hexInputValue}
             style={{ top: -3 }}
           />
         </Styled.BarWrapper>

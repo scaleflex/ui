@@ -87,7 +87,10 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     },
   })
 )(
-  ({ theme }: With<WithTheme, { left: number; top?: number; considerTopWidth: boolean }>) => css`
+  ({
+    theme,
+    pointerColor,
+  }: With<WithTheme, { pointerColor: string; left: number; top?: number; considerTopWidth: boolean }>) => css`
     display: inline-block;
     box-sizing: border-box;
     width: 15px;
@@ -95,7 +98,7 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     border-radius: 20px;
     box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
     border: 2px solid ${theme.palette[PColor.BackgroundSecondary]};
-    background-color: ${theme.palette[PColor.AccentPrimary]};
+    background-color: ${pointerColor};
     position: absolute;
     cursor: pointer;
     z-index: 11;
