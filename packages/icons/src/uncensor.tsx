@@ -20,9 +20,7 @@ export const Uncensor = intrinsicComponent<IconProps, SVGSVGElement>(
         />
       </g>
       <defs>
-        <clipPath id="clip0">
-          <rect width="50" height="50" fill="white" transform="translate(0.275391)" />
-        </clipPath>
+        <rect width="50" height="50" fill="white" transform="translate(0.275391)" />
       </defs>
     </svg>
   )

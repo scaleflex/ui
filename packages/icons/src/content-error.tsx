@@ -56,9 +56,7 @@ export const ContentError = intrinsicComponent<IconProps, SVGSVGElement>(
         fill={color}
       />
       <defs>
-        <clipPath id="clip0_19044_497634">
-          <rect width="162" height="162" fill="white" transform="translate(129)" />
-        </clipPath>
+        <rect width="162" height="162" fill="white" transform="translate(129)" />
       </defs>
     </svg>
   )
