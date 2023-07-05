@@ -24,7 +24,7 @@ const ColorPickerWrapper = styled.div.attrs({
   box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
   border-radius: 2px;
   padding: 12px;
-  max-width: 200px;
+  max-width: 300px;
 `;
 
 const ColorPickerIcon = styled.div.attrs({
@@ -42,7 +42,7 @@ const RangePickerWrapper = styled.div.attrs({
   ({ color }: { color: string }) => css`
     position: relative;
     border-radius: 2px;
-    width: 186px;
+    width: 100%;
     height: 180px;
     user-select: none;
     cursor: crosshair;
@@ -87,7 +87,10 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     },
   })
 )(
-  ({ theme }: With<WithTheme, { left: number; top?: number; considerTopWidth: boolean }>) => css`
+  ({
+    theme,
+    pointerColor,
+  }: With<WithTheme, { pointerColor: string; left: number; top?: number; considerTopWidth: boolean }>) => css`
     display: inline-block;
     box-sizing: border-box;
     width: 15px;
@@ -95,7 +98,7 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     border-radius: 20px;
     box-shadow: 0px 1px 2px rgba(78, 77, 77, 0.15);
     border: 2px solid ${theme.palette[PColor.BackgroundSecondary]};
-    background-color: ${theme.palette[PColor.AccentPrimary]};
+    background-color: ${pointerColor};
     position: absolute;
     cursor: pointer;
     z-index: 11;
@@ -109,7 +112,7 @@ const BarWrapper = styled.div.attrs({
 })`
   margin-top: 8px;
   position: relative;
-  width: 186px;
+  width: 100%;
   height: 12px;
 `;
 
@@ -149,6 +152,7 @@ const ColorPickerAction = styled.div.attrs({
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-bottom: 12px;
 `;
 
