@@ -17,7 +17,7 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
         status={status}
         removeBackground={removeBackground}
         hideIcon={hideIcon}
-        title={title}
+        isTitle={title}
         {...rest}
       >
         <Styled.Notification>
@@ -31,11 +31,10 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
             <Styled.Message>{message}</Styled.Message>
           </Styled.MessageWrapper>
         </Styled.Notification>
-
         {!removeBackground && (
           <Styled.Close onClick={onClose}>
-            <CrossButton size='sm'>
-             {(iconProps: { size?: number }): JSX.Element => <CrossOutline {...iconProps} />}
+            <CrossButton size="sm">
+              {(iconProps: { size?: number }): JSX.Element => <CrossOutline {...iconProps} />}
             </CrossButton>
           </Styled.Close>
         )}

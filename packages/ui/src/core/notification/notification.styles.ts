@@ -25,9 +25,9 @@ const NotificationWrapper = styled.div.attrs({
     status = NotificationStatus.Info,
     removeBackground,
     hideIcon,
-    title,
+    isTitle,
     theme,
-  }: With<WithTheme, NotificationProps>) => css`
+  }: With<WithTheme, With<NotificationProps, { isTitle?: boolean }>>) => css`
     display: flex;
     align-items: flex-start;
     position: relative;
@@ -52,7 +52,7 @@ const NotificationWrapper = styled.div.attrs({
     `}
 
     ${removeBackground &&
-    title &&
+    isTitle &&
     css`
       ${Icon} {
         margin-top: 1px;
