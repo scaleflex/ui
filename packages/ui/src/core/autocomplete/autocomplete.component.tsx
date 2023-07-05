@@ -38,6 +38,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       onOpen,
       onClose,
       getOptionDisabled,
+      getOptionsLabels,
+      getOptionsIds,
       multiple,
       size,
       disabled,
@@ -70,14 +72,40 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return filteredItems;
     };
 
+    const getOptionLabel = (id: any): string => {
+      const optionIndex = options.findIndex((item: any) => item.id === id);
+
+      return options[optionIndex].label;
+    };
+
     const handleOnChange = (event: any, val: any, id: any): void => {
+      const selectedIds = id ? [...selectedID, id] : selectedID;
+
       if (multiple) {
         if (onChange) {
-          onChange(event, [...selected, ...val], [...selectedID, id]);
+          onChange(event, [...selected, ...val], selectedIds);
+        }
+
+        if (getOptionsLabels) {
+          const optionsLabels = selectedIds?.map((itemId: any) => getOptionLabel(itemId));
+          getOptionsLabels(optionsLabels);
+        }
+
+        if (getOptionsIds) {
+          getOptionsIds(selectedIds);
         }
       } else {
         if (onChange) {
           onChange(event, val, id);
+        }
+
+        if (getOptionsLabels) {
+          const optionsLabels = getOptionLabel(id);
+          getOptionsLabels(optionsLabels);
+        }
+
+        if (getOptionsIds) {
+          getOptionsIds(id);
         }
 
         setSelected('');
@@ -100,6 +128,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
       if (onChange) {
         onChange(event, [...updatedSelectedItems, ''], [...updatedSelectedIds]);
+      }
+
+      if (getOptionsIds) {
+        getOptionsIds(updatedSelectedIds);
+      }
+
+      if (getOptionsLabels) {
+        getOptionsLabels(updatedSelectedItems);
       }
     };
 
@@ -126,12 +162,30 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         if (onChange) {
           onChange(event, [], []);
         }
+
+        if (getOptionsLabels) {
+          getOptionLabel([]);
+        }
+
+        if (getOptionsIds) {
+          getOptionsIds([]);
+        }
+
         setSelected([]);
         setSelectedID([]);
       } else {
         if (onChange) {
           onChange(event, '', '');
         }
+
+        if (getOptionsLabels) {
+          getOptionsLabels('');
+        }
+
+        if (getOptionsIds) {
+          getOptionsIds('');
+        }
+
         setSelected('');
         setSelectedID('');
       }
@@ -158,6 +212,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
           if (onChange) {
             onChange(event, [...updatedSelectedItems, ''], [...updatedSelectedIds]);
+          }
+
+          if (getOptionsLabels) {
+            getOptionsLabels(updatedSelectedItems);
+          }
+
+          if (getOptionsIds) {
+            getOptionsIds(updatedSelectedIds);
           }
         } else {
           handleOnChange(event, [item, ''], id);
@@ -190,7 +252,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleInputChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
       setRenderedValue('');
-      handleOnChange(event, [event.currentTarget.value], -1);
+      handleOnChange(event, [event.currentTarget.value], null);
       setAnchorEl(inputRef.current);
     };
 
@@ -217,6 +279,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
       if (
         filteredOptionsLength === 1 &&
+        getOptionDisabled &&
         (getOptionDisabled(firstFilteredOptionItem, firstFilteredOptionIndex) || filteredOptions[0] === noOptionsText)
       )
         return;
@@ -497,7 +560,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
                 renderMenuItem(option.label, index, option.id)
               )
-            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index))}
+            : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index, null))}
         </Menu>
         {renderHint()}
       </Styled.Autocomplete>
@@ -535,6 +598,8 @@ Autocomplete.propTypes = {
   onOpen: PT.func,
   onClose: PT.func,
   getOptionDisabled: PT.func,
+  getOptionsLabels: PT.func,
+  getOptionsIds: PT.func,
 };
 
 export default Autocomplete;
