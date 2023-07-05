@@ -73,7 +73,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const handleOnChange = (event: any, val: any, id: any): void => {
       if (multiple) {
         if (onChange) {
-          onChange(event, [...selected, val], [...selectedID, id]);
+          onChange(event, [...selected, ...val], [...selectedID, id]);
         }
       } else {
         if (onChange) {
@@ -160,7 +160,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             onChange(event, [...updatedSelectedItems, ''], [...updatedSelectedIds]);
           }
         } else {
-          handleOnChange(event, '', id);
+          handleOnChange(event, [item, ''], id);
           setSelected((prev) => [...prev, item]);
           setSelectedID((prev) => [...prev, id]);
         }
@@ -190,7 +190,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleInputChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
       setRenderedValue('');
-      handleOnChange(event, event.currentTarget.value);
+      handleOnChange(event, [event.currentTarget.value], -1);
       setAnchorEl(inputRef.current);
     };
 
@@ -211,8 +211,18 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getNextAvailableOption = (currentIndex: number, direction: string): void => {
+      const filteredOptionsLength = isObjectOptions ? Object.entries(filteredOptions).length : filteredOptions.length;
+      const firstFilteredOptionItem = isObjectOptions ? filteredOptions[0].label : filteredOptions[0];
+      const firstFilteredOptionIndex = getOptionIndex(firstFilteredOptionItem);
+
+      if (
+        filteredOptionsLength === 1 &&
+        (getOptionDisabled(firstFilteredOptionItem, firstFilteredOptionIndex) || filteredOptions[0] === noOptionsText)
+      )
+        return;
+
       while (currentIndex !== currentItemIndex) {
-        const selectedOption = filteredOptions[currentIndex];
+        const selectedOption = isObjectOptions ? filteredOptions[currentIndex].label : filteredOptions[currentIndex];
         const optionIndex = getOptionIndex(selectedOption);
         let isDisabled = false;
 
@@ -263,7 +273,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption);
+            handleSelectedItem(event, selectedOption, -1);
+          } else {
+            handleSelectedItem(event, selectedOption.label, selectedOption.id);
           }
         }
 
@@ -495,7 +507,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
 Autocomplete.defaultProps = {
   size: InputSize.Md,
-  // multiple: false,
+  multiple: false,
   disabled: false,
   scroll: true,
   readOnly: false,
