@@ -37,7 +37,7 @@ const defaultArgs = {
     'item11',
     'item12',
   ],
-  // multiple: true,
+  multiple: false,
   fullWidth: false,
 };
 const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
@@ -46,7 +46,13 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   return (
-    <Autocomplete {...args} value={value} options={args.options} onChange={(event: any, val: any) => setValue(val)} />
+    <Autocomplete
+      {...args}
+      value={value}
+      options={args.options}
+      getOptionDisabled={getOptionDisabled}
+      onChange={(event: any, val: any) => setValue(val)}
+    />
   );
 };
 
@@ -55,14 +61,19 @@ Basic.args = { ...defaultArgs };
 
 const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
+  const [id, setID] = useState(args.multiple ? [] : '');
 
   return (
     <Autocomplete
       {...args}
       value={value}
+      id={id}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
-      onChange={(_, val: any) => setValue(val)}
+      onChange={(_, val: any, _id: any) => {
+        setID(_id);
+        setValue(val);
+      }}
     />
   );
 };

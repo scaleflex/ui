@@ -15,12 +15,11 @@ import FormHint from '../form-hint';
 import ArrowTick from '../arrow-tick';
 import Input from '../input';
 import Menu from '../menu';
+import Tag from '../tag';
 import MenuItem, { MenuItemActions } from '../menu-item';
-// TODO: refactor how implement tags in input
-// import Tag from '../tag';
 import { InputSize } from '../../utils/types';
-import Styled from './autocomplete.styles';
 import { Size } from '../menu-item/types';
+import Styled from './autocomplete.styles';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (
@@ -54,6 +53,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
+    const [selectedID, setSelectedID] = useState<string[] | string>(multiple ? [] : '');
     const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
@@ -61,31 +61,47 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0;
+    const isObjectOptions = typeof options[0] === 'object';
 
-    const handleOnChange = (event: any, val: any): void => {
+    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
+      const filteredItems: any[] = [];
+      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
+
+      return filteredItems;
+    };
+
+    const handleOnChange = (event: any, val: any, id: any): void => {
       if (multiple) {
         if (onChange) {
-          onChange(event, [...selected, val]);
+          onChange(event, [...selected, ...val], [...selectedID, id]);
         }
       } else {
         if (onChange) {
-          onChange(event, val);
+          onChange(event, val, id);
         }
+
         setSelected('');
+        setSelectedID('');
         setCurrentItemIndex(-1);
       }
     };
 
-    // TODO: refactor how implement tags in input
-    // const handleOnRemoveItem = (event: any, itemIndex: number): void => {
-    //   const updatedSelectedItems = Array.isArray(selected)
-    //     ? selected.filter((_, index: number) => index !== itemIndex)
-    //     : '';
-    //   setSelected(updatedSelectedItems);
-    //   if (onChange) {
-    //     onChange(event, updatedSelectedItems);
-    //   }
-    // };
+    const handleOnRemoveItem = (event: any, itemIndex: number): void => {
+      event.stopPropagation();
+      const updatedSelectedItems = Array.isArray(selected)
+        ? selected.filter((_, index: number) => index !== itemIndex)
+        : '';
+      const updatedSelectedIds = Array.isArray(selectedID)
+        ? selectedID.filter((_, index: number) => index !== itemIndex)
+        : '';
+
+      setSelected(updatedSelectedItems);
+      setSelectedID(updatedSelectedIds);
+
+      if (onChange) {
+        onChange(event, [...updatedSelectedItems, ''], [...updatedSelectedIds]);
+      }
+    };
 
     const handleOpenClick = (event: any): void => {
       setAnchorEl(inputRef.current);
@@ -108,67 +124,80 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event?.stopPropagation();
       if (multiple) {
         if (onChange) {
-          onChange(event, []);
+          onChange(event, [], []);
         }
         setSelected([]);
+        setSelectedID([]);
       } else {
         if (onChange) {
-          onChange(event, '');
+          onChange(event, '', '');
         }
         setSelected('');
-        setCurrentItemIndex(-1);
+        setSelectedID('');
       }
+
+      setCurrentItemIndex(-1);
     };
 
     const handleSelectedItem = (
       event: React.KeyboardEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
-      item: string
+      item: string,
+      id: any
     ): void => {
       // make sure this item isn't already selected
       if (!multiple && selected !== item) {
-        handleOnChange(event, item);
+        handleOnChange(event, item, id);
+        setSelected(item);
+        setSelectedID(id);
+      } else if (multiple) {
+        if (Array.isArray(selected) && selected.includes(item)) {
+          const updatedSelectedItems = selected.filter((selectedItem) => selectedItem !== item);
+          const updatedSelectedIds = selectedID.filter((selectedId) => selectedId !== id);
+          setSelected(updatedSelectedItems);
+          setSelectedID(updatedSelectedIds);
 
-        if (multiple) {
-          setSelected((prev) => [...prev, item]);
+          if (onChange) {
+            onChange(event, [...updatedSelectedItems, ''], [...updatedSelectedIds]);
+          }
         } else {
-          setSelected(item);
+          handleOnChange(event, [item, ''], id);
+          setSelected((prev) => [...prev, item]);
+          setSelectedID((prev) => [...prev, id]);
         }
       }
 
       handleCloseClick(event);
     };
 
-    const handleMenuItemClick = (event: any, item: string, index: number): void => {
+    const handleMenuItemClick = (event: any, item: string, index: number, id: any): void => {
       // menu item shouldn't be clickable if it's disabled or = 'No options'
       if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return undefined;
       }
 
-      return handleSelectedItem(event, item);
+      return handleSelectedItem(event, item, id);
     };
 
     const getValue = (): string | string[] => {
       if (multiple) {
-        const lastValue = value[value.length - 1];
-        if (selected.includes(lastValue)) {
-          return '';
-        }
+        const inputValue = value[value.length - 1];
 
-        return lastValue;
+        return value.length !== 0 ? inputValue : '';
       }
+
       return value;
     };
 
     const handleInputChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
       setRenderedValue('');
-      handleOnChange(event, event.currentTarget.value);
+      handleOnChange(event, [event.currentTarget.value], -1);
       setAnchorEl(inputRef.current);
     };
 
     const getOptionIndex = (option: any): number => {
       let optionIndex = -1;
 
-      if (typeof options[0] === 'object') {
+      if (isObjectOptions) {
         const optionObject = Object.entries(options).find(([_, optObject]) => optObject.label === option);
 
         if (optionObject) {
@@ -182,8 +211,18 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getNextAvailableOption = (currentIndex: number, direction: string): void => {
+      const filteredOptionsLength = isObjectOptions ? Object.entries(filteredOptions).length : filteredOptions.length;
+      const firstFilteredOptionItem = isObjectOptions ? filteredOptions[0].label : filteredOptions[0];
+      const firstFilteredOptionIndex = getOptionIndex(firstFilteredOptionItem);
+
+      if (
+        filteredOptionsLength === 1 &&
+        (getOptionDisabled(firstFilteredOptionItem, firstFilteredOptionIndex) || filteredOptions[0] === noOptionsText)
+      )
+        return;
+
       while (currentIndex !== currentItemIndex) {
-        const selectedOption = filteredOptions[currentIndex];
+        const selectedOption = isObjectOptions ? filteredOptions[currentIndex].label : filteredOptions[currentIndex];
         const optionIndex = getOptionIndex(selectedOption);
         let isDisabled = false;
 
@@ -234,7 +273,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption);
+            handleSelectedItem(event, selectedOption, -1);
+          } else {
+            handleSelectedItem(event, selectedOption.label, selectedOption.id);
           }
         }
 
@@ -244,28 +285,44 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
-    // TODO: refactor how implement tags in input
-    // const getMultipleFilteredOptions = (): void => {
-    //   if (isItemSelected) {
-    //     // lastValue = selectedItem | enteredValue
-    //     // ["item1","ite"]
-    //     const lastValue = value[value.length - 1];
-    //     const filteredMenuOptions = selected.includes(lastValue)
-    //       ? options
-    //       : options?.filter((option: string) => option.includes(lastValue));
-    //     setFilteredOptions(filteredMenuOptions || []);
-    //   } else {
-    //     // filter menu options based on the value[0] as it's an array in multiple mode
-    //     const filteredMenuOptions = options?.filter((option: any) => option.includes(value[0]));
-    //     setFilteredOptions(filteredMenuOptions || []);
-    //   }
-    // };
+    const getMultipleFilteredOptions = (): void => {
+      let filteredMenuOptions = [];
+
+      if (isItemSelected) {
+        // lastValue = selectedItem | enteredValue
+        // ["item1","ite"]
+        const lastValue = value[value.length - 1];
+
+        filteredMenuOptions = getFilteredItems(options, (item: any) => {
+          if (isObjectOptions) {
+            if (item.label.includes(lastValue || '')) return true;
+          } else if (item.includes(lastValue || '')) return true;
+
+          return false;
+        });
+      } else {
+        // filter menu options based on the value[0] as it's an array in multiple mode
+        filteredMenuOptions = getFilteredItems(options, (item: any) => {
+          if (isObjectOptions) {
+            if (item.label.includes(value[0] || '')) return true;
+          } else if (item.includes(value[0] || '')) return true;
+
+          return false;
+        });
+      }
+
+      setFilteredOptions(filteredMenuOptions);
+    };
 
     const getFilteredOptions = (): void => {
-      let filteredMenuOptions = typeof options[0] === 'object' ? options.map((option: any) => option.label) : options;
+      let filteredMenuOptions = options;
 
       if (!isItemSelected && value !== renderedValue) {
-        filteredMenuOptions = filteredMenuOptions.filter((option: any) => option.includes(value));
+        if (isObjectOptions) {
+          filteredMenuOptions = filteredMenuOptions.filter((option: any) => option.label.includes(value));
+        } else {
+          filteredMenuOptions = filteredMenuOptions.filter((option: any) => option.includes(value));
+        }
       }
 
       setFilteredOptions(filteredMenuOptions || []);
@@ -291,21 +348,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    // TODO: refactor how implement tags in input
-    // const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
-    //   if (multiple && isItemSelected && Array.isArray(selected)) {
-    //     return selected.map((item: string, index: number) => (
-    //       <Tag
-    //         key={index}
-    //         tagIndex={index}
-    //         style={{ margin: '0px 4px 4px 0px' }}
-    //         onRemove={(_, event) => handleOnRemoveItem(event, index)}
-    //       >
-    //         {item}
-    //       </Tag>
-    //     ));
-    //   }
-    // };
+    const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
+      if (multiple && isItemSelected && Array.isArray(selected)) {
+        return selected.map((item: string, index: number) => (
+          <Tag key={index} tagIndex={index} crossIcon onRemove={(_, event) => handleOnRemoveItem(event, index)}>
+            {item}
+          </Tag>
+        ));
+      }
+    };
 
     const renderHint = (): string | number | null | JSX.Element | any => {
       if (hint) {
@@ -327,7 +378,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    const renderMenuItem = (item: string, index: number): any => {
+    const renderMenuItem = (item: string, index: number, id: any): any => {
       const optionIndex = getOptionIndex(item);
       const miActions = (
         <MenuItemActions>
@@ -344,12 +395,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           size={size}
           noOptionsText={item === noOptionsText}
           disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
-          active={(multiple && selected.includes(item)) || item === selected || index === currentItemIndex}
-          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex)}
+          active={item === selected || index === currentItemIndex || (multiple && selected.includes(item))}
+          onClick={(event: React.MouseEvent<HTMLDivElement>) => handleMenuItemClick(event, item, optionIndex, id)}
           enableScrollIntoView
         >
           {item}
-          {selected && index === currentItemIndex && miActions}
+          {(item === selected || (multiple && selected.includes(item))) && miActions}
         </MenuItem>
       );
     };
@@ -370,9 +421,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [anchorEl]);
 
     useEffect(() => {
-      if (multiple && value?.length > 0) {
-        // TODO: refactor how implement tags in input
-        // getMultipleFilteredOptions();
+      if (multiple) {
+        getMultipleFilteredOptions();
       } else {
         getFilteredOptions();
       }
@@ -385,7 +435,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [filteredOptions, value]);
 
     useEffect(() => {
-      const filteredMenuOptions = typeof options[0] === 'object' ? options.map((option: any) => option.label) : options;
+      const filteredMenuOptions = isObjectOptions ? options.map((option: any) => option.label) : options;
 
       if (!multiple && value?.length !== 0) {
         const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
@@ -406,8 +456,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             ref={inputRef}
             size={size}
             value={getValue()}
-            // TODO: refactor how implement tags in input
-            // renderTags={renderTags()}
+            renderTags={renderTags}
+            selectedItems={selected}
             readOnly={readOnly}
             error={error}
             focusOnMount={focusOnOpen}
@@ -445,7 +495,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         >
           {typeof filteredOptions[0] === 'object'
             ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
-                renderMenuItem(option.label, index)
+                renderMenuItem(option.label, index, option.id)
               )
             : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index))}
         </Menu>
@@ -457,7 +507,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
 Autocomplete.defaultProps = {
   size: InputSize.Md,
-  // multiple: false,
+  multiple: false,
   disabled: false,
   scroll: true,
   readOnly: false,

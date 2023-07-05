@@ -57,6 +57,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       copyTextMessage,
       copySuccessIcon,
       error,
+      renderTags,
       showPlaceholder,
       ...rest
     }: InputProps,
@@ -67,7 +68,8 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const [isVisible, setIsVisible] = useState(false);
 
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const placeholder = rest.value ? '' : rest.placeholder;
+    const isSelectedItems = rest.selectedItems?.length;
+    const placeholder = rest.value || isSelectedItems ? '' : rest.placeholder;
 
     const handleFocus = (): void => {
       if (disabled) return;
@@ -167,13 +169,17 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | undefined => (
-      <Styled.Base
-        {...rest}
-        placeholder={placeholder}
-        ref={inputRef}
-        readOnly={Boolean(readOnly)}
-        type={getInputType()}
-      />
+      <Styled.FieldWrapper isSelectedItems={Boolean(isSelectedItems)}>
+        {renderTags && renderTags()}
+
+        <Styled.Base
+          {...rest}
+          placeholder={placeholder}
+          ref={inputRef}
+          readOnly={Boolean(readOnly)}
+          type={getInputType()}
+        />
+      </Styled.FieldWrapper>
     );
 
     const renderCopyText = (): JSX.Element | undefined => {
@@ -200,6 +206,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
+        isSelectedItems={Boolean(isSelectedItems)}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
@@ -246,8 +253,7 @@ export const propTypes = {
   focusOnClick: PT.bool,
   copyTextMessage: PT.string,
   inputType: PT.string,
-  /// / TODO: refactor how implement tags in input
-  // renderTags: PT.node,
+  renderTags: PT.func,
 };
 
 Input.propTypes = propTypes;
