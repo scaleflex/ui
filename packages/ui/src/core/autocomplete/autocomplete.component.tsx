@@ -59,13 +59,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
-    const [renderedValue, setRenderedValue] = useState(value);
+    const [renderedValue, setRenderedValue] = useState('');
 
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0;
     const isObjectOptions = typeof options[0] === 'object';
 
-    const convertToLower = (val: string): string => val.toString().toLowerCase();
+    const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
 
     const getFilteredItems = (items: any[], callBackFun: any): any[] => {
       const filteredItems: any[] = [];
@@ -79,7 +79,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         if (onChange) {
           if (isObjectOptions && id) {
             onChange(event, [...selected, ...id]);
-          } else {
+          } else if (!isObjectOptions) {
             onChange(event, [...selected, ...val]);
           }
         }
@@ -87,7 +87,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         if (onChange) {
           if (isObjectOptions && id) {
             onChange(event, id);
-          } else {
+          } else if (!isObjectOptions) {
             onChange(event, val);
           }
         }
@@ -110,7 +110,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setSelectedID(updatedSelectedIds);
 
       if (onChange) {
-        onChange(event, [...updatedSelectedItems, '']);
+        if (isObjectOptions) {
+          onChange(event, [...updatedSelectedItems]);
+        } else {
+          onChange(event, [...updatedSelectedItems, '']);
+        }
       }
     };
 
@@ -171,10 +175,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           setSelected(updatedSelectedItems);
 
           if (onChange) {
-            onChange(event, [...updatedSelectedItems, '']);
+            if (isObjectOptions) {
+              onChange(event, [...updatedSelectedItems]);
+            } else {
+              onChange(event, [...updatedSelectedItems, '']);
+            }
           }
         } else if (isObjectOptions) {
-          handleOnChange(event, null, [id, '']);
+          handleOnChange(event, null, [id]);
           setSelected((prev) => [...prev, id]);
         } else {
           handleOnChange(event, [item, ''], null);
@@ -182,6 +190,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         }
       }
 
+      setRenderedValue('');
       handleCloseClick(event);
     };
 
@@ -205,26 +214,17 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getValue = (): string | string[] => {
-      if (multiple) {
-        const inputValue = value[value.length - 1];
+      if (isObjectOptions && !multiple && selected.length > 0) return getObjectOptionLabel(value);
 
-        if (value.length !== 0) {
-          if (isObjectOptions && inputValue) return getObjectOptionLabel(inputValue);
+      if (!isObjectOptions && !multiple) return value;
 
-          return inputValue;
-        }
-
-        return '';
-      }
-
-      if (isObjectOptions && value && !Array.isArray(value)) return getObjectOptionLabel(value);
-
-      return value;
+      return renderedValue;
     };
 
     const handleInputChange = (event: React.SyntheticEvent<HTMLInputElement>): void => {
-      setRenderedValue('');
-      handleOnChange(event, [event.currentTarget.value], null);
+      const inputValue = event.currentTarget.value;
+      setRenderedValue(inputValue);
+      handleOnChange(event, [inputValue], null);
       setAnchorEl(inputRef.current);
     };
 
@@ -350,7 +350,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getMultipleFilteredOptions = (): void => {
       let filteredMenuOptions = [];
 
-      if (isItemSelected) {
+      if (isObjectOptions) {
+        filteredMenuOptions = getFilteredItems(options, (item: any) => getMultipleFilteredItems(item, renderedValue));
+      } else if (isItemSelected) {
         // lastValue = selectedItem | enteredValue
         // ["item1","ite"]
         const lastValue = value[value.length - 1];
@@ -367,15 +369,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getFilteredOptions = (): void => {
       let filteredMenuOptions = options;
 
-      if (!isObjectOptions && !isItemSelected && value !== renderedValue) {
-        filteredMenuOptions = filteredMenuOptions.filter((option: any) =>
-          convertToLower(option).includes(convertToLower(value))
-        );
-      } else if (isObjectOptions && !isItemSelected && Array.isArray(value)) {
+      if (isObjectOptions) {
         filteredMenuOptions = filteredMenuOptions.filter((option: any) =>
           getOptionLabel
-            ? convertToLower(getOptionLabel(option))?.includes(convertToLower(value[0]))
-            : convertToLower(option.label).includes(convertToLower(value[0]))
+            ? convertToLower(getOptionLabel(option))?.includes(convertToLower(renderedValue))
+            : convertToLower(option.label).includes(convertToLower(renderedValue))
+        );
+      } else {
+        filteredMenuOptions = filteredMenuOptions.filter((option: any) =>
+          convertToLower(option).includes(convertToLower(value[0]))
         );
       }
 
@@ -507,7 +509,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       } else {
         getFilteredOptions();
       }
-    }, [value, anchorEl]);
+    }, [value, renderedValue, anchorEl]);
 
     useEffect(() => {
       if (filteredOptions?.length === 0) {
