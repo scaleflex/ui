@@ -4,6 +4,7 @@ import StyledFormHint from '../form-hint/form-hint.styles';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
+import StyledTag from '../tag/tag.styles';
 
 const baseClassName = 'Autocomplete';
 
@@ -16,6 +17,17 @@ const Autocomplete = styled.div.attrs({
 
   ${StyledLabel.Label} {
     margin-bottom: 4px;
+  }
+
+  ${StyledTag.Tag} {
+    max-width: 100%;
+  }
+
+  ${StyledTag.Label} {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
   }
 `;
 

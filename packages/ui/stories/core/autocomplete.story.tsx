@@ -37,7 +37,7 @@ const defaultArgs = {
     'item11',
     'item12',
   ],
-  // multiple: true,
+  multiple: false,
   fullWidth: false,
 };
 const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
@@ -46,7 +46,15 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   return (
-    <Autocomplete {...args} value={value} options={args.options} onChange={(event: any, val: any) => setValue(val)} />
+    <Autocomplete
+      {...args}
+      value={value}
+      options={args.options}
+      getOptionDisabled={getOptionDisabled}
+      getOptionValue={(option: any) => option}
+      getOptionLabel={(option: any) => option}
+      onChange={(_: any, val: any) => setValue(val)}
+    />
   );
 };
 
@@ -61,25 +69,22 @@ const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
       {...args}
       value={value}
       options={args.options}
-      getOptionDisabled={getOptionDisabled}
       onChange={(_, val: any) => setValue(val)}
+      getOptionValue={(option: any) => option?.uuid}
+      getOptionLabel={(option: any) => option?.name}
+      getOptionDisabled={getOptionDisabled}
     />
   );
 };
 
 const options = [
-  { id: 1, label: 'item1' },
-  { id: 2, label: 'item2' },
-  { id: 3, label: 'item3' },
-  { id: 4, label: 'item4' },
-  { id: 5, label: 'item5' },
-  { id: 6, label: 'item6' },
-  { id: 7, label: 'item7' },
-  { id: 8, label: 'item8' },
-  { id: 9, label: 'item9' },
-  { id: 10, label: 'item10' },
-  { id: 11, label: 'item11' },
-  { id: 12, label: 'item12' },
+  { uuid: '1_scaleflex', name: 'sfx1' },
+  { uuid: '2_scaleflex', name: 'sfx2' },
+  { uuid: '3_scaleflex', name: 'sfx3' },
+  { uuid: '4_scaleflex', name: 'sfx4' },
+  { uuid: '5_scaleflex', name: 'sfx5' },
+  { uuid: '6_scaleflex', name: 'sfx6' },
+  { uuid: '7_scaleflex', name: 'sfx7' },
 ];
 
 export const AutocompleteObjects = AutocompleteObjectsTemplate.bind({});

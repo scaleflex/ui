@@ -1,4 +1,5 @@
 import type { SelectSimpleValueType } from '../select/select.props';
+import type { MenuProps } from '../menu';
 
 export interface ColorType {
   hue: number;
@@ -35,4 +36,5 @@ export interface ColorPickerProps extends React.HTMLAttributes<HTMLSpanElement> 
   onChange?: (hexColor: string, rgb?: string, pinnedColors?: Array<string>) => void;
   pinnedColors?: Array<string>;
   showTransparentColor?: boolean;
+  containerProps?: MenuProps;
 }

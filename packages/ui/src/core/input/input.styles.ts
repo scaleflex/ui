@@ -72,7 +72,7 @@ const Base = styled.input.attrs({
     display: block;
     color: inherit;
     width: 100%;
-    min-width: 0;
+    min-width: fit-content;
     margin: 0;
     padding: 0;
     border: 0;
@@ -95,6 +95,7 @@ const Input = styled.div.attrs({
     readOnly = false,
     disabled = false,
     isHovering = false,
+    isSelectedItems = false,
     theme,
   }: With<WithTheme, InputProps>) => css`
     position: relative;
@@ -113,6 +114,18 @@ const Input = styled.div.attrs({
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
+
+    ${isSelectedItems &&
+    `
+      height: fit-content;
+
+      ${Base} {
+        max-width: fit-content;
+        min-width: 20px;
+        flex-grow: 1;
+        width: 40px;
+      }
+    `};
 
     ${Base} {
       ${fontSizeInputMixin[size]}
@@ -175,22 +188,6 @@ const ClearIcon = styled.span.attrs({
   `
 );
 
-const Tags = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Tags'),
-})<InputProps>(
-  () => css`
-    display: inline;
-    color: inherit;
-    width: max-content;
-    min-width: 0;
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    outline: none;
-  `
-);
-
 const NotificationBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'NotificationBox'),
 })<InputProps>(
@@ -232,14 +229,31 @@ const NotificationText = styled.span.attrs({
   `
 );
 
-// TODO: refactor how we implement tags in input
-//  display: ${renderTags ? 'inline' : 'block'};
-// width: ${renderTags ? 'min-content' : '100%'};
+const FieldWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'fieldWrapper'),
+})(
+  ({ isSelectedItems }: { isSelectedItems: boolean }) => css`
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-height: 120px;
+
+    ${isSelectedItems &&
+    `
+      overflow-y: auto;
+    `};
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  `
+);
 
 const Styled = applyDisplayNames({
   Input,
   Container,
-  Tags,
   Base,
   Icon,
   CopyIcon,
@@ -248,6 +262,7 @@ const Styled = applyDisplayNames({
   NotificationBox,
   NotificationIcon,
   NotificationText,
+  FieldWrapper,
 });
 
 export default Styled;

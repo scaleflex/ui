@@ -9,7 +9,7 @@ import { PopupContentProps } from './popup-content.props';
 const baseClassName = 'PopupContent';
 
 const LabelWrapper = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'Label'),
+  className: generateClassNames(baseClassName, 'LabelWrapper'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
     display: flex;
@@ -35,7 +35,7 @@ const Label = styled.span.attrs({
     align-items: center;
     color: ${palette[PColor.TextPrimary]};
 
-    ${font[FontVariant.LabelSmallUpEmphasis]}
+    ${font[FontVariant.TextSmallUp]}
   `
 );
 
@@ -67,6 +67,7 @@ const CloseWrapper = styled.div.attrs({
     height: 100%;
     cursor: pointer;
     background: ${theme.palette[PColor.BackgroundStateless]};
+    border-radius: 0 4px 4px 0;
   `
 );
 
@@ -83,6 +84,7 @@ const PopupStatus = styled.div.attrs({
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    border-radius: 4px 0 0 4px;
 
     ${popupContentMixin[status]}
   `

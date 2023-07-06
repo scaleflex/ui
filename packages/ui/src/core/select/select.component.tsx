@@ -38,6 +38,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const open = Boolean(anchorEl);
     const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
+    const isValueExists = Array.isArray(value) ? !!value.length : !!value?.toString()?.length;
 
     const handleClose = (): void => {
       if (onRequestClose) {
@@ -58,13 +59,13 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           readOnly={readOnly}
           onClick={readOnly || disabled ? undefined : handleClick}
         >
-          {value && (
+          {isValueExists && (
             <Styled.Label>
               {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
             </Styled.Label>
           )}
 
-          {!value && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
+          {!isValueExists && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
 
           <Styled.Icon size={size}>
             <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 11 : 10 }} />
