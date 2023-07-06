@@ -8,7 +8,6 @@ import type { RenderOption, RenderValue, SelectSizeType, SelectSimpleValueType }
 import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
 
-
 export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
     case InputSize.Md:
@@ -25,7 +24,7 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
     <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
   ) : undefined;
 
-const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType ): ReactNode => {
+const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType): ReactNode => {
   const miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
 
   if (isActive && children) {
@@ -88,7 +87,7 @@ export const renderOption = (
         onClose();
       }
 
-      if (typeof onChange === 'function' && !isDisabledMenuItem) {
+      if (typeof onChange === 'function' && !isDisabledMenuItem && !!menuItemValue?.toString()?.length) {
         let newValue = menuItemValue;
 
         if (multiple) {
@@ -120,7 +119,11 @@ const renderOptionValue = (option: any) => {
   if (option && option.children) {
     let child = option.children;
     while (typeof child !== 'string') {
-      Array.isArray(child) ? (child = getOptionValue(child[1])) : (child = getOptionValue(child));
+      if (Array.isArray(child)) {
+        child = getOptionValue(child[1]);
+      } else {
+        child = getOptionValue(child);
+      }
     }
     return child;
   }
