@@ -51,6 +51,8 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
       value={value}
       options={args.options}
       getOptionDisabled={getOptionDisabled}
+      getOptionValue={(option: any) => option}
+      getOptionLabel={(option: any) => option}
       onChange={(_: any, val: any) => setValue(val)}
     />
   );
