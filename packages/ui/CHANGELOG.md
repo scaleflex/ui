@@ -3,6 +3,1054 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.0.0](https://github.com/scaleflex/ui/compare/v1.0.0-beta.46...v2.0.0) (2023-07-06)
+
+
+### Bug Fixes
+
+* autocomplete props ([aed5e99](https://github.com/scaleflex/ui/commit/aed5e990be15bd3d054badc25ab501073f774a34))
+* onChange value in autocomplete ([b5ddae2](https://github.com/scaleflex/ui/commit/b5ddae2a6215b07a338643b8444d6db055b9c233))
+* update color picker styles ([aee178d](https://github.com/scaleflex/ui/commit/aee178d60fed8174c9a43013d4303ddda53142cb))
+* **Autocomplete:** object options ([f6c4212](https://github.com/scaleflex/ui/commit/f6c4212f0b5147e9df76168c8c5339b480b9aaff))
+* **ColorPicker:** update color picker modal - SHA-39 ([ffa6946](https://github.com/scaleflex/ui/commit/ffa6946b87a50a14be1df59d6202bc16755bd6f0))
+* **Notification:** remove default html tooltip ([657c5bb](https://github.com/scaleflex/ui/commit/657c5bbfba2e26b637d29cf2c76bb9038c359807))
+
+
+### Features
+
+* **Autocomplete:** add getLabel and getValue props to autocomplete ([f240d16](https://github.com/scaleflex/ui/commit/f240d16bd583f8b203a6c755f6fab594f04fe9e0))
+
+
+
+# 2.0.0-beta.48 (2023-07-02)
+
+
+
+# 2.0.0-beta.47 (2023-06-29)
+
+
+### Bug Fixes
+
+* **TagField:** value.toLocalLowerCase() is not a function ([3f6bf21](https://github.com/scaleflex/ui/commit/3f6bf21373b44e7c6cdcdcb7570b8e1af1de2b37))
+
+
+### Features
+
+* **TagField:** show startIcon for suggestions ([beeca26](https://github.com/scaleflex/ui/commit/beeca26beac7a82bfa986b18e6f4818a96869162))
+
+
+
+# 2.0.0-beta.46 (2023-06-26)
+
+
+### Bug Fixes
+
+* **ColorPicker:** move action buttons to the top ([7f01f3c](https://github.com/scaleflex/ui/commit/7f01f3ce4752d3880b0eb86d2518f715770b43ef))
+* autocomplete multiple case - SHA-37 ([9a712a4](https://github.com/scaleflex/ui/commit/9a712a478fea7d68cdc3771a2c2464137317c8ed))
+* autocomplete multiple case is broken - SHA-37 ([8ad2f3d](https://github.com/scaleflex/ui/commit/8ad2f3d3f4057059be9d2f2f14f6b94284d52595))
+* **Autocomplete:** multiple case is broken - SHA-37 ([89864e5](https://github.com/scaleflex/ui/commit/89864e5a6028768d80c3d05a9f4863eb6291ea63))
+* **Themes:** update font themes - SHA-36 ([2068edb](https://github.com/scaleflex/ui/commit/2068edbcd9a2f01bfe37cbb063089e806895a962))
+
+
+
+# 2.0.0-beta.45 (2023-06-12)
+
+
+
+# 2.0.0-beta.44 (2023-06-08)
+
+
+
+# 2.0.0-beta.43 (2023-05-29)
+
+
+
+# 2.0.0-beta.42 (2023-05-27)
+
+
+
+# 2.0.0-beta.41 (2023-05-22)
+
+
+
+# 2.0.0-beta.40 (2023-05-10)
+
+
+
+# 2.0.0-beta.39 (2023-05-08)
+
+
+
+# 2.0.0-beta.38 (2023-05-08)
+
+
+
+# 2.0.0-beta.37 (2023-05-07)
+
+
+### Bug Fixes
+
+* **input:** add hideIconProp to input controls SHA-31 ([b66cca7](https://github.com/scaleflex/ui/commit/b66cca712fff2cb4b3e50db1d9fab194aa3d9164))
+
+
+### Features
+
+* add new colors ([8d9ae50](https://github.com/scaleflex/ui/commit/8d9ae50adf868eb9fcfe1f210c1e5e8ea4846588))
+
+
+
+# 2.0.0-beta.36 (2023-04-18)
+
+
+
+# 2.0.0-beta.35 (2023-04-07)
+
+
+### Bug Fixes
+
+* **Input:** fix copy empty message FRA-1234 ([9d01bb2](https://github.com/scaleflex/ui/commit/9d01bb23031996a43a2c71fbf5491f8282795259))
+* autocomplete selected value - SHA-20 ([00ebc93](https://github.com/scaleflex/ui/commit/00ebc93205cac23299b9a2ef62d2ae2224d5bef0))
+* input focus problem FRA-902 ([bef80a2](https://github.com/scaleflex/ui/commit/bef80a2789d912eff328097486864173075b34c7))
+* input password type - FRA-902 ([6ef4913](https://github.com/scaleflex/ui/commit/6ef4913e2caccf666d2955afdd7c12e9a9ab8001))
+* **Input:** add password type to input ([41e9d19](https://github.com/scaleflex/ui/commit/41e9d19cc923742eba08057ba5ca4cacddc59da8))
+
+
+
+# 2.0.0-beta.34 (2023-03-07)
+
+
+### Features
+
+* **Drawer:** add variant prop ([f45613a](https://github.com/scaleflex/ui/commit/f45613a4787ce3b021be457e4d63c3b58b25b075))
+
+
+
+# 2.0.0-beta.33 (2023-03-07)
+
+
+### Bug Fixes
+
+* **calendar:** max year value FRA-894 ([9e39260](https://github.com/scaleflex/ui/commit/9e3926071b3e1764df78c0a10d286d2baf3ec041))
+* **Modal:** add style to modal wrapper FRA-893 ([fd18543](https://github.com/scaleflex/ui/commit/fd18543933a104185027d22fad2465bda22b82d8))
+
+
+
+# 2.0.0-beta.32 (2023-03-06)
+
+
+### Bug Fixes
+
+* suggsted tag field - FRA-873 ([d834773](https://github.com/scaleflex/ui/commit/d834773ca4bc070b7008e72b73ff899d5f18460e))
+* tag field icon prop - FRA-883 ([d14d761](https://github.com/scaleflex/ui/commit/d14d761afde63d12818d4d1631b428aad74ebb6f))
+
+
+
+# 2.0.0-beta.31 (2023-02-23)
+
+
+
+# 2.0.0-beta.30 (2023-02-23)
+
+
+### Bug Fixes
+
+*  tooltip prop - T12233 ([cdf2678](https://github.com/scaleflex/ui/commit/cdf2678194571f9078d315677c6cc7000ebe79bb))
+* input fields' copy message - T12531 ([9482a36](https://github.com/scaleflex/ui/commit/9482a36b90e1bf1a183cdf6e602d4a00193876fd))
+* resolve comments - T12233 ([3058267](https://github.com/scaleflex/ui/commit/30582677defd5eabb941738dfc010a8582c9b77e))
+
+
+### Features
+
+* make copied icon dynamic - T12531 ([bd1597b](https://github.com/scaleflex/ui/commit/bd1597b4b7436b8dff1795e8948815090920858b))
+
+
+
+# 2.0.0-beta.29 (2023-02-22)
+
+
+### Bug Fixes
+
+* Add copy message to input ([84c43ea](https://github.com/scaleflex/ui/commit/84c43ea4f7154190ea75cf20936306e323eaf3c5))
+* Add copy message to input T12531 ([bbadbe5](https://github.com/scaleflex/ui/commit/bbadbe57b290ab3dd4f24552d36ad792ab9cc24f))
+* calendar prop error - T12544 ([4d5524b](https://github.com/scaleflex/ui/commit/4d5524bfbbbb07a880db5f09b4b1020e2d2efe7b))
+* tooltip title with components - T12428 ([94765b7](https://github.com/scaleflex/ui/commit/94765b7853bdf3eac27a7d212f63fdbd8b410956))
+
+
+### Features
+
+* handle submit with space - T12510 ([ce8eb1c](https://github.com/scaleflex/ui/commit/ce8eb1c6bc415a3123aaad493c96ee4e33fe67cc))
+
+
+
+# 2.0.0-beta.28 (2023-02-09)
+
+
+
+# 2.0.0-beta.27 (2023-02-07)
+
+
+### Bug Fixes
+
+* warning secondary button - T12449 ([71656db](https://github.com/scaleflex/ui/commit/71656db01aaac269b9f63e8be42bfb094d383dbe))
+* **Tooltip:**  fix Tooltip onhover T12396 ([ec02312](https://github.com/scaleflex/ui/commit/ec02312f5fd6763a89e2855f798a88037d71e516))
+
+
+### Features
+
+* add warning buttons - T12449 ([a260cc1](https://github.com/scaleflex/ui/commit/a260cc1ece2c222ef167132d16d191d92450b47d))
+* change input tag behavior - T12351 ([56e801d](https://github.com/scaleflex/ui/commit/56e801d7ad815741f40d3bb8ea5ebb8f101c7d10))
+* remove old warning button - T12449 ([efc51b7](https://github.com/scaleflex/ui/commit/efc51b7b74ec6674329f89c9fe717d2978d183d9))
+
+
+
+# 2.0.0-beta.26 (2023-01-18)
+
+
+### Features
+
+* **Drawer:** handle breakpoints by useMediaQuery ([fab59b2](https://github.com/scaleflex/ui/commit/fab59b2a953c693d63dac42f94bacfe4c0fef2f8))
+
+
+
+# 2.0.0-beta.25 (2023-01-16)
+
+
+### Bug Fixes
+
+* secondary buttons paddings - T12233 ([5eb3632](https://github.com/scaleflex/ui/commit/5eb3632ad68cab030c4be6c41822fc5ba2bf0665))
+* table row hovering when selected - T12233 ([a27f4ac](https://github.com/scaleflex/ui/commit/a27f4aca1e164de89262cfd3fdcb3f1bb1279e65))
+
+
+### Features
+
+* **Theme:** add useMediaQuery hook ([83c0137](https://github.com/scaleflex/ui/commit/83c0137373bab4d2f6d392bd0265cdf7f7baf558))
+* add hide icon prop to input - T12191 ([a9930d6](https://github.com/scaleflex/ui/commit/a9930d6d3d17015cc54e1b9ff239223e14d1a7f6))
+* add icon prop to tag field - T12233 ([9b16a44](https://github.com/scaleflex/ui/commit/9b16a441cb5e88a103fa2bd9d18fee4795f6b261))
+* add new colors ([cd11992](https://github.com/scaleflex/ui/commit/cd11992bda5bf40cb9e4db1d8d8686c3498037ef))
+* **Theme:** add breakpoints to getBreakpointClass ([3d1e315](https://github.com/scaleflex/ui/commit/3d1e31529720d3b2862e9b74830198b8889049cd))
+
+
+
+# 2.0.0-beta.24 (2023-01-02)
+
+
+### Bug Fixes
+
+* typescript error ([b52b926](https://github.com/scaleflex/ui/commit/b52b9269fdfc5d048f68317e021cf23f8fd3b518))
+
+
+### Features
+
+* add new font theme - T12150 ([f7f2be4](https://github.com/scaleflex/ui/commit/f7f2be4710c5bfb7c85778dd4492181d64bebf47))
+
+
+
+# 2.0.0-beta.23 (2023-01-01)
+
+
+### Features
+
+* change checkbox default size to md - T12150 ([41f77f2](https://github.com/scaleflex/ui/commit/41f77f2c176e247a2a1e479043a89d5bb2377b02))
+* make onClose in the Modal component not required - T12150 ([6019b4b](https://github.com/scaleflex/ui/commit/6019b4b74298409f7865acfd1fb57a40b49d6434))
+
+
+
+# 2.0.0-beta.22 (2022-12-26)
+
+
+### Features
+
+* **Theme:** update breakpoints ([585c084](https://github.com/scaleflex/ui/commit/585c0844f017bf6ddb2703ac58d47ae437f184f5))
+
+
+
+# 2.0.0-beta.21 (2022-12-21)
+
+
+
+# 2.0.0-beta.20 (2022-12-20)
+
+
+### Bug Fixes
+
+* buttons with active prop enabled ([4dfef90](https://github.com/scaleflex/ui/commit/4dfef9014dbb354235538c68654c3dd8b4df5cca))
+* buttons' labels font ([3359db6](https://github.com/scaleflex/ui/commit/3359db648efee5fa4c0430c4b6e09cc440289b3e))
+* search's cross button size ([145fbfe](https://github.com/scaleflex/ui/commit/145fbfe05ea149b403a68366fb9960680301b04c))
+* slider tooltip when off - T12104 ([df9a502](https://github.com/scaleflex/ui/commit/df9a502d9364fbf92364cd95adcd6b91fdaac6e0))
+* styles ([c3c125f](https://github.com/scaleflex/ui/commit/c3c125f0294900bb0d3a9359b8be11c306e25cb7))
+
+
+### Features
+
+* add lg size for tab component - T12074 ([374f5d8](https://github.com/scaleflex/ui/commit/374f5d8a6a92696db1f80ec5e8eb942b9959a71b))
+* add navigation button - T12052 ([6ec51c8](https://github.com/scaleflex/ui/commit/6ec51c84fcf1498b494aeebcd060d815a07d9b17))
+
+
+
+# 2.0.0-beta.19 (2022-12-12)
+
+
+### Bug Fixes
+
+* menu item - T11874 ([754b787](https://github.com/scaleflex/ui/commit/754b787a016aab4c429ed8a87f0c36e6620a61a0))
+
+
+### Features
+
+* **Drawer:** update drawer breakpoint T11890 ([a6269eb](https://github.com/scaleflex/ui/commit/a6269eb1ab592d17fbe5bbc2b62a4485a77ab764))
+* add lg size to switcher component - T11874 ([1cbec3b](https://github.com/scaleflex/ui/commit/1cbec3bcd0e31905f3baebd6a3413e0e634c5286))
+* update switcher labels - T11874 ([23bbc2e](https://github.com/scaleflex/ui/commit/23bbc2e875da975a286d00a5b21688dbd0e52838))
+
+
+
+# 2.0.0-beta.18 (2022-12-07)
+
+
+
+# 2.0.0-beta.17 (2022-12-07)
+
+
+
+# 2.0.0-beta.16 (2022-12-07)
+
+
+### Features
+
+* **theme:** add new breakpoints ([9ebf055](https://github.com/scaleflex/ui/commit/9ebf055ae89e0962cad433029fddf762bd8b3fd4))
+
+
+
+# 2.0.0-beta.15 (2022-12-05)
+
+
+### Bug Fixes
+
+* **Drawer:** typescript error ([f0e1d33](https://github.com/scaleflex/ui/commit/f0e1d337f890d1d127bed49485bc95d6dd23ae44))
+
+
+### Features
+
+* add active prop to buttons - T11874 ([40bddec](https://github.com/scaleflex/ui/commit/40bddecf457ab54814cb579619649e0cb7035a34))
+* add active prop to icon button component - T11874 ([7352673](https://github.com/scaleflex/ui/commit/73526730435db16537d0428b048d990f3fb4637f))
+* add green medium color - T11874 ([2d6759d](https://github.com/scaleflex/ui/commit/2d6759d1e94cc327bb0b462926b5f781f3522966))
+* add inactive status for labels - T11874 ([2a4b3b6](https://github.com/scaleflex/ui/commit/2a4b3b617d73fb62626196626c6523e1d83fda39))
+* add new font style - T11874 ([016d68e](https://github.com/scaleflex/ui/commit/016d68ea3f9d81a14a67613aed07dce55ea76de6))
+* add new state and update menu item component - T11874 ([d8f1e42](https://github.com/scaleflex/ui/commit/d8f1e42a3c7069c23eec88edbc9b46db1568720d))
+* add pressed state for secondary buttons - T11874 ([6307b8b](https://github.com/scaleflex/ui/commit/6307b8b256530ae414bb0a31917881cf6de51875))
+* implement new table styles - T11897 ([43b90ac](https://github.com/scaleflex/ui/commit/43b90ac4690170ea16826b3656dc9883542ec411))
+* update button font styles - T11874 ([97d997c](https://github.com/scaleflex/ui/commit/97d997c11a55e8d39f4b457e354fda80aa85a44c))
+* update calender component - T11874 ([008605a](https://github.com/scaleflex/ui/commit/008605ae7bb6b8bbaab04cc1e84d89c86e562936))
+* update scroll bar component - T11874 ([5cb920e](https://github.com/scaleflex/ui/commit/5cb920e45882155f2d8b3c44fd13387615e3b6c2))
+* update stroke in input and textarea components ([8d7a087](https://github.com/scaleflex/ui/commit/8d7a087791a936c1932195dd1467c3734a8f3976))
+
+
+
+# 2.0.0-beta.14 (2022-11-28)
+
+
+### Features
+
+* **Drawer:** add onCollapseClick prop ([dbeaa87](https://github.com/scaleflex/ui/commit/dbeaa873c7b879cbdca5d07e721bc2cf0b0d8540))
+
+
+
+# 2.0.0-beta.13 (2022-11-28)
+
+
+### Bug Fixes
+
+* drawer alignment ([78f1c01](https://github.com/scaleflex/ui/commit/78f1c018c880fb523db1ae0e0c2839320ee72ded))
+
+
+
+# 2.0.0-beta.12 (2022-11-27)
+
+
+### Bug Fixes
+
+* **Drawer:** update styles ([129ed6f](https://github.com/scaleflex/ui/commit/129ed6fec82b9e91c7bab2b4976879a5e4f7604c))
+
+
+### Features
+
+* **Theme:** update shadows ([9eef578](https://github.com/scaleflex/ui/commit/9eef5782448851979be28fb05d3e36eb773bc67f))
+
+
+
+# 2.0.0-beta.11 (2022-11-27)
+
+
+### Bug Fixes
+
+* **PopupContent:** update popup styles ([c0d6982](https://github.com/scaleflex/ui/commit/c0d6982d822902e3591b2433452127f73041e466))
+* item alignment in different states ([8e2df3a](https://github.com/scaleflex/ui/commit/8e2df3a414b65611752ce3487672aee81399f52e))
+
+
+
+# 2.0.0-beta.10 (2022-11-26)
+
+
+### Bug Fixes
+
+* sub-list behavior when hover up / down T11619 ([8a05479](https://github.com/scaleflex/ui/commit/8a0547975e00d87eaf818f22c4738070e3264688))
+
+
+
+# 2.0.0-beta.9 (2022-11-23)
+
+
+### Bug Fixes
+
+* **MenuItem:** change icon color when disbaled ([8972485](https://github.com/scaleflex/ui/commit/89724857b6194277206432a4c8bc7d4eee1dd3dc))
+* buttons styles - T11647 ([c92738e](https://github.com/scaleflex/ui/commit/c92738ebb0fca328c14e875738436be13b0dfeef))
+* handle default cross in search ([80ddaa4](https://github.com/scaleflex/ui/commit/80ddaa412ef903326bb2c2547f69fc9507d8ea38))
+
+
+### Features
+
+* **Popper:** add transition ([d7cb2db](https://github.com/scaleflex/ui/commit/d7cb2db276fb022529c1e2b37a3f857a980b96f6))
+* **Textarea:** add new props ([928b9d9](https://github.com/scaleflex/ui/commit/928b9d92fab49548cbfc206b49ccbe74d1ce2ca9))
+* **Tooltip:** make tooltip delay 500 by default ([80de259](https://github.com/scaleflex/ui/commit/80de2592723c498678f6fe409831ee011d468158))
+* add new colors - T11647 ([ed370de](https://github.com/scaleflex/ui/commit/ed370de0a441f0a278104813164c0146319d4e1f))
+* update modal header's font - T11647 ([11cd961](https://github.com/scaleflex/ui/commit/11cd96159a078fd6b09a2c38a8265073eae7ff6f))
+* update text area padding and height - T11647 ([fa9b04d](https://github.com/scaleflex/ui/commit/fa9b04dc647740118bc3f08fc68048ba59b5b2a0))
+
+
+
+# 2.0.0-beta.8 (2022-11-19)
+
+
+### Features
+
+* **Tooltip:** add stayOpen prop ([5e095fd](https://github.com/scaleflex/ui/commit/5e095fd598e61a8cfd847fdc2069da2d5c96fe61))
+* add link basic secondary variant to link buttons - T11647 ([f2ddb2d](https://github.com/scaleflex/ui/commit/f2ddb2d6e7a5535bb7f78f77365ce690ee8b1a5d))
+* add pressed state to icon buttons - T11614 ([d21eed9](https://github.com/scaleflex/ui/commit/d21eed947796a69ba7a9bafc1ac42b60c541200f))
+* update buttons styles - T11614 ([a1daf03](https://github.com/scaleflex/ui/commit/a1daf03764e5958ffec2ca187815b1edd37f859a))
+* update cross button styles and add new size - T11647 ([00ca3d0](https://github.com/scaleflex/ui/commit/00ca3d01cc018536c5ff4bcd382631da6a200e74))
+* update tags field component - T11647 ([c782fa4](https://github.com/scaleflex/ui/commit/c782fa4cb8afe7adc28a1e2d046a642b76c4fd55))
+* update tooltip styles and sizes - T11647 ([58e72e3](https://github.com/scaleflex/ui/commit/58e72e33e76bb048ff4c7c237937b069e800e03a))
+
+
+
+# 2.0.0-beta.7 (2022-11-17)
+
+
+### Bug Fixes
+
+* add rest to cross button component - T11614 ([fa38639](https://github.com/scaleflex/ui/commit/fa38639d88e7be3395ecfdedb94b4062f629078b))
+* cross and icon buttons styles in active state - T11614 ([dafe891](https://github.com/scaleflex/ui/commit/dafe8911cb9f10d29dedbd11daf55d1978d39460))
+* select component padding - T11614 ([0714fe7](https://github.com/scaleflex/ui/commit/0714fe7c63bd32ed57f2c0b2adcce6c6c8959e18))
+* update design - T11581 ([1f381b6](https://github.com/scaleflex/ui/commit/1f381b663f3e29298850dbd21aafbd0dc251f3f9))
+* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
+
+
+### Features
+
+* **Backdrop:** add Backdrop component ([d441402](https://github.com/scaleflex/ui/commit/d4414028e53badcecf1506d956e6644bd89cdf65))
+* **Drawer:** add Drawer component ([186ac51](https://github.com/scaleflex/ui/commit/186ac51229cbf15e8d485e22aa46ab71a07c3ba6))
+* add transition to all components - T11614 ([acc29bd](https://github.com/scaleflex/ui/commit/acc29bd7628db84bf1453652c2ebafaf104da953))
+* update background color for trigger buttons in active state - T11614 ([bbe5c13](https://github.com/scaleflex/ui/commit/bbe5c13ed6e0136bdc500891b03def926399e246))
+* update button's label padding - T11614 ([e871789](https://github.com/scaleflex/ui/commit/e8717898a02886cbdb723350ef609024de2d2962))
+* update menu item gap - T11614 ([a0635dc](https://github.com/scaleflex/ui/commit/a0635dc97abe1408e0117ebf5859857275e95e8e))
+* **Divider:** add new divider component ([3b9a5c4](https://github.com/scaleflex/ui/commit/3b9a5c4c65c6d3646bc81ae902ac9515615a1e34))
+* update font theme - T11614 ([efcaf10](https://github.com/scaleflex/ui/commit/efcaf105c792f1347f1e79800dd2335ae489d79b))
+* update invert color in all components and update buttons styles - T11614 ([e16a64b](https://github.com/scaleflex/ui/commit/e16a64b0c6d06d9ebb1a6a137ba74bce4b7f063b))
+* update tooltip styles - T11614 ([e701f02](https://github.com/scaleflex/ui/commit/e701f02666e90c78d5d9f272dbaac200f7e18a78))
+
+
+
+# 2.0.0-beta.6 (2022-11-09)
+
+
+### Bug Fixes
+
+* cursor for select component in readOnly and disabled modes ([812f7fb](https://github.com/scaleflex/ui/commit/812f7fb733252e7c001a5d1e571079d4b67cc394))
+* disabled menu items can be selected ([855a9c2](https://github.com/scaleflex/ui/commit/855a9c2a164db96e78d94397fc3ad893c6a2747b))
+* handle search component error ([34c8d4e](https://github.com/scaleflex/ui/commit/34c8d4e159797f10bfba67da43e04db16c35bb7e))
+
+
+### Features
+
+* add cross button to popup content ([8f3d274](https://github.com/scaleflex/ui/commit/8f3d274997176113a23ad92c1db267a177270407))
+* create component for cross button ([ced7fd0](https://github.com/scaleflex/ui/commit/ced7fd04ee3aa8ea1e8ef4e4a8f4d34c232cb599))
+* truncate options and selected value in select ([961561d](https://github.com/scaleflex/ui/commit/961561d988de36027000520e45bc7918801f889f))
+* update search component styles ([a9f6048](https://github.com/scaleflex/ui/commit/a9f6048e1a307fd02266cd28b740ea891a648d46))
+
+
+
+# 2.0.0-beta.5 (2022-10-28)
+
+
+### Bug Fixes
+
+* types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
+* **Button:** button styles ([c683994](https://github.com/scaleflex/ui/commit/c6839945315ca318982bb5ff81dbfa0fb80ec0ec))
+
+
+### Features
+
+* **Calendar:** change add calendar T10618 ([dd7c5be](https://github.com/scaleflex/ui/commit/dd7c5be82a76229fecbce25a69cfe145cef08180))
+
+
+
+# 2.0.0-beta.4 (2022-10-20)
+
+
+### Bug Fixes
+
+* theme breakpoint classes type ([5c46df5](https://github.com/scaleflex/ui/commit/5c46df53e91b11065931e9e25e02cdbf9dd1d1d0))
+
+
+### Features
+
+* **Accordion:** add hideIcon prop ([9d78cd6](https://github.com/scaleflex/ui/commit/9d78cd6bae5bd81698e07ec29f8188e35b878ac6))
+
+
+
+# 2.0.0-beta.3 (2022-10-17)
+
+
+### Features
+
+* **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
+* **Theme:** support shadows ([94b9be5](https://github.com/scaleflex/ui/commit/94b9be5f945bdbb466c50e1896a58628826a1ac7))
+
+
+
+# 2.0.0-beta.2 (2022-10-13)
+
+
+### Bug Fixes
+
+* arrowtick position ([cbad4af](https://github.com/scaleflex/ui/commit/cbad4afb9bc0f1c690e9b4a23cc128a0d89b38ba))
+* duplicate key ([c761473](https://github.com/scaleflex/ui/commit/c7614732552b4b1f74173c0f5a30a0d5bf7e33a1))
+* types ([d0d3bf3](https://github.com/scaleflex/ui/commit/d0d3bf38d703f0fcb92c7aeb9a95aefeed0c3fec))
+* types ([df12505](https://github.com/scaleflex/ui/commit/df12505df2650d6b5bd901e57cd264ae0fe3f4b2))
+* **Select:** error when menu item contains icon ([c481c16](https://github.com/scaleflex/ui/commit/c481c16ed7beb32b0af12f2bfa8489c9703f04cb))
+* types ([cf03e5a](https://github.com/scaleflex/ui/commit/cf03e5aad6764b5bbf121faee221e90fd6d1d472))
+
+
+### Features
+
+* **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
+* **Notification:** create notification component - T10862 ([39fbcae](https://github.com/scaleflex/ui/commit/39fbcaeb212fd647426b9ed5c0c90afb9e710adb))
+* **Skeleton:** add new component ([d119e00](https://github.com/scaleflex/ui/commit/d119e0046307ab96e539efb9454983a7192d40e1))
+* **StatusLabel:** update status label design - T10804 ([fc4b918](https://github.com/scaleflex/ui/commit/fc4b9189409ee63a0b61af537843f92d8147a0d2))
+* **Theme:** update palette to v3 ([a2404ed](https://github.com/scaleflex/ui/commit/a2404ed99cc5c868dbe347d0a12e76072571cd16))
+* **Theme:** update typogrophy to v3 ([9d7e977](https://github.com/scaleflex/ui/commit/9d7e97734f326fb2f8e24c0492eabfd1e6a19086))
+
+
+
+# 2.0.0-beta.1 (2022-10-06)
+
+
+### Bug Fixes
+
+* icon import path ([9d6fbaa](https://github.com/scaleflex/ui/commit/9d6fbaa35f4962cc2be3e0bdae59314d10cd2404))
+
+
+### Features
+
+* **autocomplete:** change autocomplete design T11018 ([981ec4b](https://github.com/scaleflex/ui/commit/981ec4bc202f9274329eeb992a8fe940106e6f13))
+
+
+
+# 2.0.0-beta.0 (2022-10-05)
+
+
+### Bug Fixes
+
+* types ([eea6544](https://github.com/scaleflex/ui/commit/eea65443a474d3c5c98589547c994f4c61f7f51c))
+
+
+
+# 1.0.0-beta.99 (2022-10-05)
+
+
+### Bug Fixes
+
+* checkbox T10799 ([8bc8fdd](https://github.com/scaleflex/ui/commit/8bc8fdd5095c776f38d35cf6744c881f20afa7b0))
+* conflict T10799 ([a596fde](https://github.com/scaleflex/ui/commit/a596fdeb5dd79b8aa4ce7ac5ce765792e6214f85))
+* conflicts T10863 ([cd69f30](https://github.com/scaleflex/ui/commit/cd69f30b806c75478449ae32eae046ea6849625d))
+* conflicts T10863 ([ee23731](https://github.com/scaleflex/ui/commit/ee237312f6d8eb3dae97ab592a25e5fa4cd6a73d))
+* type T11016 ([7d83ffe](https://github.com/scaleflex/ui/commit/7d83ffedcf71a5788e7eb55f80ffd49677c8048b))
+* **Navigation:** fix navigation styles - T10797 ([8440525](https://github.com/scaleflex/ui/commit/8440525b857854e59ba526f00b04343199f4b805))
+
+
+### Features
+
+* **Buttons:** add link and warning buttons to new design - T10981 ([27c1f34](https://github.com/scaleflex/ui/commit/27c1f34493dbabf2c1eeb9e18f6aea1e68cbb10d))
+* **Buttons:** add sidebarTrigger buttons option - T10863 ([80d980c](https://github.com/scaleflex/ui/commit/80d980c764f52004a748c0a182db7b6793ed18fe))
+* **Navigation:** update navigation design - T10797 ([304a1b7](https://github.com/scaleflex/ui/commit/304a1b7fb245e748610d5a5e98b329f9e935f937))
+* **TagsField:** update tag and tag field design - T10803 ([9bdcb46](https://github.com/scaleflex/ui/commit/9bdcb4654014077c116b14e928b5477725c8d978))
+* **textArea:** change textArea design T11016 ([f7cab6a](https://github.com/scaleflex/ui/commit/f7cab6ad57f8e7596edf7bf96ea7058152c9e64f))
+* add prop type T10799 ([5b2a02a](https://github.com/scaleflex/ui/commit/5b2a02a9e9b75ebde5447bb4150b48eecae94341))
+* **Theme:** add new breakpoint system T10855 ([1a4f9bd](https://github.com/scaleflex/ui/commit/1a4f9bdf35d7b3fe0aa92475e7b40b4ff222a765))
+* **Theme:** hide selector in getBreakpointClass ([5641c35](https://github.com/scaleflex/ui/commit/5641c358d146b65c644981d6ab07c09c03784eb5))
+
+
+
+# 1.0.0-beta.98 (2022-09-20)
+
+
+### Bug Fixes
+
+* disable scroll when opening select ([ecb7490](https://github.com/scaleflex/ui/commit/ecb74905bdd674428064709a79f9fbb8a6bf85ce))
+
+
+### Features
+
+* **Buttons:** update buttons to the new design - T10725 ([0b39f01](https://github.com/scaleflex/ui/commit/0b39f01126d3accd05255784519814cbf5844370))
+
+
+
+# 1.0.0-beta.97 (2022-09-14)
+
+
+
+# 1.0.0-beta.96 (2022-09-08)
+
+
+### Bug Fixes
+
+* **Autocomplete:** disabled options ([aa07952](https://github.com/scaleflex/ui/commit/aa079528dfefb48e478e4086dd5b9a4e0e8da47c))
+
+
+### Features
+
+* **Docs:** update tooltip docs ([15099ad](https://github.com/scaleflex/ui/commit/15099ad0f64edd5eaca86794fdb27bc595e2c7a4))
+
+
+
+# 1.0.0-beta.95 (2022-08-16)
+
+
+### Bug Fixes
+
+* **Input:** border color doesn't change to red when error is true - T9989 ([f163db1](https://github.com/scaleflex/ui/commit/f163db1e751b3e90d527e71cf284a74d71e52019))
+
+
+### Features
+
+* **TagField:** add alwaysShowSuggestedTags prop ([718e86c](https://github.com/scaleflex/ui/commit/718e86cef244cd037fd23629d03b2772a24a9fc6))
+* **Tooltip:** add delay time to tooltip - T9843 ([149e4f8](https://github.com/scaleflex/ui/commit/149e4f8029b3b1177f79135611dc03c378021467))
+
+
+
+# 1.0.0-beta.94 (2022-08-10)
+
+
+### Features
+
+* **TagField:** add disableOnEnter prop ([fc9ed31](https://github.com/scaleflex/ui/commit/fc9ed3195247b9b5a89fbfeed500a8b5daa0d7f4))
+
+
+
+# 1.0.0-beta.93 (2022-08-09)
+
+
+### Bug Fixes
+
+* **Autocomplete:** can't scroll when using arrows - T9844 ([81bc6fc](https://github.com/scaleflex/ui/commit/81bc6fc85c4c4153b4e28c9e28b1b92509006463))
+
+
+
+# 1.0.0-beta.92 (2022-08-02)
+
+
+### Bug Fixes
+
+* **Autocomplete:** disable keyboard events when menu is clossed - T6582 ([243d00e](https://github.com/scaleflex/ui/commit/243d00eb38e257c6ead0bc1404ecb82ca57db84d))
+* **Autocomplete:** each item should be selected only once - T6582 ([7cb69c3](https://github.com/scaleflex/ui/commit/7cb69c3876dbe139bd323b0166a5dc2d1be899d2))
+* **Autocomplete:** fix getOptionDisabled prop - T6582 ([5155509](https://github.com/scaleflex/ui/commit/51555094692cb42879b6d6d47d2df3dd4b19990b))
+* **Autocomplete:** fix input - T6582 ([28e4cb7](https://github.com/scaleflex/ui/commit/28e4cb7b35f917c827dc21e2a4e4a207ecd28392))
+* **Autocomplete:** fix menu options when multiple prop is active - T6582 ([022ea2f](https://github.com/scaleflex/ui/commit/022ea2fe32427661daae1bba8445c3bc7c846deb))
+* **Autocomplete:** fix render values - T6582 ([e625f66](https://github.com/scaleflex/ui/commit/e625f66d73c9dd2915bb3bd961fa7dda33a72230))
+* **Autocomplete:** select multiple items - T6582 ([642af4c](https://github.com/scaleflex/ui/commit/642af4c4d1fe0a8bc8ce41ff19f9be984a6a9250))
+
+
+### Features
+
+* **Autocomplete:** add some features to autocomplete - T6582 ([07bc7dc](https://github.com/scaleflex/ui/commit/07bc7dcfd45026e7d7027e5e81c45d709bf718b6))
+* **Autocomplete:** create component for autocomplete - T6582 ([1d3cdbd](https://github.com/scaleflex/ui/commit/1d3cdbd70b367c410d081db9c2b052b1ed63d040))
+* **Autocomplete:** create component for autocomplete - T6582 ([2645e77](https://github.com/scaleflex/ui/commit/2645e77a5782311033d15760552372e894507ef5))
+
+
+
+# 1.0.0-beta.91 (2022-07-19)
+
+
+### Features
+
+* **Autocomplete:** add 'no options' item when no matching items - T6582 ([82d6d48](https://github.com/scaleflex/ui/commit/82d6d4817190e5d01bf2644d882ce374df1e92e3))
+* **Autocomplete:** create component for autocomplete - T6582 ([3983c08](https://github.com/scaleflex/ui/commit/3983c08d8942ff031c27658241538536fdef48ef))
+
+
+
+# 1.0.0-beta.90 (2022-07-07)
+
+
+
+# 1.0.0-beta.89 (2022-07-05)
+
+
+
+# 1.0.0-beta.88 (2022-06-29)
+
+
+### Bug Fixes
+
+* **SelectGroup:** select group limitation T-6592 ([1e11ab4](https://github.com/scaleflex/ui/commit/1e11ab45b5c1ddc136d0ad9ad0ae6e5d1dc3fc53))
+
+
+### Features
+
+* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
+* **Select:** add possibility to show placeholder - T8475 ([01af3bd](https://github.com/scaleflex/ui/commit/01af3bddd95d5782caae755d86e092f48e06995d))
+* **Select:** add possibility to show placeholder - T8475 ([533a678](https://github.com/scaleflex/ui/commit/533a67872cc979e3fae95044ef3fe0b8cf21fe0e))
+
+
+
+# 1.0.0-beta.87 (2022-05-27)
+
+
+
+# 1.0.0-beta.86 (2022-05-17)
+
+
+
+# 1.0.0-beta.85 (2022-05-13)
+
+
+### Features
+
+* **tooltip:** add enableHover prop ([94bc6c6](https://github.com/scaleflex/ui/commit/94bc6c6cf6e254465d86db3f76b051ff44a8fc4a))
+
+
+
+# 1.0.0-beta.84 (2022-05-10)
+
+
+
+# 1.0.0-beta.83 (2022-05-09)
+
+
+
+# 1.0.0-beta.82 (2022-04-15)
+
+
+
+# 1.0.0-beta.81 (2022-04-07)
+
+
+### Features
+
+* **label:** ellipsis support ([2583cd0](https://github.com/scaleflex/ui/commit/2583cd0fdf18df2d387996036e19ed1439e126a6))
+* **StatusLabel:** change label prop type to node ([f451c4d](https://github.com/scaleflex/ui/commit/f451c4def50001b72630b2e37c3d10e7d890b6d8))
+
+
+
+# 1.0.0-beta.80 (2022-03-31)
+
+
+### Bug Fixes
+
+* types ([bcd8f35](https://github.com/scaleflex/ui/commit/bcd8f35ccb976c3e4ad58d04bc76fefb159c95c5))
+
+
+
+# 1.0.0-beta.79 (2022-03-24)
+
+
+### Bug Fixes
+
+* **colorPicker:** Values above 255 can entered in the RGB colour ([a4e8a31](https://github.com/scaleflex/ui/commit/a4e8a312d36749920b8db997e94dc542eadb99b7))
+
+
+### Features
+
+* **popper:** add popperWrapperStyles and wrapperStyles props ([735d969](https://github.com/scaleflex/ui/commit/735d969273088f8ca11b9568c78c3373e207a646))
+
+
+
+# 1.0.0-beta.78 (2022-03-17)
+
+
+
+# 1.0.0-beta.77 (2022-03-17)
+
+
+
+# 1.0.0-beta.76 (2022-03-17)
+
+
+### Bug Fixes
+
+* **ColorPicker:** rgb input accepting more than 255 ([81dfb23](https://github.com/scaleflex/ui/commit/81dfb236b5566b6bc2c02ba98dcb6dc7c5e47959))
+
+
+### Features
+
+* **Popper,Menu,Tooltip:** add disableUnderlayingEvent prop ([0788908](https://github.com/scaleflex/ui/commit/0788908ce9b9f4c5a60a08c53c269b02259b82d0))
+* **Popper,Menu,Tooltip:** change disableUnderlayingEvent to enableUnderlayingEvent prop ([f83e50f](https://github.com/scaleflex/ui/commit/f83e50f74985295e602c191914ffcbfb12d0d924))
+
+
+
+# 1.0.0-beta.75 (2022-03-15)
+
+
+
+# 1.0.0-beta.74 (2022-03-14)
+
+
+### Features
+
+* **TagField:** add new prop ([a84b3b3](https://github.com/scaleflex/ui/commit/a84b3b398caa8f6e84946e06510d2d77a3a4d7b3))
+
+
+
+# 1.0.0-beta.73 (2022-02-22)
+
+
+
+# 1.0.0-beta.72 (2022-02-16)
+
+
+### Features
+
+* **CheckBoxGroup,CheckBox:** change color on disable ([dbea790](https://github.com/scaleflex/ui/commit/dbea7904f9b6e5444f35a8543d81c76afccddaa5))
+* **MenuItem:** add disableHover prop ([9e8aa6d](https://github.com/scaleflex/ui/commit/9e8aa6d6776f18cb1ed4180a97d597d9cc596483))
+
+
+
+# 1.0.0-beta.71 (2022-02-15)
+
+
+### Features
+
+* **label:** add iconStart and iconEnd props ([298a1af](https://github.com/scaleflex/ui/commit/298a1af6206eb4117e52a7a4ad8f2be31275c094))
+* **MenuItem:** add disableHover prop ([da2be59](https://github.com/scaleflex/ui/commit/da2be591e89cfa24419a5f00cdb17df292b31137))
+
+
+
+# 1.0.0-beta.70 (2022-02-13)
+
+
+
+# 1.0.0-beta.69 (2022-02-03)
+
+
+
+# 1.0.0-beta.68 (2022-02-02)
+
+
+### Bug Fixes
+
+* **ColorPicker:** on setting defaultColor to transparent color ([f51c1ca](https://github.com/scaleflex/ui/commit/f51c1cab3aa3262e368bdadc76849cdebfdbde3a))
+
+
+
+# 1.0.0-beta.67 (2022-02-02)
+
+
+### Bug Fixes
+
+* **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
+
+
+### Features
+
+* **ColorPicker:** add support for transparent colors ([25d4337](https://github.com/scaleflex/ui/commit/25d4337589c50b9119f6b2d2d188539672e04a28))
+
+
+
+# 1.0.0-beta.66 (2022-01-14)
+
+
+### Bug Fixes
+
+* **ColorPicker:** pointer size ([227d8dd](https://github.com/scaleflex/ui/commit/227d8ddfa0fb0a54d20b0263be3c6396c23b2fc5))
+
+
+
+# 1.0.0-beta.65 (2022-01-14)
+
+
+### Bug Fixes
+
+* **ColorPicker:** type ([8f2f241](https://github.com/scaleflex/ui/commit/8f2f2413c37fab6c83871424f6d9a38243ac4ece))
+
+
+
+# 1.0.0-beta.64 (2022-01-14)
+
+
+### Bug Fixes
+
+* **ColorPicker:** add zindex for select menu ([07963b9](https://github.com/scaleflex/ui/commit/07963b98c0ec0a9d7976c7c6c8b4cbed77ed5581))
+
+
+
+# 1.0.0-beta.63 (2022-01-13)
+
+
+### Bug Fixes
+
+* types ([d92f85a](https://github.com/scaleflex/ui/commit/d92f85aa242d954501f9218f08d43a10fa10dfdf))
+
+
+### Features
+
+* **RotationSlider:** add angle prop ([ca809b4](https://github.com/scaleflex/ui/commit/ca809b4bc133d3164df699f465b80bb7af374ea5))
+
+
+
+# 1.0.0-beta.62 (2021-12-31)
+
+
+### Bug Fixes
+
+* **colorPicker:** rgb input ([d09778d](https://github.com/scaleflex/ui/commit/d09778d665da8d20c4c25e2ef56756bca1f38a45))
+* **colorPicker:** when selecting color picker from pinned colors ([8e80e0f](https://github.com/scaleflex/ui/commit/8e80e0f13451e3ec383af72c52cb63558508f7c1))
+* **Slider:** tooltip showing on hover ([78c2525](https://github.com/scaleflex/ui/commit/78c2525be3bb4f7e53335f1ca1596f98ab049c30))
+* theme font should be object instead of string ([27334f6](https://github.com/scaleflex/ui/commit/27334f6e534e90a09d608797465e07ab48bb44d8))
+
+
+### Features
+
+* **menu:** add hideScroll prop ([8a638af](https://github.com/scaleflex/ui/commit/8a638af9c335e72a50083ccd95d477fef7ba41fb))
+* **Slider:**  mobile touch support ([39640ee](https://github.com/scaleflex/ui/commit/39640ee2edeea682e7ea33ba9778591b9c77621a))
+
+
+
+# 1.0.0-beta.61 (2021-12-17)
+
+
+### Features
+
+* **accordion:** add iconProps ([ca7e91b](https://github.com/scaleflex/ui/commit/ca7e91b4a4261502eda910e923620d5f24f280b6))
+* **uploadInput:** add buttonColor prop ([2852c97](https://github.com/scaleflex/ui/commit/2852c97bdd6bba76c4d8c1c9e781108ccd9ec6b8))
+
+
+
+# 1.0.0-beta.60 (2021-12-03)
+
+
+
+# 1.0.0-beta.59 (2021-12-03)
+
+
+
+# 1.0.0-beta.58 (2021-12-03)
+
+
+### Features
+
+* **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
+
+
+
+# 1.0.0-beta.57 (2021-11-24)
+
+
+### Bug Fixes
+
+* **continuousSlider:** slider label ([4002822](https://github.com/scaleflex/ui/commit/400282215a61f15fa179a7b6d7801b5aa91ce021))
+
+
+
+# 1.0.0-beta.56 (2021-11-19)
+
+
+### Bug Fixes
+
+* **ColorPicker:** styles ([bfa7268](https://github.com/scaleflex/ui/commit/bfa7268a5dab9a9d3ba6ce31d1d7b4fe13a58216))
+* **continuousSlider:** fix slider when start value is negative ([6aed750](https://github.com/scaleflex/ui/commit/6aed75095f7dcf0e6296cfb65bd33e3869e58619))
+* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
+
+
+
+# 1.0.0-beta.55 (2021-11-16)
+
+
+### Features
+
+* **continuoutsSlider:** add hideOverlay prop ([aa5a78c](https://github.com/scaleflex/ui/commit/aa5a78cff9a919e7e1413d6b800b16b973c06e2f))
+
+
+
+# 1.0.0-beta.54 (2021-11-16)
+
+
+
+# 1.0.0-beta.53 (2021-11-15)
+
+
+
+# 1.0.0-beta.52 (2021-11-15)
+
+
+### Bug Fixes
+
+* changelog ([0dc8741](https://github.com/scaleflex/ui/commit/0dc8741b7ed1aac003919b759caec80c66afe638))
+
+
+### Features
+
+* **ColorPicker:** add color picker component ([53bc0ba](https://github.com/scaleflex/ui/commit/53bc0baa90c14bfd6b9a93bc14668aa43e8c558d))
+* **ContinuousSlider:** add ContinuousSlider component ([b72e9a3](https://github.com/scaleflex/ui/commit/b72e9a3818eae6c89d0dc61902304d9e4cabcd06))
+* **RotationSlider:** add RotationSlider component ([2735f45](https://github.com/scaleflex/ui/commit/2735f456b94cb4e56ab15aa32660455507483a91))
+
+
+
+# 1.0.0-beta.51 (2021-10-28)
+
+
+
+# 1.0.0-beta.50 (2021-10-11)
+
+
+### Bug Fixes
+
+* **CheckBoxGroup:** missing keys in list ([af264c7](https://github.com/scaleflex/ui/commit/af264c79425dc61a724c1076f09e434ed64e7c5c))
+
+
+### Features
+
+* **MenuItemListType:** add props subMenuProps and className ([86f0154](https://github.com/scaleflex/ui/commit/86f015419f6e5863e97d15c166fca636bd016366))
+
+
+
+# 1.0.0-beta.49 (2021-09-13)
+
+
+### Bug Fixes
+
+* tagField ([b4e184c](https://github.com/scaleflex/ui/commit/b4e184c3af9508a660e19a1efc7d4056ed8c0262))
+
+
+
+# 1.0.0-beta.48 (2021-09-13)
+
+
+### Bug Fixes
+
+* checking duplicates when adding tags ([251dd61](https://github.com/scaleflex/ui/commit/251dd61b70e18bca9bbbc1f3d0b0db032a28fff4))
+
+
+
+# 1.0.0-beta.47 (2021-09-13)
+
+
+### Bug Fixes
+
+* checking duplicates when adding tags ([def95cf](https://github.com/scaleflex/ui/commit/def95cf0d4bae064bd2c7786f49bdd1fd83cda5a))
+
+
+
+
+
+
 # [2.0.0-beta.48](https://github.com/scaleflex/ui/compare/2.0.0-beta.47...2.0.0-beta.48) (2023-07-02)
 
 **Note:** Version bump only for package @scaleflex/ui
