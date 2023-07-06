@@ -53,7 +53,7 @@ const Menu = styled.div.attrs({
     transition: opacity 250ms cubic-bezier(0.4, 0, 0, 1), transform 250ms cubic-bezier(0.4, 0, 0, 1),
       margin-top 250ms cubic-bezier(0.4, 0, 0, 1);
     outline: 0;
-    box-shadow: 0 2px 4px ${theme.palette[PColor.LightShadow]};
+    box-shadow: 0 2px 4px ${theme.palette[PColor.MediumShadow]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
 
     ${scroll && scrollBar}
