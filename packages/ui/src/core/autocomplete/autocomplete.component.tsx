@@ -198,7 +198,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return handleSelectedItem(event, item, id);
     };
 
-    const getObjectOptionLabel = (optionValue: any): string | string[] => {
+    const getObjectOptionLabel = (optionValue: any): string => {
       const selectedOptionIndex = options.findIndex((option: any) =>
         getOptionValue ? getOptionValue(option) === optionValue : option.id === optionValue
       );
@@ -427,7 +427,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (multiple && isItemSelected && Array.isArray(selected)) {
         if (isObjectOptions) {
           return selected.map((itemId: any, index: number) => (
-            <Tag key={itemId} tagIndex={index} crossIcon onRemove={(_, event) => handleOnRemoveItem(event, index)}>
+            <Tag
+              key={itemId}
+              tagIndex={index}
+              crossIcon
+              onRemove={(_, event) => handleOnRemoveItem(event, index)}
+              title={getObjectOptionLabel(itemId)}
+            >
               {getObjectOptionLabel(itemId)}
             </Tag>
           ));
