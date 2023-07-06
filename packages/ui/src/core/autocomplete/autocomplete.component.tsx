@@ -199,13 +199,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getObjectOptionLabel = (optionValue: any): string => {
-      const selectedOptionIndex = options.findIndex((option: any) =>
-        getOptionValue ? getOptionValue(option) === optionValue : option.id === optionValue
-      );
+      const selectedOptionIndex = options.findIndex((option: any) => getOptionValue(option) === optionValue);
 
-      return (
-        (getOptionLabel ? getOptionLabel(options[selectedOptionIndex]) : options[selectedOptionIndex]) || optionValue
-      );
+      return getOptionLabel(options[selectedOptionIndex]) || optionValue;
     };
 
     const getValue = (): string | string[] => {
@@ -227,9 +223,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       let optionIndex = -1;
 
       if (isObjectOptions) {
-        const optionObject = Object.entries(options).find(([_, optObject]) =>
-          getOptionLabel ? getOptionLabel(optObject) === option : optObject.label === option
-        );
+        const optionObject = Object.entries(options).find(([_, optObject]) => getOptionLabel(optObject) === option);
 
         if (optionObject) {
           optionIndex = Number(optionObject[0]);
@@ -243,8 +237,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const isMenuItemsAvailable = (): boolean => {
       const validMenuItems = getFilteredItems(filteredOptions, (option: any) => {
-        const filteredOptionLabel = getOptionLabel ? getOptionLabel(option) : option.label;
-        const filteredOptionItem = isObjectOptions ? filteredOptionLabel : option;
+        const filteredOptionItem = getOptionLabel(option);
         const filteredOptionIndex = getOptionIndex(filteredOptionItem);
 
         if (
@@ -264,10 +257,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (!isMenuItemsAvailable()) return;
 
       while (currentIndex !== currentItemIndex) {
-        const filteredItemLabel = getOptionLabel
-          ? getOptionLabel(filteredOptions[currentIndex])
-          : filteredOptions[currentIndex].label;
-        const selectedOption = isObjectOptions ? filteredItemLabel : filteredOptions[currentIndex];
+        const selectedOption = getOptionLabel(filteredOptions[currentIndex]);
         const optionIndex = getOptionIndex(selectedOption);
         let isDisabled = false;
 
@@ -320,11 +310,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           if (typeof selectedOption === 'string') {
             handleSelectedItem(event, selectedOption, -1);
           } else {
-            handleSelectedItem(
-              event,
-              getOptionLabel ? getOptionLabel(selectedOption) : selectedOption.label,
-              getOptionValue ? getOptionValue(selectedOption) : selectedOption.id
-            );
+            handleSelectedItem(event, getOptionLabel(selectedOption), getOptionValue(selectedOption));
           }
         }
 
@@ -336,12 +322,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const getMultipleFilteredItems = (item: any, val: string): boolean => {
       if (isObjectOptions) {
-        if (
-          getOptionLabel
-            ? convertToLower(getOptionLabel(item)).includes(convertToLower(val) || '')
-            : convertToLower(item.label).includes(convertToLower(val) || '')
-        )
-          return true;
+        if (convertToLower(getOptionLabel(item)).includes(convertToLower(val) || '')) return true;
       } else if (convertToLower(item).includes(convertToLower(val) || '')) return true;
 
       return false;
@@ -371,9 +352,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
       if (isObjectOptions) {
         filteredMenuOptions = getFilteredItems(filteredMenuOptions, (option: any) =>
-          getOptionLabel
-            ? convertToLower(getOptionLabel(option))?.includes(convertToLower(renderedValue))
-            : convertToLower(option.label).includes(convertToLower(renderedValue))
+          convertToLower(getOptionLabel(option))?.includes(convertToLower(renderedValue))
         );
       } else {
         filteredMenuOptions = getFilteredItems(filteredMenuOptions, (option: any) =>
@@ -524,9 +503,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [filteredOptions, value]);
 
     useEffect(() => {
-      const filteredMenuOptions = isObjectOptions
-        ? options.map((option: any) => (getOptionLabel ? getOptionLabel(option) : option.label))
-        : options;
+      const filteredMenuOptions = isObjectOptions ? options.map((option: any) => getOptionLabel(option)) : options;
 
       if (!multiple && value?.length !== 0) {
         const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
@@ -586,11 +563,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         >
           {typeof filteredOptions[0] === 'object'
             ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
-                renderMenuItem(
-                  getOptionLabel ? getOptionLabel(option) : option.label,
-                  index,
-                  getOptionValue ? getOptionValue(option) : option.id
-                )
+                renderMenuItem(getOptionLabel(option), index, getOptionValue(option))
               )
             : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index, null))}
         </Menu>
@@ -630,8 +603,8 @@ Autocomplete.propTypes = {
   onOpen: PT.func,
   onClose: PT.func,
   getOptionDisabled: PT.func,
-  getOptionValue: PT.func,
-  getOptionLabel: PT.func,
+  getOptionValue: PT.func.isRequired,
+  getOptionLabel: PT.func.isRequired,
 };
 
 export default Autocomplete;
