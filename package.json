@@ -31,7 +31,7 @@
     "test": "jest",
     "ci": "npm-run-all -s build",
     "bump_major": "lerna version major",
-    "bump_prerelease": "lerna version prerelease",
+    "bump_prerelease": "lerna version",
     "bump_prepatch_beta": "lerna version prepatch --tag-version-prefix='' --preid beta",
     "deploy": "npm-run-all build && gh-pages -d dist",
     "prerelease": "node scripts/create-meta-files.js",
