@@ -6,6 +6,7 @@ import { InputBackgroundColor, InputSize } from '../../utils/types';
 
 export type AutocompleteBackgroundType = Values<typeof InputBackgroundColor>;
 export type AutocompleteSizeType = Values<typeof InputSize>;
+export type AutocompleteOptionType = string | AutocompleteObjectOptionstype;
 export type AutocompleteObjectOptionstype = {
   id: number;
   label: string;
@@ -31,8 +32,10 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   onOpen?: (event) => void;
   onClose?: (event: React.SyntheticEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>) => void;
   getOptionDisabled?: (item: string, index: number) => boolean;
-  getOptionValue: (value: string | AutocompleteObjectOptionstype) => string | AutocompleteObjectOptionstype[];
-  getOptionLabel: (value: string | AutocompleteObjectOptionstype) => string;
+  getOptionValue?: (
+    value: string | AutocompleteObjectOptionstype | any
+  ) => string | AutocompleteObjectOptionstype[] | any;
+  getOptionLabel?: (value: string | AutocompleteObjectOptionstype | any) => string | any;
   MenuProps?: MenuProps;
   LabelProps?: LabelProps;
   InputProps?: InputProps;

@@ -4,7 +4,7 @@ import Cross from '@scaleflex/icons/cross';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-import type { AutocompleteProps, AutocompleteObjectOptionstype } from './autocomplete.props';
+import type { AutocompleteProps, AutocompleteObjectOptionstype, AutocompleteOptionType } from './autocomplete.props';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import type { InputProps } from '../input';
@@ -37,9 +37,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       onChange,
       onOpen,
       onClose,
-      getOptionDisabled,
-      getOptionValue,
-      getOptionLabel,
       multiple,
       size,
       disabled,
@@ -48,6 +45,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       options,
       placeholder,
       fullWidth,
+      getOptionDisabled = (): boolean => false,
+      getOptionLabel = (option: AutocompleteOptionType): string =>
+        (typeof option === 'object' ? option.label : option) as string,
+      getOptionValue = (option: AutocompleteOptionType) =>
+        (typeof option === 'object' ? option.id : option) as string | AutocompleteObjectOptionstype[],
       ...rest
     },
     ref
@@ -503,17 +505,21 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [filteredOptions, value]);
 
     useEffect(() => {
-      const filteredMenuOptions = isObjectOptions ? options.map((option: any) => getOptionLabel(option)) : options;
-
       if (!multiple && value?.length !== 0) {
-        const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
+        const valueOptionIndex = options.findIndex((option: any) =>
+          isObjectOptions ? getOptionValue(option) === value : option === value
+        );
 
         if (valueOptionIndex !== -1) {
           setCurrentItemIndex(valueOptionIndex);
           setSelected(value);
         }
+      } else if (value?.length !== 0) {
+        const labelsValue = value.map((val: any) => getOptionLabel(val));
+
+        setSelected(labelsValue);
       }
-    }, []);
+    }, [value, multiple]);
 
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
@@ -603,8 +609,8 @@ Autocomplete.propTypes = {
   onOpen: PT.func,
   onClose: PT.func,
   getOptionDisabled: PT.func,
-  getOptionValue: PT.func.isRequired,
-  getOptionLabel: PT.func.isRequired,
+  getOptionValue: PT.func,
+  getOptionLabel: PT.func,
 };
 
 export default Autocomplete;
