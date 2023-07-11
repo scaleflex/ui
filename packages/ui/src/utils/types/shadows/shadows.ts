@@ -3,6 +3,7 @@ export const Shadows = {
   ShadowMd: 'shadow-md',
   ShadowLg: 'shadow-lg',
   ShadowXl: 'shadow-xl',
+  Modal: 'modal',
   Label: 'label',
   Header: 'header',
   HeaderPopup: 'header-popup',
