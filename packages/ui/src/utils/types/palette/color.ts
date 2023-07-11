@@ -1,4 +1,5 @@
 export const Color = {
+  TextBase: 'txt-base',
   TextPrimary: 'txt-primary',
   TextSecondary: 'txt-secondary',
   TextSecondaryInvert: 'txt-secondary-invert',
@@ -10,6 +11,8 @@ export const Color = {
   AccentPrimary: 'accent-primary',
   AccentPrimaryHover: 'accent-primary-hover',
   AccentPrimaryActive: 'accent-primary-active',
+  AccentPrimaryActiveHover: 'accent-primary-active-hover',
+  AccentPrimaryPressed: 'accent-primary-pressed',
   AccentPrimaryDisabled: 'accent-primary-disabled',
   AccentSecondaryDisabled: 'accent-secondary-disabled',
   AccentStateless: 'accent-stateless',
@@ -19,6 +22,7 @@ export const Color = {
   Accent_1_8_Opacity: 'accent_1_8_opacity',
   Accent_2_8_Opacity: 'accent_2_8_opacity',
   Accent_4_0_Opacity: 'accent_4_0_opacity',
+  Accent_5_5_Opacity: 'accent_5_5_opacity',
 
   BackgroundGrey: 'bg-grey',
   BackgroundStateless: 'bg-stateless',
@@ -62,6 +66,7 @@ export const Color = {
   LinkMuted: 'link-muted',
   LinkPressed: 'link-pressed',
 
+  BordersBase: 'borders-base',
   BordersPrimary: 'borders-primary',
   BordersPrimaryHover: 'borders-primary-hover',
   BordersSecondary: 'borders-secondary',
@@ -91,6 +96,8 @@ export const Color = {
   ErrorHover: 'error-hover',
   ErrorActive: 'error-active',
   Success: 'success',
+  SuccessHover: 'success-hover',
+  SuccessActive: 'success-active',
   Warning: 'warning',
   WarningHover: 'warning-hover',
   WarningActive: 'warning-active',
@@ -104,8 +111,11 @@ export const Color = {
   Salad: 'salad',
   Green: 'green',
   Orange: 'orange',
+  Red: 'red',
+  Sky: 'sky',
 
   GradientRight: 'gradient-right',
+  Extra_1_8_Overlay: 'extra-2-5-overlay',
   Extra_0_3_Overlay: 'extra-0-3-overlay',
   GradientRightActive: 'gradient-right-active',
   GradientRightHover: 'gradient-right-hover',
@@ -113,8 +123,10 @@ export const Color = {
   Extra_0_7_Overlay: 'extra-0-7-overlay',
   Extra_0_9_Overlay: 'extra-0-9-overlay',
   Red_0_1_Overlay: 'red-0-1-overlay',
+  RedMedium: 'red-medium',
   Orange_0_1_Overlay: 'orange-0-1-overlay',
   Accent_0_8_Overlay: 'accent-0-8-overlay',
+  White_7_8_Overlay: 'white-7-8-overlay',
 
   Link: 'link',
   Camera: 'camera',
@@ -128,6 +140,7 @@ export const Color = {
   Canvas: 'canvas',
   Box: 'box',
   ScreenCast: 'screen-cast',
+  Unsplash: 'unsplash',
 
   LightShadow: 'light-shadow',
   MediumShadow: 'medium-shadow',
