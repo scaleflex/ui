@@ -170,7 +170,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   onRemove={
                     disabled || readOnly || loading
                       ? undefined
-                      : (event) => onRemove(index, getTagValue(tag), setUserInput, event)
+                      : (_tagIndex, event) => onRemove(index, getTagValue(tag), setUserInput, event)
                   }
                   style={{ margin: '0px 8px 8px 0px' }}
                 >
