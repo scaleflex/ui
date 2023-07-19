@@ -16,7 +16,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   tags: TagType[];
   suggestedTags?: TagType[];
   onAdd: (item: TagType, type: AddTagTypesType, setUserInput) => void;
-  onRemove: (index: number, value: string, setUserInput) => void;
+  onRemove: (index: number, value: string, setUserInput, event: any) => void;
   onGenerate?: (event) => void;
   getTagLabel?: (tag: TagType) => string;
   getTagValue?: (tag: TagType) => string;

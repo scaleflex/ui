@@ -129,7 +129,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         handleTagsValidation();
       } else if (event.key === 'Backspace' && !userInput) {
         const index = filteredTags.length - 1;
-        onRemove(index, getTagValue(filteredTags[index]), setUserInput);
+        onRemove(index, getTagValue(filteredTags[index]), setUserInput, event);
       }
     };
 
@@ -168,7 +168,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   startIcon={typeof getTagIcon?.(tag) === 'object' ? getTagIcon?.(tag) : null}
                   size={size}
                   onRemove={
-                    disabled || readOnly || loading ? undefined : () => onRemove(index, getTagValue(tag), setUserInput)
+                    disabled || readOnly || loading
+                      ? undefined
+                      : (event) => onRemove(index, getTagValue(tag), setUserInput, event)
                   }
                   style={{ margin: '0px 8px 8px 0px' }}
                 >
