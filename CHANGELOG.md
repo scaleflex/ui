@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/scaleflex/ui/compare/v2.0.1...v2.0.2) (2023-07-19)
+
+
+### Features
+
+* **TagField:** add 'event' attr to onRemove fn ([27aaa0c](https://github.com/scaleflex/ui/commit/27aaa0c4f7a0507baad7de81bbfe57308e6583c5))
+
+
+
+
+
 ## [2.0.1](https://github.com/scaleflex/ui/compare/v2.0.0...v2.0.1) (2023-07-07)
 
 **Note:** Version bump only for package ui
