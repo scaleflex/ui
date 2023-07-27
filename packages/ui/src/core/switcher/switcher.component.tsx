@@ -17,7 +17,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
         checked={checked}
         onChange={readOnly || disabled ? undefined : onChange}
         readOnly={readOnly}
-        disabled={disabled}
+        $disabled={disabled}
         size={size}
         {...switcherProps}
       />

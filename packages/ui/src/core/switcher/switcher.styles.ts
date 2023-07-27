@@ -62,26 +62,26 @@ const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'checkbox',
 })<SwitcherProps>(
-  ({ disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
+  ({ $disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
     opacity: 0;
     position: absolute;
     z-index: 99;
     width: ${getSwitcherSize(size) * 2}px;
     height: ${getSwitcherSize(size)}px;
-    cursor: ${disabled ? 'default' : 'pointer'};
+    cursor: ${$disabled ? 'default' : 'pointer'};
 
     &:hover + ${Switcher}:after {
-      opacity: ${disabled ? 0 : 1};
+      opacity: ${$disabled ? 0 : 1};
     }
 
     &:checked {
       &:hover + ${Switcher} {
-        background: ${!disabled && palette[PColor.AccentPrimaryHover]};
+        background: ${!$disabled && palette[PColor.AccentPrimaryHover]};
       }
     }
 
     &:checked + ${Switcher} {
-      background: ${disabled ? palette[PColor.Accent_2_8_Opacity] : palette[PColor.AccentStateless]};
+      background: ${$disabled ? palette[PColor.Accent_2_8_Opacity] : palette[PColor.AccentStateless]};
 
       &:before {
         ${translateSwitcherMixin[size]};
