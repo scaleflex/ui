@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/scaleflex/ui/compare/v2.1.0...v2.1.1) (2023-07-28)
+
+
+### Bug Fixes
+
+* **DatePicker:**  fix placeholder bug ([c3620bc](https://github.com/scaleflex/ui/commit/c3620bc9d40fc8356d21972ef0293c68c9c236bd))
+
+
+
+
+
 # [2.1.0](https://github.com/scaleflex/ui/compare/v2.0.3...v2.1.0) (2023-07-28)
 
 
