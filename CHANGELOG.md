@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/scaleflex/ui/compare/v2.0.3...v2.1.0) (2023-07-28)
+
+
+### Bug Fixes
+
+* update tag field design ([d752641](https://github.com/scaleflex/ui/commit/d752641b080ac0e1f6ee1015ddbc5ca4b1e53161))
+* **Switcher:** fix disabled switcher FRA-2180 ([f204140](https://github.com/scaleflex/ui/commit/f20414080047cc6de942d8439f7c21fd52bca003))
+* **TagField:** update tag field design ([6d1587d](https://github.com/scaleflex/ui/commit/6d1587d48bf05fa5b7b45dfd8bce4851b02ba861))
+
+
+
+
+
+
 ## [2.0.3](https://github.com/scaleflex/ui/compare/v2.0.2...v2.0.3) (2023-07-19)
 
 
