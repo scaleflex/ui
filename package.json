@@ -30,6 +30,7 @@
     "pretest": "npm-run-all -p format lint typecheck",
     "test": "jest",
     "ci": "npm-run-all -s build",
+    "bump_patch": "lerna version patch",
     "bump_major": "lerna version major",
     "bump_minor": "lerna version minor",
     "bump_prepatch_beta": "lerna version prepatch --tag-version-prefix='' --preid beta",
