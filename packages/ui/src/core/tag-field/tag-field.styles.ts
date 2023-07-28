@@ -123,6 +123,16 @@ const TagFieldBottom = styled.div.attrs({
   `
 );
 
+const TagFieldButtonsWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagFieldButtonsWrapper'),
+})(
+  () => css`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  `
+);
+
 const TagFieldCopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
 })`
@@ -212,6 +222,7 @@ const Styled = applyDisplayNames({
   TagFieldSuggestionList,
   TagFieldLoader,
   TagFieldBottom,
+  TagFieldButtonsWrapper,
   TagFieldCopyIcon,
 });
 

@@ -28,6 +28,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       onAdd,
       onRemove,
       onGenerate,
+      onClear,
       onValidate,
       placeholder,
       disabled,
@@ -47,8 +48,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       copySuccessIcon,
       submitOnSpace,
       preventSubmitOnBlur,
+      hideCopyIcon = false,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
+      clearTagsButtonLabel = 'Clear all',
       alwaysShowSuggestedTags = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
@@ -62,6 +65,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [tagsHint, setTagsHint] = useState(hint);
     const [tagsError, setTagsError] = useState(error);
+    const [showPlaceholder, setShowPlaceholder] = useState(false);
+
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
       () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
@@ -118,6 +123,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleOnBlur = (): void => {
+      setShowPlaceholder(false);
       if (preventSubmitOnBlur) return;
 
       handleTagsValidation();
@@ -132,6 +138,22 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         onRemove(index, getTagValue(filteredTags[index]), setUserInput);
       }
     };
+
+    const handleInputFocus = () => {
+      setShowPlaceholder(true);
+    };
+
+    const handleClearAllTags = (): void => {
+      if (onClear) {
+        onClear();
+      }
+    };
+
+    useEffect(() => {
+      if (!filteredTags?.length) {
+        setShowPlaceholder(true);
+      }
+    }, [filteredTags]);
 
     // TODO remove when add clear all button
     useEffect(() => {
@@ -186,10 +208,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     value={userInput}
                     type="text"
                     autoComplete="off"
-                    placeholder={filteredTags?.length ? '' : placeholder}
+                    placeholder={showPlaceholder ? placeholder : ''}
                     onChange={(ev) => setUserInput(ev.target.value)}
                     onKeyDown={handleUserInputKeyDown}
                     onBlur={handleOnBlur}
+                    onFocus={handleInputFocus}
                     readOnly={readOnly}
                     disabled={disabled}
                   />
@@ -197,15 +220,23 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               )}
             </Styled.TagFieldListWrapper>
             <Styled.TagFieldBottom>
-              <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
-                <Button color="link-primary" size={size} onClick={onGenerate}>
-                  {generateTagsButtonLabel}
-                </Button>
-              </Styled.TagFieldGenerateButton>
+              <Styled.TagFieldButtonsWrapper>
+                <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
+                  <Button color="link-primary" size={size} onClick={onGenerate}>
+                    {generateTagsButtonLabel}
+                  </Button>
+                </Styled.TagFieldGenerateButton>
 
-              <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
-                <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
-              </Styled.TagFieldCopyIcon>
+                <Button color="link-secondary" size={size === Size.Md ? Size.Sm : 'xs'} onClick={handleClearAllTags}>
+                  {clearTagsButtonLabel}
+                </Button>
+              </Styled.TagFieldButtonsWrapper>
+
+              {!hideCopyIcon && (
+                <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
+                  <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+                </Styled.TagFieldCopyIcon>
+              )}
 
               {showCopyMessage && (
                 <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
@@ -271,6 +302,7 @@ TagField.propTypes = {
   onAdd: PT.func.isRequired,
   onRemove: PT.func.isRequired,
   onGenerate: PT.func,
+  onClear: PT.func.isRequired,
   onValidate: PT.func,
   placeholder: PT.string,
   appliedValue: PT.string,
@@ -282,6 +314,7 @@ TagField.propTypes = {
   loading: PT.bool,
   disableOnEnter: PT.bool,
   size: PT.oneOf(objectValues(Size)),
+  hideCopyIcon: PT.bool,
   alwaysShowSuggestedTags: PT.bool,
   getTagValue: PT.func,
   getTagLabel: PT.func,
@@ -290,6 +323,7 @@ TagField.propTypes = {
   preventSubmitOnBlur: PT.bool,
   showGenerateTagsButton: PT.bool,
   generateTagsButtonLabel: PT.string,
+  clearTagsButtonLabel: PT.string,
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
