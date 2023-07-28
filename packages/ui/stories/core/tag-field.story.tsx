@@ -81,6 +81,7 @@ const TagsObjectsTemplate: Story<TagFieldProps> = ({ ...args }) => {
         setTags([...tags, type === AddTagType.UserInput ? { id: item, label: item } : item]);
       }}
       onRemove={(index) => handleRemove(index, tags, setTags)}
+      onClear={() => setTags([])}
       getTagLabel={(item: any): string => item.label}
       getTagValue={(item: any): string => item.id}
       getTagIcon={(item: any): string => item.startIcon}
