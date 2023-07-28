@@ -221,11 +221,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Styled.TagFieldListWrapper>
             <Styled.TagFieldBottom>
               <Styled.TagFieldButtonsWrapper>
-                <Styled.TagFieldGenerateButton showGenerateTags={showGenerateTagsButton}>
+                {showGenerateTagsButton && (
                   <Button color="link-primary" size={size} onClick={onGenerate}>
                     {generateTagsButtonLabel}
                   </Button>
-                </Styled.TagFieldGenerateButton>
+                )}
 
                 <Button color="link-secondary" size={size === Size.Md ? Size.Sm : 'xs'} onClick={handleClearAllTags}>
                   {clearTagsButtonLabel}
