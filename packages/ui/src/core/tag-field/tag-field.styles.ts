@@ -123,10 +123,21 @@ const TagFieldBottom = styled.div.attrs({
   `
 );
 
+const TagFieldButtonsWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagFieldButtonsWrapper'),
+})(
+  () => css`
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  `
+);
+
 const TagFieldCopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
 })`
   cursor: pointer;
+  height: 16px;
 `;
 
 const TagFieldSuggestionWrapper = styled.div.attrs({
@@ -145,15 +156,6 @@ const TagFieldSuggestionLabel = styled.label.attrs({
     font-size: 12px;
     padding: 6px 0;
     color: ${theme.palette[PColor.LinkHover]};
-  `
-);
-
-const TagFieldGenerateButton = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'GenerateTagButton'),
-})(
-  ({ showGenerateTags }: { showGenerateTags: boolean }) => css`
-    display: inline-flex;
-    visibility: ${showGenerateTags ? 'visible' : 'hidden'};
   `
 );
 
@@ -206,12 +208,12 @@ const Styled = applyDisplayNames({
   TagFieldInput,
   TagFieldSuggestionWrapper,
   TagFieldSuggestionLabel,
-  TagFieldGenerateButton,
   TagFieldSuggestionIcon,
   TagFieldSuggestionWrapperList,
   TagFieldSuggestionList,
   TagFieldLoader,
   TagFieldBottom,
+  TagFieldButtonsWrapper,
   TagFieldCopyIcon,
 });
 

@@ -26,6 +26,7 @@ const defaultArgs = {
   submitOnSpace: false,
   preventSubmitOnBlur: false,
   size: Size.Md,
+  hideCopyIcon: false,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
   copyTextMessage: 'Link copied to clipboard',
@@ -55,6 +56,7 @@ const BasicTemplate: Story<TagFieldProps> = ({ ...args }) => {
         suggestedTags={args.suggestedTags}
         onAdd={(newTagLabel) => setTags([...tags, newTagLabel])}
         onRemove={(index) => handleRemove(index, tags, setTags)}
+        onClear={() => setTags([])}
         alwaysShowSuggestedTags
       />
     </div>
@@ -79,6 +81,7 @@ const TagsObjectsTemplate: Story<TagFieldProps> = ({ ...args }) => {
         setTags([...tags, type === AddTagType.UserInput ? { id: item, label: item } : item]);
       }}
       onRemove={(index) => handleRemove(index, tags, setTags)}
+      onClear={() => setTags([])}
       getTagLabel={(item: any): string => item.label}
       getTagValue={(item: any): string => item.id}
       getTagIcon={(item: any): string => item.startIcon}
