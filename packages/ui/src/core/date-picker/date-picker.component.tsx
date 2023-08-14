@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
 import type { IconProps } from '@scaleflex/icons/icon.props';
@@ -66,6 +66,10 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const handlePlaceholder = (): void => {
       if (!disabled && !readOnly) setShowPlaceholder(false);
     };
+
+    useEffect(() => {
+      if (value && !autoSelectToday) setInputValue(value);
+    }, [value]);
 
     return (
       <Styled.DatePicker ref={datePickerRef}>
