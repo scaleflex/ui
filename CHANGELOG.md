@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/scaleflex/ui/compare/v2.1.1...v2.1.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* **DatePicker:** fix value unset FRA-1754 ([ff1343c](https://github.com/scaleflex/ui/commit/ff1343c53da15efad863cc13153a51582e29e2a5))
+
+
+
+
+
+
 ## [2.1.1](https://github.com/scaleflex/ui/compare/v2.1.0...v2.1.1) (2023-07-28)
 
 
