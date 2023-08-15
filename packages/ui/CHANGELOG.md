@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.3](https://github.com/scaleflex/ui/compare/v2.1.2...v2.1.3) (2023-08-15)
+
+
+### Bug Fixes
+
+* **Popup:** fix popup delay time ([075951b](https://github.com/scaleflex/ui/commit/075951bc2ff588f2ec92464a03727795bf45ac32))
+
+
+
+
+
+
 ## [2.1.2](https://github.com/scaleflex/ui/compare/v2.1.1...v2.1.2) (2023-08-14)
 
 
