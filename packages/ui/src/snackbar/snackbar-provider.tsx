@@ -12,6 +12,7 @@ function SnackbarProvider({ children, ...rest }: SnackbarProviderProps): JSX.Ele
     ...defaultProps,
     ...rest,
   });
+
   const handleShowMessage = (message = '', { variant = MessageVariant.Default, ...restOptions } = {}): void => {
     setOptions({
       ...defaultProps,
@@ -20,6 +21,7 @@ function SnackbarProvider({ children, ...rest }: SnackbarProviderProps): JSX.Ele
       status: MessageVariantStatusMatch[variant],
       ...restOptions,
     });
+
     setOpen(true);
   };
 

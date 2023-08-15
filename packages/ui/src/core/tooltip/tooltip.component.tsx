@@ -21,8 +21,8 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       enableUnderlayingEvent,
       popperWrapperStyles = {},
       enableHover,
-      enterDelay = 500,
-      leaveDelay = 500,
+      enterDelay = 0,
+      leaveDelay = 0,
       stayOpen,
       title,
       tooltipProps,
@@ -137,8 +137,8 @@ Tooltip.defaultProps = {
   size: Size.Sm,
   arrow: true,
   warning: false,
-  enterDelay: 500,
-  leaveDelay: 500,
+  enterDelay: 0,
+  leaveDelay: 0,
 };
 
 Tooltip.propTypes = {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import PT, { Validator } from 'prop-types';
 
@@ -16,11 +16,23 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
   const { autoHideDuration, anchorOrigin, open, onClose, ...rest } = props;
   const target = usePortal(generateClassNames('Popup'));
 
+  const [hoverHideDuration, setHoverHideDuration] = useState(autoHideDuration);
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+    setHoverHideDuration(1000);
+  };
+
+  useEffect(() => {
+    if (open) setHoverHideDuration(autoHideDuration);
+  }, [open]);
+
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout> | null = null;
 
-    if (open && autoHideDuration && typeof onClose === 'function') {
-      timeout = setTimeout(onClose, autoHideDuration);
+    if (open && !isHovering && hoverHideDuration && typeof onClose === 'function') {
+      timeout = setTimeout(onClose, hoverHideDuration);
     }
 
     return () => {
@@ -28,7 +40,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
         clearTimeout(timeout);
       }
     };
-  }, [autoHideDuration, open, onClose]);
+  }, [hoverHideDuration, isHovering, open, onClose]);
 
   const render = (): JSX.Element | null => {
     if (!open) {
@@ -36,7 +48,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
     }
 
     return (
-      <Styled.Popup {...props}>
+      <Styled.Popup onMouseEnter={() => setIsHovering(true)} onMouseLeave={handleMouseLeave} {...props}>
         <PopupContent onClose={onClose} {...rest} ref={ref} />
       </Styled.Popup>
     );
@@ -48,6 +60,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
 Popup.defaultProps = {
   ...cDefaultProps,
   open: false,
+  autoHideDuration: 5000,
   anchorOrigin: {
     vertical: Vertical.Bottom,
     horizontal: Horizontal.Left,
