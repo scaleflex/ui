@@ -23,7 +23,7 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
       </Styled.LabelWrapper>
 
       <Styled.CloseWrapper>
-        <CrossButton size='sm' onClick={onClose} />
+        <CrossButton size="sm" onClick={onClose} />
       </Styled.CloseWrapper>
     </Styled.PopupContent>
   )

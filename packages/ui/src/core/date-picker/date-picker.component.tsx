@@ -68,7 +68,9 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      if (value && !autoSelectToday) setInputValue(value);
+      if (autoSelectToday) return;
+      if (!value) setInputValue('');
+      else setInputValue(value);
     }, [value]);
 
     return (
