@@ -55,6 +55,7 @@ export { default as Tag } from './tag';
 export { default as TagField } from './tag-field';
 export { default as Textarea } from './textarea';
 export { default as Tooltip } from './tooltip';
+export { default as TooltipV2 } from './tooltip-v2';
 export { default as UploadInput } from './upload-input';
 export { default as Skeleton } from './skeleton';
 export { default as Notification } from './notification';
