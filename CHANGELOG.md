@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/scaleflex/ui/compare/v2.1.3...v2.1.4) (2023-08-17)
+
+
+### Bug Fixes
+
+* **TooltipV2:** change tooltip-v2 delay time ([81afc84](https://github.com/scaleflex/ui/commit/81afc84e71ee0a9560c10c1dcf077be9b9177382))
+
+
+
+
+
+
 ## [2.1.3](https://github.com/scaleflex/ui/compare/v2.1.2...v2.1.3) (2023-08-15)
 
 
