@@ -40,6 +40,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
         $size={size || Size.Sm}
         animation="scale"
         offset={[offsetX, offsetY]}
+        appendTo={document.body}
         {...rest}
       >
         {children}
