@@ -3,6 +3,58 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.6](https://github.com/scaleflex/ui/compare/v2.1.5...v2.1.6) (2023-08-17)
+
+**Note:** Version bump only for package ui
+
+
+
+
+
+## [2.1.5](https://github.com/scaleflex/ui/compare/v2.1.4...v2.1.5) (2023-08-17)
+
+**Note:** Version bump only for package ui
+
+
+
+
+
+## [2.1.4](https://github.com/scaleflex/ui/compare/v2.1.3...v2.1.4) (2023-08-17)
+
+
+### Bug Fixes
+
+* **TooltipV2:** change tooltip-v2 delay time ([81afc84](https://github.com/scaleflex/ui/commit/81afc84e71ee0a9560c10c1dcf077be9b9177382))
+
+
+
+
+
+
+## [2.1.3](https://github.com/scaleflex/ui/compare/v2.1.2...v2.1.3) (2023-08-15)
+
+
+### Bug Fixes
+
+* **Popup:** fix popup delay time ([075951b](https://github.com/scaleflex/ui/commit/075951bc2ff588f2ec92464a03727795bf45ac32))
+
+
+
+
+
+
+## [2.1.2](https://github.com/scaleflex/ui/compare/v2.1.1...v2.1.2) (2023-08-14)
+
+
+### Bug Fixes
+
+* **DatePicker:** fix value unset FRA-1754 ([ff1343c](https://github.com/scaleflex/ui/commit/ff1343c53da15efad863cc13153a51582e29e2a5))
+
+
+
+
+
+
 ## [2.1.1](https://github.com/scaleflex/ui/compare/v2.1.0...v2.1.1) (2023-07-28)
 
 
