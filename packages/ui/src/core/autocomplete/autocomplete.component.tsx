@@ -4,7 +4,7 @@ import Cross from '@scaleflex/icons/cross';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
-import type { AutocompleteProps, AutocompleteObjectOptionstype, AutocompleteOptionType } from './autocomplete.props';
+import type { AutocompleteProps, AutocompleteObjectOptionstype } from './autocomplete.props';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import type { InputProps } from '../input';
@@ -37,34 +37,56 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       onChange,
       onOpen,
       onClose,
+      getOptionDisabled,
+      getOptionValue,
+      getOptionLabel,
       multiple,
       size,
       disabled,
       scroll,
       readOnly,
-      options,
+      options = [],
       placeholder,
       fullWidth,
-      getOptionDisabled = (): boolean => false,
-      getOptionLabel = (option: AutocompleteOptionType): string =>
-        (typeof option === 'object' ? option.label : option) as string,
-      getOptionValue = (option: AutocompleteOptionType) =>
-        (typeof option === 'object' ? option.id : option) as string | AutocompleteObjectOptionstype[],
       ...rest
     },
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement | null>(null);
 
+    const getNextOptionLabel = (option: any) => {
+      if (getOptionLabel) {
+        return getOptionLabel(option);
+      }
+
+      return option.label;
+    };
+
+    const getNextOptionValue = (option: any) => {
+      if (getOptionValue) {
+        return getOptionValue(option);
+      }
+
+      return option.id;
+    };
+
+    const removedDuplicatedOptions = options.filter(
+      (option: any, index: number, array: any): any =>
+        array.findIndex((item: any) => getNextOptionLabel(item) === getNextOptionLabel(option)) === index
+    );
+
     const [selected, setSelected] = useState<string[] | string>(multiple ? [] : '');
-    const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(options);
+    const [filteredOptions, setFilteredOptions] = useState<string[] | AutocompleteObjectOptionstype[]>(
+      removedDuplicatedOptions
+    );
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
     const [renderedValue, setRenderedValue] = useState('');
+    const [selectedItemsIndex, setSelectedIemsIndex] = useState([]);
 
     const open = Boolean(anchorEl);
-    const isItemSelected = selected.length > 0;
-    const isObjectOptions = typeof options[0] === 'object';
+    const isItemSelected = selected.length > 0 || selectedItemsIndex.length > 0;
+    const isObjectOptions = typeof removedDuplicatedOptions[0] === 'object';
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
 
@@ -98,13 +120,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
-    const handleOnRemoveItem = (event: any, itemIndex: number): void => {
+    const handleOnRemoveItem = (event: any, itemIndex: number, index: any): void => {
       event.stopPropagation();
       const updatedSelectedItems = Array.isArray(selected)
-        ? selected.filter((_, index: number) => index !== itemIndex)
+        ? selected.filter((_, nextIndex: number) => nextIndex !== index)
         : '';
+      const updatedSelectedIndex = selectedItemsIndex.filter((nextIndex) => nextIndex !== itemIndex);
 
       setSelected(updatedSelectedItems);
+      setSelectedIemsIndex(updatedSelectedIndex);
 
       if (onChange) {
         if (isObjectOptions) {
@@ -147,29 +171,47 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
 
       setCurrentItemIndex(-1);
+      setSelectedIemsIndex([]);
     };
 
     const handleSelectedItem = (
       event: React.KeyboardEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
       item: string,
-      id: any
+      id: any,
+      index: any
     ): void => {
       // make sure this item isn't already selected
       if (!multiple && (selected !== item || (isObjectOptions && selected !== id))) {
         handleOnChange(event, item, id);
 
         if (isObjectOptions) {
-          setSelected(id);
+          const nextOptionId = getNextOptionValue(removedDuplicatedOptions[index]);
+
+          setSelected(nextOptionId);
         } else {
           setSelected(item);
         }
       } else if (multiple) {
-        if (Array.isArray(selected) && (selected.includes(item) || (isObjectOptions && selected.includes(id)))) {
-          const updatedSelectedItems = isObjectOptions
-            ? selected.filter((selectedId) => selectedId !== id)
-            : selected.filter((selectedItem) => selectedItem !== item);
+        if (
+          Array.isArray(selected) &&
+          (selected.includes(item) || (isObjectOptions && selected.includes(id) && selectedItemsIndex.includes(index)))
+        ) {
+          let updatedSelectedItems = selected;
+
+          if (isObjectOptions) {
+            const removedIndex = selected.findIndex((selectedId) => selectedId === id);
+
+            if (removedIndex !== -1) {
+              updatedSelectedItems.splice(removedIndex, 1);
+            }
+          } else {
+            updatedSelectedItems = selected.filter((selectedItem) => selectedItem !== item);
+          }
+
+          const updatedSelectedIndex = selectedItemsIndex.filter((nextIndex) => nextIndex !== index);
 
           setSelected(updatedSelectedItems);
+          setSelectedIemsIndex(updatedSelectedIndex);
 
           if (onChange) {
             if (isObjectOptions) {
@@ -180,6 +222,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }
         } else if (isObjectOptions) {
           handleOnChange(event, null, [id]);
+          setSelectedIemsIndex((prev) => [...prev, index]);
           setSelected((prev) => [...prev, id]);
         } else {
           handleOnChange(event, [item, ''], null);
@@ -197,17 +240,23 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         return null;
       }
 
-      return handleSelectedItem(event, item, id);
+      return handleSelectedItem(event, item, id, index);
     };
 
-    const getObjectOptionLabel = (optionValue: any): string => {
-      const selectedOptionIndex = options.findIndex((option: any) => getOptionValue(option) === optionValue);
+    const getObjectOptionLabel = (optionValue: any, optionIndex: any): string => {
+      const selectedOptionIndex = removedDuplicatedOptions.findIndex((option: any, index: number) => {
+        return getNextOptionValue(option) === optionValue && index === optionIndex;
+      });
 
-      return getOptionLabel(options[selectedOptionIndex]) || optionValue;
+      return (
+        (getOptionLabel
+          ? getOptionLabel(removedDuplicatedOptions[selectedOptionIndex])
+          : removedDuplicatedOptions[selectedOptionIndex]) || optionValue
+      );
     };
 
     const getValue = (): string | string[] => {
-      if (isObjectOptions && !multiple && selected.length > 0) return getObjectOptionLabel(value);
+      if (isObjectOptions && !multiple && selected.length > 0) return getObjectOptionLabel(value, null);
 
       if (!isObjectOptions && !multiple) return value;
 
@@ -225,13 +274,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       let optionIndex = -1;
 
       if (isObjectOptions) {
-        const optionObject = Object.entries(options).find(([_, optObject]) => getOptionLabel(optObject) === option);
+        const optionObject = Object.entries(removedDuplicatedOptions).find(
+          ([_, optObject]) => getNextOptionLabel(optObject) === option
+        );
 
         if (optionObject) {
           optionIndex = Number(optionObject[0]);
         }
       } else {
-        optionIndex = options.indexOf(option);
+        optionIndex = removedDuplicatedOptions.indexOf(option);
       }
 
       return optionIndex;
@@ -239,7 +290,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const isMenuItemsAvailable = (): boolean => {
       const validMenuItems = getFilteredItems(filteredOptions, (option: any) => {
-        const filteredOptionItem = getOptionLabel(option);
+        const filteredOptionLabel = getNextOptionLabel(option);
+        const filteredOptionItem = isObjectOptions ? filteredOptionLabel : option;
         const filteredOptionIndex = getOptionIndex(filteredOptionItem);
 
         if (
@@ -259,7 +311,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (!isMenuItemsAvailable()) return;
 
       while (currentIndex !== currentItemIndex) {
-        const selectedOption = getOptionLabel(filteredOptions[currentIndex]);
+        const filteredItemLabel = getNextOptionLabel(filteredOptions[currentIndex]);
+        const selectedOption = isObjectOptions ? filteredItemLabel : filteredOptions[currentIndex];
         const optionIndex = getOptionIndex(selectedOption);
         let isDisabled = false;
 
@@ -310,9 +363,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption, -1);
+            handleSelectedItem(event, selectedOption, -1, null);
           } else {
-            handleSelectedItem(event, getOptionLabel(selectedOption), getOptionValue(selectedOption));
+            handleSelectedItem(event, getNextOptionLabel(selectedOption), getNextOptionValue(selectedOption), null);
           }
         }
 
@@ -324,7 +377,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const getMultipleFilteredItems = (item: any, val: string): boolean => {
       if (isObjectOptions) {
-        if (convertToLower(getOptionLabel(item)).includes(convertToLower(val) || '')) return true;
+        if (
+          getOptionLabel
+            ? convertToLower(getOptionLabel(item)).includes(convertToLower(val) || '')
+            : convertToLower(item.label).includes(convertToLower(val) || '')
+        )
+          return true;
       } else if (convertToLower(item).includes(convertToLower(val) || '')) return true;
 
       return false;
@@ -334,27 +392,33 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       let filteredMenuOptions = [];
 
       if (isObjectOptions) {
-        filteredMenuOptions = getFilteredItems(options, (item: any) => getMultipleFilteredItems(item, renderedValue));
+        filteredMenuOptions = getFilteredItems(removedDuplicatedOptions, (item: any) =>
+          getMultipleFilteredItems(item, renderedValue)
+        );
       } else if (isItemSelected) {
-        // lastValue = selectedItem | enteredValue
-        // ["item1","ite"]
         const lastValue = value[value.length - 1];
 
-        filteredMenuOptions = getFilteredItems(options, (item: any) => getMultipleFilteredItems(item, lastValue));
+        filteredMenuOptions = getFilteredItems(removedDuplicatedOptions, (item: any) =>
+          getMultipleFilteredItems(item, lastValue)
+        );
       } else {
         // filter menu options based on the value[0] as it's an array in multiple mode
-        filteredMenuOptions = getFilteredItems(options, (item: any) => getMultipleFilteredItems(item, value[0] || ''));
+        filteredMenuOptions = getFilteredItems(removedDuplicatedOptions, (item: any) =>
+          getMultipleFilteredItems(item, value[0] || '')
+        );
       }
 
       setFilteredOptions(filteredMenuOptions);
     };
 
     const getFilteredOptions = (): void => {
-      let filteredMenuOptions = options;
+      let filteredMenuOptions = removedDuplicatedOptions;
 
       if (isObjectOptions) {
         filteredMenuOptions = getFilteredItems(filteredMenuOptions, (option: any) =>
-          convertToLower(getOptionLabel(option))?.includes(convertToLower(renderedValue))
+          getOptionLabel
+            ? convertToLower(getOptionLabel(option))?.includes(convertToLower(renderedValue))
+            : convertToLower(option.label).includes(convertToLower(renderedValue))
         );
       } else {
         filteredMenuOptions = getFilteredItems(filteredMenuOptions, (option: any) =>
@@ -370,15 +434,20 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         item === selected ||
         index === currentItemIndex ||
         (multiple && selected.includes(item)) ||
-        (isObjectOptions && selected.includes(id))
+        (isObjectOptions && Array.isArray(selected) && selected.includes(id) && selectedItemsIndex.includes(index)) ||
+        (isObjectOptions && selected === id)
       )
         return true;
 
       return false;
     };
 
-    const showMiActions = (item: string, id: any): boolean => {
-      if (item === selected || (multiple && selected.includes(item)) || (isObjectOptions && selected.includes(id)))
+    const showMiActions = (item: string, id: any, index: number): boolean => {
+      if (
+        item === selected ||
+        (multiple && selected.includes(item)) ||
+        (isObjectOptions && selected.includes(id) && selectedItemsIndex.includes(index))
+      )
         return true;
 
       return false;
@@ -407,21 +476,25 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
       if (multiple && isItemSelected && Array.isArray(selected)) {
         if (isObjectOptions) {
-          return selected.map((itemId: any, index: number) => (
-            <Tag
-              key={itemId}
-              tagIndex={index}
-              crossIcon
-              onRemove={(_, event) => handleOnRemoveItem(event, index)}
-              title={getObjectOptionLabel(itemId)}
-            >
-              {getObjectOptionLabel(itemId)}
-            </Tag>
-          ));
+          return selectedItemsIndex.map((itemIndex, index) => {
+            const itemId = getNextOptionValue(removedDuplicatedOptions[itemIndex]);
+
+            return (
+              <Tag
+                key={itemId}
+                tagIndex={index}
+                crossIcon
+                onRemove={(_, event) => handleOnRemoveItem(event, itemIndex, index)}
+                title={getObjectOptionLabel(itemId, itemIndex)}
+              >
+                {getObjectOptionLabel(itemId, itemIndex)}
+              </Tag>
+            );
+          });
         }
 
         return selected.map((item: string, index: number) => (
-          <Tag key={index} tagIndex={index} crossIcon onRemove={(_, event) => handleOnRemoveItem(event, index)}>
+          <Tag key={index} tagIndex={index} crossIcon onRemove={(_, event) => handleOnRemoveItem(event, index, null)}>
             {item}
           </Tag>
         ));
@@ -470,7 +543,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           enableScrollIntoView
         >
           {item}
-          {showMiActions(item, id) && miActions}
+          {showMiActions(item, id, index) && miActions}
         </MenuItem>
       );
     };
@@ -505,21 +578,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [filteredOptions, value]);
 
     useEffect(() => {
+      const filteredMenuOptions = isObjectOptions
+        ? removedDuplicatedOptions.map((option: any) => getNextOptionLabel(option))
+        : removedDuplicatedOptions;
+
       if (!multiple && value?.length !== 0) {
-        const valueOptionIndex = options.findIndex((option: any) =>
-          isObjectOptions ? getOptionValue(option) === value : option === value
-        );
+        const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
 
         if (valueOptionIndex !== -1) {
           setCurrentItemIndex(valueOptionIndex);
           setSelected(value);
         }
-      } else if (value?.length !== 0) {
-        const labelsValue = value.map((val: any) => getOptionLabel(val));
-
-        setSelected(labelsValue);
       }
-    }, [value, multiple]);
+    }, []);
 
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
@@ -569,7 +640,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         >
           {typeof filteredOptions[0] === 'object'
             ? Object.values(filteredOptions).map((option: AutocompleteObjectOptionstype, index: number) =>
-                renderMenuItem(getOptionLabel(option), index, getOptionValue(option))
+                renderMenuItem(getNextOptionLabel(option), index, getNextOptionValue(option))
               )
             : filteredOptions?.map((item: any, index: number) => renderMenuItem(item, index, null))}
         </Menu>
