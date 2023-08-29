@@ -87,6 +87,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0 || selectedItemsIndex.length > 0;
     const isObjectOptions = typeof removedDuplicatedOptions[0] === 'object';
+    const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
 
@@ -151,6 +152,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     ): void => {
       setAnchorEl(undefined);
       setCurrentItemIndex(-1);
+
       if (onClose) {
         onClose(event);
       }
@@ -187,6 +189,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         if (isObjectOptions) {
           const nextOptionId = getNextOptionValue(removedDuplicatedOptions[index]);
 
+          setSelectedIemsIndex([index]);
           setSelected(nextOptionId);
         } else {
           setSelected(item);
@@ -256,7 +259,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     const getValue = (): string | string[] => {
-      if (isObjectOptions && !multiple && selected.length > 0) return getObjectOptionLabel(value, null);
+      if (isObjectOptions && !multiple && selected.length > 0)
+        return getObjectOptionLabel(value, selectedItemsIndex[0]);
 
       if (!isObjectOptions && !multiple) return value;
 
@@ -293,11 +297,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         const filteredOptionLabel = getNextOptionLabel(option);
         const filteredOptionItem = isObjectOptions ? filteredOptionLabel : option;
         const filteredOptionIndex = getOptionIndex(filteredOptionItem);
-
         if (
-          option !== noOptionsText &&
-          getOptionDisabled &&
-          !getOptionDisabled(filteredOptionItem, filteredOptionIndex)
+          option !== noOptionsText ||
+          (getOptionDisabled && !getOptionDisabled(filteredOptionItem, filteredOptionIndex))
         )
           return true;
 
@@ -363,9 +365,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption, -1, null);
+            handleSelectedItem(event, selectedOption, -1, currentItemIndex);
           } else {
-            handleSelectedItem(event, getNextOptionLabel(selectedOption), getNextOptionValue(selectedOption), null);
+            handleSelectedItem(
+              event,
+              getNextOptionLabel(selectedOption),
+              getNextOptionValue(selectedOption),
+              currentItemIndex
+            );
           }
         }
 
@@ -435,7 +442,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         index === currentItemIndex ||
         (multiple && selected.includes(item)) ||
         (isObjectOptions && Array.isArray(selected) && selected.includes(id) && selectedItemsIndex.includes(index)) ||
-        (isObjectOptions && selected === id)
+        (isObjectOptions && selected === id && selectedItemsIndex.includes(index))
       )
         return true;
 
@@ -589,6 +596,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           setCurrentItemIndex(valueOptionIndex);
           setSelected(value);
         }
+      }
+
+      if (hasDuplicatedLabels) {
+        console.warn('options have duplicate Labels');
       }
     }, []);
 
