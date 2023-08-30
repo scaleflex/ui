@@ -123,6 +123,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const handleOnRemoveItem = (event: any, itemIndex: number, index: any): void => {
       event.stopPropagation();
+
       const updatedSelectedItems = Array.isArray(selected)
         ? selected.filter((_, nextIndex: number) => nextIndex !== index)
         : '';
@@ -212,7 +213,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           }
 
           const updatedSelectedIndex = selectedItemsIndex.filter((nextIndex) => nextIndex !== index);
-
           setSelected(updatedSelectedItems);
           setSelectedIemsIndex(updatedSelectedIndex);
 
@@ -230,6 +230,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         } else {
           handleOnChange(event, [item, ''], null);
           setSelected((prev) => [...prev, item]);
+          setSelectedIemsIndex((prev) => [...prev, index]);
         }
       }
 
@@ -482,29 +483,23 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined => {
       if (multiple && isItemSelected && Array.isArray(selected)) {
-        if (isObjectOptions) {
-          return selectedItemsIndex.map((itemIndex, index) => {
-            const itemId = getNextOptionValue(removedDuplicatedOptions[itemIndex]);
+        return selectedItemsIndex.map((itemIndex, index) => {
+          const itemId = getNextOptionValue(removedDuplicatedOptions[itemIndex]);
+          const item = isObjectOptions ? getObjectOptionLabel(itemId, itemIndex) : removedDuplicatedOptions[itemIndex];
+          const title = isObjectOptions ? getObjectOptionLabel(itemId, itemIndex) : item;
 
-            return (
-              <Tag
-                key={itemId}
-                tagIndex={index}
-                crossIcon
-                onRemove={(_, event) => handleOnRemoveItem(event, itemIndex, index)}
-                title={getObjectOptionLabel(itemId, itemIndex)}
-              >
-                {getObjectOptionLabel(itemId, itemIndex)}
-              </Tag>
-            );
-          });
-        }
-
-        return selected.map((item: string, index: number) => (
-          <Tag key={index} tagIndex={index} crossIcon onRemove={(_, event) => handleOnRemoveItem(event, index, null)}>
-            {item}
-          </Tag>
-        ));
+          return (
+            <Tag
+              key={index}
+              tagIndex={index}
+              crossIcon
+              onRemove={(_, event) => handleOnRemoveItem(event, itemIndex, index)}
+              title={title}
+            >
+              {item}
+            </Tag>
+          );
+        });
       }
     };
 
