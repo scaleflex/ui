@@ -69,7 +69,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return option.id;
     };
 
-    const removedDuplicatedOptions = options.filter(
+    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
+      const filteredItems: any[] = [];
+      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
+
+      return filteredItems;
+    };
+
+    const removedDuplicatedOptions = getFilteredItems(
+      options,
       (option: any, index: number, array: any): any =>
         array.findIndex((item: any) => getNextOptionLabel(item) === getNextOptionLabel(option)) === index
     );
@@ -89,13 +97,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
-
-    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
-      const filteredItems: any[] = [];
-      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
-
-      return filteredItems;
-    };
 
     const handleOnChange = (event: any, val: any, id: any): void => {
       if (multiple) {
@@ -180,7 +181,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event: React.KeyboardEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
       item: string,
       id: any,
-      index: any
+      index: never
     ): void => {
       // make sure this item isn't already selected
       if (!multiple && (selected !== item || (isObjectOptions && selected !== id))) {
@@ -237,7 +238,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleCloseClick(event);
     };
 
-    const handleMenuItemClick = (event: any, item: string, index: number, id: any): any => {
+    const handleMenuItemClick = (event: any, item: string, index: never, id: any): any => {
       // menu item shouldn't be clickable if it's disabled or = 'No options'
       if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return null;
@@ -371,7 +372,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
               event,
               getNextOptionLabel(selectedOption),
               getNextOptionValue(selectedOption),
-              getOptionIndex(getOptionLabel(selectedOption))
+              getOptionIndex(getNextOptionLabel(selectedOption))
             );
           }
         }
@@ -436,7 +437,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setFilteredOptions(filteredMenuOptions || []);
     };
 
-    const isActiveMenuItem = (item: string, index: number, id: any): boolean => {
+    const isActiveMenuItem = (item: string, index: never, id: any): boolean => {
       if (
         item === selected ||
         index === currentItemIndex ||
@@ -449,7 +450,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return false;
     };
 
-    const showMiActions = (item: string, id: any, index: number): boolean => {
+    const showMiActions = (item: string, id: any, index: never): boolean => {
       if (
         item === selected ||
         (multiple && selected.includes(item)) ||
@@ -522,7 +523,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    const renderMenuItem = (item: string, index: number, id: any): any => {
+    const renderMenuItem = (item: string, index: never, id: any): any => {
       const optionIndex = getOptionIndex(item);
       const miActions = (
         <MenuItemActions>
