@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/scaleflex/ui/compare/v2.1.6...v2.1.7) (2023-08-31)
+
+
+### Bug Fixes
+
+* autocomplete filtered selected - SHA-40 ([2ca38d2](https://github.com/scaleflex/ui/commit/2ca38d2412c7be7d798e9a37b479eb358c80a520))
+* **Icons:** extra height in label icon ([8b5b47f](https://github.com/scaleflex/ui/commit/8b5b47fb9c25c93dcf77ed78f5ddb273472fbbc1))
+* **Icons:** fix no-folders icon dimensions ([59a439d](https://github.com/scaleflex/ui/commit/59a439dc71a5dd618e09f534e5c8a266ac005c0f))
+
+
+
+
+
+
 ## [2.1.6](https://github.com/scaleflex/ui/compare/v2.1.5...v2.1.6) (2023-08-17)
 
 **Note:** Version bump only for package ui

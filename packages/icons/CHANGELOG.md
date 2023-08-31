@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.7](https://github.com/scaleflex/ui/compare/v2.1.6...v2.1.7) (2023-08-31)
+
+
+### Bug Fixes
+
+* **Icons:** extra height in label icon ([8b5b47f](https://github.com/scaleflex/ui/commit/8b5b47fb9c25c93dcf77ed78f5ddb273472fbbc1))
+* **Icons:** fix no-folders icon dimensions ([59a439d](https://github.com/scaleflex/ui/commit/59a439dc71a5dd618e09f534e5c8a266ac005c0f))
+
+
+
+
+
+
 # [2.1.0](https://github.com/scaleflex/ui/compare/v2.0.3...v2.1.0) (2023-07-28)
 
 **Note:** Version bump only for package @scaleflex/icons
