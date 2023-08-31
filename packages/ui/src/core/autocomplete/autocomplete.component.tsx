@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
 import PT, { Validator } from 'prop-types';
-import Cross from '@scaleflex/icons/cross';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -621,16 +620,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
               <ArrowTick
                 onClick={disabled || readOnly ? undefined : handleOpenClick}
                 type={open ? 'top' : 'bottom'}
-                IconProps={{ size: size === Size.Md ? 16 : 14 }}
+                IconProps={{ size: size === Size.Md ? 11 : 10 }}
               />
             )}
-            clearIcon={
-              isItemSelected && (
-                <Styled.CrossIcon>
-                  <Cross size={12} />
-                </Styled.CrossIcon>
-              )
-            }
+            clearIcon={isItemSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />}
             clearIconClick={handleClearIconClick}
           />
         </Styled.AutocompleteContainer>

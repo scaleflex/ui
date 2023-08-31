@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
@@ -39,13 +40,11 @@ const TickIcon = styled.span.attrs({
   `
 );
 
-const CrossIcon = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'crossIcon'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+const CrossIcon = styled(CrossOutline)`
+  ${({ theme: { palette } }) => css`
     color: ${palette[PColor.IconsSecondary]};
-  `
-);
+  `}
+`;
 
 const AutocompleteContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'container'),
