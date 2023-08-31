@@ -69,15 +69,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return option.id;
     };
 
-    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
-      const filteredItems: any[] = [];
-      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
-
-      return filteredItems;
-    };
-
-    const removedDuplicatedOptions = getFilteredItems(
-      options,
+    const removedDuplicatedOptions = options.filter(
       (option: any, index: number, array: any): any =>
         array.findIndex((item: any) => getNextOptionLabel(item) === getNextOptionLabel(option)) === index
     );
@@ -97,6 +89,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
+
+    const getFilteredItems = (items: any[], callBackFun: any): any[] => {
+      const filteredItems: any[] = [];
+      items.forEach((item: any) => callBackFun(item) && filteredItems.push(item));
+
+      return filteredItems;
+    };
 
     const handleOnChange = (event: any, val: any, id: any): void => {
       if (multiple) {
