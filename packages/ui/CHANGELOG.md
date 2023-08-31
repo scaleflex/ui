@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.8](https://github.com/scaleflex/ui/compare/v2.1.7...v2.1.8) (2023-08-31)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+
 ## [2.1.7](https://github.com/scaleflex/ui/compare/v2.1.6...v2.1.7) (2023-08-31)
 
 
