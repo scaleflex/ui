@@ -181,7 +181,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event: React.KeyboardEvent<HTMLInputElement> | React.SyntheticEvent<HTMLInputElement>,
       item: string,
       id: any,
-      index: never
+      index: number
     ): void => {
       // make sure this item isn't already selected
       if (!multiple && (selected !== item || (isObjectOptions && selected !== id))) {
@@ -238,7 +238,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleCloseClick(event);
     };
 
-    const handleMenuItemClick = (event: any, item: string, index: never, id: any): any => {
+    const handleMenuItemClick = (event: any, item: string, index: number, id: any): any => {
       // menu item shouldn't be clickable if it's disabled or = 'No options'
       if (item === noOptionsText || (getOptionDisabled && getOptionDisabled(item, index))) {
         return null;
@@ -437,7 +437,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       setFilteredOptions(filteredMenuOptions || []);
     };
 
-    const isActiveMenuItem = (item: string, index: never, id: any): boolean => {
+    const isActiveMenuItem = (item: string, index: number, id: any): boolean => {
       if (
         item === selected ||
         index === currentItemIndex ||
@@ -450,7 +450,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return false;
     };
 
-    const showMiActions = (item: string, id: any, index: never): boolean => {
+    const showMiActions = (item: string, id: any, index: number): boolean => {
       if (
         item === selected ||
         (multiple && selected.includes(item)) ||
@@ -523,7 +523,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return null;
     };
 
-    const renderMenuItem = (item: string, index: never, id: any): any => {
+    const renderMenuItem = (item: string, index: number, id: any): any => {
       const optionIndex = getOptionIndex(item);
       const miActions = (
         <MenuItemActions>
