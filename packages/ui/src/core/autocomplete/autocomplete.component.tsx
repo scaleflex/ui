@@ -89,7 +89,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
     const [currentItemIndex, setCurrentItemIndex] = useState<number>(-1);
     const [renderedValue, setRenderedValue] = useState('');
-    const [selectedItemsIndex, setSelectedIemsIndex] = useState([]);
+    const [selectedItemsIndex, setSelectedIemsIndex] = useState<number[]>([]);
 
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0 || selectedItemsIndex.length > 0;
