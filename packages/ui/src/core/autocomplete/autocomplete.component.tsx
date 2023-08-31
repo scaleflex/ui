@@ -299,8 +299,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         const filteredOptionItem = isObjectOptions ? filteredOptionLabel : option;
         const filteredOptionIndex = getOptionIndex(filteredOptionItem);
         if (
-          option !== noOptionsText ||
-          (getOptionDisabled && !getOptionDisabled(filteredOptionItem, filteredOptionIndex))
+          option !== noOptionsText &&
+          ((getOptionDisabled && !getOptionDisabled(filteredOptionItem, filteredOptionIndex)) || true)
         )
           return true;
 
@@ -366,13 +366,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           const selectedOption = filteredOptions[currentItemIndex];
 
           if (typeof selectedOption === 'string') {
-            handleSelectedItem(event, selectedOption, -1, currentItemIndex);
+            handleSelectedItem(event, selectedOption, -1, getOptionIndex(selectedOption));
           } else {
             handleSelectedItem(
               event,
               getNextOptionLabel(selectedOption),
               getNextOptionValue(selectedOption),
-              currentItemIndex
+              getOptionIndex(getOptionLabel(selectedOption))
             );
           }
         }
