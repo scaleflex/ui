@@ -264,6 +264,7 @@ export { FineTune } from './finetune';
 export { Saturation } from './saturation';
 export { Vignette } from './vignette';
 export { Annotate } from './annotate';
+export { BatchEdit } from './batch-edit';
 export { Blur } from './blur';
 export { AttentionFilled } from './attention-filled';
 export { PinOutline } from './pin-outline';
