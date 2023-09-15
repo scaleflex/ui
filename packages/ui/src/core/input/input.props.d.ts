@@ -7,6 +7,7 @@ export type InputBackgroundType = Values<typeof InputBackgroundColor>;
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   disabled?: boolean;
+  isEllipsis?: boolean;
   isHovering?: boolean;
   size?: InputSizeType;
   iconStart?: React.ReactNode | ((props: IconProps) => React.ReactNode);

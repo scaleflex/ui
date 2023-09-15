@@ -47,6 +47,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       options = [],
       placeholder,
       fullWidth,
+      sortAlphabetically,
       ...rest
     },
     ref
@@ -78,7 +79,21 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       return filteredItems;
     };
 
-    const removedDuplicatedOptions = getFilteredItems(options, (option: any, index: number, array: any) => {
+    const isObjectOptions = typeof options[0] === 'object';
+
+    const getSortedOptions = (): any => {
+      if (isObjectOptions && sortAlphabetically) {
+        return options.sort((a, b) => getNextOptionLabel(a).localeCompare(getNextOptionLabel(b)));
+      }
+
+      if (sortAlphabetically) {
+        return options.sort();
+      }
+
+      return options;
+    };
+
+    const removedDuplicatedOptions = getFilteredItems(getSortedOptions(), (option: any, index: number, array: any) => {
       if (array.findIndex((item: any) => getNextOptionLabel(item) === getNextOptionLabel(option)) === index) {
         return true;
       }
@@ -97,7 +112,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const open = Boolean(anchorEl);
     const isItemSelected = selected.length > 0 || selectedItemsIndex.length > 0;
-    const isObjectOptions = typeof removedDuplicatedOptions[0] === 'object';
     const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
@@ -621,6 +635,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             disabled={disabled}
             placeholder={placeholder}
             fullWidth={fullWidth}
+            isEllipsis
             iconEnd={() => (
               <ArrowTick
                 onClick={disabled || readOnly ? undefined : handleOpenClick}

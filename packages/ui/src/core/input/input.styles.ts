@@ -68,7 +68,7 @@ const Container = styled.div.attrs({
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<InputProps>(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, isEllipsis = false }: With<WithTheme, InputProps>) => css`
     display: block;
     color: inherit;
     width: 100%;
@@ -78,6 +78,11 @@ const Base = styled.input.attrs({
     border: 0;
     background-color: transparent;
     outline: none;
+
+    ${isEllipsis &&
+    css`
+      text-overflow: ellipsis;
+    `}
 
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
@@ -194,7 +199,7 @@ const NotificationBox = styled.div.attrs({
   ({ size = InputSize.Md, theme: { palette } }: With<WithTheme, InputProps>) => css`
     display: flex;
     position: absolute;
-    align-item: center;
+    align-items: center;
     max-height: 34px;
     right: 0px;
     padding: 8px 12px;

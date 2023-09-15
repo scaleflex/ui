@@ -8,7 +8,7 @@ export const MinusOutline = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 50 50"
+      viewBox="0 0 38 6"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
@@ -16,7 +16,7 @@ export const MinusOutline = intrinsicComponent<IconProps, SVGSVGElement>(
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M35.835 5.07641L2.16498 5.07641C1.00277 5.07641 0.0606079 4.14677 0.0606079 3C0.060608 1.85323 1.00277 0.923584 2.16498 0.923584L35.835 0.923585C36.9972 0.923585 37.9394 1.85323 37.9394 3C37.9394 4.14677 36.9972 5.07641 35.835 5.07641Z"
+        d="M35.835 5.0769L2.16498 5.0769C1.00277 5.0769 0.0606079 4.14726 0.0606079 3.00048C0.060608 1.85371 1.00277 0.924072 2.16498 0.924072L35.835 0.924074C36.9972 0.924074 37.9394 1.85372 37.9394 3.00049C37.9394 4.14726 36.9972 5.0769 35.835 5.0769Z"
         fill={color}
       />
     </svg>
