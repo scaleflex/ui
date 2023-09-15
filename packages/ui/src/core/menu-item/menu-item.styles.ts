@@ -35,9 +35,6 @@ const Label = styled.span.attrs({
   align-items: center;
   column-gap: 4px;
   flex-grow: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 `;
 
 const MenuItemWrapper = styled.div.attrs({

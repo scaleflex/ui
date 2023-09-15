@@ -54,6 +54,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       hideCopyIcon = false,
       focusOnMount = false,
       focusOnClick = true,
+      isEllipsis = false,
       copyTextMessage,
       copySuccessIcon,
       error,
@@ -180,6 +181,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           ref={inputRef}
           readOnly={Boolean(readOnly)}
           type={getInputType()}
+          isEllipsis={isEllipsis}
         />
       </Styled.FieldWrapper>
     );

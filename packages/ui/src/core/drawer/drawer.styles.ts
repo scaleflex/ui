@@ -64,7 +64,7 @@ const Drawer = styled.div.attrs({
       height: 100%;
     }
     box-sizing: border-box;
-    width: ${isCollapsed ? '68px' : '250px'};
+    width: ${isCollapsed ? '68px' : '302px'};
     padding: ${isCollapsed && '0px 12px'};
     ${scrollBar}
   `
@@ -91,6 +91,10 @@ const Body = styled.div.attrs({
   className: generateClassNames(baseClassName, 'body'),
 })`
   flex: 1 1 auto;
+
+  .SfxAccordionDetails-root {
+    margin: 0;
+  }
 `;
 
 const Footer = styled.div.attrs({
@@ -107,10 +111,10 @@ const Footer = styled.div.attrs({
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
 })(
-  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+  () => css`
     list-style: none;
-    margin: 0px;
-    padding: ${isCollapsed ? '8px 0px ' : '8px 8px'};
+    margin: 12px 0;
+    padding: 0;
     position: relative;
   `
 );
@@ -133,7 +137,7 @@ const Item = styled.li.attrs({
     text-align: left;
     padding: 13px 16px;
     transition: background-color 100ms ease-out;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     cursor: pointer;
     &:hover {
       background-color: ${palette[PColor.BackgroundActive]};
