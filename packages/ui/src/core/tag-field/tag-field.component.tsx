@@ -73,8 +73,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       [filteredTags]
     );
     const filteredSuggestions = useMemo(() => {
-      const filteredItems = suggestedTags.filter(
-        (suggestion) => !existingLabels.includes(getTagLabel(suggestion).toLowerCase())
+      const filteredItems = suggestedTags?.filter(
+        (suggestion) => !existingLabels?.includes(getTagLabel(suggestion)?.toLowerCase())
       );
 
       return suggestionsFilter(filteredItems, userInput, getTagLabel, alwaysShowSuggestedTags);
@@ -82,7 +82,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const handleTagAdd = (item: any, type: AddTagTypesType): void => {
       if (!item) return;
-
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
 
       if (!filteredTags.some((tag: TagType) => getTagLabel(tag).toLowerCase() === tagLabel.toLowerCase())) {
@@ -92,21 +91,23 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const convertToLower = (value: string): string => value.toLocaleLowerCase();
 
-    const findSuggestedTagByLabel = (input: string) =>
-      suggestedTags.find((suggested: any) => convertToLower(getTagLabel(suggested)) === convertToLower(input));
+    const isMatchingSuggestedTag = filteredSuggestions.some(
+      (item) => convertToLower(getTagLabel(item)) === convertToLower(userInput)
+    );
 
     const handleAddingTag = (): void => {
       if (userInput) {
-        const suggestedTag = findSuggestedTagByLabel(userInput);
-
-        if (!suggestedTag) {
+        if (isMatchingSuggestedTag) {
+          const nextUserInput = filteredSuggestions.find(
+            (item) => convertToLower(getTagLabel(item)) === convertToLower(userInput)
+          );
+          handleTagAdd(nextUserInput, AddTagType.Suggestion);
+        } else {
           handleTagAdd(userInput, AddTagType.UserInput);
-        } else if (!filteredTags.some((tag: TagType) => getTagValue(tag) === getTagValue(suggestedTag))) {
-          handleTagAdd(userInput, AddTagType.Suggestion);
         }
-
-        setUserInput('');
       }
+
+      setUserInput('');
     };
 
     const handleTagsValidation = (): void => {
@@ -124,8 +125,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
         setTagsHint('');
         setTagsError(false);
         handleAddingTag();
-      } else {
-        handleAddingTag();
       }
     };
 
@@ -139,7 +138,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
       if ((event.key === 'Enter' && !disableOnEnter) || (event.key === ' ' && submitOnSpace)) {
         event.preventDefault();
-        handleTagsValidation();
+        handleAddingTag();
       } else if (event.key === 'Backspace' && !userInput && filteredTags?.length > 0) {
         const index = filteredTags.length - 1;
         onRemove(index, getTagValue(filteredTags[index]), setUserInput, event);
@@ -278,6 +277,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   type="suggested"
                   crossIcon={false}
                   onSelect={() => {
+                    console.log('ssssssssss');
                     handleTagAdd(suggestion, AddTagType.Suggestion);
                     setUserInput('');
                   }}
