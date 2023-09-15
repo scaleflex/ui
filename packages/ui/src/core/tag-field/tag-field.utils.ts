@@ -1,3 +1,4 @@
+import { escapeRegExp } from '@scaleflex/ui/utils/functions';
 import type { TagType, SuggestionsFilterFnType } from './tag-field.props';
 
 const tagsSuggestionsFilter = <SuggestionsFilterFnType>((
@@ -17,7 +18,7 @@ const tagsSuggestionsFilter = <SuggestionsFilterFnType>((
   let suggestions = [...suggestedTags];
 
   if (userInput) {
-    const regexp = new RegExp(userInput, 'i');
+    const regexp = new RegExp(escapeRegExp(userInput), 'i');
 
     suggestions = suggestions.filter((suggestion: TagType) => regexp.test(getTagLabel(suggestion)));
   }
