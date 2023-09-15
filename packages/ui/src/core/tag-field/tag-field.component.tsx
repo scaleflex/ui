@@ -101,7 +101,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
         if (!suggestedTag) {
           handleTagAdd(userInput, AddTagType.UserInput);
-        } else if (!tags.some((tag: TagType) => getTagValue(tag) === getTagValue(suggestedTag))) {
+        } else if (!filteredTags.some((tag: TagType) => getTagValue(tag) === getTagValue(suggestedTag))) {
           handleTagAdd(userInput, AddTagType.Suggestion);
         }
 
@@ -140,7 +140,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       if ((event.key === 'Enter' && !disableOnEnter) || (event.key === ' ' && submitOnSpace)) {
         event.preventDefault();
         handleTagsValidation();
-      } else if (event.key === 'Backspace' && !userInput) {
+      } else if (event.key === 'Backspace' && !userInput && filteredTags?.length > 0) {
         const index = filteredTags.length - 1;
         onRemove(index, getTagValue(filteredTags[index]), setUserInput, event);
       }
