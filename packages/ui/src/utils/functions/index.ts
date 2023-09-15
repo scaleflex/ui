@@ -11,3 +11,4 @@ export * from './color-picker/color-converters';
 export * from './get-elem-document-coords';
 export * from './slider/utils';
 export * from './scrollbar';
+export * from './escape-regexp';
