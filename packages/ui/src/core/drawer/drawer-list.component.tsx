@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { intrinsicComponent } from '../../utils/functions';
-import DrawerContext from './drawer.context';
 import type { DrawerListProps } from './drawer.props';
 import Styled from './drawer.styles';
 
