@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.10](https://github.com/scaleflex/ui/compare/v2.1.9...v2.1.10) (2023-09-17)
+
+
+### Bug Fixes
+
+* **Core/TagField:** click Enter inside input has not expected result ([317c5a7](https://github.com/scaleflex/ui/commit/317c5a732821dce313953064e305be73cd494ab8))
+* **Core/TagField:** handling press Backspace in empty field ([8d666f9](https://github.com/scaleflex/ui/commit/8d666f983f7fb7ef74b472d091c12ca6ae824f1d))
+* **Core/TagField:** js error for spec symbols (like backspace) in suggestions filter ([0ae3773](https://github.com/scaleflex/ui/commit/0ae3773bfee73caae13b57592a901e1878f30f7d))
+
+
+### Features
+
+* **Utils:** add fn escapeRegExp ([e9cdbd6](https://github.com/scaleflex/ui/commit/e9cdbd64f53361551adb2b50dcc979a1b953a505))
+
+
+
+
+
+
 ## [2.1.9](https://github.com/scaleflex/ui/compare/v2.1.8...v2.1.9) (2023-08-31)
 
 **Note:** Version bump only for package @scaleflex/ui

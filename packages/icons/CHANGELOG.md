@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.10](https://github.com/scaleflex/ui/compare/v2.1.9...v2.1.10) (2023-09-17)
+
+
+### Bug Fixes
+
+* **Icons:** fix minus outline icon ([85c3c3f](https://github.com/scaleflex/ui/commit/85c3c3f259e238a343e1c0e3796092a8640f0e7d))
+* **Icons:** fix reset icon ([b54e573](https://github.com/scaleflex/ui/commit/b54e5739648abd68ca8882cd7c1d14d978617c75))
+* **Icons:** update annotate icon and add batch edit icon ([646d41b](https://github.com/scaleflex/ui/commit/646d41b72f25c02b1bb825c86085d0389c957355))
+
+
+
+
+
+
 ## [2.1.7](https://github.com/scaleflex/ui/compare/v2.1.6...v2.1.7) (2023-08-31)
 
 
