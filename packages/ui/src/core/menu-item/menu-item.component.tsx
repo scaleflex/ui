@@ -72,7 +72,12 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           return <Styled.MenuItemWrapper divider key={option.key} />;
         }
         return (
-          <Styled.MenuItemWrapper disabled={false} key={option.key} onMouseLeave={() => handleCloseSubMenu(depthLevel)}>
+          <Styled.MenuItemWrapper
+            disabled={false}
+            key={option.key}
+            onMouseLeave={() => handleCloseSubMenu(depthLevel)}
+            {...props}
+          >
             <Styled.MenuItem
               {...props}
               className={option.className}
