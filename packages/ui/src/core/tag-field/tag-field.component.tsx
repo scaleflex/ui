@@ -277,7 +277,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   type="suggested"
                   crossIcon={false}
                   onSelect={() => {
-                    console.log('ssssssssss');
                     handleTagAdd(suggestion, AddTagType.Suggestion);
                     setUserInput('');
                   }}
