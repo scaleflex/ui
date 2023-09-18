@@ -417,15 +417,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const getMultipleFilteredOptions = (): void => {
       let filteredMenuOptions = [];
 
-      if (isObjectOptions) {
+      if (isObjectOptions || multiple) {
         filteredMenuOptions = getFilteredItems(removedDuplicatedOptions, (item: any) =>
           getMultipleFilteredItems(item, renderedValue)
-        );
-      } else if (isItemSelected) {
-        const lastValue = value[value.length - 1];
-
-        filteredMenuOptions = getFilteredItems(removedDuplicatedOptions, (item: any) =>
-          getMultipleFilteredItems(item, lastValue)
         );
       } else {
         // filter menu options based on the value[0] as it's an array in multiple mode
@@ -470,6 +464,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
     const showMiActions = (item: string, id: any, index: number): boolean => {
       if (
+        selected === id ||
         item === selected ||
         (multiple && selected.includes(item)) ||
         (isObjectOptions && selected.includes(id) && selectedItemsIndex.includes(index))
@@ -601,6 +596,28 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       const filteredMenuOptions = isObjectOptions
         ? removedDuplicatedOptions.map((option: any) => getNextOptionLabel(option))
         : removedDuplicatedOptions;
+
+      if (value?.length) {
+        if (multiple) {
+          const nextOptionIndex = removedDuplicatedOptions.findIndex((option: any) =>
+            value.find((item: any) => getNextOptionValue(option) === item)
+          );
+
+          const nextOptionId = getNextOptionValue(removedDuplicatedOptions[nextOptionIndex]);
+
+          setSelected([nextOptionId]);
+          setSelectedIemsIndex([nextOptionIndex]);
+        } else {
+          const nextOptionIndex = removedDuplicatedOptions.findIndex(
+            (option: any) => getNextOptionValue(option) === value
+          );
+
+          const nextOptionId = getNextOptionValue(removedDuplicatedOptions[nextOptionIndex]);
+
+          setSelected(nextOptionId);
+          setSelectedIemsIndex([nextOptionIndex]);
+        }
+      }
 
       if (!multiple && value?.length !== 0) {
         const valueOptionIndex = filteredMenuOptions.findIndex((option: any) => option === value);
