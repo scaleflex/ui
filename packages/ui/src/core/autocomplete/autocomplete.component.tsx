@@ -599,14 +599,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
       if (value?.length) {
         if (multiple) {
-          const nextOptionIndex = removedDuplicatedOptions.findIndex((option: any) =>
-            value.find((item: any) => getNextOptionValue(option) === item)
+          const nextOptionIndex = value.map((item: any) =>
+            removedDuplicatedOptions.findIndex((option: any) => getNextOptionValue(option) === item)
           );
 
-          const nextOptionId = getNextOptionValue(removedDuplicatedOptions[nextOptionIndex]);
+          const nextOptionId = nextOptionIndex.map((item: any) => getNextOptionValue(removedDuplicatedOptions[item]));
 
-          setSelected([nextOptionId]);
-          setSelectedIemsIndex([nextOptionIndex]);
+          setSelected(nextOptionId);
+          setSelectedIemsIndex(nextOptionIndex);
         } else {
           const nextOptionIndex = removedDuplicatedOptions.findIndex(
             (option: any) => getNextOptionValue(option) === value
