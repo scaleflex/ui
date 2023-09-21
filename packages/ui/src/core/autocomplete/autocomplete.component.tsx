@@ -48,6 +48,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       placeholder,
       fullWidth,
       sortAlphabetically,
+      submitOnBlur,
       ...rest
     },
     ref
@@ -115,6 +116,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
+
+    const onBlurHandler = (): any => {
+      if (submitOnBlur) {
+        submitOnBlur();
+      }
+
+      setAnchorEl(undefined);
+    };
 
     const handleOnChange = (event: any, val: any, id: any): void => {
       if (multiple) {
@@ -551,6 +560,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           key={optionIndex}
           value={item}
           size={size}
+          onMouseDown={(e) => e.preventDefault()}
           noOptionsText={item === noOptionsText}
           disabled={getOptionDisabled && getOptionDisabled(item, optionIndex)}
           active={isActiveMenuItem(item, index, id)}
@@ -649,6 +659,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             focusOnMount={focusOnOpen}
             onKeyDown={handleKeyDown}
             onChange={handleInputChange}
+            onBlur={onBlurHandler}
             disabled={disabled}
             placeholder={placeholder}
             fullWidth={fullWidth}
@@ -718,6 +729,7 @@ Autocomplete.propTypes = {
   getOptionDisabled: PT.func,
   getOptionValue: PT.func,
   getOptionLabel: PT.func,
+  submitOnBlur: PT.func,
 };
 
 export default Autocomplete;
