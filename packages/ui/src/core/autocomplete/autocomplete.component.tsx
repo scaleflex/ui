@@ -166,6 +166,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           onChange(event, [...updatedSelectedItems, '']);
         }
       }
+
+      if (submitOnBlur) {
+        submitOnBlur();
+      }
     };
 
     const handleOpenClick = (event: any): void => {
