@@ -8,12 +8,12 @@ export const FontItalic = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 14 18"
+      viewBox="0 0 50 50"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <path d="M2.57409 19.3964H0.160461L3.42596 0.603638H5.83958L2.57409 19.3964Z" fill={color} />
+      <path fillRule="evenodd" clipRule="evenodd" d="M19 48L26.9931 2H31.2019L23.2087 48H19Z" fill={color} />
     </svg>
   )
 );

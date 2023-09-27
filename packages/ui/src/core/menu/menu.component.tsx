@@ -103,7 +103,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       <>
         <Popper
           ref={menuRef}
-          position={position || 'bottom'}
+          position={position || 'bottom-start'}
           open={Boolean(anchorEl)}
           anchorEl={anchorEl}
           overlay={Boolean(enableOverlay)}
@@ -134,7 +134,7 @@ export const defaultProps = {
   open: false,
   containerProps: {},
   maxHeight: 250,
-  position: Position.Bottom,
+  position: Position.BottomStart,
   enableOverlay: true,
   hideScroll: true,
   scroll: true,
