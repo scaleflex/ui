@@ -112,7 +112,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     const [selectedItemsIndex, setSelectedIemsIndex] = useState<number[]>([]);
 
     const open = Boolean(anchorEl);
-    const isItemSelected = selected.length > 0 || selectedItemsIndex.length > 0;
+    const isItemSelected = (multiple ? selected?.length > 0 : !!selected) || selectedItemsIndex.length > 0;
     const hasDuplicatedLabels = removedDuplicatedOptions.length !== options.length;
 
     const convertToLower = (val: string): string => (val || '').toString().toLowerCase();
