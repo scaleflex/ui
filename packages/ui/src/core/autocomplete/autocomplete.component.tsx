@@ -628,8 +628,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
 
           const nextOptionId = getNextOptionValue(removedDuplicatedOptions[nextOptionIndex]);
 
-          setSelected(nextOptionId);
-          setSelectedIemsIndex([nextOptionIndex]);
+          if (nextOptionId) {
+            setSelected(nextOptionId);
+            setSelectedIemsIndex([nextOptionIndex]);
+          }
         }
       }
 
