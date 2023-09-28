@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.17](https://github.com/scaleflex/ui/compare/v2.1.16...v2.1.17) (2023-09-28)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** can't read length property ([04be9bc](https://github.com/scaleflex/ui/commit/04be9bc6509e4b65a219af1e759b8d2ed75af76a))
+
+
+
+
+
 ## [2.1.16](https://github.com/scaleflex/ui/compare/v2.1.15...v2.1.16) (2023-09-28)
 
 
