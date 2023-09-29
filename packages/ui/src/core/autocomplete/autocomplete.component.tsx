@@ -647,7 +647,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (hasDuplicatedLabels) {
         console.warn('options have duplicate Labels');
       }
-    }, []);
+    }, [value]);
 
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
