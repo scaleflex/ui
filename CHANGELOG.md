@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.19](https://github.com/scaleflex/ui/compare/v2.1.18...v2.1.19) (2023-09-29)
+
+
+### Bug Fixes
+
+* **Icons:** fix italic icon ([d97c22b](https://github.com/scaleflex/ui/commit/d97c22b12363199ab1a8791ea359d5c196bc7c18))
+
+
+### Features
+
+* **Icons:** add rotate 90 icon ([042b71a](https://github.com/scaleflex/ui/commit/042b71a96e9474c22af89a22758629f54e78c385))
+* **Icons:** add success outline icon ([fa3c18f](https://github.com/scaleflex/ui/commit/fa3c18fbc30badcf3277c57f1997900c493184ca))
+* **RotationSlider:** add prop to show only the current value text ([1df2daa](https://github.com/scaleflex/ui/commit/1df2daa0196ab894f9d4f6b5527eef6b256497cf))
+
+
+
+
+
+
 ## [2.1.18](https://github.com/scaleflex/ui/compare/v2.1.17...v2.1.18) (2023-09-29)
 
 
