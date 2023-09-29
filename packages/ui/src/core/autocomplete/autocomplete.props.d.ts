@@ -17,7 +17,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   size?: AutocompleteSizeType;
   label?: React.ReactNode;
   hint?: React.ReactNode;
-  value: any;
+  value?: any;
   options: string[] | AutocompleteObjectOptionstype[];
   noOptionsText?: string;
   placeholder?: string;
