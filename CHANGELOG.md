@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.18](https://github.com/scaleflex/ui/compare/v2.1.17...v2.1.18) (2023-09-29)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** stabilise during value switching ([eae7a1e](https://github.com/scaleflex/ui/commit/eae7a1ec7a0d1cfd1384c86e9533e12b9c35f1fb))
+
+
+
+
+
 ## [2.1.17](https://github.com/scaleflex/ui/compare/v2.1.16...v2.1.17) (2023-09-28)
 
 
