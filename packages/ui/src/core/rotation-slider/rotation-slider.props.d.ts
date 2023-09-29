@@ -15,6 +15,7 @@ export interface RotationSliderProps extends React.HTMLAttributes<HTMLSpanElemen
   step?: number;
   annotation?: string;
   hideMarkText?: boolean;
+  showCurrentMarkText?: boolean;
   railProps?: PropsType;
   trackProps?: PropsType;
   thumbProps?: PropsType;

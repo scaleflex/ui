@@ -20,6 +20,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
       labelTooltipOptions = LabelTooltip.Off,
       annotation = '°',
       hideMarkText = false,
+      showCurrentMarkText = false,
       value,
       railProps = {},
       trackProps = {},
@@ -37,6 +38,27 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
       }
     };
 
+    const getValue = (): number | number[] => {
+      if (value || value === 0) {
+        if (value > max) {
+          return max;
+        }
+        if (value < min) {
+          return min;
+        }
+        return value;
+      }
+      return min;
+    };
+
+    const showMarkText = (index: number): boolean => {
+      if (hideMarkText) return false;
+
+      if (!showCurrentMarkText) return true;
+
+      return getValue() === index;
+    };
+
     const renderBar = (): JSX.Element[] => {
       const barDom = [];
       let barDiv;
@@ -46,7 +68,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
         if (i % angle === 0 || i === max) {
           barDiv = (
             <Styled.RotationSliderMark key={i} style={{ ...markStyles }}>
-              {!hideMarkText && (
+              {showMarkText(i) && (
                 <Styled.RotationSliderMarkText style={{ ...markTextStyles }}>
                   {i === min + 1 ? max : i}
                   <sup>{annotation}</sup>
@@ -67,19 +89,6 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
         }
       }
       return barDom;
-    };
-
-    const getValue = (): number | number[] => {
-      if (value || value === 0) {
-        if (value > max) {
-          return max;
-        }
-        if (value < min) {
-          return min;
-        }
-        return value;
-      }
-      return min;
     };
 
     return (
@@ -156,6 +165,7 @@ RotationSlider.propTypes = {
   step: PT.number,
   annotation: PT.string,
   hideMarkText: PT.bool,
+  showCurrentMarkText: PT.bool,
   railProps: PT.object,
   trackProps: PT.object,
   thumbProps: PT.object,

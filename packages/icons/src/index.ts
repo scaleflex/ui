@@ -419,3 +419,4 @@ export { OtherOptions } from './other-options';
 export { NoLogs2 } from './no-logs-2';
 export { NoFolders2 } from './no-folders-2';
 export { Routing } from './routing';
+export { Rotate90 } from './rotate-90';
