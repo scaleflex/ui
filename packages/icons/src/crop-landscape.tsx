@@ -8,7 +8,7 @@ export const CropLandscape = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 51 36"
+      viewBox="0 0 53 37"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}

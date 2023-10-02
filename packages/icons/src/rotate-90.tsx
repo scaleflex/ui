@@ -8,7 +8,7 @@ export const Rotate90 = intrinsicComponent<IconProps, SVGSVGElement>(
       ref={ref}
       width={size}
       height={size}
-      viewBox="0 0 50 42"
+      viewBox="0 0 52 42"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
