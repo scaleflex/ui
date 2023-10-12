@@ -14,6 +14,7 @@ export interface SelectGroupProps
   fullWidth?: boolean;
   scroll?: boolean;
   readOnly?: boolean;
+  showSelectionKey?: boolean;
   disabled?: boolean;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }

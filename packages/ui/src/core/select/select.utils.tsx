@@ -115,9 +115,9 @@ const getOptionValue = (option: any): string => {
   return children;
 };
 
-const renderOptionValue = (option: any) => {
+const renderOptionValue = (option: any, showSelectionKey: boolean): any => {
   if (option && option.children) {
-    let child = option.children;
+    let child = showSelectionKey ? option.value : option.children;
     while (typeof child !== 'string') {
       if (Array.isArray(child)) {
         child = getOptionValue(child[1]);
@@ -129,7 +129,12 @@ const renderOptionValue = (option: any) => {
   }
 };
 
-export const renderValue = ({ value, multiple = false, children }: RenderValue): SelectSimpleValueType => {
+export const renderValue = ({
+  value,
+  multiple = false,
+  children,
+  showSelectionKey = false,
+}: RenderValue): SelectSimpleValueType => {
   const optionsProps: { value: SelectSimpleValueType }[] = [];
 
   React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
@@ -149,7 +154,7 @@ export const renderValue = ({ value, multiple = false, children }: RenderValue):
     : [optionsProps.find((itemProps) => itemProps.value === value)];
 
   if (activeOptions.length > 0) {
-    return activeOptions.map(renderOptionValue).join(', ');
+    return activeOptions.map((option) => renderOptionValue(option, showSelectionKey)).join(', ');
   }
 
   return Array.isArray(value) ? value.join(', ') : value;

@@ -29,6 +29,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       disabled,
       scroll = true,
       placeholder,
+      showSelectionKey,
       renderLabel,
       onRequestClose,
       ...rest
@@ -57,11 +58,14 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           error={error}
           fullWidth={Boolean(fullWidth)}
           readOnly={readOnly}
+          showSelectionKey={showSelectionKey}
           onClick={readOnly || disabled ? undefined : handleClick}
         >
           {isValueExists && (
             <Styled.Label>
-              {typeof renderLabel === 'function' ? renderLabel(value) : renderValue({ value, multiple, children })}
+              {typeof renderLabel === 'function'
+                ? renderLabel(value)
+                : renderValue({ value, multiple, children, showSelectionKey })}
             </Styled.Label>
           )}
 
@@ -118,6 +122,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  showSelectionKey: PT.bool,
   scroll: PT.bool,
   renderLabel: PT.func,
   onRequestClose: PT.func,

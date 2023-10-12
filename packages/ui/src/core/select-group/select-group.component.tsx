@@ -27,6 +27,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       selectProps,
       scroll = true,
       fullWidth,
+      showSelectionKey,
       value,
       multiple,
       onChange,
@@ -89,6 +90,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           readOnly={readOnly}
           disabled={disabled}
           placeholder={placeholder}
+          showSelectionKey={showSelectionKey}
         >
           {children}
         </Select>
@@ -120,6 +122,7 @@ SelectGroup.propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   scroll: PT.bool,
+  showSelectionKey: PT.bool,
   disabled: PT.bool,
 };
 
