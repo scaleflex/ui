@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
+
+
+### Bug Fixes
+
+* **Select:** fix select value FRA-2799 ([6051c9a](https://github.com/scaleflex/ui/commit/6051c9ac16bd66d3bacd16d6169117348c64c57a))
+
+
+
+
+
+
 ## [2.1.19](https://github.com/scaleflex/ui/compare/v2.1.18...v2.1.19) (2023-09-29)
 
 

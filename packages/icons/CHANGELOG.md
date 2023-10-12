@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
+
+
+### Bug Fixes
+
+* **Icons:** view box values ([8959e49](https://github.com/scaleflex/ui/commit/8959e4902d8e2fd4eb768db817c51c88ee7d7772))
+* **Icons:** view box values ([e0022ce](https://github.com/scaleflex/ui/commit/e0022ce451864e8843a81076d3061a72c4b10748))
+
+
+
+
+
+
 ## [2.1.19](https://github.com/scaleflex/ui/compare/v2.1.18...v2.1.19) (2023-09-29)
 
 
