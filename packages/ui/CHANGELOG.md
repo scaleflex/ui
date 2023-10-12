@@ -3,6 +3,84 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.19](https://github.com/scaleflex/ui/compare/v2.1.18...v2.1.19) (2023-09-29)
+
+
+### Bug Fixes
+
+* **Icons:** fix italic icon ([d97c22b](https://github.com/scaleflex/ui/commit/d97c22b12363199ab1a8791ea359d5c196bc7c18))
+
+
+### Features
+
+* **RotationSlider:** add prop to show only the current value text ([1df2daa](https://github.com/scaleflex/ui/commit/1df2daa0196ab894f9d4f6b5527eef6b256497cf))
+
+
+
+
+
+
+## [2.1.18](https://github.com/scaleflex/ui/compare/v2.1.17...v2.1.18) (2023-09-29)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** stabilise during value switching ([eae7a1e](https://github.com/scaleflex/ui/commit/eae7a1ec7a0d1cfd1384c86e9533e12b9c35f1fb))
+
+
+
+
+
+## [2.1.17](https://github.com/scaleflex/ui/compare/v2.1.16...v2.1.17) (2023-09-28)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** can't read length property ([04be9bc](https://github.com/scaleflex/ui/commit/04be9bc6509e4b65a219af1e759b8d2ed75af76a))
+
+
+
+
+
+## [2.1.16](https://github.com/scaleflex/ui/compare/v2.1.15...v2.1.16) (2023-09-28)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** can't read length property ([8065bfb](https://github.com/scaleflex/ui/commit/8065bfb0eb5b1d30b7a4f225253d7e740f998624))
+
+
+
+
+
+## [2.1.15](https://github.com/scaleflex/ui/compare/v2.1.14...v2.1.15) (2023-09-28)
+
+
+### Bug Fixes
+
+* **Core/Autocomplete:** can't read length property ([d7be9d8](https://github.com/scaleflex/ui/commit/d7be9d88098e60e1b98b77b68478106e73cd1199))
+
+
+
+
+
+## [2.1.14](https://github.com/scaleflex/ui/compare/v2.1.13...v2.1.14) (2023-09-22)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.1.13](https://github.com/scaleflex/ui/compare/v2.1.12...v2.1.13) (2023-09-21)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+
 ## [2.1.12](https://github.com/scaleflex/ui/compare/v2.1.11...v2.1.12) (2023-09-19)
 
 **Note:** Version bump only for package @scaleflex/ui
