@@ -37,7 +37,6 @@ export const lightPalette = {
   [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255, 255, 255, 0.500)',
   [Color.BackgroundPrimaryStateless]: '#CCD6DE',
   [Color.BackgroundSecondary]: 'rgba(255, 255, 255, 1)',
-  [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
   [Color.BackgroundHover]: 'rgba(249, 251, 252, 1)', // #F9FBFC
   [Color.BackgroundGreen]: 'rgba(237, 250, 244, 1)',
   [Color.BackgroundGreenMedium]: 'rgba(227, 250, 239, 1)', // #E3FAEF
@@ -53,7 +52,6 @@ export const lightPalette = {
   [Color.IconsPlaceholder]: 'rgba(223, 231, 237, 1)', // #DFE7ED
   [Color.IconsInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.IconsMuted]: 'rgba(169, 182, 194, 1)', // #A9B6C2
-  [Color.IconsInvert]: 'rgba(255, 255, 255, 1)', // #ffffff
   [Color.IconsPrimaryHover]: 'rgba(79, 98, 118, 1)', // #4F6276
   [Color.IconsSecondaryHover]: 'rgba(118, 138, 159, 1)', // #768A9F
 
