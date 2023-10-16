@@ -12,14 +12,23 @@ import { Shadows } from '../../utils/types/shadows';
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
 
-import { Theme, ThemeOverride, defaultTheme } from '../entity';
+import { Theme, ThemeOverride } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 import { defaultShadows } from '../roots/shadows';
+import { defaultTypography } from '../roots/typography';
 
 import type { ThemeProviderProps } from './theme-provider.props';
-import createBreakpoints from '../entity/create-breakpoints';
+import createBreakpoints from '../roots/breakpoints/entity/create-breakpoints';
 import type { Breakpoint as BreakpointsKeys } from '../roots/breakpoints/entity/breakpoints-map';
+
+const defaultShape = {
+  borderRadius: {
+    [BorderRadiusSize.Sm]: '2px',
+    [BorderRadiusSize.Md]: '4px',
+    [BorderRadiusSize.Lg]: '8px',
+  },
+};
 
 const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   const {
@@ -47,7 +56,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       typography: {
         ...merge(
           {
-            ...defaultTheme.typography,
+            ...defaultTypography,
           },
           {
             ...typographyOverride,
@@ -57,7 +66,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       shape: {
         ...merge(
           {
-            ...defaultTheme.shape,
+            ...defaultShape,
           },
           {
             ...shapeOverride,
@@ -82,7 +91,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   );
 };
 
-const { baseLineHeight, font, ...typography } = defaultTheme.typography;
+const { baseLineHeight, font, ...typography } = defaultTypography;
 
 ThemeProvider.propTypes = {
   children: PT.oneOfType([PT.node, PT.func, PT.arrayOf(PT.node)]).isRequired,

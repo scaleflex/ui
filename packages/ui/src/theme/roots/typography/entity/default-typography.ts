@@ -1,8 +1,5 @@
-import { Breakpoint } from '../../utils/types/css';
-import { FontVariant, FontWeight } from '../../utils/types/typography';
-import { BorderRadiusSize } from '../../utils/types/shape';
-
-import type { Theme } from './theme';
+/* eslint-disable sonarjs/no-duplicate-string */
+import { FontVariant, FontWeight } from '../../../../utils/types/typography';
 
 const fontFamily = '"Roboto"';
 const defaultFontValue = {
@@ -334,54 +331,17 @@ const titleFontVariants = {
   },
 };
 
-export const defaultTheme: Pick<Theme, 'breakpoints' | 'typography' | 'shape'> = {
-  breakpoints: {
-    keys: [Breakpoint.Xs, Breakpoint.Sm, Breakpoint.Md, Breakpoint.Lg, Breakpoint.Xl],
-    values: {
-      [Breakpoint.Xs]: 0,
-      [Breakpoint.Sm]: 576,
-      [Breakpoint.Md]: 768,
-      [Breakpoint.Lg]: 1084,
-      [Breakpoint.Xl]: 1342,
-      [Breakpoint.Xxl]: 1600,
-      [Breakpoint.Xxxl]: 1920,
-    },
-    classes: {
-      [Breakpoint.Xs]: '.sfx-breakpoint-xs',
-      [Breakpoint.Sm]: '.sfx-breakpoint-sm',
-      [Breakpoint.Md]: '.sfx-breakpoint-md',
-      [Breakpoint.Lg]: '.sfx-breakpoint-lg',
-      [Breakpoint.Xl]: '.sfx-breakpoint-xl',
-      [Breakpoint.Xxl]: '.sfx-breakpoint-xxl',
-      [Breakpoint.Xxxl]: '.sfx-breakpoint-xxxl',
-    },
-    getBreakpointClass: () => '',
-    up: () => '',
-    down: () => '',
-    between: () => '',
-    only: () => '',
-  },
+export const defaultTypography = {
+  // htmlFontSize: '14px',
+  fontFamily,
+  baseLineHeight: 1.375,
 
-  typography: {
-    // htmlFontSize: '14px',
-    fontFamily,
-    baseLineHeight: 1.375,
-
-    font: {
-      ...labelFontVariants,
-      ...textFontVariants,
-      ...buttonFontVariants,
-      ...linkFontVariants,
-      ...inputFontVariants,
-      ...titleFontVariants,
-    },
-  },
-
-  shape: {
-    borderRadius: {
-      [BorderRadiusSize.Sm]: '2px',
-      [BorderRadiusSize.Md]: '4px',
-      [BorderRadiusSize.Lg]: '8px',
-    },
+  font: {
+    ...labelFontVariants,
+    ...textFontVariants,
+    ...buttonFontVariants,
+    ...linkFontVariants,
+    ...inputFontVariants,
+    ...titleFontVariants,
   },
 };

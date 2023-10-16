@@ -1,9 +1,9 @@
-import { defaultTheme } from '.';
-import { Breakpoints } from '../roots/breakpoints/entity';
-import { Breakpoint } from '../roots/breakpoints/entity/breakpoints-map';
+import { defaultBreakpoints } from './default-breakpoints';
+import { Breakpoints } from '.';
+import { Breakpoint } from './breakpoints-map';
 
 const createBreakpoints = (breakpoints: Partial<Breakpoints>): Breakpoints => {
-  const { values = defaultTheme.breakpoints.values, classes = defaultTheme.breakpoints.classes } = breakpoints;
+  const { values = defaultBreakpoints.values, classes = defaultBreakpoints.classes } = breakpoints;
   const unit = 'px';
 
   const keys = Object.keys(values) as Breakpoint[];
