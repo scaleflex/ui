@@ -17,7 +17,8 @@ const LabelWrapper = styled.span.attrs({
     margin-left: 44px;
     margin-right: 28px;
     padding: 16px;
-    padding-right: 0px;
+    padding-right: 0;
+    overflow: hidden;
     background: ${palette[PColor.ButtonPrimaryText]};
   `
 );
@@ -31,8 +32,9 @@ const Label = styled.span.attrs({
       typography: { font },
     },
   }: WithTheme) => css`
-    display: flex;
-    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: ${palette[PColor.TextPrimary]};
 
     ${font[FontVariant.TextSmallUp]}
@@ -64,7 +66,7 @@ const CloseWrapper = styled.div.attrs({
     align-items: flex-start;
     box-sizing: border-box;
     padding: 2px;
-    height: 100%;
+    height: fit-content;
     cursor: pointer;
     background: ${theme.palette[PColor.BackgroundStateless]};
     border-radius: 0 4px 4px 0;
