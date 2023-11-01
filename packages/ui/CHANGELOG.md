@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.21](https://github.com/scaleflex/ui/compare/v2.1.20...v2.1.21) (2023-11-01)
+
+
+### Bug Fixes
+
+* **Autocomplete:** fix change option issuse ([ddc8af3](https://github.com/scaleflex/ui/commit/ddc8af35dc3926dfad054572bbc061945a2da194))
+* **Snackbar:** fix text overflow ([0132031](https://github.com/scaleflex/ui/commit/01320318bbcdfbee576c0080ca104be67e6acf56))
+
+
+
+
+
+
 ## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
 
 
