@@ -95,7 +95,9 @@ export const lightPalette = {
   [Color.Error_0_12_Opacity]: 'rgba(255, 86, 78, 0.1)', // #FF564E1A
   [Color.ErrorHover]: 'rgba(216, 46, 46, 1)', // #D82E2E
   [Color.ErrorActive]: 'rgba(185, 33, 46, 1)', // #B9212E
-  [Color.Success]: 'rgba(62, 207, 139, 1)', // #3ECF8B
+  [Color.Success]: 'rgba(38, 193, 122, 1)', // #26C17A
+  [Color.SuccessHover]: 'rgba(30, 154, 98, 1)', // #1E9A62
+  [Color.SuccessActive]: 'rgba(23, 116, 73, 1)', // #177449 
   [Color.Warning]: 'rgba(255, 172, 74, 1)', // #FFAC4A
   [Color.WarningHover]: 'rgba(237, 145, 7, 1)', // #ED9107
   [Color.WarningActive]: 'rgba(224, 135, 0, 1)', // #E08700

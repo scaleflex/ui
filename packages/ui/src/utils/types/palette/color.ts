@@ -91,6 +91,8 @@ export const Color = {
   ErrorHover: 'error-hover',
   ErrorActive: 'error-active',
   Success: 'success',
+  SuccessHover: 'success-hover',
+  SuccessActive: 'success-Active',
   Warning: 'warning',
   WarningHover: 'warning-hover',
   WarningActive: 'warning-active',
