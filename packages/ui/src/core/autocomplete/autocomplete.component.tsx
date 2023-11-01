@@ -604,6 +604,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [filteredOptions, value]);
 
     useEffect(() => {
+      setFilteredOptions(removedDuplicatedOptions);
+    }, [options]);
+
+    useEffect(() => {
       const filteredMenuOptions = isObjectOptions
         ? removedDuplicatedOptions.map((option: any) => getNextOptionLabel(option))
         : removedDuplicatedOptions;
