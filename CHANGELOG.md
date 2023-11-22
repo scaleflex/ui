@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.22](https://github.com/scaleflex/ui/compare/v2.1.21...v2.1.22) (2023-11-22)
+
+
+### Features
+
+* [Select group/icons] add option to hide actions from menu items/add new icon -FRA-2660 ([cc341bc](https://github.com/scaleflex/ui/commit/cc341bcacbdda7925323724afcc6ab0fffd88626))
+
+
+
+
+
+
 ## [2.1.21](https://github.com/scaleflex/ui/compare/v2.1.20...v2.1.21) (2023-11-01)
 
 
