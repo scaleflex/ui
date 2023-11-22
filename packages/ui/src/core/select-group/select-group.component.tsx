@@ -109,6 +109,7 @@ SelectGroup.defaultProps = {
   readOnly: false,
   disabled: false,
   scroll: true,
+  hideMenuItemsActions: false,
 };
 
 const { size, ...restSelectPropTypes } = selectPropTypes;
