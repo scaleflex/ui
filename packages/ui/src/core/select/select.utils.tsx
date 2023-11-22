@@ -24,7 +24,12 @@ export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element
     <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
   ) : undefined;
 
-const generateChildren = (children: ReactNode, isActive = false, size: SelectSizeType): ReactNode => {
+const generateChildren = (
+  children: ReactNode,
+  isActive = false,
+  size: SelectSizeType,
+  hideMenuItemsActions: boolean
+): ReactNode => {
   const miChildren = <MenuItemLabel>{children}</MenuItemLabel>;
 
   if (isActive && children) {
@@ -40,7 +45,7 @@ const generateChildren = (children: ReactNode, isActive = false, size: SelectSiz
       return (
         <>
           {miChildren}
-          {miActions}
+          {!hideMenuItemsActions && miActions}
         </>
       );
     }
@@ -63,7 +68,7 @@ const generateChildren = (children: ReactNode, isActive = false, size: SelectSiz
 
 export const renderOption = (
   menuItem: JSX.Element,
-  { value, multiple = false, size = InputSize.Md, onClose, onChange }: RenderOption
+  { value, multiple = false, size = InputSize.Md, hideMenuItemsActions = false, onClose, onChange }: RenderOption
 ): JSX.Element => {
   if (!React.isValidElement(menuItem)) {
     return menuItem;
@@ -81,7 +86,7 @@ export const renderOption = (
   return React.cloneElement(menuItem as ReactElement<MenuItemProps>, {
     active,
     size,
-    children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size),
+    children: generateChildren((menuItem as JSX.Element)?.props?.children, active, size, hideMenuItemsActions),
     onClick: () => {
       if (!multiple && typeof onClose === 'function') {
         onClose();

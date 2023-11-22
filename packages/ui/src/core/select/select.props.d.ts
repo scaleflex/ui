@@ -19,6 +19,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   readOnly?: boolean;
   disabled?: boolean;
   showSelectionKey?: boolean;
+  hideMenuItemsActions?: boolean;
   scroll?: boolean;
   onRequestClose?: () => void;
   renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
@@ -28,6 +29,7 @@ export interface RenderOption {
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   multiple?: boolean;
   size?: SelectSizeType;
+  hideMenuItemsActions?: boolean;
   onClose?: () => void;
   onChange?: (value) => void;
 }

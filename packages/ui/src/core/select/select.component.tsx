@@ -30,6 +30,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       scroll = true,
       placeholder,
       showSelectionKey,
+      hideMenuItemsActions,
       renderLabel,
       onRequestClose,
       ...rest
@@ -83,6 +84,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
               value,
               multiple,
               size,
+              hideMenuItemsActions,
               onClose: handleClose,
               onChange: readOnly || disabled ? undefined : onChange,
             })
@@ -122,6 +124,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  hideMenuItemsActions: PT.bool,
   showSelectionKey: PT.bool,
   scroll: PT.bool,
   renderLabel: PT.func,
