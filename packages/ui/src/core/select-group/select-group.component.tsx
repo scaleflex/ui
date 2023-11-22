@@ -30,6 +30,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       showSelectionKey,
       value,
       multiple,
+      hideMenuItemsActions,
       onChange,
       readOnly,
       disabled,
@@ -91,6 +92,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           disabled={disabled}
           placeholder={placeholder}
           showSelectionKey={showSelectionKey}
+          hideMenuItemsActions={hideMenuItemsActions}
         >
           {children}
         </Select>
@@ -107,6 +109,7 @@ SelectGroup.defaultProps = {
   readOnly: false,
   disabled: false,
   scroll: true,
+  hideMenuItemsActions: false,
 };
 
 const { size, ...restSelectPropTypes } = selectPropTypes;
