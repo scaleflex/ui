@@ -15,6 +15,7 @@ export interface SelectGroupProps
   scroll?: boolean;
   readOnly?: boolean;
   showSelectionKey?: boolean;
+  hideMenuItemsActions?: boolean;
   disabled?: boolean;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }
