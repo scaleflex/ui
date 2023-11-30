@@ -99,13 +99,14 @@ export const Color = {
   Info: 'info',
   Modified: 'modified',
 
+  Red: 'red',
+  Orange: 'orange',
+  Salad: 'salad',
+  Green: 'green',
   Blue: 'blue',
   Indigo: 'indigo',
   Violet: 'violet',
   Pink: 'pink',
-  Salad: 'salad',
-  Green: 'green',
-  Orange: 'orange',
 
   GradientRight: 'gradient-right',
   Extra_0_3_Overlay: 'extra-0-3-overlay',
