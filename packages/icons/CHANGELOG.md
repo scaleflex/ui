@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
+
+
+### Features
+
+* **Icons,Theme:** update video2 icon and add red color ([d627be1](https://github.com/scaleflex/ui/commit/d627be13615f4d45d0e404bf5ce77148d137a6c3))
+
+
+
+
+
+
 ## [2.1.22](https://github.com/scaleflex/ui/compare/v2.1.21...v2.1.22) (2023-11-22)
 
 
