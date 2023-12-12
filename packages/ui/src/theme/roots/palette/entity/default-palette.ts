@@ -106,13 +106,14 @@ export const lightPalette = {
   [Color.Modified]: 'rgba(165, 166, 246, 1)', // #A5A6F6
 
   // flat colors
+  [Color.Red]: 'rgba(219, 46, 50, 1)', // #EB4D4B
+  [Color.Orange]: 'rgba(255, 168, 0, 1)', // #FFA800
+  [Color.Salad]: 'rgba(143, 176, 33, 1)', // #8FB021
+  [Color.Green]: 'rgba(22, 160, 134, 1)', // #16A086
   [Color.Blue]: 'rgba(41, 127, 184, 1)', // #297FB8
   [Color.Indigo]: 'rgba(91, 72, 162, 1)', // #5B48A2
   [Color.Violet]: 'rgba(141, 68, 173, 1)', // #8D44AD
   [Color.Pink]: 'rgba(211, 92, 158, 1)', // #D35C9E
-  [Color.Salad]: 'rgba(143, 176, 33, 1)', // #8FB021
-  [Color.Green]: 'rgba(22, 160, 134, 1)', // #16A086
-  [Color.Orange]: 'rgba(255, 168, 0, 1)', // #FFA800
 
   // Extra
   [Color.GradientRight]:
