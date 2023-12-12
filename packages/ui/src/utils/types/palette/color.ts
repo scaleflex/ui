@@ -26,6 +26,7 @@ export const Color = {
   BackgroundBaseLight: 'bg-base-light',
   BackgroundBaseMedium: 'bg-base-medium',
   BackgroundPrimary: 'bg-primary',
+  BackgroundPrimaryLight: 'bg-primary-light',
   BackgroundPrimaryHover: 'bg-primary-hover',
   BackgroundPrimaryActive: 'bg-primary-active',
   BackgroundPrimaryStateless: 'bg-primary-stateless',
