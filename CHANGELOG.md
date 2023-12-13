@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.24](https://github.com/scaleflex/ui/compare/v2.1.23...v2.1.24) (2023-12-13)
+
+
+### Features
+
+* [colros] add light background primary color -FRA-3384 ([296fb7e](https://github.com/scaleflex/ui/commit/296fb7ef00b682f18bfdeedccdddf0158434535a))
+
+
+
+
+
 ## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
 
 
