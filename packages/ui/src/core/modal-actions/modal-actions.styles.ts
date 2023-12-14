@@ -14,10 +14,7 @@ const ModalActions = styled.div.attrs({
     align-items: center;
     padding: 24px;
     justify-content: ${align === Align.Right ? 'flex-end' : align};
-
-    > *:not(:first-child) {
-      margin-left: 8px;
-    }
+    gap: 12px;
   `
 );
 
