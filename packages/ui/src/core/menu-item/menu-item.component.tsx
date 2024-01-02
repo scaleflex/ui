@@ -111,6 +111,10 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
     };
 
     if (!list) {
+      if (props.value === 'divider') {
+        return <Styled.MenuItemWrapper divider key={props.value} />;
+      }
+
       return (
         <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
           <Styled.MenuItem
