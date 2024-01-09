@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.25](https://github.com/scaleflex/ui/compare/v2.1.24...v2.1.25) (2024-01-09)
+
+
+### Features
+
+* **Icons:** add new icons ([8d13c1b](https://github.com/scaleflex/ui/commit/8d13c1b1b4804c3902a7a6db4dfd680f78bbef88))
+
+
+
+
+
+
 ## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
 
 
