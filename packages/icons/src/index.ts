@@ -422,3 +422,7 @@ export { Routing } from './routing';
 export { Rotate90 } from './rotate-90';
 export { SuccessOutline } from './success-outline';
 export { Preset } from './preset';
+export { LinkLocked } from './link-locked';
+export { LinkExpired } from './link-expired';
+export { FormPositionCenter } from './form-position-center';
+export { FormPositionRight } from './form-position-right';
