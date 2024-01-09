@@ -165,6 +165,7 @@ export const propTypes = {
   scroll: PT.bool,
   enableUnderlayingEvent: PT.bool,
   popperWrapperStyles: PT.object,
+  style: PT.object,
 };
 
 Menu.propTypes = propTypes;
