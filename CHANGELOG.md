@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.26](https://github.com/scaleflex/ui/compare/v2.1.25...v2.1.26) (2024-02-02)
+
+
+### Bug Fixes
+
+* **Popup:** part of the container is cut out ([1a23563](https://github.com/scaleflex/ui/commit/1a235634b7389d5407c7421a165b4d10d9e27157))
+
+
+
+
+
 ## [2.1.25](https://github.com/scaleflex/ui/compare/v2.1.24...v2.1.25) (2024-01-09)
 
 
