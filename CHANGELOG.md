@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.27](https://github.com/scaleflex/ui/compare/v2.1.26...v2.1.27) (2024-02-02)
+
+
+### Features
+
+* **ColorPicker,Select:** add new prop to hide ellipsis in select ([723f861](https://github.com/scaleflex/ui/commit/723f8615fc2b9f4bf7db4b6abb04c0d856cac090))
+
+
+
+
+
 ## [2.1.26](https://github.com/scaleflex/ui/compare/v2.1.25...v2.1.26) (2024-02-02)
 
 
