@@ -65,7 +65,7 @@ const Drawer = styled.div.attrs({
     }
     box-sizing: border-box;
     width: ${isCollapsed ? '68px' : '302px'};
-    padding: ${isCollapsed && '0px 12px'};
+    /* padding: ${isCollapsed && '0px 12px'}; */
     ${scrollBar}
   `
 );
@@ -202,9 +202,11 @@ const ItemButton = styled.div.attrs({
     border-radius: 4px;
     box-sizing: border-box;
     text-align: left;
-    padding: ${isCollapsed ? '13px' : '13px 16px'};
-    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    padding: ${isCollapsed ? '12px 0px' : '13px 16px'};
+    width: ${isCollapsed && '56px'};
     margin-bottom: 8px;
+    margin: ${isCollapsed && '8px auto'};
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     cursor: pointer;
     &:hover {
       background-color: ${palette[PColor.BackgroundActive]};
