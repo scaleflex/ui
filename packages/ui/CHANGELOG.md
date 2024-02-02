@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.28](https://github.com/scaleflex/ui/compare/v2.1.27...v2.1.28) (2024-02-02)
+
+
+### Bug Fixes
+
+* **Drawer:** item button styles when it is collapsed ([215ad80](https://github.com/scaleflex/ui/commit/215ad80f016495247e34c0af2768aa6882eee2a9))
+* **Drawer:** item button styles when it is collapsed ([59e85a9](https://github.com/scaleflex/ui/commit/59e85a992944312c30c65bd5792b2a366ef55518))
+* **InputLocalization:** update tick icon size ([16bd20a](https://github.com/scaleflex/ui/commit/16bd20acb72ac4afbd428a9b59046b09ad9cce06))
+
+
+
+
+
 ## [2.1.27](https://github.com/scaleflex/ui/compare/v2.1.26...v2.1.27) (2024-02-02)
 
 
