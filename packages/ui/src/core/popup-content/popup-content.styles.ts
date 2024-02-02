@@ -70,6 +70,7 @@ const CloseWrapper = styled.div.attrs({
     cursor: pointer;
     background: ${theme.palette[PColor.BackgroundStateless]};
     border-radius: 0 4px 4px 0;
+    height: 100%;
   `
 );
 
