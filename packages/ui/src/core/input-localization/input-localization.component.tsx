@@ -57,7 +57,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
             renderOption(child, {
               value,
               multiple,
-              size: InputSize.Sm,
+              size,
               onClose: handleClose,
               onChange: disabled || readOnly ? undefined : onChange,
             })
