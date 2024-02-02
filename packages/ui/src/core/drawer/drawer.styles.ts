@@ -65,7 +65,6 @@ const Drawer = styled.div.attrs({
     }
     box-sizing: border-box;
     width: ${isCollapsed ? '68px' : '302px'};
-    /* padding: ${isCollapsed && '0px 12px'}; */
     ${scrollBar}
   `
 );
