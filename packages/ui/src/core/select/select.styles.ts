@@ -55,12 +55,20 @@ const Select = styled(InputStyled.Input).attrs({
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-})`
-  flex-grow: 1;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
-`;
+})(
+  ({ hideEllipsis }: { hideEllipsis: boolean }) => `
+    flex-grow: 1;
+
+    ${
+      !hideEllipsis &&
+      css`
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      `
+    }
+  `
+);
 
 const Placeholder = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Placeholder'),

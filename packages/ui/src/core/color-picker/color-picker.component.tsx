@@ -288,6 +288,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
               MenuProps={{ zIndex: 11112, ...containerProps }}
               onChange={(ev: any) => setInputType(ev)}
               fullWidth
+              hideEllipsis
             >
               <MenuItem value="hex">Hex</MenuItem>
               <MenuItem value="rgb">RGB</MenuItem>
