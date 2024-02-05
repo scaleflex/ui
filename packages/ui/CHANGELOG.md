@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.31](https://github.com/scaleflex/ui/compare/v2.1.30...v2.1.31) (2024-02-05)
+
+
+### Bug Fixes
+
+* **Drawer:** collapse button padding ([a573889](https://github.com/scaleflex/ui/commit/a573889636f39853600748fea41bb13bee794845))
+
+
+
+
+
 ## [2.1.30](https://github.com/scaleflex/ui/compare/v2.1.29...v2.1.30) (2024-02-05)
 
 
