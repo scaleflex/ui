@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.30](https://github.com/scaleflex/ui/compare/v2.1.29...v2.1.30) (2024-02-05)
+
+
+### Bug Fixes
+
+* back month arrow disability in date picker - FRA-3202 ([651469d](https://github.com/scaleflex/ui/commit/651469d77ff4aff907a5060bf3386f453598298e))
+
+
+
+
+
+
 ## [2.1.29](https://github.com/scaleflex/ui/compare/v2.1.28...v2.1.29) (2024-02-05)
 
 
