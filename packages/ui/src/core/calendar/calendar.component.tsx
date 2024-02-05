@@ -67,7 +67,6 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const isYearForm = isYearFormRegex.test?.(maxYear);
     const isTodayDateDisabled = getTodayTimestamp() > maxDateTimestamp || getTodayTimestamp() < minDateTimestamp;
     const nextMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 1);
-    const prevtMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, -1);
 
     const nextYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, 1);
     const prevYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, -1);
@@ -298,10 +297,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
               <TwoArrowsRight size={10} />
             </Styled.HeaderLeftArrows>
 
-            <Styled.HeaderLeftArrow
-              isDisabled={prevtMonthTimestamp < minDateTimestamp}
-              onClick={() => handleNextMonthButton(-1, true)}
-            >
+            <Styled.HeaderLeftArrow isDisabled={month <= minMonth} onClick={() => handleNextMonthButton(-1, true)}>
               <ArrowLeftOutline size={10} />
             </Styled.HeaderLeftArrow>
 
