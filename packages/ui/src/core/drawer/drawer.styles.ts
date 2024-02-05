@@ -230,7 +230,7 @@ const CollapsedButton = styled(ItemButton).attrs({
   ({ isCollapsed }: { isCollapsed?: boolean }) => css`
     ${!isCollapsed &&
     css`
-      padding: 13px 24px;
+      padding: 13px 16px;
     `}
   `
 );
