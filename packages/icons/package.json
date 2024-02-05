@@ -1,6 +1,6 @@
 {
   "name": "@scaleflex/icons",
-  "version": "2.1.25",
+  "version": "2.1.29",
   "description": "SVG icons as React components",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
