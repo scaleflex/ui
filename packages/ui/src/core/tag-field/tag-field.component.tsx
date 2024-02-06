@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, ReactElement } from 'react';
 import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
@@ -18,6 +18,7 @@ import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import { handleCopyIcon } from '../input/input.utils';
 import InputStyled from '../input/input.styles';
+import TooltipV2 from '../tooltip-v2/tooltip-v2.component';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -44,6 +45,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       loading,
       appliedValue,
       disableOnEnter,
+      displayTagsTooltip,
       copyTextMessage = '',
       copySuccessIcon,
       submitOnSpace,
@@ -177,6 +179,24 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       setTagsHint(hint);
     }, [error, hint]);
 
+    const renderTag = (tag: TagType, tagLabel: string, index: number): ReactElement => (
+      <Tag
+        key={getTagValue(tag)}
+        tagIndex={index}
+        crossIcon={crossIcon}
+        startIcon={typeof getTagIcon?.(tag) === 'object' ? getTagIcon?.(tag) : null}
+        size={size}
+        onRemove={
+          disabled || readOnly || loading
+            ? undefined
+            : (_tagIndex, event) => onRemove(index, getTagValue(tag), setUserInput, event)
+        }
+        style={{ margin: '0px 8px 8px 0px' }}
+      >
+        {tagLabel}
+      </Tag>
+    );
+
     return (
       <Styled.TagFieldRoot ref={ref}>
         <Styled.TagInputFieldWrapper>
@@ -188,23 +208,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
           <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
             <Styled.TagFieldListWrapper $loading={loading}>
-              {filteredTags.map((tag: TagType, index: number) => (
-                <Tag
-                  key={getTagValue(tag)}
-                  tagIndex={index}
-                  crossIcon={crossIcon}
-                  startIcon={typeof getTagIcon?.(tag) === 'object' ? getTagIcon?.(tag) : null}
-                  size={size}
-                  onRemove={
-                    disabled || readOnly || loading
-                      ? undefined
-                      : (_tagIndex, event) => onRemove(index, getTagValue(tag), setUserInput, event)
-                  }
-                  style={{ margin: '0px 8px 8px 0px' }}
-                >
-                  {getTagLabel(tag)}
-                </Tag>
-              ))}
+              {filteredTags.map((tag: TagType, index: number) => {
+                const tagLabel = getTagLabel(tag);
+
+                return displayTagsTooltip ? (
+                  <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
+                    {renderTag(tag, tagLabel, index)}
+                  </TooltipV2>
+                ) : (
+                  renderTag(tag, tagLabel, index)
+                );
+              })}
 
               {loading ? (
                 <Styled.TagFieldLoader>
@@ -322,6 +336,7 @@ TagField.propTypes = {
   hint: PT.node,
   loading: PT.bool,
   disableOnEnter: PT.bool,
+  displayTagsTooltip: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   hideCopyIcon: PT.bool,
   alwaysShowSuggestedTags: PT.bool,

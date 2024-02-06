@@ -23,6 +23,7 @@ const defaultArgs = {
   label: 'Tags',
   hint: 'Some hint goes here',
   disableOnEnter: false,
+  displayTagsTooltip: false,
   submitOnSpace: false,
   preventSubmitOnBlur: false,
   size: Size.Md,
