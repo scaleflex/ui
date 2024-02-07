@@ -17,6 +17,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
       year = 0,
       maxMonth = 0,
       minMonth = 0,
+      minYear = 0,
       maxYear = 0,
       maxDate,
       value,
@@ -77,7 +78,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
               onClick={() => handleOnClickMonth(index)}
               isMonthChanged={isMonthChanged(index)}
               key={month}
-              isDisabled={index > maxMonth || index < minMonth}
+              isDisabled={(index > maxMonth || index < minMonth) && year === minYear}
             >
               {month}
             </Styled.MonthButtons>
