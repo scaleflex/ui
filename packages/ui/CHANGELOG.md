@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.32](https://github.com/scaleflex/ui/compare/v2.1.31...v2.1.32) (2024-02-07)
+
+
+### Bug Fixes
+
+* **TagField:** move focus from wrapper to inpurt ([18c72b0](https://github.com/scaleflex/ui/commit/18c72b01baebfec0f7698395e4122320e8a4214d))
+* code review - FRA-3202 ([d987528](https://github.com/scaleflex/ui/commit/d987528589ac575e91a201977816f2f11440a063))
+* **Calendar:** back month arrow and months picker disability - FRA-3202 ([b0a323b](https://github.com/scaleflex/ui/commit/b0a323b3312f11a8affe97e8f253b7170a23f890))
+
+
+### Features
+
+* **Tag Field:** add tooltip to display full tags names - FRA-1075 ([2608942](https://github.com/scaleflex/ui/commit/260894225ba21a04fb09c13748e8aa7ee7de68bd))
+
+
+
+
+
+
 ## [2.1.31](https://github.com/scaleflex/ui/compare/v2.1.30...v2.1.31) (2024-02-05)
 
 
