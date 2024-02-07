@@ -57,6 +57,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       getTagValue = (tag: TagType): string => tag as string,
       getTagIcon,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
+      onFocus,
       ...rest
     }: TagFieldProps,
     ref
@@ -145,8 +146,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleInputFocus = () => {
+    const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
       setShowPlaceholder(true);
+
+      if (typeof onFocus === 'function') {
+        onFocus(event);
+      }
     };
 
     const handleClearAllTags = (): void => {
@@ -338,6 +343,7 @@ TagField.propTypes = {
   suggestionTooltipMessage: PT.string,
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
   copyTextMessage: PT.string,
+  onFocus: PT.func,
 };
 
 export default TagField;
