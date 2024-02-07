@@ -35,6 +35,7 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   loading?: boolean;
   crossIcon?: boolean;
   disableOnEnter?: boolean;
+  showTooltip?: boolean;
   submitOnSpace?: boolean;
   preventSubmitOnBlur?: boolean;
   showGenerateTagsButton?: boolean;
