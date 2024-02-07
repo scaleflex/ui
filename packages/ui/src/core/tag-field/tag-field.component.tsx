@@ -45,7 +45,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       loading,
       appliedValue,
       disableOnEnter,
-      displayTagsTooltip,
+      showTooltip,
       copyTextMessage = '',
       copySuccessIcon,
       submitOnSpace,
@@ -211,7 +211,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               {filteredTags.map((tag: TagType, index: number) => {
                 const tagLabel = getTagLabel(tag);
 
-                return displayTagsTooltip ? (
+                return showTooltip ? (
                   <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
                     {renderTag(tag, tagLabel, index)}
                   </TooltipV2>
@@ -336,7 +336,7 @@ TagField.propTypes = {
   hint: PT.node,
   loading: PT.bool,
   disableOnEnter: PT.bool,
-  displayTagsTooltip: PT.bool,
+  showTooltip: PT.bool,
   size: PT.oneOf(objectValues(Size)),
   hideCopyIcon: PT.bool,
   alwaysShowSuggestedTags: PT.bool,

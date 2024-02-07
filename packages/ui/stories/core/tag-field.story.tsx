@@ -13,7 +13,11 @@ export default {
   title: `${StoryGroup.Surfaces}/TagField`,
   component: TagField,
   excludeStories: ['TagField'],
-  argTypes: {},
+  argTypes: {
+    showTooltip: {
+      description: 'Show tooltip with full tag name',
+    },
+  },
 } as Meta;
 
 const defaultArgs = {
@@ -23,7 +27,7 @@ const defaultArgs = {
   label: 'Tags',
   hint: 'Some hint goes here',
   disableOnEnter: false,
-  displayTagsTooltip: false,
+  showTooltip: false,
   submitOnSpace: false,
   preventSubmitOnBlur: false,
   size: Size.Md,
