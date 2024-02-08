@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.33](https://github.com/scaleflex/ui/compare/v2.1.32...v2.1.33) (2024-02-08)
+
+
+### Features
+
+* **TagField:** add onBlur prop ([e916f8d](https://github.com/scaleflex/ui/commit/e916f8dee6ef6f8f6578468f6ffec97b3646cafe))
+
+
+
+
+
 ## [2.1.32](https://github.com/scaleflex/ui/compare/v2.1.31...v2.1.32) (2024-02-07)
 
 
