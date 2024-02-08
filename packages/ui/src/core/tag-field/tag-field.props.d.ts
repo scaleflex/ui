@@ -49,4 +49,5 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   copyTextMessage?: string;
   copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
 }

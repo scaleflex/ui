@@ -60,6 +60,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       getTagIcon,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
       onFocus,
+      onBlur,
       ...rest
     }: TagFieldProps,
     ref
@@ -131,11 +132,15 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleOnBlur = (): void => {
+    const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
       setShowPlaceholder(false);
       if (preventSubmitOnBlur) return;
 
       handleTagsValidation();
+
+      if (typeof onBlur === 'function') {
+        onBlur(event);
+      }
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
@@ -359,6 +364,7 @@ TagField.propTypes = {
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
   copyTextMessage: PT.string,
   onFocus: PT.func,
+  onBlur: PT.func,
 };
 
 export default TagField;
