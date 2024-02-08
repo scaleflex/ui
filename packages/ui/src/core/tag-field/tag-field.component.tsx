@@ -5,12 +5,12 @@ import SpinnerIcon from '@scaleflex/icons/spinner';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
+import { ButtonSize } from '../../utils/types';
 import { lightPalette } from '../../theme/roots/palette';
 import Tag from '../tag';
 import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
-import Button from '../button/button.component';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
@@ -216,69 +216,70 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Label>
           )}
 
-          <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
-            <Styled.TagFieldListWrapper $loading={loading}>
-              {filteredTags.map((tag: TagType, index: number) => {
-                const tagLabel = getTagLabel(tag);
+          <Styled.Wrapper>
+            <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
+              <Styled.TagFieldListWrapper $loading={loading} size={size}>
+                {filteredTags.map((tag: TagType, index: number) => {
+                  const tagLabel = getTagLabel(tag);
 
-                return showTooltip ? (
-                  <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
-                    {renderTag(tag, tagLabel, index)}
-                  </TooltipV2>
+                  return showTooltip ? (
+                    <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
+                      {renderTag(tag, tagLabel, index)}
+                    </TooltipV2>
+                  ) : (
+                    renderTag(tag, tagLabel, index)
+                  );
+                })}
+
+                {loading ? (
+                  <Styled.TagFieldLoader>
+                    <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
+                  </Styled.TagFieldLoader>
                 ) : (
-                  renderTag(tag, tagLabel, index)
-                );
-              })}
-
-              {loading ? (
-                <Styled.TagFieldLoader>
-                  <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
-                </Styled.TagFieldLoader>
-              ) : (
-                <Styled.TagFieldInputWrapper size={size}>
-                  <Styled.TagFieldInput
-                    value={userInput}
-                    type="text"
-                    autoComplete="off"
-                    placeholder={showPlaceholder ? placeholder : ''}
-                    onChange={(ev) => setUserInput(ev.target.value)}
-                    onKeyDown={handleUserInputKeyDown}
-                    onBlur={handleOnBlur}
-                    onFocus={handleInputFocus}
-                    readOnly={readOnly}
-                    disabled={disabled}
-                  />
-                </Styled.TagFieldInputWrapper>
-              )}
-            </Styled.TagFieldListWrapper>
-            <Styled.TagFieldBottom>
-              <Styled.TagFieldButtonsWrapper>
-                {showGenerateTagsButton && (
-                  <Button color="link-primary" size={size} onClick={onGenerate}>
-                    {generateTagsButtonLabel}
-                  </Button>
+                  <Styled.TagFieldInputWrapper size={size}>
+                    <Styled.TagFieldInput
+                      value={userInput}
+                      type="text"
+                      autoComplete="off"
+                      placeholder={showPlaceholder ? placeholder : ''}
+                      onChange={(ev) => setUserInput(ev.target.value)}
+                      onKeyDown={handleUserInputKeyDown}
+                      onBlur={handleOnBlur}
+                      onFocus={handleInputFocus}
+                      readOnly={readOnly}
+                      disabled={disabled}
+                    />
+                  </Styled.TagFieldInputWrapper>
                 )}
+              </Styled.TagFieldListWrapper>
+            </Styled.TagFieldWrapper>
+            {showGenerateTagsButton && (
+              <Styled.GenerateButton color="link-primary" size={size} onClick={onGenerate}>
+                {generateTagsButtonLabel}
+              </Styled.GenerateButton>
+            )}
 
-                <Button color="link-secondary" size={size === Size.Md ? Size.Sm : 'xs'} onClick={handleClearAllTags}>
-                  {clearTagsButtonLabel}
-                </Button>
-              </Styled.TagFieldButtonsWrapper>
+            <Styled.ClearAllButton
+              color="link-secondary"
+              size={size === Size.Md ? Size.Sm : ButtonSize.Xs}
+              onClick={handleClearAllTags}
+            >
+              {clearTagsButtonLabel}
+            </Styled.ClearAllButton>
 
-              {!hideCopyIcon && (
-                <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
-                  <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
-                </Styled.TagFieldCopyIcon>
-              )}
+            {!hideCopyIcon && (
+              <Styled.TagFieldCopyIcon size={size} onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
+                <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+              </Styled.TagFieldCopyIcon>
+            )}
 
-              {showCopyMessage && (
-                <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
-                  <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
-                  <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
-                </InputStyled.NotificationBox>
-              )}
-            </Styled.TagFieldBottom>
-          </Styled.TagFieldWrapper>
-
+            {showCopyMessage && (
+              <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
+                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+              </InputStyled.NotificationBox>
+            )}
+          </Styled.Wrapper>
           {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
         </Styled.TagInputFieldWrapper>
 

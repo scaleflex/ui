@@ -6,8 +6,16 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import { sizeTagFieldMixin, fontTagFieldMixin } from './tag-field.mixin';
-import type { TagFieldSizeType } from './tag-field.props';
+import {
+  sizeTagFieldMixin,
+  fontTagFieldMixin,
+  positionIconMixin,
+  positionGenerateButtonMixin,
+  positionClearAllButtonMixin,
+  marginTagFieldListMixin,
+} from './tag-field.mixin';
+import type { ClearAllButtonSizeType, TagFieldSizeType } from './tag-field.props';
+import Button from '../button/button.component';
 import { Size } from './types';
 
 const baseClassName = 'TagField';
@@ -63,7 +71,7 @@ const TagFieldLoader = styled.span.attrs({
 const TagFieldListWrapper = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
 })(
-  ({ $loading }: { $loading: boolean | undefined }) => css`
+  ({ $loading, size }: { $loading: boolean | undefined; size: TagFieldSizeType }) => css`
     display: inline-flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -72,6 +80,7 @@ const TagFieldListWrapper = styled.ul.attrs({
     list-style: none;
     width: 100%;
     min-height: 80px;
+    ${marginTagFieldListMixin[size]}
 
     ${TagFieldLoader} {
       svg {
@@ -111,18 +120,6 @@ const TagFieldInputWrapper = styled.li.attrs({
   `
 );
 
-const TagFieldBottom = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'tagFieldBottom'),
-})(
-  ({ theme }: WithTheme) => css`
-    border-radius: ${theme.shape.borderRadius[BRSize.Sm]};
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 0px;
-  `
-);
-
 const TagFieldButtonsWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldButtonsWrapper'),
 })(
@@ -135,10 +132,13 @@ const TagFieldButtonsWrapper = styled.div.attrs({
 
 const TagFieldCopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
-})`
-  cursor: pointer;
-  height: 16px;
-`;
+})(
+  ({ size }: { size: TagFieldSizeType }) => css`
+    ${positionIconMixin[size]}
+    cursor: pointer;
+    height: 16px;
+  `
+);
 
 const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
@@ -199,6 +199,28 @@ const TagFieldSuggestionList = styled.li.attrs({
   `
 );
 
+const Wrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'wrapper'),
+})`
+  position: relative;
+`;
+
+const GenerateButton = styled(Button).attrs({
+  className: generateClassNames(baseClassName, 'generateButton'),
+})(
+  ({ size }: { size: TagFieldSizeType }) => css`
+    ${positionGenerateButtonMixin[size]}
+  `
+);
+
+const ClearAllButton = styled(Button).attrs({
+  className: generateClassNames(baseClassName, 'clearAllButton'),
+})(
+  ({ size }: { size: ClearAllButtonSizeType }) => css`
+    ${positionClearAllButtonMixin[size]}
+  `
+);
+
 const Styled = applyDisplayNames({
   TagFieldRoot,
   TagInputFieldWrapper,
@@ -212,9 +234,11 @@ const Styled = applyDisplayNames({
   TagFieldSuggestionWrapperList,
   TagFieldSuggestionList,
   TagFieldLoader,
-  TagFieldBottom,
   TagFieldButtonsWrapper,
   TagFieldCopyIcon,
+  GenerateButton,
+  ClearAllButton,
+  Wrapper,
 });
 
 export default Styled;
