@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.35](https://github.com/scaleflex/ui/compare/v2.1.34...v2.1.35) (2024-02-09)
+
+
+### Bug Fixes
+
+* **tagField:** fix buttons ([9011a7f](https://github.com/scaleflex/ui/commit/9011a7f11dc817518227c8b808a9cea00bbf73e5))
+
+
+
+
+
 ## [2.1.34](https://github.com/scaleflex/ui/compare/v2.1.33...v2.1.34) (2024-02-08)
 
 **Note:** Version bump only for package @scaleflex/ui
