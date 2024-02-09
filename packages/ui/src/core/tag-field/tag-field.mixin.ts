@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 import { FontVariant as FV } from '../../utils/types/typography';
 import type { WithTheme } from '../../theme/entity';
 import { Size } from './types';
-import { ButtonSize } from '../../utils/types';
 
 export const sizeTagFieldMixin = {
   [Size.Sm]: css`
@@ -29,13 +28,13 @@ export const positionGenerateButtonMixin = {
 };
 
 export const positionClearAllButtonMixin = {
-  [ButtonSize.Xs]: css`
+  [Size.Sm]: css`
     position: absolute;
     bottom: 8px;
     left: 110px;
   `,
 
-  [Size.Sm]: css`
+  [Size.Md]: css`
     position: absolute;
     bottom: 12px;
     left: 125px;

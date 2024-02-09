@@ -1,10 +1,9 @@
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
-import { Size, AddTagType, ClearAllButtonSize } from './types';
+import { Size, AddTagType } from './types';
 
 export type AddTagTypesType = Values<typeof AddTagType>;
 export type TagFieldSizeType = Values<typeof Size>;
-export type ClearAllButtonSizeType = Values<typeof ClearAllButtonSize>;
 export type TagType = string | object | React.ReactNode | null | undefined;
 export type SuggestionsFilterFnType = (
   suggestions: TagType[],

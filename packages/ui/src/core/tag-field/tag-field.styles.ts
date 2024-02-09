@@ -14,7 +14,7 @@ import {
   positionClearAllButtonMixin,
   marginTagFieldListMixin,
 } from './tag-field.mixin';
-import type { ClearAllButtonSizeType, TagFieldSizeType } from './tag-field.props';
+import type { TagFieldSizeType } from './tag-field.props';
 import Button from '../button/button.component';
 import { Size } from './types';
 
@@ -216,8 +216,8 @@ const GenerateButton = styled(Button).attrs({
 const ClearAllButton = styled(Button).attrs({
   className: generateClassNames(baseClassName, 'clearAllButton'),
 })(
-  ({ size }: { size: ClearAllButtonSizeType }) => css`
-    ${positionClearAllButtonMixin[size]}
+  ({ size, showGenerateTagsButton }: { size: TagFieldSizeType; showGenerateTagsButton: boolean }) => css`
+    ${showGenerateTagsButton ? positionClearAllButtonMixin[size] : positionGenerateButtonMixin[size]}
   `
 );
 

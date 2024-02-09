@@ -5,7 +5,6 @@ import SpinnerIcon from '@scaleflex/icons/spinner';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
-import { ButtonSize } from '../../utils/types';
 import { lightPalette } from '../../theme/roots/palette';
 import Tag from '../tag';
 import Label from '../label';
@@ -259,13 +258,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               </Styled.GenerateButton>
             )}
 
-            <Styled.ClearAllButton
-              color="link-secondary"
-              size={size === Size.Md ? Size.Sm : ButtonSize.Xs}
-              onClick={handleClearAllTags}
-            >
-              {clearTagsButtonLabel}
-            </Styled.ClearAllButton>
+            {filteredTags?.length > 0 && (
+              <Styled.ClearAllButton
+                color="link-secondary"
+                size={size}
+                showGenerateTagsButton={showGenerateTagsButton}
+                onClick={handleClearAllTags}
+              >
+                {clearTagsButtonLabel}
+              </Styled.ClearAllButton>
+            )}
 
             {!hideCopyIcon && (
               <Styled.TagFieldCopyIcon size={size} onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
