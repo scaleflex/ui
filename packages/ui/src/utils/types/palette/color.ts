@@ -36,6 +36,7 @@ export const Color = {
   BackgroundGreenMedium: 'bg-green-medium',
   BackgroundBlue: 'bg-blue',
   BackgroundRed: 'bg-red',
+  BackgroundRedLight: 'bg-red-light',
   BackgroundRedMedium: 'background-red-medium',
   BackgroundOrange: 'bg-orange',
   BackgroundTooltip: 'bg-tooltip',

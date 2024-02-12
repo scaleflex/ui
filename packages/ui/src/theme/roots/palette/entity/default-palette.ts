@@ -9,7 +9,7 @@ export const lightPalette = {
   [Color.TextSecondaryInvert]: 'rgba(213, 216, 220, 1)', // #D5D8DC
   [Color.TextPlaceholder]: 'rgba(169, 182, 194, 1)', // #A9B6C2
   [Color.TextWarning]: 'rgba(196, 110, 0, 1)', // #768184
-  [Color.TextError]: 'rgba(170, 32, 0, 1)', // #AA2000
+  [Color.TextError]: 'rgba(185, 33, 46, 1)', // #B9212E
   [Color.TextInfo]: 'rgba(35, 117, 171, 1)', // #2375AB
 
   // Accent
@@ -42,6 +42,7 @@ export const lightPalette = {
   [Color.BackgroundGreenMedium]: 'rgba(227, 250, 239, 1)', // #E3FAEF
   [Color.BackgroundBlue]: 'rgba(244, 249, 255, 1)', // #F4F9FF
   [Color.BackgroundRed]: 'rgba(253, 244, 242, 1)', // #FDF4F2
+  [Color.BackgroundRedLight]: 'rgba(255, 245, 245, 1)', // #FFF5F5
   [Color.BackgroundRedMedium]: 'rgba(247, 228, 230, 1)', // #F7E4E6
   [Color.BackgroundOrange]: 'rgba(255, 249, 242, 1)', // #FFF9F2
   [Color.BackgroundTooltip]: 'rgba(79, 98, 118, 1)', // #4F6276
@@ -97,7 +98,7 @@ export const lightPalette = {
   [Color.ErrorActive]: 'rgba(185, 33, 46, 1)', // #B9212E
   [Color.Success]: 'rgba(38, 193, 122, 1)', // #26C17A
   [Color.SuccessHover]: 'rgba(30, 154, 98, 1)', // #1E9A62
-  [Color.SuccessActive]: 'rgba(23, 116, 73, 1)', // #177449 
+  [Color.SuccessActive]: 'rgba(23, 116, 73, 1)', // #177449
   [Color.Warning]: 'rgba(255, 172, 74, 1)', // #FFAC4A
   [Color.WarningHover]: 'rgba(237, 145, 7, 1)', // #ED9107
   [Color.WarningActive]: 'rgba(224, 135, 0, 1)', // #E08700
