@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
+
+
+### Features
+
+* **Palette:** add new color ([ba5454b](https://github.com/scaleflex/ui/commit/ba5454b94f5b2d69a65fc8459ed575fb8cc8bac9))
+
+
+
+
+
+
 ## [2.1.35](https://github.com/scaleflex/ui/compare/v2.1.34...v2.1.35) (2024-02-09)
 
 
