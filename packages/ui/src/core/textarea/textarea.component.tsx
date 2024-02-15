@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
@@ -10,15 +10,42 @@ import InputStyled from '../input/input.styles';
 import Styled from './textarea.styles';
 import { Size } from '../menu-item/types';
 
-const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
-  ({ fullWidth, size, value, readOnly, disabled, error, cols, rows, copyTextMessage = '',
-  copySuccessIcon, ...rest }: TextareaProps, ref): JSX.Element => {
+const Textarea = intrinsicComponent<TextareaProps, HTMLDivElement>(
+  (
+    {
+      fullWidth,
+      size,
+      value,
+      readOnly,
+      disabled,
+      error,
+      cols,
+      rows,
+      copyTextMessage = '',
+      copySuccessIcon,
+      ...rest
+    }: TextareaProps,
+    ref
+  ): JSX.Element => {
+    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+
     const [isHovering, setIsHovering] = useState(false);
+    const [overflowStyles, setOverflowStyles] = useState({});
     const [showCopyMessage, setShowCopyMessage] = useState(false);
 
     useEffect(() => {
       setTimeout(() => setShowCopyMessage(false), 2000);
     }, [showCopyMessage]);
+
+    useEffect(() => {
+      const { current } = inputRef;
+      const styles = { ...(readOnly && isHovering && { paddingBottom: 0 }) };
+      if (current && current.scrollHeight > current.clientHeight) {
+        setOverflowStyles({ paddingRight: '4px', ...styles });
+      } else {
+        setOverflowStyles(styles);
+      }
+    }, [inputRef.current?.scrollHeight, readOnly, isHovering]);
 
     const handleEntering = (): void => {
       setTimeout(() => {
@@ -43,6 +70,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
 
     return (
       <Styled.Textarea
+        ref={ref}
         size={size}
         value={value}
         onMouseEnter={handleEntering}
@@ -53,9 +81,17 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         error={error}
         autoSize={Boolean(cols) || Boolean(rows)}
       >
-        <Styled.Base {...rest} value={value} ref={ref} readOnly={readOnly} disabled={disabled} />
+        <Styled.Base
+          {...rest}
+          value={value}
+          ref={inputRef}
+          size={size}
+          readOnly={readOnly}
+          disabled={disabled}
+          style={{ ...overflowStyles }}
+        />
         {isHovering && readOnly ? (
-          <Styled.CopyIcon onClick={() => handleCopyIcon(value, setShowCopyMessage)}>
+          <Styled.CopyIcon size={size} onClick={() => handleCopyIcon(value, setShowCopyMessage)}>
             <CopyOutline size={16} />
           </Styled.CopyIcon>
         ) : undefined}
