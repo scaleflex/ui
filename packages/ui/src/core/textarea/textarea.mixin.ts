@@ -9,6 +9,16 @@ export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
   border: 1px solid ${palette[PaletteColor.Error]} !important;
 `;
 
+export const heightTextAreaMixin = {
+  [InputSize.Sm]: () => css`
+    height: 80px;
+  `,
+
+  [InputSize.Md]: () => css`
+    height: 96px;
+  `,
+};
+
 export const sizeTextAreaMixin = {
   [InputSize.Sm]: ({
     theme: {
@@ -16,7 +26,6 @@ export const sizeTextAreaMixin = {
     },
   }: WithTheme) => css`
     padding: 6px 12px;
-    height: 64px;
     ${font[FV.InputMd]}
   `,
 
@@ -25,8 +34,7 @@ export const sizeTextAreaMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 9px 16px;
-    height: 80px;
+    padding: 8px 16px;
     ${font[FV.InputLg]}
   `,
 };

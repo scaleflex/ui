@@ -5,7 +5,7 @@ import { InputSize, With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
-import { errorMixin, sizeTextAreaMixin } from './textarea.mixin';
+import { errorMixin, sizeTextAreaMixin, heightTextAreaMixin } from './textarea.mixin';
 import { getInputBackgroundColor, getInputTextColor, getInputBorderColor } from '../input/input.utils';
 
 const baseClassName = 'Textarea';
@@ -37,8 +37,7 @@ const Textarea = styled.div.attrs({
     border: 1px solid ${getInputBorderColor(readOnly, disabled)};
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
-    ${sizeTextAreaMixin[size]}
-
+    ${heightTextAreaMixin[size]}
     ${!readOnly &&
     !disabled &&
     css`
@@ -74,7 +73,7 @@ const Textarea = styled.div.attrs({
 const Base = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<TextareaProps>(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({ theme: { palette }, size = InputSize.Md, readOnly = false }: With<WithTheme, TextareaProps>) => css`
     display: block;
     width: 100%;
     height: 100%;
@@ -92,20 +91,52 @@ const Base = styled.textarea.attrs({
     color: inherit;
     font-weight: inherit;
     font-family: inherit;
+    box-sizing: border-box;
+
+    ${sizeTextAreaMixin[size]};
+
+    ${readOnly && `padding-bottom: 0px;`}
 
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
     }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: ${palette[PColor.BorderPrimaryStateless]};
+      border-radius: 8px;
+      border: 4px solid ${palette[PColor.BackgroundStateless]};
+    }
   `
 );
 
-const CopyIcon = styled.span.attrs({
+const CopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
 })(
-  ({ theme: { palette } }: WithTheme) => css`
+  ({
+    size = InputSize.Md,
+    isHovering = false,
+    theme: { palette },
+  }: With<With<Partial<TextareaProps>, { isHovering: boolean }>, WithTheme>) => css`
     display: flex;
-    color: ${palette[PColor.IconsPrimary]};
+    justify-content: flex-end;
+    width: 100%;
     cursor: pointer;
+    color: ${palette[PColor.IconsPrimary]};
+    ${sizeTextAreaMixin[size]};
+    ${!isHovering &&
+    `
+      svg {
+        visibility: hidden;
+      }
+    `}
   `
 );
 
