@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/scaleflex/ui/compare/v2.1.36...v2.2.0) (2024-02-16)
+
+
+### Features
+
+* **IconButtonTable:** add icon button table to design system - FRA-2117 ([41f9e58](https://github.com/scaleflex/ui/commit/41f9e58bb39d12012ef863896f6031a4f6581c65))
+* **Icons:** add new icons ([8520b07](https://github.com/scaleflex/ui/commit/8520b07a6c23e2d1b05d95ba3022a3440e910894))
+
+
+
+
+
+
 ## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
 
 
