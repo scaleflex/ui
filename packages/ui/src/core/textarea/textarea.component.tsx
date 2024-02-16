@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent, objectValues, useForkRef } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from '../input/input.utils';
@@ -10,7 +10,7 @@ import InputStyled from '../input/input.styles';
 import Styled from './textarea.styles';
 import { Size } from '../menu-item/types';
 
-const Textarea = intrinsicComponent<TextareaProps, HTMLDivElement>(
+const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
   (
     {
       fullWidth,
@@ -28,6 +28,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const inputRef = useRef<HTMLTextAreaElement | null>(null);
+    const textareaRef = useForkRef(inputRef, ref);
 
     const [isHovering, setIsHovering] = useState(false);
     const [overflowStyles, setOverflowStyles] = useState({});
@@ -70,7 +71,6 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLDivElement>(
 
     return (
       <Styled.Textarea
-        ref={ref}
         size={size}
         value={value}
         onMouseEnter={handleEntering}
@@ -84,7 +84,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLDivElement>(
         <Styled.Base
           {...rest}
           value={value}
-          ref={inputRef}
+          ref={textareaRef}
           size={size}
           readOnly={readOnly}
           disabled={disabled}
