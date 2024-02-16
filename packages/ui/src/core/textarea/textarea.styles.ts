@@ -134,7 +134,7 @@ const CopyIcon = styled.div.attrs({
     ${!isHovering &&
     `
       svg {
-        display: none;
+        visibility: hidden;
       }
     `}
   `
