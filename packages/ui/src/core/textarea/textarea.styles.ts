@@ -73,7 +73,7 @@ const Textarea = styled.div.attrs({
 const Base = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<TextareaProps>(
-  ({ theme: { palette }, size = InputSize.Md }: With<WithTheme, TextareaProps>) => css`
+  ({ theme: { palette }, size = InputSize.Md, readOnly = false }: With<WithTheme, TextareaProps>) => css`
     display: block;
     width: 100%;
     height: 100%;
@@ -94,6 +94,8 @@ const Base = styled.textarea.attrs({
     box-sizing: border-box;
 
     ${sizeTextAreaMixin[size]};
+
+    ${readOnly && `padding-bottom: 0px;`}
 
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
@@ -118,13 +120,23 @@ const Base = styled.textarea.attrs({
 const CopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
 })(
-  ({ size = InputSize.Md, theme: { palette } }: With<Partial<TextareaProps>, WithTheme>) => css`
+  ({
+    size = InputSize.Md,
+    isHovering = false,
+    theme: { palette },
+  }: With<With<Partial<TextareaProps>, { isHovering: boolean }>, WithTheme>) => css`
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    color: ${palette[PColor.IconsPrimary]};
     cursor: pointer;
+    color: ${palette[PColor.IconsPrimary]};
     ${sizeTextAreaMixin[size]};
+    ${!isHovering &&
+    `
+      svg {
+        display: none;
+      }
+    `}
   `
 );
 

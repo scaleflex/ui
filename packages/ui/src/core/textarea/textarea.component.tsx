@@ -6,6 +6,7 @@ import { intrinsicComponent, objectValues, useForkRef } from '../../utils/functi
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from '../input/input.utils';
+import { getIconSize } from '../button/button.utils';
 import InputStyled from '../input/input.styles';
 import Styled from './textarea.styles';
 import { Size } from '../menu-item/types';
@@ -35,18 +36,16 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     const [showCopyMessage, setShowCopyMessage] = useState(false);
 
     useEffect(() => {
-      setTimeout(() => setShowCopyMessage(false), 2000);
-    }, [showCopyMessage]);
+      const { current } = inputRef;
+
+      if (current && current.scrollHeight > current.clientHeight) {
+        setOverflowStyles({ paddingRight: size === Size.Md ? '4px' : '0px' });
+      }
+    }, [inputRef.current?.scrollHeight, size]);
 
     useEffect(() => {
-      const { current } = inputRef;
-      const styles = { ...(readOnly && isHovering && { paddingBottom: 0 }) };
-      if (current && current.scrollHeight > current.clientHeight) {
-        setOverflowStyles({ paddingRight: '4px', ...styles });
-      } else {
-        setOverflowStyles(styles);
-      }
-    }, [inputRef.current?.scrollHeight, readOnly, isHovering]);
+      setTimeout(() => setShowCopyMessage(false), 2000);
+    }, [showCopyMessage]);
 
     const handleEntering = (): void => {
       setTimeout(() => {
@@ -90,9 +89,13 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
           disabled={disabled}
           style={{ ...overflowStyles }}
         />
-        {isHovering && readOnly ? (
-          <Styled.CopyIcon size={size} onClick={() => handleCopyIcon(value, setShowCopyMessage)}>
-            <CopyOutline size={16} />
+        {readOnly ? (
+          <Styled.CopyIcon
+            isHovering={isHovering}
+            size={size}
+            onClick={() => handleCopyIcon(value, setShowCopyMessage)}
+          >
+            <CopyOutline size={getIconSize(size)} />
           </Styled.CopyIcon>
         ) : undefined}
         {showCopyMessage && renderCopyText()}
