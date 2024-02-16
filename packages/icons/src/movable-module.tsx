@@ -6,9 +6,9 @@ export const MovableModule = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
     <svg
       ref={ref}
-      width={size * (22 / 50)}
+      width={size * (22 / 52)}
       height={size}
-      viewBox="0 0 22 50"
+      viewBox="0 0 22 52"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       {...rest}

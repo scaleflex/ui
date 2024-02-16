@@ -1,9 +1,9 @@
 import React from 'react';
 import PT from 'prop-types';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { CrossButtonProps, CrossButtonSizeType } from './cross-button.props';
-import CrossOutline from '@scaleflex/icons/cross-outline';
 import { Size } from './types';
 import Styled from './cross-button.styles';
 
