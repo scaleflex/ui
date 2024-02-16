@@ -3,6 +3,65 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
+
+
+### Features
+
+* **Icons:** add new icons ([74b6096](https://github.com/scaleflex/ui/commit/74b6096761d19de77b75e5b642c22be745fbdf1a))
+
+
+
+
+
+
+## [2.1.29](https://github.com/scaleflex/ui/compare/v2.1.28...v2.1.29) (2024-02-05)
+
+
+### Bug Fixes
+
+* **icons:** update icon path ([2f1ccb7](https://github.com/scaleflex/ui/commit/2f1ccb75864db18686f48279d58cc48e5710014b))
+
+
+
+
+
+## [2.1.25](https://github.com/scaleflex/ui/compare/v2.1.24...v2.1.25) (2024-01-09)
+
+
+### Features
+
+* **Icons:** add new icons ([8d13c1b](https://github.com/scaleflex/ui/commit/8d13c1b1b4804c3902a7a6db4dfd680f78bbef88))
+
+
+
+
+
+
+## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
+
+
+### Features
+
+* **Icons,Theme:** update video2 icon and add red color ([d627be1](https://github.com/scaleflex/ui/commit/d627be13615f4d45d0e404bf5ce77148d137a6c3))
+
+
+
+
+
+
+## [2.1.22](https://github.com/scaleflex/ui/compare/v2.1.21...v2.1.22) (2023-11-22)
+
+
+### Features
+
+* [Select group/icons] add option to hide actions from menu items/add new icon -FRA-2660 ([cc341bc](https://github.com/scaleflex/ui/commit/cc341bcacbdda7925323724afcc6ab0fffd88626))
+
+
+
+
+
+
 ## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
 
 

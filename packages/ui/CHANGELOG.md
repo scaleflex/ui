@@ -3,6 +3,193 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
+
+
+### Features
+
+* **Palette:** add new color ([ba5454b](https://github.com/scaleflex/ui/commit/ba5454b94f5b2d69a65fc8459ed575fb8cc8bac9))
+
+
+
+
+
+
+## [2.1.35](https://github.com/scaleflex/ui/compare/v2.1.34...v2.1.35) (2024-02-09)
+
+
+### Bug Fixes
+
+* **tagField:** fix buttons ([9011a7f](https://github.com/scaleflex/ui/commit/9011a7f11dc817518227c8b808a9cea00bbf73e5))
+
+
+
+
+
+## [2.1.34](https://github.com/scaleflex/ui/compare/v2.1.33...v2.1.34) (2024-02-08)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.1.33](https://github.com/scaleflex/ui/compare/v2.1.32...v2.1.33) (2024-02-08)
+
+
+### Features
+
+* **TagField:** add onBlur prop ([e916f8d](https://github.com/scaleflex/ui/commit/e916f8dee6ef6f8f6578468f6ffec97b3646cafe))
+
+
+
+
+
+## [2.1.32](https://github.com/scaleflex/ui/compare/v2.1.31...v2.1.32) (2024-02-07)
+
+
+### Bug Fixes
+
+* **TagField:** move focus from wrapper to inpurt ([18c72b0](https://github.com/scaleflex/ui/commit/18c72b01baebfec0f7698395e4122320e8a4214d))
+* code review - FRA-3202 ([d987528](https://github.com/scaleflex/ui/commit/d987528589ac575e91a201977816f2f11440a063))
+* **Calendar:** back month arrow and months picker disability - FRA-3202 ([b0a323b](https://github.com/scaleflex/ui/commit/b0a323b3312f11a8affe97e8f253b7170a23f890))
+
+
+### Features
+
+* **Tag Field:** add tooltip to display full tags names - FRA-1075 ([2608942](https://github.com/scaleflex/ui/commit/260894225ba21a04fb09c13748e8aa7ee7de68bd))
+
+
+
+
+
+
+## [2.1.31](https://github.com/scaleflex/ui/compare/v2.1.30...v2.1.31) (2024-02-05)
+
+
+### Bug Fixes
+
+* **Drawer:** collapse button padding ([a573889](https://github.com/scaleflex/ui/commit/a573889636f39853600748fea41bb13bee794845))
+
+
+
+
+
+## [2.1.30](https://github.com/scaleflex/ui/compare/v2.1.29...v2.1.30) (2024-02-05)
+
+
+### Bug Fixes
+
+* back month arrow disability in date picker - FRA-3202 ([651469d](https://github.com/scaleflex/ui/commit/651469d77ff4aff907a5060bf3386f453598298e))
+
+
+
+
+
+
+## [2.1.29](https://github.com/scaleflex/ui/compare/v2.1.28...v2.1.29) (2024-02-05)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.1.28](https://github.com/scaleflex/ui/compare/v2.1.27...v2.1.28) (2024-02-02)
+
+
+### Bug Fixes
+
+* **Drawer:** item button styles when it is collapsed ([215ad80](https://github.com/scaleflex/ui/commit/215ad80f016495247e34c0af2768aa6882eee2a9))
+* **Drawer:** item button styles when it is collapsed ([59e85a9](https://github.com/scaleflex/ui/commit/59e85a992944312c30c65bd5792b2a366ef55518))
+* **InputLocalization:** update tick icon size ([16bd20a](https://github.com/scaleflex/ui/commit/16bd20acb72ac4afbd428a9b59046b09ad9cce06))
+
+
+
+
+
+## [2.1.27](https://github.com/scaleflex/ui/compare/v2.1.26...v2.1.27) (2024-02-02)
+
+
+### Features
+
+* **ColorPicker,Select:** add new prop to hide ellipsis in select ([723f861](https://github.com/scaleflex/ui/commit/723f8615fc2b9f4bf7db4b6abb04c0d856cac090))
+
+
+
+
+
+## [2.1.26](https://github.com/scaleflex/ui/compare/v2.1.25...v2.1.26) (2024-02-02)
+
+
+### Bug Fixes
+
+* **Popup:** part of the container is cut out ([1a23563](https://github.com/scaleflex/ui/commit/1a235634b7389d5407c7421a165b4d10d9e27157))
+
+
+
+
+
+## [2.1.25](https://github.com/scaleflex/ui/compare/v2.1.24...v2.1.25) (2024-01-09)
+
+
+### Features
+
+* **Icons:** add new icons ([8d13c1b](https://github.com/scaleflex/ui/commit/8d13c1b1b4804c3902a7a6db4dfd680f78bbef88))
+
+
+
+
+
+
+## [2.1.24](https://github.com/scaleflex/ui/compare/v2.1.23...v2.1.24) (2023-12-13)
+
+
+### Features
+
+* [colros] add light background primary color -FRA-3384 ([296fb7e](https://github.com/scaleflex/ui/commit/296fb7ef00b682f18bfdeedccdddf0158434535a))
+
+
+
+
+
+## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
+
+
+### Features
+
+* **Icons,Theme:** update video2 icon and add red color ([d627be1](https://github.com/scaleflex/ui/commit/d627be13615f4d45d0e404bf5ce77148d137a6c3))
+
+
+
+
+
+
+## [2.1.22](https://github.com/scaleflex/ui/compare/v2.1.21...v2.1.22) (2023-11-22)
+
+
+### Features
+
+* [Select group/icons] add option to hide actions from menu items/add new icon -FRA-2660 ([cc341bc](https://github.com/scaleflex/ui/commit/cc341bcacbdda7925323724afcc6ab0fffd88626))
+
+
+
+
+
+
+## [2.1.21](https://github.com/scaleflex/ui/compare/v2.1.20...v2.1.21) (2023-11-01)
+
+
+### Bug Fixes
+
+* **Autocomplete:** fix change option issuse ([ddc8af3](https://github.com/scaleflex/ui/commit/ddc8af35dc3926dfad054572bbc061945a2da194))
+* **Snackbar:** fix text overflow ([0132031](https://github.com/scaleflex/ui/commit/01320318bbcdfbee576c0080ca104be67e6acf56))
+
+
+
+
+
+
 ## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
 
 

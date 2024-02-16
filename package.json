@@ -22,7 +22,7 @@
     "prebuild:root": "rimraf packages/*/{lib,*.tsbuildinfo} dist",
     "prebuild:local": "lerna run prebuild",
     "prebuild": "npm-run-all -p prebuild:root prebuild:local",
-    "clean-dist": "rm -rf dist",
+    "clean-dist": "rimraf dist",
     "build:dts": "tsc -b tsconfig.build.json",
     "build:js": "lerna exec -- babel src --out-dir lib --extensions .ts,.tsx --copy-files --root-mode upward",
     "build:storybook": "build-storybook --quiet -o dist",

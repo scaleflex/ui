@@ -426,6 +426,8 @@ export { SuccessOutline } from './success-outline';
 export { Preset } from './preset';
 export { LinkLocked } from './link-locked';
 export { LinkExpired } from './link-expired';
+export { FormPositionCenter } from './form-position-center';
+export { FormPositionRight } from './form-position-right';
 export { FolderOpened } from './folder-opened';
 export { Book } from './book';
 export { ErrorBroke } from './error-broke';

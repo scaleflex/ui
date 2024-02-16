@@ -10,7 +10,6 @@ import Tag from '../tag';
 import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
-import Button from '../button/button.component';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
@@ -59,6 +58,8 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       getTagValue = (tag: TagType): string => tag as string,
       getTagIcon,
       suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
+      onFocus,
+      onBlur,
       ...rest
     }: TagFieldProps,
     ref
@@ -130,11 +131,15 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleOnBlur = (): void => {
+    const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
       setShowPlaceholder(false);
       if (preventSubmitOnBlur) return;
 
       handleTagsValidation();
+
+      if (typeof onBlur === 'function') {
+        onBlur(event);
+      }
     };
 
     const handleUserInputKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
@@ -147,8 +152,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleInputFocus = () => {
+    const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
       setShowPlaceholder(true);
+
+      if (typeof onFocus === 'function') {
+        onFocus(event);
+      }
     };
 
     const handleClearAllTags = (): void => {
@@ -206,69 +215,73 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Label>
           )}
 
-          <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
-            <Styled.TagFieldListWrapper $loading={loading}>
-              {filteredTags.map((tag: TagType, index: number) => {
-                const tagLabel = getTagLabel(tag);
+          <Styled.Wrapper>
+            <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
+              <Styled.TagFieldListWrapper $loading={loading} size={size}>
+                {filteredTags.map((tag: TagType, index: number) => {
+                  const tagLabel = getTagLabel(tag);
 
-                return showTooltip ? (
-                  <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
-                    {renderTag(tag, tagLabel, index)}
-                  </TooltipV2>
+                  return showTooltip ? (
+                    <TooltipV2 key={getTagValue(tag)} title={tagLabel}>
+                      {renderTag(tag, tagLabel, index)}
+                    </TooltipV2>
+                  ) : (
+                    renderTag(tag, tagLabel, index)
+                  );
+                })}
+
+                {loading ? (
+                  <Styled.TagFieldLoader>
+                    <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
+                  </Styled.TagFieldLoader>
                 ) : (
-                  renderTag(tag, tagLabel, index)
-                );
-              })}
-
-              {loading ? (
-                <Styled.TagFieldLoader>
-                  <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
-                </Styled.TagFieldLoader>
-              ) : (
-                <Styled.TagFieldInputWrapper size={size}>
-                  <Styled.TagFieldInput
-                    value={userInput}
-                    type="text"
-                    autoComplete="off"
-                    placeholder={showPlaceholder ? placeholder : ''}
-                    onChange={(ev) => setUserInput(ev.target.value)}
-                    onKeyDown={handleUserInputKeyDown}
-                    onBlur={handleOnBlur}
-                    onFocus={handleInputFocus}
-                    readOnly={readOnly}
-                    disabled={disabled}
-                  />
-                </Styled.TagFieldInputWrapper>
-              )}
-            </Styled.TagFieldListWrapper>
-            <Styled.TagFieldBottom>
-              <Styled.TagFieldButtonsWrapper>
-                {showGenerateTagsButton && (
-                  <Button color="link-primary" size={size} onClick={onGenerate}>
-                    {generateTagsButtonLabel}
-                  </Button>
+                  <Styled.TagFieldInputWrapper size={size}>
+                    <Styled.TagFieldInput
+                      value={userInput}
+                      type="text"
+                      autoComplete="off"
+                      placeholder={showPlaceholder ? placeholder : ''}
+                      onChange={(ev) => setUserInput(ev.target.value)}
+                      onKeyDown={handleUserInputKeyDown}
+                      onBlur={handleOnBlur}
+                      onFocus={handleInputFocus}
+                      readOnly={readOnly}
+                      disabled={disabled}
+                    />
+                  </Styled.TagFieldInputWrapper>
                 )}
+              </Styled.TagFieldListWrapper>
+            </Styled.TagFieldWrapper>
+            {showGenerateTagsButton && (
+              <Styled.GenerateButton color="link-primary" size={size} onClick={onGenerate}>
+                {generateTagsButtonLabel}
+              </Styled.GenerateButton>
+            )}
 
-                <Button color="link-secondary" size={size === Size.Md ? Size.Sm : 'xs'} onClick={handleClearAllTags}>
-                  {clearTagsButtonLabel}
-                </Button>
-              </Styled.TagFieldButtonsWrapper>
+            {filteredTags?.length > 0 && (
+              <Styled.ClearAllButton
+                color="link-secondary"
+                size={size}
+                showGenerateTagsButton={showGenerateTagsButton}
+                onClick={handleClearAllTags}
+              >
+                {clearTagsButtonLabel}
+              </Styled.ClearAllButton>
+            )}
 
-              {!hideCopyIcon && (
-                <Styled.TagFieldCopyIcon onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
-                  <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
-                </Styled.TagFieldCopyIcon>
-              )}
+            {!hideCopyIcon && (
+              <Styled.TagFieldCopyIcon size={size} onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
+                <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+              </Styled.TagFieldCopyIcon>
+            )}
 
-              {showCopyMessage && (
-                <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 148 : 140 }}>
-                  <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
-                  <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
-                </InputStyled.NotificationBox>
-              )}
-            </Styled.TagFieldBottom>
-          </Styled.TagFieldWrapper>
-
+            {showCopyMessage && (
+              <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
+                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
+              </InputStyled.NotificationBox>
+            )}
+          </Styled.Wrapper>
           {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
         </Styled.TagInputFieldWrapper>
 
@@ -353,6 +366,8 @@ TagField.propTypes = {
   suggestionTooltipMessage: PT.string,
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
   copyTextMessage: PT.string,
+  onFocus: PT.func,
+  onBlur: PT.func,
 };
 
 export default TagField;

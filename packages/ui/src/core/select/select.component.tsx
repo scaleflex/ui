@@ -33,6 +33,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       hideMenuItemsActions,
       renderLabel,
       onRequestClose,
+      hideEllipsis = false,
       ...rest
     },
     ref
@@ -63,7 +64,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           onClick={readOnly || disabled ? undefined : handleClick}
         >
           {isValueExists && (
-            <Styled.Label>
+            <Styled.Label hideEllipsis={hideEllipsis}>
               {typeof renderLabel === 'function'
                 ? renderLabel(value)
                 : renderValue({ value, multiple, children, showSelectionKey })}
@@ -130,6 +131,7 @@ export const propTypes = {
   scroll: PT.bool,
   renderLabel: PT.func,
   onRequestClose: PT.func,
+  hideEllipsis: PT.bool,
 };
 
 Select.propTypes = propTypes;

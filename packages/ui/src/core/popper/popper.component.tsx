@@ -96,7 +96,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
     );
 
     if (!open) {
-      return <div ref={handlePopperRef} />;
+      return <div hidden ref={handlePopperRef} />;
     }
 
     const render = (): JSX.Element => (

@@ -11,11 +11,11 @@ import Styled from './select.styles';
 export const getIconSize = (size?: SelectSizeType): number => {
   switch (size) {
     case InputSize.Md:
-      return 11;
+      return 16;
 
     case InputSize.Sm:
     default:
-      return 10;
+      return 14;
   }
 };
 
