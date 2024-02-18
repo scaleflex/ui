@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/scaleflex/ui/compare/v2.1.36...v2.2.0) (2024-02-16)
+
+
+### Bug Fixes
+
+* scroll in textarea - FRA-2595 ([d1cfcb5](https://github.com/scaleflex/ui/commit/d1cfcb52fe8cc2c4abd906282483c0a53a5ef0e5))
+
+
+### Features
+
+* **IconButtonTable:** add icon button table to design system - FRA-2117 ([41f9e58](https://github.com/scaleflex/ui/commit/41f9e58bb39d12012ef863896f6031a4f6581c65))
+
+
+
+
+
+
 ## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
 
 
