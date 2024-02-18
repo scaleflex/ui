@@ -1,6 +1,5 @@
 import React from 'react';
 import PT from 'prop-types';
-import More from '@scaleflex/icons/more';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import type { IconButtonTableProps, IconButtonTableSizeType } from './icon-button-table.props';
@@ -19,9 +18,9 @@ const getIconSize = (sizeName: IconButtonTableSizeType | undefined): number => {
 };
 
 const IconButtonTable = intrinsicComponent<IconButtonTableProps, HTMLButtonElement>(
-  ({ ...rest }: IconButtonTableProps, ref): JSX.Element => (
+  ({ children, ...rest }: IconButtonTableProps, ref): JSX.Element => (
     <Styled.IconButtonTable {...rest} ref={ref}>
-      <More size={getIconSize(rest.size)} />
+      {children && (typeof children === 'function' ? children({ size: getIconSize(rest.size) }) : children)}
     </Styled.IconButtonTable>
   )
 );
