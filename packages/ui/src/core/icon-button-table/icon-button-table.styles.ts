@@ -21,7 +21,7 @@ const IconButtonTablePaddingMixin = {
 const IconButtonTable = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = Size.Md, theme }: With<WithTheme, IconButtonTableProps>) => css`
+  ({ size = Size.Md, theme: { palette } }: With<WithTheme, IconButtonTableProps>) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,19 +29,25 @@ const IconButtonTable = styled.button.attrs({
     border-radius: 4px;
     ${IconButtonTablePaddingMixin[size]}
 
-    color: ${theme.palette[PaletteColor.IconsSecondary]};
+    color: ${palette[PaletteColor.IconsSecondary]};
     background: transparent;
     border: none;
     transition: all 100ms ease-out;
 
     &:hover {
-      color: ${theme.palette[PaletteColor.IconsPrimary]};
-      background: ${theme.palette[PaletteColor.BordersSecondary]};
+      color: ${palette[PaletteColor.IconsPrimary]};
+      background: ${palette[PaletteColor.BordersSecondary]};
     }
 
     &:active {
-      color: ${theme.palette[PaletteColor.IconsPrimaryHover]};
-      background: ${theme.palette[PaletteColor.BordersItem]};
+      color: ${palette[PaletteColor.IconsPrimaryHover]};
+      background: ${palette[PaletteColor.BordersItem]};
+    }
+
+    &:disabled {
+      background-color: transparent;
+      color: ${palette[PaletteColor.BordersDisabled]};
+      cursor: default;
     }
   `
 );
