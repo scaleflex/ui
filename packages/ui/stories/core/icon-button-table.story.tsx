@@ -3,7 +3,7 @@ import type { Meta, Story } from '@storybook/react';
 import More from '@scaleflex/icons/more';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import _IconButtonTable, { IconButtonTableProps } from '../../src/core/icon-button-table';
-import { ButtonSize, ButtonColor } from '../../src/utils/types';
+import { ButtonSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
 
 export const IconButtonTable = _IconButtonTable;
@@ -23,7 +23,6 @@ export default {
 
 const defaultArgs = {
   size: ButtonSize.Md,
-  color: ButtonColor.Secondary,
   disabled: false,
   active: false,
   children: (props: IconProps) => <More {...props} />,
