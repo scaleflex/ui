@@ -24,8 +24,7 @@ const TooltipV2 = styled(Tippy).attrs({
     align-items: center;
     min-width: 54px;
     min-height: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    word-break: break-all;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     background: ${$warning ? theme.palette[PColor.BackgroundOrange] : theme.palette[PColor.IconsPlaceholder]};
     color: ${$warning ? theme.palette[PColor.TextWarning] : theme.palette[PColor.LinkActive]};
