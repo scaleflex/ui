@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/scaleflex/ui/compare/v2.3.0...v2.3.1) (2024-02-19)
+
+
+### Bug Fixes
+
+* add disable state for icon button table - FRA-2117 ([6b6f832](https://github.com/scaleflex/ui/commit/6b6f8324e7c7677d8d931ed023a65f6269492938))
+* tooltipV2 overflow bug [FRA-4422] ([452fdf1](https://github.com/scaleflex/ui/commit/452fdf174e31ca794b902017e4ac6b4efa653a19))
+* tooltipV2 overflow bug [FRA-4422] ([ef35813](https://github.com/scaleflex/ui/commit/ef3581304776d6f433b8fdcaf016ce9176248cd2))
+
+
+
+
+
+
 # [2.3.0](https://github.com/scaleflex/ui/compare/v2.2.0...v2.3.0) (2024-02-18)
 
 
