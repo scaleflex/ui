@@ -195,8 +195,12 @@ const ClearIcon = styled.span.attrs({
 
 const NotificationBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'NotificationBox'),
-})<InputProps>(
-  ({ size = InputSize.Md, theme: { palette } }: With<WithTheme, InputProps>) => css`
+})(
+  ({
+    size = InputSize.Md,
+    isTextarea = false,
+    theme: { palette },
+  }: With<With<WithTheme, InputProps>, { isTextarea?: boolean }>) => css`
     display: flex;
     position: absolute;
     align-items: center;
@@ -208,6 +212,12 @@ const NotificationBox = styled.div.attrs({
     box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
     background-color: ${palette[PColor.BackgroundStateless]};
     border-radius: 4px;
+
+    ${isTextarea &&
+    `
+      bottom: ${size === InputSize.Md ? 27 : 22}px;
+      right: ${size === InputSize.Md ? 16 : 12}px;
+    `}
   `
 );
 
