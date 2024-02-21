@@ -122,16 +122,17 @@ const CopyIcon = styled.div.attrs({
 })(
   ({
     size = InputSize.Md,
-    isHovering = false,
+    showCopyIcon = false,
     theme: { palette },
-  }: With<With<Partial<TextareaProps>, { isHovering: boolean }>, WithTheme>) => css`
+  }: With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>) => css`
     display: flex;
     justify-content: flex-end;
     width: 100%;
+    box-sizing: border-box;
     cursor: pointer;
     color: ${palette[PColor.IconsPrimary]};
     ${sizeTextAreaMixin[size]};
-    ${!isHovering &&
+    ${!showCopyIcon &&
     `
       svg {
         visibility: hidden;

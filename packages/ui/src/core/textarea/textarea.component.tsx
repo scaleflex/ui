@@ -61,7 +61,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
 
     const renderCopyText = (): JSX.Element | undefined => {
       return (
-        <InputStyled.NotificationBox size={size} style={{ bottom: size === Size.Md ? 83 : 68 }}>
+        <InputStyled.NotificationBox size={size} isTextarea>
           <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
           <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
         </InputStyled.NotificationBox>
@@ -91,7 +91,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         />
         {readOnly ? (
           <Styled.CopyIcon
-            isHovering={isHovering}
+            showCopyIcon={isHovering && value.length > 0}
             size={size}
             onClick={() => handleCopyIcon(value, setShowCopyMessage)}
           >

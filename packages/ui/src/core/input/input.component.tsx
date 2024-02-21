@@ -71,6 +71,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     const inputRef = useRef<HTMLInputElement | null>(null);
     const isSelectedItems = rest.selectedItems?.length;
     const placeholder = rest.value || isSelectedItems ? '' : rest.placeholder;
+    const showCopyIcon = isHovering && readOnly && rest.value.length > 0 && !hideCopyIcon;
 
     const handleFocus = (): void => {
       if (disabled || readOnly) return;
@@ -142,7 +143,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       );
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
-      isHovering && readOnly && !hideCopyIcon ? (
+      showCopyIcon ? (
         <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowCopyMessage)}>
           {typeof icon === 'function' ? icon() : icon}
         </Styled.CopyIcon>
