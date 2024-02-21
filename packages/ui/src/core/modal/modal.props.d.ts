@@ -8,6 +8,7 @@ export interface ModalProps extends PropsWithChildren, React.HTMLAttributes<HTML
   open?: boolean;
   fullWidth?: boolean;
   modalStyles?: object;
+  disableOverlayClick?: boolean;
   maxWidth?: ModalSizeType;
   onClose?: () => void;
 }
