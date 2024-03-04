@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const DatePicker = _DatePicker;
 
 export default {
-  title: `${StoryGroup.Inputs}/DatePicker`,
+  // title: `${StoryGroup.Inputs}/DatePicker`,
   component: DatePicker,
   excludeStories: ['DatePicker'],
   argTypes: {

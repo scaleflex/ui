@@ -11,7 +11,7 @@ import { StoryGroup } from './types';
 export const Button = _Button;
 
 export default {
-  title: `${StoryGroup.Inputs}/Button`,
+  // title: `${StoryGroup.Inputs}/Button`,
   component: Button,
   excludeStories: ['Button'],
 

@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const SwitcherGroup = _SwitcherGroup;
 
 export default {
-  title: `${StoryGroup.Inputs}/Switcher/SwitcherGroup`,
+  // title: `${StoryGroup.Inputs}/Switcher/SwitcherGroup`,
   component: SwitcherGroup,
   excludeStories: ['SwitcherGroup'],
 

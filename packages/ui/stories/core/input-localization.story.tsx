@@ -10,7 +10,7 @@ import { InputSize } from '../../src/utils/types';
 export const InputLocalization = _InputLocalization;
 
 export default {
-  title: `${StoryGroup.Inputs}/InputLocalization`,
+  // title: `${StoryGroup.Inputs}/InputLocalization`,
   component: InputLocalization,
   excludeStories: ['InputLocalization'],
 

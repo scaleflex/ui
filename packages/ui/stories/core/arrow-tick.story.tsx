@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const ArrowTick = _ArrowTick;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/ArrowTick`,
+  // title: `${StoryGroup.DataDisplay}/ArrowTick`,
   component: ArrowTick,
   excludeStories: ['ArrowTick'],
 } as Meta;

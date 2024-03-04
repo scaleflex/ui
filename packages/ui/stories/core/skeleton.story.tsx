@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Skeleton = _Skeleton;
 
 export default {
-  title: `${StoryGroup.Feedback}/Skeleton`,
+  // title: `${StoryGroup.Feedback}/Skeleton`,
   component: Skeleton,
   excludeStories: ['Skeleton'],
 } as Meta;

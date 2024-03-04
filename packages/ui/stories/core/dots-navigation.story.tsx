@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const DotsNavigation = _DotsNavigation;
 
 export default {
-  title: `${StoryGroup.Navigation}/DotsNavigation`,
+  // title: `${StoryGroup.Navigation}/DotsNavigation`,
   component: DotsNavigation,
   excludeStories: ['DotsNavigation'],
 

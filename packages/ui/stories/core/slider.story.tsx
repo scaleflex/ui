@@ -8,7 +8,7 @@ import { LabelTooltip } from '../../src/core/slider/types';
 export const Slider = _Slider;
 
 export default {
-  title: `${StoryGroup.Inputs}/Sliders/Slider`,
+  // title: `${StoryGroup.Inputs}/Sliders/Slider`,
   component: Slider,
   argTypes: {
     components: {

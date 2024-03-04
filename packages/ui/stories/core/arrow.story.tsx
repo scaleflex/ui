@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Arrow = _Arrow;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Arrow`,
+  // title: `${StoryGroup.DataDisplay}/Arrow`,
   component: Arrow,
   excludeStories: ['Arrow'],
 } as Meta;

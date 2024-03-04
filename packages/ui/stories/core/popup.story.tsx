@@ -9,7 +9,7 @@ import { StoryGroup } from './types';
 export const Popup = _Popup;
 
 export default {
-  title: `${StoryGroup.Feedback}/Popup`,
+  // title: `${StoryGroup.Feedback}/Popup`,
   component: Popup,
   excludeStories: ['Popup'],
 } as Meta;

@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const ModalContent = _ModalContent;
 
 export default {
-  title: `${StoryGroup.Feedback}/Modal/ModalContent`,
+  // title: `${StoryGroup.Feedback}/Modal/ModalContent`,
   component: ModalContent,
   excludeStories: ['ModalContent'],
 } as Meta;

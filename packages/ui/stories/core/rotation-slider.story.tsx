@@ -7,7 +7,7 @@ import { LabelTooltip } from '../../src/core/slider/types';
 export const RotationSLider = _RotationSlider;
 
 export default {
-  title: `${StoryGroup.Inputs}/Sliders/RotationSlider`,
+  // title: `${StoryGroup.Inputs}/Sliders/RotationSlider`,
   component: RotationSLider,
   excludeStories: ['RotationSLider'],
 } as Meta;

@@ -12,7 +12,7 @@ import { StoryGroup } from './types';
 export const CheckBoxGroup = _CheckBoxGroup;
 
 export default {
-  title: `${StoryGroup.Inputs}/Checkbox/CheckBoxGroup`,
+  // title: `${StoryGroup.Inputs}/Checkbox/CheckBoxGroup`,
   component: CheckBoxGroup,
   excludeStories: ['CheckBoxGroup'],
 
@@ -55,6 +55,6 @@ Basic.args = { ...defaultArgs };
 export const WithIcon = BasicTemplate.bind({});
 WithIcon.args = {
   ...defaultArgs,
-  title: 'Tooltip text',
+  // title: 'Tooltip text',
   icon: (props: IconProps) => <InfoOutline {...props} />,
 };

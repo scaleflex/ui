@@ -5,7 +5,7 @@ import type { Meta, Story } from '@storybook/react';
 import _Button, { ButtonProps } from '../../src/core/button';
 import { colorButtonMixin } from '../../src/core/button/button.mixin';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
-import BreakpointsDocs from '../docs/breakpoints.mdx';
+// import BreakpointsDocs from '../docs/breakpoints.mdx';
 
 export const Button = _Button;
 
@@ -16,9 +16,9 @@ export default {
     backgroundColor: { control: 'color' },
   },
   parameters: {
-    docs: {
-      page: BreakpointsDocs,
-    },
+    // docs: {
+    //   page: BreakpointsDocs,
+    // },
     viewport: {
       defaultViewport: 'lg',
     },

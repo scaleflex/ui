@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const Rating = _Rating;
 
 export default {
-  title: `${StoryGroup.Inputs}/Rating`,
+  // title: `${StoryGroup.Inputs}/Rating`,
   component: Rating,
   excludeStories: ['Rating'],
 

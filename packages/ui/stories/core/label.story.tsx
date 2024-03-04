@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Label = _Label;
 
 export default {
-  title: `${StoryGroup.Inputs}/Label`,
+  // title: `${StoryGroup.Inputs}/Label`,
   component: Label,
   excludeStories: ['Label'],
 } as Meta;

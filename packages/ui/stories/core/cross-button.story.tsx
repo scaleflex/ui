@@ -7,7 +7,7 @@ import { StoryGroup } from './types';
 export const CrossButton = _CrossButton;
 
 export default {
-  title: `${StoryGroup.Inputs}/CrossButton`,
+  // title: `${StoryGroup.Inputs}/CrossButton`,
   component: CrossButton,
   excludeStories: ['CrossButton'],
 } as Meta;

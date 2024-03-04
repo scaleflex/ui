@@ -1,8 +1,18 @@
+import { dirname, join } from "path";
 const pathsToWebpackAlias = require('../scripts/paths-to-webpack-alias');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  stories: ['../packages/**/*.story.@(tsx|mdx)'],
+  framework: {
+    name: getAbsolutePath("@storybook/react-webpack5"),
+    options: {}
+  },
+  stories: [
+    {
+      directory: '../packages/ui/stories',
+    },
+  ],
+
   addons: [
     {
       name: '@storybook/addon-essentials',
@@ -11,10 +21,11 @@ module.exports = {
         actions: false,
       },
     },
-    'storybook-addon-jsx',
-    'storybook-addon-breakpoints',
-    '@storybook/addon-docs'
+    getAbsolutePath("storybook-addon-jsx"),
+    getAbsolutePath("storybook-addon-breakpoints"),
+    getAbsolutePath("@storybook/addon-docs")
   ],
+
   webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.inline.svg$/;
    
@@ -42,4 +53,13 @@ module.exports = {
 
     return config;
   },
+
+
+  docs: {
+    autodocs: true
+  }
 };
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")));
+}

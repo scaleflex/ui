@@ -7,7 +7,7 @@ import { StoryGroup } from './types';
 export const PopupStatus = _PopupStatus;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/PopupStatus`,
+  // title: `${StoryGroup.DataDisplay}/PopupStatus`,
   component: PopupStatus,
   excludeStories: ['PopupStatus'],
 } as Meta;

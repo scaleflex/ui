@@ -18,7 +18,7 @@ export const TableRow = _TableRow;
 export const TableBody = _TableBody;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Table/TableCell`,
+  // title: `${StoryGroup.Surfaces}/Table/TableCell`,
   component: TableCell,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
 

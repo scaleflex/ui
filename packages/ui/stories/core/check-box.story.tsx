@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const CheckBox = _CheckBox;
 
 export default {
-  title: `${StoryGroup.Inputs}/CheckBox`,
+  // title: `${StoryGroup.Inputs}/CheckBox`,
   component: CheckBox,
   excludeStories: ['CheckBox'],
 } as Meta;

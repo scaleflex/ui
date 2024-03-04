@@ -10,7 +10,7 @@ import { InputSize } from '../../src/utils/types';
 export const InputGroup = _InputGroup;
 
 export default {
-  title: `${StoryGroup.Inputs}/Input/InputGroup`,
+  // title: `${StoryGroup.Inputs}/Input/InputGroup`,
   component: InputGroup,
   excludeStories: ['InputGroup'],
 
@@ -31,7 +31,7 @@ const defaultArgs = {
   placeholder: 'placeholder',
   size: InputSize.Md,
   copyTextMessage: 'Link copied to clipboard',
-  copySuccessIcon: <Success size={16} />
+  copySuccessIcon: <Success size={16} />,
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {

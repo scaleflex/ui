@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const FormHint = _FormHint;
 
 export default {
-  title: `${StoryGroup.Inputs}/FormHint`,
+  // title: `${StoryGroup.Inputs}/FormHint`,
   component: FormHint,
   excludeStories: ['FormHint'],
 } as Meta;

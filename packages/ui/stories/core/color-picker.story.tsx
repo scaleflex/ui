@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const ColorPicker = _ColorPicker;
 
 export default {
-  title: `${StoryGroup.Surfaces}/ColorPicker`,
+  // title: `${StoryGroup.Surfaces}/ColorPicker`,
   component: ColorPicker,
   excludeStories: ['ColorPicker'],
 } as Meta;

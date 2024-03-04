@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const Tag = _Tag;
 
 export default {
-  title: `${StoryGroup.Inputs}/Tag`,
+  // title: `${StoryGroup.Inputs}/Tag`,
   component: Tag,
   excludeStories: ['Tag'],
 

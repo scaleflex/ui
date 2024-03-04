@@ -37,7 +37,7 @@ import { Color } from '../../src/utils/types/palette';
 export const Drawer = _Drawer;
 
 export default {
-  title: `${StoryGroup.Navigation}/Drawer`,
+  // title: `${StoryGroup.Navigation}/Drawer`,
   component: Drawer,
   excludeStories: ['Drawer'],
 } as Meta;
@@ -66,47 +66,47 @@ const StyledHeader = styled.div(
 
 const libraryItems = [
   {
-    title: 'Hub',
+    // title: 'Hub',
     icon: (props: IconProps) => <Hub {...props} />,
   },
   {
-    title: 'Assets',
+    // title: 'Assets',
     icon: (props: IconProps) => <Assets {...props} />,
   },
   {
-    title: 'Folders',
+    // title: 'Folders',
     icon: (props: IconProps) => <Folders {...props} />,
     selected: true,
   },
   {
-    title: 'Collections',
+    // title: 'Collections',
     icon: (props: IconProps) => <Collections {...props} />,
   },
   {
-    title: 'Labels',
+    // title: 'Labels',
     icon: (props: IconProps) => <Label {...props} />,
   },
   {
-    title: 'Products',
+    // title: 'Products',
     icon: (props: IconProps) => <Products {...props} />,
   },
   {
-    title: 'My favorites ',
+    // title: 'My favorites ',
     icon: (props: IconProps) => <Heart {...props} />,
   },
 ];
 
 const analyticsItems = [
   {
-    title: 'Sharebox',
+    // title: 'Sharebox',
     icon: (props: IconProps) => <Share {...props} />,
   },
   {
-    title: 'Airbox',
+    // title: 'Airbox',
     icon: (props: IconProps) => <Airbox {...props} />,
   },
   {
-    title: 'Trash',
+    // title: 'Trash',
     icon: (props: IconProps) => <Remove {...props} />,
   },
 ];

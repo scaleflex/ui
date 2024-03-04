@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Popper = _Popper;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Popper`,
+  // title: `${StoryGroup.Surfaces}/Popper`,
   component: Popper,
   excludeStories: ['Popper'],
 } as Meta;

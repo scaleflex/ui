@@ -7,7 +7,7 @@ import { StoryGroup } from './types';
 export const Autocomplete = _Autocomplete;
 
 export default {
-  title: `${StoryGroup.Inputs}/Autocomplete`,
+  // title: `${StoryGroup.Inputs}/Autocomplete`,
   component: Autocomplete,
   excludeStories: ['Autocomplete'],
   argTypes: {

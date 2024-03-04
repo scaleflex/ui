@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Textarea = _Textarea;
 
 export default {
-  title: `${StoryGroup.Inputs}/Textarea`,
+  // title: `${StoryGroup.Inputs}/Textarea`,
   component: Textarea,
   excludeStories: ['Textarea'],
 } as Meta;

@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import _Accordion, { AccordionProps } from '../../src/core/accordion';
+import _Accordion, { AccordionProps } from '../../../src/core/accordion';
 
-import { StoryGroup } from './types';
+import { StoryGroup } from '../../core/types';
 
 export const Accordion = _Accordion;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Accordion`,
+  // title: `${StoryGroup.Surfaces}/Accordion`,
   component: Accordion,
   argTypes: {
     children: {

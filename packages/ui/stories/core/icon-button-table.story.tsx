@@ -9,7 +9,7 @@ import { StoryGroup } from './types';
 export const IconButtonTable = _IconButtonTable;
 
 export default {
-  title: `${StoryGroup.Inputs}/IconButtonTable`,
+  // title: `${StoryGroup.Inputs}/IconButtonTable`,
   component: IconButtonTable,
   excludeStories: ['IconButtonTable'],
 

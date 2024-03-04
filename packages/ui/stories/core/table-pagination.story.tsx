@@ -20,7 +20,7 @@ export const TableBody = _TableBody;
 export const TablePagination = _TablePagination;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Table/TablePagination`,
+  // title: `${StoryGroup.Surfaces}/Table/TablePagination`,
   component: TableHead,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody', 'TablePagination'],
 

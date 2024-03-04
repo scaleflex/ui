@@ -18,7 +18,7 @@ import { Variant } from '../../src/core/modal-title/types';
 export const Modal = _Modal;
 
 export default {
-  title: `${StoryGroup.Feedback}/Modal`,
+  // title: `${StoryGroup.Feedback}/Modal`,
   component: Modal,
   excludeStories: ['Modal'],
 

@@ -7,7 +7,7 @@ import { StoryGroup } from './types';
 export const Search = _Search;
 
 export default {
-  title: `${StoryGroup.Inputs}/Search`,
+  // title: `${StoryGroup.Inputs}/Search`,
   component: Search,
   excludeStories: ['Search'],
 } as Meta;

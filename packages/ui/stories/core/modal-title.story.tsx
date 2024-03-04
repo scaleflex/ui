@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const ModalTitle = _ModalTitle;
 
 export default {
-  title: `${StoryGroup.Feedback}/Modal/ModalTitle`,
+  // title: `${StoryGroup.Feedback}/Modal/ModalTitle`,
   component: ModalTitle,
   excludeStories: ['ModalTitle'],
 

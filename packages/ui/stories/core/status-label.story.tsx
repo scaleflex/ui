@@ -8,7 +8,7 @@ import _StatusLabel, { StatusLabelProps } from '../../src/core/status-label';
 export const StatusLabel = _StatusLabel;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/StatusLabel`,
+  // title: `${StoryGroup.DataDisplay}/StatusLabel`,
   component: StatusLabel,
   excludeStories: ['StatusLabel'],
 } as Meta;

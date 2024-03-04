@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const UploadInput = _UploadInput;
 
 export default {
-  title: `${StoryGroup.Inputs}/UploadInput`,
+  // title: `${StoryGroup.Inputs}/UploadInput`,
   component: UploadInput,
   excludeStories: ['UploadInput'],
 } as Meta;

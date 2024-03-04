@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Pagination = _Pagination;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Pagination`,
+  // title: `${StoryGroup.Surfaces}/Pagination`,
   component: Pagination,
   excludeStories: ['Pagination'],
 } as Meta;

@@ -22,7 +22,7 @@ export const TableBody = _TableBody;
 export const TablePagination = _TablePagination;
 
 export default {
-  title: `${StoryGroup.Surfaces}/Table`,
+  // title: `${StoryGroup.Surfaces}/Table`,
   component: Table,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody', 'TablePagination'],
 } as Meta;

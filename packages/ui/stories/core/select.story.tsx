@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Select = _Select;
 
 export default {
-  title: `${StoryGroup.Inputs}/Select`,
+  // title: `${StoryGroup.Inputs}/Select`,
   component: Select,
   excludeStories: ['Select'],
 

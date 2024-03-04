@@ -9,7 +9,7 @@ import { StoryGroup } from './types';
 export const Menu = _Menu;
 
 export default {
-  title: `${StoryGroup.Navigation}/Menu`,
+  // title: `${StoryGroup.Navigation}/Menu`,
   component: Menu,
   excludeStories: ['Menu'],
 

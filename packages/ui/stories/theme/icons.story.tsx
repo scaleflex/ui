@@ -10,7 +10,6 @@ const defaultSize = 25;
 
 export default {
   title: 'Theme/Icons',
-
   argTypes: {
     color: {
       control: {

@@ -37,7 +37,7 @@ const items: NotificationProps[] = [
 ];
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Notification`,
+  // title: `${StoryGroup.DataDisplay}/Notification`,
   component: Notification,
   excludeStories: ['Notification'],
 } as Meta;
@@ -60,7 +60,7 @@ const AllTemplate: Story<NotificationProps> = ({ ...args }) => (
 export const Basic = BasicTemplate.bind({});
 Basic.args = {
   ...defaultArgs,
-  title: <span>Title</span>,
+  // title: <span>Title</span>,
   message: 'You made changes in settings. It takes few minutes to propagate and become effective',
   status: NotificationStatus.Info,
 };

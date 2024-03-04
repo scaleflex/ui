@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const Dot = _Dot;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Dot`,
+  // title: `${StoryGroup.DataDisplay}/Dot`,
   component: Dot,
   excludeStories: ['Dot'],
 } as Meta;

@@ -7,7 +7,7 @@ import { StoryGroup } from './types';
 export const GalleryButton = _GalleryButton;
 
 export default {
-  title: `${StoryGroup.Inputs}/GalleryButton`,
+  // title: `${StoryGroup.Inputs}/GalleryButton`,
   component: GalleryButton,
   excludeStories: ['GalleryButton'],
 } as Meta;

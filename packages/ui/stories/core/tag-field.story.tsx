@@ -10,7 +10,7 @@ import { StoryGroup } from './types';
 export const TagField = _TagField;
 
 export default {
-  title: `${StoryGroup.Surfaces}/TagField`,
+  // title: `${StoryGroup.Surfaces}/TagField`,
   component: TagField,
   excludeStories: ['TagField'],
   argTypes: {

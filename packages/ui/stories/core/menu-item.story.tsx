@@ -1,9 +1,6 @@
 import React from 'react';
 import type { Meta, Story } from '@storybook/react';
-import {
-  Country,
-  Download,
-} from '@scaleflex/icons'
+import { Country, Download } from '@scaleflex/icons';
 import _MenuItem, { MenuItemProps, MenuItemIcon, MenuItemLabel, MenuItemActions } from '../../src/core/menu-item';
 import { Size } from '../../src/core/menu-item/types';
 import { StoryGroup } from './types';
@@ -11,7 +8,7 @@ import { StoryGroup } from './types';
 export const MenuItem = _MenuItem;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/MenuItem`,
+  // title: `${StoryGroup.DataDisplay}/MenuItem`,
   component: MenuItem,
   excludeStories: ['MenuItem'],
 } as Meta;

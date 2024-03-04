@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Badge = _Badge;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Badge`,
+  // title: `${StoryGroup.DataDisplay}/Badge`,
   component: Badge,
   excludeStories: ['Badge'],
 } as Meta;

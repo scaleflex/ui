@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const Calendar = _Calendar;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/Calendar`,
+  // title: `${StoryGroup.DataDisplay}/Calendar`,
   component: Calendar,
   excludeStories: ['Calendar'],
 } as Meta;

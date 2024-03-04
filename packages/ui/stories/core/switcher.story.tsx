@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const Switcher = _Switcher;
 
 export default {
-  title: `${StoryGroup.Inputs}/Switcher`,
+  // title: `${StoryGroup.Inputs}/Switcher`,
   component: Switcher,
   excludeStories: ['Switcher'],
 } as Meta;

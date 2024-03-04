@@ -11,7 +11,7 @@ import { StoryGroup } from './types';
 export const Tabs = _Tabs;
 
 export default {
-  title: `${StoryGroup.Navigation}/Tabs`,
+  // title: `${StoryGroup.Navigation}/Tabs`,
   component: Tabs,
   excludeStories: ['Tabs'],
 

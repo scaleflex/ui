@@ -6,7 +6,7 @@ import { StoryGroup } from './types';
 export const TabPanel = _TabPanel;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/TabPanel`,
+  // title: `${StoryGroup.DataDisplay}/TabPanel`,
   component: TabPanel,
   excludeStories: ['TabPanel'],
 

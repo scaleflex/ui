@@ -8,7 +8,7 @@ import { StoryGroup } from './types';
 export const TooltipV2 = _TooltipV2;
 
 export default {
-  title: `${StoryGroup.DataDisplay}/TooltipV2`,
+  // title: `${StoryGroup.DataDisplay}/TooltipV2`,
   component: TooltipV2,
   argTypes: {
     enterDelay: {
@@ -22,7 +22,7 @@ export default {
 } as Meta;
 
 const defaultArgs = {
-  title: 'Tooltip text',
+  // title: 'Tooltip text',
   size: Size.Sm,
   arrow: true,
   warning: false,
