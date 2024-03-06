@@ -10,6 +10,7 @@ import Tag from '../tag';
 import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
+import Button from '../button';
 import { propTypes as labelPropTypes } from '../label/label.component';
 import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
@@ -54,6 +55,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       generateTagsButtonLabel = 'Generate tags',
       clearTagsButtonLabel = 'Clear all',
       alwaysShowSuggestedTags = false,
+      placeholderAlwaysVisible = false,
+      filterInputWidth = 100,
+      fullWidth = false,
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
       getTagIcon,
@@ -68,13 +72,15 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [tagsHint, setTagsHint] = useState(hint);
     const [tagsError, setTagsError] = useState(error);
-    const [showPlaceholder, setShowPlaceholder] = useState(false);
+    const [isFieldFocused, setFieldFocused] = useState(false);
+    const [isFieldHovered, setFieldHovered] = useState(false);
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
       () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
       [filteredTags]
     );
+    const showPlaceholder = placeholderAlwaysVisible || isFieldFocused || isFieldHovered || !filteredTags?.length;
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags?.filter(
         (suggestion) => !existingLabels?.includes(getTagLabel(suggestion)?.toLowerCase())
@@ -132,13 +138,13 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleOnBlur = (event: React.FocusEvent<HTMLInputElement>): void => {
-      setShowPlaceholder(false);
+      setFieldFocused(false);
       if (preventSubmitOnBlur) return;
 
       handleTagsValidation();
 
       if (typeof onBlur === 'function') {
-        onBlur(event);
+        onBlur(event, setUserInput);
       }
     };
 
@@ -153,7 +159,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleInputFocus = (event: React.FocusEvent<HTMLInputElement>): void => {
-      setShowPlaceholder(true);
+      setFieldFocused(true);
 
       if (typeof onFocus === 'function') {
         onFocus(event);
@@ -161,16 +167,16 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const handleClearAllTags = (): void => {
+      setUserInput('');
+
       if (onClear) {
         onClear();
       }
     };
 
-    useEffect(() => {
-      if (!filteredTags?.length) {
-        setShowPlaceholder(true);
-      }
-    }, [filteredTags]);
+    const handleCopyIconClick = (): void => {
+      handleCopyIcon((tags || []).map(getTagLabel).join(', '), setShowCopyMessage);
+    };
 
     // TODO remove when add clear all button
     useEffect(() => {
@@ -200,14 +206,13 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             ? undefined
             : (_tagIndex, event) => onRemove(index, getTagValue(tag), setUserInput, event)
         }
-        style={{ margin: '0px 8px 8px 0px' }}
       >
         {tagLabel}
       </Tag>
     );
 
     return (
-      <Styled.TagFieldRoot ref={ref}>
+      <Styled.TagFieldRoot ref={ref} fullWidth={fullWidth}>
         <Styled.TagInputFieldWrapper>
           {label && (
             <Label error={tagsError} {...(LabelPropsData || {})}>
@@ -216,8 +221,14 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
           )}
 
           <Styled.Wrapper>
-            <Styled.TagFieldWrapper size={size} error={tagsError} {...rest}>
-              <Styled.TagFieldListWrapper $loading={loading} size={size}>
+            <Styled.TagFieldWrapper
+              size={size}
+              error={tagsError}
+              onMouseOver={() => setFieldHovered(true)}
+              onMouseOut={() => setFieldHovered(false)}
+              {...rest}
+            >
+              <Styled.TagFieldListWrapper $loading={loading}>
                 {filteredTags.map((tag: TagType, index: number) => {
                   const tagLabel = getTagLabel(tag);
 
@@ -235,7 +246,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     <SpinnerIcon size={16} color={lightPalette[Color.IconsPrimary]} />
                   </Styled.TagFieldLoader>
                 ) : (
-                  <Styled.TagFieldInputWrapper size={size}>
+                  <Styled.TagFieldInputWrapper size={size} filterInputWidth={filterInputWidth}>
                     <Styled.TagFieldInput
                       value={userInput}
                       type="text"
@@ -251,29 +262,29 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   </Styled.TagFieldInputWrapper>
                 )}
               </Styled.TagFieldListWrapper>
+
+              {(showGenerateTagsButton || filteredTags?.length > 0 || !hideCopyIcon) && (
+                <Styled.TagFieldActions>
+                  {showGenerateTagsButton && (
+                    <Button color="link-primary" size={size} onClick={onGenerate}>
+                      {generateTagsButtonLabel}
+                    </Button>
+                  )}
+
+                  {filteredTags?.length > 0 && (
+                    <Button color="link-secondary" size={size} onClick={handleClearAllTags}>
+                      {clearTagsButtonLabel}
+                    </Button>
+                  )}
+
+                  {!hideCopyIcon && (
+                    <Styled.TagFieldCopyIcon onClick={handleCopyIconClick}>
+                      <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+                    </Styled.TagFieldCopyIcon>
+                  )}
+                </Styled.TagFieldActions>
+              )}
             </Styled.TagFieldWrapper>
-            {showGenerateTagsButton && (
-              <Styled.GenerateButton color="link-primary" size={size} onClick={onGenerate}>
-                {generateTagsButtonLabel}
-              </Styled.GenerateButton>
-            )}
-
-            {filteredTags?.length > 0 && (
-              <Styled.ClearAllButton
-                color="link-secondary"
-                size={size}
-                showGenerateTagsButton={showGenerateTagsButton}
-                onClick={handleClearAllTags}
-              >
-                {clearTagsButtonLabel}
-              </Styled.ClearAllButton>
-            )}
-
-            {!hideCopyIcon && (
-              <Styled.TagFieldCopyIcon size={size} onClick={() => handleCopyIcon(userInput, setShowCopyMessage)}>
-                <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
-              </Styled.TagFieldCopyIcon>
-            )}
 
             {showCopyMessage && (
               <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
@@ -282,6 +293,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               </InputStyled.NotificationBox>
             )}
           </Styled.Wrapper>
+
           {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
         </Styled.TagInputFieldWrapper>
 
@@ -308,7 +320,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     setUserInput('');
                   }}
                   startIcon={typeof getTagIcon?.(suggestion) === 'object' ? getTagIcon?.(suggestion) : null}
-                  style={{ margin: '0 8px 8px 0' }}
                   size={size}
                 >
                   {getTagLabel(suggestion)}
@@ -368,6 +379,9 @@ TagField.propTypes = {
   copyTextMessage: PT.string,
   onFocus: PT.func,
   onBlur: PT.func,
+  placeholderAlwaysVisible: PT.bool,
+  fullWidth: PT.bool,
+  filterInputWidth: PT.oneOfType([PT.string, PT.number]),
 };
 
 export default TagField;
