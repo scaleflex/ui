@@ -6,48 +6,49 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import {
-  sizeTagFieldMixin,
-  fontTagFieldMixin,
-  positionIconMixin,
-  positionGenerateButtonMixin,
-  positionClearAllButtonMixin,
-  marginTagFieldListMixin,
-} from './tag-field.mixin';
+import { sizeTagFieldMixin, fontTagFieldMixin } from './tag-field.mixin';
 import type { TagFieldSizeType } from './tag-field.props';
-import Button from '../button/button.component';
 import { Size } from './types';
 
 const baseClassName = 'TagField';
 
 const TagFieldRoot = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
-  ${StyledFormHint.FormHint} {
-    margin-top: 4px;
-  }
+})(
+  ({ fullWidth }: With<WithTheme, { fullWidth: boolean }>) => css`
+    width: ${fullWidth ? '100%' : '342px'};
 
-  ${StyledLabel.Label} {
-    margin-bottom: 4px;
-  }
-`;
+    ${StyledFormHint.FormHint} {
+      margin-top: 4px;
+    }
+
+    ${StyledLabel.Label} {
+      margin-bottom: 4px;
+    }
+  `
+);
 
 const TagInputFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagInputFieldWrapper'),
 })`
   position: relative;
-  width: fit-content;
 `;
 
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
 })(
   ({ size, error, theme }: With<WithTheme, { size: TagFieldSizeType; error: boolean }>) => css`
+    position: relative;
+    box-sizing: border-box;
     overflow: hidden;
     border: 1px solid ${error ? theme.palette[PColor.Error] : theme.palette[PColor.BackgroundPrimaryStateless]};
     border-radius: 2px;
     background: transparent;
-    width: 310px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: 100px;
 
     ${StyledFormHint.FormHint} {
       margin-top: 4px;
@@ -61,6 +62,13 @@ const TagFieldWrapper = styled.div.attrs({
   `
 );
 
+const TagFieldActions = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'tagFieldActions'),
+})`
+  display: flex;
+  gap: 12px;
+`;
+
 const TagFieldLoader = styled.span.attrs({
   className: generateClassNames(baseClassName, 'loader'),
 })`
@@ -68,19 +76,17 @@ const TagFieldLoader = styled.span.attrs({
   margin-left: 8px;
 `;
 
-const TagFieldListWrapper = styled.ul.attrs({
+const TagFieldListWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
 })(
-  ({ $loading, size }: { $loading: boolean | undefined; size: TagFieldSizeType }) => css`
-    display: inline-flex;
+  ({ $loading }: { $loading: boolean | undefined }) => css`
+    display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: 8px;
     margin: 0;
     padding: 0;
-    list-style: none;
     width: 100%;
-    min-height: 80px;
-    ${marginTagFieldListMixin[size]}
 
     ${TagFieldLoader} {
       svg {
@@ -102,14 +108,20 @@ const TagFieldInput = styled.input.attrs({
   `
 );
 
-const TagFieldInputWrapper = styled.li.attrs({
+const TagFieldInputWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
 })(
-  ({ size = Size.Md, theme }: With<WithTheme, { size: TagFieldSizeType }>) => css`
+  ({
+    size = Size.Md,
+    filterInputWidth = 100,
+    theme,
+  }: With<WithTheme, { size: TagFieldSizeType; filterInputWidth?: string | number }>) => css`
     background: none;
     flex-grow: 1;
-    padding: 4px 0px;
-    width: 100px;
+    height: ${size === Size.Md ? 26 : 22}px;
+    display: flex;
+    align-items: center;
+    width: ${Number.isFinite(+filterInputWidth) ? `${filterInputWidth}px` : filterInputWidth};
 
     ${TagFieldInput} {
       &::-webkit-input-placeholder {
@@ -132,13 +144,11 @@ const TagFieldButtonsWrapper = styled.div.attrs({
 
 const TagFieldCopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
-})(
-  ({ size }: { size: TagFieldSizeType }) => css`
-    ${positionIconMixin[size]}
-    cursor: pointer;
-    height: 16px;
-  `
-);
+})`
+  cursor: pointer;
+  height: 16px;
+  margin-left: auto;
+`;
 
 const TagFieldSuggestionWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapper'),
@@ -161,25 +171,23 @@ const TagFieldSuggestionLabel = styled.label.attrs({
 
 const TagFieldSuggestionIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  () => css`
-    display: inline-flex;
-    margin-left: 4px;
-  `
-);
+})`
+  display: flex;
+  margin-left: 4px;
+`;
 
-const TagFieldSuggestionWrapperList = styled.ul.attrs({
+const TagFieldSuggestionWrapperList = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionWrapperList'),
 })`
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
   width: 100%;
-  list-style: none;
+  gap: 8px;
 `;
 
-const TagFieldSuggestionList = styled.li.attrs({
+const TagFieldSuggestionList = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionList'),
 })(
   ({ theme }: WithTheme) => css`
@@ -193,7 +201,6 @@ const TagFieldSuggestionList = styled.li.attrs({
     background: transparent;
     color: ${theme.palette[PColor.LinkPrimary]};
     line-height: 16.4px;
-    list-style: none;
     user-select: none;
     max-height: 24px;
   `
@@ -205,26 +212,11 @@ const Wrapper = styled.div.attrs({
   position: relative;
 `;
 
-const GenerateButton = styled(Button).attrs({
-  className: generateClassNames(baseClassName, 'generateButton'),
-})(
-  ({ size }: { size: TagFieldSizeType }) => css`
-    ${positionGenerateButtonMixin[size]}
-  `
-);
-
-const ClearAllButton = styled(Button).attrs({
-  className: generateClassNames(baseClassName, 'clearAllButton'),
-})(
-  ({ size, showGenerateTagsButton }: { size: TagFieldSizeType; showGenerateTagsButton: boolean }) => css`
-    ${showGenerateTagsButton ? positionClearAllButtonMixin[size] : positionGenerateButtonMixin[size]}
-  `
-);
-
 const Styled = applyDisplayNames({
   TagFieldRoot,
   TagInputFieldWrapper,
   TagFieldWrapper,
+  TagFieldActions,
   TagFieldListWrapper,
   TagFieldInputWrapper,
   TagFieldInput,
@@ -236,8 +228,6 @@ const Styled = applyDisplayNames({
   TagFieldLoader,
   TagFieldButtonsWrapper,
   TagFieldCopyIcon,
-  GenerateButton,
-  ClearAllButton,
   Wrapper,
 });
 
