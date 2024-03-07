@@ -51,6 +51,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       submitOnSpace,
       preventSubmitOnBlur,
       hideCopyIcon = false,
+      hideClearButton = false,
       showGenerateTagsButton = false,
       generateTagsButtonLabel = 'Generate tags',
       clearTagsButtonLabel = 'Clear all',
@@ -74,14 +75,17 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const [tagsError, setTagsError] = useState(error);
     const [isFieldFocused, setFieldFocused] = useState(false);
     const [isFieldHovered, setFieldHovered] = useState(false);
-    const showCopyIcon = (tags || []).length > 0 && !hideCopyIcon;
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
       () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
       [filteredTags]
     );
+
+    const showCopyIcon = (tags || []).length > 0 && !hideCopyIcon;
+    const showClearButton = (filteredTags || []).length > 0 && !hideClearButton && clearTagsButtonLabel;
     const showPlaceholder = placeholderAlwaysVisible || isFieldFocused || isFieldHovered || !filteredTags?.length;
+
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags?.filter(
         (suggestion) => !existingLabels?.includes(getTagLabel(suggestion)?.toLowerCase())
@@ -264,7 +268,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                 )}
               </Styled.TagFieldListWrapper>
 
-              {(showGenerateTagsButton || filteredTags?.length > 0 || !hideCopyIcon) && (
+              {(showGenerateTagsButton || showClearButton || showCopyIcon) && (
                 <Styled.TagFieldActions>
                   {showGenerateTagsButton && (
                     <Button color="link-primary" size={size} onClick={onGenerate}>
@@ -272,7 +276,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     </Button>
                   )}
 
-                  {filteredTags?.length > 0 && (
+                  {showClearButton && (
                     <Button color="link-secondary" size={size} onClick={handleClearAllTags}>
                       {clearTagsButtonLabel}
                     </Button>
@@ -383,6 +387,7 @@ TagField.propTypes = {
   placeholderAlwaysVisible: PT.bool,
   fullWidth: PT.bool,
   filterInputWidth: PT.oneOfType([PT.string, PT.number]),
+  hideClearButton: PT.bool,
 };
 
 export default TagField;

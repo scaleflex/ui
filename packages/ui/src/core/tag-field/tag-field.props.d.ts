@@ -53,4 +53,5 @@ export interface TagFieldProps extends React.HTMLAttributes<HTMLDivElement> {
   onBlur?: (event: React.FocusEvent<HTMLInputElement>, setUserInput: (value: any) => void) => void;
   filterInputWidth?: string | number;
   fullWidth?: boolean;
+  hideClearButton?: boolean;
 }
