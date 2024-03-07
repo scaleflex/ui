@@ -46,7 +46,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       appliedValue,
       disableOnEnter,
       showTooltip,
-      copyTextMessage = '',
+      copyTextMessage = 'Copied to clipboard',
       copySuccessIcon,
       submitOnSpace,
       preventSubmitOnBlur,
@@ -286,9 +286,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               )}
             </Styled.TagFieldWrapper>
 
-            {showCopyMessage && (
+            {showCopyMessage && copyTextMessage && (
               <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
-                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                {copySuccessIcon && <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>}
                 <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
               </InputStyled.NotificationBox>
             )}
