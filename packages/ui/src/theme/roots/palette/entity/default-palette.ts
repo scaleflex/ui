@@ -138,7 +138,7 @@ export const lightPalette = {
   [Color.Dropbox]: 'rgba(17, 40, 124, 1)', // #11287C
   [Color.OneDrive]: 'rgba(40, 100, 186, 1)', // #2864BA
   [Color.Device]: 'rgba(102, 73, 209, 1)', // #6649D1
-  [Color.Instagram]: 'rgba(173, 38, 220, 1)', // #AD26DC
+  [Color.Instagram]: 'rgba(244, 70, 154, 1)', // #AD26DC
   [Color.FreeImages]: 'rgba(16, 163, 135, 1)', // #10A387
   [Color.FreeIcons]: 'rgba(62, 207, 139, 1)', // #3ECF8B
   [Color.Canvas]: 'rgba(36, 190, 202, 1)', // #24BECA
