@@ -42,7 +42,7 @@ const TagFieldWrapper = styled.div.attrs({
     box-sizing: border-box;
     overflow: hidden;
     border: 1px solid ${error ? theme.palette[PColor.Error] : theme.palette[PColor.BackgroundPrimaryStateless]};
-    border-radius: 2px;
+    border-radius: 4px;
     background: transparent;
     display: flex;
     flex-direction: column;
