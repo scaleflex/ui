@@ -34,7 +34,6 @@ const defaultArgs = {
   hideCopyIcon: false,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
-  copyTextMessage: 'Link copied to clipboard',
   copySuccessIcon: <Success size={16} />,
 };
 

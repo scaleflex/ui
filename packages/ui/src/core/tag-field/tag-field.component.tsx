@@ -46,7 +46,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       appliedValue,
       disableOnEnter,
       showTooltip,
-      copyTextMessage = '',
+      copyTextMessage = 'Copied to clipboard',
       copySuccessIcon,
       submitOnSpace,
       preventSubmitOnBlur,
@@ -74,6 +74,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const [tagsError, setTagsError] = useState(error);
     const [isFieldFocused, setFieldFocused] = useState(false);
     const [isFieldHovered, setFieldHovered] = useState(false);
+    const showCopyIcon = (tags || []).length > 0 && !hideCopyIcon;
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
@@ -277,7 +278,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                     </Button>
                   )}
 
-                  {!hideCopyIcon && (
+                  {showCopyIcon && (
                     <Styled.TagFieldCopyIcon onClick={handleCopyIconClick}>
                       <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
                     </Styled.TagFieldCopyIcon>
@@ -286,9 +287,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               )}
             </Styled.TagFieldWrapper>
 
-            {showCopyMessage && (
+            {showCopyMessage && copyTextMessage && (
               <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
-                <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>
+                {copySuccessIcon && <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>}
                 <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
               </InputStyled.NotificationBox>
             )}
