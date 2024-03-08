@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PT from 'prop-types';
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
@@ -26,6 +26,21 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     }: CheckBoxGroupProps,
     ref
   ): JSX.Element => {
+    const textRef = useRef<HTMLSpanElement | null>(null);
+    const [isEllipsisActive, setIsEllipsisActive] = useState(false);
+
+    const getTextTooltip = (): string | undefined => {
+      if (typeof label === 'string' && isEllipsisActive) {
+        return label;
+      }
+    };
+
+    const handleTextTooltip = (): void => {
+      if (textRef.current !== null && textRef.current) {
+        setIsEllipsisActive(textRef?.current?.offsetWidth < textRef?.current?.scrollWidth);
+      }
+    };
+
     const content = [
       <CheckBox
         size={size}
@@ -38,7 +53,15 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     ];
 
     const labelContent = (
-      <Styled.Label key="label" disabled={Boolean(disabled)} labelPosition={labelPosition} size={size}>
+      <Styled.Label
+        key="label"
+        title={getTextTooltip()}
+        onMouseOver={handleTextTooltip}
+        ref={textRef}
+        disabled={Boolean(disabled)}
+        labelPosition={labelPosition}
+        size={size}
+      >
         {label}
       </Styled.Label>
     );
