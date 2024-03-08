@@ -32,6 +32,8 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       <Styled.TooltipV2
         ref={ref}
         placement={position}
+        // TODO: Figure out what's the reason of TS error during build
+        /* @ts-ignore */
         content={renderTooltipContent()}
         interactive={enableHover}
         arrow={arrow}

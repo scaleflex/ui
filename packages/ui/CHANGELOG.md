@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.3](https://github.com/scaleflex/ui/compare/v2.4.2...v2.4.3) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.4.2](https://github.com/scaleflex/ui/compare/v2.4.1...v2.4.2) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.4.1](https://github.com/scaleflex/ui/compare/v2.4.0...v2.4.1) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+# [2.4.0](https://github.com/scaleflex/ui/compare/v2.3.2...v2.4.0) (2024-03-06)
+
+
+### Features
+
+* **TagField:** add props placeholderAlwaysVisible, filterInputWidth and fullWidth + styles polishing FRA-4644 ([5c5e2c3](https://github.com/scaleflex/ui/commit/5c5e2c37d98a0a2c8dd20d659fd6aa43dcad4783))
+
+
+
+
+
 ## [2.3.2](https://github.com/scaleflex/ui/compare/v2.3.1...v2.3.2) (2024-02-21)
 
 

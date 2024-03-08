@@ -207,11 +207,12 @@ const NotificationBox = styled.div.attrs({
     max-height: 34px;
     right: 0px;
     padding: 8px 12px;
-    column-gap: 6px;
+    gap: 6px;
     bottom: ${size === InputSize.Md ? '45px' : '35px'};
     box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
     background-color: ${palette[PColor.BackgroundStateless]};
     border-radius: 4px;
+    align-items: center;
 
     ${isTextarea &&
     `
@@ -225,6 +226,7 @@ const NotificationIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'NotificationIcon'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
     color: ${palette[PColor.IconsPrimary]};
   `
 );
@@ -238,6 +240,7 @@ const NotificationText = styled.span.attrs({
       typography: { font },
     },
   }: WithTheme) => css`
+    display: flex;
     white-space: nowrap;
     ${font[FV.TextSmall]};
     color: ${palette[PColor.TextPrimary]};
