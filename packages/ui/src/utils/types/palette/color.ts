@@ -133,6 +133,7 @@ export const Color = {
   Canvas: 'canvas',
   Box: 'box',
   ScreenCast: 'screen-cast',
+  Unsplash: 'unsplash',
 
   LightShadow: 'light-shadow',
   MediumShadow: 'medium-shadow',
