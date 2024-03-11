@@ -211,6 +211,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             ? undefined
             : (_tagIndex, event) => onRemove(index, getTagValue(tag), setUserInput, event)
         }
+        title={tagLabel}
       >
         {tagLabel}
       </Tag>
