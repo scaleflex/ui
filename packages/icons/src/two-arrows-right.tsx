@@ -4,7 +4,7 @@ import type { IconProps } from './icon.props';
 
 export const TwoArrowsRight = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
-    <svg 
+    <svg
       ref={ref}
       width={size}
       height={size}

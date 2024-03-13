@@ -12,14 +12,15 @@ const baseClassName = 'Label';
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ size = InputSize.Md, error = false, disabled=false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
+  ({ size = InputSize.Md, error = false, disabled = false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
     display: flex;
     align-items: center;
     color: ${theme.palette[PColor.TextSecondary]};
     font-style: normal;
     font-weight: normal;
 
-    ${disabled && css`
+    ${disabled &&
+    css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
       ${Icon} {
         color: ${theme.palette[PColor.IconsMuted]};

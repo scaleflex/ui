@@ -16,7 +16,8 @@ const FormHint = styled.span.attrs({
     align-items: center;
     color: ${error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
 
-    ${disabled && css`
+    ${disabled &&
+    css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
 
