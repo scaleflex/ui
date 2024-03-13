@@ -93,7 +93,6 @@ const Input = styled.input.attrs({
         opacity: 1;
         background: ${disabled ? theme.palette[PColor.BackgroundGrey] : theme.palette[PColor.AccentStateless]};
         transition: all 100ms ease-out;
-
       }
     }
   `

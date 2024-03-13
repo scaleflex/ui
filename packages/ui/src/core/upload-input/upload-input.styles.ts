@@ -25,7 +25,6 @@ const UploadInput = styled.div.attrs({
       column-gap: 0;
       transition: all 100ms ease-out;
 
-
       &:hover {
         ${BStyled.Button} {
           background-color: ${theme.palette[PaletteColor.AccentPrimaryHover]};
