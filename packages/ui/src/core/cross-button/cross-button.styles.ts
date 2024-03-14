@@ -39,7 +39,7 @@ const CrossButton = styled.button.attrs({
 
     &:hover {
       color: ${theme.palette[PaletteColor.IconsPrimary]};
-      background: ${theme.palette[PaletteColor.BackgroundHover]};;
+      background: ${theme.palette[PaletteColor.BackgroundHover]};
     }
 
     &:active {

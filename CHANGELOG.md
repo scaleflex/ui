@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.5](https://github.com/scaleflex/ui/compare/v2.4.4...v2.4.5) (2024-03-11)
+
+**Note:** Version bump only for package ui
+
+
+
+
+
+## [2.4.4](https://github.com/scaleflex/ui/compare/v2.4.3...v2.4.4) (2024-03-08)
+
+
+### Bug Fixes
+
+* update instgram color [FRA-4549] ([33f1514](https://github.com/scaleflex/ui/commit/33f1514c71413fcabad60b915d7b698997981f3a))
+* update instgram color [FRA-4549] ([4d4ca40](https://github.com/scaleflex/ui/commit/4d4ca4052a3baefbcb22f39eee85314605662b40))
+* update Unsplash color [FRA-4549] ([0ec563e](https://github.com/scaleflex/ui/commit/0ec563e412e2c2bc8c59963c837f98f7412c4b13))
+
+
+### Features
+
+* add ellipsis in checkbox group ([7302a3d](https://github.com/scaleflex/ui/commit/7302a3d24d381382aa08abd9516010d62453e070))
+
+
+
+
+
+
 ## [2.4.3](https://github.com/scaleflex/ui/compare/v2.4.2...v2.4.3) (2024-03-07)
 
 **Note:** Version bump only for package ui

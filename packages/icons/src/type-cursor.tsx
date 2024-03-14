@@ -13,14 +13,8 @@ export const TypeCursor = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <path
-        d="M14.0625 20.3125H10.9375V23.4375H14.0625V20.3125Z"
-        fill={color}
-      />
-      <path
-        d="M14.0625 26.5625H10.9375V29.6875H14.0625V26.5625Z"
-        fill={color}
-      />
+      <path d="M14.0625 20.3125H10.9375V23.4375H14.0625V20.3125Z" fill={color} />
+      <path d="M14.0625 26.5625H10.9375V29.6875H14.0625V26.5625Z" fill={color} />
       <path
         d="M16.7141 0L12.5 2.80938L8.28594 0H0V3.125H7.33906L10.9375 5.52344V17.1875H14.0625V5.52344L17.6609 3.125H25V0H16.7141Z"
         fill={color}

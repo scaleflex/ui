@@ -31,7 +31,7 @@ const defaultArgs = {
   placeholder: 'placeholder',
   size: InputSize.Md,
   copyTextMessage: 'Link copied to clipboard',
-  copySuccessIcon: <Success size={16} />
+  copySuccessIcon: <Success size={16} />,
 };
 
 const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
