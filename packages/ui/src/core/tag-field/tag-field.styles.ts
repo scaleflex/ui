@@ -105,6 +105,7 @@ const TagFieldInput = styled.input.attrs({
     width: 100%;
     outline: none;
     color: ${theme.palette[PColor.LinkHover]};
+    text-overflow: ellipsis;
   `
 );
 
