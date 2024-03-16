@@ -69,8 +69,8 @@ CheckBoxGroup.propTypes = {
   label: PT.string,
   checked: PT.bool,
   onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
   checkBoxProps: PT.object,
+  checkBoxGroupProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
   size: PT.oneOf(objectValues(Size)),

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import _AccordionHeader from '../../../src/core/accordion-header';
+import _AccordionHeader, { AccordionHeaderProps } from '../../src/core/accordion-header';
 
 export const AccordionHeader = _AccordionHeader;
 
 const meta: Meta<typeof AccordionHeader> = {
-  // title: `${StoryGroup.Surfaces}/Accordion/AccordionDetails`,
-  // title: 'Surface/Accordion/AccordionDetails',
+  title: 'Surface/Accordion/AccordionHeader',
   component: AccordionHeader,
   excludeStories: ['AccordionHeader'],
 };
@@ -19,7 +18,7 @@ const defaultArgs = {
   expanded: false,
 };
 
-const BasicTemplate = ({ expanded, ...args }) => {
+const BasicTemplate = ({ expanded, ...args }: AccordionHeaderProps): JSX.Element => {
   const [openState, setOpenState] = useState(expanded || false);
 
   useEffect(() => {
@@ -31,5 +30,5 @@ const BasicTemplate = ({ expanded, ...args }) => {
 
 export const Primary: Story = {
   args: defaultArgs,
-  render: (args) => <BasicTemplate expanded={args.expanded} args={args} />,
+  render: (args) => <BasicTemplate expanded={args.expanded} {...args} />,
 };

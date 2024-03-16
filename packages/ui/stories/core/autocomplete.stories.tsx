@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
-import _Autocomplete, { AutocompleteProps } from '../../src/core/autocomplete';
+import type { Meta, StoryObj } from '@storybook/react';
+import _Autocomplete from '../../src/core/autocomplete';
 import { InputSize } from '../../src/utils/types';
-import { StoryGroup } from './types';
 
 export const Autocomplete = _Autocomplete;
 
-export default {
-  // title: `${StoryGroup.Inputs}/Autocomplete`,
+const meta: Meta<typeof Autocomplete> = {
+  title: 'Inputs/Autocomplete',
   component: Autocomplete,
   excludeStories: ['Autocomplete'],
   argTypes: {
@@ -15,7 +14,10 @@ export default {
       description: 'Prop directly change scroll design',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Autocomplete>;
 
 const defaultArgs = {
   placeholder: 'placeholder',
@@ -40,9 +42,20 @@ const defaultArgs = {
   multiple: false,
   fullWidth: false,
 };
+
+const options = [
+  { id: 1, label: 'sfx1' },
+  { id: 2, label: 'sfx2' },
+  { id: 3, label: 'sfx3' },
+  { id: 4, label: 'sfx4' },
+  { id: 5, label: 'sfx5' },
+  { id: 6, label: 'sfx6' },
+  { id: 7, label: 'sfx7' },
+];
+
 const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
 
-const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
+const BasicTemplate = ({ ...args }): JSX.Element => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   return (
@@ -58,10 +71,7 @@ const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   );
 };
 
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
-
-const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
+const AutocompleteObjectsTemplate = ({ ...args }): JSX.Element => {
   const [value, setValue] = useState(args.multiple ? [] : '');
 
   return (
@@ -70,25 +80,22 @@ const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
       value={value}
       options={args.options}
       onChange={(_, val: any) => setValue(val)}
-      getOptionValue={(option: any) => option?.uuid}
-      getOptionLabel={(option: any) => option?.name}
+      getOptionValue={(option: any) => option?.id}
+      getOptionLabel={(option: any) => option?.label}
       getOptionDisabled={getOptionDisabled}
     />
   );
 };
 
-const options = [
-  { uuid: '1_scaleflex', name: 'sfx1' },
-  { uuid: '2_scaleflex', name: 'sfx2' },
-  { uuid: '3_scaleflex', name: 'sfx3' },
-  { uuid: '4_scaleflex', name: 'sfx4' },
-  { uuid: '5_scaleflex', name: 'sfx5' },
-  { uuid: '6_scaleflex', name: 'sfx6' },
-  { uuid: '7_scaleflex', name: 'sfx7' },
-];
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
+};
 
-export const AutocompleteObjects = AutocompleteObjectsTemplate.bind({});
-AutocompleteObjects.args = {
-  ...defaultArgs,
-  options,
+export const AutocompleteObjects: Story = {
+  args: {
+    ...defaultArgs,
+    options,
+  },
+  render: (args) => <AutocompleteObjectsTemplate {...args} />,
 };

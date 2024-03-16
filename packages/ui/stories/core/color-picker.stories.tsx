@@ -1,17 +1,19 @@
+/* eslint-disable no-console */
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-import _ColorPicker, { ColorPickerProps } from '../../src/core/color-picker';
-
-import { StoryGroup } from './types';
+import _ColorPicker from '../../src/core/color-picker';
 
 export const ColorPicker = _ColorPicker;
 
-export default {
-  // title: `${StoryGroup.Surfaces}/ColorPicker`,
+const meta: Meta<typeof ColorPicker> = {
+  title: 'Surfaces/ColorPicker',
   component: ColorPicker,
   excludeStories: ['ColorPicker'],
 } as Meta;
+
+export default meta;
+type Story = StoryObj<typeof ColorPicker>;
 
 const DEFAULT_EDITOR_COLOR = [
   '#ffffff',
@@ -30,9 +32,7 @@ const DEFAULT_EDITOR_COLOR = [
   '#27ae60',
 ];
 
-const defaultArgs = {};
-
-const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
+const BasicTemplate = ({ ...args }): JSX.Element => {
   const [pinnedColors, setPinnedColors] = useState<Array<string> | undefined>(DEFAULT_EDITOR_COLOR);
   const [color, setColor] = useState('#d35c9d');
 
@@ -41,7 +41,7 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
     rgbColor: string | undefined,
     colorPickerPinnedColors: Array<string> | undefined
   ): void => {
-    console.log('test', hexColor, rgbColor);
+    console.log('hexColor:', hexColor, 'rgbColor:', rgbColor);
     console.log('colorPickerPinned', colorPickerPinnedColors);
     setColor(hexColor);
     setPinnedColors(colorPickerPinnedColors);
@@ -72,6 +72,6 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
   );
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+export const Primary: Story = {
+  render: () => <BasicTemplate />,
+};

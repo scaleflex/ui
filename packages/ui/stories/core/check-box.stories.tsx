@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import { Size, Type } from '../../src/core/check-box/types';
 import _CheckBox, { CheckBoxProps } from '../../src/core/check-box';
-import { StoryGroup } from './types';
 
 export const CheckBox = _CheckBox;
 
-export default {
-  // title: `${StoryGroup.Inputs}/CheckBox`,
+const meta: Meta<typeof CheckBox> = {
+  title: 'Inputs/CheckBox',
   component: CheckBox,
   excludeStories: ['CheckBox'],
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof CheckBox>;
 
 const defaultArgs = {
   checked: false,
@@ -21,7 +23,7 @@ const defaultArgs = {
   type: Type.Checkbox,
 };
 
-const BasicTemplate: Story<CheckBoxProps> = ({ checked, ...args }) => {
+const BasicTemplate = ({ checked, ...args }: CheckBoxProps): JSX.Element => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
@@ -31,6 +33,7 @@ const BasicTemplate: Story<CheckBoxProps> = ({ checked, ...args }) => {
   return <CheckBox {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
+};
