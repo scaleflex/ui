@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import _AccordionDetails, { AccordionDetailsProps } from '../../src/core/accordion-details';
-
-export const AccordionDetails = _AccordionDetails;
+import AccordionDetails, { AccordionDetailsProps } from '../../src/core/accordion-details';
 
 const meta: Meta<typeof AccordionDetails> = {
-  title: 'Surface/Accordion/AccordionDetails',
+  title: 'Surfaces/Accordion/AccordionDetails',
   component: AccordionDetails,
   excludeStories: ['AccordionDetails'],
 };

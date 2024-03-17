@@ -1,10 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import _Badge from '../../src/core/badge';
+import Badge from '../../src/core/badge';
 import { BadgeColor } from '../../src/utils/types';
-
-export const Badge = _Badge;
 
 const meta: Meta<typeof Badge> = {
   title: 'DataDisplay/Badge',

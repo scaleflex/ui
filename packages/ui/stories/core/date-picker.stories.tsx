@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
-import _DatePicker, { DatePickerProps } from '../../src/core/date-picker';
-import { StoryGroup } from './types';
+import type { Meta, StoryObj } from '@storybook/react';
+import DatePicker from '../../src/core/date-picker';
+import { Position } from '../../src/core/popper/types';
 
-export const DatePicker = _DatePicker;
-
-export default {
-  // title: `${StoryGroup.Inputs}/DatePicker`,
+const meta: Meta<typeof DatePicker> = {
+  title: 'Inputs/DatePicker',
   component: DatePicker,
   excludeStories: ['DatePicker'],
   argTypes: {
@@ -17,7 +15,10 @@ export default {
       description: 'yyyy-mm-dd',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof DatePicker>;
 
 const defaultArgs = {
   label: 'Label',
@@ -29,15 +30,16 @@ const defaultArgs = {
   fullWidth: false,
   maxDate: '',
   minDate: '',
-  position: 'bottom-start',
+  position: Position.BottomStart,
 };
 
-const BasicTemplate: Story<DatePickerProps> = ({ ...args }) => {
+const BasicTemplate = ({ ...args }): JSX.Element => {
   const [value, setValue] = useState('');
 
   return <DatePicker {...args} value={value} onChange={(newValue: string): void => setValue(newValue)} />;
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
+};

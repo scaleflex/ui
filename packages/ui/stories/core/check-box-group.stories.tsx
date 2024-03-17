@@ -6,9 +6,7 @@ import InfoOutline from '@scaleflex/icons/info-outline';
 import { LabelPosition } from '../../src/core/check-box-group/types';
 import { Size, Type } from '../../src/core/check-box/types';
 
-import _CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
-
-export const CheckBoxGroup = _CheckBoxGroup;
+import CheckBoxGroup, { CheckBoxGroupProps } from '../../src/core/check-box-group';
 
 const meta: Meta<typeof CheckBoxGroup> = {
   title: 'Inputs/Checkbox/CheckBoxGroup',

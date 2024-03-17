@@ -1,10 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import _Arrow from '../../src/core/arrow';
+import Arrow from '../../src/core/arrow';
 import { Position } from '../../src/utils/types';
-
-export const Arrow = _Arrow;
 
 const meta: Meta<typeof Arrow> = {
   title: 'DataDisplay/Arrow',

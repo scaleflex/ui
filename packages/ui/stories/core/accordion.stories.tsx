@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import _Accordion, { AccordionProps } from '../../src/core/accordion';
-
-export const Accordion = _Accordion;
+import Accordion, { AccordionProps } from '../../src/core/accordion';
 
 const meta: Meta<typeof Accordion> = {
-  title: 'Surface/Accordion',
+  title: 'Surfaces/Accordion',
   component: Accordion,
   argTypes: {
     children: {

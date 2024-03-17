@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import styled, { css } from 'styled-components';
 import Hub from '@scaleflex/icons/hub';
 import Assets from '@scaleflex/icons/assets';
@@ -16,10 +16,9 @@ import Label from '@scaleflex/icons/label';
 import QuestionMark from '@scaleflex/icons/question-mark';
 
 import { ButtonColor, ButtonSize } from '../../src/utils/types';
-import _Drawer, {
+import Drawer, {
   DrawerList,
   DrawerItem,
-  DrawerProps,
   DrawerItemButton,
   DrawerItemText,
   DrawerItemIcon,
@@ -30,17 +29,17 @@ import _Drawer, {
 } from '../../src/core/drawer';
 import Divder from '../../src/core/divider';
 import IconButton from '../../src/core/icon-button';
-import { StoryGroup } from './types';
 import { FontVariant } from '../../src/utils/types/typography';
 import { Color } from '../../src/utils/types/palette';
 
-export const Drawer = _Drawer;
-
-export default {
-  // title: `${StoryGroup.Navigation}/Drawer`,
+const meta: Meta<typeof Drawer> = {
+  title: 'Navigation/Drawer',
   component: Drawer,
   excludeStories: ['Drawer'],
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Drawer>;
 
 const defaultArgs = {
   collpased: false,
@@ -111,13 +110,13 @@ const analyticsItems = [
   },
 ];
 
-const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
+const BasicTemplate = ({ ...args }): JSX.Element => {
   const [open, setOpen] = useState(true);
   const [analyticsOpen, setAnalyticsOpen] = useState(false);
   const [isDrawerOpened, setIsDrawerOpened] = useState(true);
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  const onCollapse = (state: boolean) => {
+  const onCollapse = (state: boolean): void => {
     setIsCollapsed(state);
   };
 
@@ -203,6 +202,7 @@ const BasicTemplate: Story<DrawerProps> = ({ ...args }) => {
   );
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
+};

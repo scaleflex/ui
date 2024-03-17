@@ -2,9 +2,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import _ColorPicker from '../../src/core/color-picker';
-
-export const ColorPicker = _ColorPicker;
+import ColorPicker from '../../src/core/color-picker';
 
 const meta: Meta<typeof ColorPicker> = {
   title: 'Surfaces/ColorPicker',

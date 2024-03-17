@@ -3,10 +3,8 @@ import type { Meta, StoryObj } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import { ButtonType } from '@scaleflex/ui/core/button/types';
-import _Button, { ButtonProps } from '../../src/core/button';
+import Button, { ButtonProps } from '../../src/core/button';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
-
-export const Button = _Button;
 
 const meta: Meta<typeof Button> = {
   title: 'Inputs/Button',

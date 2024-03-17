@@ -1,8 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import _Calendar from '../../src/core/calendar';
-
-export const Calendar = _Calendar;
+import Calendar from '../../src/core/calendar';
 
 const meta: Meta<typeof Calendar> = {
   title: 'DataDisplay/Calendar',

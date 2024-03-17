@@ -1,10 +1,8 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import _ArrowTick from '../../src/core/arrow-tick';
+import ArrowTick from '../../src/core/arrow-tick';
 import { Position } from '../../src/utils/types';
-
-export const ArrowTick = _ArrowTick;
 
 const meta: Meta<typeof ArrowTick> = {
   title: 'DataDisplay/ArrowTick',

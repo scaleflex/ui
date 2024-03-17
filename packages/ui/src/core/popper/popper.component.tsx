@@ -16,7 +16,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       children,
       open,
       warning = false,
-      position: initialPlacement = 'bottom',
+      position: initialPlacement = Position.Bottom,
       arrow = false,
       popperOptions,
       onClick,

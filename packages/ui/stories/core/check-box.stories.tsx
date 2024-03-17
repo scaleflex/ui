@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import { Size, Type } from '../../src/core/check-box/types';
-import _CheckBox, { CheckBoxProps } from '../../src/core/check-box';
-
-export const CheckBox = _CheckBox;
+import CheckBox, { CheckBoxProps } from '../../src/core/check-box';
 
 const meta: Meta<typeof CheckBox> = {
   title: 'Inputs/CheckBox',
