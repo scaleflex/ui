@@ -13,18 +13,17 @@ module.exports = {
     },
   ],
 
-  addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        baskgrounds: false,
-        actions: false,
-      },
+  addons: [{
+    name: '@storybook/addon-essentials',
+    options: {
+      baskgrounds: false,
+      actions: false,
     },
-    getAbsolutePath("storybook-addon-jsx"),
-    getAbsolutePath("storybook-addon-breakpoints"),
-    getAbsolutePath("@storybook/addon-docs")
-  ],
+  },
+  //  getAbsolutePath("storybook-addon-jsx"),
+  //  getAbsolutePath("storybook-addon-breakpoints"), 
+   getAbsolutePath("@storybook/addon-docs"), 
+   '@storybook/addon-webpack5-compiler-babel'],
 
   webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.inline.svg$/;

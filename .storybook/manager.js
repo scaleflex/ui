@@ -1,4 +1,4 @@
-import { addons } from '@storybook/addons';
+import { addons } from "@storybook/manager-api";
 import ScaleflexTheme from './ScaleflexTheme';
 import {camelCase, startCase} from 'lodash';
 
