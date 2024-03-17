@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
 import Success from '@scaleflex/icons/success';
-import _InputGroup, { InputGroupProps } from '../../src/core/input-group';
+
+import InputGroup from '../../src/core/input-group';
 import { Type } from '../../src/core/input-group/types';
-import { StoryGroup } from './types';
 import { InputSize } from '../../src/utils/types';
 
-export const InputGroup = _InputGroup;
-
-export default {
-  // title: `${StoryGroup.Inputs}/Input/InputGroup`,
+const meta: Meta<typeof InputGroup> = {
+  title: 'Inputs/Input/InputGroup',
   component: InputGroup,
   excludeStories: ['InputGroup'],
-
   argTypes: {
     inputProps: {
       description: 'input attributes applied directly input element.',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof InputGroup>;
 
 const defaultArgs = {
   type: Type.Input,
@@ -34,7 +34,7 @@ const defaultArgs = {
   copySuccessIcon: <Success size={16} />,
 };
 
-const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
+const BasicTemplate = ({ ...args }): JSX.Element => {
   const [valueState, setValueState] = useState('Text');
 
   return (
@@ -48,31 +48,33 @@ const BasicTemplate: Story<InputGroupProps> = ({ ...args }) => {
   );
 };
 
-// Input
-export const Input = BasicTemplate.bind({});
-Input.args = { ...defaultArgs };
-
-// Input with iconStart
-export const InputWithIconStart = BasicTemplate.bind({});
-InputWithIconStart.args = {
-  ...defaultArgs,
-  LabelProps: {
-    iconStart: (props: any) => <QuestionMarkOutline size={12} {...props} />,
-  },
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
 };
 
-// Input with iconEnd
-export const InputWithIconEnd = BasicTemplate.bind({});
-InputWithIconEnd.args = {
-  ...defaultArgs,
-  LabelProps: {
-    iconEnd: (props: any) => <QuestionMarkOutline size={12} {...props} />,
+export const InputWithIconStart: Story = {
+  args: {
+    ...defaultArgs,
+    LabelProps: {
+      iconStart: (props: any) => <QuestionMarkOutline size={12} {...props} />,
+    },
   },
+  render: (args) => <BasicTemplate {...args} />,
 };
-
-// Textarea
-export const Textarea = BasicTemplate.bind({});
-Textarea.args = {
-  ...defaultArgs,
-  type: Type.Textarea,
+export const InputWithIconEnd: Story = {
+  args: {
+    ...defaultArgs,
+    LabelProps: {
+      iconEnd: (props: any) => <QuestionMarkOutline size={12} {...props} />,
+    },
+  },
+  render: (args) => <BasicTemplate {...args} />,
+};
+export const Textarea: Story = {
+  args: {
+    ...defaultArgs,
+    type: Type.Textarea,
+  },
+  render: (args) => <BasicTemplate {...args} />,
 };

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import RemoveIcon from '@scaleflex/icons/remove';
+
 import { defaultPalette } from '../../src/theme/roots/palette';
 import { Color } from '../../src/utils/types/palette';
-import _Modal, { ModalProps } from '../../src/core/modal';
+import Modal, { ModalProps } from '../../src/core/modal';
 import ModalStyled from '../../src/core/modal/modal.styles';
 import ModalTitle from '../../src/core/modal-title';
 import ModalContent from '../../src/core/modal-content';
@@ -12,16 +13,12 @@ import ModalActions from '../../src/core/modal-actions';
 import SelectGroup from '../../src/core/select-group';
 import MenuItem from '../../src/core/menu-item';
 import Button from '../../src/core/button';
-import { StoryGroup } from './types';
 import { Variant } from '../../src/core/modal-title/types';
 
-export const Modal = _Modal;
-
-export default {
-  // title: `${StoryGroup.Feedback}/Modal`,
+const meta: Meta<typeof Modal> = {
+  title: 'Feedback/Modal',
   component: Modal,
   excludeStories: ['Modal'],
-
   argTypes: {
     children: {
       description: 'Modal children are sub-module components: `ModalTitle`, `ModalContent` and `ModalActions`.',
@@ -32,7 +29,10 @@ export default {
         'If true, the modal stretches to maxWidth. Notice that the modal width grow is limited by the default margin.',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Modal>;
 
 const defaultArgs = {};
 
@@ -43,76 +43,49 @@ const StyledModalContainer = styled(ModalStyled.Container)`
   transform: none;
 `;
 
-const generateTemplate =
-  ({ TitleProps = {} } = {}) =>
-  ({ ...args }) => {
-    const [open, setOpen] = useState(false);
-    const handleClick = (): void => setOpen(true);
-    const handleClose = (): void => setOpen(false);
+const BasicTemplate = ({ TitleProps = {}, args }: { TitleProps?: object; args: ModalProps }): JSX.Element => {
+  const [open, setOpen] = useState(false);
+  const handleClick = (): void => setOpen(true);
+  const handleClose = (): void => setOpen(false);
 
-    const renderModalContent = () => (
-      <>
-        <ModalTitle {...TitleProps} primary="Delete file?" />
+  const renderModalContent = (): JSX.Element => (
+    <>
+      <ModalTitle {...TitleProps} primary="Delete file?" />
 
-        <ModalContent>1 file will be deleted, ok?</ModalContent>
+      <ModalContent>1 file will be deleted, ok?</ModalContent>
 
-        <ModalActions>
-          <Button onClick={handleClose} color="basic">
-            Cancel
-          </Button>
-
-          <Button onClick={handleClose} color="primary" style={{ background: defaultPalette[Color.Error] }}>
-            Delete
-          </Button>
-        </ModalActions>
-      </>
-    );
-
-    return (
-      <div>
-        <div style={{ display: 'flex', marginBottom: 16 }}>
-          <StyledModalContainer {...args} open>
-            <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
-          </StyledModalContainer>
-        </div>
-
-        <Button onClick={handleClick} color="basic">
-          Open modal
+      <ModalActions>
+        <Button onClick={handleClose} color="basic">
+          Cancel
         </Button>
 
-        <Modal {...args} open={open} onClose={handleClose}>
-          {renderModalContent()}
-        </Modal>
+        <Button onClick={handleClose} color="primary" style={{ background: defaultPalette[Color.Error] }}>
+          Delete
+        </Button>
+      </ModalActions>
+    </>
+  );
+
+  return (
+    <div>
+      <div style={{ display: 'flex', marginBottom: 16 }}>
+        <StyledModalContainer {...args} open>
+          <ModalStyled.Modal>{renderModalContent()}</ModalStyled.Modal>
+        </StyledModalContainer>
       </div>
-    );
-  };
 
-const BasicTemplate: Story<ModalProps> = generateTemplate();
+      <Button onClick={handleClick} color="basic">
+        Open modal
+      </Button>
 
-// Base
-export const Base = BasicTemplate.bind({});
-Base.args = { ...defaultArgs };
+      <Modal {...args} open={open} onClose={handleClose}>
+        {renderModalContent()}
+      </Modal>
+    </div>
+  );
+};
 
-// FullWidth
-export const FullWidth = BasicTemplate.bind({});
-FullWidth.args = { ...defaultArgs, fullWidth: true };
-
-const IconTemplate: Story<ModalProps> = generateTemplate({
-  TitleProps: {
-    variant: Variant.WithIcon,
-    secondary: 'Secondary text',
-    icon: <RemoveIcon size={25} />,
-  },
-});
-
-// WithIcon
-export const WithIcon = IconTemplate.bind({});
-WithIcon.args = { ...defaultArgs, fullWidth: true };
-
-/**
- * SelectGroupTemplate
- */
-const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
+const SelectGroupTemplate = (args: ModalProps): JSX.Element => {
   const [open, setOpen] = useState(false);
   const [valueState, setValueState] = useState();
   const handleClick = (): void => setOpen(true);
@@ -166,6 +139,31 @@ const SelectGroupTemplate: Story<ModalProps> = ({ ...args }) => {
   );
 };
 
-// WithSelectGroup
-export const WithSelectGroup = SelectGroupTemplate.bind({});
-WithSelectGroup.args = { ...defaultArgs, fullWidth: true };
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate args={args} />,
+};
+
+export const FullWidth: Story = {
+  args: { ...defaultArgs, fullWidth: true },
+  render: (args) => <BasicTemplate args={args} />,
+};
+
+export const WithIcon: Story = {
+  args: { ...defaultArgs, fullWidth: true },
+  render: (args) => (
+    <BasicTemplate
+      TitleProps={{
+        variant: Variant.WithIcon,
+        secondary: 'Secondary text',
+        icon: <RemoveIcon size={25} />,
+      }}
+      args={args}
+    />
+  ),
+};
+
+export const WithSelectGroup: Story = {
+  args: { ...defaultArgs, fullWidth: true },
+  render: (args) => <SelectGroupTemplate {...args} />,
+};

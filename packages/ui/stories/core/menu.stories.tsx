@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
-import type { Meta, Story } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Documentation } from '@scaleflex/icons';
-import _Menu, { MenuProps } from '../../src/core/menu';
+import Menu, { MenuProps } from '../../src/core/menu';
 import MenuItem from '../../src/core/menu-item';
 import Button from '../../src/core/button';
-import { StoryGroup } from './types';
 
-export const Menu = _Menu;
-
-export default {
-  // title: `${StoryGroup.Navigation}/Menu`,
+const meta: Meta<typeof Menu> = {
+  title: 'Navigation/Menu',
   component: Menu,
   excludeStories: ['Menu'],
-
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
@@ -21,7 +17,10 @@ export default {
       description: 'Prop directly change scroll design',
     },
   },
-} as Meta;
+};
+
+export default meta;
+type Story = StoryObj<typeof Menu>;
 
 const defaultArgs = {
   list: [
@@ -62,7 +61,7 @@ const defaultArgs = {
   ],
 };
 
-const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
+const BasicTemplate = (args: MenuProps): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState(undefined);
   const handleClick = (event: any): void => setAnchorEl(event.currentTarget);
   const handleClose = (): void => setAnchorEl(undefined);
@@ -82,6 +81,7 @@ const BasicTemplate: Story<MenuProps> = ({ ...args }) => {
   );
 };
 
-// Basic
-export const Basic = BasicTemplate.bind({});
-Basic.args = { ...defaultArgs };
+export const Primary: Story = {
+  args: defaultArgs,
+  render: (args) => <BasicTemplate {...args} />,
+};
