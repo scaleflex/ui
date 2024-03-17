@@ -54,7 +54,7 @@ export const Primary: Story = {
 };
 
 export const All: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args: NotificationProps) => (
     <div>
       {items.map((props) => (

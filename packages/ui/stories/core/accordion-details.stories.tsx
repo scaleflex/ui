@@ -30,6 +30,6 @@ const BasicTemplate = ({ expanded, ...args }: AccordionDetailsProps): JSX.Elemen
 };
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate expanded={args.expanded} {...args} />,
 };

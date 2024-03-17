@@ -21,7 +21,7 @@ const defaultArgs = {
 const BasicTemplate = (args: LabelProps): JSX.Element => <Label {...args} />;
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
 

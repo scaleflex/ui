@@ -26,7 +26,7 @@ const defaultArgs = {
 const BasicTemplate = (args: ModalTitleProps): JSX.Element => <ModalTitle {...args} />;
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
 

@@ -86,7 +86,7 @@ const AutocompleteObjectsTemplate = ({ ...args }): JSX.Element => {
 };
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
 

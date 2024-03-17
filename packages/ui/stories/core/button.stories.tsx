@@ -34,7 +34,7 @@ const defaultArgs = {
 const BasicTemplate = ({ children, ...args }: ButtonProps): JSX.Element => <Button {...args}>{children}</Button>;
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
 

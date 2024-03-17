@@ -29,6 +29,6 @@ const defaultArgs = {
 };
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: ({ children, ...args }) => <IconButtonTable {...args}>{children}</IconButtonTable>,
 };

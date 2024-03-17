@@ -23,7 +23,7 @@ const defaultArgs = {
 const BasicTemplate = (args: MenuItemProps): JSX.Element => <MenuItem {...args} />;
 
 export const Primary: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
 
@@ -36,7 +36,7 @@ export const Active: Story = {
 };
 
 export const WithIcon: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: ({ children, ...args }) => (
     <MenuItem {...args}>
       <MenuItemIcon {...args}>
@@ -49,7 +49,7 @@ export const WithIcon: Story = {
 };
 
 export const WithIconAndActions: Story = {
-  args: defaultArgs,
+  args: { ...defaultArgs },
   render: ({ children, ...args }) => (
     <MenuItem {...args}>
       <MenuItemIcon>
