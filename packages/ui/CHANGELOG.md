@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.7](https://github.com/scaleflex/ui/compare/v2.4.6...v2.4.7) (2024-03-19)
+
+
+### Bug Fixes
+
+* **ColorPicker:** change ColorPicker design ([1cb7fcf](https://github.com/scaleflex/ui/commit/1cb7fcf30c0603c1f39aaef66dc9d5ab39ecc5dc))
+
+
+
+
+
+
 ## [2.4.6](https://github.com/scaleflex/ui/compare/v2.4.5...v2.4.6) (2024-03-14)
 
 **Note:** Version bump only for package @scaleflex/ui
