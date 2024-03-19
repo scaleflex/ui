@@ -35,6 +35,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       onChange,
       pinnedColors = [],
       showTransparentColor = false,
+      hidePinIcon = false,
       containerProps,
       ...rest
     }: ColorPickerProps,
@@ -281,40 +282,43 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     return (
       <Styled.ColorPickerWrapper ref={ref} {...rest}>
         <Styled.ColorPickerAction>
-          <Styled.Select value={inputType}>
-            <Select
-              size="sm"
-              value={inputType}
-              MenuProps={{ zIndex: 11112, ...containerProps }}
-              onChange={(ev: any) => setInputType(ev)}
-              fullWidth
-              hideEllipsis
-            >
-              <MenuItem value="hex">Hex</MenuItem>
-              <MenuItem value="rgb">RGB</MenuItem>
-            </Select>
-          </Styled.Select>
-
-          {inputType === 'hex' ? (
-            <Input
-              size="sm"
-              error={!/^#([\da-f]{3}){1,2}$/i.test(rangePicker.color)}
-              value={hexInputValue}
-              onChange={(e: any) => validateHexAndUpdate(e.target.value)}
-              style={{ width: '45%' }}
-            />
-          ) : (
-            rgbColorValue.map((rgb, index) => (
-              <Input
-                key={index}
+          <Styled.SelectWrapper>
+            <Styled.Select value={inputType}>
+              <Select
                 size="sm"
-                value={rgb}
-                onChange={(e: any) => handleRgbInput(Number(e.target?.value), index)}
-                style={{ width: '20%' }}
+                value={inputType}
+                MenuProps={{ zIndex: 11112, ...containerProps }}
+                onChange={(ev: any) => setInputType(ev)}
+                fullWidth
+                hideEllipsis
+              >
+                <MenuItem value="hex">Hex</MenuItem>
+                <MenuItem value="rgb">RGB</MenuItem>
+              </Select>
+            </Styled.Select>
+
+            {inputType === 'hex' ? (
+              <Input
+                size="sm"
+                error={!/^#([\da-f]{3}){1,2}$/i.test(rangePicker.color)}
+                value={hexInputValue}
+                onChange={(e: any) => validateHexAndUpdate(e.target.value)}
+                style={{ width: '45%' }}
               />
-            ))
-          )}
-          {rangePicker.color !== transparentColorHex && (
+            ) : (
+              rgbColorValue.map((rgb, index) => (
+                <Input
+                  key={index}
+                  size="sm"
+                  value={rgb}
+                  onChange={(e: any) => handleRgbInput(Number(e.target?.value), index)}
+                  style={{ width: '20%' }}
+                />
+              ))
+            )}
+          </Styled.SelectWrapper>
+
+          {rangePicker.color !== transparentColorHex && !hidePinIcon && (
             <Styled.ColorPickerIcon
               onClick={() =>
                 localPinnedColors.some((checkedColor) => isColorChecked(checkedColor))
@@ -380,6 +384,7 @@ ColorPicker.defaultProps = {
   defaultColor: '#000000',
   pinnedColors: [],
   showTransparentColor: false,
+  hidePinIcon: false,
 };
 
 ColorPicker.propTypes = {
@@ -387,6 +392,7 @@ ColorPicker.propTypes = {
   onChange: PT.func,
   pinnedColors: PT.array,
   showTransparentColor: PT.bool,
+  hidePinIcon: PT.bool,
 };
 
 export default ColorPicker;

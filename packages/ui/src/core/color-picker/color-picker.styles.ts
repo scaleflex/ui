@@ -152,7 +152,7 @@ const ColorPickerAction = styled.div.attrs({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-bottom: 12px;
 `;
 
@@ -208,6 +208,12 @@ const Select = styled.div.attrs({
   `
 );
 
+const SelectWrapper = styled.div({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '12px',
+});
+
 const Styled = applyDisplayNames({
   ColorPickerWrapper,
   RangePickerWrapper,
@@ -222,6 +228,7 @@ const Styled = applyDisplayNames({
   ColorItemsContainer,
   ColorItemWrapper,
   Select,
+  SelectWrapper,
 });
 
 export default Styled;
