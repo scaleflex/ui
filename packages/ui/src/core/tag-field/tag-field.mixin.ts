@@ -23,7 +23,7 @@ export const heightTagFieldMixin = {
 
   [Size.Md]: () => css`
     min-height: 100px;
-    max-height: 284px;
+    max-height: 260px;
   `,
 };
 
