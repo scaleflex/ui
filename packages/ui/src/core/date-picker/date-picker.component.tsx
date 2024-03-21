@@ -82,6 +82,8 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
           isHovering={isHovering}
+          clearIcon={inputValue && <Styled.CrossIcon size={10} />}
+          clearIconClick={() => setInputValue('')}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: (props: IconProps) => <CalendarIcon {...props} />,

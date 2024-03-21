@@ -5,13 +5,25 @@ import { Size } from './types';
 
 export const sizeTagFieldMixin = {
   [Size.Sm]: css`
-    padding: 8px 12px;
+    padding: 12px;
     gap: 8px;
   `,
 
   [Size.Md]: css`
-    padding: 12px 16px;
+    padding: 16px;
     gap: 16px;
+  `,
+};
+
+export const heightTagFieldMixin = {
+  [Size.Sm]: () => css`
+    min-height: 80px;
+    max-height: 252px;
+  `,
+
+  [Size.Md]: () => css`
+    min-height: 100px;
+    max-height: 284px;
   `,
 };
 

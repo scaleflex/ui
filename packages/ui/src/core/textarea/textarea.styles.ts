@@ -92,6 +92,7 @@ const Base = styled.textarea.attrs({
     font-weight: inherit;
     font-family: inherit;
     box-sizing: border-box;
+    flex: 1;
 
     ${sizeTextAreaMixin[size]};
 

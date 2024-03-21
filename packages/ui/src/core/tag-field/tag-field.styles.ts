@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import { sizeTagFieldMixin, fontTagFieldMixin } from './tag-field.mixin';
+import { sizeTagFieldMixin, fontTagFieldMixin, heightTagFieldMixin } from './tag-field.mixin';
 import type { TagFieldSizeType } from './tag-field.props';
 import { Size } from './types';
 
@@ -48,7 +48,23 @@ const TagFieldWrapper = styled.div.attrs({
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
-    min-height: 100px;
+
+    ${!error &&
+    css`
+      &:focus-within {
+        background-color: ${theme.palette[PColor.BackgroundSecondary]};
+        border: 1px solid ${theme.palette[PColor.AccentStateless]};
+
+        &:hover {
+          border: 1px solid ${theme.palette[PColor.AccentStateless]};
+        }
+      }
+
+      &:hover {
+        background-color: ${theme.palette[PColor.BackgroundStateless]};
+        border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
+      }
+    `}
 
     ${StyledFormHint.FormHint} {
       margin-top: 4px;
@@ -59,6 +75,7 @@ const TagFieldWrapper = styled.div.attrs({
     }
 
     ${sizeTagFieldMixin[size]}
+    ${heightTagFieldMixin[size]}
   `
 );
 
@@ -87,6 +104,7 @@ const TagFieldListWrapper = styled.div.attrs({
     margin: 0;
     padding: 0;
     width: 100%;
+    overflow: hidden auto;
 
     ${TagFieldLoader} {
       svg {
