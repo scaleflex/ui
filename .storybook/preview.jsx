@@ -1,30 +1,9 @@
-import React from 'react';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
-import { createGlobalStyle} from 'styled-components';
 import ThemeProvider from '@scaleflex/ui/theme';
 
 
-
-const GlobalStyles = createGlobalStyle`
-  html {
-    font-size: 14px;
-  }
-
-  body {
-    height: 100%;
-    color: #131f2b;
-    // background-color: #f8fafb;
-    font-family: 'Roboto';
-  }
-
-  main {
-    flex-grow: 1;
-  }
-`;
-
 export const decorators = [
   withThemeFromJSXProvider({
-    GlobalStyles,
     Provider: ThemeProvider ,
   }),
 ];

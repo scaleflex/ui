@@ -1,33 +1,20 @@
-import { dirname, join } from "path";
 const pathsToWebpackAlias = require('../scripts/paths-to-webpack-alias');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = {
-  framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
-    options: {}
-  },
+  framework: '@storybook/react-webpack5',
   stories: [
     {
       directory: '../packages/ui/stories',
     },
   ],
-
-  addons: [{
-    name: '@storybook/addon-essentials',
-    options: {
-      baskgrounds: false,
-      actions: false,
-    },
-  },
-  //  getAbsolutePath("storybook-addon-jsx"),
-  //  getAbsolutePath("storybook-addon-breakpoints"), 
-   getAbsolutePath("@storybook/addon-docs"), 
-   '@storybook/addon-webpack5-compiler-babel'],
-
-  webpackFinal: async (config) => {
+  addons: [
+    { name: '@storybook/addon-essentials', options: { backgrounds: false, actions: false } },
+    '@storybook/addon-webpack5-compiler-babel'
+  ],
+ webpackFinal: async (config) => {
     config.module.rules.find((rule) => rule.test.test('.svg')).exclude = /\.inline.svg$/;
-   
+
     config.module.rules.push(
       {
         test: /\.(ts|tsx|jsx)$/,
@@ -52,13 +39,4 @@ module.exports = {
 
     return config;
   },
-
-
-  docs: {
-    autodocs: true
-  }
 };
-
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}

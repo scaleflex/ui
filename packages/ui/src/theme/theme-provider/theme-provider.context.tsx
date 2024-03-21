@@ -8,16 +8,13 @@ import { applyPolymorphicFunctionProp, objectKeys, objectValues } from '../../ut
 import { Breakpoint } from '../../utils/types/css';
 import { Color } from '../../utils/types/palette';
 import { Shadows } from '../../utils/types/shadows';
-
 import { FontVariant } from '../../utils/types/typography';
 import { BorderRadiusSize } from '../../utils/types/shape';
-
 import { Theme, ThemeOverride } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 import { defaultShadows } from '../roots/shadows';
 import { defaultTypography } from '../roots/typography';
-
 import type { ThemeProviderProps } from './theme-provider.props';
 import createBreakpoints from '../roots/breakpoints/entity/create-breakpoints';
 import type { Breakpoint as BreakpointsKeys } from '../roots/breakpoints/entity/breakpoints-map';
@@ -75,8 +72,6 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
       },
       shadows,
     };
-
-    return {} as Theme;
   }, [JSON.stringify(theme)]);
 
   return (
