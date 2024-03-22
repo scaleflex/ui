@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
-import type { IconProps } from '@scaleflex/icons/icon.props';
 
+import { InputSize } from '@scaleflex/ui/utils/types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
@@ -25,6 +25,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       minDate = '',
       position,
       label,
+      size = InputSize.Md,
       hint,
       popperOptions,
       InputProps: InputPropsData,
@@ -79,6 +80,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           label={label}
           fullWidth={fullWidth}
           hint={hint}
+          size={size}
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
           isHovering={isHovering}
@@ -86,7 +88,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           clearIconClick={() => setInputValue('')}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
-            iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
+            iconEnd: () => <CalendarIcon size={size === 'md' ? 16 : 14} />,
             iconClickEnd: handleCalendarIcon,
             type: 'date',
             max: '9999-12-31',
@@ -103,6 +105,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             onMouseLeave={() => setIsHovering(false)}
             disabled={disabled}
             readOnly={readOnly}
+            size={size}
           >
             {rest.placeholder}
           </Styled.Placeholder>
@@ -132,6 +135,7 @@ Datepicker.defaultProps = {
 export const propTypes = {
   value: PT.string,
   position: PT.oneOf(objectValues(Position)),
+  size: PT.oneOf(objectValues(InputSize)),
   maxDate: PT.string,
   minDate: PT.string,
   onChange: PT.func,

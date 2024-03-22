@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import { InputSize } from '@scaleflex/ui/utils/types';
 import _DatePicker, { DatePickerProps } from '../../src/core/date-picker';
 import { StoryGroup } from './types';
 
@@ -21,6 +22,7 @@ export default {
 
 const defaultArgs = {
   label: 'Label',
+  size: InputSize.Md,
   hint: 'Some hint goes here',
   readOnly: false,
   disabled: false,

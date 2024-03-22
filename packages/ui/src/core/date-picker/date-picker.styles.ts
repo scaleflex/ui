@@ -23,10 +23,10 @@ const DatePicker = styled.div.attrs({
 const Placeholder = styled.div.attrs({
   className: generateClassNames(baseClassName, 'placeholder'),
 })(
-  ({ fullWidth, theme, readOnly, disabled }: With<WithTheme, InputProps>) => css`
+  ({ fullWidth, theme, readOnly, disabled, size }: With<WithTheme, InputProps>) => css`
     position: absolute;
-    top: 32px;
-    left: 18px;
+    top: ${size === 'sm' ? '24px' : '32px'};
+    left: ${size === 'sm' ? '13px' : '18px'};
     width: ${fullWidth ? '95%' : '244px'};
     height: 24px;
     ${theme.typography.font[FontVariant.LabelLarge]}

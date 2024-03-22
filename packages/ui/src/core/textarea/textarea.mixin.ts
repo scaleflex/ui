@@ -11,11 +11,11 @@ export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
 
 export const heightTextAreaMixin = {
   [InputSize.Sm]: () => css`
-    height: 64px;
+    height: 136px;
   `,
 
   [InputSize.Md]: () => css`
-    height: 80px;
+    height: 152px;
   `,
 };
 

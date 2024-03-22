@@ -18,6 +18,11 @@ const defaultArgs = {
   placeholder: 'placeholder',
   readOnly: false,
   disabled: false,
+  showActionButton: false,
+  showClearButton: false,
+  showCopyIcon: false,
+  actionButtonLabel: 'Action',
+  clearAllButtonLabel: 'Clear all',
   copyTextMessage: 'Link copied to clipboard',
   copySuccessIcon: <Success size={16} />,
 };
@@ -29,6 +34,12 @@ const BasicTemplate: Story<TextareaProps> = ({ ...args }) => {
     <div style={{ marginTop: 40 }}>
       <Textarea
         {...args}
+        actionButtonLabel="try bbe"
+        showActionButton
+        showCopyIcon
+        showClearButton
+        onClickActionButton={() => console.log('clicked')}
+        onClear={() => setValue('')}
         value={value}
         onChange={({ currentTarget }: React.SyntheticEvent<HTMLTextAreaElement>) => setValue(currentTarget.value)}
       />

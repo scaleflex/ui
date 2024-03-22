@@ -10,6 +10,7 @@ import { getIconSize } from '../button/button.utils';
 import InputStyled from '../input/input.styles';
 import Styled from './textarea.styles';
 import { Size } from '../menu-item/types';
+import Button from '../button';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
   (
@@ -24,6 +25,13 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       rows,
       copyTextMessage = '',
       copySuccessIcon,
+      showActionButton = false,
+      showClearButton = false,
+      showCopyIcon = false,
+      actionButtonLabel,
+      clearAllButtonLabel,
+      onClickActionButton,
+      onClear,
       ...rest
     }: TextareaProps,
     ref
@@ -89,16 +97,33 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
           disabled={disabled}
           style={{ ...overflowStyles }}
         />
-        {readOnly ? (
-          <Styled.CopyIcon
-            showCopyIcon={isHovering && value.length > 0}
-            size={size}
-            onClick={() => handleCopyIcon(value, setShowCopyMessage)}
-          >
-            <CopyOutline size={getIconSize(size)} />
-          </Styled.CopyIcon>
-        ) : undefined}
-        {showCopyMessage && renderCopyText()}
+
+        {(showActionButton || showClearButton || showCopyIcon) && (
+          <Styled.ActionsButtonsWrapper>
+            {showActionButton && (
+              <Button color="link-primary" size="sm" onClick={onClickActionButton}>
+                {actionButtonLabel}
+              </Button>
+            )}
+
+            {showClearButton && (
+              <Button color="link-secondary" size="sm" onClick={onClear}>
+                {clearAllButtonLabel}
+              </Button>
+            )}
+
+            {showCopyIcon && (
+              <Styled.CopyIcon
+                showCopyIcon={isHovering && value.length > 0}
+                size={size}
+                onClick={() => handleCopyIcon(value, setShowCopyMessage)}
+              >
+                <CopyOutline size={getIconSize(size)} />
+                {showCopyMessage && renderCopyText()}
+              </Styled.CopyIcon>
+            )}
+          </Styled.ActionsButtonsWrapper>
+        )}
       </Styled.Textarea>
     );
   }
@@ -110,6 +135,7 @@ Textarea.defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  actionButtonLabel: 'Action',
 };
 
 export const propTypes = {
@@ -123,6 +149,13 @@ export const propTypes = {
   copyTextMessage: PT.string,
   cols: PT.number,
   rows: PT.number,
+  showActionButton: PT.bool,
+  showClearButton: PT.bool,
+  showCopyIcon: PT.bool,
+  actionButtonLabel: PT.string,
+  clearAllButtonLabel: PT.string,
+  onClickActionButton: PT.func,
+  onClear: PT.func,
 };
 
 Textarea.propTypes = propTypes;
