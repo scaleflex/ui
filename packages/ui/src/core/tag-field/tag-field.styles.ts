@@ -52,7 +52,6 @@ const TagFieldWrapper = styled.div.attrs({
     ${!error &&
     css`
       &:focus-within {
-        background-color: ${theme.palette[PColor.BackgroundSecondary]};
         border: 1px solid ${theme.palette[PColor.AccentStateless]};
 
         &:hover {
@@ -61,7 +60,6 @@ const TagFieldWrapper = styled.div.attrs({
       }
 
       &:hover {
-        background-color: ${theme.palette[PColor.BackgroundStateless]};
         border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
       }
     `}
