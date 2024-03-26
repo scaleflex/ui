@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import { FontVariant } from '@scaleflex/ui/utils/types/typography';
 import CrossOutline from '@scaleflex/icons/cross-outline';
+
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
-
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import InputGroup from '../input-group';
 import { InputProps } from '../input';

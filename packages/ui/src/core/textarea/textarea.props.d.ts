@@ -22,6 +22,6 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   showCopyIcon?: boolean;
   actionButtonLabel?: string;
   clearAllButtonLabel?: string;
-  onClickActionButton?: () => void;
-  onClear?: () => void;
+  onClickActionButton?: (event) => void;
+  onClear?: (event) => void;
 }

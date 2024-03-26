@@ -1,4 +1,7 @@
 import { css } from 'styled-components';
+import { With } from '@scaleflex/ui/utils/types';
+
+import { Color } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
 import type { WithTheme } from '../../theme/entity';
 import { Size } from './types';
@@ -43,4 +46,30 @@ export const fontTagFieldMixin = {
   }: WithTheme) => css`
     ${font[FV.InputLg]}
   `,
+};
+
+export const tagFieldBorder = ({
+  error,
+  theme: { palette },
+}: With<WithTheme, { error: boolean }>): ReturnType<typeof css> => {
+  if (error) {
+    return css`
+      border: 1px solid ${palette[Color.Error]};
+    `;
+  }
+
+  return css`
+    border: 1px solid ${palette[Color.BackgroundPrimaryStateless]};
+
+    &:focus-within {
+      border: 1px solid ${palette[Color.AccentStateless]};
+
+      &:hover {
+        border: 1px solid ${palette[Color.AccentStateless]};
+      }
+    }
+    &:hover {
+      border: 1px solid ${palette[Color.BordersPrimaryHover]};
+    }
+  `;
 };

@@ -3,6 +3,7 @@ import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
 
+import { onMouseDown } from '../../utils/functions/on-mouse-down';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
 import { lightPalette } from '../../theme/roots/palette';
@@ -179,7 +180,13 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleCopyIconClick = (): void => {
+    const handleGenerateTags = (event: any): void => {
+      if (onGenerate) {
+        onGenerate(event);
+      }
+    };
+
+    const copyIconHandler = (): void => {
       handleCopyIcon((tags || []).map(getTagLabel).join(', '), setShowCopyMessage);
     };
 
@@ -272,19 +279,27 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
               {(showGenerateTagsButton || showClearButton || showCopyIcon) && (
                 <Styled.TagFieldActions>
                   {showGenerateTagsButton && (
-                    <Button color="link-primary" size={size} onClick={onGenerate}>
+                    <Button
+                      color="link-primary"
+                      size={size}
+                      onMouseDown={(event) => onMouseDown(event, handleGenerateTags)}
+                    >
                       {generateTagsButtonLabel}
                     </Button>
                   )}
 
                   {showClearButton && (
-                    <Button color="link-secondary" size={size} onClick={handleClearAllTags}>
+                    <Button
+                      color="link-secondary"
+                      size={size}
+                      onMouseDown={(event) => onMouseDown(event, handleClearAllTags)}
+                    >
                       {clearTagsButtonLabel}
                     </Button>
                   )}
 
                   {showCopyIcon && (
-                    <Styled.TagFieldCopyIcon onClick={handleCopyIconClick}>
+                    <Styled.TagFieldCopyIcon onMouseDown={(event) => onMouseDown(event, copyIconHandler)}>
                       <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
                     </Styled.TagFieldCopyIcon>
                   )}

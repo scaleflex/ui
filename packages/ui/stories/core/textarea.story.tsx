@@ -34,12 +34,6 @@ const BasicTemplate: Story<TextareaProps> = ({ ...args }) => {
     <div style={{ marginTop: 40 }}>
       <Textarea
         {...args}
-        actionButtonLabel="try bbe"
-        showActionButton
-        showCopyIcon
-        showClearButton
-        onClickActionButton={() => console.log('clicked')}
-        onClear={() => setValue('')}
         value={value}
         onChange={({ currentTarget }: React.SyntheticEvent<HTMLTextAreaElement>) => setValue(currentTarget.value)}
       />

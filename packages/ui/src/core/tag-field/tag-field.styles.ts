@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
-import { sizeTagFieldMixin, fontTagFieldMixin, heightTagFieldMixin } from './tag-field.mixin';
+import { sizeTagFieldMixin, fontTagFieldMixin, heightTagFieldMixin, tagFieldBorder } from './tag-field.mixin';
 import type { TagFieldSizeType } from './tag-field.props';
 import { Size } from './types';
 
@@ -41,7 +41,6 @@ const TagFieldWrapper = styled.div.attrs({
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
-    border: 1px solid ${error ? theme.palette[PColor.Error] : theme.palette[PColor.BackgroundPrimaryStateless]};
     border-radius: 4px;
     background: transparent;
     display: flex;
@@ -49,20 +48,7 @@ const TagFieldWrapper = styled.div.attrs({
     justify-content: space-between;
     width: 100%;
 
-    ${!error &&
-    css`
-      &:focus-within {
-        border: 1px solid ${theme.palette[PColor.AccentStateless]};
-
-        &:hover {
-          border: 1px solid ${theme.palette[PColor.AccentStateless]};
-        }
-      }
-
-      &:hover {
-        border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
-      }
-    `}
+    ${tagFieldBorder({ theme, error })}
 
     ${StyledFormHint.FormHint} {
       margin-top: 4px;

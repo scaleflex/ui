@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import { InputSize } from '@scaleflex/ui/utils/types';
+
+import { InputSize } from '../../src/utils/types';
 import _DatePicker, { DatePickerProps } from '../../src/core/date-picker';
 import { StoryGroup } from './types';
 

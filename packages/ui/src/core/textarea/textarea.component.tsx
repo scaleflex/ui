@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, SyntheticEvent, ChangeEvent } from 'react';
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
+import { onMouseDown } from '../../utils/functions/on-mouse-down';
 import { intrinsicComponent, objectValues, useForkRef } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
@@ -42,6 +43,31 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     const [isHovering, setIsHovering] = useState(false);
     const [overflowStyles, setOverflowStyles] = useState({});
     const [showCopyMessage, setShowCopyMessage] = useState(false);
+    const [inputValue, setInputValue] = useState(value);
+
+    const actionButtonHandler = (event: SyntheticEvent): void => {
+      if (onClickActionButton) {
+        onClickActionButton(event);
+      }
+    };
+
+    const clearAllHandler = (event: SyntheticEvent): void => {
+      setInputValue('');
+
+      if (onClear) {
+        onClear(event);
+      }
+    };
+
+    const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>): void => {
+      setInputValue(event.target.value);
+    };
+
+    const copyIconHandler = (): void => {
+      if (showCopyIcon) {
+        handleCopyIcon(inputValue, setShowCopyMessage);
+      }
+    };
 
     useEffect(() => {
       const { current } = inputRef;
@@ -79,7 +105,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     return (
       <Styled.Textarea
         size={size}
-        value={value}
+        value={inputValue}
         onMouseEnter={handleEntering}
         onMouseLeave={handleLeaving}
         readOnly={readOnly}
@@ -90,9 +116,10 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       >
         <Styled.Base
           {...rest}
-          value={value}
+          value={inputValue}
           ref={textareaRef}
           size={size}
+          onChange={onChangeHandler}
           readOnly={readOnly}
           disabled={disabled}
           style={{ ...overflowStyles }}
@@ -101,22 +128,22 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         {(showActionButton || showClearButton || showCopyIcon) && (
           <Styled.ActionsButtonsWrapper>
             {showActionButton && (
-              <Button color="link-primary" size="sm" onClick={onClickActionButton}>
+              <Button color="link-primary" size="sm" onMouseDown={(event) => onMouseDown(event, actionButtonHandler)}>
                 {actionButtonLabel}
               </Button>
             )}
 
             {showClearButton && (
-              <Button color="link-secondary" size="sm" onClick={onClear}>
+              <Button color="link-secondary" size="sm" onMouseDown={(event) => onMouseDown(event, clearAllHandler)}>
                 {clearAllButtonLabel}
               </Button>
             )}
 
             {showCopyIcon && (
               <Styled.CopyIcon
-                showCopyIcon={isHovering && value.length > 0}
+                showCopyIcon={isHovering && inputValue.length > 0}
                 size={size}
-                onClick={() => handleCopyIcon(value, setShowCopyMessage)}
+                onMouseDown={(event) => onMouseDown(event, copyIconHandler)}
               >
                 <CopyOutline size={getIconSize(size)} />
                 {showCopyMessage && renderCopyText()}
@@ -136,6 +163,7 @@ Textarea.defaultProps = {
   readOnly: false,
   disabled: false,
   actionButtonLabel: 'Action',
+  clearAllButtonLabel: 'Clear all',
 };
 
 export const propTypes = {

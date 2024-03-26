@@ -1,19 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
+import CrossOutline from '@scaleflex/icons/cross-outline';
+import type { IconProps } from '@scaleflex/icons/icon.props';
 
-import { InputSize } from '@scaleflex/ui/utils/types';
+import { InputSize } from '../../utils/types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import Calendar from '../calendar';
 import { propTypes as popperPropTypes } from '../popper/popper.component';
-
-import Styled from './date-picker.styles';
 import { InputProps } from '../input';
 import { isYearFormRegex } from '../calendar/calendar.utils';
 import { Position } from '../popper/types';
 import { InputGroupProps } from '../input-group';
+import Styled from './date-picker.styles';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
@@ -84,7 +85,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
           isHovering={isHovering}
-          clearIcon={inputValue && <Styled.CrossIcon size={10} />}
+          clearIcon={!!inputValue.length && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
           clearIconClick={() => setInputValue('')}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
