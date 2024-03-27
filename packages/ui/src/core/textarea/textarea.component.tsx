@@ -29,10 +29,13 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       showActionButton = false,
       showClearButton = false,
       showCopyIcon = false,
+      disableActionButton = false,
+      isActionButtonLoading = false,
       actionButtonLabel,
       clearAllButtonLabel,
       onClickActionButton,
       onClear,
+      onChange,
       ...rest
     }: TextareaProps,
     ref
@@ -61,6 +64,10 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
 
     const onChangeHandler = (event: ChangeEvent<HTMLTextAreaElement>): void => {
       setInputValue(event.target.value);
+
+      if (onChange) {
+        onChange(event);
+      }
     };
 
     const copyIconHandler = (): void => {
@@ -131,6 +138,8 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
               <Button
                 color="link-primary"
                 size="sm"
+                disabled={disableActionButton}
+                loading={isActionButtonLoading}
                 onMouseDown={(event) => onClickByMouseDown(event, actionButtonHandler)}
               >
                 {actionButtonLabel}
@@ -170,6 +179,8 @@ Textarea.defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  disableActionButton: false,
+  isActionButtonLoading: false,
   actionButtonLabel: 'Action',
   clearAllButtonLabel: 'Clear all',
 };
@@ -179,6 +190,8 @@ export const propTypes = {
   readOnly: PT.bool,
   disabled: PT.bool,
   fullWidth: PT.bool,
+  disableActionButton: PT.bool,
+  isActionButtonLoading: PT.bool,
   value: PT.any,
   size: PT.oneOf(objectValues(InputSize)),
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),

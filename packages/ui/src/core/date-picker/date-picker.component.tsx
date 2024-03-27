@@ -61,6 +61,13 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       }
     };
 
+    const handleClearIconClick = (): void => {
+      if (onChange) onChange('');
+
+      setInputValue('');
+      setShowPlaceholder(true);
+    };
+
     const handleCalendarIcon = (): void => {
       if (!disabled && !readOnly) setOpen(!open);
     };
@@ -86,7 +93,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           value={inputValue}
           isHovering={isHovering}
           clearIcon={!!inputValue.length && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
-          clearIconClick={() => setInputValue('')}
+          clearIconClick={handleClearIconClick}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: () => <CalendarIcon size={size === 'md' ? 16 : 14} />,
