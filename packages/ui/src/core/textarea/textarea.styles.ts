@@ -38,6 +38,7 @@ const Textarea = styled.div.attrs({
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${heightTextAreaMixin[size]}
+    ${sizeTextAreaMixin[size]};
     ${!readOnly &&
     !disabled &&
     css`
@@ -73,7 +74,7 @@ const Textarea = styled.div.attrs({
 const Base = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<TextareaProps>(
-  ({ theme: { palette }, size = InputSize.Md, readOnly = false }: With<WithTheme, TextareaProps>) => css`
+  ({ theme: { palette }, readOnly = false }: With<WithTheme, TextareaProps>) => css`
     display: block;
     width: 100%;
     height: 100%;
@@ -92,8 +93,7 @@ const Base = styled.textarea.attrs({
     font-weight: inherit;
     font-family: inherit;
     box-sizing: border-box;
-
-    ${sizeTextAreaMixin[size]};
+    flex: 1;
 
     ${readOnly && `padding-bottom: 0px;`}
 
@@ -117,30 +117,28 @@ const Base = styled.textarea.attrs({
   `
 );
 
-const CopyIcon = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'CopyIcon'),
+const ActionsButtonsWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'ActionsButtonsWrapper'),
 })(
-  ({
-    size = InputSize.Md,
-    showCopyIcon = false,
-    theme: { palette },
-  }: With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>) => css`
+  () => css`
     display: flex;
-    justify-content: flex-end;
+    align-items: center;
     width: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
-    color: ${palette[PColor.IconsPrimary]};
-    ${sizeTextAreaMixin[size]};
-    ${!showCopyIcon &&
-    `
-      svg {
-        visibility: hidden;
-      }
-    `}
+    max-height: 16px;
+    column-gap: 12px;
   `
 );
 
-const Styled = applyDisplayNames({ Textarea, CopyIcon, Base });
+const CopyIcon = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'CopyIcon'),
+})(
+  ({ theme: { palette } }: With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>) => css`
+    cursor: pointer;
+    color: ${palette[PColor.IconsPrimary]};
+    margin-left: auto;
+  `
+);
+
+const Styled = applyDisplayNames({ Textarea, CopyIcon, Base, ActionsButtonsWrapper });
 
 export default Styled;

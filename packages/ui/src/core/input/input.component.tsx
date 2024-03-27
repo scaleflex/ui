@@ -244,7 +244,7 @@ export const propTypes = {
   iconEnd: PT.oneOfType([PT.node, PT.func]),
   iconChange: PT.oneOfType([PT.node, PT.func]),
   copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
-  clearIcon: PT.node,
+  clearIcon: PT.oneOfType([PT.node, PT.func]),
   error: PT.bool,
   fullWidth: PT.bool,
   value: PT.any,

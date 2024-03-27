@@ -18,6 +18,11 @@ const defaultArgs = {
   placeholder: 'placeholder',
   readOnly: false,
   disabled: false,
+  showActionButton: false,
+  showClearButton: false,
+  showCopyIcon: false,
+  actionButtonLabel: 'Action',
+  clearAllButtonLabel: 'Clear all',
   copyTextMessage: 'Link copied to clipboard',
   copySuccessIcon: <Success size={16} />,
 };

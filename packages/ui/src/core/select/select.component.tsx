@@ -117,7 +117,7 @@ export const propTypes = {
   multiple: PT.bool,
   fullWidth: PT.bool,
   children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
-  value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
+  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
     SelectSimpleValueType | SelectSimpleValueType[]
   >,
   onChange: PT.func,
