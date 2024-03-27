@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.8](https://github.com/scaleflex/ui/compare/v2.4.7...v2.4.8) (2024-03-27)
+
+
+### Bug Fixes
+
+* **Select:** Select boolean value error [FRA-4677] ([0218642](https://github.com/scaleflex/ui/commit/021864236aa97d1c5de246df092d52a38c0ade10))
+
+
+
+
+
+
 ## [2.4.7](https://github.com/scaleflex/ui/compare/v2.4.6...v2.4.7) (2024-03-19)
 
 
