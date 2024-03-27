@@ -1,6 +1,6 @@
 import { type MouseEvent } from 'react';
 
-export const onMouseDown = (event: MouseEvent, callback: (event: MouseEvent) => void): void => {
+export const onClickByMouseDown = (event: MouseEvent, callback: (event: MouseEvent) => void): void => {
   event.preventDefault();
 
   if (event.button !== 0) {

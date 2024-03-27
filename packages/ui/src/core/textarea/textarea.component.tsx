@@ -2,16 +2,16 @@ import React, { useState, useEffect, useRef, SyntheticEvent, ChangeEvent } from 
 import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
-import { onMouseDown } from '../../utils/functions/on-mouse-down';
+import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
 import { intrinsicComponent, objectValues, useForkRef } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from '../input/input.utils';
 import { getIconSize } from '../button/button.utils';
 import InputStyled from '../input/input.styles';
-import Styled from './textarea.styles';
 import { Size } from '../menu-item/types';
 import Button from '../button';
+import Styled from './textarea.styles';
 
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
   (
@@ -128,13 +128,21 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         {(showActionButton || showClearButton || showCopyIcon) && (
           <Styled.ActionsButtonsWrapper>
             {showActionButton && (
-              <Button color="link-primary" size="sm" onMouseDown={(event) => onMouseDown(event, actionButtonHandler)}>
+              <Button
+                color="link-primary"
+                size="sm"
+                onMouseDown={(event) => onClickByMouseDown(event, actionButtonHandler)}
+              >
                 {actionButtonLabel}
               </Button>
             )}
 
             {showClearButton && (
-              <Button color="link-secondary" size="sm" onMouseDown={(event) => onMouseDown(event, clearAllHandler)}>
+              <Button
+                color="link-secondary"
+                size="sm"
+                onMouseDown={(event) => onClickByMouseDown(event, clearAllHandler)}
+              >
                 {clearAllButtonLabel}
               </Button>
             )}
@@ -143,7 +151,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
               <Styled.CopyIcon
                 showCopyIcon={isHovering && inputValue.length > 0}
                 size={size}
-                onMouseDown={(event) => onMouseDown(event, copyIconHandler)}
+                onMouseDown={(event) => onClickByMouseDown(event, copyIconHandler)}
               >
                 <CopyOutline size={getIconSize(size)} />
                 {showCopyMessage && renderCopyText()}

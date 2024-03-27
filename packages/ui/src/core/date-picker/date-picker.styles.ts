@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import { FontVariant } from '@scaleflex/ui/utils/types/typography';
-import CrossOutline from '@scaleflex/icons/cross-outline';
 
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -54,17 +53,10 @@ const DatePickerInput = styled(InputGroup).attrs({
   `
 );
 
-const CrossIcon = styled(CrossOutline)`
-  ${({ theme: { palette } }) => css`
-    color: ${palette[PColor.IconsSecondary]};
-  `}
-`;
-
 const Styled = applyDisplayNames({
   DatePicker,
   DatePickerInput,
   Placeholder,
-  CrossIcon,
 });
 
 export default Styled;
