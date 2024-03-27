@@ -11,11 +11,11 @@ export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
 
 export const heightTextAreaMixin = {
   [InputSize.Sm]: () => css`
-    height: 80px;
+    height: 136px;
   `,
 
   [InputSize.Md]: () => css`
-    height: 96px;
+    height: 152px;
   `,
 };
 
@@ -25,7 +25,7 @@ export const sizeTextAreaMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 6px 12px;
+    padding: 8px 12px;
     ${font[FV.InputMd]}
   `,
 
@@ -34,7 +34,7 @@ export const sizeTextAreaMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 8px 16px;
+    padding: 9px 16px;
     ${font[FV.InputLg]}
   `,
 };
