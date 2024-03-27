@@ -21,6 +21,8 @@ const defaultArgs = {
   showActionButton: false,
   showClearButton: false,
   showCopyIcon: false,
+  disableActionButton: false,
+  isActionButtonLoading: false,
   actionButtonLabel: 'Action',
   clearAllButtonLabel: 'Clear all',
   copyTextMessage: 'Link copied to clipboard',
