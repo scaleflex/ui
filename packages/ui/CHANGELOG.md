@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.9](https://github.com/scaleflex/ui/compare/v2.4.8...v2.4.9) (2024-03-28)
+
+
+### Bug Fixes
+
+* **Textarea:** logic and design ([f5a085e](https://github.com/scaleflex/ui/commit/f5a085e8346653817caac544a5c33c3f70d5332d))
+
+
+
+
+
+
 ## [2.4.8](https://github.com/scaleflex/ui/compare/v2.4.7...v2.4.8) (2024-03-27)
 
 
