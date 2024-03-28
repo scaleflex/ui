@@ -126,6 +126,7 @@ const ActionsButtonsWrapper = styled.div.attrs({
     width: 100%;
     max-height: 16px;
     column-gap: 12px;
+    margin-top: 16px;
   `
 );
 

@@ -147,7 +147,7 @@ MenuItem.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   children: PT.oneOfType([PT.node, PT.func]),
   active: PT.bool,
-  value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]),
+  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null])]),
   depth: PT.number,
   disableHover: PT.bool,
   noOptionsText: PT.bool,
