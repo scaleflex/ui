@@ -88,6 +88,10 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       setTimeout(() => setShowCopyMessage(false), 2000);
     }, [showCopyMessage]);
 
+    useEffect(() => {
+      setInputValue(value);
+    }, [value]);
+
     const handleEntering = (): void => {
       setTimeout(() => {
         setIsHovering(true);
