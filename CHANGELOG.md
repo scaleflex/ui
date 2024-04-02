@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.10](https://github.com/scaleflex/ui/compare/v2.4.9...v2.4.10) (2024-04-02)
+
+
+### Bug Fixes
+
+* **Calendar:** max min value [FRA-4074) ([274c3b4](https://github.com/scaleflex/ui/commit/274c3b436849ae2ab0873e991801ab320ca95276))
+
+
+
+
+
+
 ## [2.4.9](https://github.com/scaleflex/ui/compare/v2.4.8...v2.4.9) (2024-03-28)
 
 
