@@ -56,7 +56,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const [month, setMonth] = useState(maxDate ? maxMonth : new Date().getMonth());
     const [monthDetails, setMonthDetails] = useState(getMonthDetails(year, month));
     const [selectedDay, setSelectedDay] = useState(
-      getMaxMinSelectedDay(maxDate, minDate, monthDetails, maxDay, minDay)
+      getMaxMinSelectedDay(maxDate, minDate, monthDetails, maxDay, minDay, autoSelectToday)
     );
     const [dayDate, setDayDate] = useState(0);
     const [showMonthsDatePicker, setShowMonthsDatePicker] = useState(false);
