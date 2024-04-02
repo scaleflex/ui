@@ -52,7 +52,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
 
     const handleOnChange = (dateInputValue: string): void => {
       const dateInputTimestamp = new Date(dateInputValue).getTime();
-      const isDisabledDate = dateInputTimestamp >= maxDateTimestamp || dateInputTimestamp <= minDateTimestamp;
+      const isDisabledDate = dateInputTimestamp > maxDateTimestamp || dateInputTimestamp < minDateTimestamp;
 
       setInputValue(dateInputValue);
 
