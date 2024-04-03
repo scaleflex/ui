@@ -9,8 +9,14 @@ import { With } from '../../utils/types';
 const baseClassName = 'CrossButton';
 
 const crossButtonPaddingMixin = {
+  [Size.Xs]: css`
+    padding: 5px;
+    height: 20px;
+  `,
+
   [Size.Sm]: css`
     padding: 6px;
+    height: 24px;
   `,
 
   [Size.Md]: css`
@@ -30,6 +36,7 @@ const CrossButton = styled.button.attrs({
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    border-radius: 4px;
     ${crossButtonPaddingMixin[size]}
 
     color: ${theme.palette[PaletteColor.IconsSecondary]};
@@ -39,7 +46,7 @@ const CrossButton = styled.button.attrs({
 
     &:hover {
       color: ${theme.palette[PaletteColor.IconsPrimary]};
-      background: ${theme.palette[PaletteColor.BackgroundHover]};;
+      background: ${theme.palette[PaletteColor.BackgroundHover]};
     }
 
     &:active {

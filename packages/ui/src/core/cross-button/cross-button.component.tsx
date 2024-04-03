@@ -12,6 +12,9 @@ const getIconSize = (sizeName: CrossButtonSizeType | undefined): number => {
     case Size.Lg:
       return 16;
 
+    case Size.Xs:
+      return 10;
+
     case Size.Sm:
     default:
       return 12;
