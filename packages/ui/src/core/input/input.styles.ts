@@ -26,6 +26,7 @@ const Icon = styled.span.attrs({
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${(iconClickStart || iconClickEnd) && !disabled && !readOnly ? 'pointer' : 'default'};
+    flex-shrink: 0;
 
     ${iconType === 'end' &&
     css`
