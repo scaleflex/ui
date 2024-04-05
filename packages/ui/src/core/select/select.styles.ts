@@ -8,6 +8,7 @@ import InputStyled from '../input/input.styles';
 import type { SelectProps } from './select.props';
 import { fontSizeInputMixin } from '../input/input.mixin';
 import { Size } from '../menu-item/types';
+import CrossButton from '../cross-button/cross-button.component';
 
 const baseClassName = 'Select';
 
@@ -19,7 +20,6 @@ const Icon = styled.span.attrs({
     flex-shrink: 0;
     color: ${palette[PColor.IconsPrimary]};
     padding: ${size === Size.Md ? '2.5px' : '2px'};
-    margin-left: 6px;
   `
 );
 
@@ -41,13 +41,38 @@ const Container = styled.div.attrs({
   `
 );
 
+const StyledCrossButton = styled(CrossButton).attrs({
+  className: generateClassNames(baseClassName, 'CrossButton'),
+})(
+  () => css`
+    display: none;
+    margin-right: 6px;
+  `
+);
+
 const Select = styled(InputStyled.Input).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({ theme: { palette }, disabled, readOnly, size = 'sm' }: With<WithTheme, SelectProps>) => css`
+  ({
+    theme: { palette },
+    disabled,
+    readOnly,
+    size = 'sm',
+    isValueExists,
+  }: With<With<WithTheme, SelectProps>, { isValueExists: boolean }>) => css`
     cursor: ${disabled || readOnly ? 'default' : 'pointer'};
     user-select: none;
+    gap: 0px;
     background: ${disabled ? palette[PColor.BackgroundHover] : palette[PColor.BackgroundStateless]};
+
+    ${isValueExists &&
+    `
+    &:hover {
+      ${StyledCrossButton} {
+        display: flex;
+      }
+    }
+    `}
 
     ${fontSizeInputMixin[size]};
   `
@@ -56,8 +81,9 @@ const Select = styled(InputStyled.Input).attrs({
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
-  ({ hideEllipsis }: { hideEllipsis: boolean }) => `
+  ({ hideEllipsis, size = Size.Md }: With<{ hideEllipsis: boolean }, SelectProps>) => `
     flex-grow: 1;
+    margin-right: ${size === Size.Md ? 8 : 12}px;
 
     ${
       !hideEllipsis &&
@@ -76,7 +102,7 @@ const Placeholder = styled.span.attrs({
   ({ theme: { palette }, size }: With<WithTheme, SelectProps>) => css`
     width: 100%;
     color: ${palette[PColor.TextPlaceholder]};
-    margin-right: ${size === Size.Md ? 10 : 6}px;
+    margin-right: ${size === Size.Md ? 16 : 12}px;
   `
 );
 
@@ -102,6 +128,7 @@ const Styled = applyDisplayNames({
   TickIcon,
   Input,
   Placeholder,
+  StyledCrossButton,
 });
 
 export default Styled;
