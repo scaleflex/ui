@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.11](https://github.com/scaleflex/ui/compare/v2.4.10...v2.4.11) (2024-04-05)
+
+
+### Features
+
+* **Select:** add cross icon to clear selection - FRA-2577 ([2c597bc](https://github.com/scaleflex/ui/commit/2c597bc2462e8122a427cad2de7648990354d529))
+
+
+
+
+
+
 ## [2.4.10](https://github.com/scaleflex/ui/compare/v2.4.9...v2.4.10) (2024-04-02)
 
 
