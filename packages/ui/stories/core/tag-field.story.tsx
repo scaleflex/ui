@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, Story } from '@storybook/react';
-import Success from '@scaleflex/icons/success';
 import { InfoOutline } from '@scaleflex/icons';
 import { TagType } from '../../src/core/tag-field/tag-field.props';
 import _TagField, { TagFieldProps } from '../../src/core/tag-field';
@@ -34,7 +33,6 @@ const defaultArgs = {
   hideCopyIcon: false,
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
-  copySuccessIcon: <Success size={16} />,
 };
 
 const handleRemove = (

@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useEffect, ReactElement } from 'react';
 import PT, { Validator } from 'prop-types';
-import { InfoOutline, CopyOutline } from '@scaleflex/icons';
+import { InfoOutline, CopyOutline, Success } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
@@ -17,7 +17,6 @@ import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType }
 import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import { handleCopyIcon } from '../input/input.utils';
-import InputStyled from '../input/input.styles';
 import TooltipV2 from '../tooltip-v2/tooltip-v2.component';
 import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
 import Styled from './tag-field.styles';
@@ -47,8 +46,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       appliedValue,
       disableOnEnter,
       showTooltip,
-      copyTextMessage = 'Copied to clipboard',
-      copySuccessIcon,
       submitOnSpace,
       preventSubmitOnBlur,
       hideCopyIcon = false,
@@ -71,7 +68,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [userInput, setUserInput] = useState('');
-    const [showCopyMessage, setShowCopyMessage] = useState(false);
+    const [showCopySuccessIcon, setShowCopySucessIcon] = useState(false);
     const [tagsHint, setTagsHint] = useState(hint);
     const [tagsError, setTagsError] = useState(error);
     const [isFieldFocused, setFieldFocused] = useState(false);
@@ -187,7 +184,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     };
 
     const copyIconHandler = (): void => {
-      handleCopyIcon((tags || []).map(getTagLabel).join(', '), setShowCopyMessage);
+      handleCopyIcon((tags || []).map(getTagLabel).join(', '), setShowCopySucessIcon);
     };
 
     // TODO remove when add clear all button
@@ -198,8 +195,10 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     }, [appliedValue]);
 
     useEffect(() => {
-      setTimeout(() => setShowCopyMessage(false), 2000);
-    }, [showCopyMessage]);
+      if (showCopySuccessIcon) {
+        setTimeout(() => setShowCopySucessIcon(false), 2000);
+      }
+    }, [showCopySuccessIcon]);
 
     useEffect(() => {
       setTagsError(error);
@@ -299,20 +298,21 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   )}
 
                   {showCopyIcon && (
-                    <Styled.TagFieldCopyIcon onMouseDown={(event) => onClickByMouseDown(event, copyIconHandler)}>
-                      <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+                    <Styled.TagFieldCopyIcon
+                      onMouseDown={(event) =>
+                        showCopySuccessIcon ? undefined : onClickByMouseDown(event, copyIconHandler)
+                      }
+                    >
+                      {showCopySuccessIcon ? (
+                        <Success size={16} color={lightPalette[Color.Success]} />
+                      ) : (
+                        <CopyOutline size={16} color={lightPalette[Color.IconsPrimary]} />
+                      )}
                     </Styled.TagFieldCopyIcon>
                   )}
                 </Styled.TagFieldActions>
               )}
             </Styled.TagFieldWrapper>
-
-            {showCopyMessage && copyTextMessage && (
-              <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
-                {copySuccessIcon && <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>}
-                <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
-              </InputStyled.NotificationBox>
-            )}
           </Styled.Wrapper>
 
           {tagsHint && <FormHint error={tagsError}>{tagsHint}</FormHint>}
@@ -396,8 +396,6 @@ TagField.propTypes = {
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
-  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
-  copyTextMessage: PT.string,
   onFocus: PT.func,
   onBlur: PT.func,
   placeholderAlwaysVisible: PT.bool,
