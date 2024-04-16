@@ -35,6 +35,7 @@ const defaultArgs = {
   showGenerateTagsButton: true,
   suggestionTooltipMessage: 'Suggested tags',
   copySuccessIcon: <Success size={16} />,
+  copyTextMessage: 'Tags copied to clipboard',
 };
 
 const handleRemove = (
