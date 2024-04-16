@@ -31,6 +31,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       placeholder,
       showSelectionKey,
       hideMenuItemsActions,
+      showClearIcon,
       renderLabel,
       onRequestClose,
       hideEllipsis = false,
@@ -82,7 +83,9 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 
           {!isValueExists && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
 
-          <Styled.StyledCrossButton size={size === Size.Md ? Size.Sm : Size.Xs} onClick={handleClearSelection} />
+          {!readOnly && showClearIcon && (
+            <Styled.StyledCrossButton size={size === Size.Md ? Size.Sm : Size.Xs} onClick={handleClearSelection} />
+          )}
 
           <Styled.Icon size={size}>
             <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 11 : 10 }} />
@@ -114,6 +117,7 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  showClearIcon: false,
   scroll: true,
   hideMenuItemsActions: false,
 };
@@ -137,6 +141,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  showClearIcon: PT.bool,
   hideMenuItemsActions: PT.bool,
   showSelectionKey: PT.bool,
   scroll: PT.bool,
