@@ -41,8 +41,6 @@ const BasicTemplate: Story<ColorPickerProps> = ({ ...args }) => {
     rgbColor: string | undefined,
     colorPickerPinnedColors: Array<string> | undefined
   ): void => {
-    console.log('test', hexColor, rgbColor);
-    console.log('colorPickerPinned', colorPickerPinnedColors);
     setColor(hexColor);
     setPinnedColors(colorPickerPinnedColors);
   };

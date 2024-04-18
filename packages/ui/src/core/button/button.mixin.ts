@@ -299,121 +299,121 @@ export const colorButtonMixin = {
   `,
 
   [ButtonColor.ErrorPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
-  background-color: ${palette[PaletteColor.Error]};
-  color: ${palette[PaletteColor.ButtonPrimaryText]};
-
-  ${StyledBadge.Badge} {
+    background-color: ${palette[PaletteColor.Error]};
     color: ${palette[PaletteColor.ButtonPrimaryText]};
-    background: transparent;
-  }
-
-  &:hover {
-    background-color: ${palette[PaletteColor.ErrorHover]};
-  }
-
-  &:active {
-    background-color: ${palette[PaletteColor.ErrorActive]};
-  }
-
-  ${active &&
-  css`
-    background-color: ${palette[PaletteColor.ErrorActive]};
-
-    &:hover,
-    &:focus {
-      background-color: ${palette[PaletteColor.ErrorActive]};
-    }
-  `}
-
-  &:disabled {
-    background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
-    color: ${palette[PaletteColor.BordersDisabled]};
-    cursor: default;
-
-    ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.BordersDisabled]};
-      background: transparent;
-    }
-  }
-`,
-
-[ButtonColor.ErrorSecondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
-  background-color: ${palette[PaletteColor.BackgroundStateless]};
-  color: ${palette[PaletteColor.LinkStateless]};
-  border: 1px solid ${palette[PaletteColor.BordersButton]};
-
-  ${StyledBadge.Badge} {
-    color: ${palette[PaletteColor.LinkStateless]};
-    background-color: transparent;
-  }
-
-  &:hover {
-    background-color: ${palette[PaletteColor.ErrorHover]};
-    color: ${palette[PaletteColor.ButtonPrimaryText]};
-    border: none;
 
     ${StyledBadge.Badge} {
       color: ${palette[PaletteColor.ButtonPrimaryText]};
+      background: transparent;
     }
-  }
 
-  &:active {
-    background-color: ${palette[PaletteColor.ErrorActive]};
-    color: ${palette[PaletteColor.ButtonPrimaryText]};
-    border: none;
-  }
+    &:hover {
+      background-color: ${palette[PaletteColor.ErrorHover]};
+    }
 
-  ${active &&
-  css`
-    background-color: ${palette[PaletteColor.ErrorActive]};
-    color: ${palette[PaletteColor.ButtonPrimaryText]};
-    border: none;
-
-    &:hover,
-    &:focus {
+    &:active {
       background-color: ${palette[PaletteColor.ErrorActive]};
     }
-  `}
 
-  &:disabled {
-    color: ${palette[PaletteColor.BordersDisabled]};
-    background: ${palette[PaletteColor.Accent_1_2_Opacity]};
-    border: none;
-    cursor: default;
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.ErrorActive]};
+
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.ErrorActive]};
+      }
+    `}
+
+    &:disabled {
+      background-color: ${palette[PaletteColor.Accent_1_2_Opacity]};
+      color: ${palette[PaletteColor.BordersDisabled]};
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.BordersDisabled]};
+        background: transparent;
+      }
+    }
+  `,
+
+  [ButtonColor.ErrorSecondary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
+    background-color: ${palette[PaletteColor.BackgroundStateless]};
+    color: ${palette[PaletteColor.LinkStateless]};
+    border: 1px solid ${palette[PaletteColor.BordersButton]};
 
     ${StyledBadge.Badge} {
-      color: ${palette[PaletteColor.BordersDisabled]};
+      color: ${palette[PaletteColor.LinkStateless]};
+      background-color: transparent;
     }
-  }
-`,
 
-[ButtonColor.ErrorBasic]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
-  color: ${palette[PaletteColor.LinkStateless]};
-  background-color: transparent;
+    &:hover {
+      background-color: ${palette[PaletteColor.ErrorHover]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
 
-  &:hover {
-    color: ${palette[PaletteColor.ErrorHover]};
-  }
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.ButtonPrimaryText]};
+      }
+    }
 
-  &:active {
-    color: ${palette[PaletteColor.ErrorActive]};
-  }
+    &:active {
+      background-color: ${palette[PaletteColor.ErrorActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
+    }
 
-  ${active &&
-  css`
-    color: ${palette[PaletteColor.ErrorActive]};
+    ${active &&
+    css`
+      background-color: ${palette[PaletteColor.ErrorActive]};
+      color: ${palette[PaletteColor.ButtonPrimaryText]};
+      border: none;
 
-    &:hover,
-    &:focus {
+      &:hover,
+      &:focus {
+        background-color: ${palette[PaletteColor.ErrorActive]};
+      }
+    `}
+
+    &:disabled {
+      color: ${palette[PaletteColor.BordersDisabled]};
+      background: ${palette[PaletteColor.Accent_1_2_Opacity]};
+      border: none;
+      cursor: default;
+
+      ${StyledBadge.Badge} {
+        color: ${palette[PaletteColor.BordersDisabled]};
+      }
+    }
+  `,
+
+  [ButtonColor.ErrorBasic]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
+    color: ${palette[PaletteColor.LinkStateless]};
+    background-color: transparent;
+
+    &:hover {
+      color: ${palette[PaletteColor.ErrorHover]};
+    }
+
+    &:active {
       color: ${palette[PaletteColor.ErrorActive]};
     }
-  `}
 
-  &:disabled {
-    color: ${palette[PaletteColor.BordersDisabled]};
-    cursor: default;
-  }
-`,
+    ${active &&
+    css`
+      color: ${palette[PaletteColor.ErrorActive]};
+
+      &:hover,
+      &:focus {
+        color: ${palette[PaletteColor.ErrorActive]};
+      }
+    `}
+
+    &:disabled {
+      color: ${palette[PaletteColor.BordersDisabled]};
+      cursor: default;
+    }
+  `,
 
   [ButtonColor.WarningPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     background-color: ${palette[PaletteColor.Warning]};

@@ -10,10 +10,7 @@ const baseClassName = 'IconButton';
 const IconButton = styled(ButtonStyled.Button).attrs({
   className: generateClassNames(baseClassName, 'root'),
 })(
-  ({
-    color = IconButtonColor.Secondary,
-    size = ButtonSize.Md,
-  }: IconButtonProps) => css`
+  ({ color = IconButtonColor.Secondary, size = ButtonSize.Md }: IconButtonProps) => css`
     ${squarePaddingMixin[size]}
     ${colorButtonMixin[color]}
   `

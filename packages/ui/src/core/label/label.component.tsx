@@ -8,20 +8,13 @@ import { Type } from './types';
 import Styled from './label.styles';
 
 const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
-  ({
-    children,
-    iconStart,
-    iconEnd,
-    error,
-    disabled,
-    size,
-    type,
-    ...rest
-  }: LabelProps, ref): JSX.Element => {
+  ({ children, iconStart, iconEnd, error, disabled, size, type, ...rest }: LabelProps, ref): JSX.Element => {
     const textRef = useRef<HTMLSpanElement | null>(null);
     const [isEllipsisActive, setIsEllipsisActive] = useState(false);
     const renderIcon = (icon: ReactNode, end: boolean): ReactNode => (
-      <Styled.Icon $end={end}>{typeof icon === 'function' ? icon({ size: size === 'md' ? 14 : 12 }) : icon}</Styled.Icon>
+      <Styled.Icon $end={end}>
+        {typeof icon === 'function' ? icon({ size: size === 'md' ? 14 : 12 }) : icon}
+      </Styled.Icon>
     );
 
     const getTextTooltip = (): string | undefined => {

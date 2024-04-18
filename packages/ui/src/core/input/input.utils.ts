@@ -33,7 +33,7 @@ export const getInputBorderColor = (readOnly?: boolean, disabled?: boolean): str
   return lightPalette[Color.BorderPrimaryStateless];
 };
 
-export const handleCopyIcon = (value: string, setShowCopyMessage: any ): void => {
+export const handleCopyIcon = (value: string, setShowCopyMessage: any): void => {
   navigator.clipboard.writeText(value);
   setShowCopyMessage(true);
 };

@@ -399,7 +399,7 @@ const HeaderRightArrows = styled.span.attrs({
     color: ${isDisabled ? palette[PColor.TextPlaceholder] : palette[PColor.IconsPrimary]};
     top: 0;
     cursor: ${isDisabled ? 'auto' : 'pointer'};
-    pointer-events: ${isDisabled ? 'none' : ''}; ;
+    pointer-events: ${isDisabled ? 'none' : ''};
   `
 );
 

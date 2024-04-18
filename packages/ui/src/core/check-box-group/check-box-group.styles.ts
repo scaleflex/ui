@@ -26,12 +26,15 @@ const Label = styled.span.attrs({
     WithTheme,
     { labelPosition: LabelPositionType | undefined; disabled: boolean; size: CheckBoxSizeType }
   >) => css`
-    display: flex;
+    display: inline-block;
     align-items: center;
     ${sizeCheckboxGroupMixin[size]}
     ${`margin-${labelPosition === 'after' ? 'left' : 'right'}`}:4px;
     color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.TextPrimary]};
     cursor: ${disabled ? 'default' : 'pointer'};
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
   `
 );
 
@@ -43,6 +46,7 @@ const CheckBoxGroup = styled.label.attrs({
     display: inline-flex;
     column-gap: 4px;
     align-items: center;
+    max-width: 100%;
     cursor: ${disabled ? 'default' : 'pointer'};
 
     &:hover {
