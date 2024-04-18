@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
+
+
+### Features
+
+* **Select:** add visibility prop to cross button in selectors - FRA-2577 ([c7c3e93](https://github.com/scaleflex/ui/commit/c7c3e93d7a2eb483c5e6273665412566ffbab5ed))
+
+
+
+
+
+
 ## [2.4.11](https://github.com/scaleflex/ui/compare/v2.4.10...v2.4.11) (2024-04-05)
 
 
