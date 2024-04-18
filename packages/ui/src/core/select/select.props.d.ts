@@ -18,6 +18,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   MenuProps?: MenuProps;
   readOnly?: boolean;
   disabled?: boolean;
+  showClearIcon?: boolean;
   showSelectionKey?: boolean;
   hideMenuItemsActions?: boolean;
   scroll?: boolean;
