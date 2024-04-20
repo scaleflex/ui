@@ -137,7 +137,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
         />
 
         {(showActionButton || showClearButton || showCopyIcon) && (
-          <Styled.ActionsButtonsWrapper>
+          <Styled.ActionsButtonsWrapper size={size}>
             {showActionButton && (
               <Button
                 color="link-primary"

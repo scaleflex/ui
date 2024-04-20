@@ -198,7 +198,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     }, [appliedValue]);
 
     useEffect(() => {
-      setTimeout(() => setShowCopyMessage(false), 2000);
+      if (showCopyMessage) {
+        setTimeout(() => setShowCopyMessage(false), 2000);
+      }
     }, [showCopyMessage]);
 
     useEffect(() => {
@@ -308,7 +310,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
             </Styled.TagFieldWrapper>
 
             {showCopyMessage && copyTextMessage && (
-              <InputStyled.NotificationBox size={size} style={{ bottom: -38 }}>
+              <InputStyled.NotificationBox size={size} style={{ bottom: 37, right: 18 }}>
                 {copySuccessIcon && <InputStyled.NotificationIcon>{copySuccessIcon}</InputStyled.NotificationIcon>}
                 <InputStyled.NotificationText>{copyTextMessage}</InputStyled.NotificationText>
               </InputStyled.NotificationBox>

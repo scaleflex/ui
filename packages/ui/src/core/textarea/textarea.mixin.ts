@@ -34,7 +34,7 @@ export const sizeTextAreaMixin = {
       typography: { font },
     },
   }: WithTheme) => css`
-    padding: 9px 16px;
+    padding: 8px 16px;
     ${font[FV.InputLg]}
   `,
 };
