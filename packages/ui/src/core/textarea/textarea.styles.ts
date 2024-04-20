@@ -38,7 +38,7 @@ const Textarea = styled.div.attrs({
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${heightTextAreaMixin[size]}
-    ${sizeTextAreaMixin[size]};
+
     ${!readOnly &&
     !disabled &&
     css`
@@ -74,7 +74,7 @@ const Textarea = styled.div.attrs({
 const Base = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'Base'),
 })<TextareaProps>(
-  ({ theme: { palette }, readOnly = false }: With<WithTheme, TextareaProps>) => css`
+  ({ theme: { palette }, readOnly = false, size = InputSize.Md }: With<WithTheme, TextareaProps>) => css`
     display: block;
     width: 100%;
     height: 100%;
@@ -96,6 +96,7 @@ const Base = styled.textarea.attrs({
     flex: 1;
 
     ${readOnly && `padding-bottom: 0px;`}
+    ${sizeTextAreaMixin[size]};
 
     &::placeholder {
       color: ${palette[PColor.TextPlaceholder]};
@@ -120,17 +121,17 @@ const Base = styled.textarea.attrs({
 const ActionsButtonsWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'ActionsButtonsWrapper'),
 })(
-  () => css`
+  ({ size = InputSize.Md }: Partial<TextareaProps>) => css`
     display: flex;
     align-items: center;
     width: 100%;
-    max-height: 16px;
     column-gap: 12px;
-    margin-top: 16px;
+    box-sizing: border-box;
+    ${sizeTextAreaMixin[size]};
   `
 );
 
-const CopyIcon = styled.div.attrs({
+const CopyIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
 })(
   ({ theme: { palette } }: With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>) => css`
