@@ -1,19 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
+import CrossOutline from '@scaleflex/icons/cross-outline';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 
+import { InputSize } from '../../utils/types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
 import { propTypes as inputPropTypes } from '../input/input.component';
 import Calendar from '../calendar';
 import { propTypes as popperPropTypes } from '../popper/popper.component';
-
-import Styled from './date-picker.styles';
 import { InputProps } from '../input';
 import { isYearFormRegex } from '../calendar/calendar.utils';
 import { Position } from '../popper/types';
 import { InputGroupProps } from '../input-group';
+import Styled from './date-picker.styles';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
@@ -25,6 +26,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       minDate = '',
       position,
       label,
+      size = InputSize.Md,
       hint,
       popperOptions,
       InputProps: InputPropsData,
@@ -50,13 +52,20 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
 
     const handleOnChange = (dateInputValue: string): void => {
       const dateInputTimestamp = new Date(dateInputValue).getTime();
-      const isDisabledDate = dateInputTimestamp >= maxDateTimestamp || dateInputTimestamp <= minDateTimestamp;
+      const isDisabledDate = dateInputTimestamp > maxDateTimestamp || dateInputTimestamp < minDateTimestamp;
 
       setInputValue(dateInputValue);
 
       if (onChange && !isDisabledDate && isYearForm) {
         onChange(dateInputValue);
       }
+    };
+
+    const handleClearIconClick = (): void => {
+      if (onChange) onChange('');
+
+      setInputValue('');
+      setShowPlaceholder(true);
     };
 
     const handleCalendarIcon = (): void => {
@@ -79,12 +88,15 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           label={label}
           fullWidth={fullWidth}
           hint={hint}
+          size={size}
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
           isHovering={isHovering}
+          clearIcon={!!inputValue.length && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
+          clearIconClick={handleClearIconClick}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
-            iconEnd: (props: IconProps) => <CalendarIcon {...props} />,
+            iconEnd: () => <CalendarIcon size={size === 'md' ? 16 : 14} />,
             iconClickEnd: handleCalendarIcon,
             type: 'date',
             max: '9999-12-31',
@@ -101,6 +113,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             onMouseLeave={() => setIsHovering(false)}
             disabled={disabled}
             readOnly={readOnly}
+            size={size}
           >
             {rest.placeholder}
           </Styled.Placeholder>
@@ -130,6 +143,7 @@ Datepicker.defaultProps = {
 export const propTypes = {
   value: PT.string,
   position: PT.oneOf(objectValues(Position)),
+  size: PT.oneOf(objectValues(InputSize)),
   maxDate: PT.string,
   minDate: PT.string,
   onChange: PT.func,

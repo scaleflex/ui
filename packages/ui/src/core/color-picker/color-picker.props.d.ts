@@ -36,5 +36,6 @@ export interface ColorPickerProps extends React.HTMLAttributes<HTMLSpanElement> 
   onChange?: (hexColor: string, rgb?: string, pinnedColors?: Array<string>) => void;
   pinnedColors?: Array<string>;
   showTransparentColor?: boolean;
+  hidePinIcon?: boolean;
   containerProps?: MenuProps;
 }

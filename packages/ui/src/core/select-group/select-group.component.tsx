@@ -34,6 +34,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       onChange,
       readOnly,
       disabled,
+      showClearIcon,
       ...rest
     }: SelectGroupProps,
     ref
@@ -93,6 +94,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           placeholder={placeholder}
           showSelectionKey={showSelectionKey}
           hideMenuItemsActions={hideMenuItemsActions}
+          showClearIcon={showClearIcon}
         >
           {children}
         </Select>

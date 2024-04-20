@@ -1,67 +1,32 @@
 import { css } from 'styled-components';
+import { With } from '@scaleflex/ui/utils/types';
+
+import { Color } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
 import type { WithTheme } from '../../theme/entity';
 import { Size } from './types';
 
 export const sizeTagFieldMixin = {
   [Size.Sm]: css`
-    padding: 8px 12px;
+    padding: 12px;
+    gap: 8px;
   `,
 
   [Size.Md]: css`
-    padding: 12px 16px;
+    padding: 16px;
+    gap: 16px;
   `,
 };
 
-export const positionGenerateButtonMixin = {
-  [Size.Sm]: css`
-    position: absolute;
-    bottom: 8px;
-    left: 12px;
+export const heightTagFieldMixin = {
+  [Size.Sm]: () => css`
+    min-height: 80px;
+    max-height: 252px;
   `,
 
-  [Size.Md]: css`
-    position: absolute;
-    bottom: 12px;
-    left: 16px;
-  `,
-};
-
-export const positionClearAllButtonMixin = {
-  [Size.Sm]: css`
-    position: absolute;
-    bottom: 8px;
-    left: 110px;
-  `,
-
-  [Size.Md]: css`
-    position: absolute;
-    bottom: 12px;
-    left: 125px;
-  `,
-};
-
-export const positionIconMixin = {
-  [Size.Sm]: css`
-    position: absolute;
-    bottom: 8px;
-    right: 12px;
-  `,
-
-  [Size.Md]: css`
-    position: absolute;
-    bottom: 12px;
-    right: 16px;
-  `,
-};
-
-export const marginTagFieldListMixin = {
-  [Size.Sm]: css`
-    margin-bottom: 16px;
-  `,
-
-  [Size.Md]: css`
-    margin-bottom: 18px;
+  [Size.Md]: () => css`
+    min-height: 100px;
+    max-height: 260px;
   `,
 };
 
@@ -81,4 +46,30 @@ export const fontTagFieldMixin = {
   }: WithTheme) => css`
     ${font[FV.InputLg]}
   `,
+};
+
+export const tagFieldBorder = ({
+  error,
+  theme: { palette },
+}: With<WithTheme, { error: boolean }>): ReturnType<typeof css> => {
+  if (error) {
+    return css`
+      border: 1px solid ${palette[Color.Error]};
+    `;
+  }
+
+  return css`
+    border: 1px solid ${palette[Color.BackgroundPrimaryStateless]};
+
+    &:focus-within {
+      border: 1px solid ${palette[Color.AccentStateless]};
+
+      &:hover {
+        border: 1px solid ${palette[Color.AccentStateless]};
+      }
+    }
+    &:hover {
+      border: 1px solid ${palette[Color.BordersPrimaryHover]};
+    }
+  `;
 };

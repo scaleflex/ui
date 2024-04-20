@@ -3,7 +3,7 @@ import type { MenuProps } from '../menu';
 import { InputBackgroundColor, InputSize } from '../../utils/types';
 
 export type SelectSizeType = Values<typeof InputSize>;
-export type SelectSimpleValueType = string | number | null | undefined;
+export type SelectSimpleValueType = string | number | boolean | null | undefined;
 export type SelectBackgroundType = Values<typeof InputBackgroundColor>;
 
 export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -18,6 +18,7 @@ export interface SelectProps extends React.HTMLAttributes<HTMLDivElement> {
   MenuProps?: MenuProps;
   readOnly?: boolean;
   disabled?: boolean;
+  showClearIcon?: boolean;
   showSelectionKey?: boolean;
   hideMenuItemsActions?: boolean;
   scroll?: boolean;

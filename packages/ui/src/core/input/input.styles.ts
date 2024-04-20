@@ -26,6 +26,7 @@ const Icon = styled.span.attrs({
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${(iconClickStart || iconClickEnd) && !disabled && !readOnly ? 'pointer' : 'default'};
+    flex-shrink: 0;
 
     ${iconType === 'end' &&
     css`
@@ -195,19 +196,30 @@ const ClearIcon = styled.span.attrs({
 
 const NotificationBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'NotificationBox'),
-})<InputProps>(
-  ({ size = InputSize.Md, theme: { palette } }: With<WithTheme, InputProps>) => css`
+})(
+  ({
+    size = InputSize.Md,
+    isTextarea = false,
+    theme: { palette },
+  }: With<With<WithTheme, InputProps>, { isTextarea?: boolean }>) => css`
     display: flex;
     position: absolute;
     align-items: center;
     max-height: 34px;
     right: 0px;
     padding: 8px 12px;
-    column-gap: 6px;
+    gap: 6px;
     bottom: ${size === InputSize.Md ? '45px' : '35px'};
     box-shadow: 0px 2px 6px ${palette[PColor.LargeShadow]};
     background-color: ${palette[PColor.BackgroundStateless]};
     border-radius: 4px;
+    align-items: center;
+
+    ${isTextarea &&
+    `
+      bottom: ${size === InputSize.Md ? 27 : 22}px;
+      right: ${size === InputSize.Md ? 16 : 12}px;
+    `}
   `
 );
 
@@ -215,6 +227,7 @@ const NotificationIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'NotificationIcon'),
 })(
   ({ theme: { palette } }: WithTheme) => css`
+    display: flex;
     color: ${palette[PColor.IconsPrimary]};
   `
 );
@@ -228,6 +241,7 @@ const NotificationText = styled.span.attrs({
       typography: { font },
     },
   }: WithTheme) => css`
+    display: flex;
     white-space: nowrap;
     ${font[FV.TextSmall]};
     color: ${palette[PColor.TextPrimary]};

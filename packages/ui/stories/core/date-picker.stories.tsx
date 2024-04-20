@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import DatePicker from '../../src/core/date-picker';
 import { Position } from '../../src/core/popper/types';
+import { InputSize } from '../../src/utils/types';
 
 const meta: Meta<typeof DatePicker> = {
   title: 'Inputs/DatePicker',
@@ -22,6 +23,7 @@ type Story = StoryObj<typeof DatePicker>;
 
 const defaultArgs = {
   label: 'Label',
+  size: InputSize.Md,
   hint: 'Some hint goes here',
   readOnly: false,
   disabled: false,

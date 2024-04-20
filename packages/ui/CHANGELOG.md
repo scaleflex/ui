@@ -3,6 +3,175 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
+* **TagField:** copy success message - FRA-4684 ([1740195](https://github.com/scaleflex/ui/commit/17401959ba36d57e13bb96747c4e54ae603e8e10))
+* **Textarea:** scroll and action buttons styles - FRA-4914 ([05c91fa](https://github.com/scaleflex/ui/commit/05c91fa8c7b5c59c401a19399495684982def785))
+
+
+
+
+
+
+## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
+
+
+### Features
+
+* **Select:** add visibility prop to cross button in selectors - FRA-2577 ([c7c3e93](https://github.com/scaleflex/ui/commit/c7c3e93d7a2eb483c5e6273665412566ffbab5ed))
+
+
+
+
+
+
+## [2.4.11](https://github.com/scaleflex/ui/compare/v2.4.10...v2.4.11) (2024-04-05)
+
+
+### Features
+
+* **Select:** add cross icon to clear selection - FRA-2577 ([2c597bc](https://github.com/scaleflex/ui/commit/2c597bc2462e8122a427cad2de7648990354d529))
+
+
+
+
+
+
+## [2.4.10](https://github.com/scaleflex/ui/compare/v2.4.9...v2.4.10) (2024-04-02)
+
+
+### Bug Fixes
+
+* **Calendar:** max min value [FRA-4074) ([274c3b4](https://github.com/scaleflex/ui/commit/274c3b436849ae2ab0873e991801ab320ca95276))
+
+
+
+
+
+
+## [2.4.9](https://github.com/scaleflex/ui/compare/v2.4.8...v2.4.9) (2024-03-28)
+
+
+### Bug Fixes
+
+* **Textarea:** logic and design ([f5a085e](https://github.com/scaleflex/ui/commit/f5a085e8346653817caac544a5c33c3f70d5332d))
+
+
+
+
+
+
+## [2.4.8](https://github.com/scaleflex/ui/compare/v2.4.7...v2.4.8) (2024-03-27)
+
+
+### Bug Fixes
+
+* **Select:** Select boolean value error [FRA-4677] ([0218642](https://github.com/scaleflex/ui/commit/021864236aa97d1c5de246df092d52a38c0ade10))
+
+
+
+
+
+
+## [2.4.7](https://github.com/scaleflex/ui/compare/v2.4.6...v2.4.7) (2024-03-19)
+
+
+### Bug Fixes
+
+* **ColorPicker:** change ColorPicker design ([1cb7fcf](https://github.com/scaleflex/ui/commit/1cb7fcf30c0603c1f39aaef66dc9d5ab39ecc5dc))
+
+
+
+
+
+
+## [2.4.6](https://github.com/scaleflex/ui/compare/v2.4.5...v2.4.6) (2024-03-14)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+
+## [2.4.5](https://github.com/scaleflex/ui/compare/v2.4.4...v2.4.5) (2024-03-11)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.4.4](https://github.com/scaleflex/ui/compare/v2.4.3...v2.4.4) (2024-03-08)
+
+
+### Bug Fixes
+
+* update instgram color [FRA-4549] ([33f1514](https://github.com/scaleflex/ui/commit/33f1514c71413fcabad60b915d7b698997981f3a))
+* update instgram color [FRA-4549] ([4d4ca40](https://github.com/scaleflex/ui/commit/4d4ca4052a3baefbcb22f39eee85314605662b40))
+* update Unsplash color [FRA-4549] ([0ec563e](https://github.com/scaleflex/ui/commit/0ec563e412e2c2bc8c59963c837f98f7412c4b13))
+
+
+### Features
+
+* add ellipsis in checkbox group ([7302a3d](https://github.com/scaleflex/ui/commit/7302a3d24d381382aa08abd9516010d62453e070))
+
+
+
+
+
+
+## [2.4.3](https://github.com/scaleflex/ui/compare/v2.4.2...v2.4.3) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.4.2](https://github.com/scaleflex/ui/compare/v2.4.1...v2.4.2) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+## [2.4.1](https://github.com/scaleflex/ui/compare/v2.4.0...v2.4.1) (2024-03-07)
+
+**Note:** Version bump only for package @scaleflex/ui
+
+
+
+
+
+# [2.4.0](https://github.com/scaleflex/ui/compare/v2.3.2...v2.4.0) (2024-03-06)
+
+
+### Features
+
+* **TagField:** add props placeholderAlwaysVisible, filterInputWidth and fullWidth + styles polishing FRA-4644 ([5c5e2c3](https://github.com/scaleflex/ui/commit/5c5e2c37d98a0a2c8dd20d659fd6aa43dcad4783))
+
+
+
+
+
+## [2.3.2](https://github.com/scaleflex/ui/compare/v2.3.1...v2.3.2) (2024-02-21)
+
+
+### Bug Fixes
+
+* input copy icon visibility - FRA-2595 ([c8e32c3](https://github.com/scaleflex/ui/commit/c8e32c39451ca4b16e6453ea9b5ca6fbd622c061))
+
+
+
+
+
+
 ## [2.3.1](https://github.com/scaleflex/ui/compare/v2.3.0...v2.3.1) (2024-02-19)
 
 

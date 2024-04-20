@@ -35,10 +35,13 @@ const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
 })(
   ({ theme }: WithTheme) => css`
-    display: flex;
-    align-items: center;
     outline: none;
     color: ${theme.palette[PColor.TextPrimary]};
+    display: block;
+    flex-grow: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   `
 );
 
@@ -55,6 +58,7 @@ const Tag = styled.div.attrs({
     background-color: ${theme.palette[PColor.BordersSecondary]};
     border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    max-width: 100%;
 
     ${sizeTagLabelMixin[size]}
 

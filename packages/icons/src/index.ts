@@ -436,3 +436,4 @@ export { Approval } from './approval';
 export { ApprovalNotification } from './approval-notification';
 export { NoAccessUsers } from './no-access-users';
 export { CsvPlaceholder } from './csv-placeholder';
+export { Insights } from './insights';

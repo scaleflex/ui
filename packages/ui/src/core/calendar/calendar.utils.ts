@@ -30,7 +30,7 @@ export const getMinDate = (minDate: string): any => {
     minYear: new Date(minDate).getFullYear(),
     minMonth: new Date(minDate).getMonth(),
     minDay: new Date(minDate).getDate(),
-    minDateTimestamp: new Date(minDate).getTime(),
+    minDateTimestamp: new Date(`${minDate}T00:00:00`).getTime(),
   };
 };
 
@@ -63,8 +63,11 @@ export const getMaxMinSelectedDay = (
   minDate: string,
   monthDetails: any,
   maxDay: number,
-  minDay: number
+  minDay: number,
+  autoSelectToday?: boolean
 ): number => {
+  if (autoSelectToday) return getTodayTimestamp();
+
   if (maxDate) return getMaxMinDayTimeStamp(monthDetails, maxDay);
 
   if (minDate) return getMaxMinDayTimeStamp(monthDetails, minDay);

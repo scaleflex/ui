@@ -12,9 +12,18 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;
+  disableActionButton?: boolean;
+  isActionButtonLoading?: boolean;
   fullWidth?: boolean;
   copyTextMessage?: string;
   copySuccessIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   cols?: number;
   rows?: number;
+  showActionButton?: boolean;
+  showClearButton?: boolean;
+  showCopyIcon?: boolean;
+  actionButtonLabel?: string;
+  clearAllButtonLabel?: string;
+  onClickActionButton?: (event: SyntheticEvent) => void;
+  onClear?: (event: SyntheticEvent) => void;
 }

@@ -10,7 +10,7 @@ import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
-import { Size } from '../menu-item/types';
+import { Size } from '../cross-button/types';
 
 const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   (
@@ -31,6 +31,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       placeholder,
       showSelectionKey,
       hideMenuItemsActions,
+      showClearIcon,
       renderLabel,
       onRequestClose,
       hideEllipsis = false,
@@ -51,6 +52,14 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       setAnchorEl(undefined);
     };
 
+    const handleClearSelection = (event: MouseEvent): void => {
+      event.stopPropagation();
+
+      if (typeof onChange === 'function') {
+        onChange('');
+      }
+    };
+
     return (
       <Styled.Container ref={ref} fullWidth={Boolean(fullWidth)}>
         <Styled.Select
@@ -61,10 +70,11 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           fullWidth={Boolean(fullWidth)}
           readOnly={readOnly}
           showSelectionKey={showSelectionKey}
+          isValueExists={isValueExists}
           onClick={readOnly || disabled ? undefined : handleClick}
         >
           {isValueExists && (
-            <Styled.Label hideEllipsis={hideEllipsis}>
+            <Styled.Label hideEllipsis={hideEllipsis} size={size}>
               {typeof renderLabel === 'function'
                 ? renderLabel(value)
                 : renderValue({ value, multiple, children, showSelectionKey })}
@@ -72,6 +82,10 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           )}
 
           {!isValueExists && <Styled.Placeholder size={size}>{placeholder}</Styled.Placeholder>}
+
+          {!readOnly && showClearIcon && (
+            <Styled.StyledCrossButton size={size === Size.Md ? Size.Sm : Size.Xs} onClick={handleClearSelection} />
+          )}
 
           <Styled.Icon size={size}>
             <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 11 : 10 }} />
@@ -103,6 +117,7 @@ export const defaultProps = {
   fullWidth: false,
   readOnly: false,
   disabled: false,
+  showClearIcon: false,
   scroll: true,
   hideMenuItemsActions: false,
 };
@@ -117,7 +132,7 @@ export const propTypes = {
   multiple: PT.bool,
   fullWidth: PT.bool,
   children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
-  value: PT.oneOfType([PT.string, PT.number, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
+  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
     SelectSimpleValueType | SelectSimpleValueType[]
   >,
   onChange: PT.func,
@@ -126,6 +141,7 @@ export const propTypes = {
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
+  showClearIcon: PT.bool,
   hideMenuItemsActions: PT.bool,
   showSelectionKey: PT.bool,
   scroll: PT.bool,
