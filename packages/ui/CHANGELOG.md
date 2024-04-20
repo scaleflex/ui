@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
+* **TagField:** copy success message - FRA-4684 ([1740195](https://github.com/scaleflex/ui/commit/17401959ba36d57e13bb96747c4e54ae603e8e10))
+* **Textarea:** scroll and action buttons styles - FRA-4914 ([05c91fa](https://github.com/scaleflex/ui/commit/05c91fa8c7b5c59c401a19399495684982def785))
+
+
+
+
+
+
 ## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
 
 
