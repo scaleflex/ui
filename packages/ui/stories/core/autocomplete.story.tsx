@@ -1,8 +1,13 @@
 import React, { useState } from 'react';
 import type { Meta, Story } from '@storybook/react';
+import NoResult from '@scaleflex/icons/no-result';
+import { AutocompleteValueType } from '@scaleflex/ui/core/autocomplete/autocomplete.props';
+
 import _Autocomplete, { AutocompleteProps } from '../../src/core/autocomplete';
 import { InputSize } from '../../src/utils/types';
 import { StoryGroup } from './types';
+import AiIcon from './icons/ai-icon';
+import Styled from './autocomplete.story.styled';
 
 export const Autocomplete = _Autocomplete;
 
@@ -40,21 +45,21 @@ const defaultArgs = {
   multiple: false,
   fullWidth: false,
 };
-const getOptionDisabled = (_: any, index: number): boolean => index % 2 === 0;
-
 const BasicTemplate: Story<AutocompleteProps> = ({ ...args }) => {
-  const [value, setValue] = useState(args.multiple ? [] : '');
+  const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
 
   return (
-    <Autocomplete
-      {...args}
-      value={value}
-      options={args.options}
-      getOptionDisabled={getOptionDisabled}
-      getOptionValue={(option: any) => option}
-      getOptionLabel={(option: any) => option}
-      onChange={(_: any, val: any) => setValue(val)}
-    />
+    <Styled.Container fullWidth={Boolean(args.fullWidth)}>
+      <Autocomplete
+        {...args}
+        value={value}
+        options={args.options}
+        getOptionValue={(option: any) => option}
+        getOptionLabel={(option: any) => option}
+        getOptionDisabled={(option: any) => option === defaultArgs.options[3]}
+        onChange={setValue}
+      />
+    </Styled.Container>
   );
 };
 
@@ -62,18 +67,20 @@ export const Basic = BasicTemplate.bind({});
 Basic.args = { ...defaultArgs };
 
 const AutocompleteObjectsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
-  const [value, setValue] = useState(args.multiple ? [] : '');
+  const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
 
   return (
-    <Autocomplete
-      {...args}
-      value={value}
-      options={args.options}
-      onChange={(_, val: any) => setValue(val)}
-      getOptionValue={(option: any) => option?.uuid}
-      getOptionLabel={(option: any) => option?.name}
-      getOptionDisabled={getOptionDisabled}
-    />
+    <Styled.Container fullWidth={Boolean(args.fullWidth)}>
+      <Autocomplete
+        {...args}
+        value={value}
+        options={args.options}
+        onChange={setValue}
+        getOptionValue={(option: any) => option?.uuid}
+        getOptionLabel={(option: any) => option?.name}
+        getOptionDisabled={(option: any) => option.uuid === defaultArgs.options[3]}
+      />
+    </Styled.Container>
   );
 };
 
@@ -91,4 +98,50 @@ export const AutocompleteObjects = AutocompleteObjectsTemplate.bind({});
 AutocompleteObjects.args = {
   ...defaultArgs,
   options,
+};
+
+const WithIconsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
+  const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
+
+  return (
+    <Styled.Container fullWidth={Boolean(args.fullWidth)}>
+      <Autocomplete
+        {...args}
+        value={value}
+        options={args.options}
+        onChange={setValue}
+        getOptionValue={(option: any) => option?.uuid}
+        getOptionLabel={(option: any) => option?.name}
+        getOptionDisabled={(option: any) => option?.disabled}
+        renderSearchEmptyMenuItem={() => (
+          <Styled.NoSearchResultsContainer>
+            <NoResult width={150} size={60} />
+            <div>Try another search.</div>
+          </Styled.NoSearchResultsContainer>
+        )}
+        renderLabelIconEnd={({ option }: any) => option?.endIcon}
+        renderOptionLabel={(option: any) => (
+          <Styled.OptionLabel>
+            {option.name}
+            <Styled.OptionLabelIconWrapper>{option?.endIcon}</Styled.OptionLabelIconWrapper>
+          </Styled.OptionLabel>
+        )}
+      />
+    </Styled.Container>
+  );
+};
+
+export const WithIcons = WithIconsTemplate.bind({});
+WithIcons.args = {
+  ...defaultArgs,
+  label: 'Languages',
+  placeholder: 'Select language',
+  options: [
+    { uuid: 'en', name: 'English', endIcon: <AiIcon /> },
+    { uuid: 'fr', name: 'French', endIcon: <AiIcon /> },
+    { uuid: 'de', name: 'German' },
+    { uuid: 'it', name: 'Italian' },
+    { uuid: 'es', name: 'Spanish', disabled: true },
+    { uuid: 'ua', name: 'Ukrainian', endIcon: <AiIcon /> },
+  ],
 };
