@@ -51,11 +51,14 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>((prop
     renderLabelIconEnd,
     renderOptionLabel,
     renderSearchEmptyMenuItem,
+    renderGroup,
+    groupBy,
     ...rest
   } = props;
   const {
     formattedValue,
     filteredOptions,
+    groupedFilteredOptions,
     optionsList,
     inputRef,
     inputValue,
@@ -126,6 +129,19 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>((prop
 
   const renderMenuContent = (): JSX.Element | JSX.Element[] | React.ReactNode => {
     if (filteredOptions.length > 0) {
+      if (groupBy) {
+        return groupedFilteredOptions.map(({ options: groupOptions, groupedByValue }, index) => {
+          const groupKey = ['string', 'number'].includes(typeof groupedByValue) ? groupedByValue : index;
+          const groupChildren = groupOptions.map(renderMenuItem);
+
+          return renderGroup ? (
+            renderGroup({ key: groupKey, group: groupedByValue, children: groupChildren })
+          ) : (
+            <Styled.OptionGroup key={groupKey}>{groupChildren}</Styled.OptionGroup>
+          );
+        });
+      }
+
       return filteredOptions.map(renderMenuItem);
     }
 
@@ -246,6 +262,7 @@ Autocomplete.propTypes = {
   renderLabelIconEnd: PT.func,
   renderOptionLabel: PT.func,
   renderSearchEmptyMenuItem: PT.func,
+  groupBy: PT.func,
 };
 
 export default Autocomplete;

@@ -15,6 +15,11 @@ export type AutocompleteOptionObjectType = {
 export type AutocompleteOptionType = AutocompleteOptionIdType | AutocompleteOptionObjectType;
 export type AutocompleteValueType = AutocompleteOptionIdType | AutocompleteOptionIdType[];
 
+export type AutocompleteOptionsGroupType = {
+  options: AutocompleteOptionType[];
+  groupedByValue?: any
+};
+
 export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactElementLike;
   size?: AutocompleteSizeType;
@@ -38,6 +43,7 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   getOptionDisabled?: (option: AutocompleteOptionType) => boolean;
   getOptionValue?: (option: AutocompleteOptionType) => AutocompleteOptionIdType;
   getOptionLabel?: (option: AutocompleteOptionType) => AutocompleteOptionLabelType;
+  groupBy?: (option: AutocompleteOptionType) => any;
   submitOnBlur?: () => void;
   MenuProps?: MenuProps;
   LabelProps?: LabelProps;
@@ -54,6 +60,15 @@ export interface AutocompleteProps extends React.HTMLAttributes<HTMLDivElement> 
   }) => React.ReactNode;
   renderOptionLabel?: (option: AutocompleteOptionType) => React.ReactNode;
   renderSearchEmptyMenuItem?: () => React.ReactNode;
+  renderGroup?: ({
+    key,
+    group,
+    children,
+  }: {
+    key: string | number;
+    group: any;
+    children: React.ReactNode;
+  }) => React.ReactNode;
 }
 
 export interface RenderLabelProps {
@@ -72,6 +87,7 @@ export interface RenderHintProps {
 export interface AutocompleteHookReturn {
   formattedValue: AutocompleteValueType;
   filteredOptions: AutocompleteOptionType[];
+  groupedFilteredOptions: AutocompleteOptionsGroupType[];
   optionsList: AutocompleteOptionType[];
   inputRef: React.Ref;
   inputValue: string;

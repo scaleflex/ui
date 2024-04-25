@@ -9,6 +9,7 @@ import type {
   AutocompleteOptionLabelType,
   AutocompleteValueType,
   AutocompleteHookReturn,
+  AutocompleteOptionsGroupType,
 } from './autocomplete.props';
 import type { AnchorElType } from '../menu/menu.props';
 
@@ -31,6 +32,7 @@ export function useAutocomplete(
     onClose,
     submitOnBlur,
     getOptionDisabled,
+    groupBy,
   } = props;
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -104,6 +106,29 @@ export function useAutocomplete(
         : optionsList,
     [optionsList, debouncedSearchTerm]
   );
+
+  const groupedFilteredOptions = useMemo<AutocompleteOptionsGroupType[]>((): AutocompleteOptionsGroupType[] => {
+    if (groupBy) {
+      const groupedMap = filteredOptions.reduce(
+        (accumMap: Map<string, AutocompleteOptionsGroupType>, option: AutocompleteOptionType) => {
+          const key = groupBy(option);
+
+          if (!accumMap.has(key)) {
+            accumMap.set(key, { options: [], groupedByValue: key });
+          }
+
+          accumMap.get(key)?.options?.push(option);
+
+          return accumMap;
+        },
+        new Map<string, AutocompleteOptionsGroupType>()
+      );
+
+      return [...groupedMap].map(([_, group]) => group);
+    }
+
+    return [{ options: filteredOptions }];
+  }, [filteredOptions, groupBy]);
 
   const handleOpenMenuClick = (event: React.SyntheticEvent<HTMLSpanElement>): void => {
     setAnchorEl(inputRef.current);
@@ -222,6 +247,7 @@ export function useAutocomplete(
   return {
     formattedValue,
     filteredOptions,
+    groupedFilteredOptions,
     optionsList,
     inputRef,
     inputValue,

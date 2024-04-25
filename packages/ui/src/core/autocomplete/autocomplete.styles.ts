@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import CrossOutline from '@scaleflex/icons/cross-outline';
+
 import StyledLabel from '../label/label.styles';
 import StyledFormHint from '../form-hint/form-hint.styles';
 import SfxMenu from '../menu';
@@ -66,6 +67,16 @@ const Menu = styled(SfxMenu).attrs({
   background: #ffffff;
 `;
 
+const OptionGroup = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'optionGroup'),
+})`
+  &:not(:last-child) {
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid ${({ theme: { palette } }: WithTheme) => palette[PColor.BordersSecondary]};
+  }
+`;
+
 const Styled = applyDisplayNames({
   Autocomplete,
   AutocompleteContainer,
@@ -73,6 +84,7 @@ const Styled = applyDisplayNames({
   CrossIcon,
   InputIconEndContainer,
   Menu,
+  OptionGroup,
 });
 
 export default Styled;

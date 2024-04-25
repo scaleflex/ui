@@ -131,17 +131,25 @@ const WithIconsTemplate: Story<AutocompleteProps> = ({ ...args }) => {
   );
 };
 
+const optionsWithIconsAndFavorite = [
+  { uuid: 'en', name: 'English', endIcon: <AiIcon />, favorite: true },
+  { uuid: 'fr', name: 'French', endIcon: <AiIcon />, favorite: true },
+  { uuid: 'de', name: 'German', favorite: true },
+  { uuid: 'it', name: 'Italian' },
+  { uuid: 'es', name: 'Spanish', disabled: true },
+  { uuid: 'ua', name: 'Ukrainian', endIcon: <AiIcon /> },
+];
+
 export const WithIcons = WithIconsTemplate.bind({});
 WithIcons.args = {
   ...defaultArgs,
   label: 'Languages',
   placeholder: 'Select language',
-  options: [
-    { uuid: 'en', name: 'English', endIcon: <AiIcon /> },
-    { uuid: 'fr', name: 'French', endIcon: <AiIcon /> },
-    { uuid: 'de', name: 'German' },
-    { uuid: 'it', name: 'Italian' },
-    { uuid: 'es', name: 'Spanish', disabled: true },
-    { uuid: 'ua', name: 'Ukrainian', endIcon: <AiIcon /> },
-  ],
+  options: optionsWithIconsAndFavorite,
+};
+
+export const WithGroups = WithIconsTemplate.bind({});
+WithGroups.args = {
+  ...WithIcons.args,
+  groupBy: (option: any) => option?.favorite,
 };
