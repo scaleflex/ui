@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/scaleflex/ui/compare/v2.5.0...v2.6.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* select.component type error during build ([55770e3](https://github.com/scaleflex/ui/commit/55770e3feafc0c4c9c38e6291918d74ee1033a74))
+
+
+### Features
+
+* **Autocomplete:** add props: groupBy and renderGroup + story WithGroups ([98e078d](https://github.com/scaleflex/ui/commit/98e078d72ee70835bc6bf08f798b2fdae0721a59))
+
+
+
+
+
+
 # [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
 
 
