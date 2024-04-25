@@ -52,7 +52,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       setAnchorEl(undefined);
     };
 
-    const handleClearSelection = (event: MouseEvent): void => {
+    const handleClearSelection = (event: React.MouseEvent<HTMLButtonElement>): void => {
       event.stopPropagation();
 
       if (typeof onChange === 'function') {
