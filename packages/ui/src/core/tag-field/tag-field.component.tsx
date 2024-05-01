@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect, ReactElement } from 'react';
 import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
+import { convertToString } from '@scaleflex/ui/utils/functions/convert-to-string';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
@@ -79,7 +80,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
-      () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
+      () => filteredTags.map((tag) => convertToString(getTagLabel(tag))?.toLowerCase()),
       [filteredTags]
     );
 
@@ -89,7 +90,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags?.filter(
-        (suggestion) => !existingLabels?.includes(getTagLabel(suggestion)?.toLowerCase())
+        (suggestion) => !existingLabels?.includes(convertToString(getTagLabel(suggestion))?.toLowerCase())
       );
 
       return suggestionsFilter(filteredItems, userInput, getTagLabel, alwaysShowSuggestedTags);
@@ -99,7 +100,12 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       if (!item) return;
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
 
-      if (!filteredTags.some((tag: TagType) => getTagLabel(tag).toLowerCase() === tagLabel.toLowerCase())) {
+      if (
+        !filteredTags.some(
+          (tag: TagType) =>
+            convertToString(getTagLabel(tag))?.toLowerCase() === convertToString(tagLabel)?.toLowerCase()
+        )
+      ) {
         onAdd(item, type, setUserInput);
       }
     };
