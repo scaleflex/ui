@@ -300,7 +300,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             </Styled.HeaderLeftArrows>
 
             <Styled.HeaderLeftArrow
-              isDisabled={prevMonthTimestamp < minDateTimestamp}
+              isDisabled={prevMonthTimestamp <= minDateTimestamp}
               onClick={() => handleNextMonthButton(-1, true)}
             >
               <ArrowLeftOutline size={10} />
