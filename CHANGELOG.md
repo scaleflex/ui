@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/scaleflex/ui/compare/v2.6.0...v2.6.1) (2024-05-02)
+
+
+### Bug Fixes
+
+* **Calendar:** calendar min value [FRA-5133] ([2ca7713](https://github.com/scaleflex/ui/commit/2ca7713299448c64a88d1f94144e3c66fc95f024))
+* **TagField:** error from toLowerCase ([df7cf8e](https://github.com/scaleflex/ui/commit/df7cf8efe3afc64a751625ff354197daf0e3b42b))
+
+
+### Features
+
+* **Modal:** hide overlay prop ([f3ad247](https://github.com/scaleflex/ui/commit/f3ad2475c6350a7dad54b5bcc6fe2af0a39e62d3))
+
+
+
+
+
+
 # [2.6.0](https://github.com/scaleflex/ui/compare/v2.5.0...v2.6.0) (2024-04-25)
 
 
