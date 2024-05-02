@@ -16,7 +16,7 @@ const isValidSingleFragmentChildren = (children?: any): boolean =>
 
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
   (
-    { children: _children, open, onClose, maxWidth, fullWidth, modalStyles, disableOverlayClick, ...rest },
+    { children: _children, open, onClose, maxWidth, fullWidth, modalStyles, hideOverlay, disableOverlayClick, ...rest },
     ref
   ): JSX.Element => {
     const children = isValidSingleFragmentChildren(_children) ? (_children as JSX.Element).props.children : _children;
@@ -55,7 +55,9 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
         <Styled.Wrapper style={{ ...modalStyles }} open={Boolean(open)} ref={ref}>
-          <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
+          {!hideOverlay && (
+            <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
+          )}
 
           <Styled.Container {...rest} maxWidth={maxWidth} fullWidth={fullWidth} open={Boolean(open)}>
             <Styled.Modal>
@@ -83,6 +85,7 @@ export const defaultProps = {
   open: false,
   fullWidth: false,
   disableOverlayClick: false,
+  hideOverlay: false,
   maxWidth: Size.Xs,
 };
 
@@ -92,6 +95,7 @@ export const propTypes = {
   onClose: PT.func,
   modalStyles: PT.object,
   disableOverlayClick: PT.bool,
+  hideOverlay: PT.bool,
   children: PT.node.isRequired,
   maxWidth: PT.oneOf(objectValues(Size)),
   open: PT.bool,
