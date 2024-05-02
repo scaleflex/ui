@@ -20,6 +20,7 @@ import { handleCopyIcon } from '../input/input.utils';
 import InputStyled from '../input/input.styles';
 import TooltipV2 from '../tooltip-v2/tooltip-v2.component';
 import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
+import { convertToString } from '../../utils/functions/convert-to-string';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -79,7 +80,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
-      () => filteredTags.map((tag) => getTagLabel(tag).toLowerCase()),
+      () => filteredTags.map((tag) => convertToString(getTagLabel(tag)).toLowerCase()),
       [filteredTags]
     );
 
@@ -89,7 +90,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags?.filter(
-        (suggestion) => !existingLabels?.includes(getTagLabel(suggestion)?.toLowerCase())
+        (suggestion) => !existingLabels?.includes(convertToString(getTagLabel(suggestion)).toLowerCase())
       );
 
       return suggestionsFilter(filteredItems, userInput, getTagLabel, alwaysShowSuggestedTags);
@@ -99,7 +100,11 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       if (!item) return;
       const tagLabel = type === AddTagType.UserInput ? item : getTagLabel(item);
 
-      if (!filteredTags.some((tag: TagType) => getTagLabel(tag).toLowerCase() === tagLabel.toLowerCase())) {
+      if (
+        !filteredTags.some(
+          (tag: TagType) => convertToString(getTagLabel(tag)).toLowerCase() === convertToString(tagLabel).toLowerCase()
+        )
+      ) {
         onAdd(item, type, setUserInput);
       }
     };
