@@ -22,6 +22,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       value = '',
       onChange,
       autoSelectToday,
+      enableAutoSelect,
       maxDate = '',
       minDate = '',
       position,
@@ -126,6 +127,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           maxDate={maxDate}
           minDate={minDate}
           autoSelectToday={autoSelectToday}
+          enableAutoSelect={enableAutoSelect}
           anchorEl={datePickerRef.current}
           position={position || 'bottom-start'}
           popperOptions={popperOptions}
@@ -138,6 +140,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
 
 Datepicker.defaultProps = {
   calendarStyles: {},
+  enableAutoSelect: false,
 };
 
 export const propTypes = {
@@ -151,6 +154,7 @@ export const propTypes = {
   hint: PT.string,
   popperOptions: popperPropTypes.popperOptions,
   autoSelectToday: PT.bool,
+  enableAutoSelect: PT.bool,
   fullWidth: PT.bool,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
