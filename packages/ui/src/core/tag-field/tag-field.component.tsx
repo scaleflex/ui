@@ -2,7 +2,6 @@ import React, { useState, useMemo, useEffect, ReactElement } from 'react';
 import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
-import { convertToString } from '@scaleflex/ui/utils/functions/convert-to-string';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
@@ -21,6 +20,7 @@ import { handleCopyIcon } from '../input/input.utils';
 import InputStyled from '../input/input.styles';
 import TooltipV2 from '../tooltip-v2/tooltip-v2.component';
 import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
+import { convertToString } from '../../utils/functions/convert-to-string';
 import Styled from './tag-field.styles';
 
 const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
@@ -80,7 +80,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredTags = useMemo<TagType[]>(() => tags.filter((tag) => tag), [tags]);
     const existingLabels = useMemo<string[]>(
-      () => filteredTags.map((tag) => convertToString(getTagLabel(tag))?.toLowerCase()),
+      () => filteredTags.map((tag) => convertToString(getTagLabel(tag)).toLowerCase()),
       [filteredTags]
     );
 
@@ -90,7 +90,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
     const filteredSuggestions = useMemo(() => {
       const filteredItems = suggestedTags?.filter(
-        (suggestion) => !existingLabels?.includes(convertToString(getTagLabel(suggestion))?.toLowerCase())
+        (suggestion) => !existingLabels?.includes(convertToString(getTagLabel(suggestion)).toLowerCase())
       );
 
       return suggestionsFilter(filteredItems, userInput, getTagLabel, alwaysShowSuggestedTags);
@@ -102,8 +102,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
 
       if (
         !filteredTags.some(
-          (tag: TagType) =>
-            convertToString(getTagLabel(tag))?.toLowerCase() === convertToString(tagLabel)?.toLowerCase()
+          (tag: TagType) => convertToString(getTagLabel(tag)).toLowerCase() === convertToString(tagLabel).toLowerCase()
         )
       ) {
         onAdd(item, type, setUserInput);
