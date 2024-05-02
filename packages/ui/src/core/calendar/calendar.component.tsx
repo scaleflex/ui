@@ -36,6 +36,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       value,
       onChange,
       autoSelectToday,
+      enableAutoSelect,
       maxDate = '',
       minDate = '',
       anchorEl,
@@ -81,7 +82,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     const setNewYear = (offset: number): void => {
       const newYear = year + offset;
 
-      if (onChange) {
+      if (onChange && enableAutoSelect) {
         onChange(getDateStringFromTimestamp(selectedDay, month, newYear));
       }
 
@@ -101,7 +102,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         newYear++;
       }
 
-      if (onChange) {
+      if (onChange && enableAutoSelect) {
         onChange(getDateStringFromTimestamp(selectedDay, newMonth, newYear));
       }
 
@@ -213,7 +214,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
                 isDisabled={day.timestamp > maxDateTimestamp || day.timestamp < minDateTimestamp}
                 onClick={() => onDateClick(day)}
                 day={day}
-                isSelectedDay={dayDate === day.date}
+                isSelectedDay={selectedDay === day.timestamp}
               >
                 {day.date}
               </Styled.DatePickerDay>
@@ -255,6 +256,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             selectedDay={selectedDay}
             onChange={onChange}
             setSelectedDay={setSelectedDay}
+            enableAutoSelect={enableAutoSelect}
             currentMonth={getMonthStr(month)}
             showMonthsDatePicker={showMonthsDatePicker}
             setShowMonthsDatePicker={setShowMonthsDatePicker}
@@ -271,6 +273,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
           <YearPicker
             showYearsDatePicker={showYearsDatePicker}
+            enableAutoSelect={enableAutoSelect}
             setShowYearsDatePicker={setShowYearsDatePicker}
             setMonthDetails={setMonthDetails}
             getMonthDetails={getMonthDetails}
@@ -344,6 +347,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
 
 Calendar.defaultProps = {
   open: false,
+  enableAutoSelect: false,
   position: Position.BottomStart,
 };
 
@@ -355,6 +359,7 @@ export const propTypes = {
   anchorEl: PT.instanceOf(Element),
   onChange: PT.func,
   open: PT.bool,
+  enableAutoSelect: PT.bool,
   setOpen: PT.func,
 };
 

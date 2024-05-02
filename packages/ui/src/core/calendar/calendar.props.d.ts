@@ -16,6 +16,7 @@ export interface CalendarProps extends React.HTMLAttributes<HTMLDivElement> {
   anchorEl?: AnchorElType;
   open?: boolean;
   autoSelectToday?: boolean;
+  enableAutoSelect?: boolean;
   isDisabled?: boolean;
   calendarStyles?: object;
   onChange?: (value: string) => void;
@@ -34,6 +35,7 @@ export interface MonthPickerProps {
   year?: number;
   selectedDay?: number;
   showMonthsDatePicker?: boolean;
+  enableAutoSelect?: boolean;
   currentMonth?: number | string;
   getMonthStr?: (value: number) => number | string;
   monthDetails?: array;
@@ -48,6 +50,7 @@ export interface MonthPickerProps {
 
 export interface YearPickerProps {
   showYearsDatePicker?: boolean;
+  enableAutoSelect?: boolean;
   maxDate?: string;
   minYear?: number;
   minDate?: string;

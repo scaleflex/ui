@@ -9,6 +9,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
   (
     {
       showMonthsDatePicker = false,
+      enableAutoSelect = false,
       setShowMonthsDatePicker,
       getMonthStr,
       currentMonth,
@@ -36,7 +37,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
     const isMonthValid = maxMonth <= 12;
 
     useEffect(() => {
-      if (getTimeStamp) setSelectedDay?.(getTimeStamp());
+      if (getTimeStamp && enableAutoSelect) setSelectedDay?.(getTimeStamp());
     }, [monthDetails]);
 
     const handleOnClickMonth = (index: number): void => {
@@ -45,7 +46,7 @@ const MonthPicker = intrinsicComponent<MonthPickerProps, HTMLDivElement>(
       setShowMonthsDatePicker?.(false);
       setMonthDetails?.(getMonthDetails?.(year, index));
 
-      if (onChange) {
+      if (onChange && enableAutoSelect) {
         onChange(getDateStringFromTimestamp(selectedDay, index, year));
       }
     };
