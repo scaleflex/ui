@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.2](https://github.com/scaleflex/ui/compare/v2.6.1...v2.6.2) (2024-05-02)
+
+
+### Features
+
+* **Calendar:** add prop enableAutoSelect ([83f875d](https://github.com/scaleflex/ui/commit/83f875da1858485cf0224fa5064edb4e2425f3c3))
+
+
+
+
+
+
 ## [2.6.1](https://github.com/scaleflex/ui/compare/v2.6.0...v2.6.1) (2024-05-02)
 
 
