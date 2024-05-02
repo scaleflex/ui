@@ -3,6 +3,49 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/scaleflex/ui/compare/v2.5.0...v2.6.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* select.component type error during build ([55770e3](https://github.com/scaleflex/ui/commit/55770e3feafc0c4c9c38e6291918d74ee1033a74))
+
+
+### Features
+
+* **Autocomplete:** add props: groupBy and renderGroup + story WithGroups ([98e078d](https://github.com/scaleflex/ui/commit/98e078d72ee70835bc6bf08f798b2fdae0721a59))
+
+
+
+
+
+
+# [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
+* **TagField:** copy success message - FRA-4684 ([1740195](https://github.com/scaleflex/ui/commit/17401959ba36d57e13bb96747c4e54ae603e8e10))
+* **Textarea:** scroll and action buttons styles - FRA-4914 ([05c91fa](https://github.com/scaleflex/ui/commit/05c91fa8c7b5c59c401a19399495684982def785))
+
+
+
+
+
+
+## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
+
+
+### Features
+
+* **Select:** add visibility prop to cross button in selectors - FRA-2577 ([c7c3e93](https://github.com/scaleflex/ui/commit/c7c3e93d7a2eb483c5e6273665412566ffbab5ed))
+
+
+
+
+
+
 ## [2.4.11](https://github.com/scaleflex/ui/compare/v2.4.10...v2.4.11) (2024-04-05)
 
 

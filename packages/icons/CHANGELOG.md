@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
+
+
+### Bug Fixes
+
+* peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
+
+
+
+
+
+
+## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
+
+**Note:** Version bump only for package @scaleflex/icons
+
+
+
+
+
+
 ## [2.4.8](https://github.com/scaleflex/ui/compare/v2.4.7...v2.4.8) (2024-03-27)
 
 **Note:** Version bump only for package @scaleflex/icons
