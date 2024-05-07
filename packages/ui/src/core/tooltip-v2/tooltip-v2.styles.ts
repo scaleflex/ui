@@ -17,22 +17,30 @@ const TooltipV2 = styled(Tippy).attrs({
 })(
   ({
     $warning,
+    $info,
     $size = Size.Sm,
     theme,
-  }: With<With<WithTheme, Partial<TooltipV2Props>>, { $warning: boolean; $size: TooltipSizeType }>) => css`
+  }: With<
+    With<WithTheme, Partial<TooltipV2Props>>,
+    { $warning: boolean; $info: boolean; $size: TooltipSizeType }
+  >) => css`
     display: inline-flex;
     align-items: center;
     min-width: 54px;
     min-height: 20px;
     word-break: break-all;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
-    background: ${$warning ? theme.palette[PColor.BackgroundOrange] : theme.palette[PColor.IconsPlaceholder]};
-    color: ${$warning ? theme.palette[PColor.TextWarning] : theme.palette[PColor.LinkActive]};
+    background: ${theme.palette[
+      ($warning && PColor.BackgroundOrange) || ($info && PColor.BackgroundBlue) || PColor.IconsPlaceholder
+    ]};
+    color: ${theme.palette[($warning && PColor.TextWarning) || ($info && PColor.TextInfo) || PColor.BackgroundOrange]};
 
     ${sizeTooltipMixin[$size]};
 
     .tippy-arrow {
-      color: ${$warning ? theme.palette[PColor.BackgroundOrange] : theme.palette[PColor.IconsPlaceholder]};
+      color: ${theme.palette[
+        ($warning && PColor.BackgroundOrange) || ($info && PColor.BackgroundBlue) || PColor.IconsPlaceholder
+      ]};
     }
 
     .tippy-content {
@@ -45,10 +53,10 @@ const TooltipV2 = styled(Tippy).attrs({
 const TooltipText = styled.div.attrs({
   className: generateClassNames(baseClassName, 'content'),
 })(
-  ({ warning, theme }: With<WithTheme, Partial<TooltipV2Props>>) => css`
+  ({ warning, info, theme }: With<WithTheme, Partial<TooltipV2Props>>) => css`
     display: flex;
     align-items: center;
-    color: ${warning ? theme.palette[PColor.TextWarning] : theme.palette[PColor.LinkActive]};
+    color: ${theme.palette[(warning && PColor.TextWarning) || (info && PColor.TextInfo) || PColor.BackgroundOrange]};
   `
 );
 
