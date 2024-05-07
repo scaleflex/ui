@@ -8,11 +8,11 @@ import Styled from './modal-title.styles';
 import { Variant } from './types';
 
 const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>(
-  ({ secondary, onClose, labelStyles, ...rest }, ref): JSX.Element => (
+  ({ secondary, onClose, primaryLabelStyles, ...rest }, ref): JSX.Element => (
     <Styled.ModalTitle {...rest} ref={ref}>
       {rest.icon && <Styled.Icon iconShadow={Boolean(rest.iconShadow)}>{rest.icon}</Styled.Icon>}
 
-      <Styled.LabelPrimary {...rest} style={labelStyles}>
+      <Styled.LabelPrimary variant={rest.variant} style={primaryLabelStyles}>
         {rest.primary}
       </Styled.LabelPrimary>
 
@@ -36,7 +36,7 @@ ModalTitle.propTypes = {
   icon: PT.node,
   iconShadow: PT.bool,
   onClose: PT.func,
-  labelStyles: PT.object,
+  primaryLabelStyles: PT.object,
   variant: PT.oneOf(objectValues(Variant)),
 };
 
