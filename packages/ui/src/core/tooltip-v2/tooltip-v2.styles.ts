@@ -33,7 +33,7 @@ const TooltipV2 = styled(Tippy).attrs({
     background: ${theme.palette[
       ($warning && PColor.BackgroundOrange) || ($info && PColor.BackgroundBlue) || PColor.IconsPlaceholder
     ]};
-    color: ${theme.palette[($warning && PColor.TextWarning) || ($info && PColor.TextInfo) || PColor.BackgroundOrange]};
+    color: ${theme.palette[($warning && PColor.TextWarning) || ($info && PColor.TextInfo) || PColor.LinkActive]};
 
     ${sizeTooltipMixin[$size]};
 
@@ -56,7 +56,7 @@ const TooltipText = styled.div.attrs({
   ({ warning, info, theme }: With<WithTheme, Partial<TooltipV2Props>>) => css`
     display: flex;
     align-items: center;
-    color: ${theme.palette[(warning && PColor.TextWarning) || (info && PColor.TextInfo) || PColor.BackgroundOrange]};
+    color: ${theme.palette[(warning && PColor.TextWarning) || (info && PColor.TextInfo) || PColor.LinkActive]};
   `
 );
 
