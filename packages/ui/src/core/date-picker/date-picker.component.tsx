@@ -41,9 +41,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const [open, setOpen] = useState(false);
     const [inputValue, setInputValue] = useState(value);
     const [showPlaceholder, setShowPlaceholder] = useState(true);
-    const [isHoveringInput, setIsHoveringInput] = useState(false);
-    const [isHoveringPlaceholder, setIsHoveringPlaceholder] = useState(false);
-    const [isFocused, setIsFocused] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
     const datePickerRef = useRef(null);
 
     const maxDateTimestamp = new Date(maxDate).getTime();
@@ -51,14 +49,12 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const maxYear: any = new Date(inputValue).getFullYear();
     const isYearForm = isYearFormRegex.test?.(maxYear);
     const { disabled, readOnly } = rest;
-    const showClearIcon = !!inputValue.length && (isHoveringInput || isFocused);
 
     const handleOnChange = (dateInputValue: string): void => {
       const dateInputTimestamp = new Date(dateInputValue).getTime();
       const isDisabledDate = dateInputTimestamp > maxDateTimestamp || dateInputTimestamp < minDateTimestamp;
 
       setInputValue(dateInputValue);
-      setIsHoveringInput(false);
 
       if (onChange && !isDisabledDate && isYearForm) {
         onChange(dateInputValue);
@@ -87,11 +83,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     }, [value]);
 
     return (
-      <Styled.DatePicker
-        ref={datePickerRef}
-        onMouseEnter={() => setIsHoveringInput(true)}
-        onMouseLeave={() => setIsHoveringInput(false)}
-      >
+      <Styled.DatePicker ref={datePickerRef}>
         <Styled.DatePickerInput
           label={label}
           fullWidth={fullWidth}
@@ -99,11 +91,9 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           size={size}
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
-          isHoveringPlaceholder={isHoveringPlaceholder}
-          clearIcon={showClearIcon && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
+          isHovering={isHovering}
+          clearIcon={!!inputValue.length && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
           clearIconClick={handleClearIconClick}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: () => <CalendarIcon size={size === 'md' ? 16 : 14} />,
@@ -119,8 +109,8 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
         {!inputValue && rest.placeholder && showPlaceholder && (
           <Styled.Placeholder
             onClick={handlePlaceholder}
-            onMouseEnter={() => setIsHoveringPlaceholder(true)}
-            onMouseLeave={() => setIsHoveringPlaceholder(false)}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
             disabled={disabled}
             readOnly={readOnly}
             size={size}

@@ -40,13 +40,22 @@ const Placeholder = styled.div.attrs({
 const DatePickerInput = styled(InputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
 })<InputProps>(
-  ({ isHoveringPlaceholder = false, theme }: With<WithTheme, InputProps>) => css`
+  ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
     input[type='date']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
     }
 
-    ${isHoveringPlaceholder &&
+    .SfxInput-ClearIcon {
+      display: none;
+    }
+
+    &:hover .SfxInput-ClearIcon,
+    &:focus-within .SfxInput-ClearIcon {
+      display: block;
+    }
+
+    ${isHovering &&
     css`
       border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
     `}
