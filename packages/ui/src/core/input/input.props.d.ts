@@ -9,6 +9,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   isEllipsis?: boolean;
   isHovering?: boolean;
+  isHoveringPlaceholder?: boolean;
   size?: InputSizeType;
   iconStart?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   iconEnd?: React.ReactNode | ((props: IconProps) => React.ReactNode);

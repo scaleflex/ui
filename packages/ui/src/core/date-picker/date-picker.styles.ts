@@ -28,7 +28,7 @@ const Placeholder = styled.div.attrs({
     left: ${size === 'sm' ? '13px' : '18px'};
     width: ${fullWidth ? '95%' : '244px'};
     height: 24px;
-    ${theme.typography.font[FontVariant.LabelLarge]}
+    ${theme.typography.font[FontVariant.InputMd]}
     color: ${theme.palette[PColor.TextPlaceholder]};
     background: ${readOnly || disabled
       ? theme.palette[PColor.BackgroundHover]
@@ -40,13 +40,13 @@ const Placeholder = styled.div.attrs({
 const DatePickerInput = styled(InputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
 })<InputProps>(
-  ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
+  ({ isHoveringPlaceholder = false, theme }: With<WithTheme, InputProps>) => css`
     input[type='date']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
     }
 
-    ${isHovering &&
+    ${isHoveringPlaceholder &&
     css`
       border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
     `}
