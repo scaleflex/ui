@@ -42,7 +42,6 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     const [inputValue, setInputValue] = useState(value);
     const [showPlaceholder, setShowPlaceholder] = useState(true);
     const [isHovering, setIsHovering] = useState(false);
-
     const datePickerRef = useRef(null);
 
     const maxDateTimestamp = new Date(maxDate).getTime();
