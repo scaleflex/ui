@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/scaleflex/ui/compare/v2.6.2...v2.6.3) (2024-05-08)
+
+
+### Bug Fixes
+
+* **DatePicker:** cross icon for datePicker [FRA-5097] ([ea72609](https://github.com/scaleflex/ui/commit/ea72609b63df3fe36a551331b3abad4031124502))
+* **ModalTitle:** code fix ([cab69bd](https://github.com/scaleflex/ui/commit/cab69bda056464634cce1431a81e084804a4eda4))
+
+
+### Features
+
+* **ModalTitle:** add prop labelStyle ([b595bcd](https://github.com/scaleflex/ui/commit/b595bcdc370f2a5338fbea7188fafa8a7b188af7))
+
+
+
+
+
+
 ## [2.6.2](https://github.com/scaleflex/ui/compare/v2.6.1...v2.6.2) (2024-05-02)
 
 

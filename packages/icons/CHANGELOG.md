@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/scaleflex/ui/compare/v2.6.2...v2.6.3) (2024-05-08)
+
+
+### Bug Fixes
+
+* **DatePicker:** cross icon for datePicker [FRA-5097] ([ea72609](https://github.com/scaleflex/ui/commit/ea72609b63df3fe36a551331b3abad4031124502))
+
+
+
+
+
+
 ## [2.6.1](https://github.com/scaleflex/ui/compare/v2.6.0...v2.6.1) (2024-05-02)
 
 **Note:** Version bump only for package @scaleflex/icons
