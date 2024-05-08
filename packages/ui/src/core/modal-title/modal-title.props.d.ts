@@ -6,6 +6,7 @@ export type ModalTitleVariantType = Values<typeof Variant>;
 export interface ModalTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   primary: React.ReactNode;
   secondary?: React.ReactNode;
+  primaryLabelStyles?: object;
   icon?: React.ReactNode;
   iconShadow?: boolean;
   onClose?: () => void;

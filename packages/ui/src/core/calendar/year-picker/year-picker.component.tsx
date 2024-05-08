@@ -11,6 +11,7 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
   (
     {
       showYearsDatePicker = false,
+      enableAutoSelect = false,
       setShowYearsDatePicker,
       monthIndex = 0,
       _year = 0,
@@ -47,7 +48,7 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
     };
 
     const handleOnClickYear = (year: number): void => {
-      if (onChange) {
+      if (onChange && enableAutoSelect) {
         onChange(getDateStringFromTimestamp(selectedDay, monthIndex, year));
       }
 
@@ -73,7 +74,7 @@ const YearPicker = intrinsicComponent<YearPickerProps, HTMLDivElement>(
     }, []);
 
     useEffect(() => {
-      if (getTimeStamp) setSelectedDay?.(getTimeStamp());
+      if (getTimeStamp && enableAutoSelect) setSelectedDay?.(getTimeStamp());
     }, [monthDetails]);
 
     return (

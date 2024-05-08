@@ -28,7 +28,7 @@ const Placeholder = styled.div.attrs({
     left: ${size === 'sm' ? '13px' : '18px'};
     width: ${fullWidth ? '95%' : '244px'};
     height: 24px;
-    ${theme.typography.font[FontVariant.LabelLarge]}
+    ${theme.typography.font[FontVariant.InputMd]}
     color: ${theme.palette[PColor.TextPlaceholder]};
     background: ${readOnly || disabled
       ? theme.palette[PColor.BackgroundHover]
@@ -44,6 +44,15 @@ const DatePickerInput = styled(InputGroup).attrs({
     input[type='date']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
+    }
+
+    .SfxInput-ClearIcon {
+      display: none;
+    }
+
+    &:hover .SfxInput-ClearIcon,
+    &:focus-within .SfxInput-ClearIcon {
+      display: block;
     }
 
     ${isHovering &&

@@ -17,6 +17,7 @@ export interface DatePickerProps extends InputGroupProps, React.HTMLAttributes<H
   minDate?: string;
   onChange?: (value: string) => void;
   autoSelectToday?: boolean;
+  enableAutoSelect?: boolean;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
   calendarStyles?: object;

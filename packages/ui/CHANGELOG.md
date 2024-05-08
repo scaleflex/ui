@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.3](https://github.com/scaleflex/ui/compare/v2.6.2...v2.6.3) (2024-05-08)
+
+
+### Bug Fixes
+
+* **DatePicker:** cross icon for datePicker [FRA-5097] ([ea72609](https://github.com/scaleflex/ui/commit/ea72609b63df3fe36a551331b3abad4031124502))
+* **ModalTitle:** code fix ([cab69bd](https://github.com/scaleflex/ui/commit/cab69bda056464634cce1431a81e084804a4eda4))
+
+
+### Features
+
+* **ModalTitle:** add prop labelStyle ([b595bcd](https://github.com/scaleflex/ui/commit/b595bcdc370f2a5338fbea7188fafa8a7b188af7))
+
+
+
+
+
+
+## [2.6.2](https://github.com/scaleflex/ui/compare/v2.6.1...v2.6.2) (2024-05-02)
+
+
+### Features
+
+* **Calendar:** add prop enableAutoSelect ([83f875d](https://github.com/scaleflex/ui/commit/83f875da1858485cf0224fa5064edb4e2425f3c3))
+
+
+
+
+
+
+## [2.6.1](https://github.com/scaleflex/ui/compare/v2.6.0...v2.6.1) (2024-05-02)
+
+
+### Bug Fixes
+
+* **Calendar:** calendar min value [FRA-5133] ([2ca7713](https://github.com/scaleflex/ui/commit/2ca7713299448c64a88d1f94144e3c66fc95f024))
+* **TagField:** error from toLowerCase ([df7cf8e](https://github.com/scaleflex/ui/commit/df7cf8efe3afc64a751625ff354197daf0e3b42b))
+
+
+### Features
+
+* **Modal:** hide overlay prop ([f3ad247](https://github.com/scaleflex/ui/commit/f3ad2475c6350a7dad54b5bcc6fe2af0a39e62d3))
+
+
+
+
+
+
+# [2.6.0](https://github.com/scaleflex/ui/compare/v2.5.0...v2.6.0) (2024-04-25)
+
+
+### Bug Fixes
+
+* select.component type error during build ([55770e3](https://github.com/scaleflex/ui/commit/55770e3feafc0c4c9c38e6291918d74ee1033a74))
+
+
+### Features
+
+* **Autocomplete:** add props: groupBy and renderGroup + story WithGroups ([98e078d](https://github.com/scaleflex/ui/commit/98e078d72ee70835bc6bf08f798b2fdae0721a59))
+
+
+
+
+
+
 # [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
 
 
