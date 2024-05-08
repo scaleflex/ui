@@ -26,6 +26,7 @@ const defaultArgs = {
   size: Size.Sm,
   arrow: true,
   warning: false,
+  info: false,
   enableHover: true,
   position: 'top',
   offsetX: 0,

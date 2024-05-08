@@ -21,12 +21,17 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       offsetY = 10,
       title,
       position = Position.Top,
+      info,
       size,
       ...rest
     }: TooltipV2Props,
     ref
   ): JSX.Element => {
-    const renderTooltipContent = (): JSX.Element => <Styled.TooltipText warning={warning}>{title}</Styled.TooltipText>;
+    const renderTooltipContent = (): JSX.Element => (
+      <Styled.TooltipText info={info} warning={warning}>
+        {title}
+      </Styled.TooltipText>
+    );
 
     return (
       <Styled.TooltipV2
@@ -38,6 +43,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
         interactive={enableHover}
         arrow={arrow}
         delay={[enterDelay, leaveDelay]}
+        $info={info || false}
         $warning={warning || false}
         $size={size || Size.Sm}
         animation="scale"
@@ -57,6 +63,7 @@ TooltipV2.defaultProps = {
   arrow: true,
   enableHover: true,
   warning: false,
+  info: false,
   enterDelay: 0,
   leaveDelay: 0,
   offsetX: 0,
@@ -69,6 +76,7 @@ TooltipV2.propTypes = {
   children: PT.element,
   arrow: PT.bool,
   warning: PT.bool,
+  info: PT.bool,
   enterDelay: PT.number,
   leaveDelay: PT.number,
   offsetX: PT.number,

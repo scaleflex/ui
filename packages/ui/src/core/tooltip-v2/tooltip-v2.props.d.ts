@@ -13,6 +13,7 @@ export interface TooltipV2Props extends React.HTMLAttributes<HTMLSpanElement> {
   tooltipProps?: object;
   enableHover?: boolean;
   warning?: boolean;
+  info?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
   offsetX?: number;
