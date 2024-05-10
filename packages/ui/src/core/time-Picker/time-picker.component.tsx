@@ -39,11 +39,13 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     };
 
     const handleHourChange = (hour: string): void => {
-      setSelectedHour(hour);
+      const hourValue = Number.parseInt(hour, 10) < 10 ? `0${hour}` : hour;
+      setSelectedHour(hourValue);
     };
 
     const handleMinuteChange = (minute: string): void => {
-      setSelectedMinute(minute);
+      const minuteValue = Number.parseInt(minute, 10) < 10 ? `0${minute}` : minute;
+      setSelectedMinute(minuteValue);
     };
 
     const handlePeriodChange = (period: string): void => {
