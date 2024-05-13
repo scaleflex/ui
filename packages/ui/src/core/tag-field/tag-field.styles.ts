@@ -68,6 +68,10 @@ const TagFieldActions = styled.div.attrs({
 })`
   display: flex;
   gap: 12px;
+
+  .SfxButton-Label {
+    font-weight: 500;
+  }
 `;
 
 const TagFieldLoader = styled.span.attrs({
