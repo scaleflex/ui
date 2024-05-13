@@ -14,6 +14,4 @@ const DrawerFooter = intrinsicComponent<DrawerProps, HTMLDivElement>(({ children
   );
 });
 
-DrawerFooter.propTypes = {};
-
 export default DrawerFooter;

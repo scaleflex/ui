@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { DrawerAccordionProps } from './drawer.props';
@@ -20,8 +19,5 @@ const DrawerAccrodion = intrinsicComponent<DrawerAccordionProps, HTMLDivElement>
     );
   }
 );
-DrawerAccrodion.propTypes = {
-  selected: PT.bool,
-};
 
 export default DrawerAccrodion;

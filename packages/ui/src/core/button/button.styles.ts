@@ -3,7 +3,7 @@ import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-import type { ButtonProps } from './button.props';
+import type { ButtonProps, ButtonSizeType } from './button.props';
 import {
   colorButtonMixin,
   sizeButtonMixin,
@@ -44,13 +44,7 @@ const Wrapper = styled.span.attrs({
 const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
   className: generateClassNames(baseClassName, 'root'),
 })<With<WithTheme, ButtonProps>>(
-  ({
-    color = ButtonColor.Secondary,
-    size = ButtonSize.Md,
-    buttonType,
-    active,
-    theme,
-  }) => css`
+  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, buttonType, active, theme }) => css`
     display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;
@@ -116,7 +110,7 @@ const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
 
 const StartIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'StartIcon'),
-})<ButtonProps>(
+})<{ $loading?: boolean; size?: ButtonSizeType }>(
   ({ $loading, size = ButtonSize.Md }) => css`
     display: flex;
 

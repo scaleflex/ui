@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect, KeyboardEvent } from 'react';
-import PT from 'prop-types';
 import { PinOutline, DeleteOutline } from '@scaleflex/icons';
 
 import Select from '../select';
@@ -379,20 +378,5 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
     );
   }
 );
-
-ColorPicker.defaultProps = {
-  defaultColor: '#000000',
-  pinnedColors: [],
-  showTransparentColor: false,
-  hidePinIcon: false,
-};
-
-ColorPicker.propTypes = {
-  defaultColor: PT.string,
-  onChange: PT.func,
-  pinnedColors: PT.array,
-  showTransparentColor: PT.bool,
-  hidePinIcon: PT.bool,
-};
 
 export default ColorPicker;

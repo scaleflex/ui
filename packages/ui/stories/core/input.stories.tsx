@@ -8,14 +8,13 @@ import Success from '@scaleflex/icons/success';
 import Input from '../../src/core/input';
 import { InputSize } from '../../src/utils/types';
 
-const meta: Meta<typeof Input> = {
+const meta = {
   title: 'Inputs/Input',
   component: Input,
-  excludeStories: ['Input'],
-};
+} satisfies Meta<typeof Input>;
 
 export default meta;
-type Story = StoryObj<typeof Input>;
+type Story = StoryObj<typeof meta>;
 
 const defaultArgs = {
   size: InputSize.Md,

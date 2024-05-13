@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import { Size, type IconButtonTableProps, type IconButtonTableSizeType } from './icon-button-table.props';
 import Styled from './icon-button-table.styles';
 
@@ -23,10 +22,5 @@ const IconButtonTable = intrinsicComponent<IconButtonTableProps, HTMLButtonEleme
     </Styled.IconButtonTable>
   )
 );
-
-IconButtonTable.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  children: PT.oneOfType([PT.node, PT.func]).isRequired,
-};
 
 export default IconButtonTable;

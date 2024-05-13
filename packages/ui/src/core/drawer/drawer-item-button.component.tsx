@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { DrawerItemButtonProps } from './drawer.props';
@@ -16,9 +15,5 @@ const DrawerItemButton = intrinsicComponent<DrawerItemButtonProps, HTMLDivElemen
     );
   }
 );
-
-DrawerItemButton.propTypes = {
-  selected: PT.bool,
-};
 
 export default DrawerItemButton;

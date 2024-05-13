@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import Dot from '../dot';
@@ -17,10 +16,5 @@ const DotsNavigation = intrinsicComponent<DotsNavigationProps, HTMLDivElement>(
     </Styled.DotsNavigation>
   )
 );
-
-DotsNavigation.propTypes = {
-  activeItem: PT.number,
-  size: PT.number.isRequired,
-};
 
 export default DotsNavigation;

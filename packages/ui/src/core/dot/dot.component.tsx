@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 import DotIcon from '@scaleflex/icons/dot';
 
 import { intrinsicComponent } from '../../utils/functions';
@@ -19,9 +18,5 @@ const Dot = intrinsicComponent<DotProps, HTMLSpanElement>(
     </Styled.Dot>
   )
 );
-
-Dot.propTypes = {
-  active: PT.bool,
-};
 
 export default Dot;

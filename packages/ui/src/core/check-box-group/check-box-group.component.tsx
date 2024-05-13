@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import PT from 'prop-types';
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
@@ -83,18 +82,5 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     );
   }
 );
-
-CheckBoxGroup.propTypes = {
-  label: PT.string,
-  checked: PT.bool,
-  onChange: PT.func,
-  checkBoxProps: PT.object,
-  checkBoxGroupProps: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
-  labelPosition: PT.oneOf(objectValues(LabelPosition)),
-  icon: PT.oneOfType([PT.node, PT.func]),
-};
 
 export default CheckBoxGroup;

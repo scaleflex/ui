@@ -12,6 +12,4 @@ const DrawerList = intrinsicComponent<DrawerListProps, HTMLUListElement>(({ chil
   );
 });
 
-DrawerList.propTypes = {};
-
 export default DrawerList;

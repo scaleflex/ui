@@ -1,7 +1,4 @@
 import React from 'react';
-import PT, { Validator } from 'prop-types';
-import type { IconProps } from '@scaleflex/icons/icon.props';
-import { iconPropTypes } from '@scaleflex/icons/icon.prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
@@ -12,13 +9,13 @@ import Styled from './accordion-header.styles';
 const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>(
   (
     {
-      expanded,
+      expanded = false,
       label,
       onChange,
       onClick,
       onContextMenu,
-      hideIcon,
-      fullWidth,
+      hideIcon = false,
+      fullWidth = false,
       iconProps: iconPropsData,
       ...rest
     }: AccordionHeaderProps,
@@ -50,20 +47,5 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
     </Styled.Header>
   )
 );
-
-AccordionHeader.defaultProps = {
-  expanded: false,
-  hideIcon: false,
-  fullWidth: false,
-};
-
-AccordionHeader.propTypes = {
-  label: PT.node.isRequired,
-  expanded: PT.bool,
-  hideIcon: PT.bool,
-  fullWidth: PT.bool,
-  onChange: PT.func,
-  iconProps: PT.exact(iconPropTypes) as Validator<IconProps>,
-};
 
 export default AccordionHeader;

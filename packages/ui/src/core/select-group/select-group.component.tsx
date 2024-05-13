@@ -1,14 +1,8 @@
 import React from 'react';
-import PT, { Validator } from 'prop-types';
 
-import { InputSize } from '../../utils/types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Label from '../label';
-import type { LabelProps } from '../label';
-import { propTypes as labelPropTypes } from '../label/label.component';
 import Select from '../select';
-import type { SelectProps } from '../select';
-import { propTypes as selectPropTypes } from '../select/select.component';
 import FormHint from '../form-hint';
 import type { SelectGroupProps } from './select-group.props';
 import Styled from './select-group.styles';
@@ -18,7 +12,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
     {
       children,
       size,
-      error,
+      error = false,
       label,
       placeholder,
       hint,
@@ -26,14 +20,14 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       SelectProps: SelectPropsData,
       selectProps,
       scroll = true,
-      fullWidth,
+      fullWidth = false,
       showSelectionKey,
       value,
       multiple,
-      hideMenuItemsActions,
+      hideMenuItemsActions = false,
       onChange,
-      readOnly,
-      disabled,
+      readOnly = false,
+      disabled = false,
       showClearIcon,
       ...rest
     }: SelectGroupProps,
@@ -104,31 +98,5 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
     );
   }
 );
-
-SelectGroup.defaultProps = {
-  error: false,
-  fullWidth: false,
-  readOnly: false,
-  disabled: false,
-  scroll: true,
-  hideMenuItemsActions: false,
-};
-
-const { size, ...restSelectPropTypes } = selectPropTypes;
-
-SelectGroup.propTypes = {
-  ...restSelectPropTypes, // Extends from SelectProps: multiple, error, children, value, onChange
-  fullWidth: PT.bool,
-  size: PT.oneOf(objectValues(InputSize)),
-  label: PT.node,
-  hint: PT.node,
-  LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
-  SelectProps: PT.exact(selectPropTypes) as Validator<SelectProps>,
-  selectProps: PT.object,
-  readOnly: PT.bool,
-  scroll: PT.bool,
-  showSelectionKey: PT.bool,
-  disabled: PT.bool,
-};
 
 export default SelectGroup;

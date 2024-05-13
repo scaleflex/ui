@@ -1,11 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 import EyeOpen from '@scaleflex/icons/eye-open';
 import EyeClosed from '@scaleflex/icons/eye-closed';
 import Success from '@scaleflex/icons/success';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { IconFuncType, InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
@@ -61,7 +60,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       error = false,
       renderTags,
       showPlaceholder,
-      InputProps,
+      InputProps: InputPropsData,
       ...rest
     }: InputProps,
     ref
@@ -212,7 +211,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
         $isSelectedItems={Boolean(isSelectedItems)}
-        {...(InputProps || {})}
+        {...(InputPropsData || {})}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
@@ -227,31 +226,5 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
     );
   }
 );
-
-export const propTypes = {
-  size: PT.oneOf(objectValues(InputSize)),
-  iconStart: PT.oneOfType([PT.node, PT.func]),
-  iconEnd: PT.oneOfType([PT.node, PT.func]),
-  iconChange: PT.oneOfType([PT.node, PT.func]),
-  copySuccessIcon: PT.node,
-  clearIcon: PT.oneOfType([PT.node, PT.func]),
-  error: PT.bool,
-  fullWidth: PT.bool,
-  value: PT.any,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  iconClickStart: PT.func,
-  showPlaceholder: PT.func,
-  iconClickEnd: PT.func,
-  clearIconClick: PT.func,
-  focusOnMount: PT.bool,
-  focusOnClick: PT.bool,
-  copyTextMessage: PT.string,
-  inputType: PT.string,
-  renderTags: PT.func,
-  InputProps: PT.object,
-};
-
-Input.propTypes = propTypes;
 
 export default Input;

@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { AccordionDetailsProps } from './accordion-details.props';
@@ -16,9 +15,5 @@ const AccordionDetails = intrinsicComponent<AccordionDetailsProps, HTMLDivElemen
     </>
   )
 );
-
-AccordionDetails.propTypes = {
-  expanded: PT.bool,
-};
 
 export default AccordionDetails;

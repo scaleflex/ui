@@ -1,19 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PT, { Validator } from 'prop-types';
 import CalendarIcon from '@scaleflex/icons/calendar';
 import CrossOutline from '@scaleflex/icons/cross-outline';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 
 import { InputSize } from '../../utils/types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import { DatePickerProps } from './date-picker.props';
-import { propTypes as inputPropTypes } from '../input/input.component';
-import Calendar from '../calendar';
-import { propTypes as popperPropTypes } from '../popper/popper.component';
-import { InputProps } from '../input';
 import { isYearFormRegex } from '../calendar/calendar.utils';
-import { Position } from '../popper/types';
-import { InputGroupProps } from '../input-group';
+import Calendar from '../calendar';
+
 import Styled from './date-picker.styles';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
@@ -137,26 +132,5 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
     );
   }
 );
-
-export const propTypes = {
-  value: PT.string,
-  position: PT.oneOf(objectValues(Position)),
-  size: PT.oneOf(objectValues(InputSize)),
-  maxDate: PT.string,
-  minDate: PT.string,
-  onChange: PT.func,
-  label: PT.string,
-  hint: PT.string,
-  popperOptions: popperPropTypes.popperOptions,
-  autoSelectToday: PT.bool,
-  enableAutoSelect: PT.bool,
-  fullWidth: PT.bool,
-  InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
-  calendarStyles: PT.object,
-  placeholder: PT.string,
-};
-
-Datepicker.propTypes = propTypes;
 
 export default Datepicker;

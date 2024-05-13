@@ -8,8 +8,4 @@ const Divider = intrinsicComponent<DividerProps, HTMLHRElement>(
   ({ ...rest }, ref): JSX.Element => <Styled.Divider {...rest} ref={ref} />
 );
 
-export const propTypes = {};
-
-Divider.propTypes = propTypes;
-
 export default Divider;

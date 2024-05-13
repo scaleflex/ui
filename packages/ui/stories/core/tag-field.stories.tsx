@@ -19,7 +19,7 @@ const meta: Meta<typeof TagField> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof TagField>;
+type Story = StoryObj<typeof meta>;
 
 const defaultArgs = {
   tags: ['Woman', 'Dance'],

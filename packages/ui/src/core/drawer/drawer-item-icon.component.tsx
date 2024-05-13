@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { DrawerIconProps } from './drawer.props';
@@ -17,10 +16,5 @@ const DrawerItemIcon = intrinsicComponent<DrawerIconProps, HTMLSpanElement>(
     );
   }
 );
-
-DrawerItemIcon.propTypes = {
-  size: PT.number,
-  children: PT.oneOfType([PT.node, PT.func]).isRequired,
-};
 
 export default DrawerItemIcon;

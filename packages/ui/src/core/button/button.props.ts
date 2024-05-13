@@ -18,7 +18,6 @@ export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTM
   buttonType?: ButtonType;
   active?: boolean;
   loading?: boolean;
-  $loading?: boolean;
   disabled?: boolean;
   sideBarType?: SideBarType;
 }

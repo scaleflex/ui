@@ -9,6 +9,4 @@ const Backdrop = intrinsicComponent<BackdropProps, HTMLDivElement>(
   ({ ...rest }: BackdropProps, ref): JSX.Element => <Styled.Backdrop {...rest} ref={ref} />
 );
 
-Backdrop.propTypes = {};
-
 export default Backdrop;

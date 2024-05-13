@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import { GalleryButtonProps } from './gallery-button.props';
@@ -18,10 +17,5 @@ const GalleryButton = intrinsicComponent<GalleryButtonProps, HTMLButtonElement>(
     );
   }
 );
-
-GalleryButton.propTypes = {
-  disabled: PT.bool,
-  active: PT.bool,
-};
 
 export default GalleryButton;
