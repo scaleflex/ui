@@ -39,16 +39,16 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       setOpen(!open);
     };
 
-    const handleHourChange = (hour: string): void => {
-      const hourValue = Number.parseInt(hour, 10) < 10 ? `0${hour}` : hour;
+    const handleHourChange = (hour: number): void => {
+      const hourValue = hour < 10 ? `0${hour}` : `${hour}`;
       const [hourString] = time.split(':');
 
       setSelectedHour(hourValue);
       setTime(`${hourString}:${selectedMinute}`);
     };
 
-    const handleMinuteChange = (minute: string): void => {
-      const minuteValue = Number.parseInt(minute, 10) < 10 ? `0${minute}` : minute;
+    const handleMinuteChange = (minute: number): void => {
+      const minuteValue = minute < 10 ? `0${minute}` : `${minute}`;
       const [hourString] = time.split(':');
 
       setSelectedMinute(minuteValue);
@@ -114,7 +114,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                     <Styled.TimePickerHour
                       selected={selectedHour === (hour < 10 ? `0${hour + 1}` : `${hour + 1}`)}
                       key={hour}
-                      onClick={() => handleHourChange(JSON.stringify(hour + 1))}
+                      onClick={() => handleHourChange(hour + 1)}
                     >
                       {hour + 1}
                     </Styled.TimePickerHour>
@@ -125,7 +125,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                     <Styled.TimePickerMinute
                       selected={selectedMinute === (minute < 10 ? `0${minute}` : `${minute}`)}
                       key={minute}
-                      onClick={() => handleMinuteChange(JSON.stringify(minute))}
+                      onClick={() => handleMinuteChange(minute)}
                     >
                       {minute < 10 ? `0${minute}` : minute}
                     </Styled.TimePickerMinute>
