@@ -23,6 +23,10 @@ const TimePickerInput = styled(inputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
 })<InputProps>(
   ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
+    input[type='time']::-webkit-calendar-picker-indicator {
+      display: none;
+      -webkit-appearance: none;
+    }
     ${isHovering &&
     css`
       border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
@@ -50,9 +54,21 @@ const TimePickerDropdownContainer = styled.div.attrs({
 const TimePickerDropdown = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
 })(
-  ({ theme }: WithTheme) => css`
+  () => css`
     display: flex;
     gap: 12;
+    max-height: 150px;
+    max-width: 150px;
+    overflow-x: hidden;
+    cursor: pointer;
+  `
+);
+
+const TimePickerDropdownColumn = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'dropdown-column'),
+})(
+  ({ theme }: WithTheme) => css`
+    padding: 0 6px;
     max-height: 150px;
     max-width: 150px;
     overflow-y: auto;
@@ -69,14 +85,6 @@ const TimePickerDropdown = styled.div.attrs({
       background: ${theme.palette[PColor.BorderPrimaryStateless]};
       border-radius: 8px;
     }
-  `
-);
-
-const TimePickerDropdownColumn = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'dropdown-column'),
-})(
-  () => css`
-    padding: 0 6px;
   `
 );
 

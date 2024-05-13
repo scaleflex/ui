@@ -28,6 +28,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     ref
   ): JSX.Element => {
     const [open, setOpen] = useState(false);
+    const [time, setTime] = useState('');
     const [selectedHour, setSelectedHour] = useState('00');
     const [selectedMinute, setSelectedMinute] = useState('00');
     const [selectedPeriod, setSelectedPeriod] = useState('AM');
@@ -40,16 +41,42 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
 
     const handleHourChange = (hour: string): void => {
       const hourValue = Number.parseInt(hour, 10) < 10 ? `0${hour}` : hour;
+      const [hourString] = time.split(':');
+
       setSelectedHour(hourValue);
+      setTime(`${hourString}:${selectedMinute}`);
     };
 
     const handleMinuteChange = (minute: string): void => {
       const minuteValue = Number.parseInt(minute, 10) < 10 ? `0${minute}` : minute;
+      const [hourString] = time.split(':');
+
       setSelectedMinute(minuteValue);
+      setTime(`${hourString}:${minuteValue}`);
     };
 
     const handlePeriodChange = (period: string): void => {
+      const hour = period === 'PM' ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
+
+      setTime(`${hour}:${selectedMinute}`);
       setSelectedPeriod(period);
+    };
+
+    const handleTimeChange = (event: any) => {
+      const timeString = event.target.value;
+      const [hourString, minuteString] = timeString.split(':');
+      const hour = Number.parseInt(hourString, 10);
+
+      setTime(timeString);
+      setSelectedMinute(minuteString);
+
+      if (hour > 12) {
+        setSelectedHour(`${hour - 12 < 10 ? '0' : ''}${hour - 12}`);
+        setSelectedPeriod('PM');
+      } else {
+        setSelectedPeriod('AM');
+        setSelectedHour(hourString);
+      }
     };
 
     return (
@@ -59,12 +86,13 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
           fullWidth={fullWidth}
           hint={hint}
           size={size}
-          value={`${selectedHour}:${selectedMinute} ${selectedPeriod}`}
+          value={time}
+          onChange={handleTimeChange}
           readOnly={readOnly}
           hideCopyIcon
           inputProps={{
             iconEnd: () => <Clock size={size === 'md' ? 16 : 14} onClick={toggleDropdown} />,
-            type: 'text',
+            type: 'time',
             ...(InputPropsData || {}),
           }}
           {...inputGroupProps}
@@ -84,7 +112,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                 <Styled.TimePickerDropdownColumn>
                   {[...new Array(12).keys()].map((hour) => (
                     <Styled.TimePickerHour
-                      selected={selectedHour === JSON.stringify(hour + 1)}
+                      selected={selectedHour === (hour < 10 ? `0${hour + 1}` : `${hour + 1}`)}
                       key={hour}
                       onClick={() => handleHourChange(JSON.stringify(hour + 1))}
                     >
@@ -95,7 +123,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                 <Styled.TimePickerDropdownColumn>
                   {[...new Array(60).keys()].map((minute) => (
                     <Styled.TimePickerMinute
-                      selected={selectedMinute === JSON.stringify(minute)}
+                      selected={selectedMinute === (minute < 10 ? `0${minute}` : `${minute}`)}
                       key={minute}
                       onClick={() => handleMinuteChange(JSON.stringify(minute))}
                     >
