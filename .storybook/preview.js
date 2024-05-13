@@ -1,7 +1,6 @@
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import ThemeProvider from '@scaleflex/ui/theme';
 
-
 export const decorators = [
   withThemeFromJSXProvider({
     Provider: ThemeProvider ,
