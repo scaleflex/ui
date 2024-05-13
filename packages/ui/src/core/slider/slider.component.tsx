@@ -1,5 +1,3 @@
-/* eslint-disable no-use-before-define */
-
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import PT, { Validator } from 'prop-types';
 
@@ -39,18 +37,16 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       value: valueProp,
       min = 0,
       max = 100,
-      // orientation = 'horizontal',
       onChange,
       onMouseDown,
       onMouseUp,
       step = 1,
       labelTooltip = LabelTooltip.Off,
-      annotation = '',
+      annotation = 'MB',
       components = {},
       componentsProps = {},
       ...rest
     }: SliderProps,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ref
   ): JSX.Element => {
     const [active, setActive] = useState(-1);
@@ -411,14 +407,6 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     );
   }
 );
-
-Slider.defaultProps = {
-  annotation: 'MB',
-  min: 0,
-  max: 100,
-  step: 1,
-  labelTooltip: LabelTooltip.Off,
-};
 
 Slider.propTypes = {
   defaultValue: PT.oneOfType([PT.array, PT.number]),

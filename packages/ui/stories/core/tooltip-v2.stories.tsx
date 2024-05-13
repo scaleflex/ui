@@ -32,6 +32,7 @@ const defaultArgs = {
   position: Position.Top,
   offsetX: 0,
   offsetY: 10,
+  title: 'Tooltip',
 };
 
 const BasicTemplate = (args: TooltipV2Props): JSX.Element => (

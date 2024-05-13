@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
-import { WithTheme } from '@scaleflex/ui/theme/entity';
-import { Color as PaletteColor } from '@scaleflex/ui/utils/types/palette';
+
+import { WithTheme } from '../../theme/entity';
+import { Color as PaletteColor } from '../../utils/types/palette';
 
 import { Status } from '../popup-status/types';
 

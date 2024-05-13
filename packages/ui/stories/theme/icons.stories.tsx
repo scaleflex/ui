@@ -34,8 +34,8 @@ export default meta;
 
 const Container = styled.div``;
 
-const Item = styled.div(
-  ({ size = defaultSize }: { size?: number }) => css`
+const Item = styled.div<{ size?: number }>(
+  ({ size = defaultSize }) => css`
     display: inline-flex;
     align-items: center;
     flex-direction: column;
@@ -107,16 +107,16 @@ export const All = ({
       <SearchBlock>
         <InputGroup
           value={search || ''}
-          onChange={({ target: { value } }) => setSearch(value)}
-          placeholder="Search"
-          InputProps={{
+          inputProps={{
             iconStart: <SearchIcon />,
+            placeholder: 'Search',
+            onChange: ({ currentTarget: { value } }) => setSearch(value),
           }}
         />
       </SearchBlock>
 
       <Container {...args} style={{ color }}>
-        {filteredIconsNames.map((iconName) => (
+        {filteredIconsNames.slice(0, 10).map((iconName) => (
           <Item size={size} key={iconName}>
             <ItemIcon>{React.createElement(icons[iconName], { size })}</ItemIcon>
 

@@ -137,7 +137,6 @@ export const propTypes = {
   >,
   onChange: PT.func,
   MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
-  // eslint-disable-next-line react/forbid-prop-types
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,
@@ -148,6 +147,7 @@ export const propTypes = {
   renderLabel: PT.func,
   onRequestClose: PT.func,
   hideEllipsis: PT.bool,
+  placeholder: PT.string,
 };
 
 Select.propTypes = propTypes;

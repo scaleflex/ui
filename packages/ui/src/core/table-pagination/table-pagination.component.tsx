@@ -120,7 +120,7 @@ TablePagination.propTypes = {
   page: PT.number.isRequired,
   count: PT.number.isRequired,
   rowsPerPage: PT.number,
-  rowsPerPageOptions: PT.arrayOf(PT.number),
+  rowsPerPageOptions: PT.array,
   onPageChange: PT.func.isRequired,
   onRowsPerPageChange: PT.func.isRequired,
 };

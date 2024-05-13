@@ -3,7 +3,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
-import type { SwitcherProps } from './switcher.props';
+import type { SwitcherProps, SwitcherSizeType } from './switcher.props';
 import { SwitcherSize } from './switcher-size';
 import { sizeInnerSwitcherMixin, translateSwitcherMixin, translateInnerSwitcherMixin } from './switcher.mixin';
 import { getSwitcherIconSize, getSwitcherSize } from './switcher.utils';
@@ -12,8 +12,8 @@ const baseClassName = 'Switcher';
 
 const SwitcherWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<SwitcherProps>(
-  ({ disabled }: With<WithTheme, SwitcherProps>) => css`
+})<With<WithTheme, SwitcherProps>>(
+  ({ disabled }) => css`
     position: relative;
     display: inline-flex;
     cursor: ${disabled ? 'default' : 'pointer'};
@@ -22,8 +22,8 @@ const SwitcherWrapper = styled.div.attrs({
 
 const Switcher = styled.div.attrs({
   className: generateClassNames(baseClassName, 'switcher'),
-})(
-  ({ disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
+})<With<WithTheme, SwitcherProps>>(
+  ({ disabled, size = SwitcherSize.Sm, theme: { palette } }) => css`
     position: relative;
     width: ${getSwitcherSize(size) * 2}px;
     height: ${getSwitcherSize(size)}px;
@@ -61,8 +61,8 @@ const Switcher = styled.div.attrs({
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'checkbox',
-})<SwitcherProps>(
-  ({ $disabled, size = SwitcherSize.Sm, theme: { palette } }: With<WithTheme, SwitcherProps>) => css`
+})<With<WithTheme, { $disabled?: boolean; size: SwitcherSizeType }>>(
+  ({ $disabled, size = SwitcherSize.Sm, theme: { palette } }) => css`
     opacity: 0;
     position: absolute;
     z-index: 99;

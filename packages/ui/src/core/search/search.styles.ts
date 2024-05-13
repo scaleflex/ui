@@ -11,23 +11,23 @@ const baseClassName = 'Search';
 
 const Search = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = InputSize.Md, theme }: With<WithTheme, InputProps>) => css`
-  ${StyledInput.Input} {
+})<With<WithTheme, InputProps>>(
+  ({ size = InputSize.Md, theme }) => css`
+    ${StyledInput.Input} {
+      ${searchInputMixin[size]}
 
-    ${searchInputMixin[size]}
-    
-    &:hover {
-      background-color: ${theme.palette[PColor.BackgroundHover]}
-    }
+      &:hover {
+        background-color: ${theme.palette[PColor.BackgroundHover]};
+      }
 
-    input[type="search"]::-webkit-search-decoration,
-    input[type="search"]::-webkit-search-cancel-button,
-    input[type="search"]::-webkit-search-results-button,
-    input[type="search"]::-webkit-search-results-decoration {
-      display: none;
+      input[type='search']::-webkit-search-decoration,
+      input[type='search']::-webkit-search-cancel-button,
+      input[type='search']::-webkit-search-results-button,
+      input[type='search']::-webkit-search-results-decoration {
+        display: none;
+      }
     }
-`
+  `
 );
 
 const Styled = applyDisplayNames({ Search });

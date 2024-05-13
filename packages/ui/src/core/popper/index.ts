@@ -1,2 +1,2 @@
 export { default } from './popper.component';
-export type { PopperProps } from './popper.props';
+export type { PopperProps, PopperOptions, VirtualElement, Modifiers } from './popper.props';

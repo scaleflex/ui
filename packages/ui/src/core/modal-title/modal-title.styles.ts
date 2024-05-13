@@ -11,8 +11,8 @@ const baseClassName = 'ModalTitle';
 
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette } }: With<WithTheme, { iconShadow: boolean }>) => css`
+})<With<WithTheme, { iconShadow: boolean }>>(
+  ({ theme: { palette } }) => css`
     display: flex;
     margin-bottom: 8px;
     padding: 14.5px;
@@ -24,8 +24,8 @@ const Icon = styled.div.attrs({
 
 const LabelPrimary = styled.div.attrs({
   className: generateClassNames(baseClassName, 'LabelPrimary'),
-})(
-  ({ variant = Variant.Default }: { variant?: ModalTitleVariantType }) => css`
+})<{ variant?: ModalTitleVariantType }>(
+  ({ variant = Variant.Default }) => css`
     font-size: 18px;
     line-height: 27px;
     font-weight: ${variant === Variant.Default ? 400 : 500};
@@ -42,8 +42,8 @@ const LabelSecondary = styled.div.attrs({
 
 const Close = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Close'),
-})(
-  ({ variant = Variant.Default, theme: { palette } }: With<WithTheme, { variant?: ModalTitleVariantType }>) => css`
+})<With<WithTheme, { variant?: ModalTitleVariantType }>>(
+  ({ variant = Variant.Default, theme: { palette } }) => css`
     position: absolute;
     display: flex;
     top: ${variant === Variant.WithIcon ? 2 : 8}px;
@@ -58,14 +58,14 @@ const Close = styled.div.attrs({
 
 const ModalTitle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
+})<With<WithTheme, ModalTitleProps>>(
   ({
     variant = Variant.Default,
     theme: {
       palette,
       shape: { borderRadius },
     },
-  }: With<WithTheme, ModalTitleProps>) => css`
+  }) => css`
     position: relative;
     color: ${palette[PColor.TextPrimary]};
     border-radius: ${borderRadius[BRSize.Md]} ${borderRadius[BRSize.Md]} 0px 0px;

@@ -9,7 +9,7 @@ import Styled from './radio-group.styles';
 const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>(
   (
     {
-      size,
+      size = RadioSize.Sm,
       label,
       radioProps,
       readOnly,
@@ -17,7 +17,7 @@ const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>(
       radioStyles,
       labelStyles,
       onChange,
-      checked,
+      checked = false,
       ...rest
     }: RadioGroupProps,
     ref
@@ -39,11 +39,6 @@ const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>(
     </Styled.RadioGroup>
   )
 );
-
-RadioGroup.defaultProps = {
-  checked: false,
-  size: RadioSize.Sm,
-};
 
 RadioGroup.propTypes = {
   label: PT.node,

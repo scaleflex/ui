@@ -22,7 +22,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       value = '',
       onChange,
       autoSelectToday,
-      enableAutoSelect,
+      enableAutoSelect = false,
       maxDate = '',
       minDate = '',
       position,
@@ -31,9 +31,10 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       hint,
       popperOptions,
       InputProps: InputPropsData,
-      calendarStyles,
+      calendarStyles = {},
       inputGroupProps,
       fullWidth,
+      placeholder,
       ...rest
     }: DatePickerProps,
     ref
@@ -91,7 +92,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           size={size}
           showPlaceholder={setShowPlaceholder}
           value={inputValue}
-          isHovering={isHovering}
+          $isHovering={isHovering}
           clearIcon={!!inputValue.length && ((props: IconProps) => <CrossOutline {...props} size={10} />)}
           clearIconClick={handleClearIconClick}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
@@ -106,7 +107,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           {...inputGroupProps}
           {...rest}
         />
-        {!inputValue && rest.placeholder && showPlaceholder && (
+        {!inputValue && placeholder && showPlaceholder && (
           <Styled.Placeholder
             onClick={handlePlaceholder}
             onMouseEnter={() => setIsHovering(true)}
@@ -115,7 +116,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             readOnly={readOnly}
             size={size}
           >
-            {rest.placeholder}
+            {placeholder}
           </Styled.Placeholder>
         )}
         <Calendar
@@ -137,11 +138,6 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   }
 );
 
-Datepicker.defaultProps = {
-  calendarStyles: {},
-  enableAutoSelect: false,
-};
-
 export const propTypes = {
   value: PT.string,
   position: PT.oneOf(objectValues(Position)),
@@ -158,6 +154,7 @@ export const propTypes = {
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   inputGroupProps: PT.exact(inputPropTypes) as Validator<InputGroupProps>,
   calendarStyles: PT.object,
+  placeholder: PT.string,
 };
 
 Datepicker.propTypes = propTypes;

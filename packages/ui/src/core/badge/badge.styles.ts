@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { BadgeProps } from './badge.props';
 import { colorBadgeMixin } from './badge.mixin';
@@ -15,8 +16,10 @@ const BadgeRoot = styled.span.attrs({
   vertical-align: middle;
 `;
 
-const Badge = styled.span.attrs({ className: generateClassNames(baseClassName) })(
-  ({ size, color = 'secondary', fontSize, padding = '0 6px', inline }: BadgeProps) => css`
+const Badge = styled.span.attrs({
+  className: generateClassNames(baseClassName),
+})<BadgeProps>(
+  ({ size, color = 'secondary', fontSize, padding = '0 6px', inline }) => css`
     ${inline ? '' : 'position: absolute;'}
     display: flex;
     flex-wrap: wrap;

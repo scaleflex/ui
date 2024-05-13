@@ -21,8 +21,8 @@ const StatusLabel = styled.span.attrs({
 
 const StatusIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ type = Type.Received, iconSize }: { type: StatusLabelTypesType; iconSize: number }) => css`
+})<{ type: StatusLabelTypesType; iconSize: number }>(
+  ({ type = Type.Received, iconSize }) => css`
     width: ${iconSize}px;
     height: ${iconSize}px;
     border-radius: 50%;
@@ -37,8 +37,8 @@ const StatusIcon = styled.span.attrs({
 
 const StatusLabelWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = Size.Md, type = Type.Default, variant = Variant.Filled, theme }: With<WithTheme, StatusLabelProps>) => css`
+})<With<WithTheme, StatusLabelProps>>(
+  ({ size = Size.Md, type = Type.Default, variant = Variant.Filled, theme }) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;

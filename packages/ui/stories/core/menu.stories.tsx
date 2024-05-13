@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Documentation } from '@scaleflex/icons';
+
 import Menu, { MenuProps } from '../../src/core/menu';
 import MenuItem from '../../src/core/menu-item';
 import Button from '../../src/core/button';

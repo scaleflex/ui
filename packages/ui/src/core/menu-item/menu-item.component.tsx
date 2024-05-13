@@ -32,7 +32,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       }
     }, [props.active]);
 
-    const handleSelectedId = (ev: React.MouseEvent<HTMLElement>, selected: string, depthLevel: number): void => {
+    const handleSelectedId = (ev: React.MouseEvent<HTMLDivElement>, selected: string, depthLevel: number): void => {
       const updatedArray = selectedIds.slice(0);
       updatedArray[depthLevel] = selected;
       setSelectedIds(updatedArray);
@@ -82,9 +82,9 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               {...props}
               className={option.className}
               ref={ref}
-              active={Boolean(option.active)}
-              onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
-              onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
+              $active={Boolean(option.active)}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) => option.onClick?.({ event, ...props })}
+              onMouseEnter={(ev: React.MouseEvent<HTMLDivElement>) => handleSelectedId(ev, option.key, depthLevel)}
               disableHover={disableHover || option.disableHover}
             >
               {option.prefix && (
@@ -116,7 +116,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       }
 
       return (
-        <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
+        <Styled.MenuItemWrapper $noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
           <Styled.MenuItem
             {...props}
             ref={menuItemRef}
@@ -136,16 +136,8 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 
 MenuItem.displayName = 'MenuItem';
 
-export const defaultProps = {
-  size: Size.Sm,
-  active: false,
-};
-
-MenuItem.defaultProps = defaultProps;
-
 MenuItem.propTypes = {
   size: PT.oneOf(objectValues(Size)),
-  children: PT.oneOfType([PT.node, PT.func]),
   active: PT.bool,
   value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null])]),
   depth: PT.number,

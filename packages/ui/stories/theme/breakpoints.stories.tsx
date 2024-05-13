@@ -5,18 +5,15 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Button from '../../src/core/button';
 import { colorButtonMixin } from '../../src/core/button/button.mixin';
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
-// import BreakpointsDocs from '../docs/breakpoints.mdx';
+import BreakpointsDocsTemplate from '../docs/breakpoints.mdx';
 
 const meta: Meta<typeof Button> = {
   title: 'Theme/Breakpoints',
-  excludeStories: ['Button'],
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+  tags: ['autodocs'],
   parameters: {
-    // docs: {
-    //   page: BreakpointsDocs,
-    // },
+    docs: {
+      page: BreakpointsDocsTemplate,
+    },
     viewport: {
       defaultViewport: 'lg',
     },
@@ -40,18 +37,18 @@ const StyledButton = styled(Button)(
       ${colorButtonMixin[ButtonColor.Secondary]}
     }
     ${theme.breakpoints.down('sm')} {
-      ${colorButtonMixin[ButtonColor.Link]}
+      ${colorButtonMixin[ButtonColor.LinkPrimary]}
     }
     ${theme.breakpoints.between('md', 'lg')} {
       ${colorButtonMixin[ButtonColor.Primary]}
     }
     ${theme.breakpoints.up('xl')} {
-      ${colorButtonMixin[ButtonColor.Error]}
+      ${colorButtonMixin[ButtonColor.ErrorPrimary]}
     }
   `
 );
 
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: ({ children, ...args }) => <StyledButton {...args}>{children}</StyledButton>,
+  render: ({ children }) => <StyledButton>{children}</StyledButton>,
 };

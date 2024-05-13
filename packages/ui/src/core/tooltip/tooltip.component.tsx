@@ -17,7 +17,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       position = Position.Top,
       popperOptions,
       arrow = true,
-      warning,
+      warning = false,
       enableUnderlayingEvent,
       popperWrapperStyles = {},
       enableHover,
@@ -26,6 +26,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       stayOpen,
       title,
       tooltipProps,
+      size = Size.Sm,
       ...rest
     }: TooltipProps,
     ref
@@ -108,6 +109,7 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
       >
         <Styled.TooltipContainer
           {...rest}
+          size={size}
           open={open}
           onMouseEnter={handleEnteringTooltip}
           onMouseLeave={handleLeavingTooltip}
@@ -132,20 +134,11 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
   }
 );
 
-Tooltip.defaultProps = {
-  position: Position.Top,
-  size: Size.Sm,
-  arrow: true,
-  warning: false,
-  enterDelay: 0,
-  leaveDelay: 0,
-};
-
 Tooltip.propTypes = {
   position: PT.oneOf(objectValues(Position)),
   size: PT.oneOf(objectValues(Size)),
-  title: PT.node,
-  children: PT.element,
+  title: PT.node.isRequired,
+  children: PT.element.isRequired,
   arrow: PT.bool,
   warning: PT.bool,
   enterDelay: PT.number,

@@ -1,9 +1,8 @@
 import styled, { css } from 'styled-components';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import type { IconButtonTableProps } from './icon-button-table.props';
+import { Size, type IconButtonTableProps } from './icon-button-table.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import type { WithTheme } from '../../theme/entity';
-import { Size } from './types';
 import { With } from '../../utils/types';
 
 const baseClassName = 'IconButtonTable';
@@ -20,8 +19,8 @@ const IconButtonTablePaddingMixin = {
 
 const IconButtonTable = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = Size.Md, theme: { palette } }: With<WithTheme, IconButtonTableProps>) => css`
+})<With<WithTheme, IconButtonTableProps>>(
+  ({ size = Size.Md, theme: { palette } }) => css`
     display: flex;
     justify-content: center;
     align-items: center;

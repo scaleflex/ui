@@ -11,8 +11,8 @@ const baseClassName = 'Arrow';
 
 const Arrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ type = Position.Right }: With<WithTheme, ArrowProps>) => css`
+})<With<WithTheme, ArrowProps>>(
+  ({ type = Position.Right }) => css`
     display: inline-flex;
     transition: transform 0.15s;
 

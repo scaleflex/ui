@@ -68,8 +68,6 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
   }
 );
 
-InputLocalization.defaultProps = {};
-
 const { error, size, ...restSelectPropTypes } = selectPropTypes;
 
 InputLocalization.propTypes = {

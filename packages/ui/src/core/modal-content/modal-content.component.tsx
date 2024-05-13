@@ -13,8 +13,6 @@ const ModalContent = intrinsicComponent<ModalContentProps, HTMLDivElement>(
   )
 );
 
-ModalContent.defaultProps = {};
-
 ModalContent.propTypes = {
   children: PT.node.isRequired,
 };

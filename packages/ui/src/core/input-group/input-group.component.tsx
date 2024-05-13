@@ -26,7 +26,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       label,
       hint,
       LabelProps: LabelPropsData,
-      InputProps: InputPropsData,
+      InputProps,
       inputProps,
       inputRef,
       TextareaProps: TextareaPropsData,
@@ -59,15 +59,16 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | null => {
-      const fieldProps = { value, readOnly, disabled, size, error, ...rest };
+      const fieldProps = { value, readOnly, disabled, size, error };
 
       if (type === Type.Input) {
         return (
           <Input
             {...fieldProps}
-            {...(InputPropsData || {})}
+            {...rest}
             {...inputProps}
-            ref={inputRef?.ref || inputRef}
+            InputProps={InputProps}
+            ref={inputRef}
             readOnly={readOnly}
             disabled={disabled}
           />
@@ -125,9 +126,8 @@ InputGroup.propTypes = {
   error: PT.bool,
   value: PT.any,
   LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
-  InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  inputProps: PT.object,
-  inputRef: PT.oneOfType([PT.func, PT.object]),
+  InputProps: PT.object,
+  inputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   TextareaProps: PT.exact(textareaPropTypes) as Validator<TextareaProps>,
   readOnly: PT.bool,
   disabled: PT.bool,

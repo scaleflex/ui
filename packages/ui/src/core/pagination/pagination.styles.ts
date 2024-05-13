@@ -10,29 +10,27 @@ const baseClassName = 'Pagination';
 
 const Pagination = styled.nav.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(() => css``);
+})``;
 
 const PaginationList = styled.div.attrs({
   className: generateClassNames(baseClassName, 'list'),
-})(
-  () => css`
-    margin: 0;
-    display: flex;
-    padding: 0;
-    flex-wrap: wrap;
-    list-style: none;
-    align-items: center;
-  `
-);
+})`
+  margin: 0;
+  display: flex;
+  padding: 0;
+  flex-wrap: wrap;
+  list-style: none;
+  align-items: center;
+`;
 
 const PaginationItemList = styled.li.attrs({
   className: generateClassNames(baseClassName, 'item-list'),
-})(() => css``);
+})``;
 
 const PaginationItem = styled.button.attrs({
   className: generateClassNames(baseClassName, 'item'),
-})(
-  ({ selected, theme }: With<WithTheme, { selected: boolean }>) => css`
+})<With<WithTheme, { selected: boolean }>>(
+  ({ selected, theme }) => css`
     display: inline-flex;
     justify-content: center;
     align-items: center;

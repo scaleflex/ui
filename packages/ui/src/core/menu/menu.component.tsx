@@ -93,39 +93,37 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       }
     }, [open, updateRect]);
 
-    const handleClose = (event: any): void => {
+    const handleClose = (event: React.MouseEvent<HTMLDivElement>): void => {
       if (typeof onClose === 'function') {
         onClose(event);
       }
     };
 
     return (
-      <>
-        <Popper
-          ref={menuRef}
-          position={position || 'bottom-start'}
-          open={Boolean(anchorEl)}
-          anchorEl={anchorEl}
-          overlay={Boolean(enableOverlay)}
-          onClick={handleClose}
-          popperOptions={popperOptions}
-          zIndex={zIndex}
-          enableUnderlayingEvent={enableUnderlayingEvent}
-          wrapperStyles={popperWrapperStyles}
+      <Popper
+        ref={menuRef}
+        position={position || 'bottom-start'}
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        overlay={Boolean(enableOverlay)}
+        onClick={handleClose}
+        popperOptions={popperOptions}
+        zIndex={zIndex}
+        enableUnderlayingEvent={enableUnderlayingEvent}
+        wrapperStyles={popperWrapperStyles}
+      >
+        <Styled.Menu
+          {...containerProps}
+          alignCenter={Boolean(alignCenter)}
+          scroll={scroll}
+          rect={rect}
+          {...rest}
+          ref={ref}
+          maxHeight={maxHeight}
         >
-          <Styled.Menu
-            {...containerProps}
-            alignCenter={Boolean(alignCenter)}
-            scroll={scroll}
-            rect={rect}
-            {...rest}
-            ref={ref}
-            maxHeight={maxHeight}
-          >
-            {children}
-          </Styled.Menu>
-        </Popper>
-      </>
+          {children}
+        </Styled.Menu>
+      </Popper>
     );
   }
 );

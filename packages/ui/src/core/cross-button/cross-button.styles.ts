@@ -30,8 +30,8 @@ const crossButtonPaddingMixin = {
 
 const CrossButton = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = Size.Lg, theme }: With<WithTheme, CrossButtonProps>) => css`
+})<With<WithTheme, CrossButtonProps>>(
+  ({ size = Size.Lg, theme }) => css`
     display: flex;
     justify-content: center;
     align-items: center;

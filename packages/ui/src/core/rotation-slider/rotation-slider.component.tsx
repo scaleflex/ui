@@ -32,13 +32,13 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
     }: RotationSliderProps,
     ref
   ): JSX.Element => {
-    const handleChange = (event: any, newValue: number | number[]): void => {
+    const handleChange = (event: any, newValue: number): void => {
       if (onChange) {
         onChange(event, newValue);
       }
     };
 
-    const getValue = (): number | number[] => {
+    const getValue = (): number => {
       if (value || value === 0) {
         if (value > max) {
           return max;
@@ -100,7 +100,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
         hideTrack
         hideAnnotation
         annotation={annotation}
-        onChange={handleChange}
+        onChange={(event, newValue) => handleChange(event, newValue as number)}
         labelTooltip={labelTooltipOptions}
         ref={ref}
         components={{
@@ -146,16 +146,8 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
   }
 );
 
-RotationSlider.defaultProps = {
-  annotation: '°',
-  min: 0,
-  max: 100,
-  step: 1,
-  labelTooltipOptions: LabelTooltip.Off,
-};
-
 RotationSlider.propTypes = {
-  value: PT.oneOfType([PT.array, PT.number]),
+  value: PT.number,
   min: PT.number,
   max: PT.number,
   angle: PT.number,

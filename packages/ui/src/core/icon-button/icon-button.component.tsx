@@ -8,18 +8,15 @@ import { ButtonSize, IconButtonColor } from '../../utils/types';
 import Styled from './icon-button.styles';
 
 const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
-  ({ children, ...rest }: IconButtonProps, ref): JSX.Element => (
-    <Styled.IconButton {...rest} ref={ref}>
-      {children && (typeof children === 'function' ? children({ size: getIconSize(rest.size) }) : children)}
+  (
+    { children, size = ButtonSize.Md, color = IconButtonColor.Secondary, active = false, ...rest }: IconButtonProps,
+    ref
+  ): JSX.Element => (
+    <Styled.IconButton {...rest} size={size} color={color} $active={active} ref={ref}>
+      {children && (typeof children === 'function' ? children({ size: getIconSize(size) }) : children)}
     </Styled.IconButton>
   )
 );
-
-IconButton.defaultProps = {
-  size: ButtonSize.Md,
-  color: IconButtonColor.Secondary,
-  active: false,
-};
 
 IconButton.propTypes = {
   children: PT.oneOfType([PT.node, PT.func]).isRequired,

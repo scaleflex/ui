@@ -198,7 +198,7 @@ export const propTypes = {
   isActionButtonLoading: PT.bool,
   value: PT.any,
   size: PT.oneOf(objectValues(InputSize)),
-  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
+  copySuccessIcon: PT.node,
   copyTextMessage: PT.string,
   cols: PT.number,
   rows: PT.number,

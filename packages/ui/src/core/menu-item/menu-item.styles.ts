@@ -3,7 +3,6 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
-// import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { MenuItemProps } from './menu-item.props';
 import { sizeMenuItemMixin } from './menu-item.mixin';
 import { Size } from './types';
@@ -12,8 +11,8 @@ const baseClassName = 'MenuItem';
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette }, disabled }: With<WithTheme, MenuItemProps>) => css`
+})<With<WithTheme, MenuItemProps>>(
+  ({ theme: { palette }, disabled }) => css`
     flex-shrink: 0;
     margin-right: 10px;
     color: ${disabled ? palette[PColor.TextPlaceholder] : palette[PColor.IconsPrimary]};
@@ -39,13 +38,8 @@ const Label = styled.span.attrs({
 
 const MenuItemWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
-})(
-  ({
-    divider = false,
-    noOptionsText = false,
-    disabled = false,
-    theme,
-  }: With<WithTheme, { divider?: boolean; noOptionsText?: boolean; disabled?: boolean }>) => css`
+})<With<WithTheme, { divider?: boolean; $noOptionsText?: boolean; disabled?: boolean }>>(
+  ({ divider = false, $noOptionsText = false, disabled = false, theme }) => css`
     ${divider &&
     css`
       width: 100%;
@@ -53,7 +47,7 @@ const MenuItemWrapper = styled.div.attrs({
       background: ${theme.palette[PColor.BordersSecondary]};
       box-sizing: border-box;
     `}
-    ${(noOptionsText || disabled) &&
+    ${($noOptionsText || disabled) &&
     css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
@@ -62,21 +56,14 @@ const MenuItemWrapper = styled.div.attrs({
 
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({
-    size = Size.Sm,
-    active,
-    theme,
-    disableHover = false,
-    noOptionsText,
-    disabled,
-  }: With<WithTheme, MenuItemProps>) => css`
+})<With<With<WithTheme, MenuItemProps>, { $active?: boolean }>>(
+  ({ size = Size.Sm, $active, theme, disableHover = false, noOptionsText, disabled }) => css`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
     width: 100%;
-    background: ${theme.palette[active ? PColor.BackgroundActive : PColor.BackgroundSecondary]};
+    background: ${theme.palette[$active ? PColor.BackgroundActive : PColor.BackgroundSecondary]};
     color: ${theme.palette[PColor.TextPrimary]};
     cursor: pointer;
     box-sizing: border-box;

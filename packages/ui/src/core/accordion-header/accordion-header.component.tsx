@@ -35,7 +35,7 @@ const AccordionHeader = intrinsicComponent<AccordionHeaderProps, HTMLDivElement>
           onClick(event);
         }
       }}
-      fullWidth={fullWidth}
+      $fullWidth={fullWidth}
       {...rest}
     >
       <Styled.Label onContextMenu={onContextMenu}>{label}</Styled.Label>

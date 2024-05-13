@@ -35,7 +35,7 @@ const defaultArgs = {
 const BasicTemplate = ({ ...args }: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number | number[] | undefined>(args.value);
 
-  const handleChange = (event: any, newValue: number | number[]): void => {
+  const handleChange = (_: any, newValue: number | number[]): void => {
     setValue(newValue);
   };
 
@@ -52,7 +52,7 @@ const BasicTemplate = ({ ...args }: SliderProps): JSX.Element => {
 const SliderComponentPropsTemplate = ({ ...args }: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number | number[] | undefined>(args.value);
 
-  const handleChange = (event: any, newValue: number | number[]): void => {
+  const handleChange = (_: any, newValue: number | number[]): void => {
     setValue(newValue);
   };
 
@@ -104,7 +104,7 @@ const UnControlledSliderTemplate = ({ ...args }: SliderProps): JSX.Element => {
 const SliderLabelTemplate = ({ ...args }: SliderProps): JSX.Element => {
   const [value, setValue] = useState<number | number[] | undefined>(args.value);
 
-  const handleChange = (event: any, newValue: number | number[]): void => {
+  const handleChange = (_: any, newValue: number | number[]): void => {
     setValue(newValue);
   };
 

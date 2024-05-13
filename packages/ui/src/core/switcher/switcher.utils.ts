@@ -1,7 +1,7 @@
 import { SwitcherSize } from './switcher-size';
-import { SwitcherType } from './switcher.props';
+import { SwitcherSizeType } from './switcher.props';
 
-export const getSwitcherSize = (sizeName?: SwitcherType): number => {
+export const getSwitcherSize = (sizeName?: SwitcherSizeType): number => {
   switch (sizeName) {
     case SwitcherSize.Lg:
       return 30;
@@ -17,7 +17,7 @@ export const getSwitcherSize = (sizeName?: SwitcherType): number => {
   }
 };
 
-export const getSwitcherIconSize = (sizeName?: SwitcherType): number => {
+export const getSwitcherIconSize = (sizeName?: SwitcherSizeType): number => {
   switch (sizeName) {
     case SwitcherSize.Lg:
       return 24;

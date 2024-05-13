@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import NoResult from '@scaleflex/icons/no-result';
-import { AutocompleteValueType } from '@scaleflex/ui/core/autocomplete/autocomplete.props';
 
 import Autocomplete from '../../src/core/autocomplete';
+import { AutocompleteValueType } from '../../src/core/autocomplete/autocomplete.props';
 import { InputSize } from '../../src/utils/types';
 import AiIcon from './icons/ai-icon';
-import Styled from './autocomplete.story.styled';
+import Styled from './autocomplete.stories.styled';
 
 const meta: Meta<typeof Autocomplete> = {
   title: 'Inputs/Autocomplete',
@@ -45,11 +45,12 @@ const defaultArgs = {
   multiple: false,
   fullWidth: false,
 };
+
 const BasicTemplate = ({ ...args }): JSX.Element => {
   const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
 
   return (
-    <Styled.Container fullWidth={Boolean(args.fullWidth)}>
+    <Styled.Container $fullWidth={Boolean(args.fullWidth)}>
       <Autocomplete
         {...args}
         value={value}
@@ -64,7 +65,7 @@ const BasicTemplate = ({ ...args }): JSX.Element => {
 };
 
 const AutocompleteObjectsTemplate = ({ ...args }): JSX.Element => {
-  const [value, setValue] = useState(args.multiple ? [] : '');
+  const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
 
   return (
     <Autocomplete
@@ -83,7 +84,7 @@ const WithIconsTemplate = ({ ...args }): JSX.Element => {
   const [value, setValue] = useState<AutocompleteValueType>(args.multiple ? [] : '');
 
   return (
-    <Styled.Container fullWidth={Boolean(args.fullWidth)}>
+    <Styled.Container $fullWidth={Boolean(args.fullWidth)}>
       <Autocomplete
         {...args}
         value={value}
@@ -117,6 +118,16 @@ const optionsWithIconsAndFavorite = [
   { uuid: 'it', name: 'Italian' },
   { uuid: 'es', name: 'Spanish', disabled: true },
   { uuid: 'ua', name: 'Ukrainian', endIcon: <AiIcon /> },
+];
+
+const options = [
+  { uuid: '1_scaleflex', name: 'sfx1' },
+  { uuid: '2_scaleflex', name: 'sfx2' },
+  { uuid: '3_scaleflex', name: 'sfx3' },
+  { uuid: '4_scaleflex', name: 'sfx4' },
+  { uuid: '5_scaleflex', name: 'sfx5' },
+  { uuid: '6_scaleflex', name: 'sfx6' },
+  { uuid: '7_scaleflex', name: 'sfx7' },
 ];
 
 export const Primary: Story = {

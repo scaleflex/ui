@@ -4,16 +4,24 @@ import PT, { Validator } from 'prop-types';
 
 import { intrinsicComponent, objectValues, generateClassNames } from '../../utils/functions';
 import usePortal from '../../hooks/use-portal';
-import PopupContent, {
-  defaultProps as cDefaultProps,
-  propTypes as cPropTypes,
-} from '../popup-content/popup-content.component';
+import PopupContent, { propTypes as cPropTypes } from '../popup-content/popup-content.component';
 import type { PopupProps, PopupAnchorOriginProps } from './popup.props';
 import { Horizontal, Vertical } from './types';
 import Styled from './popup.styles';
+import { Status } from '../popup-status/types';
 
 const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.Element => {
-  const { autoHideDuration, anchorOrigin, open, onClose, ...rest } = props;
+  const {
+    autoHideDuration = 5000,
+    anchorOrigin = {
+      vertical: Vertical.Bottom,
+      horizontal: Horizontal.Left,
+    },
+    open = false,
+    onClose,
+    status = Status.Success,
+    ...rest
+  } = props;
   const target = usePortal(generateClassNames('Popup'));
 
   const [hoverHideDuration, setHoverHideDuration] = useState(autoHideDuration);
@@ -49,23 +57,13 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
 
     return (
       <Styled.Popup onMouseEnter={() => setIsHovering(true)} onMouseLeave={handleMouseLeave} {...props}>
-        <PopupContent onClose={onClose} {...rest} ref={ref} />
+        <PopupContent onClose={onClose} status={status} ref={ref} {...rest} />
       </Styled.Popup>
     );
   };
 
   return createPortal(render(), target);
 });
-
-Popup.defaultProps = {
-  ...cDefaultProps,
-  open: false,
-  autoHideDuration: 5000,
-  anchorOrigin: {
-    vertical: Vertical.Bottom,
-    horizontal: Horizontal.Left,
-  },
-};
 
 Popup.propTypes = {
   ...cPropTypes,

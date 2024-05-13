@@ -8,8 +8,8 @@ const baseClassName = 'Backdrop';
 
 const Backdrop = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     position: fixed;
     display: flex;
     align-items: center;

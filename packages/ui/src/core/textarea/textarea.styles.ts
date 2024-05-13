@@ -12,7 +12,7 @@ const baseClassName = 'Textarea';
 
 const Textarea = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
+})<With<With<WithTheme, TextareaProps>, { autoSize: boolean }>>(
   ({
     size = InputSize.Md,
     error = false,
@@ -21,7 +21,7 @@ const Textarea = styled.div.attrs({
     disabled = false,
     autoSize = false,
     theme,
-  }: With<With<WithTheme, TextareaProps>, { autoSize: boolean }>) => css`
+  }) => css`
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -73,8 +73,8 @@ const Textarea = styled.div.attrs({
 
 const Base = styled.textarea.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})<TextareaProps>(
-  ({ theme: { palette }, readOnly = false, size = InputSize.Md }: With<WithTheme, TextareaProps>) => css`
+})<With<WithTheme, TextareaProps>>(
+  ({ theme: { palette }, readOnly = false, size = InputSize.Md }) => css`
     display: block;
     width: 100%;
     height: 100%;
@@ -120,8 +120,8 @@ const Base = styled.textarea.attrs({
 
 const ActionsButtonsWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'ActionsButtonsWrapper'),
-})(
-  ({ size = InputSize.Md }: Partial<TextareaProps>) => css`
+})<Partial<TextareaProps>>(
+  ({ size = InputSize.Md }) => css`
     display: flex;
     align-items: center;
     width: 100%;
@@ -133,8 +133,8 @@ const ActionsButtonsWrapper = styled.div.attrs({
 
 const CopyIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
-})(
-  ({ theme: { palette } }: With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>) => css`
+})<With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>>(
+  ({ theme: { palette } }) => css`
     cursor: pointer;
     color: ${palette[PColor.IconsPrimary]};
     margin-left: auto;

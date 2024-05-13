@@ -7,7 +7,10 @@ import Styled from './radio.styles';
 import { RadioSize } from './size';
 
 const Radio = intrinsicComponent<RadioProps, HTMLSpanElement>(
-  ({ size, checked, onChange, radioProps, readOnly, disabled, ...rest }: RadioProps, ref): JSX.Element => (
+  (
+    { size = RadioSize.Sm, checked = false, onChange, radioProps, readOnly, disabled, ...rest }: RadioProps,
+    ref
+  ): JSX.Element => (
     <Styled.Radio disabled={disabled} {...rest} ref={ref}>
       <Styled.Input
         checked={checked}
@@ -21,15 +24,9 @@ const Radio = intrinsicComponent<RadioProps, HTMLSpanElement>(
   )
 );
 
-Radio.defaultProps = {
-  checked: false,
-  size: RadioSize.Sm,
-};
-
 Radio.propTypes = {
   checked: PT.bool,
   onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
   radioProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,

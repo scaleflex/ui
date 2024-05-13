@@ -6,8 +6,8 @@ import type { DrawerIconProps } from './drawer.props';
 import Styled from './drawer.styles';
 import DrawerContext from './drawer.context';
 
-const DrawerItemIcon = intrinsicComponent<DrawerIconProps, HTMLDivElement>(
-  ({ children, size: iconSize, ...rest }, ref): JSX.Element => {
+const DrawerItemIcon = intrinsicComponent<DrawerIconProps, HTMLSpanElement>(
+  ({ children, size: iconSize = 20, ...rest }, ref): JSX.Element => {
     const { isCollapsed, size } = useContext(DrawerContext);
 
     return (
@@ -17,10 +17,6 @@ const DrawerItemIcon = intrinsicComponent<DrawerIconProps, HTMLDivElement>(
     );
   }
 );
-
-DrawerItemIcon.defaultProps = {
-  size: 20,
-};
 
 DrawerItemIcon.propTypes = {
   size: PT.number,

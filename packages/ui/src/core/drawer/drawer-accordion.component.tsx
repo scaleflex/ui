@@ -6,8 +6,9 @@ import type { DrawerAccordionProps } from './drawer.props';
 import Styled from './drawer.styles';
 import DrawerContext from './drawer.context';
 
+// TODO: fix typo
 const DrawerAccrodion = intrinsicComponent<DrawerAccordionProps, HTMLDivElement>(
-  ({ children, selected, ...rest }, ref): JSX.Element => {
+  ({ children, selected = false, ...rest }, ref): JSX.Element => {
     const { isCollapsed } = useContext(DrawerContext);
 
     return isCollapsed ? (
@@ -19,11 +20,6 @@ const DrawerAccrodion = intrinsicComponent<DrawerAccordionProps, HTMLDivElement>
     );
   }
 );
-
-DrawerAccrodion.defaultProps = {
-  selected: false,
-};
-
 DrawerAccrodion.propTypes = {
   selected: PT.bool,
 };

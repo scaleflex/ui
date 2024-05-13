@@ -2,6 +2,7 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import More from '@scaleflex/icons/more';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+
 import IconButtonTable from '../../src/core/icon-button-table';
 import { ButtonSize } from '../../src/utils/types';
 
@@ -24,7 +25,6 @@ type Story = StoryObj<typeof IconButtonTable>;
 const defaultArgs = {
   size: ButtonSize.Md,
   disabled: false,
-  active: false,
   children: (props: IconProps) => <More {...props} />,
 };
 

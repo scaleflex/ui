@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import PT, { Validator } from 'prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import { iconPropTypes } from '@scaleflex/icons/icon.prop-types';
@@ -13,7 +13,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
   (
     {
       label,
-      expanded,
+      expanded = false,
       children,
       detailStyle,
       headerStyle,
@@ -22,11 +22,21 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
       onClick,
       onChange,
       onContextMenu,
-      hideIcon,
+      hideIcon = false,
       ...rest
     }: AccordionProps,
     ref
   ): JSX.Element => {
+    const handleOnClick = (event: MouseEvent<HTMLDivElement>) => {
+      if (typeof onChange === 'function') {
+        onChange(!expanded, event);
+      }
+
+      if (typeof onClick === 'function') {
+        onClick(event);
+      }
+    };
+
     return (
       <Styled.Accordion ref={ref} {...rest}>
         <AccordionHeader
@@ -34,15 +44,7 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
           expanded={expanded}
           style={{ ...headerStyle }}
           hideIcon={hideIcon}
-          onClick={(event) => {
-            if (typeof onChange === 'function') {
-              onChange(!expanded, event);
-            }
-
-            if (typeof onClick === 'function') {
-              onClick(event);
-            }
-          }}
+          onClick={handleOnClick}
           onContextMenu={onContextMenu}
           iconProps={iconPropsData}
           fullWidth={fullWidth}
@@ -55,11 +57,6 @@ const Accordion = intrinsicComponent<AccordionProps, HTMLDivElement>(
     );
   }
 );
-
-Accordion.defaultProps = {
-  expanded: false,
-  hideIcon: false,
-};
 
 Accordion.propTypes = {
   label: PT.node.isRequired,

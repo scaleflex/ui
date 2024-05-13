@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import AccordionHeader, { AccordionHeaderProps } from '../../src/core/accordion-header';
 
-const meta: Meta<typeof AccordionHeader> = {
+const meta: Meta = {
   title: 'Surfaces/Accordion/AccordionHeader',
   component: AccordionHeader,
   excludeStories: ['AccordionHeader'],
 };
 
 export default meta;
-type Story = StoryObj<typeof AccordionHeader>;
+type Story = StoryObj<AccordionHeaderProps>;
 
 const defaultArgs = {
   label: 'Folders (5)',

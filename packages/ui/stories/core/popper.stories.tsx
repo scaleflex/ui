@@ -1,21 +1,16 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Popper, { PopperProps } from '../../src/core/popper';
+import Popper, { VirtualElement } from '../../src/core/popper';
 import { Position } from '../../src/core/popper/types';
 
-const meta: Meta<typeof Popper> = {
+const meta = {
   title: 'Surfaces/Popper',
   component: Popper,
-  excludeStories: ['Popper'],
-};
+} satisfies Meta<typeof Popper>;
 
 export default meta;
-type Story = StoryObj<typeof Popper>;
-
-const defaultArgs = {
-  position: Position.Top,
-};
+type Story = StoryObj<typeof meta>;
 
 const style = {
   border: '1px solid',
@@ -24,20 +19,19 @@ const style = {
   color: 'white',
 };
 
-const BasicTemplate = ({ ...args }: PopperProps): JSX.Element => {
-  const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
+const BasicTemplate = ({ ...args }): JSX.Element => {
+  const [anchorEl, setAnchorEl] = React.useState<Element | VirtualElement | undefined>(undefined);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>): void => {
-    setAnchorEl(anchorEl ? null : event.currentTarget);
+    setAnchorEl(anchorEl ? undefined : event.currentTarget);
   };
 
   const open = Boolean(anchorEl);
-
   return (
     <div>
       <button type="button" onClick={handleClick}>
         Toggle Popper
       </button>
-      <Popper {...args} open={open} anchorEl={anchorEl}>
+      <Popper position={args.position} open={args.open || open} anchorEl={anchorEl}>
         <div style={style}>The content of the Popper.</div>
       </Popper>
     </div>
@@ -45,6 +39,9 @@ const BasicTemplate = ({ ...args }: PopperProps): JSX.Element => {
 };
 
 export const Primary: Story = {
-  args: { ...defaultArgs },
+  args: {
+    position: Position.Bottom,
+    open: false,
+  },
   render: (args) => <BasicTemplate {...args} />,
 };

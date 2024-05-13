@@ -3,18 +3,18 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { InputSize, With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
-import type { FormHintProps } from './form-hint.props';
 import { sizeHintMixin } from './form-hint.mixin';
+import { InputSizeType } from '../input/input.props';
 
 const baseClassName = 'FormHint';
 
 const FormHint = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<FormHintProps>(
-  ({ size = InputSize.Md, error = false, disabled = false, theme }: With<WithTheme, FormHintProps>) => css`
+})<With<WithTheme, { size?: InputSizeType; $error: boolean; disabled?: boolean }>>(
+  ({ size = InputSize.Md, $error = false, disabled = false, theme }) => css`
     display: flex;
     align-items: center;
-    color: ${error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
+    color: ${$error ? theme.palette[PColor.Error] : theme.palette[PColor.TextSecondary]};
 
     ${disabled &&
     css`

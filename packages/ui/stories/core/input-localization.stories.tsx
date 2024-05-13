@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import LanguagesIcon from '@scaleflex/icons/languages';
 import type { IconProps } from '@scaleflex/icons/icon.props';
+
 import InputLocalization from '../../src/core/input-localization';
 import MenuItem from '../../src/core/menu-item';
 import { InputSize } from '../../src/utils/types';
@@ -65,7 +66,7 @@ export const WithIconAndCustomLabel: Story = {
   args: {
     ...defaultArgs,
     icon: <LanguagesIcon size={12} />,
-    renderLabel: (value: string) => `Value: ${value}`,
+    renderLabel: (value) => `Value: ${value}`,
   },
   render: (args) => <BasicTemplate {...args} />,
 };

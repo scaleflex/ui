@@ -185,7 +185,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleGenerateTags = (event: any): void => {
+    const handleGenerateTags = (event: React.MouseEvent): void => {
       if (onGenerate) {
         onGenerate(event);
       }
@@ -403,7 +403,7 @@ TagField.propTypes = {
   suggestionsFilter: PT.func,
   suggestionLabel: PT.node,
   suggestionTooltipMessage: PT.string,
-  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
+  copySuccessIcon: PT.node,
   copyTextMessage: PT.string,
   onFocus: PT.func,
   onBlur: PT.func,

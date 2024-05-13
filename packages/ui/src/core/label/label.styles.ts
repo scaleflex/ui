@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { InputSize, With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import type { LabelProps } from './label.props';
-import { errorMixin } from './label.mixin';
 import { sizeInputLabelMixin } from '../input/input.mixin';
 
 const baseClassName = 'Label';
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = InputSize.Md, error = false, disabled = false, htmlFor, theme }: With<WithTheme, LabelProps>) => css`
+})<With<With<WithTheme, LabelProps>, { $error?: boolean }>>(
+  ({ size = InputSize.Md, $error = false, disabled = false, htmlFor, theme }) => css`
     display: flex;
     align-items: center;
     color: ${theme.palette[PColor.TextSecondary]};
@@ -31,7 +31,10 @@ const Label = styled.label.attrs({
 
     cursor: ${htmlFor && 'pointer'};
 
-    ${error && errorMixin};
+    ${$error &&
+    css`
+      color: ${theme.palette[PColor.Error]} !important;
+    `};
   `
 );
 
@@ -45,8 +48,8 @@ const Text = styled.span.attrs({
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette }, $end = false }: With<WithTheme, { $end: boolean }>) => css`
+})<With<WithTheme, { $end: boolean }>>(
+  ({ theme: { palette }, $end = false }) => css`
     display: flex;
     ${$end ? 'margin-left: 4px' : 'margin-right: 4px'};
     color: ${palette[PColor.IconsSecondary]};

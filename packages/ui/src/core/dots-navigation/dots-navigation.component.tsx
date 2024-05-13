@@ -18,10 +18,6 @@ const DotsNavigation = intrinsicComponent<DotsNavigationProps, HTMLDivElement>(
   )
 );
 
-DotsNavigation.defaultProps = {
-  activeItem: 0,
-};
-
 DotsNavigation.propTypes = {
   activeItem: PT.number,
   size: PT.number.isRequired,

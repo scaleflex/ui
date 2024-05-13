@@ -48,8 +48,6 @@ const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>(
   }
 );
 
-TableCell.defaultProps = {};
-
 TableCell.propTypes = {
   children: PT.node,
   component: oneOfType([PT.node, PT.string]),

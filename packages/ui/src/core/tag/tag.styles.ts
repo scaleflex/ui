@@ -47,8 +47,8 @@ const Label = styled.span.attrs({
 
 const Tag = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = Size.Md, type = Type.Default, onSelect, theme }: With<WithTheme, TagProps>) => css`
+})<With<WithTheme, TagProps>>(
+  ({ size = Size.Md, type = Type.Default, onSelect, theme }) => css`
     position: relative;
     display: inline-flex;
     justify-content: center;

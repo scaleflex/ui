@@ -13,8 +13,6 @@ const TableRow = intrinsicComponent<TableRowProps, HTMLTableRowElement>(
   )
 );
 
-TableRow.defaultProps = {};
-
 TableRow.propTypes = {
   children: PT.node,
   hover: PT.bool,

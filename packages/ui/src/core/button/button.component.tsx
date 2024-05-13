@@ -8,6 +8,7 @@ import type { IconProps } from '@scaleflex/icons/icon.props';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
+// TODO: move both types inside buttons.props file instead having them inside utils
 import { ButtonSize, ButtonColor } from '../../utils/types';
 import { ButtonType, SideBar } from './types';
 import { getIconSize, getSideBarIconSize } from './button.utils';

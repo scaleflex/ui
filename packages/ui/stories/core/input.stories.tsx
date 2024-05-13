@@ -25,7 +25,6 @@ const defaultArgs = {
   disabled: false,
   focusOnClick: true,
   copyTextMessage: 'Link copied to clipboard',
-  copySuccessIcon: <Success size={16} />,
 };
 
 const BasicTemplate = ({ ...args }) => {

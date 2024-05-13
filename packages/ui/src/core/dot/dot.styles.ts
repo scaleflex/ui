@@ -3,16 +3,14 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
-import type { DotProps } from './dot.props';
-import { activeDotMixin } from './dot.mixin';
 
 const baseClassName = 'Dot';
 const transitionDuration = 100;
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ visible = false, on = false, theme: { palette } }: With<WithTheme, { visible: boolean; on?: boolean }>) => css`
+})<With<WithTheme, { $visible: boolean; $on?: boolean }>>(
+  ({ $visible = false, $on = false, theme: { palette } }) => css`
     position: absolute;
     top: 0;
     left: 0;
@@ -20,15 +18,15 @@ const Icon = styled.span.attrs({
     align-items: center;
     justify-content: center;
     transition: opacity ${transitionDuration}ms ease-out;
-    opacity: ${visible ? 1 : 0};
-    color: ${palette[on ? PColor.AccentPrimary : PColor.BordersStrong]};
+    opacity: ${$visible ? 1 : 0};
+    color: ${palette[$on ? PColor.AccentPrimary : PColor.BordersStrong]};
   `
 );
 
 const Dot = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ active = false }: With<WithTheme, DotProps>) => css`
+})<With<WithTheme, { $active: boolean }>>(
+  ({ $active = false, theme }) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -40,7 +38,7 @@ const Dot = styled.span.attrs({
     border: 1px solid transparent;
     border-radius: 50%;
 
-    ${active && activeDotMixin}
+    ${$active && `background-color: ${theme.palette[PColor.AccentPrimary]}`};
   `
 );
 

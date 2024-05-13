@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -12,8 +13,8 @@ const baseClassName = 'Modal';
 
 const Wrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Wrapper'),
-})(
-  ({ open }: { open: boolean }) => css`
+})<{ open: boolean }>(
+  ({ open }) => css`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -26,8 +27,8 @@ const Wrapper = styled.div.attrs({
 
 const Overlay = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Overlay'),
-})(
-  ({ open }: { open: boolean }) => css`
+})<{ open: boolean }>(
+  ({ open }) => css`
     position: fixed;
     right: 0px;
     bottom: 0px;
@@ -42,8 +43,8 @@ const Overlay = styled.div.attrs({
 
 const Container = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Container'),
-})(
-  ({ theme, open = false, fullWidth = false, maxWidth = Size.Sm }: With<WithTheme, ModalProps>) => css`
+})<With<WithTheme, ModalProps>>(
+  ({ theme, open = false, fullWidth = false, maxWidth = Size.Sm }) => css`
     position: absolute;
     overflow-x: hidden;
     overflow-y: auto;

@@ -43,16 +43,13 @@ const Tab = intrinsicComponent<TabProps, HTMLDivElement>(
   )
 );
 
-Tab.defaultProps = {
-  size: Size.Md,
-};
-
 Tab.propTypes = {
   size: PT.oneOf(objectValues(Size)),
   icon: PT.node,
   label: PT.node,
   value: PT.oneOfType([PT.number, PT.string]),
   active: PT.bool,
+  notification: PT.string,
 };
 
 Tab.displayName = 'Tab';

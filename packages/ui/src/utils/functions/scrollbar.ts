@@ -1,8 +1,9 @@
-import { css, FlattenSimpleInterpolation } from 'styled-components';
+import { css } from 'styled-components';
+
 import type { WithTheme } from '../../theme/entity';
 import { Color as PaletteColor } from '../types/palette';
 
-export const scrollBar = ({ theme: { palette } }: WithTheme): FlattenSimpleInterpolation => css`
+export const scrollBar = ({ theme: { palette } }: WithTheme) => css`
   scrollbar-color: ${palette[PaletteColor.IconsMuted]} ${palette[PaletteColor.ActiveSecondary]};
   scrollbar-width: thin;
 

@@ -16,7 +16,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     {
       size = Size.Md,
       type = Type.Checkbox,
-      checked,
+      checked = false,
       onChange,
       checkBoxProps,
       readOnly,
@@ -37,11 +37,10 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     };
 
     return (
-      <Styled.CheckBox size={size} disabled={Boolean(disabled)} checked={Boolean(checked)} ref={ref} {...rest}>
+      <Styled.CheckBox $size={size} disabled={Boolean(disabled)} checked={Boolean(checked)} ref={ref} {...rest}>
         <Styled.Input
           checked={checked}
           disabled={disabled}
-          size={size}
           onChange={readOnly || disabled ? undefined : onChange}
           {...checkBoxProps}
         />
@@ -56,11 +55,6 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     );
   }
 );
-
-CheckBox.defaultProps = {
-  checked: false,
-  size: Size.Md,
-};
 
 CheckBox.propTypes = {
   checked: PT.bool,

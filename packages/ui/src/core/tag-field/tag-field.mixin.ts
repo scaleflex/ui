@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
-import { With } from '@scaleflex/ui/utils/types';
 
+import { With } from '../../utils/types';
 import { Color } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
 import type { WithTheme } from '../../theme/entity';

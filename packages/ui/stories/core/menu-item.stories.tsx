@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Country, Download } from '@scaleflex/icons';
+
 import MenuItem, { MenuItemIcon, MenuItemLabel, MenuItemActions, MenuItemProps } from '../../src/core/menu-item';
 import { Size } from '../../src/core/menu-item/types';
 

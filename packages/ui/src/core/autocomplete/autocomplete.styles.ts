@@ -62,10 +62,12 @@ const InputIconEndContainer = styled.div.attrs({
 
 const Menu = styled(SfxMenu).attrs({
   className: generateClassNames(baseClassName, 'menu'),
-})`
-  max-height: ${({ maxMenuHeight }: { maxMenuHeight: string | number }) => (+maxMenuHeight ? `${+maxMenuHeight}px` : maxMenuHeight)};
-  background: #ffffff;
-`;
+})<{ maxMenuHeight: string | number }>(
+  ({ maxMenuHeight }) => css`
+    max-height: ${+maxMenuHeight ? `${+maxMenuHeight}px` : maxMenuHeight};
+    background: #ffffff;
+  `
+);
 
 const OptionGroup = styled.div.attrs({
   className: generateClassNames(baseClassName, 'optionGroup'),

@@ -8,12 +8,20 @@ import { SwitcherSize } from './switcher-size';
 
 const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
   (
-    { size, checked, onChange, SwitcherPropsData, switcherProps, readOnly, disabled, ...rest }: SwitcherProps,
+    {
+      size = SwitcherSize.Sm,
+      checked = false,
+      onChange,
+      SwitcherPropsData,
+      switcherProps,
+      readOnly,
+      disabled,
+      ...rest
+    }: SwitcherProps,
     ref
   ): JSX.Element => (
-    <Styled.SwitcherWrapper disabled={disabled} {...SwitcherPropsData} {...rest}>
+    <Styled.SwitcherWrapper disabled={disabled} ref={ref} {...SwitcherPropsData} {...rest}>
       <Styled.Input
-        ref={ref}
         checked={checked}
         onChange={readOnly || disabled ? undefined : onChange}
         readOnly={readOnly}
@@ -25,11 +33,6 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
     </Styled.SwitcherWrapper>
   )
 );
-
-Switcher.defaultProps = {
-  checked: false,
-  size: SwitcherSize.Sm,
-};
 
 Switcher.propTypes = {
   checked: PT.bool,

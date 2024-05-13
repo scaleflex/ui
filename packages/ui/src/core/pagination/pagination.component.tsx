@@ -58,8 +58,6 @@ const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>((props: P
   );
 });
 
-Pagination.defaultProps = {};
-
 export const propTypes = {
   boundaryCount: PT.number,
   count: PT.number,

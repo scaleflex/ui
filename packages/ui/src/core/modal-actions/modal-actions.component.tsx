@@ -7,16 +7,12 @@ import Styled from './modal-actions.styles';
 import { Align } from './types';
 
 const ModalActions = intrinsicComponent<ModalActionsProps, HTMLDivElement>(
-  ({ children, ...rest }, ref): JSX.Element => (
-    <Styled.ModalActions {...rest} ref={ref}>
+  ({ children, align = Align.Center, ...rest }, ref): JSX.Element => (
+    <Styled.ModalActions {...rest} align={align} ref={ref}>
       {children}
     </Styled.ModalActions>
   )
 );
-
-ModalActions.defaultProps = {
-  align: Align.Center,
-};
 
 ModalActions.propTypes = {
   children: PT.node.isRequired,

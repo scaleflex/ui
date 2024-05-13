@@ -27,7 +27,7 @@ const RatingItemReadOnly = ({ active }: RatingItemReadOnlyProps): JSX.Element =>
 );
 
 const Rating = intrinsicComponent<RatingProps, HTMLInputElement>(
-  ({ value, readOnly, name, onChange, ...rest }: RatingProps, ref): JSX.Element => {
+  ({ value = 0, readOnly = false, name, onChange, ...rest }: RatingProps, ref): JSX.Element => {
     const valueRounded = Math.min(value || 0, 5);
 
     return (
@@ -51,11 +51,6 @@ const Rating = intrinsicComponent<RatingProps, HTMLInputElement>(
     );
   }
 );
-
-Rating.defaultProps = {
-  value: 0,
-  readOnly: false,
-};
 
 Rating.propTypes = {
   value: PT.number.isRequired,

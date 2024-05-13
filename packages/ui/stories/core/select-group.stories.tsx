@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import QuestionMarkOutline from '@scaleflex/icons/question-mark-outline';
-import { SelectProps } from '@scaleflex/ui/core/select';
 import CountryIcon from '@scaleflex/icons/country';
 import { InputSize } from '@scaleflex/ui/utils/types';
 

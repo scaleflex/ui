@@ -11,10 +11,10 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
   (
     {
       children,
-      type,
+      type = Type.Default,
       crossIcon = true,
       startIcon,
-      size,
+      size = Size.Md,
       tagIndex,
       onRemove,
       contentEditable,
@@ -62,12 +62,6 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
     </Styled.Tag>
   )
 );
-
-Tag.defaultProps = {
-  size: Size.Md,
-  type: Type.Default,
-  crossIcon: false,
-};
 
 Tag.propTypes = {
   size: PT.oneOf(objectValues(Size)),

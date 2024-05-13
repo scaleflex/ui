@@ -15,7 +15,7 @@ const TableStory = (): JSX.Element => {
   const [page, setPage] = React.useState(1);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
-  const handleChangePage = (event: any, newPage: any): void => {
+  const handleChangePage = (_: any, newPage: any): void => {
     setPage(newPage);
   };
 

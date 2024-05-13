@@ -40,7 +40,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     const matchDownXl = useMediaQuery(theme.breakpoints.down('xl'));
     const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
-    const temproryDrawerRef = useRef<HTMLDivElement>(null);
+    const temporaryDrawerRef = useRef<HTMLDivElement>(null);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
@@ -57,10 +57,10 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     }, [isCollapsed]);
 
     const handleCollapse = (): void => {
-      const newCollpaseState = !isCollapsed;
-      setIsCollapsed(newCollpaseState);
+      const newCollapseState = !isCollapsed;
+      setIsCollapsed(newCollapseState);
       if (onCollapseClick) {
-        onCollapseClick(newCollpaseState);
+        onCollapseClick(newCollapseState);
       }
     };
 
@@ -72,8 +72,8 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const keyListener = (ev: KeyboardEvent): void => {
       let isTemporaryDrawer = false;
-      if (temproryDrawerRef?.current) {
-        isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+      if (temporaryDrawerRef?.current) {
+        isTemporaryDrawer = temporaryDrawerRef?.current?.offsetWidth > 0;
       }
 
       if (ev.key === 'Escape' && isTemporaryDrawer) {
@@ -107,13 +107,13 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const temporaryDrawer = (): JSX.Element =>
       disablePortal ? (
-        <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+        <Styled.TemporaryDrawer ref={temporaryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
         </Styled.TemporaryDrawer>
       ) : (
         createPortal(
-          <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+          <Styled.TemporaryDrawer ref={temporaryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
             {renderBackdrop()}
             {renderDrawer(false)}
           </Styled.TemporaryDrawer>,

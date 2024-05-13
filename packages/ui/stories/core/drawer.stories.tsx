@@ -27,7 +27,7 @@ import Drawer, {
   DrawerBody,
   DrawerAccordion,
 } from '../../src/core/drawer';
-import Divder from '../../src/core/divider';
+import Divider from '../../src/core/divider';
 import IconButton from '../../src/core/icon-button';
 import { FontVariant } from '../../src/utils/types/typography';
 import { Color } from '../../src/utils/types/palette';
@@ -65,47 +65,47 @@ const StyledHeader = styled.div(
 
 const libraryItems = [
   {
-    // title: 'Hub',
+    title: 'Hub',
     icon: (props: IconProps) => <Hub {...props} />,
   },
   {
-    // title: 'Assets',
+    title: 'Assets',
     icon: (props: IconProps) => <Assets {...props} />,
   },
   {
-    // title: 'Folders',
+    title: 'Folders',
     icon: (props: IconProps) => <Folders {...props} />,
     selected: true,
   },
   {
-    // title: 'Collections',
+    title: 'Collections',
     icon: (props: IconProps) => <Collections {...props} />,
   },
   {
-    // title: 'Labels',
+    title: 'Labels',
     icon: (props: IconProps) => <Label {...props} />,
   },
   {
-    // title: 'Products',
+    title: 'Products',
     icon: (props: IconProps) => <Products {...props} />,
   },
   {
-    // title: 'My favorites ',
+    title: 'My favorites ',
     icon: (props: IconProps) => <Heart {...props} />,
   },
 ];
 
 const analyticsItems = [
   {
-    // title: 'Sharebox',
+    title: 'Sharebox',
     icon: (props: IconProps) => <Share {...props} />,
   },
   {
-    // title: 'Airbox',
+    title: 'Airbox',
     icon: (props: IconProps) => <Airbox {...props} />,
   },
   {
-    // title: 'Trash',
+    title: 'Trash',
     icon: (props: IconProps) => <Remove {...props} />,
   },
 ];
@@ -175,7 +175,7 @@ const BasicTemplate = ({ ...args }): JSX.Element => {
                 </DrawerItemButton>
               ))}
             </DrawerAccordion>
-            {isCollapsed && <Divder style={{ margin: '8px 0px' }} />}
+            {isCollapsed && <Divider style={{ margin: '8px 0px' }} />}
             <DrawerAccordion
               label="Analytics"
               fullWidth

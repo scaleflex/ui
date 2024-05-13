@@ -19,11 +19,6 @@ const Table = intrinsicComponent<TableProps, HTMLTableElement>(
   }
 );
 
-Table.defaultProps = {
-  padding: 'default',
-  size: 'medium',
-};
-
 Table.propTypes = {
   children: PT.node,
   padding: PT.oneOf(['options', 'default', 'none']),

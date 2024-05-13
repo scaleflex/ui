@@ -19,8 +19,3 @@ export const Primary: Story = {
   args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
 };
-
-export const Multiple: Story = {
-  args: { ...defaultArgs, multiple: true },
-  render: (args) => <BasicTemplate {...args} />,
-};

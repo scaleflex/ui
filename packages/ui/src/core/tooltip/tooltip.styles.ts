@@ -5,7 +5,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape/border-radius-size';
 import StyledArrowTick from '../arrow-tick/arrow-tick.styles';
-import type { TooltipProps } from './tooltip.props';
+import type { TooltipProps, TooltipSizeType } from './tooltip.props';
 import { fontTooltipMixin, sizeTooltipMixin } from './tooltip.mixin';
 import { Size } from './types';
 
@@ -13,8 +13,8 @@ const baseClassName = 'Tooltip';
 
 const TooltipContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'container'),
-})(
-  ({ open, size = Size.Sm, theme }: With<With<WithTheme, Partial<TooltipProps>>, { open: boolean }>) => css`
+})<With<With<WithTheme, Partial<TooltipProps>>, { open: boolean }>>(
+  ({ open, size = Size.Sm, theme }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,8 +38,8 @@ const TooltipContainer = styled.div.attrs({
 
 const Tooltip = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ warning, size = Size.Sm, theme }: With<WithTheme, Partial<TooltipProps>>) => css`
+})<With<WithTheme, { warning?: boolean; size?: TooltipSizeType }>>(
+  ({ warning, size = Size.Sm, theme }) => css`
     display: inline-flex;
     align-items: center;
     min-width: 54px;

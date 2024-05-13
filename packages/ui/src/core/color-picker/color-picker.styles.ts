@@ -9,14 +9,6 @@ const baseClassName = 'ColorPicker';
 
 const colorItemClassName = 'ColorItem';
 
-// const ColorPicker = styled.div.attrs({
-//   className: generateClassNames(baseClassName, 'root'),
-// })`
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// `;
-
 const ColorPickerWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
@@ -38,8 +30,8 @@ const ColorPickerIcon = styled.div.attrs({
 
 const RangePickerWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'range-picker'),
-})(
-  ({ color }: { color: string }) => css`
+})<{ color: string }>(
+  ({ color }) => css`
     position: relative;
     border-radius: 2px;
     width: 100%;
@@ -86,11 +78,11 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
       ...style,
     },
   })
-)(
+)<With<WithTheme, { pointerColor: string; left: number; top?: number; considerTopWidth: boolean }>>(
   ({
     theme,
     pointerColor,
-  }: With<WithTheme, { pointerColor: string; left: number; top?: number; considerTopWidth: boolean }>) => css`
+  }) => css`
     display: inline-block;
     box-sizing: border-box;
     width: 15px;
@@ -158,14 +150,14 @@ const ColorPickerAction = styled.div.attrs({
 
 const ColorItemWrapper = styled.label.attrs({
   className: generateClassNames(colorItemClassName, 'label'),
-})(
+})<With<WithTheme, { size: number; color: string; stroke: string; value: string }>>(
   ({
     theme,
     size,
     color,
     stroke,
     value,
-  }: With<WithTheme, { size: number; color: string; stroke: string; value: string }>) => css`
+  }) => css`
     border-radius: 2px;
     border: ${`1px solid ${stroke}`};
     box-sizing: border-box;
@@ -202,8 +194,8 @@ const ColorItemsContainer = styled.div`
 
 const Select = styled.div.attrs({
   className: generateClassNames(baseClassName, 'select'),
-})(
-  ({ value }: { value: SelectSimpleValueType | SelectSimpleValueType[] }) => css`
+})<{ value: SelectSimpleValueType | SelectSimpleValueType[] }>(
+  ({ value }) => css`
     width: ${value === 'rgb' ? '25%' : '35%'};
   `
 );

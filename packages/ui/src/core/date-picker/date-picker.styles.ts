@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { FontVariant } from '@scaleflex/ui/utils/types/typography';
+import { FontVariant } from '../../utils/types/typography';
 
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -12,17 +12,15 @@ const baseClassName = 'Date-picker';
 
 const DatePicker = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ fullWidth }: With<WithTheme, InputProps>) => css`
-    position: relative;
-    width: ${fullWidth ? '100%' : '300px'};
-  `
-);
+})`
+  position: relative;
+  width: '300px';
+`;
 
 const Placeholder = styled.div.attrs({
   className: generateClassNames(baseClassName, 'placeholder'),
-})(
-  ({ fullWidth, theme, readOnly, disabled, size }: With<WithTheme, InputProps>) => css`
+})<With<WithTheme, InputProps>>(
+  ({ fullWidth, theme, readOnly, disabled, size }) => css`
     position: absolute;
     top: ${size === 'sm' ? '24px' : '32px'};
     left: ${size === 'sm' ? '13px' : '18px'};
@@ -39,8 +37,8 @@ const Placeholder = styled.div.attrs({
 
 const DatePickerInput = styled(InputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
-})<InputProps>(
-  ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
+})<With<WithTheme, { $isHovering: boolean }>>(
+  ({ $isHovering = false, theme }) => css`
     input[type='date']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
@@ -55,7 +53,7 @@ const DatePickerInput = styled(InputGroup).attrs({
       display: block;
     }
 
-    ${isHovering &&
+    ${$isHovering &&
     css`
       border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
     `}

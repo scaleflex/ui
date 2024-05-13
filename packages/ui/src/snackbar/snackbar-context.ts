@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Vertical, Horizontal } from '@scaleflex/ui/core/popup/types';
+import { Vertical, Horizontal } from '../core/popup/types';
 // import { MessageVariant } from './types';
 import type { SnackbarContextProps } from './snackbar-context.props';
 

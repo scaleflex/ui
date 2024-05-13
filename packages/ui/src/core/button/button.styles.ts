@@ -41,16 +41,16 @@ const Wrapper = styled.span.attrs({
   `
 );
 
-const Button = styled.button.attrs({
+const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
   className: generateClassNames(baseClassName, 'root'),
-})(
+})<With<WithTheme, ButtonProps>>(
   ({
     color = ButtonColor.Secondary,
     size = ButtonSize.Md,
     buttonType,
     active,
     theme,
-  }: With<WithTheme, ButtonProps>) => css`
+  }) => css`
     display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;
@@ -116,8 +116,8 @@ const Button = styled.button.attrs({
 
 const StartIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'StartIcon'),
-})(
-  ({ $loading, size = ButtonSize.Md }: ButtonProps) => css`
+})<ButtonProps>(
+  ({ $loading, size = ButtonSize.Md }) => css`
     display: flex;
 
     svg {
@@ -130,8 +130,8 @@ const StartIcon = styled.span.attrs({
 
 const SideArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'SideBar'),
-})(
-  ({ sideBarType }: ButtonProps) => css`
+})<ButtonProps>(
+  ({ sideBarType }) => css`
     display: flex;
     ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
   `
@@ -139,14 +139,15 @@ const SideArrows = styled.span.attrs({
 
 const Divider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Divider'),
-})(
-  ({ sideBarType, size = ButtonSize.Md }: ButtonProps) => css`
+})<ButtonProps>(
+  ({ sideBarType, size = ButtonSize.Md }) => css`
     border-left-style: solid;
     border-width: 1px;
     ${sizeSidebarDividerMixin[size]}
     ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
   `
 );
+
 const EndIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'EndIcon'),
 })`

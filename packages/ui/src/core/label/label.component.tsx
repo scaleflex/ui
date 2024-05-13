@@ -1,5 +1,6 @@
 import React, { ReactNode, useState, useRef } from 'react';
 import PT from 'prop-types';
+import { IconProps } from '@scaleflex/icons/icon.props';
 
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { InputSize } from '../../utils/types';
@@ -11,7 +12,7 @@ const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
   ({ children, iconStart, iconEnd, error, disabled, size, type, ...rest }: LabelProps, ref): JSX.Element => {
     const textRef = useRef<HTMLSpanElement | null>(null);
     const [isEllipsisActive, setIsEllipsisActive] = useState(false);
-    const renderIcon = (icon: ReactNode, end: boolean): ReactNode => (
+    const renderIcon = (icon: React.ReactNode | ((props: IconProps) => React.ReactNode), end: boolean): ReactNode => (
       <Styled.Icon $end={end}>
         {typeof icon === 'function' ? icon({ size: size === 'md' ? 14 : 12 }) : icon}
       </Styled.Icon>
@@ -30,7 +31,7 @@ const Label = intrinsicComponent<LabelProps, HTMLLabelElement>(
     };
 
     return (
-      <Styled.Label ref={ref} error={error} disabled={disabled} size={size} type={type} {...rest}>
+      <Styled.Label ref={ref} $error={error} disabled={disabled} size={size} type={type} {...rest}>
         {iconStart && renderIcon(iconStart, false)}
         <Styled.Text title={getTextTooltip()} onMouseOver={handleTextTooltip} ref={textRef}>
           {children}

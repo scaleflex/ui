@@ -23,9 +23,9 @@ const defaultArgs = {
 };
 
 const BasicTemplate = ({ ...args }: RotationSliderProps): JSX.Element => {
-  const [value, setValue] = useState<number | number[] | undefined>(args.value);
+  const [value, setValue] = useState<number | undefined>(args.value);
 
-  const handleChange = (event: any, newValue: number | number[]): void => {
+  const handleChange = (_: any, newValue: number): void => {
     setValue(newValue);
   };
   return <RotationSlider {...args} onChange={handleChange} value={value} style={{ marginTop: '50px' }} />;

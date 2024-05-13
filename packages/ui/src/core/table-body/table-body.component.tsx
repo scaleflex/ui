@@ -20,8 +20,6 @@ const TableHead = intrinsicComponent<TableBodyProps, HTMLTableSectionElement>(
   )
 );
 
-TableHead.defaultProps = {};
-
 TableHead.propTypes = {
   children: PT.node,
 };

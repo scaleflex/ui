@@ -1,20 +1,17 @@
 import React from 'react';
 import PT from 'prop-types';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { intrinsicComponent, objectValues } from '../../utils/functions';
 import PopupStatus from '../popup-status';
 import CrossButton from '../cross-button/cross-button.component';
-import {
-  defaultProps as popupStatusDefaultProps,
-  propTypes as popupStatusPropTypes,
-} from '../popup-status/popup-status.component';
 import type { PopupContentProps } from './popup-content.props';
 import Styled from './popup-content.styles';
+import { Status } from '../popup-status/types';
 
 const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
-  ({ onClose, message, status, ...rest }, ref): JSX.Element => (
+  ({ onClose, message, status = Status.Success, popupStatusProps, ...rest }: PopupContentProps, ref): JSX.Element => (
     <Styled.PopupContent {...rest} ref={ref}>
-      <Styled.PopupStatus status={status} message={message} {...rest}>
+      <Styled.PopupStatus status={status} message={message} {...popupStatusProps}>
         <PopupStatus status={status} />
       </Styled.PopupStatus>
 
@@ -29,16 +26,11 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
   )
 );
 
-export const defaultProps = {
-  ...popupStatusDefaultProps,
-};
-
-PopupContent.defaultProps = defaultProps;
-
 export const propTypes = {
-  ...popupStatusPropTypes,
   message: PT.node.isRequired,
   onClose: PT.func,
+  popupStatusProps: PT.object,
+  status: PT.oneOf(objectValues(Status)),
 };
 
 PopupContent.propTypes = propTypes;

@@ -13,7 +13,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
     {
       children,
       arrow = true,
-      warning,
+      warning = false,
       enableHover = true,
       enterDelay = 0,
       leaveDelay = 0,
@@ -21,14 +21,14 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       offsetY = 10,
       title,
       position = Position.Top,
-      info,
-      size,
+      info = false,
+      size = Size.Sm,
       ...rest
     }: TooltipV2Props,
     ref
   ): JSX.Element => {
     const renderTooltipContent = (): JSX.Element => (
-      <Styled.TooltipText info={info} warning={warning}>
+      <Styled.TooltipText $info={info} $warning={warning}>
         {title}
       </Styled.TooltipText>
     );
@@ -37,14 +37,12 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       <Styled.TooltipV2
         ref={ref}
         placement={position}
-        // TODO: Figure out what's the reason of TS error during build
-        /* @ts-ignore */
         content={renderTooltipContent()}
         interactive={enableHover}
         arrow={arrow}
         delay={[enterDelay, leaveDelay]}
-        $info={info || false}
-        $warning={warning || false}
+        $info={info}
+        $warning={warning}
         $size={size || Size.Sm}
         animation="scale"
         offset={[offsetX, offsetY]}
@@ -57,23 +55,10 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
   }
 );
 
-TooltipV2.defaultProps = {
-  position: Position.Top,
-  size: Size.Sm,
-  arrow: true,
-  enableHover: true,
-  warning: false,
-  info: false,
-  enterDelay: 0,
-  leaveDelay: 0,
-  offsetX: 0,
-  offsetY: 10,
-};
-
 TooltipV2.propTypes = {
-  title: PT.node,
+  title: PT.node.isRequired,
   size: PT.oneOf(objectValues(Size)),
-  children: PT.element,
+  children: PT.element.isRequired,
   arrow: PT.bool,
   warning: PT.bool,
   info: PT.bool,
