@@ -12,6 +12,8 @@ export default {
 } as Meta;
 
 const defaultArgs = {
+  label: 'Label',
+  hint: 'Some hint goes here',
   readOnly: false,
   position: 'bottom-start',
 };

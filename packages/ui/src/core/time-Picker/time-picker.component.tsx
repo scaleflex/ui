@@ -115,7 +115,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
           hideCopyIcon
           inputProps={{
             iconEnd: () => (
-              <Styled.TimePickerIconButton size={size === 'sm' ? 'sm' : 'md'} color="basic">
+              <Styled.TimePickerIconButton size={size} color="basic">
                 <Clock size={size === 'md' ? 16 : 14} />
               </Styled.TimePickerIconButton>
             ),
