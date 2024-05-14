@@ -9,21 +9,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - overriding typography ([91c0d87](https://github.com/scaleflex/ui/commit/91c0d87f679abf532309cf4dd36c2869cd02c575))
 - selecting min while no hour selected ([af6016e](https://github.com/scaleflex/ui/commit/af6016e4214f8b959e9111f2373a8235d3cb2f53))
-- **TagFiled:** change font weight for action buttons ([04f2b94](https://github.com/scaleflex/ui/commit/04f2b94a6c820f3521f94f550f72bf72f7e9a9e8))
-- **TimePicker** add new TimePicker component ([4110da3](https://github.com/scaleflex/ui/commit/4110da3a342083e20acd0bd8c9f832e9c9f7a43f))
+- **TagField:** change font weight for action buttons ([04f2b94](https://github.com/scaleflex/ui/commit/04f2b94a6c820f3521f94f550f72bf72f7e9a9e8))
 
 ### Features
 
-- change input type time desgin [SHA-9] ([79c10ce](https://github.com/scaleflex/ui/commit/79c10cefb7b66a1ac993340a456fe47f7ce0cd4a))
-- change input type time desgin [SHA-9] ([9943fc7](https://github.com/scaleflex/ui/commit/9943fc7b48061bcc44071e032a77f14655554ffc))
-- change input type time desgin [SHA-9] ([295dbce](https://github.com/scaleflex/ui/commit/295dbce7f40a3272ae401816b02b8fd6c8f4d5f1))
-- change input type time desgin [SHA-9] ([2e4b3b7](https://github.com/scaleflex/ui/commit/2e4b3b78918e0ac3e7ae00861769059a12e28b5b))
-- change input type time desgin [SHA-9] ([ae05356](https://github.com/scaleflex/ui/commit/ae0535671f79a7fc2a65b8172afb8710e39960fb))
-- change input type time desgin [SHA-9] ([2a00b79](https://github.com/scaleflex/ui/commit/2a00b7960bdd3833299e454b20fd032db89b50a5))
-- change input type time desgin [SHA-9] ([96ce916](https://github.com/scaleflex/ui/commit/96ce9169812ce149dbf12e03e32e76da3ac4fca1))
-- change input type time desgin [SHA-9] ([0fc7825](https://github.com/scaleflex/ui/commit/0fc7825968e086bb7a2f74e30ac7a2626769e4c0))
-- change input type time desgin [SHA-9] ([122aa37](https://github.com/scaleflex/ui/commit/122aa379ee8f4ee804e15c0c7cb60fad08336be7))
-- change input type time desgin [SHA-9] ([130e213](https://github.com/scaleflex/ui/commit/130e2132c236b2a1d2d5e9361a858bf2cfd8b58c))
+- **TimePicker** add new TimePicker component ([4110da3](https://github.com/scaleflex/ui/commit/4110da3a342083e20acd0bd8c9f832e9c9f7a43f))
 
 ## [2.6.3](https://github.com/scaleflex/ui/compare/v2.6.2...v2.6.3) (2024-05-08)
 
