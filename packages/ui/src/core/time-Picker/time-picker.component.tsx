@@ -67,7 +67,8 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     const handleMinuteChange = (minute: number, event: any): void => {
       const formattedMinute = getFormattedMinute(minute);
       const [hourString] = time.split(':');
-      const updatedTime = `${hourString}:${formattedMinute}`;
+      const updatedHour = hourString || selectedHour;
+      const updatedTime = `${updatedHour}:${formattedMinute}`;
 
       setSelectedMinute(formattedMinute);
       setTime(updatedTime);
