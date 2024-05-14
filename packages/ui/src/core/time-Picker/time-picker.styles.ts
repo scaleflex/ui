@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import IconButton from '../icon-button/icon-button.component';
 
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -160,6 +161,17 @@ const TimePickerPeriod = styled.div.attrs({
   `
 );
 
+const TimePickerIconButton = styled(IconButton).attrs({
+  className: generateClassNames(baseClassName, 'dropdown'),
+})(
+  () => css`
+    border: none;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+  `
+);
+
 const Styled = applyDisplayNames({
   TimePicker,
   TimePickerInput,
@@ -169,6 +181,7 @@ const Styled = applyDisplayNames({
   TimePickerHour,
   TimePickerMinute,
   TimePickerPeriod,
+  TimePickerIconButton,
 });
 
 export default Styled;

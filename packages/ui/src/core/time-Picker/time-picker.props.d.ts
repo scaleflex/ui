@@ -6,14 +6,12 @@ import { Position } from '../popper/types';
 
 export type PopperPositionType = Values<typeof Position>;
 
-export interface TimePickerProps extends InputGroupProps {
-  hint?: string;
-  label?: string;
+export interface TimePickerProps extends Omit<InputGroupProps, 'onChange'> {
   position?: PopperPositionType;
   popperOptions?: PopperOptions;
-  readOnly?: boolean;
   fullWidth?: boolean;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
   selected?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>, value: string) => void;
 }

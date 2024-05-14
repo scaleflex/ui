@@ -24,12 +24,14 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       inputGroupProps,
       hint,
       label,
+      onChange,
+      ...rest
     }: TimePickerProps,
     ref
   ): JSX.Element => {
     const [open, setOpen] = useState(false);
     const [time, setTime] = useState('');
-    const [selectedHour, setSelectedHour] = useState('00');
+    const [selectedHour, setSelectedHour] = useState('01');
     const [selectedMinute, setSelectedMinute] = useState('00');
     const [selectedPeriod, setSelectedPeriod] = useState('AM');
 
@@ -39,7 +41,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       setOpen(!open);
     };
 
-    const handleHourChange = (hour: number): void => {
+    const handleHourChange = (hour: number, event: any): void => {
       const formatedHour = hour < 10 ? `0${hour}` : `${hour}`;
       const [hourString] = time.split(':');
       let hourValue = formatedHour;
@@ -50,21 +52,33 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
 
       setSelectedHour(formatedHour);
       setTime(`${hourValue}:${selectedMinute}`);
+
+      if (typeof onChange === 'function') {
+        onChange(event, `${hourValue}:${selectedMinute}`);
+      }
     };
 
-    const handleMinuteChange = (minute: number): void => {
+    const handleMinuteChange = (minute: number, event: any): void => {
       const formatedMinute = minute < 10 ? `0${minute}` : `${minute}`;
       const [hourString] = time.split(':');
 
       setSelectedMinute(formatedMinute);
       setTime(`${hourString}:${formatedMinute}`);
+
+      if (typeof onChange === 'function') {
+        onChange(event, `${hourString}:${formatedMinute}`);
+      }
     };
 
-    const handlePeriodChange = (period: string): void => {
+    const handlePeriodChange = (period: string, event: any): void => {
       const hour = period === 'PM' ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
 
       setTime(`${hour}:${selectedMinute}`);
       setSelectedPeriod(period);
+
+      if (typeof onChange === 'function') {
+        onChange(event, `${hour}:${selectedMinute}`);
+      }
     };
 
     const handleTimeChange = (event: any) => {
@@ -82,6 +96,10 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
         setSelectedPeriod('AM');
         setSelectedHour(hourString);
       }
+
+      if (typeof onChange === 'function') {
+        onChange(event, time);
+      }
     };
 
     return (
@@ -96,12 +114,18 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
           readOnly={readOnly}
           hideCopyIcon
           inputProps={{
-            iconEnd: () => <Clock size={size === 'md' ? 16 : 14} onClick={toggleDropdown} />,
+            iconEnd: () => (
+              <Styled.TimePickerIconButton size={size === 'sm' ? 'sm' : 'md'} color="basic">
+                <Clock size={size === 'md' ? 16 : 14} />
+              </Styled.TimePickerIconButton>
+            ),
+            iconClickEnd: toggleDropdown,
             type: 'time',
             ...(InputPropsData || {}),
           }}
           {...inputGroupProps}
           ref={ref}
+          {...rest}
         />
         <Popper
           anchorEl={timePickerRef.current}
@@ -119,7 +143,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                     <Styled.TimePickerHour
                       selected={selectedHour === (hour < 10 ? `0${hour + 1}` : `${hour + 1}`)}
                       key={hour}
-                      onClick={() => handleHourChange(hour + 1)}
+                      onClick={(event) => handleHourChange(hour + 1, event)}
                     >
                       {hour + 1}
                     </Styled.TimePickerHour>
@@ -130,7 +154,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                     <Styled.TimePickerMinute
                       selected={selectedMinute === (minute < 10 ? `0${minute}` : `${minute}`)}
                       key={minute}
-                      onClick={() => handleMinuteChange(minute)}
+                      onClick={(event) => handleMinuteChange(minute, event)}
                     >
                       {minute < 10 ? `0${minute}` : minute}
                     </Styled.TimePickerMinute>
@@ -138,10 +162,16 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                 </Styled.TimePickerDropdownColumn>
               </Styled.TimePickerDropdown>
               <Styled.TimePickerDropdownColumn>
-                <Styled.TimePickerPeriod selected={selectedPeriod === 'AM'} onClick={() => handlePeriodChange('AM')}>
+                <Styled.TimePickerPeriod
+                  selected={selectedPeriod === 'AM'}
+                  onClick={(event) => handlePeriodChange('AM', event)}
+                >
                   AM
                 </Styled.TimePickerPeriod>
-                <Styled.TimePickerPeriod selected={selectedPeriod === 'PM'} onClick={() => handlePeriodChange('PM')}>
+                <Styled.TimePickerPeriod
+                  selected={selectedPeriod === 'PM'}
+                  onClick={(event) => handlePeriodChange('PM', event)}
+                >
                   PM
                 </Styled.TimePickerPeriod>
               </Styled.TimePickerDropdownColumn>
@@ -166,6 +196,7 @@ export const propTypes = {
   popperOptions: popperPropTypes.popperOptions,
   InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
   fullWidth: PT.bool,
+  onChange: PT.func,
 };
 
 TimePicker.propTypes = propTypes;

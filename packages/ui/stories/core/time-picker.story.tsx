@@ -16,9 +16,7 @@ const defaultArgs = {
   position: 'bottom-start',
 };
 
-const BasicTemplate: Story<TimePickerProps> = ({ ...args }) => {
-  return <TimePicker {...args} />;
-};
+const BasicTemplate: Story<TimePickerProps> = ({ ...args }) => <TimePicker {...args} />;
 
 // Basic
 export const Basic = BasicTemplate.bind({});

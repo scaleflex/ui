@@ -97,7 +97,11 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           clearIconClick={handleClearIconClick}
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
-            iconEnd: () => <CalendarIcon size={size === 'md' ? 16 : 14} />,
+            iconEnd: () => (
+              <Styled.DatePickerIconButton size={size === 'sm' ? 'sm' : 'md'} color="basic">
+                <CalendarIcon size={size === 'md' ? 16 : 14} />
+              </Styled.DatePickerIconButton>
+            ),
             iconClickEnd: handleCalendarIcon,
             type: 'date',
             max: '9999-12-31',
