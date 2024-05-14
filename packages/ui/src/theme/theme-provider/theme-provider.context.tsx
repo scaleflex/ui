@@ -16,7 +16,7 @@ import { Theme, ThemeOverride } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 import { defaultShadows } from '../roots/shadows';
-import { defaultTypography } from '../roots/typography';
+import { getDefaultTypography } from '../roots/typography';
 
 import type { ThemeProviderProps } from './theme-provider.props';
 import createBreakpoints from '../roots/breakpoints/entity/create-breakpoints';
@@ -53,16 +53,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     return {
       palette,
       breakpoints,
-      typography: {
-        ...merge(
-          {
-            ...defaultTypography,
-          },
-          {
-            ...typographyOverride,
-          }
-        ),
-      },
+      typography: getDefaultTypography(typographyOverride),
       shape: {
         ...merge(
           {
@@ -91,7 +82,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
   );
 };
 
-const { baseLineHeight, font, ...typography } = defaultTypography;
+const { baseLineHeight, font, ...typography } = getDefaultTypography();
 
 ThemeProvider.propTypes = {
   children: PT.oneOfType([PT.node, PT.func, PT.arrayOf(PT.node)]).isRequired,
