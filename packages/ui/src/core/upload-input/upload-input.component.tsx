@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Button from '../button';
 import type { UploadInputProps } from './upload-input.props';
 import StyledInput from '../input/input.styles';
 import Styled from './upload-input.styles';
-import { ButtonColor } from '../../utils/types';
 
 const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
   (
@@ -19,7 +17,7 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
       placeholder = 'No file chosen',
       onChange,
       ...rest
-    },
+    }: UploadInputProps,
     ref
   ): JSX.Element => {
     const [valueState, setValueState] = useState('');
@@ -68,11 +66,5 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
     );
   }
 );
-
-UploadInput.propTypes = {
-  buttonLabel: PT.string,
-  placeholder: PT.string,
-  buttonColor: PT.oneOf(objectValues(ButtonColor)),
-};
 
 export default UploadInput;

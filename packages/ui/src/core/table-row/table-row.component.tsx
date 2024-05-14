@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableRowProps } from './table-row.props';
@@ -12,11 +11,5 @@ const TableRow = intrinsicComponent<TableRowProps, HTMLTableRowElement>(
     </Styled.TableRow>
   )
 );
-
-TableRow.propTypes = {
-  children: PT.node,
-  hover: PT.bool,
-  selected: PT.bool,
-};
 
 export default TableRow;

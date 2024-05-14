@@ -9,7 +9,6 @@ import { InputSize } from '../../utils/types';
 import CrossButton from '../cross-button/cross-button.component';
 import Input from '../input';
 import Styled from './search.styles';
-// import { propTypes as inputPropTypes } from '../input/input.component';
 
 const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
   ({ onChange, value = '', size, ...rest }: SearchProps, ref): JSX.Element => {
@@ -46,9 +45,5 @@ const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
     );
   }
 );
-
-// const { iconStart, ...restInputPropTypes } = inputPropTypes;
-
-// Search.propTypes = restInputPropTypes;
 
 export default Search;

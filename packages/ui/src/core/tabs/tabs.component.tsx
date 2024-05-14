@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TabsProps } from './tabs.props';
@@ -28,11 +27,5 @@ const Tabs = intrinsicComponent<TabsProps, HTMLDivElement>(
     </Styled.Tabs>
   )
 );
-
-Tabs.propTypes = {
-  value: PT.oneOfType([PT.string, PT.number]),
-  onChange: PT.func,
-  // children: PT.oneOfType([PT.node, PT.element]).isRequired,
-};
 
 export default Tabs;

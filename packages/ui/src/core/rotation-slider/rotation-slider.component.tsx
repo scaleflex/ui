@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { RotationSliderProps } from './rotation-slider.props';
 import Slider from '../slider';
 import { LabelTooltip } from '../slider/types';
@@ -145,26 +144,5 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
     );
   }
 );
-
-RotationSlider.propTypes = {
-  value: PT.number,
-  min: PT.number,
-  max: PT.number,
-  angle: PT.number,
-  onChange: PT.func,
-  onMouseDown: PT.func,
-  onMouseUp: PT.func,
-  step: PT.number,
-  annotation: PT.string,
-  hideMarkText: PT.bool,
-  showCurrentMarkText: PT.bool,
-  railProps: PT.object,
-  trackProps: PT.object,
-  thumbProps: PT.object,
-  labelTooltipProps: PT.object,
-  markStyles: PT.object,
-  markTextStyles: PT.object,
-  labelTooltipOptions: PT.oneOf(objectValues(LabelTooltip)),
-};
 
 export default RotationSlider;

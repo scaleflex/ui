@@ -1,11 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PT, { Validator } from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { TooltipProps } from './tooltip.props';
-import type { PopperOptions, Modifiers } from '../popper/popper.props';
 import { Size } from './types';
-import { Position, Strategy } from '../popper/types';
+import { Position } from '../popper/types';
 import Styled from './tooltip.styles';
 
 import Popper from '../popper';
@@ -133,49 +131,5 @@ const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
     );
   }
 );
-
-Tooltip.propTypes = {
-  position: PT.oneOf(objectValues(Position)),
-  size: PT.oneOf(objectValues(Size)),
-  title: PT.node.isRequired,
-  children: PT.element.isRequired,
-  arrow: PT.bool,
-  warning: PT.bool,
-  enterDelay: PT.number,
-  leaveDelay: PT.number,
-  stayOpen: PT.bool,
-  popperOptions: PT.shape({
-    modifiers: PT.arrayOf(
-      PT.shape({
-        data: PT.object,
-        effect: PT.func,
-        enabled: PT.bool,
-        fn: PT.func,
-        name: PT.any.isRequired,
-        options: PT.object,
-        phase: PT.oneOf([
-          'afterMain',
-          'afterRead',
-          'afterWrite',
-          'beforeMain',
-          'beforeRead',
-          'beforeWrite',
-          'main',
-          'read',
-          'write',
-        ]),
-        requires: PT.arrayOf(PT.string),
-        requiresIfExists: PT.arrayOf(PT.string),
-      })
-    ) as Validator<Modifiers>,
-    onFirstUpdate: PT.func,
-    placement: PT.oneOf(objectValues(Position)),
-    strategy: PT.oneOf(objectValues(Strategy)),
-  }) as Validator<PopperOptions>,
-  enableUnderlayingEvent: PT.bool,
-  popperWrapperStyles: PT.object,
-  tooltipProps: PT.object,
-  enableHover: PT.bool,
-};
 
 export default Tooltip;

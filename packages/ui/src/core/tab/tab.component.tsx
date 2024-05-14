@@ -1,8 +1,7 @@
 import React from 'react';
-import PT from 'prop-types';
 import Dot from '@scaleflex/icons/dot';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { TabProps } from './tab.props';
 import { Size } from './types';
 import Badge from '../badge';
@@ -42,15 +41,6 @@ const Tab = intrinsicComponent<TabProps, HTMLDivElement>(
     </Styled.Tab>
   )
 );
-
-Tab.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  icon: PT.node,
-  label: PT.node,
-  value: PT.oneOfType([PT.number, PT.string]),
-  active: PT.bool,
-  notification: PT.string,
-};
 
 Tab.displayName = 'Tab';
 

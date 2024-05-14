@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableHeadProps } from './table-head.props';
@@ -19,9 +18,5 @@ const TableHead = intrinsicComponent<TableHeadProps, HTMLTableSectionElement>(
     </Tablelvl2Context.Provider>
   )
 );
-
-TableHead.propTypes = {
-  children: PT.node,
-};
 
 export default TableHead;

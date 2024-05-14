@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PT from 'prop-types';
 import Popup from '../core/popup';
 import type { SnackbarProviderProps } from './snackbar-provider.props';
 import { MessageVariantStatusMatch, MessageVariant } from './types';
@@ -33,14 +32,5 @@ function SnackbarProvider({ children, ...rest }: SnackbarProviderProps): JSX.Ele
     </SnackbarContext.Provider>
   );
 }
-
-SnackbarProvider.defaultProps = {
-  ...defaultProps,
-  children: undefined,
-};
-
-SnackbarProvider.propTypes = {
-  children: PT.node,
-};
 
 export default SnackbarProvider;

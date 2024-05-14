@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Radio, { RadioSize } from '../radio';
 import type { RadioGroupProps } from './radio-group.props';
 import Styled from './radio-group.styles';
@@ -39,17 +38,5 @@ const RadioGroup = intrinsicComponent<RadioGroupProps, HTMLLabelElement>(
     </Styled.RadioGroup>
   )
 );
-
-RadioGroup.propTypes = {
-  label: PT.node,
-  checked: PT.bool,
-  onChange: PT.func,
-  radioProps: PT.object,
-  radioStyles: PT.object,
-  labelStyles: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  size: PT.oneOf(objectValues(RadioSize)),
-};
 
 export default RadioGroup;

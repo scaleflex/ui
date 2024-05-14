@@ -1,10 +1,10 @@
 import React from 'react';
-import PT from 'prop-types';
 import { Success, About, Error, Warning, InfoOutline, WarningOutline, ErrorOutline } from '@scaleflex/icons';
+
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { PopupStatusProps, PopupStatusType } from './popup-status.props';
 import { Status } from './types';
 import Styled from './popup-status.styles';
@@ -45,11 +45,5 @@ const PopupStatus = intrinsicComponent<PopupStatusProps, HTMLSpanElement>(
     </Styled.PopupStatus>
   )
 );
-
-export const propTypes = {
-  status: PT.oneOf(objectValues(Status)),
-};
-
-PopupStatus.propTypes = propTypes;
 
 export default PopupStatus;

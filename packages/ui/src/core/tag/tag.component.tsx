@@ -1,8 +1,7 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import CrossIcon from '@scaleflex/icons/cross';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { TagProps } from './tag.props';
 import { Size, Type } from './types';
 import Styled from './tag.styles';
@@ -62,15 +61,5 @@ const Tag = intrinsicComponent<TagProps, HTMLDivElement>(
     </Styled.Tag>
   )
 );
-
-Tag.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  type: PT.oneOf(objectValues(Type)),
-  crossIcon: PT.bool,
-  onRemove: PT.func,
-  onSelect: PT.func,
-  tagIndex: PT.number,
-  startIcon: PT.node,
-};
 
 export default Tag;

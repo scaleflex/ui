@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, SyntheticEvent, ChangeEvent } from 'react';
-import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 
 import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
-import { intrinsicComponent, objectValues, useForkRef } from '../../utils/functions';
+import { intrinsicComponent, useForkRef } from '../../utils/functions';
 import type { TextareaProps } from './textarea.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from '../input/input.utils';
@@ -16,12 +15,12 @@ import Styled from './textarea.styles';
 const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
   (
     {
-      fullWidth,
-      size,
+      fullWidth = false,
+      size = InputSize.Md,
       value,
-      readOnly,
-      disabled,
-      error,
+      readOnly = false,
+      disabled = false,
+      error = false,
       cols,
       rows,
       copyTextMessage = '',
@@ -31,8 +30,8 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       showCopyIcon = false,
       disableActionButton = false,
       isActionButtonLoading = false,
-      actionButtonLabel,
-      clearAllButtonLabel,
+      actionButtonLabel = 'Action',
+      clearAllButtonLabel = 'Clear all',
       onClickActionButton,
       onClear,
       onChange,
@@ -176,41 +175,5 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     );
   }
 );
-
-Textarea.defaultProps = {
-  size: InputSize.Md,
-  error: false,
-  fullWidth: false,
-  readOnly: false,
-  disabled: false,
-  disableActionButton: false,
-  isActionButtonLoading: false,
-  actionButtonLabel: 'Action',
-  clearAllButtonLabel: 'Clear all',
-};
-
-export const propTypes = {
-  error: PT.bool,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  fullWidth: PT.bool,
-  disableActionButton: PT.bool,
-  isActionButtonLoading: PT.bool,
-  value: PT.any,
-  size: PT.oneOf(objectValues(InputSize)),
-  copySuccessIcon: PT.node,
-  copyTextMessage: PT.string,
-  cols: PT.number,
-  rows: PT.number,
-  showActionButton: PT.bool,
-  showClearButton: PT.bool,
-  showCopyIcon: PT.bool,
-  actionButtonLabel: PT.string,
-  clearAllButtonLabel: PT.string,
-  onClickActionButton: PT.func,
-  onClear: PT.func,
-};
-
-Textarea.propTypes = propTypes;
 
 export default Textarea;
