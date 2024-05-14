@@ -137,7 +137,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
         />
         <Popper
           anchorEl={timePickerRef.current}
-          onClick={() => toggleDropdown()}
+          onClick={toggleDropdown}
           open={open}
           popperOptions={popperOptions}
           position={position || 'bottom-start'}
