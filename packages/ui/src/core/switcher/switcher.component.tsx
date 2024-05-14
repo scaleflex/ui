@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
 import { SwitcherSize } from './switcher-size';
@@ -33,15 +32,5 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
     </Styled.SwitcherWrapper>
   )
 );
-
-Switcher.propTypes = {
-  checked: PT.bool,
-  onChange: PT.func,
-  switcherProps: PT.object,
-  SwitcherPropsData: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  size: PT.oneOf(objectValues(SwitcherSize)),
-};
 
 export default Switcher;

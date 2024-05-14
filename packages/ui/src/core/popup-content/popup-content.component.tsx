@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import PopupStatus from '../popup-status';
 import CrossButton from '../cross-button/cross-button.component';
 import type { PopupContentProps } from './popup-content.props';
@@ -25,14 +24,5 @@ const PopupContent = intrinsicComponent<PopupContentProps, HTMLDivElement>(
     </Styled.PopupContent>
   )
 );
-
-export const propTypes = {
-  message: PT.node.isRequired,
-  onClose: PT.func,
-  popupStatusProps: PT.object,
-  status: PT.oneOf(objectValues(Status)),
-};
-
-PopupContent.propTypes = propTypes;
 
 export default PopupContent;

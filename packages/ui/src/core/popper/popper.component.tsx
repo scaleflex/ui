@@ -1,151 +1,111 @@
 import React, { useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import PT, { Validator } from 'prop-types';
 import { createPopper } from '@popperjs/core';
 
 import usePortal from '../../hooks/use-portal';
-import { intrinsicComponent, generateClassNames, useForkRef, objectValues } from '../../utils/functions';
-import { Position, Strategy } from './types';
-import { PopperProps,PopperOptions, Modifiers } from './popper.props';
+import { intrinsicComponent, generateClassNames, useForkRef } from '../../utils/functions';
+import { Position } from './types';
+import { PopperProps, Modifiers } from './popper.props';
 import Styled from './popper.styles';
 import { passEventToUnderLayingEvent } from './popper.utils';
 
 const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
   (
     {
-  anchorEl,
-  children,
-  open,
-  warning = false,
-  position: initialPlacement = Position.Bottom,
-  arrow = false,
-  popperOptions,
-  onClick,
-  overlay = false,
-  zIndex = 1300,
-  enableUnderlayingEvent,
-  wrapperStyles = {},
-  ...rest
-}: PopperProps, 
-ref
-): JSX.Element => {
-  const target = usePortal(generateClassNames('Popper'));
-  const popperRef = useRef(null);
-  const handlePopperRef = useForkRef(popperRef, ref);
+      anchorEl,
+      children,
+      open,
+      warning = false,
+      position: initialPlacement = Position.Bottom,
+      arrow = false,
+      popperOptions,
+      onClick,
+      overlay = false,
+      zIndex = 1300,
+      enableUnderlayingEvent,
+      wrapperStyles = {},
+      ...rest
+    }: PopperProps,
+    ref
+  ): JSX.Element => {
+    const target = usePortal(generateClassNames('Popper'));
+    const popperRef = useRef(null);
+    const handlePopperRef = useForkRef(popperRef, ref);
 
-  useEffect(() => {
-    if (!anchorEl || !open || popperRef.current === null) {
-      return undefined;
-    }
+    useEffect(() => {
+      if (!anchorEl || !open || popperRef.current === null) {
+        return undefined;
+      }
 
-    const defaultModifiers = [
-      { name: 'arrow', options: { element: '[data-popper-arrow]' } },
-      {
-        name: 'offset',
-        options: {
-          offset: [0, 10],
+      const defaultModifiers = [
+        { name: 'arrow', options: { element: '[data-popper-arrow]' } },
+        {
+          name: 'offset',
+          options: {
+            offset: [0, 10],
+          },
         },
-      },
-    ];
+      ];
 
-    let popperModifiers: Modifiers = arrow ? defaultModifiers : [];
+      let popperModifiers: Modifiers = arrow ? defaultModifiers : [];
 
-    if (popperOptions && popperOptions.modifiers != null) {
-      popperModifiers = popperModifiers.concat(popperOptions.modifiers);
-    }
+      if (popperOptions && popperOptions.modifiers != null) {
+        popperModifiers = popperModifiers.concat(popperOptions.modifiers);
+      }
 
-    const popper = createPopper(anchorEl, popperRef.current, {
-      placement: initialPlacement,
-      ...popperOptions,
-      modifiers: popperModifiers,
-    });
+      const popper = createPopper(anchorEl, popperRef.current, {
+        placement: initialPlacement,
+        ...popperOptions,
+        modifiers: popperModifiers,
+      });
 
-    handlePopperRef.current = popper;
+      handlePopperRef.current = popper;
 
-    return () => {
-      popper.destroy();
-      handlePopperRef.current = null;
+      return () => {
+        popper.destroy();
+        handlePopperRef.current = null;
+      };
+    }, [anchorEl, open, popperOptions, initialPlacement, arrow]);
+
+    const handleOnClicking = (event: React.MouseEvent<HTMLDivElement>): void => {
+      event.persist();
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (onClick) {
+        onClick(event);
+      }
+      if (enableUnderlayingEvent) {
+        passEventToUnderLayingEvent(event);
+      }
     };
-  }, [anchorEl, open, popperOptions, initialPlacement, arrow]);
 
-  const handleOnClicking = (event: React.MouseEvent<HTMLDivElement>): void => {
-    event.persist();
-    event.preventDefault();
-    event.stopPropagation();
+    const renderOverlay = (): JSX.Element => (
+      <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
+    );
 
-    if (onClick) {
-      onClick(event);
+    if (!open) {
+      return <div hidden ref={handlePopperRef} />;
     }
-    if (enableUnderlayingEvent) {
-      passEventToUnderLayingEvent(event);
-    }
-  };
 
-  const renderOverlay = (): JSX.Element => (
-    <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
-  );
+    const render = (): JSX.Element => (
+      <Styled.PopperWrapper $zIndex={zIndex} style={{ ...wrapperStyles }}>
+        {overlay && renderOverlay()}
+        <Styled.Popper ref={handlePopperRef} {...rest}>
+          {children}
+          {arrow && (
+            <Styled.Arrow
+              warning={warning}
+              data-popper-arrow
+              position={handlePopperRef?.state?.placement || initialPlacement}
+            />
+          )}
+        </Styled.Popper>
+      </Styled.PopperWrapper>
+    );
 
-  if (!open) {
-    return <div hidden ref={handlePopperRef} />;
+    return createPortal(render(), target);
   }
-
-  const render = (): JSX.Element => (
-    <Styled.PopperWrapper $zIndex={zIndex} style={{ ...wrapperStyles }}>
-      {overlay && renderOverlay()}
-      <Styled.Popper ref={handlePopperRef} {...rest}>
-        {children}
-        {arrow && (
-          <Styled.Arrow
-            warning={warning}
-            data-popper-arrow
-            position={handlePopperRef?.state?.placement || initialPlacement}
-          />
-        )}
-      </Styled.Popper>
-    </Styled.PopperWrapper>
-  );
-
-  return createPortal(render(), target);
-}
 );
 
-export const propTypes = {
-  anchorEl: PT.oneOfType([PT.instanceOf(Element), PT.object]),
-  popperOptions: PT.shape({
-    modifiers: PT.arrayOf(
-      PT.shape({
-        data: PT.object,
-        effect: PT.func,
-        enabled: PT.bool,
-        fn: PT.func,
-        name: PT.any.isRequired,
-        options: PT.object,
-        phase: PT.oneOf([
-          'afterMain',
-          'afterRead',
-          'afterWrite',
-          'beforeMain',
-          'beforeRead',
-          'beforeWrite',
-          'main',
-          'read',
-          'write',
-        ]),
-        requires: PT.arrayOf(PT.string),
-        requiresIfExists: PT.arrayOf(PT.string),
-      })
-    ) as Validator<Modifiers>,
-    onFirstUpdate: PT.func,
-    placement: PT.oneOf(objectValues(Position)),
-    strategy: PT.oneOf(objectValues(Strategy)),
-  }) as Validator<PopperOptions>,
-  overlay: PT.bool,
-  warning: PT.bool,
-  arrow: PT.bool,
-  zIndex: PT.number,
-  enableUnderlayingEvent: PT.bool,
-  wrapperStyles: PT.object,
-};
-
-// Popper.propTypes = propTypes;
 export default Popper;

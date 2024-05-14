@@ -1,16 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import Arrow from '@scaleflex/icons/arrow';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemProps, MenuItemListType } from './menu-item.props';
 import Menu from '../menu';
-import { Size } from './types';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
   (
-    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props },
+    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props }: MenuItemProps,
     ref
   ): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
@@ -135,17 +133,6 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 );
 
 MenuItem.displayName = 'MenuItem';
-
-MenuItem.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  active: PT.bool,
-  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null])]),
-  depth: PT.number,
-  disableHover: PT.bool,
-  noOptionsText: PT.bool,
-  disabled: PT.bool,
-  enableScrollIntoView: PT.bool,
-};
 
 export default MenuItem;
 // list: PT.arrayOf(

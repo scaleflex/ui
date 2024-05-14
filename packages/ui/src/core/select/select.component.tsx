@@ -4,8 +4,7 @@ import PT, { Validator } from 'prop-types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
 import Menu from '../menu';
-import type { AnchorElType, MenuProps } from '../menu/menu.props';
-import { propTypes as menuPropTypes } from '../menu/menu.component';
+import type { AnchorElType } from '../menu/menu.props';
 import type { SelectProps, SelectSimpleValueType } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { InputSize } from '../../utils/types';
@@ -136,7 +135,6 @@ export const propTypes = {
     SelectSimpleValueType | SelectSimpleValueType[]
   >,
   onChange: PT.func,
-  MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
   selectProps: PT.object,
   readOnly: PT.bool,
   disabled: PT.bool,

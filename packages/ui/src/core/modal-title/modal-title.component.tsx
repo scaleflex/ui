@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { ModalTitleProps } from './modal-title.props';
 import CrossButton from '../cross-button';
 import Styled from './modal-title.styles';
@@ -9,7 +8,7 @@ import { Variant } from './types';
 
 const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>(
   (
-    { secondary, onClose, primaryLabelStyles, iconShadow = true, variant = Variant.Default, ...rest },
+    { secondary, onClose, primaryLabelStyles, iconShadow = true, variant = Variant.Default, ...rest }: ModalTitleProps,
     ref
   ): JSX.Element => (
     <Styled.ModalTitle {...rest} variant={variant} ref={ref}>
@@ -27,16 +26,6 @@ const ModalTitle = intrinsicComponent<ModalTitleProps, HTMLDivElement>(
     </Styled.ModalTitle>
   )
 );
-
-ModalTitle.propTypes = {
-  primary: PT.node.isRequired,
-  secondary: PT.node,
-  icon: PT.node,
-  iconShadow: PT.bool,
-  onClose: PT.func,
-  primaryLabelStyles: PT.object,
-  variant: PT.oneOf(objectValues(Variant)),
-};
 
 ModalTitle.displayName = 'ModalTitle';
 

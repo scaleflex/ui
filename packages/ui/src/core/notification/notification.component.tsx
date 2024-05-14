@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import PopupStatus from '../popup-status';
 import CrossButton from '../cross-button';
 import { NotificationStatus } from './types';
@@ -50,14 +49,5 @@ const Notification = intrinsicComponent<NotificationProps, HTMLDivElement>(
     );
   }
 );
-
-Notification.propTypes = {
-  status: PT.oneOf(objectValues(NotificationStatus)),
-  removeBackground: PT.bool,
-  hideIcon: PT.bool,
-  title: PT.node,
-  message: PT.node,
-  onClose: PT.func,
-};
 
 export default Notification;

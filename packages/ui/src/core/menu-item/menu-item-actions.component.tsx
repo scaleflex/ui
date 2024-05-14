@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemActionsProps, MenuItemSizeType } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
@@ -26,10 +25,5 @@ const MenuItemActions = intrinsicComponent<MenuItemActionsProps, HTMLDivElement>
 );
 
 MenuItemActions.displayName = 'MenuItemActions';
-
-MenuItemActions.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  children: PT.oneOfType([PT.node, PT.func]).isRequired,
-};
 
 export default MenuItemActions;

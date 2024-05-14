@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
-import PT, { Validator } from 'prop-types';
 
-import { intrinsicComponent, objectValues, generateClassNames } from '../../utils/functions';
+import { intrinsicComponent, generateClassNames } from '../../utils/functions';
 import usePortal from '../../hooks/use-portal';
-import PopupContent, { propTypes as cPropTypes } from '../popup-content/popup-content.component';
-import type { PopupProps, PopupAnchorOriginProps } from './popup.props';
+import PopupContent from '../popup-content/popup-content.component';
+import type { PopupProps } from './popup.props';
 import { Horizontal, Vertical } from './types';
 import Styled from './popup.styles';
 import { Status } from '../popup-status/types';
 
-const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.Element => {
+const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps, ref): JSX.Element => {
   const {
     autoHideDuration = 5000,
     anchorOrigin = {
@@ -64,16 +63,5 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props, ref): JSX.E
 
   return createPortal(render(), target);
 });
-
-Popup.propTypes = {
-  ...cPropTypes,
-  anchorOrigin: PT.exact({
-    vertical: PT.oneOf(objectValues(Vertical)),
-    horizontal: PT.oneOf(objectValues(Horizontal)),
-  }) as Validator<PopupAnchorOriginProps>,
-  open: PT.bool,
-  autoHideDuration: PT.number,
-  onClose: PT.func,
-};
 
 export default Popup;
