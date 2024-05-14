@@ -56,15 +56,13 @@ const DatePickerInput = styled(InputGroup).attrs({
 
 const DatePickerIconButton = styled(IconButton).attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
-})(
-  () => css`
-    border: none;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    z-index: 1;
-  `
-);
+})`
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 1;
+`;
 
 const Styled = applyDisplayNames({
   DatePicker,
