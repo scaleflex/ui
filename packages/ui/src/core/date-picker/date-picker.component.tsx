@@ -98,7 +98,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           onChange={({ currentTarget }: React.SyntheticEvent<HTMLInputElement>) => handleOnChange(currentTarget.value)}
           inputProps={{
             iconEnd: () => (
-              <Styled.DatePickerIconButton size={size === 'sm' ? 'sm' : 'md'} color="basic">
+              <Styled.DatePickerIconButton size={size} color="basic">
                 <CalendarIcon size={size === 'md' ? 16 : 14} />
               </Styled.DatePickerIconButton>
             ),

@@ -1,16 +1,18 @@
 import React, { useState, useRef } from 'react';
 import PT, { Validator } from 'prop-types';
 import Clock from '@scaleflex/icons/clock';
-import { Popper } from '@scaleflex/ui/core';
 
 import { InputSize } from '../../utils/types';
 import { intrinsicComponent, objectValues } from '../../utils/functions';
 import { propTypes as inputPropTypes } from '../input/input.component';
-import { propTypes as popperPropTypes } from '../popper/popper.component';
+import Popper, { propTypes as popperPropTypes } from '../popper/popper.component';
 import { InputProps } from '../input';
 import { Position } from '../popper/types';
 import { TimePickerProps } from './time-picker.props';
 import Styled from './time-picker.styles';
+
+const AM = 'AM';
+const PM = 'PM';
 
 const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
   (
@@ -33,51 +35,57 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     const [time, setTime] = useState('');
     const [selectedHour, setSelectedHour] = useState('01');
     const [selectedMinute, setSelectedMinute] = useState('00');
-    const [selectedPeriod, setSelectedPeriod] = useState('AM');
+    const [selectedPeriod, setSelectedPeriod] = useState(AM);
 
     const timePickerRef = useRef(null);
+
+    const getFormattedHour = (hour: number) => (hour < 10 ? `0${hour}` : `${hour}`);
+    const getFormattedMinute = (minute: number) => (minute < 10 ? `0${minute}` : `${minute}`);
 
     const toggleDropdown = (): void => {
       setOpen(!open);
     };
 
     const handleHourChange = (hour: number, event: any): void => {
-      const formatedHour = hour < 10 ? `0${hour}` : `${hour}`;
+      const formattedHour = getFormattedHour(hour);
       const [hourString] = time.split(':');
-      let hourValue = formatedHour;
+      let hourValue = formattedHour;
 
       if (Number.parseInt(hourString, 10) > 10) {
         hourValue = `${hour + 12}`;
       }
 
-      setSelectedHour(formatedHour);
-      setTime(`${hourValue}:${selectedMinute}`);
+      const updatedTime = `${hourValue}:${selectedMinute}`;
+      setSelectedHour(formattedHour);
+      setTime(updatedTime);
 
       if (typeof onChange === 'function') {
-        onChange(event, `${hourValue}:${selectedMinute}`);
+        onChange(event, updatedTime);
       }
     };
 
     const handleMinuteChange = (minute: number, event: any): void => {
-      const formatedMinute = minute < 10 ? `0${minute}` : `${minute}`;
+      const formattedMinute = getFormattedMinute(minute);
       const [hourString] = time.split(':');
+      const updatedTime = `${hourString}:${formattedMinute}`;
 
-      setSelectedMinute(formatedMinute);
-      setTime(`${hourString}:${formatedMinute}`);
+      setSelectedMinute(formattedMinute);
+      setTime(updatedTime);
 
       if (typeof onChange === 'function') {
-        onChange(event, `${hourString}:${formatedMinute}`);
+        onChange(event, updatedTime);
       }
     };
 
     const handlePeriodChange = (period: string, event: any): void => {
-      const hour = period === 'PM' ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
+      const hour = period === PM ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
+      const updatedTime = `${hour}:${selectedMinute}`;
 
-      setTime(`${hour}:${selectedMinute}`);
+      setTime(updatedTime);
       setSelectedPeriod(period);
 
       if (typeof onChange === 'function') {
-        onChange(event, `${hour}:${selectedMinute}`);
+        onChange(event, updatedTime);
       }
     };
 
@@ -91,9 +99,9 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
 
       if (hour > 12) {
         setSelectedHour(`${hour - 12 < 10 ? '0' : ''}${hour - 12}`);
-        setSelectedPeriod('PM');
+        setSelectedPeriod(PM);
       } else {
-        setSelectedPeriod('AM');
+        setSelectedPeriod(AM);
         setSelectedHour(hourString);
       }
 
@@ -141,7 +149,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                 <Styled.TimePickerDropdownColumn>
                   {[...new Array(12).keys()].map((hour) => (
                     <Styled.TimePickerHour
-                      selected={selectedHour === (hour < 10 ? `0${hour + 1}` : `${hour + 1}`)}
+                      selected={selectedHour === getFormattedHour(hour + 1)}
                       key={hour}
                       onClick={(event) => handleHourChange(hour + 1, event)}
                     >
@@ -152,25 +160,25 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
                 <Styled.TimePickerDropdownColumn>
                   {[...new Array(60).keys()].map((minute) => (
                     <Styled.TimePickerMinute
-                      selected={selectedMinute === (minute < 10 ? `0${minute}` : `${minute}`)}
+                      selected={selectedMinute === getFormattedMinute(minute)}
                       key={minute}
                       onClick={(event) => handleMinuteChange(minute, event)}
                     >
-                      {minute < 10 ? `0${minute}` : minute}
+                      {getFormattedMinute(minute)}
                     </Styled.TimePickerMinute>
                   ))}
                 </Styled.TimePickerDropdownColumn>
               </Styled.TimePickerDropdown>
               <Styled.TimePickerDropdownColumn>
                 <Styled.TimePickerPeriod
-                  selected={selectedPeriod === 'AM'}
-                  onClick={(event) => handlePeriodChange('AM', event)}
+                  selected={selectedPeriod === AM}
+                  onClick={(event) => handlePeriodChange(AM, event)}
                 >
                   AM
                 </Styled.TimePickerPeriod>
                 <Styled.TimePickerPeriod
-                  selected={selectedPeriod === 'PM'}
-                  onClick={(event) => handlePeriodChange('PM', event)}
+                  selected={selectedPeriod === PM}
+                  onClick={(event) => handlePeriodChange(PM, event)}
                 >
                   PM
                 </Styled.TimePickerPeriod>

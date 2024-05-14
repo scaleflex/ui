@@ -54,16 +54,14 @@ const TimePickerDropdownContainer = styled.div.attrs({
 
 const TimePickerDropdown = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
-})(
-  () => css`
-    display: flex;
-    gap: 12;
-    max-height: 150px;
-    max-width: 150px;
-    overflow-x: hidden;
-    cursor: pointer;
-  `
-);
+})`
+  display: flex;
+  gap: 12;
+  max-height: 150px;
+  max-width: 150px;
+  overflow-x: hidden;
+  cursor: pointer;
+`;
 
 const TimePickerDropdownColumn = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dropdown-column'),
@@ -163,14 +161,12 @@ const TimePickerPeriod = styled.div.attrs({
 
 const TimePickerIconButton = styled(IconButton).attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
-})(
-  () => css`
-    border: none;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-  `
-);
+})`
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+`;
 
 const Styled = applyDisplayNames({
   TimePicker,
