@@ -1,12 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { StoryGroup } from './types';
 import TimePicker from '../../src/core/time-Picker';
 import { Position } from '../../src/core/popper/types';
 
 const meta: Meta<typeof TimePicker> = {
-  title: `${StoryGroup.Inputs}/TimePicker`,
+  title: 'Inputs/TimePicker',
   component: TimePicker,
 };
 
