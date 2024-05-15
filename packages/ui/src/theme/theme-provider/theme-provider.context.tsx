@@ -8,7 +8,8 @@ import { Theme } from '../entity';
 import { Typography, CommonStyles } from '../roots';
 import { defaultPalette } from '../roots/palette';
 import { defaultShadows } from '../roots/shadows';
-import { defaultTypography } from '../roots/typography';
+import { getDefaultTypography } from '../roots/typography';
+
 import type { ThemeProviderProps } from './theme-provider.props';
 import createBreakpoints from '../roots/breakpoints/entity/create-breakpoints';
 
@@ -43,16 +44,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme = {} }) => {
     return {
       palette,
       breakpoints,
-      typography: {
-        ...merge(
-          {
-            ...defaultTypography,
-          },
-          {
-            ...typographyOverride,
-          }
-        ),
-      },
+      typography: getDefaultTypography(typographyOverride),
       shape: {
         ...merge(
           {

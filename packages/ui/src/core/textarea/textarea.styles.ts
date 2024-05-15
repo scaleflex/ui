@@ -128,6 +128,10 @@ const ActionsButtonsWrapper = styled.div.attrs({
     column-gap: 12px;
     box-sizing: border-box;
     ${sizeTextAreaMixin[size]};
+
+    .SfxButton-Label {
+      font-weight: 500;
+    }
   `
 );
 

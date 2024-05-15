@@ -1,347 +1,418 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { FontVariant, FontWeight } from '../../../../utils/types/typography';
+import { FontObjectType, FontOverrideType } from '../typography.props';
 
-const fontFamily = '"Roboto"';
 const defaultFontValue = {
-  fontFamily,
+  fontFamily: '"Roboto"',
   fontStyle: 'normal',
   fontWeight: FontWeight.Regular,
 };
 
-const labelFontVariants = {
-  [FontVariant.LabelExtraSmall]: {
-    ...defaultFontValue,
-    fontSize: '10px',
-    lineHeight: '12px',
-  },
-  [FontVariant.LabelExtraSmallEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: 'Bold',
-    fontSize: '10px',
-    lineHeight: '12px',
-  },
-  [FontVariant.LabelExtraSmallUp]: {
-    ...defaultFontValue,
-    fontSize: '11px',
-    lineHeight: '12px',
-  },
-  [FontVariant.LabelSmall]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.LabelSmallEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.LabelSmallUp]: {
-    ...defaultFontValue,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LabelSmallUpEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LabelMedium]: {
-    ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LabelMediumEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LabelLarge]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.LabelLargeEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.LabelLargeUp]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Regular,
-    fontSize: '18px',
-    lineHeight: '20px',
-  },
-  [FontVariant.LabelExtraLargeEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '24px',
-    lineHeight: '28px',
-  },
-  [FontVariant.LabelExtraLarge]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Regular,
-    fontSize: '24px',
-    lineHeight: '28px',
-  },
-  [FontVariant.LabelXExtraLargeEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '32px',
-    lineHeight: '36px',
-  },
-  [FontVariant.LabelXExtraLarge]: {
-    ...defaultFontValue,
-    fontSize: '32px',
-    lineHeight: '36px',
-  },
-  [FontVariant.LabelXXExtraLargeEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '48px',
-    lineHeight: '54px',
-  },
-  [FontVariant.LabelXXExtraLarge]: {
-    ...defaultFontValue,
-    fontSize: '48px',
-    lineHeight: '54px',
-  },
-  [FontVariant.LabelXXXExtraLarge]: {
-    ...defaultFontValue,
-    fontSize: '60px',
-    lineHeight: '68px',
-  },
+const getLabelFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.LabelExtraSmall]: {
+      ...defaultFontValue,
+      fontSize: '10px',
+      lineHeight: '12px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelExtraSmallEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: 'Bold',
+      fontSize: '10px',
+      lineHeight: '12px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelExtraSmallUp]: {
+      ...defaultFontValue,
+      fontSize: '11px',
+      lineHeight: '12px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelSmall]: {
+      ...defaultFontValue,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelSmallEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelSmallUp]: {
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...defaultFontValue,
+      ...fontOverride,
+    },
+    [FontVariant.LabelSmallUpEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelMedium]: {
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...defaultFontValue,
+      ...fontOverride,
+    },
+    [FontVariant.LabelMediumEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelLarge]: {
+      ...defaultFontValue,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelLargeEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelLargeUp]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Regular,
+      fontSize: '18px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelExtraLargeEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '24px',
+      lineHeight: '28px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelExtraLarge]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Regular,
+      fontSize: '24px',
+      lineHeight: '28px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelXExtraLargeEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '32px',
+      lineHeight: '36px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelXExtraLarge]: {
+      ...defaultFontValue,
+      fontSize: '32px',
+      lineHeight: '36px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelXXExtraLargeEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '48px',
+      lineHeight: '54px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelXXExtraLarge]: {
+      ...defaultFontValue,
+      fontSize: '48px',
+      lineHeight: '54px',
+      ...fontOverride,
+    },
+    [FontVariant.LabelXXXExtraLarge]: {
+      ...defaultFontValue,
+      fontSize: '60px',
+      lineHeight: '68px',
+      ...fontOverride,
+    },
+  };
 };
 
-const textFontVariants = {
-  [FontVariant.TextExtraSmall]: {
-    ...labelFontVariants[FontVariant.LabelExtraSmallUp],
-    lineHeight: '14px',
-  },
-  [FontVariant.TextSmall]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '18px',
-  },
-  [FontVariant.TextSmallUp]: {
-    ...defaultFontValue,
-    fontSize: '13px',
-    lineHeight: '18px',
-  },
-  [FontVariant.TextMedium]: {
-    ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '20px',
-  },
-  [FontVariant.TextLarge]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '22px',
-  },
-  [FontVariant.TextExtraLarge]: {
-    ...defaultFontValue,
-    fontSize: '18px',
-    lineHeight: '26px',
-  },
-  [FontVariant.TextXExtraLarge]: {
-    ...defaultFontValue,
-    fontSize: '28px',
-    lineHeight: '40px',
-  },
+const getTextFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.TextExtraSmall]: {
+      ...defaultFontValue,
+      fontSize: '11px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.TextSmall]: {
+      ...defaultFontValue,
+      fontSize: '12px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.TextSmallUp]: {
+      ...defaultFontValue,
+      fontSize: '13px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.TextMedium]: {
+      ...defaultFontValue,
+      fontSize: '14px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+    [FontVariant.TextLarge]: {
+      ...defaultFontValue,
+      fontSize: '16px',
+      lineHeight: '22px',
+      ...fontOverride,
+    },
+    [FontVariant.TextExtraLarge]: {
+      ...defaultFontValue,
+      fontSize: '18px',
+      lineHeight: '26px',
+      ...fontOverride,
+    },
+    [FontVariant.TextXExtraLarge]: {
+      ...defaultFontValue,
+      fontSize: '28px',
+      lineHeight: '40px',
+      ...fontOverride,
+    },
+  };
 };
 
-const buttonFontVariants = {
-  [FontVariant.ButtonSmEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.ButtonSm]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.ButtonSmUpEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.ButtonSmUp]: {
-    ...defaultFontValue,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.ButtonMdEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.ButtonMd]: {
-    ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.ButtonLgEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.ButtonLg]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.ButtonLgUpEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '18px',
-    lineHeight: '20px',
-  },
-  [FontVariant.ButtonLgUp]: {
-    ...defaultFontValue,
-    fontSize: '18px',
-    lineHeight: '20px',
-  },
+const getButtonFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.ButtonSmEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonSm]: {
+      ...defaultFontValue,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonSmUpEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonSmUp]: {
+      ...defaultFontValue,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonMdEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonMd]: {
+      ...defaultFontValue,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonLgEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonLg]: {
+      ...defaultFontValue,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonLgUpEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '18px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+    [FontVariant.ButtonLgUp]: {
+      ...defaultFontValue,
+      fontSize: '18px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+  };
 };
 
-const linkFontVariants = {
-  [FontVariant.LinkSmall]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.LinkSmallEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.LinkSmallUp]: {
-    ...defaultFontValue,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LinkSmallUpEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LinkMedium]: {
-    ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LinkMediumEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.LinkLarge]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.LinkLargeEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
-  [FontVariant.LinkLargeUp]: {
-    ...defaultFontValue,
-    fontSize: '18px',
-    lineHeight: '20px',
-  },
-  [FontVariant.LinkLargeUpEmphasis]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '18px',
-    lineHeight: '20px',
-  },
+const getLinkFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.LinkSmall]: {
+      ...defaultFontValue,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkSmallEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkSmallUp]: {
+      ...defaultFontValue,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkSmallUpEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkMedium]: {
+      ...defaultFontValue,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkMediumEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkLarge]: {
+      ...defaultFontValue,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkLargeEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkLargeUp]: {
+      ...defaultFontValue,
+      fontSize: '18px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+    [FontVariant.LinkLargeUpEmphasis]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '18px',
+      lineHeight: '20px',
+      ...fontOverride,
+    },
+  };
 };
 
-const inputFontVariants = {
-  [FontVariant.InputSm]: {
-    ...defaultFontValue,
-    fontSize: '12px',
-    lineHeight: '14px',
-  },
-  [FontVariant.InputSmUp]: {
-    ...defaultFontValue,
-    fontSize: '13px',
-    lineHeight: '16px',
-  },
-  [FontVariant.InputMd]: {
-    ...defaultFontValue,
-    fontSize: '14px',
-    lineHeight: '16px',
-  },
-  [FontVariant.InputLg]: {
-    ...defaultFontValue,
-    fontSize: '16px',
-    lineHeight: '18px',
-  },
+const getInputFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.InputSm]: {
+      ...defaultFontValue,
+      fontSize: '12px',
+      lineHeight: '14px',
+      ...fontOverride,
+    },
+    [FontVariant.InputSmUp]: {
+      ...defaultFontValue,
+      fontSize: '13px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.InputMd]: {
+      ...defaultFontValue,
+      fontSize: '14px',
+      lineHeight: '16px',
+      ...fontOverride,
+    },
+    [FontVariant.InputLg]: {
+      ...defaultFontValue,
+      fontSize: '16px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+  };
 };
 
-const titleFontVariants = {
-  [FontVariant.TitleH6]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '12px',
-    lineHeight: '18px',
-  },
-  [FontVariant.TitleH5]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '14px',
-    lineHeight: '21px',
-  },
-  [FontVariant.TitleH4]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '16px',
-    lineHeight: '24px',
-  },
-  [FontVariant.TitleH3]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '18px',
-    lineHeight: '27px',
-  },
-  [FontVariant.TitleH2]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '20px',
-    lineHeight: '30px',
-  },
-  [FontVariant.TitleH1]: {
-    ...defaultFontValue,
-    fontWeight: FontWeight.Medium,
-    fontSize: '28px',
-    lineHeight: '42px',
-  },
+const getTitleFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+  return {
+    [FontVariant.TitleH6]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '12px',
+      lineHeight: '18px',
+      ...fontOverride,
+    },
+    [FontVariant.TitleH5]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '14px',
+      lineHeight: '21px',
+      ...fontOverride,
+    },
+    [FontVariant.TitleH4]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '16px',
+      lineHeight: '24px',
+      ...fontOverride,
+    },
+    [FontVariant.TitleH3]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '18px',
+      lineHeight: '27px',
+      ...fontOverride,
+    },
+    [FontVariant.TitleH2]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '20px',
+      lineHeight: '30px',
+      ...fontOverride,
+    },
+    [FontVariant.TitleH1]: {
+      ...defaultFontValue,
+      fontWeight: FontWeight.Medium,
+      fontSize: '28px',
+      lineHeight: '42px',
+      ...fontOverride,
+    },
+  };
 };
 
-export const defaultTypography = {
-  // htmlFontSize: '14px',
-  fontFamily,
-  baseLineHeight: 1.375,
-
-  font: {
-    ...labelFontVariants,
-    ...textFontVariants,
-    ...buttonFontVariants,
-    ...linkFontVariants,
-    ...inputFontVariants,
-    ...titleFontVariants,
-  },
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export const getDefaultTypography = (typographyOverride = {}) => {
+  return {
+    fontFamily: defaultFontValue.fontFamily,
+    baseLineHeight: 1.375,
+    ...typographyOverride,
+    font: {
+      ...getLabelFontVariants(typographyOverride),
+      ...getTextFontVariants(typographyOverride),
+      ...getButtonFontVariants(typographyOverride),
+      ...getLinkFontVariants(typographyOverride),
+      ...getInputFontVariants(typographyOverride),
+      ...getTitleFontVariants(typographyOverride),
+    },
+  };
 };

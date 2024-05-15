@@ -285,7 +285,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   {showGenerateTagsButton && (
                     <Button
                       color="link-primary"
-                      size={size}
+                      size="sm"
                       onMouseDown={(event) => onClickByMouseDown(event, handleGenerateTags)}
                     >
                       {generateTagsButtonLabel}
@@ -295,7 +295,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
                   {showClearButton && (
                     <Button
                       color="link-secondary"
-                      size={size}
+                      size="sm"
                       onMouseDown={(event) => onClickByMouseDown(event, handleClearAllTags)}
                     >
                       {clearTagsButtonLabel}

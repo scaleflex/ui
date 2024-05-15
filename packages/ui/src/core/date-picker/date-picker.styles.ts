@@ -7,6 +7,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import InputGroup from '../input-group';
 import { InputProps } from '../input';
+import IconButton from '../icon-button/icon-button.component';
 
 const baseClassName = 'Date-picker';
 
@@ -60,10 +61,21 @@ const DatePickerInput = styled(InputGroup).attrs({
   `
 );
 
+const DatePickerIconButton = styled(IconButton).attrs({
+  className: generateClassNames(baseClassName, 'dropdown'),
+})`
+  border: none;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  z-index: 1;
+`;
+
 const Styled = applyDisplayNames({
   DatePicker,
   DatePickerInput,
   Placeholder,
+  DatePickerIconButton,
 });
 
 export default Styled;
