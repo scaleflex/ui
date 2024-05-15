@@ -7,7 +7,7 @@ import Styled from './badge.styles';
 const Badge = intrinsicComponent<BadgeProps, HTMLSpanElement>(
   ({ color = BadgeColor.Secondary, inline = false, badgeContent, ...rest }: BadgeProps, ref): JSX.Element => (
     <Styled.BadgeRoot ref={ref}>
-      <Styled.Badge {...rest}>{badgeContent}</Styled.Badge>
+      <Styled.Badge color={color} inline={inline} badgeContent ={badgeContent} {...rest}>{badgeContent}</Styled.Badge>
     </Styled.BadgeRoot>
   )
 );
