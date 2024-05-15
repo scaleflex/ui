@@ -71,5 +71,5 @@ const BasicTemplate = ({ ...args }): JSX.Element => {
 };
 
 export const Primary: Story = {
-  render: () => <BasicTemplate />,
+  render: (args) => <BasicTemplate {...args} />,
 };

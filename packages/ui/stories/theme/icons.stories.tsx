@@ -116,7 +116,7 @@ export const All = ({
       </SearchBlock>
 
       <Container {...args} style={{ color }}>
-        {filteredIconsNames.slice(0, 10).map((iconName) => (
+        {filteredIconsNames.map((iconName) => (
           <Item size={size} key={iconName}>
             <ItemIcon>{React.createElement(icons[iconName], { size })}</ItemIcon>
 
