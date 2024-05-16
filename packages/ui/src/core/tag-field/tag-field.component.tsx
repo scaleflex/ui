@@ -1,9 +1,8 @@
 import React, { useState, useMemo, useEffect, ReactElement } from 'react';
-import PT, { Validator } from 'prop-types';
 import { InfoOutline, CopyOutline } from '@scaleflex/icons';
 import SpinnerIcon from '@scaleflex/icons/spinner';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import { Color } from '../../utils/types/palette';
 import { lightPalette } from '../../theme/roots/palette';
 import Tag from '../tag';
@@ -11,8 +10,6 @@ import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
 import Button from '../button';
-import { propTypes as labelPropTypes } from '../label/label.component';
-import type { LabelProps } from '../label';
 import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
 import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
@@ -33,9 +30,9 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       onGenerate,
       onClear,
       onValidate,
-      placeholder,
-      disabled,
-      readOnly,
+      placeholder = 'Add a tag (separate by pressing enter)',
+      disabled = false,
+      readOnly = false,
       label,
       suggestionLabel,
       suggestionTooltipMessage,
@@ -185,7 +182,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       }
     };
 
-    const handleGenerateTags = (event: any): void => {
+    const handleGenerateTags = (event: React.MouseEvent): void => {
       if (onGenerate) {
         onGenerate(event);
       }
@@ -360,57 +357,5 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     );
   }
 );
-
-TagField.defaultProps = {
-  tags: [],
-  suggestedTags: [],
-  placeholder: 'Add a tag (separate by pressing enter)',
-  disabled: false,
-  readOnly: false,
-  size: Size.Md,
-};
-
-TagField.propTypes = {
-  tags: PT.arrayOf(PT.oneOfType([PT.string, PT.object, PT.node])).isRequired,
-  suggestedTags: PT.arrayOf(PT.oneOfType([PT.string, PT.object])),
-  LabelProps: PT.exact(labelPropTypes) as Validator<LabelProps>,
-  onAdd: PT.func.isRequired,
-  onRemove: PT.func.isRequired,
-  onGenerate: PT.func,
-  onClear: PT.func.isRequired,
-  onValidate: PT.func,
-  placeholder: PT.string,
-  appliedValue: PT.string,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  label: PT.node,
-  error: PT.bool,
-  hint: PT.node,
-  loading: PT.bool,
-  disableOnEnter: PT.bool,
-  showTooltip: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
-  hideCopyIcon: PT.bool,
-  alwaysShowSuggestedTags: PT.bool,
-  getTagValue: PT.func,
-  getTagLabel: PT.func,
-  getTagIcon: PT.func,
-  submitOnSpace: PT.bool,
-  preventSubmitOnBlur: PT.bool,
-  showGenerateTagsButton: PT.bool,
-  generateTagsButtonLabel: PT.string,
-  clearTagsButtonLabel: PT.string,
-  suggestionsFilter: PT.func,
-  suggestionLabel: PT.node,
-  suggestionTooltipMessage: PT.string,
-  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
-  copyTextMessage: PT.string,
-  onFocus: PT.func,
-  onBlur: PT.func,
-  placeholderAlwaysVisible: PT.bool,
-  fullWidth: PT.bool,
-  filterInputWidth: PT.oneOfType([PT.string, PT.number]),
-  hideClearButton: PT.bool,
-};
 
 export default TagField;

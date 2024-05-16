@@ -13,21 +13,17 @@ const Popper = styled.div.attrs({ className: generateClassNames(baseClassName, '
 
 const PopperWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
-})(
-  ({ zIndex }: { zIndex: number }) => css`
+})<{ $zIndex: number }>(
+  ({ $zIndex }) => css`
     position: relative;
-    z-index: ${zIndex};
+    z-index: ${$zIndex};
   `
 );
 
 const Arrow = styled.div.attrs({
   className: generateClassNames(baseClassName, 'arrow'),
-})(
-  ({
-    warning = false,
-    position = Position.Right,
-    theme,
-  }: With<WithTheme, { warning: boolean; position: PopperPositionType }>) => css`
+})<With<WithTheme, { warning: boolean; position: PopperPositionType }>>(
+  ({ warning = false, position = Position.Right, theme }) => css`
     width: 8px;
     height: 8px;
     position: absolute;

@@ -9,8 +9,8 @@ const baseClassName = 'ArrowTick';
 
 const ArrowTick = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ type = Position.Right }: ArrowTickProps) => css`
+})<ArrowTickProps>(
+  ({ type = Position.Right }) => css`
     display: inline-flex;
 
     ${typeArrowTickMixin[type]}

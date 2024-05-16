@@ -1,4 +1,4 @@
-import { escapeRegExp } from '@scaleflex/ui/utils/functions';
+import { escapeRegExp } from '../../utils/functions';
 import type { TagType, SuggestionsFilterFnType } from './tag-field.props';
 
 const tagsSuggestionsFilter = <SuggestionsFilterFnType>((

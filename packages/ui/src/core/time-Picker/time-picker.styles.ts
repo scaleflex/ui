@@ -13,8 +13,8 @@ const baseClassName = 'Time-picker';
 
 const TimePicker = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ fullWidth }: With<WithTheme, InputProps>) => css`
+})<With<WithTheme, InputProps>>(
+  ({ fullWidth }) => css`
     position: relative;
     width: ${fullWidth ? '100%' : '300px'};
   `
@@ -22,8 +22,8 @@ const TimePicker = styled.div.attrs({
 
 const TimePickerInput = styled(inputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
-})<InputProps>(
-  ({ isHovering = false, theme }: With<WithTheme, InputProps>) => css`
+})<With<WithTheme, InputProps>>(
+  ({ isHovering = false, theme }) => css`
     input[type='time']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
@@ -37,8 +37,8 @@ const TimePickerInput = styled(inputGroup).attrs({
 
 const TimePickerDropdownContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dropdown-wrapper'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     display: flex;
     gap: 12;
     max-height: 150px;
@@ -65,8 +65,8 @@ const TimePickerDropdown = styled.div.attrs({
 
 const TimePickerDropdownColumn = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dropdown-column'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     padding: 0 6px;
     max-height: 150px;
     max-width: 150px;
@@ -89,8 +89,8 @@ const TimePickerDropdownColumn = styled.div.attrs({
 
 const TimePickerHour = styled.div.attrs({
   className: generateClassNames(baseClassName, 'hour'),
-})(
-  ({ theme, selected = false }: With<TimePickerProps, WithTheme>) => css`
+})<With<TimePickerProps, WithTheme>>(
+  ({ theme, selected = false }) => css`
     width: 30px;
     height: 30px;
     display: flex;
@@ -113,8 +113,8 @@ const TimePickerHour = styled.div.attrs({
 
 const TimePickerMinute = styled.div.attrs({
   className: generateClassNames(baseClassName, 'minute'),
-})(
-  ({ theme, selected = false }: With<TimePickerProps, WithTheme>) => css`
+})<With<TimePickerProps, WithTheme>>(
+  ({ theme, selected = false }) => css`
     width: 30px;
     height: 30px;
     display: flex;
@@ -137,8 +137,8 @@ const TimePickerMinute = styled.div.attrs({
 
 const TimePickerPeriod = styled.div.attrs({
   className: generateClassNames(baseClassName, 'period'),
-})(
-  ({ theme, selected = false }: With<TimePickerProps, WithTheme>) => css`
+})<With<TimePickerProps, WithTheme>>(
+  ({ theme, selected = false }) => css`
     display: flex;
     align-items: center;
     justify-content: center;

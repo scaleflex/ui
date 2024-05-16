@@ -9,8 +9,8 @@ const baseClassName = 'TableRow';
 
 const TableRow = styled.tr.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme: { palette }, hover, selected }: With<WithTheme, TableRowProps>) => css`
+})<With<WithTheme, TableRowProps>>(
+  ({ theme: { palette }, hover, selected }) => css`
     color: inherit;
     display: table-row;
     vertical-align: middle;

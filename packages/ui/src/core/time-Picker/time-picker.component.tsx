@@ -1,13 +1,9 @@
 import React, { useState, useRef } from 'react';
-import PT, { Validator } from 'prop-types';
 import Clock from '@scaleflex/icons/clock';
 
 import { InputSize } from '../../utils/types';
-import { intrinsicComponent, objectValues } from '../../utils/functions';
-import { propTypes as inputPropTypes } from '../input/input.component';
-import Popper, { propTypes as popperPropTypes } from '../popper/popper.component';
-import { InputProps } from '../input';
-import { Position } from '../popper/types';
+import { intrinsicComponent } from '../../utils/functions';
+import Popper from '../popper/popper.component';
 import { TimePickerProps } from './time-picker.props';
 import Styled from './time-picker.styles';
 
@@ -22,7 +18,7 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       popperOptions,
       InputProps: InputPropsData,
       readOnly = true,
-      fullWidth,
+      fullWidth = false,
       inputGroupProps,
       hint,
       label,
@@ -191,23 +187,5 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     );
   }
 );
-
-TimePicker.defaultProps = {
-  size: InputSize.Md,
-  disabled: false,
-  readOnly: true,
-  fullWidth: false,
-};
-
-export const propTypes = {
-  position: PT.oneOf(objectValues(Position)),
-  size: PT.oneOf(objectValues(InputSize)),
-  popperOptions: popperPropTypes.popperOptions,
-  InputProps: PT.exact(inputPropTypes) as Validator<InputProps>,
-  fullWidth: PT.bool,
-  onChange: PT.func,
-};
-
-TimePicker.propTypes = propTypes;
 
 export default TimePicker;

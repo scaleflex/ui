@@ -1,22 +1,30 @@
 import React, { useState } from 'react';
 import type { FormEvent } from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Button from '../button';
 import type { UploadInputProps } from './upload-input.props';
-import IStyled from '../input/input.styles';
+import StyledInput from '../input/input.styles';
 import Styled from './upload-input.styles';
-import { ButtonColor } from '../../utils/types';
-// import { defaultProps as inputDefaultProps, propTypes as inputPropTypes } from '../input/input.component';
 
 const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
-  ({ error, size, buttonLabel, buttonColor, placeholder, onChange, ...rest }, ref): JSX.Element => {
+  (
+    {
+      error,
+      size,
+      buttonLabel = 'Choose file',
+      buttonColor = 'primary',
+      placeholder = 'No file chosen',
+      onChange,
+      ...rest
+    }: UploadInputProps,
+    ref
+  ): JSX.Element => {
     const [valueState, setValueState] = useState('');
 
     return (
       <Styled.UploadInput ref={ref}>
-        <IStyled.Input
+        <StyledInput.Input
           error={error}
           onClick={({ currentTarget }: FormEvent<HTMLDivElement>) => {
             const fileInputElem: HTMLElement | null = currentTarget.querySelector('input[type=file]');
@@ -26,7 +34,7 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
             }
           }}
         >
-          <IStyled.Base placeholder={placeholder} readOnly value={valueState} />
+          <StyledInput.Base placeholder={placeholder} readOnly value={valueState} />
 
           <Button color={buttonColor}>{buttonLabel}</Button>
 
@@ -53,26 +61,10 @@ const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
               }
             }}
           />
-        </IStyled.Input>
+        </StyledInput.Input>
       </Styled.UploadInput>
     );
   }
 );
-
-UploadInput.defaultProps = {
-  // ...inputDefaultProps,
-  buttonLabel: 'Choose file',
-  placeholder: 'No file chosen',
-  buttonColor: 'primary',
-};
-
-// const { iconStart, iconEnd, ...restInputPropTypes } = inputPropTypes;
-
-UploadInput.propTypes = {
-  // ...restInputPropTypes,
-  buttonLabel: PT.string,
-  placeholder: PT.string,
-  buttonColor: PT.oneOf(objectValues(ButtonColor)),
-};
 
 export default UploadInput;

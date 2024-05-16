@@ -2,12 +2,11 @@ import { css } from 'styled-components';
 
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
-import type { IconButtonProps } from './icon-button.props';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, IconButtonColor } from '../../utils/types';
 
 export const colorButtonMixin = {
-  [IconButtonColor.Primary]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
+  [IconButtonColor.Primary]: ({ theme: { palette }, active }: With<WithTheme, { active: boolean }>) => css`
     background-color: ${palette[PaletteColor.AccentStateless]};
     color: ${palette[PaletteColor.IconsInvert]};
 
@@ -40,7 +39,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [IconButtonColor.Secondary]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
+  [IconButtonColor.Secondary]: ({ theme: { palette }, active }: With<WithTheme, { active: boolean }>) => css`
     background-color: ${palette[PaletteColor.BackgroundStateless]};
     color: ${palette[PaletteColor.AccentStateless]};
     border: 1px solid ${palette[PaletteColor.AccentStateless]};
@@ -81,7 +80,7 @@ export const colorButtonMixin = {
     }
   `,
 
-  [IconButtonColor.Basic]: ({ theme: { palette }, active }: With<WithTheme, IconButtonProps>) => css`
+  [IconButtonColor.Basic]: ({ theme: { palette }, active }: With<WithTheme, { active: boolean }>) => css`
     background-color: transparent;
     color: ${palette[PaletteColor.IconsPrimary]};
     border: none;

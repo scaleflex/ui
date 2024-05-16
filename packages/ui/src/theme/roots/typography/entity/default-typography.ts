@@ -1,6 +1,6 @@
 /* eslint-disable sonarjs/no-duplicate-string */
 import { FontVariant, FontWeight } from '../../../../utils/types/typography';
-import { FontObjectType, FontOverrideType } from '../typography.props';
+import { FontOverrideType } from '../typography.props';
 
 const defaultFontValue = {
   fontFamily: '"Roboto"',
@@ -8,7 +8,7 @@ const defaultFontValue = {
   fontWeight: FontWeight.Regular,
 };
 
-const getLabelFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getLabelFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.LabelExtraSmall]: {
       ...defaultFontValue,
@@ -137,10 +137,11 @@ const getLabelFontVariants = (fontOverride: FontOverrideType = {}): Partial<Font
   };
 };
 
-const getTextFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getTextFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.TextExtraSmall]: {
-      ...getLabelFontVariants()[FontVariant.LabelExtraSmallUp],
+      ...defaultFontValue,
+      fontSize: '11px',
       lineHeight: '14px',
       ...fontOverride,
     },
@@ -183,7 +184,7 @@ const getTextFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontO
   };
 };
 
-const getButtonFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getButtonFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.ButtonSmEmphasis]: {
       ...defaultFontValue,
@@ -253,7 +254,7 @@ const getButtonFontVariants = (fontOverride: FontOverrideType = {}): Partial<Fon
   };
 };
 
-const getLinkFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getLinkFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.LinkSmall]: {
       ...defaultFontValue,
@@ -323,7 +324,7 @@ const getLinkFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontO
   };
 };
 
-const getInputFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getInputFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.InputSm]: {
       ...defaultFontValue,
@@ -352,7 +353,7 @@ const getInputFontVariants = (fontOverride: FontOverrideType = {}): Partial<Font
   };
 };
 
-const getTitleFontVariants = (fontOverride: FontOverrideType = {}): Partial<FontObjectType> => {
+const getTitleFontVariants = (fontOverride: FontOverrideType = {}) => {
   return {
     [FontVariant.TitleH6]: {
       ...defaultFontValue,
@@ -399,7 +400,6 @@ const getTitleFontVariants = (fontOverride: FontOverrideType = {}): Partial<Font
   };
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const getDefaultTypography = (typographyOverride = {}) => {
   return {
     fontFamily: defaultFontValue.fontFamily,

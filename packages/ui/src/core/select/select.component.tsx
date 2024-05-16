@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import PT, { Validator } from 'prop-types';
+import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import ArrowTick from '../arrow-tick';
 import Menu from '../menu';
-import type { AnchorElType, MenuProps } from '../menu/menu.props';
-import { propTypes as menuPropTypes } from '../menu/menu.component';
-import type { SelectProps, SelectSimpleValueType } from './select.props';
+import type { AnchorElType } from '../menu/menu.props';
+import type { SelectProps } from './select.props';
 import { renderValue, renderOption } from './select.utils';
 import { InputSize } from '../../utils/types';
 import Styled from './select.styles';
@@ -16,27 +15,27 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   (
     {
       children,
-      size,
-      error,
-      multiple,
+      size = InputSize.Md,
+      error = false,
+      multiple = false,
       onChange,
       value,
-      fullWidth,
+      fullWidth = false,
       selectProps,
       // eslint-disable-next-line no-shadow
       MenuProps,
-      readOnly,
+      readOnly = false,
       disabled,
       scroll = true,
       placeholder,
       showSelectionKey,
-      hideMenuItemsActions,
-      showClearIcon,
+      hideMenuItemsActions = false,
+      showClearIcon = false,
       renderLabel,
       onRequestClose,
       hideEllipsis = false,
       ...rest
-    },
+    }: SelectProps,
     ref
   ): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -110,46 +109,6 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
   }
 );
 
-export const defaultProps = {
-  size: InputSize.Md,
-  error: false,
-  multiple: false,
-  fullWidth: false,
-  readOnly: false,
-  disabled: false,
-  showClearIcon: false,
-  scroll: true,
-  hideMenuItemsActions: false,
-};
-
-Select.defaultProps = defaultProps;
-
 export const simpleValuePropTypes = PT.oneOfType([PT.string, PT.number, PT.oneOf([null])]);
-
-export const propTypes = {
-  size: PT.oneOf(objectValues(InputSize)),
-  error: PT.bool,
-  multiple: PT.bool,
-  fullWidth: PT.bool,
-  children: PT.oneOfType([PT.element, PT.arrayOf(PT.element)]),
-  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null]), PT.arrayOf(simpleValuePropTypes)]) as Validator<
-    SelectSimpleValueType | SelectSimpleValueType[]
-  >,
-  onChange: PT.func,
-  MenuProps: PT.exact(menuPropTypes) as Validator<MenuProps>,
-  // eslint-disable-next-line react/forbid-prop-types
-  selectProps: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  showClearIcon: PT.bool,
-  hideMenuItemsActions: PT.bool,
-  showSelectionKey: PT.bool,
-  scroll: PT.bool,
-  renderLabel: PT.func,
-  onRequestClose: PT.func,
-  hideEllipsis: PT.bool,
-};
-
-Select.propTypes = propTypes;
 
 export default Select;

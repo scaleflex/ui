@@ -1,9 +1,0 @@
-{
-  "extends": "../tsconfig.json",
-  "compilerOptions": {
-    "noEmit": false,
-    "emitDeclarationOnly": false,
-    "jsx": "preserve"
-  },
-  "include": ["**/stories/*"]
-}

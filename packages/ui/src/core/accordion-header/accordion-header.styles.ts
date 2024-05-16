@@ -27,14 +27,14 @@ const Label = styled.span.attrs({
 
 const Header = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme, fullWidth }: With<WithTheme, { fullWidth?: boolean }>) => css`
+})<With<WithTheme, { $fullWidth?: boolean }>>(
+  ({ theme, $fullWidth }) => css`
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
     cursor: pointer;
-    width: ${fullWidth ? '100%' : 'auto'};
+    width: ${$fullWidth ? '100%' : 'auto'};
     color: ${theme.palette[PColor.LinkPrimary]};
     user-select: none;
   `

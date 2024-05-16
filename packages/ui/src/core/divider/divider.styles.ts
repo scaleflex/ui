@@ -8,8 +8,8 @@ const baseClassName = 'Divider';
 
 const Divider = styled.hr.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     margin: 0px;
     flex-shrink: 0;
     border-width: 0px 0px thin;

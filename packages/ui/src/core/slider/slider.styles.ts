@@ -9,8 +9,8 @@ const baseClassName = 'Slider';
 
 const Slider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme, disabled = false }: With<WithTheme, SliderProps>) => css`
+})<With<WithTheme, SliderProps>>(
+  ({ theme, disabled = false }) => css`
     display: inline-block;
     border-radius: 2px;
     position: relative;
@@ -102,8 +102,8 @@ const Thumb = styled.span.attrs({
 
 const LabelTooltip = styled.span.attrs({
   className: generateClassNames(baseClassName, 'label'),
-})(
-  ({ theme, open = false, disabled = false }: With<WithTheme, { open: boolean; disabled: boolean }>) => css`
+})<With<WithTheme, { open: boolean; disabled: boolean }>>(
+  ({ theme, open = false, disabled = false }) => css`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,8 +137,8 @@ const LabelTooltip = styled.span.attrs({
 
 const SliderAnnotation = styled.div.attrs({
   className: generateClassNames(baseClassName, 'annotation'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     display: flex;
     justify-content: space-between;
     margin-top: 12px;

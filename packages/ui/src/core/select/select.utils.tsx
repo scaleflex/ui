@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ReactNode, ReactElement } from 'react';
-import { Tick } from '@scaleflex/icons/tick';
+import { Tick } from '@scaleflex/icons';
 
 import type { MenuItemProps } from '../menu-item';
 import { MenuItemActions, MenuItemLabel } from '../menu-item';
@@ -18,11 +18,6 @@ export const getIconSize = (size?: SelectSizeType): number => {
       return 14;
   }
 };
-
-export const renderIcon = (_icon: ReactNode, size?: SelectSizeType): JSX.Element | undefined =>
-  _icon ? (
-    <Styled.Icon>{typeof _icon === 'function' ? _icon({ size: getIconSize(size) }) : _icon}</Styled.Icon>
-  ) : undefined;
 
 const generateChildren = (
   children: ReactNode,
@@ -67,7 +62,7 @@ const generateChildren = (
 };
 
 export const renderOption = (
-  menuItem: JSX.Element,
+  menuItem: any,
   { value, multiple = false, size = InputSize.Md, hideMenuItemsActions = false, onClose, onChange }: RenderOption
 ): JSX.Element => {
   if (!React.isValidElement(menuItem)) {

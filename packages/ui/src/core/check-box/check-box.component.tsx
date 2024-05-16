@@ -1,11 +1,10 @@
 import React from 'react';
-import PT from 'prop-types';
 import Tick from '@scaleflex/icons/tick';
 import Intermediate from '@scaleflex/icons/intermediate';
+
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
-
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 import { Size, Type } from './types';
@@ -16,7 +15,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     {
       size = Size.Md,
       type = Type.Checkbox,
-      checked,
+      checked = false,
       onChange,
       checkBoxProps,
       readOnly,
@@ -37,11 +36,10 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     };
 
     return (
-      <Styled.CheckBox size={size} disabled={Boolean(disabled)} checked={Boolean(checked)} ref={ref} {...rest}>
+      <Styled.CheckBox $size={size} disabled={Boolean(disabled)} checked={Boolean(checked)} ref={ref} {...rest}>
         <Styled.Input
           checked={checked}
           disabled={disabled}
-          size={size}
           onChange={readOnly || disabled ? undefined : onChange}
           {...checkBoxProps}
         />
@@ -56,20 +54,5 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
     );
   }
 );
-
-CheckBox.defaultProps = {
-  checked: false,
-  size: Size.Md,
-};
-
-CheckBox.propTypes = {
-  checked: PT.bool,
-  onChange: PT.func,
-  checkBoxProps: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
-  type: PT.oneOf(objectValues(Type)),
-};
 
 export default CheckBox;

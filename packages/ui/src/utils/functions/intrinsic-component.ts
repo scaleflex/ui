@@ -24,6 +24,5 @@ export function intrinsicComponent<P = Record<string, unknown>, E = HTMLElement>
   const component = forwardRef<E, P>(render);
   // eslint-disable-next-line immutable/no-mutation
   component.displayName = displayName || render.name;
-
   return component;
 }

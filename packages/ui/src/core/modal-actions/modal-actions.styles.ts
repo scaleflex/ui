@@ -7,8 +7,8 @@ const baseClassName = 'ModalActions';
 
 const ModalActions = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ align = Align.Center }: ModalActionsProps) => css`
+})<ModalActionsProps>(
+  ({ align = Align.Center }) => css`
     position: relative;
     display: flex;
     align-items: center;

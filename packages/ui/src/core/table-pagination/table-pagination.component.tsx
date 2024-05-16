@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TablePaginationProps } from './table-pagination.props';
@@ -114,15 +113,5 @@ const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectio
     );
   }
 );
-
-TablePagination.propTypes = {
-  children: PT.node,
-  page: PT.number.isRequired,
-  count: PT.number.isRequired,
-  rowsPerPage: PT.number,
-  rowsPerPageOptions: PT.arrayOf(PT.number),
-  onPageChange: PT.func.isRequired,
-  onRowsPerPageChange: PT.func.isRequired,
-};
 
 export default TablePagination;

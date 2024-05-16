@@ -15,8 +15,8 @@ const FileInput = styled.input.attrs({
 
 const UploadInput = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     position: relative;
 
     ${IStyled.Input} {

@@ -12,21 +12,19 @@ const baseClassName = 'Tab';
 
 const Dot = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Dot'),
-})(
-  () => css`
-    position: absolute;
-    display: flex;
-    top: -5%;
-    right: 15%;
-    border: 1px solid white;
-    border-radius: 50%;
-  `
-);
+})`
+  position: absolute;
+  display: flex;
+  top: -5%;
+  right: 15%;
+  border: 1px solid white;
+  border-radius: 50%;
+`;
 
 const Icon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({ theme: { palette }, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
+})<With<WithTheme, TabProps>>(
+  ({ theme: { palette }, disabled = false, size = Size.Md }) => css`
     margin-right: 8px;
     color: ${disabled ? palette[PColor.IconsMuted] : palette[PColor.IconsPrimary]};
     transition: all 100ms ease-out;
@@ -45,8 +43,8 @@ const Label = styled.div.attrs({
 
 const Tab = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme: { palette }, icon = false, disabled = false, size = Size.Md }: With<WithTheme, TabProps>) => css`
+})<With<WithTheme, TabProps>>(
+  ({ theme: { palette }, icon = false, disabled = false, size = Size.Md }) => css`
     ${tabSizeMixin[size]}
 
     position: relative;
@@ -128,20 +126,16 @@ const Tab = styled.div.attrs({
 
 const Icons = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icons'),
-})(
-  () => css`
-    position: relative;
-  `
-);
+})`
+  position: relative;
+`;
 
 const Badge = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Badge'),
-})(
-  () => css`
-    display: flex;
-    margin-left: 5px;
-  `
-);
+})`
+  display: flex;
+  margin-left: 5px;
+`;
 
 const Styled = applyDisplayNames({
   Tab,

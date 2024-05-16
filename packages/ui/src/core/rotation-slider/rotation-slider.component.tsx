@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { RotationSliderProps } from './rotation-slider.props';
 import Slider from '../slider';
 import { LabelTooltip } from '../slider/types';
@@ -32,13 +31,13 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
     }: RotationSliderProps,
     ref
   ): JSX.Element => {
-    const handleChange = (event: any, newValue: number | number[]): void => {
+    const handleChange = (event: any, newValue: number): void => {
       if (onChange) {
         onChange(event, newValue);
       }
     };
 
-    const getValue = (): number | number[] => {
+    const getValue = (): number => {
       if (value || value === 0) {
         if (value > max) {
           return max;
@@ -100,7 +99,7 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
         hideTrack
         hideAnnotation
         annotation={annotation}
-        onChange={handleChange}
+        onChange={(event, newValue) => handleChange(event, newValue as number)}
         labelTooltip={labelTooltipOptions}
         ref={ref}
         components={{
@@ -145,34 +144,5 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
     );
   }
 );
-
-RotationSlider.defaultProps = {
-  annotation: '°',
-  min: 0,
-  max: 100,
-  step: 1,
-  labelTooltipOptions: LabelTooltip.Off,
-};
-
-RotationSlider.propTypes = {
-  value: PT.oneOfType([PT.array, PT.number]),
-  min: PT.number,
-  max: PT.number,
-  angle: PT.number,
-  onChange: PT.func,
-  onMouseDown: PT.func,
-  onMouseUp: PT.func,
-  step: PT.number,
-  annotation: PT.string,
-  hideMarkText: PT.bool,
-  showCurrentMarkText: PT.bool,
-  railProps: PT.object,
-  trackProps: PT.object,
-  thumbProps: PT.object,
-  labelTooltipProps: PT.object,
-  markStyles: PT.object,
-  markTextStyles: PT.object,
-  labelTooltipOptions: PT.oneOf(objectValues(LabelTooltip)),
-};
 
 export default RotationSlider;

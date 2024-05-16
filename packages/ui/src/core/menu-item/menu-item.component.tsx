@@ -1,16 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import Arrow from '@scaleflex/icons/arrow';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemProps, MenuItemListType } from './menu-item.props';
 import Menu from '../menu';
-import { Size } from './types';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
   (
-    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props },
+    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props }: MenuItemProps,
     ref
   ): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
@@ -32,7 +30,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       }
     }, [props.active]);
 
-    const handleSelectedId = (ev: React.MouseEvent<HTMLElement>, selected: string, depthLevel: number): void => {
+    const handleSelectedId = (ev: React.MouseEvent<HTMLDivElement>, selected: string, depthLevel: number): void => {
       const updatedArray = selectedIds.slice(0);
       updatedArray[depthLevel] = selected;
       setSelectedIds(updatedArray);
@@ -82,9 +80,9 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               {...props}
               className={option.className}
               ref={ref}
-              active={Boolean(option.active)}
-              onClick={option.onClick ? (event) => option.onClick({ event, ...props }) : undefined}
-              onMouseEnter={(ev) => handleSelectedId(ev, option.key, depthLevel)}
+              $active={Boolean(option.active)}
+              onClick={(event: React.MouseEvent<HTMLDivElement>) => option.onClick?.({ event, ...props })}
+              onMouseEnter={(ev: React.MouseEvent<HTMLDivElement>) => handleSelectedId(ev, option.key, depthLevel)}
               disableHover={disableHover || option.disableHover}
             >
               {option.prefix && (
@@ -116,7 +114,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       }
 
       return (
-        <Styled.MenuItemWrapper noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
+        <Styled.MenuItemWrapper $noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
           <Styled.MenuItem
             {...props}
             ref={menuItemRef}
@@ -135,25 +133,6 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 );
 
 MenuItem.displayName = 'MenuItem';
-
-export const defaultProps = {
-  size: Size.Sm,
-  active: false,
-};
-
-MenuItem.defaultProps = defaultProps;
-
-MenuItem.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  children: PT.oneOfType([PT.node, PT.func]),
-  active: PT.bool,
-  value: PT.oneOfType([PT.string, PT.number, PT.bool, PT.oneOf([null])]),
-  depth: PT.number,
-  disableHover: PT.bool,
-  noOptionsText: PT.bool,
-  disabled: PT.bool,
-  enableScrollIntoView: PT.bool,
-};
 
 export default MenuItem;
 // list: PT.arrayOf(

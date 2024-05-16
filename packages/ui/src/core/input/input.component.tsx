@@ -1,11 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
-import PT from 'prop-types';
 import CopyOutline from '@scaleflex/icons/copy-outline';
 import EyeOpen from '@scaleflex/icons/eye-open';
 import EyeClosed from '@scaleflex/icons/eye-closed';
+import Success from '@scaleflex/icons/success';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
-import type { InputProps, InputSizeType } from './input.props';
+import { intrinsicComponent } from '../../utils/functions';
+import type { IconFuncType, InputProps, InputSizeType } from './input.props';
 import { InputSize } from '../../utils/types';
 import { handleCopyIcon } from './input.utils';
 import { Type } from './types';
@@ -33,7 +33,7 @@ const getPasswordIconSize = (sizeName: InputSizeType | undefined): number => {
   }
 };
 
-const Input = intrinsicComponent<InputProps, HTMLDivElement>(
+const Input = intrinsicComponent<InputProps, HTMLInputElement>(
   (
     {
       inputType,
@@ -48,18 +48,19 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       size = InputSize.Md,
       className,
       style,
-      fullWidth,
-      readOnly,
-      disabled,
+      fullWidth = false,
+      readOnly = false,
+      disabled = false,
       hideCopyIcon = false,
       focusOnMount = false,
       focusOnClick = true,
       isEllipsis = false,
-      copyTextMessage,
-      copySuccessIcon,
-      error,
+      copyTextMessage = 'Copied!',
+      copySuccessIcon = <Success size={16} />,
+      error = false,
       renderTags,
       showPlaceholder,
+      InputProps: InputPropsData,
       ...rest
     }: InputProps,
     ref
@@ -121,13 +122,13 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
       }
     };
 
-    const renderIcon = (_icon: React.ReactNode, type: string): JSX.Element | undefined =>
+    const renderIcon = (_icon: React.ReactNode | IconFuncType, type: string): JSX.Element | undefined =>
       _icon ? (
         <Styled.Icon
           onClick={(event) => handleIconClick(event, type)}
           iconClickStart={iconClickStart}
           iconClickEnd={iconClickEnd}
-          iconType={type}
+          $iconType={type}
           disabled={disabled}
           readOnly={readOnly}
         >
@@ -144,9 +145,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
 
     const renderCopyIcon = (icon: React.ReactNode): JSX.Element | undefined =>
       showCopyIcon ? (
-        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowCopyMessage)}>
-          {typeof icon === 'function' ? icon() : icon}
-        </Styled.CopyIcon>
+        <Styled.CopyIcon onClick={() => handleCopyIcon(rest.value, setShowCopyMessage)}>{icon}</Styled.CopyIcon>
       ) : undefined;
 
     const toggleVisibility = (event: React.MouseEvent<HTMLDivElement>): void => {
@@ -173,7 +172,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | undefined => (
-      <Styled.FieldWrapper isSelectedItems={Boolean(isSelectedItems)}>
+      <Styled.FieldWrapper $isSelectedItems={Boolean(isSelectedItems)}>
         {renderTags && renderTags()}
 
         <Styled.Base
@@ -182,7 +181,7 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
           ref={inputRef}
           readOnly={Boolean(readOnly)}
           type={getInputType()}
-          isEllipsis={isEllipsis}
+          $isEllipsis={isEllipsis}
         />
       </Styled.FieldWrapper>
     );
@@ -207,11 +206,12 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
         style={style}
         readOnly={readOnly}
         disabled={disabled}
-        fullWidth={Boolean(fullWidth)}
-        error={error}
+        $fullWidth={Boolean(fullWidth)}
+        $error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
-        isSelectedItems={Boolean(isSelectedItems)}
+        $isSelectedItems={Boolean(isSelectedItems)}
+        {...(InputPropsData || {})}
       >
         {renderIcon(iconStart, 'start')}
         {renderField()}
@@ -226,41 +226,5 @@ const Input = intrinsicComponent<InputProps, HTMLDivElement>(
     );
   }
 );
-
-export const defaultProps = {
-  size: InputSize.Md,
-  error: false,
-  fullWidth: false,
-  readOnly: false,
-  disabled: false,
-  copyTextMessage: 'Copied!',
-};
-
-Input.defaultProps = defaultProps;
-
-export const propTypes = {
-  size: PT.oneOf(objectValues(InputSize)),
-  iconStart: PT.oneOfType([PT.node, PT.func]),
-  iconEnd: PT.oneOfType([PT.node, PT.func]),
-  iconChange: PT.oneOfType([PT.node, PT.func]),
-  copySuccessIcon: PT.oneOfType([PT.node, PT.func]),
-  clearIcon: PT.oneOfType([PT.node, PT.func]),
-  error: PT.bool,
-  fullWidth: PT.bool,
-  value: PT.any,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  iconClickStart: PT.func,
-  showPlaceholder: PT.func,
-  iconClickEnd: PT.func,
-  clearIconClick: PT.func,
-  focusOnMount: PT.bool,
-  focusOnClick: PT.bool,
-  copyTextMessage: PT.string,
-  inputType: PT.string,
-  renderTags: PT.func,
-};
-
-Input.propTypes = propTypes;
 
 export default Input;

@@ -11,8 +11,8 @@ const baseClassName = 'Radio';
 
 const Radio = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ disabled, theme }: With<WithTheme, RadioProps>) => css`
+})<With<WithTheme, RadioProps>>(
+  ({ disabled, theme }) => css`
     position: relative;
     display: inline-flex;
     align-items: inherit;
@@ -24,8 +24,8 @@ const Radio = styled.span.attrs({
 
 const RadioBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'radio'),
-})<RadioProps>(
-  ({ disabled, size = RadioSize.Sm, theme }: With<WithTheme, RadioProps>) => css`
+})<With<WithTheme, RadioProps>>(
+  ({ disabled, size = RadioSize.Sm, theme }) => css`
     border-radius: 50%;
     border: 1px solid
       ${disabled ? theme.palette[PColor.BordersSecondary] : theme.palette[PColor.BorderPrimaryStateless]};
@@ -63,8 +63,8 @@ const RadioBox = styled.div.attrs({
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'radio',
-})<RadioProps>(
-  ({ disabled, size = RadioSize.Sm, theme }: With<WithTheme, RadioProps>) => css`
+})<With<WithTheme, RadioProps>>(
+  ({ disabled, size = RadioSize.Sm, theme }) => css`
     position: absolute;
     opacity: 0;
     border: 1px solid ${theme.palette[PColor.BorderPrimaryStateless]};

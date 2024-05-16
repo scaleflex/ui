@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -10,7 +11,7 @@ const baseClassName = 'TableCell';
 
 const TableCellHeader = styled.th.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
+})<TableCellProps>(
   ({ theme: { palette, typography }, align, padding, size }: With<WithTheme, TableCellProps>) => css`
     ${css(typography.font[FontVariant.TextMedium])}
     display: table-cell;
@@ -24,7 +25,7 @@ const TableCellHeader = styled.th.attrs({
       ? `${size === 'small' ? '0 12px 0 16px' : '0px 0px 0px 4px'}`
       : `${padding === 'none' ? 0 : ''}`};
     width: ${padding === 'options' ? `${size === 'small' ? '24px' : '48px'}` : ''};
-    & > * : {
+    & > * {
       padding: ${padding === 'options' && size === 'small' ? 0 : ''};
     }
   `
@@ -32,7 +33,7 @@ const TableCellHeader = styled.th.attrs({
 
 const TableCellData = styled.td.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
+})<TableCellProps>(
   ({ theme: { palette, typography }, align, padding, size }: With<WithTheme, TableCellProps>) => css`
     ${css(typography.font[FontVariant.TextMedium])}
     display: table-cell;
@@ -48,7 +49,7 @@ const TableCellData = styled.td.attrs({
       ? `${size === 'small' ? '0 12px 0 16px' : '0px 0px 0px 4px'}`
       : `${padding === 'none' ? 0 : ''}`};
     width: ${padding === 'options' ? `${size === 'small' ? '24px' : '48px'}` : ''};
-    & > * : {
+    & > * {
       padding: ${padding === 'options' && size === 'small' ? 0 : ''};
     }
   `

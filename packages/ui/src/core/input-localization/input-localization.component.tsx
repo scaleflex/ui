@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Arrow from '../arrow';
 import Menu from '../menu';
 import type { AnchorElType } from '../menu/menu.props';
 import { renderValue, renderOption } from '../select/select.utils';
-import { propTypes as selectPropTypes } from '../select/select.component';
 import type { InputLocalizationProps } from './input-localization.props';
 import Styled from './input-localization.styles';
 import { InputSize } from '../../utils/types';
@@ -26,7 +24,7 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
       renderLabel,
       multiple,
       ...rest
-    },
+    }: InputLocalizationProps,
     ref
   ): JSX.Element => {
     const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -67,17 +65,5 @@ const InputLocalization = intrinsicComponent<InputLocalizationProps, HTMLDivElem
     );
   }
 );
-
-InputLocalization.defaultProps = {};
-
-const { error, size, ...restSelectPropTypes } = selectPropTypes;
-
-InputLocalization.propTypes = {
-  ...restSelectPropTypes,
-  icon: PT.node,
-  size: PT.oneOf(objectValues(InputSize)),
-  readOnly: PT.bool,
-  disabled: PT.bool,
-};
 
 export default InputLocalization;

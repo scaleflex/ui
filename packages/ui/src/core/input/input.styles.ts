@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
@@ -14,21 +15,14 @@ const baseClassName = 'Input';
 
 const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Icon'),
-})(
-  ({
-    iconClickStart,
-    iconClickEnd,
-    disabled,
-    readOnly,
-    iconType,
-    theme: { palette },
-  }: With<WithTheme, InputProps>) => css`
+})<With<With<WithTheme, InputProps>, { $iconType: string }>>(
+  ({ iconClickStart, iconClickEnd, disabled, readOnly, $iconType, theme: { palette } }) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
     cursor: ${(iconClickStart || iconClickEnd) && !disabled && !readOnly ? 'pointer' : 'default'};
     flex-shrink: 0;
 
-    ${iconType === 'end' &&
+    ${$iconType === 'end' &&
     css`
       color: ${palette[PColor.IconsSecondary]};
     `}
@@ -37,8 +31,8 @@ const Icon = styled.span.attrs({
 
 const CopyIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
-})(
-  ({ theme: { palette } }: With<WithTheme, InputProps>) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     display: flex;
     color: ${palette[PColor.IconsSecondary]};
     cursor: pointer;
@@ -68,8 +62,8 @@ const Container = styled.div.attrs({
 
 const Base = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Base'),
-})<InputProps>(
-  ({ theme: { palette }, isEllipsis = false }: With<WithTheme, InputProps>) => css`
+})<With<WithTheme, { $isEllipsis?: boolean }>>(
+  ({ theme: { palette }, $isEllipsis = false }) => css`
     display: block;
     color: inherit;
     width: 100%;
@@ -80,7 +74,7 @@ const Base = styled.input.attrs({
     background-color: transparent;
     outline: none;
 
-    ${isEllipsis &&
+    ${$isEllipsis &&
     css`
       text-overflow: ellipsis;
     `}
@@ -93,17 +87,17 @@ const Base = styled.input.attrs({
 
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<InputProps>(
+})<With<With<WithTheme, InputProps>, { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean }>>(
   ({
     size = InputSize.Md,
-    error = false,
-    fullWidth = false,
+    $error = false,
+    $fullWidth = false,
     readOnly = false,
     disabled = false,
     isHovering = false,
-    isSelectedItems = false,
+    $isSelectedItems = false,
     theme,
-  }: With<WithTheme, InputProps>) => css`
+  }) => css`
     position: relative;
     display: inline-flex;
     align-items: center;
@@ -111,7 +105,7 @@ const Input = styled.div.attrs({
     column-gap: 8px;
     cursor: text;
     transition: all 100ms ease-out;
-    width: ${fullWidth ? '100%' : '300px'};
+    width: ${$fullWidth ? '100%' : '300px'};
     pointer-events: ${disabled ? 'none' : 'auto'};
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
@@ -121,7 +115,7 @@ const Input = styled.div.attrs({
 
     ${sizeInputMixin[size]}
 
-    ${isSelectedItems &&
+    ${$isSelectedItems &&
     `
       height: fit-content;
 
@@ -180,14 +174,14 @@ const Input = styled.div.attrs({
       color: ${getInputTextColor(readOnly, disabled)};
     }
 
-    ${error && errorMixin}
+    ${$error && errorMixin}
   `
 );
 
 const ClearIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'ClearIcon'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     display: flex;
     cursor: pointer;
     color: ${palette[PColor.IconsPrimary]};
@@ -196,12 +190,8 @@ const ClearIcon = styled.span.attrs({
 
 const NotificationBox = styled.div.attrs({
   className: generateClassNames(baseClassName, 'NotificationBox'),
-})(
-  ({
-    size = InputSize.Md,
-    isTextarea = false,
-    theme: { palette },
-  }: With<With<WithTheme, InputProps>, { isTextarea?: boolean }>) => css`
+})<With<With<WithTheme, InputProps>, { isTextarea?: boolean }>>(
+  ({ size = InputSize.Md, isTextarea = false, theme: { palette } }) => css`
     display: flex;
     position: absolute;
     align-items: center;
@@ -225,8 +215,8 @@ const NotificationBox = styled.div.attrs({
 
 const NotificationIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'NotificationIcon'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     display: flex;
     color: ${palette[PColor.IconsPrimary]};
   `
@@ -234,13 +224,13 @@ const NotificationIcon = styled.span.attrs({
 
 const NotificationText = styled.span.attrs({
   className: generateClassNames(baseClassName, 'NotificationText'),
-})(
+})<WithTheme>(
   ({
     theme: {
       palette,
       typography: { font },
     },
-  }: WithTheme) => css`
+  }) => css`
     display: flex;
     white-space: nowrap;
     ${font[FV.TextSmall]};
@@ -250,8 +240,8 @@ const NotificationText = styled.span.attrs({
 
 const FieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'fieldWrapper'),
-})(
-  ({ isSelectedItems }: { isSelectedItems: boolean }) => css`
+})<{ $isSelectedItems: boolean }>(
+  ({ $isSelectedItems }) => css`
     width: 100%;
     height: 100%;
     display: inline-flex;
@@ -259,7 +249,7 @@ const FieldWrapper = styled.div.attrs({
     gap: 8px;
     max-height: 120px;
 
-    ${isSelectedItems &&
+    ${$isSelectedItems &&
     `
       overflow-y: auto;
     `};

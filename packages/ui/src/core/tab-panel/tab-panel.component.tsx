@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TabPanelProps } from './tab-panel.props';
@@ -14,12 +13,6 @@ const TabPanel = intrinsicComponent<TabPanelProps, HTMLDivElement>(
     return <Styled.TabPanel ref={ref} {...rest} />;
   }
 );
-
-TabPanel.propTypes = {
-  value: PT.oneOfType([PT.string, PT.number]).isRequired,
-  index: PT.oneOfType([PT.string, PT.number]).isRequired,
-  children: PT.node,
-};
 
 TabPanel.displayName = 'TabPanel';
 

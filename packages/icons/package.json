@@ -2,11 +2,12 @@
   "name": "@scaleflex/icons",
   "version": "2.6.3",
   "description": "SVG icons as React components",
+  "main": "lib/index.js",
   "scripts": {
     "prebuild": "copyfiles README.md lib"
   },
   "devDependencies": {
-    "typescript": "^4.0.2"
+    "typescript": "^5.2.2"
   },
   "peerDependencies": {
     "@types/react": "^16.0.0 || ^17.0.0 || ^18.0.0",

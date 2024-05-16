@@ -15,8 +15,8 @@ const baseClassName = 'Drawer';
 
 const TemporaryDrawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'temporary'),
-})(
-  ({ open }: DrawerProps) => css`
+})<DrawerProps>(
+  ({ open }) => css`
     position: absolute;
     inset: 0px;
     z-index: 1200;
@@ -30,20 +30,8 @@ const PersistentDrawer = styled.div.attrs({
 
 const Drawer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({
-    open,
-    isCollapsed,
-    top = 0,
-    theme: { palette, shadows, breakpoints },
-  }: With<
-    WithTheme,
-    {
-      open?: boolean;
-      isCollapsed?: boolean;
-      top?: number;
-    }
-  >) => css`
+})<With<WithTheme, { open?: boolean; isCollapsed?: boolean; top?: number }>>(
+  ({ open, isCollapsed, top = 0, theme: { palette, shadows, breakpoints } }) => css`
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
@@ -71,8 +59,8 @@ const Drawer = styled.div.attrs({
 
 const Header = styled.div.attrs({
   className: generateClassNames(baseClassName, 'header'),
-})(
-  ({ isCollapsed }: { isCollapsed: boolean }) => css`
+})<{ isCollapsed: boolean }>(
+  ({ isCollapsed }) => css`
     display: ${isCollapsed ? 'none' : 'flex'};
     justify-content: flex-start;
     align-items: center;
@@ -98,8 +86,8 @@ const Body = styled.div.attrs({
 
 const Footer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'footer'),
-})(
-  ({ isCollapsed }: { isCollapsed: boolean }) => css`
+})<{ isCollapsed: boolean }>(
+  ({ isCollapsed }) => css`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -109,23 +97,17 @@ const Footer = styled.div.attrs({
 
 const List = styled.ul.attrs({
   className: generateClassNames(baseClassName, 'list'),
-})(
-  () => css`
-    list-style: none;
-    margin: 12px 0;
-    padding: 0;
-    position: relative;
-  `
-);
+})`
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  position: relative;
+`;
 
 const Item = styled.li.attrs({
   className: generateClassNames(baseClassName, 'item'),
-})(
-  ({
-    theme: { palette },
-    isCollapsed,
-    selected,
-  }: With<WithTheme, { isCollapsed?: boolean; selected?: boolean }>) => css`
+})<With<WithTheme, { isCollapsed?: boolean; selected?: boolean }>>(
+  ({ theme: { palette }, isCollapsed, selected }) => css`
     display: ${isCollapsed ? 'none' : 'flex'};
     justify-content: flex-start;
     align-items: center;
@@ -157,7 +139,7 @@ const Item = styled.li.attrs({
 
 const ItemText = styled.div.attrs({
   className: generateClassNames(baseClassName, 'text'),
-})(
+})<With<WithTheme, { isCollapsed?: boolean; font?: FontType }>>(
   ({
     theme: {
       palette,
@@ -165,7 +147,7 @@ const ItemText = styled.div.attrs({
     },
     font: fontKey,
     isCollapsed,
-  }: With<WithTheme, { isCollapsed?: boolean; font?: FontType }>) => css`
+  }) => css`
     flex: 1 1 auto;
     color: ${palette[PColor.TextPrimary]};
     ${font[fontKey || FV.LabelLarge]};
@@ -175,10 +157,10 @@ const ItemText = styled.div.attrs({
   `
 );
 
-const Icon = styled.div.attrs({
+const Icon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'icon'),
-})(
-  ({ theme: { palette }, isCollapsed }: With<WithTheme, { isCollapsed?: boolean }>) => css`
+})<With<WithTheme, { isCollapsed?: boolean }>>(
+  ({ theme: { palette }, isCollapsed }) => css`
     display: flex;
     flex-shrink: 0;
     color: ${palette[PColor.IconsPrimary]};
@@ -189,12 +171,8 @@ const Icon = styled.div.attrs({
 
 const ItemButton = styled.div.attrs({
   className: generateClassNames(baseClassName, 'item-button'),
-})(
-  ({
-    theme: { palette },
-    isCollapsed,
-    selected,
-  }: With<WithTheme, { isCollapsed?: boolean; selected?: boolean }>) => css`
+})<With<WithTheme, { isCollapsed?: boolean; selected?: boolean }>>(
+  ({ theme: { palette }, isCollapsed, selected }) => css`
     display: flex;
     justify-content: ${isCollapsed ? 'center' : 'flex-start'};
     align-items: center;
@@ -226,8 +204,8 @@ const ItemButton = styled.div.attrs({
 
 const CollapsedButton = styled(ItemButton).attrs({
   className: generateClassNames(baseClassName, 'item-button'),
-})(
-  ({ isCollapsed }: { isCollapsed?: boolean }) => css`
+})<{ isCollapsed?: boolean }>(
+  ({ isCollapsed }) => css`
     ${!isCollapsed &&
     css`
       padding: 13px 16px;
@@ -237,14 +215,14 @@ const CollapsedButton = styled(ItemButton).attrs({
 
 const DrawerAccordion = styled(Accordion).attrs({
   className: generateClassNames(baseClassName, 'accordion'),
-})(
+})<With<WithTheme, { selected?: boolean }>>(
   ({
     theme: {
       palette,
       typography: { font },
     },
     selected,
-  }: With<WithTheme, { selected?: boolean }>) => css`
+  }) => css`
     ${AccordionHeaderStyled.Header} {
       padding: 13px 16px;
       transition: background-color 100ms ease-out;

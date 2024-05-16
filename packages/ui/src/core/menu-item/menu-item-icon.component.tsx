@@ -1,7 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemIconProps, MenuItemSizeType } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
@@ -24,15 +23,5 @@ const MenuItemIcon = intrinsicComponent<MenuItemIconProps, HTMLDivElement>(
     </Styled.Icon>
   )
 );
-
-MenuItemIcon.defaultProps = {
-  size: Size.Md,
-};
-
-MenuItemIcon.propTypes = {
-  size: PT.oneOf(objectValues(Size)),
-  children: PT.oneOfType([PT.node, PT.func]).isRequired,
-  disabled: PT.bool,
-};
 
 export default MenuItemIcon;

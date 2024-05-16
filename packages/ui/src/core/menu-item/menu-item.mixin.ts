@@ -1,7 +1,6 @@
 import { css } from 'styled-components';
-// import type { With } from '../../utils/types';
+
 import type { WithTheme } from '../../theme/entity';
-// import { Color as PaletteColor } from '../../utils/types/palette';
 import { FontVariant as FV } from '../../utils/types/typography';
 import { Size } from './types';
 

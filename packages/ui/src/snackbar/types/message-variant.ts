@@ -1,4 +1,4 @@
-import { Status } from '@scaleflex/ui/core/popup-status/types';
+import { Status } from '../../core/popup-status/types';
 
 /**
  * We add "variant" to simplify work with Popup status.

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { createPortal } from 'react-dom';
-import PT from 'prop-types';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import ArrowSidebarLeftOutline from '@scaleflex/icons/arrow-sidebar-left-outline';
 import ArrowSidebarRightOutline from '@scaleflex/icons/arrow-sidebar-right-outline';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import { useMediaQuery, useTheme } from '../../theme/hooks';
 import type { DrawerProps } from './drawer.props';
 import DrawerItemText from './drawer-item-text-component';
@@ -23,7 +22,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       iconsSize = 20,
       collapsed = false,
       top,
-      hideBackdrop,
+      hideBackdrop = false,
       disablePortal,
       collapseButtonLabel = 'Collapse menu',
       persistentDrawerStyles = {},
@@ -33,14 +32,14 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       onCollapse,
       onCollapseClick,
       ...rest
-    },
+    }: DrawerProps,
     ref
   ): JSX.Element => {
     const theme = useTheme();
     const matchDownXl = useMediaQuery(theme.breakpoints.down('xl'));
     const [isCollapsed, setIsCollapsed] = useState(collapsed);
 
-    const temproryDrawerRef = useRef<HTMLDivElement>(null);
+    const temporaryDrawerRef = useRef<HTMLDivElement>(null);
 
     const DrawerIconsSize = useMemo(() => iconsSize, [iconsSize]);
 
@@ -57,10 +56,10 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     }, [isCollapsed]);
 
     const handleCollapse = (): void => {
-      const newCollpaseState = !isCollapsed;
-      setIsCollapsed(newCollpaseState);
+      const newCollapseState = !isCollapsed;
+      setIsCollapsed(newCollapseState);
       if (onCollapseClick) {
-        onCollapseClick(newCollpaseState);
+        onCollapseClick(newCollapseState);
       }
     };
 
@@ -72,8 +71,8 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const keyListener = (ev: KeyboardEvent): void => {
       let isTemporaryDrawer = false;
-      if (temproryDrawerRef?.current) {
-        isTemporaryDrawer = temproryDrawerRef?.current?.offsetWidth > 0;
+      if (temporaryDrawerRef?.current) {
+        isTemporaryDrawer = temporaryDrawerRef?.current?.offsetWidth > 0;
       }
 
       if (ev.key === 'Escape' && isTemporaryDrawer) {
@@ -107,13 +106,13 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
 
     const temporaryDrawer = (): JSX.Element =>
       disablePortal ? (
-        <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+        <Styled.TemporaryDrawer ref={temporaryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
           {renderBackdrop()}
           {renderDrawer(false)}
         </Styled.TemporaryDrawer>
       ) : (
         createPortal(
-          <Styled.TemporaryDrawer ref={temproryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
+          <Styled.TemporaryDrawer ref={temporaryDrawerRef} style={{ ...temproryDrawerStyles }} open={open}>
             {renderBackdrop()}
             {renderDrawer(false)}
           </Styled.TemporaryDrawer>,
@@ -150,33 +149,5 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
     );
   }
 );
-
-export const defaultProps = {
-  open: false,
-  hideBackdrop: false,
-  iconsSize: 20,
-  variant: Variant.Auto,
-};
-
-Drawer.defaultProps = defaultProps;
-
-export const propTypes = {
-  onClose: PT.func.isRequired,
-  onCollapse: PT.func,
-  onCollapseClick: PT.func,
-  children: PT.node.isRequired,
-  top: PT.number,
-  iconsSize: PT.number,
-  open: PT.bool,
-  hideBackdrop: PT.bool,
-  collapsed: PT.bool,
-  disablePortal: PT.bool,
-  collapseButtonLabel: PT.string,
-  persistentDrawerStyles: PT.object,
-  temproryDrawerStyles: PT.object,
-  variant: PT.oneOf(objectValues(Variant)),
-};
-
-Drawer.propTypes = propTypes;
 
 export default Drawer;

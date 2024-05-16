@@ -12,8 +12,4 @@ const DrawerBody = intrinsicComponent<DrawerProps, HTMLDivElement>(
   )
 );
 
-DrawerBody.defaultProps = {};
-
-DrawerBody.propTypes = {};
-
 export default DrawerBody;

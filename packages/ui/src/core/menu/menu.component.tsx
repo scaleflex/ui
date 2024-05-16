@@ -1,9 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import PT, { Validator } from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
-import { propTypes as popperPropTypes } from '../popper/popper.component';
 import { Position } from '../popper/types';
 import Popper from '../popper';
 import Styled from './menu.styles';
@@ -13,15 +11,15 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     {
       id,
       children,
-      open,
+      open = false,
       fullWidth,
       anchorElPosition,
       anchorEl,
       onClose,
-      containerProps,
+      containerProps = {},
       alignCenter,
-      maxHeight,
-      position,
+      maxHeight = 250,
+      position = Position.BottomStart,
       popperOptions,
       enableOverlay = true,
       zIndex,
@@ -30,7 +28,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       enableUnderlayingEvent = false,
       popperWrapperStyles = {},
       ...rest
-    },
+    }: MenuProps,
     ref
   ): JSX.Element => {
     const [timeout, setTimeoutState] = useState<ReturnType<typeof setTimeout> | null>(null);
@@ -93,81 +91,39 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
       }
     }, [open, updateRect]);
 
-    const handleClose = (event: any): void => {
+    const handleClose = (event: React.MouseEvent<HTMLDivElement>): void => {
       if (typeof onClose === 'function') {
         onClose(event);
       }
     };
 
     return (
-      <>
-        <Popper
-          ref={menuRef}
-          position={position || 'bottom-start'}
-          open={Boolean(anchorEl)}
-          anchorEl={anchorEl}
-          overlay={Boolean(enableOverlay)}
-          onClick={handleClose}
-          popperOptions={popperOptions}
-          zIndex={zIndex}
-          enableUnderlayingEvent={enableUnderlayingEvent}
-          wrapperStyles={popperWrapperStyles}
+      <Popper
+        ref={menuRef}
+        position={position || 'bottom-start'}
+        open={Boolean(anchorEl)}
+        anchorEl={anchorEl}
+        overlay={Boolean(enableOverlay)}
+        onClick={handleClose}
+        popperOptions={popperOptions}
+        zIndex={zIndex}
+        enableUnderlayingEvent={enableUnderlayingEvent}
+        wrapperStyles={popperWrapperStyles}
+      >
+        <Styled.Menu
+          {...containerProps}
+          alignCenter={Boolean(alignCenter)}
+          scroll={scroll}
+          rect={rect}
+          {...rest}
+          ref={ref}
+          maxHeight={maxHeight}
         >
-          <Styled.Menu
-            {...containerProps}
-            alignCenter={Boolean(alignCenter)}
-            scroll={scroll}
-            rect={rect}
-            {...rest}
-            ref={ref}
-            maxHeight={maxHeight}
-          >
-            {children}
-          </Styled.Menu>
-        </Popper>
-      </>
+          {children}
+        </Styled.Menu>
+      </Popper>
     );
   }
 );
-
-export const defaultProps = {
-  open: false,
-  containerProps: {},
-  maxHeight: 250,
-  position: Position.BottomStart,
-  enableOverlay: true,
-  hideScroll: true,
-  scroll: true,
-};
-
-Menu.defaultProps = defaultProps;
-
-export const propTypes = {
-  anchorElPosition: PT.shape({
-    left: PT.number,
-    right: PT.number,
-    top: PT.number,
-    bottom: PT.number,
-  }) as Validator<DOMRect>,
-  anchorEl: PT.instanceOf(Element),
-  open: PT.bool,
-  fullWidth: PT.bool,
-  onClose: PT.func,
-  id: PT.string,
-  containerProps: PT.object,
-  alignCenter: PT.bool,
-  maxHeight: PT.oneOfType([PT.string, PT.number]),
-  popperOptions: popperPropTypes.popperOptions,
-  position: PT.oneOf(objectValues(Position)),
-  enableOverlay: PT.bool,
-  zIndex: PT.number,
-  hideScroll: PT.bool,
-  scroll: PT.bool,
-  enableUnderlayingEvent: PT.bool,
-  popperWrapperStyles: PT.object,
-  style: PT.object,
-};
-
-Menu.propTypes = propTypes;
 
 export default Menu;

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { With } from '@scaleflex/ui/utils/types';
+import { With } from '../../utils/types';
 
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';

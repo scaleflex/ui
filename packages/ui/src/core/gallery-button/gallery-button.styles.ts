@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
-import { With } from '@scaleflex/ui/utils/types';
+import { With } from '../../utils/types';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import IconButtonStyled from '../icon-button/icon-button.styles';
-import type { GalleryButtonProps } from './gallery-button.props';
 import { Color as PColor } from '../../utils/types/palette';
 import type { WithTheme } from '../../theme/entity';
 
@@ -42,8 +42,8 @@ const MainRectangle = styled.div.attrs({
 
 const GalleryButton = styled(IconButtonStyled.IconButton).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme, active }: With<WithTheme, GalleryButtonProps>) => css`
+})<With<WithTheme, { $active: boolean }>>(
+  ({ theme, $active }) => css`
     border: none;
     background-color: transparent;
     padding: 8px 6px;
@@ -85,7 +85,7 @@ const GalleryButton = styled(IconButtonStyled.IconButton).attrs({
       }
     }
 
-    ${active &&
+    ${$active &&
     css`
       background-color: ${theme.palette[PColor.BackgroundActive]};
 

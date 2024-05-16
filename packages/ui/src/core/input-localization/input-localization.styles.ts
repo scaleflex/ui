@@ -38,8 +38,8 @@ const Container = styled.div.attrs({
 
 const InputLocalization = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ size = InputSize.Md, disabled, theme }: With<WithTheme, InputLocalizationProps>) => css`
+})<With<WithTheme, InputLocalizationProps>>(
+  ({ size = InputSize.Md, disabled, theme }) => css`
     position: relative;
     display: flex;
     align-items: center;

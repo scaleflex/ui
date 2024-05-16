@@ -1,6 +1,11 @@
-import { addons } from '@storybook/addons';
-import ScaleflexTheme from './ScaleflexTheme';
+import { addons } from "@storybook/manager-api";
+import scaleflexTheme from './ScaleflexTheme';
+import {camelCase, startCase} from 'lodash';
+
 
 addons.setConfig({
-  theme: ScaleflexTheme,
+  theme: scaleflexTheme,
+  sidebar: {
+    renderLabel: ({ name, type }) => (type === 'story' ? name : startCase(camelCase(name)).replace(/ /g, '')),
+  },
 });

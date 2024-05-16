@@ -1,8 +1,7 @@
 import React, { useEffect, isValidElement } from 'react';
 import { createPortal } from 'react-dom';
-import PT from 'prop-types';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';
 import ModalMenuContext from './modal-menu-context';
@@ -16,7 +15,17 @@ const isValidSingleFragmentChildren = (children?: any): boolean =>
 
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
   (
-    { children: _children, open, onClose, maxWidth, fullWidth, modalStyles, hideOverlay, disableOverlayClick, ...rest },
+    {
+      children: _children,
+      open = false,
+      onClose,
+      maxWidth = Size.Xs,
+      fullWidth = false,
+      modalStyles,
+      hideOverlay = false,
+      disableOverlayClick = false,
+      ...rest
+    }: ModalProps,
     ref
   ): JSX.Element => {
     const children = isValidSingleFragmentChildren(_children) ? (_children as JSX.Element).props.children : _children;
@@ -80,28 +89,5 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
     return createPortal(render(), target);
   }
 );
-
-export const defaultProps = {
-  open: false,
-  fullWidth: false,
-  disableOverlayClick: false,
-  hideOverlay: false,
-  maxWidth: Size.Xs,
-};
-
-Modal.defaultProps = defaultProps;
-
-export const propTypes = {
-  onClose: PT.func,
-  modalStyles: PT.object,
-  disableOverlayClick: PT.bool,
-  hideOverlay: PT.bool,
-  children: PT.node.isRequired,
-  maxWidth: PT.oneOf(objectValues(Size)),
-  open: PT.bool,
-  fullWidth: PT.bool,
-};
-
-Modal.propTypes = propTypes;
 
 export default Modal;

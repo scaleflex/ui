@@ -18,8 +18,8 @@ const RotationSliderList = styled.ul.attrs({
 
 const RotationSliderBigDot = styled.li.attrs({
   className: generateClassNames(baseClassName, 'big-dot'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     width: 8px;
     height: 8px;
     border-radius: 50%;
@@ -36,8 +36,8 @@ const RotationSliderSmallDotWrapper = styled.div.attrs({
 
 const RotationSliderSmallDot = styled.li.attrs({
   className: generateClassNames(baseClassName, 'small-dot'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     width: 2px;
     height: 2px;
     border-radius: 50%;
@@ -48,8 +48,8 @@ const RotationSliderSmallDot = styled.li.attrs({
 
 const RotationSliderControl = styled.span.attrs({
   className: generateClassNames(baseClassName, 'control'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -103,8 +103,8 @@ const RotationSliderMark = styled.div.attrs({
 
 const RotationSliderMarkText = styled.span.attrs({
   className: generateClassNames(baseClassName, 'mark-text'),
-})(
-  ({ theme: { palette } }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme: { palette } }) => css`
     position: absolute;
     top: 20px;
     font-size: 14px;

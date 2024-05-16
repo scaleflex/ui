@@ -14,8 +14,8 @@ const baseClassName = 'TagField';
 
 const TagFieldRoot = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ fullWidth }: With<WithTheme, { fullWidth: boolean }>) => css`
+})<With<WithTheme, { fullWidth: boolean }>>(
+  ({ fullWidth }) => css`
     width: ${fullWidth ? '100%' : '342px'};
 
     ${StyledFormHint.FormHint} {
@@ -36,8 +36,8 @@ const TagInputFieldWrapper = styled.div.attrs({
 
 const TagFieldWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldWrapper'),
-})(
-  ({ size, error, theme }: With<WithTheme, { size: TagFieldSizeType; error: boolean }>) => css`
+})<With<WithTheme, { size: TagFieldSizeType; error: boolean }>>(
+  ({ size, error, theme }) => css`
     position: relative;
     box-sizing: border-box;
     overflow: hidden;
@@ -83,8 +83,8 @@ const TagFieldLoader = styled.span.attrs({
 
 const TagFieldListWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'listWrapper'),
-})(
-  ({ $loading }: { $loading: boolean | undefined }) => css`
+})<{ $loading: boolean | undefined }>(
+  ({ $loading }) => css`
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -117,12 +117,8 @@ const TagFieldInput = styled.input.attrs({
 
 const TagFieldInputWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'inputWrapper'),
-})(
-  ({
-    size = Size.Md,
-    filterInputWidth = 100,
-    theme,
-  }: With<WithTheme, { size: TagFieldSizeType; filterInputWidth?: string | number }>) => css`
+})<With<WithTheme, { size: TagFieldSizeType; filterInputWidth?: string | number }>>(
+  ({ size = Size.Md, filterInputWidth = 100, theme }) => css`
     background: none;
     flex-grow: 1;
     height: ${size === Size.Md ? 26 : 22}px;
@@ -141,13 +137,11 @@ const TagFieldInputWrapper = styled.div.attrs({
 
 const TagFieldButtonsWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldButtonsWrapper'),
-})(
-  () => css`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  `
-);
+})`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 
 const TagFieldCopyIcon = styled.div.attrs({
   className: generateClassNames(baseClassName, 'tagFieldCopyIcon'),
@@ -166,8 +160,8 @@ const TagFieldSuggestionWrapper = styled.div.attrs({
 
 const TagFieldSuggestionLabel = styled.label.attrs({
   className: generateClassNames(baseClassName, 'suggestionLabel'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     display: flex;
     align-items: center;
     font-size: 12px;
@@ -196,8 +190,8 @@ const TagFieldSuggestionWrapperList = styled.div.attrs({
 
 const TagFieldSuggestionList = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suggestionList'),
-})(
-  ({ theme }: WithTheme) => css`
+})<WithTheme>(
+  ({ theme }) => css`
     position: relative;
     display: flex;
     align-items: center;

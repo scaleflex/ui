@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import Arrow from '../arrow';
 import { intrinsicComponent } from '../../utils/functions';
@@ -57,20 +56,5 @@ const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>((props: P
     </Styled.Pagination>
   );
 });
-
-Pagination.defaultProps = {};
-
-export const propTypes = {
-  boundaryCount: PT.number,
-  count: PT.number,
-  defaultPage: PT.number,
-  disabled: PT.bool,
-  onChange: PT.func,
-  getItemAriaLabel: PT.func,
-  page: PT.number,
-  siblingCount: PT.number,
-};
-
-Pagination.propTypes = propTypes;
 
 export default Pagination;

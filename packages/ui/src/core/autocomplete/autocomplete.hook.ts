@@ -1,5 +1,5 @@
 import React, { useRef, useState, useMemo, useCallback, useEffect } from 'react';
-import { useDebounce } from '@scaleflex/ui/hooks/use-debounce';
+import { useDebounce } from '../../hooks/use-debounce';
 
 import { escapeRegExp } from '../../utils/functions';
 import type {
@@ -139,7 +139,10 @@ export function useAutocomplete(
   };
 
   const handleCloseMenuClick = (
-    event?: React.SyntheticEvent<HTMLInputElement> | React.KeyboardEvent<HTMLInputElement>
+    event?:
+      | React.SyntheticEvent<HTMLInputElement>
+      | React.KeyboardEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLDivElement>
   ): void => {
     setAnchorEl(undefined);
     setIsSearchMode(false);
@@ -185,7 +188,10 @@ export function useAutocomplete(
     setAnchorEl(undefined);
   };
 
-  const handleOnRemoveItem = (event: React.SyntheticEvent<HTMLElement>, optionId: AutocompleteOptionIdType): void => {
+  const handleOnRemoveItem = (
+    event: React.SyntheticEvent<HTMLElement> | React.MouseEvent<SVGSVGElement>,
+    optionId: AutocompleteOptionIdType
+  ): void => {
     event.stopPropagation();
 
     if (isMultiple && onChange) {

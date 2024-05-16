@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { With } from '../../utils/types';
 import { Color as PC } from '../../utils/types/palette';
@@ -23,8 +24,8 @@ const pulseKeyframe = keyframes`
 
 const Skeleton = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({ theme, width, height }: With<WithTheme, SkeletonProps>) => css`
+})<With<WithTheme, SkeletonProps>>(
+  ({ theme, width, height }) => css`
     display: block;
     background-color: ${theme.palette[PC.BordersSecondary]};
     width: ${typeof width === 'number' ? `${width}px` : width};

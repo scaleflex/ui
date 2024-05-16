@@ -4,7 +4,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
-import type { CheckBoxProps } from './check-box.props';
+import type { CheckBoxProps, CheckBoxSizeType } from './check-box.props';
 import { sizeCheckboxMixin } from './check-box.mixin';
 import { Size } from './types';
 
@@ -13,8 +13,8 @@ const baseClassName = 'CheckBox';
 const Input = styled.input.attrs({
   className: generateClassNames(baseClassName, 'Input'),
   type: 'checkbox',
-})<CheckBoxProps>(
-  ({ disabled = false }: With<WithTheme, CheckBoxProps>) => css`
+})(
+  ({ disabled = false }) => css`
     position: absolute;
     top: 0;
     left: 0;
@@ -26,7 +26,7 @@ const Input = styled.input.attrs({
     cursor: ${disabled ? 'default' : 'pointer'};
     z-index: 1;
   `
-);
+  );
 
 const UnCheckedIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'icon'),
@@ -40,8 +40,8 @@ const UnCheckedIcon = styled.span.attrs({
 
 const CheckBox = styled.span.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<CheckBoxProps>(
-  ({ theme: { palette }, size = Size.Sm, checked, disabled = false }: With<WithTheme, CheckBoxProps>) => css`
+})<With<WithTheme, { $size: CheckBoxSizeType; checked: boolean; disabled: boolean }>>(
+  ({ theme: { palette }, $size = Size.Sm, checked, disabled = false }) => css`
     position: relative;
     display: flex;
     align-items: center;
@@ -54,7 +54,7 @@ const CheckBox = styled.span.attrs({
     transition: all 100ms ease-out;
     cursor: ${disabled ? 'default' : 'pointer'};
 
-    ${sizeCheckboxMixin[size]}
+    ${sizeCheckboxMixin[$size]}
 
     &:hover {
       ${UnCheckedIcon} {

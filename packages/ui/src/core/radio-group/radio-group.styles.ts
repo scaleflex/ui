@@ -13,8 +13,8 @@ const baseClassName = 'RadioGroup';
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
   type: 'checkbox',
-})(
-  ({ size = RadioSize.Sm, disabled, theme }: With<WithTheme, RadioGroupProps>) => css`
+})<With<WithTheme, RadioGroupProps>>(
+  ({ size = RadioSize.Sm, disabled, theme }) => css`
     display: flex;
     align-items: center;
     margin-left: 8px;
@@ -27,8 +27,8 @@ const Label = styled.span.attrs({
 
 const RadioGroup = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<RadioGroupProps>(
-  ({ disabled }: With<WithTheme, RadioGroupProps>) => css`
+})<With<WithTheme, RadioGroupProps>>(
+  ({ disabled }) => css`
     position: relative;
     display: inline-flex;
     cursor: ${disabled ? 'default' : 'pointer'};

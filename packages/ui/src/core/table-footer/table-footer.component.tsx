@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableFooterProps } from './table-footer.props';
@@ -19,9 +18,5 @@ const TableFooter = intrinsicComponent<TableFooterProps, HTMLTableSectionElement
     </Tablelvl2Context.Provider>
   )
 );
-
-TableFooter.propTypes = {
-  children: PT.node,
-};
 
 export default TableFooter;

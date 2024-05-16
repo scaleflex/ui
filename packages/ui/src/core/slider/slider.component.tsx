@@ -1,11 +1,7 @@
-/* eslint-disable no-use-before-define */
-
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import PT, { Validator } from 'prop-types';
 
 import {
   intrinsicComponent,
-  objectValues,
   asc,
   valueToPercent,
   percentToValue,
@@ -21,7 +17,7 @@ import {
 } from '../../utils/functions';
 import useControlled from '../../hooks/use-controlled';
 import useEventCallback from '../../hooks/use-event-callback';
-import type { SliderProps, ComponentsType } from './slider.props';
+import type { SliderProps } from './slider.props';
 import { LabelTooltip } from './types';
 import Styled from './slider.styles';
 
@@ -39,18 +35,16 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
       value: valueProp,
       min = 0,
       max = 100,
-      // orientation = 'horizontal',
       onChange,
       onMouseDown,
       onMouseUp,
       step = 1,
       labelTooltip = LabelTooltip.Off,
-      annotation = '',
+      annotation = 'MB',
       components = {},
       componentsProps = {},
       ...rest
     }: SliderProps,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ref
   ): JSX.Element => {
     const [active, setActive] = useState(-1);
@@ -411,37 +405,5 @@ const Slider = intrinsicComponent<SliderProps, HTMLSpanElement>(
     );
   }
 );
-
-Slider.defaultProps = {
-  annotation: 'MB',
-  min: 0,
-  max: 100,
-  step: 1,
-  labelTooltip: LabelTooltip.Off,
-};
-
-Slider.propTypes = {
-  defaultValue: PT.oneOfType([PT.array, PT.number]),
-  value: PT.oneOfType([PT.array, PT.number]),
-  min: PT.number,
-  max: PT.number,
-  onChange: PT.func,
-  onMouseDown: PT.func,
-  onMouseUp: PT.func,
-  step: PT.number,
-  annotation: PT.string,
-  disabled: PT.bool,
-  disableSwap: PT.bool,
-  hideTrack: PT.bool,
-  hideAnnotation: PT.bool,
-  labelTooltip: PT.oneOf(objectValues(LabelTooltip)),
-  components: PT.shape({
-    Rail: PT.elementType,
-    Track: PT.elementType,
-    Thumb: PT.elementType,
-    LabelTooltip: PT.elementType,
-  }) as Validator<ComponentsType>,
-  componentsProps: PT.object,
-};
 
 export default Slider;

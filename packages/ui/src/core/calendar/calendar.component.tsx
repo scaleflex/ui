@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import PT from 'prop-types';
 import ArrowLeftOutline from '@scaleflex/icons/arrow-left-outline';
 import ArrowRightOutline from '@scaleflex/icons/arrow-right-outline';
 import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Popper from '../popper';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
 import Button from '../button';
 import { CalendarProps } from './calendar.props';
-import { propTypes as popperPropTypes } from '../popper/popper.component';
 import {
   HEADER_DAYS,
   getCurrentDate,
@@ -36,11 +34,11 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       value,
       onChange,
       autoSelectToday,
-      enableAutoSelect,
+      enableAutoSelect = false,
       maxDate = '',
       minDate = '',
       anchorEl,
-      position,
+      position = Position.BottomStart,
       popperOptions,
       open = false,
       setOpen,
@@ -344,25 +342,5 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     );
   }
 );
-
-Calendar.defaultProps = {
-  open: false,
-  enableAutoSelect: false,
-  position: Position.BottomStart,
-};
-
-export const propTypes = {
-  value: PT.string,
-  position: PT.oneOf(objectValues(Position)),
-  calendarStyles: PT.object,
-  popperOptions: popperPropTypes.popperOptions,
-  anchorEl: PT.instanceOf(Element),
-  onChange: PT.func,
-  open: PT.bool,
-  enableAutoSelect: PT.bool,
-  setOpen: PT.func,
-};
-
-Calendar.propTypes = propTypes;
 
 export default Calendar;

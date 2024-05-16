@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import PT from 'prop-types';
 import Tick from '@scaleflex/icons/tick';
+
 import { intrinsicComponent } from '../../utils/functions';
 import type { ColorItemProps } from './color-picker.props';
 import Styled from './color-picker.styles';
@@ -28,14 +28,5 @@ const ColorItem = intrinsicComponent<ColorItemProps, HTMLLabelElement>(
     );
   }
 );
-
-ColorItem.defaultProps = {};
-
-ColorItem.propTypes = {
-  value: PT.string.isRequired,
-  checked: PT.bool,
-  onChange: PT.func.isRequired,
-  size: PT.number,
-};
 
 export default ColorItem;

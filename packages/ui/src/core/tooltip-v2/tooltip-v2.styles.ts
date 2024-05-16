@@ -1,4 +1,4 @@
-import { applyDisplayNames, generateClassNames } from '@scaleflex/ui/utils/functions';
+import { applyDisplayNames, generateClassNames } from '../../utils/functions';
 import Tippy from '@tippyjs/react';
 import styled, { css } from 'styled-components';
 
@@ -7,23 +7,15 @@ import type { WithTheme } from '../../theme/entity';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape/border-radius-size';
 import { Color as PColor } from '../../utils/types/palette';
 import { fontTooltipMixin, sizeTooltipMixin } from '../tooltip/tooltip.mixin';
-import { TooltipV2Props, TooltipSizeType } from './tooltip-v2.props';
+import { TooltipSizeType } from './tooltip-v2.props';
 import { Size } from './types';
 
 const baseClassName = 'TooltipV2';
 
 const TooltipV2 = styled(Tippy).attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({
-    $warning,
-    $info,
-    $size = Size.Sm,
-    theme,
-  }: With<
-    With<WithTheme, Partial<TooltipV2Props>>,
-    { $warning: boolean; $info: boolean; $size: TooltipSizeType }
-  >) => css`
+})<With<WithTheme, { $warning?: boolean; $info?: boolean; $size: TooltipSizeType }>>(
+  ({ $warning, $info, $size = Size.Sm, theme }) => css`
     display: inline-flex;
     align-items: center;
     min-width: 54px;
@@ -52,11 +44,11 @@ const TooltipV2 = styled(Tippy).attrs({
 
 const TooltipText = styled.div.attrs({
   className: generateClassNames(baseClassName, 'content'),
-})(
-  ({ warning, info, theme }: With<WithTheme, Partial<TooltipV2Props>>) => css`
+})<With<WithTheme, { $warning?: boolean; $info?: boolean }>>(
+  ({ $warning, $info, theme }) => css`
     display: flex;
     align-items: center;
-    color: ${theme.palette[(warning && PColor.TextWarning) || (info && PColor.TextInfo) || PColor.LinkActive]};
+    color: ${theme.palette[($warning && PColor.TextWarning) || ($info && PColor.TextInfo) || PColor.LinkActive]};
   `
 );
 

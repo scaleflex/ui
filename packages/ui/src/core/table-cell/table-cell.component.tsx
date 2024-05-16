@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PT, { oneOfType } from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableCellProps } from './table-cell.props';
@@ -47,15 +46,5 @@ const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>(
     );
   }
 );
-
-TableCell.defaultProps = {};
-
-TableCell.propTypes = {
-  children: PT.node,
-  component: oneOfType([PT.node, PT.string]),
-  align: PT.oneOf(['center', 'justify', 'left', 'right']),
-  padding: PT.oneOf(['options', 'default', 'none']),
-  size: PT.oneOf(['medium', 'small']),
-};
 
 export default TableCell;

@@ -70,8 +70,8 @@ const DatePickerCalendarHead = styled.div.attrs({
 
 const DatePickerCalendarBody = styled.div.attrs({
   className: generateClassNames(baseClassName, 'date-picker-calendar-body'),
-})(
-  ({ isNextMonth = false, isPrevMonth = false }: { isNextMonth: boolean; isPrevMonth: boolean }) => css`
+})<{ isNextMonth: boolean; isPrevMonth: boolean }>(
+  ({ isNextMonth = false, isPrevMonth = false }) => css`
     position: relative;
     display: block;
     height: 174px;
@@ -130,13 +130,13 @@ const MonthButtonsWrapper = styled.div.attrs({
 
 const MonthButtons = styled.div.attrs({
   className: generateClassNames(baseClassName, 'month-buttons'),
-})(
+})<With<WithTheme, { isYearChanged?: boolean; isMonthChanged?: boolean; isDisabled?: boolean }>>(
   ({
     isYearChanged = false,
     isMonthChanged = false,
     isDisabled = false,
     theme: { palette },
-  }: With<WithTheme, { isYearChanged?: boolean; isMonthChanged?: boolean; isDisabled?: boolean }>) => css`
+  }) => css`
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
@@ -192,13 +192,8 @@ const DatePickerDays = styled.div.attrs({
 
 const DatePickerDay = styled.span.attrs({
   className: generateClassNames(baseClassName, 'date-picker-day'),
-})(
-  ({
-    day,
-    isSelectedDay = false,
-    isDisabled = false,
-    theme: { palette },
-  }: With<WithTheme, { day: any; isSelectedDay: boolean; isDisabled: boolean }>) =>
+})<With<WithTheme, { day: any; isSelectedDay: boolean; isDisabled: boolean }>>(
+  ({ day, isSelectedDay = false, isDisabled = false, theme: { palette } }) =>
     css`
       width: 24.57px;
       height: 24px;

@@ -11,7 +11,7 @@ import {
 } from './autocomplete.props';
 
 export const defaultGetOptionValue = (option: AutocompleteOptionType): AutocompleteOptionIdType =>
-  (typeof option === 'object' ? option.id : option) || '';
+  (typeof option === 'object' ? option.uuid : option) || '';
 
 export const defaultGetOptionLabel = (option: AutocompleteOptionType): AutocompleteOptionLabelType =>
   (typeof option === 'object' ? option.label : option) || '';

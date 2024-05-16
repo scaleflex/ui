@@ -38,13 +38,8 @@ const fadeInAnimation = css`
 
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({
-    rect,
-    theme,
-    scroll,
-    maxHeight = '',
-  }: With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number; scroll?: boolean }>) => css`
+})<With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number; scroll?: boolean }>>(
+  ({ rect, theme, scroll, maxHeight = '' }) => css`
     min-width: ${rect.width}px;
     width: 195px;
     min-height: 16px;

@@ -20,14 +20,8 @@ const Icon = styled.span.attrs({
 
 const NotificationWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  ({
-    status = NotificationStatus.Info,
-    removeBackground,
-    hideIcon,
-    isTitle,
-    theme,
-  }: With<WithTheme, With<NotificationProps, { isTitle?: boolean }>>) => css`
+})<With<WithTheme, With<NotificationProps, { isTitle?: boolean }>>>(
+  ({ status = NotificationStatus.Info, removeBackground, hideIcon, isTitle, theme }) => css`
     display: flex;
     align-items: flex-start;
     position: relative;
@@ -63,8 +57,8 @@ const NotificationWrapper = styled.div.attrs({
 
 const Notification = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Notification'),
-})(
-  ({ theme }: With<WithTheme, NotificationProps>) => css`
+})<With<WithTheme, NotificationProps>>(
+  ({ theme }) => css`
     display: flex;
     padding: 12px 16px;
     margin-right: 64px;
@@ -85,8 +79,8 @@ const MessageWrapper = styled.div.attrs({
 
 const Title = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Title'),
-})(
-  ({ theme }: With<WithTheme, NotificationProps>) => css`
+})<With<WithTheme, NotificationProps>>(
+  ({ theme }) => css`
     margin-bottom: 4px;
     ${theme.typography.font[FontVariant.LabelSmallUpEmphasis]};
   `

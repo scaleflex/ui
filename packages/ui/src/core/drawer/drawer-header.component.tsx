@@ -14,8 +14,4 @@ const DrawerHeader = intrinsicComponent<DrawerProps, HTMLDivElement>(({ children
   );
 });
 
-DrawerHeader.defaultProps = {};
-
-DrawerHeader.propTypes = {};
-
 export default DrawerHeader;

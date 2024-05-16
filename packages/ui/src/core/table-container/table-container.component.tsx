@@ -1,5 +1,4 @@
 import React from 'react';
-import PT from 'prop-types';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { TableContainerProps } from './table-container.props';
@@ -12,9 +11,5 @@ const TableContainer = intrinsicComponent<TableContainerProps, HTMLDivElement>(
     </Styled.TableContainer>
   )
 );
-
-TableContainer.propTypes = {
-  children: PT.node,
-};
 
 export default TableContainer;

@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
-import PT from 'prop-types';
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import CheckBox from '../check-box';
 import type { CheckBoxGroupProps } from './check-box-group.props';
 import Styled from './check-box-group.styles';
@@ -20,8 +19,9 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       checkBoxGroupProps,
       readOnly,
       disabled,
-      labelPosition,
+      labelPosition = LabelPosition.After,
       icon,
+      checked = false,
       ...rest
     }: CheckBoxGroupProps,
     ref
@@ -48,6 +48,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
         checkBoxProps={checkBoxProps}
         disabled={disabled}
         readOnly={readOnly}
+        checked={checked}
         {...rest}
       />,
     ];
@@ -59,7 +60,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
         onMouseOver={handleTextTooltip}
         ref={textRef}
         disabled={Boolean(disabled)}
-        labelPosition={labelPosition}
+        $labelPosition={labelPosition}
         size={size}
       >
         {label}
@@ -72,7 +73,7 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
       content.push(labelContent);
     }
     return (
-      <Styled.CheckBoxGroup icon={icon} disabled={disabled} ref={ref} {...checkBoxGroupProps}>
+      <Styled.CheckBoxGroup disabled={disabled} ref={ref} {...checkBoxGroupProps}>
         {content}
         {typeof icon === 'function'
           ? icon({ size: getCheckboxInfoIconSize(size), color: lightPalette[Color.IconsSecondary] })
@@ -81,24 +82,5 @@ const CheckBoxGroup = intrinsicComponent<CheckBoxGroupProps, HTMLLabelElement>(
     );
   }
 );
-
-CheckBoxGroup.defaultProps = {
-  checked: false,
-  labelPosition: LabelPosition.After,
-  size: Size.Sm,
-};
-
-CheckBoxGroup.propTypes = {
-  label: PT.string,
-  checked: PT.bool,
-  onChange: PT.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  checkBoxProps: PT.object,
-  readOnly: PT.bool,
-  disabled: PT.bool,
-  size: PT.oneOf(objectValues(Size)),
-  labelPosition: PT.oneOf(objectValues(LabelPosition)),
-  icon: PT.oneOfType([PT.node, PT.func]),
-};
 
 export default CheckBoxGroup;

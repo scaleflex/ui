@@ -1,13 +1,13 @@
 import React from 'react';
-import PT from 'prop-types';
 import SpinnerIcon from '@scaleflex/icons/spinner';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 
-import { intrinsicComponent, objectValues } from '../../utils/functions';
+import { intrinsicComponent } from '../../utils/functions';
 import Badge from '../badge';
 import type { ButtonProps } from './button.props';
+// TODO: move both types inside buttons.props file instead having them inside utils
 import { ButtonSize, ButtonColor } from '../../utils/types';
 import { ButtonType, SideBar } from './types';
 import { getIconSize, getSideBarIconSize } from './button.utils';
@@ -20,11 +20,11 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
       startIcon,
       endIcon,
       badge,
-      color,
-      active,
-      buttonType,
+      color = ButtonColor.Secondary,
+      active = false,
+      buttonType = ButtonType.Default,
       sideBarType = SideBar.Left,
-      size,
+      size = ButtonSize.Md,
       loading,
       disabled,
       ...rest
@@ -122,25 +122,5 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
     );
   }
 );
-
-Button.defaultProps = {
-  size: ButtonSize.Md,
-  color: ButtonColor.Secondary,
-  buttonType: ButtonType.Default,
-  active: false,
-};
-
-Button.propTypes = {
-  size: PT.oneOf(objectValues(ButtonSize)),
-  color: PT.oneOf(objectValues(ButtonColor)),
-  buttonType: PT.oneOf(objectValues(ButtonType)),
-  sideBarType: PT.oneOf(objectValues(SideBar)),
-  startIcon: PT.oneOfType([PT.node, PT.func]),
-  endIcon: PT.oneOfType([PT.node, PT.func]),
-  badge: PT.node,
-  active: PT.bool,
-  loading: PT.bool,
-  disabled: PT.bool,
-};
 
 export default Button;
