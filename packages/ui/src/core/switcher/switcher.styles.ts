@@ -96,6 +96,22 @@ const Input = styled.input.attrs({
   `
 );
 
-const Styled = applyDisplayNames({ Switcher, Input, SwitcherWrapper });
+const SwitcherContentWrapper = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'content-Wrapper'),
+})<With<WithTheme, SwitcherProps>>(
+  ({ checked, size }) => css`
+    display: inline-flex;
+    position: absolute;
+    top: 50%;
+    left: ${checked ? '30%' : '65%'};
+    transform: translate(-50%, -50%);
+    transition: 0.1s;
+    font-size: 14px;
+    overflow: hidden;
+    max-width: ${getSwitcherSize(size) * 0.75}px;
+  `
+);
+
+const Styled = applyDisplayNames({ Switcher, Input, SwitcherWrapper, SwitcherContentWrapper });
 
 export default Styled;
