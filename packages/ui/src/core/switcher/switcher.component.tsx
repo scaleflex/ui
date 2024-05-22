@@ -15,6 +15,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
       switcherProps,
       readOnly,
       disabled,
+      children,
       ...rest
     }: SwitcherProps,
     ref
@@ -28,7 +29,13 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
         size={size}
         {...switcherProps}
       />
-      <Styled.Switcher disabled={disabled} size={size} />
+      <Styled.Switcher disabled={disabled} size={size}>
+        {children && (
+          <Styled.SwitcherContentWrapper checked={checked} size={size}>
+            {children}
+          </Styled.SwitcherContentWrapper>
+        )}
+      </Styled.Switcher>
     </Styled.SwitcherWrapper>
   )
 );
