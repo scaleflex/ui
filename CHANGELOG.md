@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.2](https://github.com/scaleflex/ui/compare/v2.8.1...v2.8.2) (2024-05-22)
+
+
+### Features
+
+* **icons:** update similar icon ([a84991c](https://github.com/scaleflex/ui/commit/a84991c11a78d3c53b9be8f17a2b53b8587ebbb1))
+* **switcher:** add children option to switcher ([291cca6](https://github.com/scaleflex/ui/commit/291cca66b665a263be15d49ffc396250f87d630e))
+* **switcher:** add children option to switcher ([67f54e3](https://github.com/scaleflex/ui/commit/67f54e3a1070c39cddcacc70307d349a3e3f901a))
+* **switcher:** add children option to switcher ([1fa7a15](https://github.com/scaleflex/ui/commit/1fa7a154b086effbcd1979aa70c96c285729e3a9))
+
+
+
+
+
+
 ## [2.8.1](https://github.com/scaleflex/ui/compare/v2.8.0...v2.8.1) (2024-05-16)
 
 **Note:** Version bump only for package ui
