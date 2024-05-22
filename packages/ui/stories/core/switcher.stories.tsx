@@ -38,7 +38,7 @@ const BasicTemplate = ({ checked, ...args }: SwitcherProps): JSX.Element => {
   );
 };
 
-const WithText = ({ checked, ...args }: SwitcherProps): JSX.Element => {
+const WithChildrenTemplate = ({ checked, ...args }: SwitcherProps): JSX.Element => {
   const [checkedState, setCheckedState] = useState(false);
 
   useEffect(() => {
@@ -65,5 +65,5 @@ export const Primary: Story = {
 
 export const WithChildren: Story = {
   args: { ...defaultArgs },
-  render: (args) => <WithText {...args} />,
+  render: (args) => <WithChildrenTemplate {...args} />,
 };
