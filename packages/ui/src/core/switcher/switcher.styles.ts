@@ -6,7 +6,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import type { SwitcherProps, SwitcherSizeType } from './switcher.props';
 import { SwitcherSize } from './switcher-size';
 import { sizeInnerSwitcherMixin, translateSwitcherMixin, translateInnerSwitcherMixin } from './switcher.mixin';
-import { getSwitcherIconSize, getSwitcherSize } from './switcher.utils';
+import { getSwitcherFont, getSwitcherIconSize, getSwitcherSize } from './switcher.utils';
 
 const baseClassName = 'Switcher';
 
@@ -106,7 +106,7 @@ const SwitcherContentWrapper = styled.span.attrs({
     left: ${checked ? '30%' : '65%'};
     transform: translate(-50%, -50%);
     transition: 0.1s;
-    font-size: 14px;
+    font-size: ${getSwitcherFont(size)}px;
     overflow: hidden;
     max-width: ${getSwitcherSize(size) * 0.75}px;
   `
