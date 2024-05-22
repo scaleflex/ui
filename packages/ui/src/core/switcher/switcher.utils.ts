@@ -17,6 +17,22 @@ export const getSwitcherSize = (sizeName?: SwitcherSizeType): number => {
   }
 };
 
+export const getSwitcherFont = (sizeName?: SwitcherSizeType): number => {
+  switch (sizeName) {
+    case SwitcherSize.Lg:
+      return 14;
+
+    case SwitcherSize.Md:
+      return 10;
+
+    case SwitcherSize.Sm:
+      return 8;
+
+    default:
+      return 14;
+  }
+};
+
 export const getSwitcherIconSize = (sizeName?: SwitcherSizeType): number => {
   switch (sizeName) {
     case SwitcherSize.Lg:
