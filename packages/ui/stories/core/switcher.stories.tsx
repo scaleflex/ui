@@ -38,7 +38,32 @@ const BasicTemplate = ({ checked, ...args }: SwitcherProps): JSX.Element => {
   );
 };
 
+const WithChildrenTemplate = ({ checked, ...args }: SwitcherProps): JSX.Element => {
+  const [checkedState, setCheckedState] = useState(false);
+
+  useEffect(() => {
+    setCheckedState(checked || false);
+  }, [checked]);
+
+  return (
+    <Switcher
+      {...args}
+      checked={checkedState}
+      onChange={(event) => {
+        setCheckedState(event.target.checked);
+      }}
+    >
+      {checkedState ? 'on' : 'off'}
+    </Switcher>
+  );
+};
+
 export const Primary: Story = {
   args: { ...defaultArgs },
   render: (args) => <BasicTemplate {...args} />,
+};
+
+export const WithChildren: Story = {
+  args: { ...defaultArgs },
+  render: (args) => <WithChildrenTemplate {...args} />,
 };
