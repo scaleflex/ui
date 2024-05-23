@@ -33,6 +33,7 @@ export function useAutocomplete(
     submitOnBlur,
     getOptionDisabled,
     groupBy,
+    closeMenuAfterSelection = true,
   } = props;
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -165,7 +166,7 @@ export function useAutocomplete(
 
       onChange(newValue);
 
-      if (!isMultiple) {
+      if (!isMultiple || closeMenuAfterSelection) {
         handleCloseMenuClick();
       } else {
         setIsSearchMode(false);
