@@ -99,6 +99,27 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
     size: AutocompleteSizeType;
     onRemove: (event: React.MouseEvent<HTMLElement>) => void;
   }) => React.ReactNode;
+  renderMenuItem?: ({
+    id,
+    label,
+    option,
+    menuItemProps,
+  }: {
+    id: AutocompleteOptionIdType;
+    label: AutocompleteOptionLabelType | React.ReactNode;
+    option: AutocompleteOptionType | undefined | null;
+    menuItemProps: {
+      key: AutocompleteOptionIdType;
+      value: AutocompleteOptionIdType;
+      size: AutocompleteSizeType;
+      onMouseDown: (event: React.MouseEvent<HTMLElement>) => void;
+      disabled: boolean;
+      active: boolean;
+      onClick: (event: React.MouseEvent<HTMLElement>) => void;
+      enableScrollIntoView: boolean;
+      children: React.ReactNode;
+    };
+  }) => React.ReactNode;
 }
 
 export interface RenderLabelProps {
