@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/scaleflex/ui/compare/v2.8.3...v2.8.4) (2024-05-23)
+
+
+### Features
+
+* **Autocomplete:** add prop closeMenuAfterSelection (true by default) ([f7affc0](https://github.com/scaleflex/ui/commit/f7affc0342e90db4d6d9a90533e0a8fc9a9e80dd))
+* **Autocomplete:** add prop renderMenuItem ([4b7fc8a](https://github.com/scaleflex/ui/commit/4b7fc8a7185846913e89be5673cb207775a494a4))
+
+
+
+
+
+
 ## [2.8.3](https://github.com/scaleflex/ui/compare/v2.8.2...v2.8.3) (2024-05-23)
 
 
