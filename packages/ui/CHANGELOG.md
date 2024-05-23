@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/scaleflex/ui/compare/v2.8.2...v2.8.3) (2024-05-23)
+
+
+### Features
+
+* **Autocomplete:** add props: hideArrow and renderTag ([1fbb488](https://github.com/scaleflex/ui/commit/1fbb48831dcb01a9f9f02119e50d27e94b275a9f))
+
+
+
+
+
+
 ## [2.8.2](https://github.com/scaleflex/ui/compare/v2.8.1...v2.8.2) (2024-05-22)
 
 

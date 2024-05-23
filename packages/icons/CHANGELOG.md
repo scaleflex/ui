@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.3](https://github.com/scaleflex/ui/compare/v2.8.2...v2.8.3) (2024-05-23)
+
+
+### Bug Fixes
+
+* clip rule attribute ([af5965f](https://github.com/scaleflex/ui/commit/af5965ff4e41c1d569171adb81f25d5280af8151))
+
+
+
+
+
+
 ## [2.8.2](https://github.com/scaleflex/ui/compare/v2.8.1...v2.8.2) (2024-05-22)
 
 
