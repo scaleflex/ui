@@ -38,10 +38,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       disabled = false,
       scroll = true,
       readOnly = false,
-      options = [],
       placeholder,
       fullWidth,
-      sortAlphabetically = false,
       submitOnBlur,
       maxMenuHeight = 250,
       showClearIcon = false,
@@ -50,6 +48,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       renderSearchEmptyMenuItem,
       renderGroup,
       groupBy,
+      hideArrow = false,
+      renderTag,
       ...rest
     } = props;
     const {
@@ -109,11 +109,21 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       );
     };
 
-    const renderTags = (): JSX.Element[] | JSX.Element | boolean | undefined =>
+    const renderTags = (): JSX.Element[] | JSX.Element | React.ReactNode | boolean | undefined =>
       isMultiple &&
       formattedValue.map((optionId, index) => {
         const option = getOptionById(optionId);
         const optionLabel = option ? getOptionLabel(option) : optionId;
+
+        if (typeof renderTag === 'function') {
+          return renderTag({
+            id: optionId,
+            label: optionLabel,
+            option,
+            size,
+            onRemove: (event: React.MouseEvent<HTMLElement>) => handleOnRemoveItem(event, optionId)
+          });
+        }
 
         return (
           <Tag
@@ -190,11 +200,13 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
                         : null,
                   })}
 
-                <ArrowTick
-                  {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
-                  type={open ? 'top' : 'bottom'}
-                  IconProps={{ size: size === Size.Md ? 11 : 10 }}
-                />
+                {!hideArrow && (
+                  <ArrowTick
+                    {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
+                    type={open ? 'top' : 'bottom'}
+                    IconProps={{ size: size === Size.Md ? 11 : 10 }}
+                  />
+                )}
               </Styled.InputIconEndContainer>
             )}
             {...(showClearIcon
