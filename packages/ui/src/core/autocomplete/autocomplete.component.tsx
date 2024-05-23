@@ -50,6 +50,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       groupBy,
       hideArrow = false,
       renderTag,
+      renderMenuItem: renderMenuItemCustomFn,
       ...rest
     } = props;
     const {
@@ -80,32 +81,51 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     });
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
-    const renderMenuItem = (option: AutocompleteOptionType): JSX.Element => {
+    const renderMenuItem = (option: AutocompleteOptionType): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
       const optionLabel = getOptionLabel(option);
       const isActive = checkIsIdSelected(optionId);
+      const isDisabled = getOptionDisabled(option);
+      const label = renderOptionLabel ? renderOptionLabel(option) : optionLabel;
+      const clickHandler = handleMenuItemClick(option);
+
+      const menuItemProps = {
+        key: optionId,
+        value: optionId,
+        size,
+        onMouseDown: (event: React.MouseEvent<HTMLElement>) => event.preventDefault(),
+        disabled: isDisabled,
+        active: isActive,
+        onClick: clickHandler,
+        enableScrollIntoView: true,
+        children: (
+          <>
+            {label}
+
+            {isActive && !renderOptionLabel && (
+              <MenuItemActions>
+                <Styled.TickIcon>
+                  <Tick size={12} />
+                </Styled.TickIcon>
+              </MenuItemActions>
+            )}
+          </>
+        )
+      }
+
+      if (typeof renderMenuItemCustomFn === 'function') {
+        const option = getOptionById(optionId);
+
+        return renderMenuItemCustomFn({
+          id: optionId,
+          label,
+          option,
+          menuItemProps
+        });
+      }
 
       return (
-        <MenuItem
-          key={optionId}
-          value={optionId}
-          size={size}
-          onMouseDown={(e) => e.preventDefault()}
-          disabled={getOptionDisabled(option)}
-          active={isActive}
-          onClick={handleMenuItemClick(option)}
-          enableScrollIntoView
-        >
-          {renderOptionLabel ? renderOptionLabel(option) : optionLabel}
-
-          {isActive && !renderOptionLabel && (
-            <MenuItemActions>
-              <Styled.TickIcon>
-                <Tick size={12} />
-              </Styled.TickIcon>
-            </MenuItemActions>
-          )}
-        </MenuItem>
+        <MenuItem {...menuItemProps} />
       );
     };
 
@@ -121,7 +141,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             label: optionLabel,
             option,
             size,
-            onRemove: (event: React.MouseEvent<HTMLElement>) => handleOnRemoveItem(event, optionId)
+            onRemove: (event: React.MouseEvent<HTMLElement>) => handleOnRemoveItem(event, optionId),
           });
         }
 
