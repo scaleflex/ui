@@ -120,6 +120,7 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
       children: React.ReactNode;
     };
   }) => React.ReactNode;
+  closeMenuAfterSelection?: boolean;
 }
 
 export interface RenderLabelProps {
