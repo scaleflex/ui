@@ -23,8 +23,8 @@ export function useAutocomplete(
   const {
     value,
     multiple,
-    options,
-    sortAlphabetically,
+    options = [],
+    sortAlphabetically = false,
     getOptionLabel,
     getOptionValue,
     onOpen,

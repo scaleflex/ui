@@ -85,6 +85,20 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
     group: any;
     children: React.ReactNode;
   }) => React.ReactNode;
+  hideArrow?: boolean;
+  renderTag?: ({
+    id,
+    label,
+    option,
+    size,
+    onRemove,
+  }: {
+    id: AutocompleteOptionIdType;
+    label: AutocompleteOptionLabelType;
+    option: AutocompleteOptionType | undefined | null;
+    size: AutocompleteSizeType;
+    onRemove: (event: React.MouseEvent<HTMLElement>) => void;
+  }) => React.ReactNode;
 }
 
 export interface RenderLabelProps {
