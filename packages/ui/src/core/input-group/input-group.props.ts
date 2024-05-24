@@ -19,6 +19,12 @@ export interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
+  hideCopyIcon?: boolean;
+  copyTextMessage?: string;
+  copySuccessIcon?: React.ReactNode;
+  fullWidth?: boolean;
+  onChange?: (event: any) => void;
+  placeholder?: string;
   value?: any;
   LabelProps?: LabelProps;
   InputProps?: React.HTMLAttributes<HTMLDivElement>;

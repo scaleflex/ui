@@ -26,6 +26,12 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       disabled,
       size,
       value,
+      hideCopyIcon,
+      copyTextMessage,
+      copySuccessIcon,
+      placeholder,
+      fullWidth,
+      onChange,
       ...rest
     }: InputGroupProps,
     ref
@@ -51,7 +57,10 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | null => {
-      const fieldProps = { value, readOnly, disabled, size, error };
+      const fieldProps = {
+        value, readOnly, disabled, size, error, placeholder,
+        hideCopyIcon, copyTextMessage, copySuccessIcon, fullWidth, onChange
+      };
 
       if (type === Type.Input) {
         return (

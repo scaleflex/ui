@@ -137,7 +137,7 @@ const ActionsButtonsWrapper = styled.div.attrs({
 
 const CopyIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'CopyIcon'),
-})<With<With<Partial<TextareaProps>, { showCopyIcon: boolean }>, WithTheme>>(
+})<With<With<Partial<TextareaProps>, { hideCopyIcon: boolean }>, WithTheme>>(
   ({ theme: { palette } }) => css`
     cursor: pointer;
     color: ${palette[PColor.IconsPrimary]};

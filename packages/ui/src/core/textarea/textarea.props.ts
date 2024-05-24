@@ -1,4 +1,4 @@
-import { SyntheticEvent } from 'react';
+import { ChangeEvent, SyntheticEvent } from 'react';
 
 import type { Values } from '../../utils/types';
 import { InputBackgroundColor } from '../../utils/types';
@@ -22,9 +22,10 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   rows?: number;
   showActionButton?: boolean;
   showClearButton?: boolean;
-  showCopyIcon?: boolean;
+  hideCopyIcon?: boolean;
   actionButtonLabel?: string;
   clearAllButtonLabel?: string;
+  onChange?: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onClickActionButton?: (event: SyntheticEvent) => void;
   onClear?: (event: SyntheticEvent) => void;
 }
