@@ -107,10 +107,10 @@ export const All = ({
       <SearchBlock>
         <InputGroup
           value={search || ''}
+          onChange={(event) => setSearch(event.currentTarget.value)}
           inputProps={{
             iconStart: <SearchIcon />,
             placeholder: 'Search',
-            onChange: ({ currentTarget: { value } }) => setSearch(value),
           }}
         />
       </SearchBlock>
