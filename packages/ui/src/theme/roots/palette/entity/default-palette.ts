@@ -20,6 +20,7 @@ export const lightPalette = {
   [Color.AccentSecondaryDisabled]: '#F9FBFC',
   [Color.AccentStateless]: 'rgba(104, 121, 235, 1)', // #6879EB
   [Color.AccentStateless_0_4_Opacity]: 'rgba(104, 121, 235, 0.4)',
+  [Color.Accent_0_5_5_Opacity]: 'rgba(96, 111, 209, 0.55)', // #606FD18C
   [Color.Accent_0_5_Opacity]: 'rgba(104, 121, 235, 0.05)', // #6879EB0D
   [Color.Accent_1_2_Opacity]: 'rgba(104, 121, 235, 0.12)', // #6879eb1f
   [Color.Accent_1_8_Opacity]: 'rgba(104, 121, 235, 0.18)', // #6879EB2E
