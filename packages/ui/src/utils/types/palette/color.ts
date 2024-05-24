@@ -14,6 +14,7 @@ export const Color = {
   AccentSecondaryDisabled: 'accent-secondary-disabled',
   AccentStateless: 'accent-stateless',
   AccentStateless_0_4_Opacity: 'accent-stateless_0_4_opacity',
+  Accent_0_5_5_Opacity: 'accent_0_5_5_opacity',
   Accent_0_5_Opacity: 'accent_0_5_opacity',
   Accent_1_2_Opacity: 'accent_1_2_opacity',
   Accent_1_8_Opacity: 'accent_1_8_opacity',
