@@ -72,7 +72,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
             ref={inputRef}
             readOnly={readOnly}
             disabled={disabled}
-            onChange={(event) => onChange(event as ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>)}
+            onChange={onChange}
           />
         );
       }
