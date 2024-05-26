@@ -4,7 +4,7 @@ import Search, { SearchProps } from '../../src/core/search';
 import { InputSize } from '../../src/utils/types';
 
 const meta: Meta<typeof Search> = {
-  title: 'Inputs/SearchSearch',
+  title: 'Inputs/Search',
   component: Search,
   excludeStories: ['Search'],
 };
