@@ -24,7 +24,7 @@ export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   copyTextMessage?: string;
   copySuccessIcon?: React.ReactNode;
   fullWidth?: boolean;
-  onChange: ((event: ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>) => void);
+  onChange: ((event: ChangeEvent<HTMLInputElement>) => void);
   placeholder?: string;
   value?: any;
   LabelProps?: LabelProps;
