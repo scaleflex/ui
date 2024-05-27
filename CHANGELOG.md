@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.6](https://github.com/scaleflex/ui/compare/v2.8.5...v2.8.6) (2024-05-27)
+
+
+### Bug Fixes
+
+* copy icon for text area ([7770a67](https://github.com/scaleflex/ui/commit/7770a677c7f0ad4c9c53f0521f3c67fefc39634b))
+
+
+
+
+
+
 ## [2.8.5](https://github.com/scaleflex/ui/compare/v2.8.4...v2.8.5) (2024-05-27)
 
 
