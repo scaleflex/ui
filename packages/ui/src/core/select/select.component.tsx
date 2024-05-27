@@ -65,8 +65,8 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           {...rest}
           disabled={disabled}
           size={size}
-          error={error}
-          fullWidth={Boolean(fullWidth)}
+          $error={error}
+          $fullWidth={Boolean(fullWidth)}
           readOnly={readOnly}
           showSelectionKey={showSelectionKey}
           isValueExists={isValueExists}

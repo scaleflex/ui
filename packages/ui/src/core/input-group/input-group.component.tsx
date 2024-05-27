@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 
 import { intrinsicComponent } from '../../utils/functions';
 import Label from '../label';
@@ -26,6 +26,12 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       disabled,
       size,
       value,
+      hideCopyIcon,
+      copyTextMessage,
+      copySuccessIcon,
+      placeholder,
+      fullWidth,
+      onChange,
       ...rest
     }: InputGroupProps,
     ref
@@ -51,7 +57,10 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
     };
 
     const renderField = (): JSX.Element | null => {
-      const fieldProps = { value, readOnly, disabled, size, error };
+      const fieldProps = {
+        value, readOnly, disabled, size, error, placeholder,
+        hideCopyIcon, copyTextMessage, copySuccessIcon, fullWidth
+      };
 
       if (type === Type.Input) {
         return (
@@ -63,12 +72,19 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
             ref={inputRef}
             readOnly={readOnly}
             disabled={disabled}
+            onChange={onChange}
           />
         );
       }
 
       if (type === Type.Textarea) {
-        return <Textarea {...fieldProps} {...(TextareaPropsData || {})} />;
+        return (
+          <Textarea
+            {...fieldProps}
+            {...(TextareaPropsData || {})}
+            onChange={(event) => onChange(event as ChangeEvent<HTMLInputElement> & ChangeEvent<HTMLTextAreaElement>)}
+          />
+        );
       }
 
       return null;
