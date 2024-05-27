@@ -1,9 +1,9 @@
+import React from 'react';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
 import type { Values } from '../../utils/types';
 // TODO: Move types to this file
 import { InputBackgroundColor, InputSize } from '../../utils/types';
-import React from 'react';
 
 export type InputSizeType = Values<typeof InputSize>;
 export type InputBackgroundType = Values<typeof InputBackgroundColor>;

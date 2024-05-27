@@ -27,7 +27,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       copySuccessIcon,
       showActionButton = false,
       showClearButton = false,
-      showCopyIcon = false,
+      hideCopyIcon = false,
       disableActionButton = false,
       isActionButtonLoading = false,
       actionButtonLabel = 'Action',
@@ -46,6 +46,8 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     const [overflowStyles, setOverflowStyles] = useState({});
     const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [inputValue, setInputValue] = useState(value);
+
+    const showCopyIcon = isHovering && inputValue.length && !hideCopyIcon;
 
     const actionButtonHandler = (event: SyntheticEvent): void => {
       if (onClickActionButton) {
@@ -161,7 +163,6 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
 
             {showCopyIcon && (
               <Styled.CopyIcon
-                showCopyIcon={isHovering && inputValue.length > 0}
                 size={size}
                 onMouseDown={(event) => onClickByMouseDown(event, copyIconHandler)}
               >

@@ -4,6 +4,7 @@ import type { InputProps } from '../input';
 import type { TextareaProps } from '../textarea';
 import { Type } from './types';
 import { InputSizeType } from '../input/input.props';
+import { ChangeEvent } from 'react';
 
 export type InputGroupTypesType = Values<typeof Type>;
 
@@ -11,7 +12,7 @@ export type LabelAndHintType = {
   error?: boolean;
 };
 
-export interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>  {
   size?: InputSizeType;
   label?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
   hint?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
@@ -19,6 +20,12 @@ export interface InputGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
+  hideCopyIcon?: boolean;
+  copyTextMessage?: string;
+  copySuccessIcon?: React.ReactNode;
+  fullWidth?: boolean;
+  onChange: ((event: ChangeEvent<HTMLInputElement>) => void);
+  placeholder?: string;
   value?: any;
   LabelProps?: LabelProps;
   InputProps?: React.HTMLAttributes<HTMLDivElement>;
