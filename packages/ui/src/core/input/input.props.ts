@@ -1,9 +1,9 @@
+import React from 'react';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
 import type { Values } from '../../utils/types';
 // TODO: Move types to this file
 import { InputBackgroundColor, InputSize } from '../../utils/types';
-import React, { ChangeEvent } from 'react';
 
 export type InputSizeType = Values<typeof InputSize>;
 export type InputBackgroundType = Values<typeof InputBackgroundColor>;
@@ -32,7 +32,6 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   value?: any;
   selectedItems?: any;
   isSelectedItems?: boolean;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   renderTags?: () => React.ReactNode;
   iconClickStart?: (event: Event) => void;
   iconClickEnd?: (event: Event) => void;
