@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.5](https://github.com/scaleflex/ui/compare/v2.8.4...v2.8.5) (2024-05-27)
+
+
+### Bug Fixes
+
+* [Input group] event type -FRA-5333 ([a90ff09](https://github.com/scaleflex/ui/commit/a90ff092c53e553a51c242d6927e11a58efa5cac))
+* [Input/Select fields] passing missing components -FRA-5333 -FRA-5337 -FRA-5376 ([0fa780d](https://github.com/scaleflex/ui/commit/0fa780d4a2aba4e406a4d3556665ed028194de98))
+* [Text-area] missing props -code-review -FRA-5333 ([1c3b1f6](https://github.com/scaleflex/ui/commit/1c3b1f6e2c606043aaa826eda6b52c2b7e14c566))
+
+
+
+
+
+
 ## [2.8.4](https://github.com/scaleflex/ui/compare/v2.8.3...v2.8.4) (2024-05-23)
 
 
