@@ -21,7 +21,7 @@ const defaultArgs = {
   disabled: false,
   showActionButton: false,
   showClearButton: false,
-  hideCopyIcon: false,
+  hideCopyIcon: true,
   disableActionButton: false,
   isActionButtonLoading: false,
   actionButtonLabel: 'Action',
