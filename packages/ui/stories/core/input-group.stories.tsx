@@ -25,7 +25,7 @@ const defaultArgs = {
   type: Type.Input,
   label: 'Label',
   hint: 'Some hint goes here',
-  hideCopyIcon: false,
+  hideCopyIcon: true,
   readOnly: false,
   disabled: false,
   placeholder: 'placeholder',

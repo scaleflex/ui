@@ -27,7 +27,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       copySuccessIcon,
       showActionButton = false,
       showClearButton = false,
-      hideCopyIcon = false,
+      hideCopyIcon = true,
       disableActionButton = false,
       isActionButtonLoading = false,
       actionButtonLabel = 'Action',
@@ -47,7 +47,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
     const [showCopyMessage, setShowCopyMessage] = useState(false);
     const [inputValue, setInputValue] = useState(value);
 
-    const showCopyIcon = isHovering && inputValue.length && !hideCopyIcon;
+    const showCopyIcon = !!(isHovering && inputValue?.length && !hideCopyIcon);
 
     const actionButtonHandler = (event: SyntheticEvent): void => {
       if (onClickActionButton) {
