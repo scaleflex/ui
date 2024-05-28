@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.7](https://github.com/scaleflex/ui/compare/v2.8.6...v2.8.7) (2024-05-28)
+
+
+### Bug Fixes
+
+* **popUpContent:** long msg overflow [FRA-5352] ([12ebbc0](https://github.com/scaleflex/ui/commit/12ebbc08074085466e5fc4e569592b3bd003555c))
+
+
+
+
+
+
 ## [2.8.6](https://github.com/scaleflex/ui/compare/v2.8.5...v2.8.6) (2024-05-27)
 
 
