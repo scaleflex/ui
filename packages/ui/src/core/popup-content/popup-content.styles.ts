@@ -15,7 +15,6 @@ const LabelWrapper = styled.span.attrs({
     display: flex;
     flex-grow: 1;
     margin-left: 44px;
-    margin-right: 28px;
     padding: 16px;
     padding-right: 0;
     overflow: hidden;
@@ -32,7 +31,7 @@ const Label = styled.span.attrs({
       typography: { font },
     },
   }: WithTheme) => css`
-    max-width: 100%;
+    max-width: calc(100% - 40px);
     overflow: hidden;
     text-overflow: ellipsis;
     color: ${palette[PColor.TextPrimary]};
