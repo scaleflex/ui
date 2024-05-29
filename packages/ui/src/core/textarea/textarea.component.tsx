@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, SyntheticEvent, ChangeEvent } from 'react';
 import CopyOutline from '@scaleflex/icons/copy-outline';
+import Success from '@scaleflex/icons/success';
 
 import { onClickByMouseDown } from '../../utils/functions/on-click-by-mouse-down';
 import { intrinsicComponent, useForkRef } from '../../utils/functions';
@@ -23,8 +24,8 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       error = false,
       cols,
       rows,
-      copyTextMessage = '',
-      copySuccessIcon,
+      copyTextMessage = 'Copied!',
+      copySuccessIcon = <Success size={16} />,
       showActionButton = false,
       showClearButton = false,
       hideCopyIcon = true,
