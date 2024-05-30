@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import ImageComparisonSlider, { ImageComparisonSliderProps } from '../../src/core/image-comparison-slider';
 
 const meta: Meta<typeof ImageComparisonSlider> = {
