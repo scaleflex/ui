@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { intrinsicComponent } from '@scaleflex/ui/utils/functions';
+import { Color } from '@scaleflex/ui/utils/types/palette';
+import ArrowChange from '@scaleflex/icons/arrow-change';
+import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
-import ArrowChange from '@scaleflex/icons/arrow-change';
 import Styled from './image-comparison-slider.styles';
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
-import { Color } from '@scaleflex/ui/utils/types/palette';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
 
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
