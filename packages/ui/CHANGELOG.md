@@ -3,99 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.8.7](https://github.com/scaleflex/ui/compare/v2.8.6...v2.8.7) (2024-05-28)
-
+## [2.8.8](https://github.com/scaleflex/ui/compare/v2.8.7...v2.8.8) (2024-05-31)
 
 ### Bug Fixes
 
-* **popUpContent:** long msg overflow [FRA-5352] ([12ebbc0](https://github.com/scaleflex/ui/commit/12ebbc08074085466e5fc4e569592b3bd003555c))
+- **TextArea:** add default values for some props ([58b53da](https://github.com/scaleflex/ui/commit/58b53da3d781f9ca3a77eb180f55ce7b8e44553c))
 
+## [2.8.7](https://github.com/scaleflex/ui/compare/v2.8.6...v2.8.7) (2024-05-28)
 
+### Bug Fixes
 
-
-
+- **popUpContent:** long msg overflow [FRA-5352] ([12ebbc0](https://github.com/scaleflex/ui/commit/12ebbc08074085466e5fc4e569592b3bd003555c))
 
 ## [2.8.6](https://github.com/scaleflex/ui/compare/v2.8.5...v2.8.6) (2024-05-27)
 
-
 ### Bug Fixes
 
-* copy icon for text area ([7770a67](https://github.com/scaleflex/ui/commit/7770a677c7f0ad4c9c53f0521f3c67fefc39634b))
-
-
-
-
-
+- copy icon for text area ([7770a67](https://github.com/scaleflex/ui/commit/7770a677c7f0ad4c9c53f0521f3c67fefc39634b))
 
 ## [2.8.5](https://github.com/scaleflex/ui/compare/v2.8.4...v2.8.5) (2024-05-27)
 
-
 ### Bug Fixes
 
-* [Input group] event type -FRA-5333 ([a90ff09](https://github.com/scaleflex/ui/commit/a90ff092c53e553a51c242d6927e11a58efa5cac))
-* [Input/Select fields] passing missing components -FRA-5333 -FRA-5337 -FRA-5376 ([0fa780d](https://github.com/scaleflex/ui/commit/0fa780d4a2aba4e406a4d3556665ed028194de98))
-* [Text-area] missing props -code-review -FRA-5333 ([1c3b1f6](https://github.com/scaleflex/ui/commit/1c3b1f6e2c606043aaa826eda6b52c2b7e14c566))
-
-
-
-
-
+- [Input group] event type -FRA-5333 ([a90ff09](https://github.com/scaleflex/ui/commit/a90ff092c53e553a51c242d6927e11a58efa5cac))
+- [Input/Select fields] passing missing components -FRA-5333 -FRA-5337 -FRA-5376 ([0fa780d](https://github.com/scaleflex/ui/commit/0fa780d4a2aba4e406a4d3556665ed028194de98))
+- [Text-area] missing props -code-review -FRA-5333 ([1c3b1f6](https://github.com/scaleflex/ui/commit/1c3b1f6e2c606043aaa826eda6b52c2b7e14c566))
 
 ## [2.8.4](https://github.com/scaleflex/ui/compare/v2.8.3...v2.8.4) (2024-05-23)
 
-
 ### Features
 
-* **Autocomplete:** add prop closeMenuAfterSelection (true by default) ([f7affc0](https://github.com/scaleflex/ui/commit/f7affc0342e90db4d6d9a90533e0a8fc9a9e80dd))
-* **Autocomplete:** add prop renderMenuItem ([4b7fc8a](https://github.com/scaleflex/ui/commit/4b7fc8a7185846913e89be5673cb207775a494a4))
-
-
-
-
-
+- **Autocomplete:** add prop closeMenuAfterSelection (true by default) ([f7affc0](https://github.com/scaleflex/ui/commit/f7affc0342e90db4d6d9a90533e0a8fc9a9e80dd))
+- **Autocomplete:** add prop renderMenuItem ([4b7fc8a](https://github.com/scaleflex/ui/commit/4b7fc8a7185846913e89be5673cb207775a494a4))
 
 ## [2.8.3](https://github.com/scaleflex/ui/compare/v2.8.2...v2.8.3) (2024-05-23)
 
-
 ### Features
 
-* **Autocomplete:** add props: hideArrow and renderTag ([1fbb488](https://github.com/scaleflex/ui/commit/1fbb48831dcb01a9f9f02119e50d27e94b275a9f))
-
-
-
-
-
+- **Autocomplete:** add props: hideArrow and renderTag ([1fbb488](https://github.com/scaleflex/ui/commit/1fbb48831dcb01a9f9f02119e50d27e94b275a9f))
 
 ## [2.8.2](https://github.com/scaleflex/ui/compare/v2.8.1...v2.8.2) (2024-05-22)
 
-
 ### Features
 
-* **switcher:** add children option to switcher ([291cca6](https://github.com/scaleflex/ui/commit/291cca66b665a263be15d49ffc396250f87d630e))
-* **switcher:** add children option to switcher ([67f54e3](https://github.com/scaleflex/ui/commit/67f54e3a1070c39cddcacc70307d349a3e3f901a))
-* **switcher:** add children option to switcher ([1fa7a15](https://github.com/scaleflex/ui/commit/1fa7a154b086effbcd1979aa70c96c285729e3a9))
-
-
-
-
-
+- **switcher:** add children option to switcher ([291cca6](https://github.com/scaleflex/ui/commit/291cca66b665a263be15d49ffc396250f87d630e))
+- **switcher:** add children option to switcher ([67f54e3](https://github.com/scaleflex/ui/commit/67f54e3a1070c39cddcacc70307d349a3e3f901a))
+- **switcher:** add children option to switcher ([1fa7a15](https://github.com/scaleflex/ui/commit/1fa7a154b086effbcd1979aa70c96c285729e3a9))
 
 ## [2.8.1](https://github.com/scaleflex/ui/compare/v2.8.0...v2.8.1) (2024-05-16)
 
 **Note:** Version bump only for package @scaleflex/ui
 
-
-
-
-
 # [2.8.0](https://github.com/scaleflex/ui/compare/v2.7.0...v2.8.0) (2024-05-16)
 
 **Note:** Version bump only for package @scaleflex/ui
-
-
-
-
-
 
 # [2.7.0](https://github.com/scaleflex/ui/compare/v2.6.3...v2.7.0) (2024-05-14)
 
