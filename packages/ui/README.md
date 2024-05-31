@@ -16,7 +16,7 @@ yarn add @scaleflex/ui # styled-components react react-dom
 
 > Make sure to have `react`, `react-dom` and `styled-components` installed in your package as they are included in our peer dependencies.
 
-## Usag
+## Usage
 
 Scaleflex UI includes several parts:
 
