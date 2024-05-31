@@ -21,9 +21,9 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@scaleflex/ui/*": ["packages/ui/src/*"],
+      "@scaleflex/icons": ["packages/icons/src/index.ts"],
       "@scaleflex/icons/*": ["packages/icons/src/*"],
-      "@scaleflex/icons": ["packages/icons/src/index.ts"]
+      "@scaleflex/ui/*": ["packages/ui/src/*"]
     }
   }
 }
