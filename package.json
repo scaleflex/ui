@@ -34,6 +34,7 @@
     "bump_major": "lerna version major",
     "bump_minor": "lerna version minor",
     "bump_prepatch_beta": "lerna version prepatch --tag-version-prefix='' --preid beta",
+    "publish_test": "lerna publish",
     "deploy": "npm-run-all build && gh-pages -d dist",
     "prerelease": "node scripts/create-meta-files.js",
     "release": "lerna exec --no-bail -- yarn publish lib --non-interactive",
