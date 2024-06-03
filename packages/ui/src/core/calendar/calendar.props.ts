@@ -7,7 +7,7 @@ export type AnchorElType = Element | VirtualElement | null | undefined;
 
 export type PopperPositionType = Values<typeof Position>;
 
-export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>{
+export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   maxDate?: string;
   position?: PopperPositionType;
@@ -18,6 +18,7 @@ export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   autoSelectToday?: boolean;
   enableAutoSelect?: boolean;
   isDisabled?: boolean;
+  zIndex?: number;
   calendarStyles?: object;
   onChange?: (value: string) => void;
   setOpen?: (value: boolean) => void;

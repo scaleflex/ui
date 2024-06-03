@@ -38,6 +38,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       maxDate = '',
       minDate = '',
       anchorEl,
+      zIndex = 1300,
       position = Position.BottomStart,
       popperOptions,
       open = false,
@@ -241,6 +242,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         anchorEl={anchorEl}
         open={open}
         popperOptions={popperOptions}
+        zIndex={zIndex}
         position={position || 'bottom-start'}
         overlay
       >

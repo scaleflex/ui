@@ -24,4 +24,5 @@ export interface DatePickerProps extends OmitChange<InputGroupProps> {
   inputGroupProps?: InputProps;
   calendarStyles?: object;
   placeholder?: string;
+  zIndex?: number;
 }

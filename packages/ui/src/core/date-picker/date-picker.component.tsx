@@ -25,6 +25,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       size = InputSize.Md,
       hint,
       popperOptions,
+      zIndex = 1300,
       InputProps: InputPropsData,
       calendarStyles = {},
       inputGroupProps,
@@ -125,6 +126,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           onChange={handleOnChange}
           maxDate={maxDate}
           minDate={minDate}
+          zIndex={zIndex}
           autoSelectToday={autoSelectToday}
           enableAutoSelect={enableAutoSelect}
           anchorEl={datePickerRef.current}
