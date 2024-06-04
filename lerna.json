@@ -1,12 +1,21 @@
 {
-  "version": "2.8.9",
+  "version": "2.9.0",
   "npmClient": "yarn",
-  "packages": ["packages/*"],
-  "ignoreChanges": ["**/*.spec.{ts,tsx}", "**/*.story.tsx"],
+  "packages": [
+    "packages/*"
+  ],
+  "ignoreChanges": [
+    "**/*.spec.{ts,tsx}",
+    "**/*.story.tsx"
+  ],
   "command": {
     "version": {
       "message": "chore(release): publish new version %s🔥🚀",
-      "allowBranch": ["master", "hotfix-*", "release-*"],
+      "allowBranch": [
+        "master",
+        "hotfix-*",
+        "release-*"
+      ],
       "conventionalCommits": true
     }
   },

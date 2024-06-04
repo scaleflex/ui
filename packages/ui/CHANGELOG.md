@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.9.0](https://github.com/scaleflex/ui/compare/v2.8.9...v2.9.0) (2024-06-04)
+
+
+### Features
+
+* **EliipsedText:** add EliipsedText component [FRA-5481] ([2c85f76](https://github.com/scaleflex/ui/commit/2c85f76e2cc4b29209783bac4ce21915dc998d22))
+
+
+
+
+
+
 ## [2.8.9](https://github.com/scaleflex/ui/compare/v2.8.8...v2.8.9) (2024-05-31)
 
 **Note:** Version bump only for package @scaleflex/ui
