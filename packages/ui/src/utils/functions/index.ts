@@ -12,3 +12,4 @@ export * from './get-elem-document-coords';
 export * from './slider/utils';
 export * from './scrollbar';
 export * from './escape-regexp';
+export * from './ignore-event';
