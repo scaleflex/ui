@@ -28,6 +28,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       zIndex = 1300,
       InputProps: InputPropsData,
       calendarStyles = {},
+      popperWrapperStyles = {},
       inputGroupProps,
       fullWidth,
       placeholder,
@@ -133,6 +134,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           position={position || 'bottom-start'}
           popperOptions={popperOptions}
           calendarStyles={calendarStyles}
+          popperWrapperStyles={popperWrapperStyles}
         />
       </Styled.DatePicker>
     );

@@ -20,6 +20,7 @@ export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   isDisabled?: boolean;
   zIndex?: number;
   calendarStyles?: object;
+  popperWrapperStyles?: object;
   onChange?: (value: string) => void;
   setOpen?: (value: boolean) => void;
 }

@@ -23,6 +23,7 @@ export interface DatePickerProps extends OmitChange<InputGroupProps> {
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
   calendarStyles?: object;
+  popperWrapperStyles?: object;
   placeholder?: string;
   zIndex?: number;
 }

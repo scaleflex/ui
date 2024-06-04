@@ -44,6 +44,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       open = false,
       setOpen,
       calendarStyles,
+      popperWrapperStyles,
       ...rest
     }: CalendarProps,
     ref
@@ -242,6 +243,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
         anchorEl={anchorEl}
         open={open}
         popperOptions={popperOptions}
+        wrapperStyles={popperWrapperStyles}
         zIndex={zIndex}
         position={position || 'bottom-start'}
         overlay

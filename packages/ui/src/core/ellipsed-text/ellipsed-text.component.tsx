@@ -15,7 +15,8 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       maxLinesCount = 2,
       customMaxHeight = 0,
       noTooltip = false,
-      tooltipProps = {},
+      tooltipProps,
+      textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
     ref
@@ -72,7 +73,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
     }, [])
 
     return (
-      <Styled.EllipsedTextWrapper ref={ref}>
+      <Styled.EllipsedTextWrapper ref={ref} {...textWrapperProps}>
         <Styled.EllipsedTextContent
           ref={textContentRef}
           as={element}
@@ -80,7 +81,13 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
           {...rest}
         >
           {shouldEllipse && !noTooltip ? (
-            <TooltipV2 position="top" size="md" title={renderTooltipTitle()} arrow {...tooltipProps}>
+            <TooltipV2
+              position="top"
+              size="md"
+              arrow
+              {...tooltipProps}
+              title={renderTooltipTitle()}
+            >
               <Styled.TooltipContent as={element} $maxHeight={maxHeight && `${maxHeight}px`}>
                 {children}
               </Styled.TooltipContent>
