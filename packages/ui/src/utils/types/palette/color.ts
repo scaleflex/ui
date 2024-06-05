@@ -121,6 +121,7 @@ export const Color = {
   Red_0_1_Overlay: 'red-0-1-overlay',
   Orange_0_1_Overlay: 'orange-0-1-overlay',
   Accent_0_8_Overlay: 'accent-0-8-overlay',
+  Green_0_2_Overlay: 'green-0-2-Overlay',
 
   Link: 'link',
   Camera: 'camera',
