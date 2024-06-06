@@ -4,7 +4,7 @@ import Intermediate from '@scaleflex/icons/intermediate';
 
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
-import { intrinsicComponent } from '../../utils/functions';
+import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import type { CheckBoxProps } from './check-box.props';
 import Styled from './check-box.styles';
 import { Size, Type } from './types';
@@ -40,7 +40,7 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
         <Styled.Input
           checked={checked}
           disabled={disabled}
-          onChange={readOnly || disabled ? undefined : onChange}
+          onChange={readOnly || disabled ? ignoreEvent : onChange}
           {...checkBoxProps}
         />
         {checked ? (
