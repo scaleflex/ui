@@ -1,12 +1,9 @@
+
 export interface ImageComparisonSliderProps extends React.HTMLAttributes<HTMLDivElement> {
-	width?: string;
-	height?: string;
-  leftImgSrc?: string;
-	rightImgSrc?: string;
-	leftImgAlt?: string;
-	handleIcon?: React.ReactNode;
-	iconSize?: number;
-	iconPadding?: number,
-	handleColor?: string;
-	rightImgAlt?: string
+	width?: number;
+	height?: number;
+  leftImgProps?: { src: string, alt: string };
+	rightImgProps?: { src: string, alt: string };
+	handleProps?: { iconSize: number, padding: number, color: string }
+	thumbIcon?: React.ReactNode;
 }

@@ -7,20 +7,17 @@ import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
 import Styled from './image-comparison-slider.styles';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
+import ImagePreviewComponent from './image-preview.components.tsx/image-preview.component';
 
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
   (
     {
-      leftImgSrc,
-      leftImgAlt,
-      rightImgSrc,
-      rightImgAlt,
-      width = '1000px',
-      height = '1000px',
-      handleColor = lightPalette[Color.BackgroundStateless],
-      iconSize = 10,
-      iconPadding = 10,
-      handleIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
+      leftImgProps,
+      rightImgProps,
+      width = 400,
+      height = 400,
+      handleProps = { color: lightPalette[Color.BackgroundStateless], iconSize: 10, padding: 10 },
+      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
       ...rest
     }: ImageComparisonSliderProps,
     ref
@@ -31,13 +28,13 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
 
     const setPositioning = useCallback((cursorHorizontalPosition: number) => {
       if (topImageRef.current && handleRef.current) {
-        const { left, width } = topImageRef.current.getBoundingClientRect();
+        const { left, width: topImgWidth } = topImageRef.current.getBoundingClientRect();
         const handleWidth = handleRef.current.offsetWidth;
         const { horizontalPosition = 0 } = getHorizontalPosition({
           cursorHorizontalPosition,
           handleWidth: handleWidth,
           left,
-          width,
+          width: topImgWidth,
         })!;
 
         if (handleRef.current) {
@@ -69,32 +66,29 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
 
     useEffect(() => {
       if (topImageRef.current && handleRef.current) {
-        const { left, width } = topImageRef.current.getBoundingClientRect();
+        const { left, width: topImgWidth } = topImageRef.current.getBoundingClientRect();
         const handleWidth = handleRef.current.offsetWidth;
 
-        setPositioning(width / 2 + left - handleWidth / 2);
+        setPositioning(topImgWidth / 2 + left - handleWidth / 2);
       }
     }, [setPositioning]);
 
     return (
       <Styled.ComparisonSlider width={width} height={height} {...rest} ref={ref}>
-        <Styled.handle
-          color={handleColor}
-          iconPadding={iconPadding}
-          iconSize={iconSize}
+        <Styled.Handle
           ref={handleRef}
           onMouseDown={() => setIsResizing(true)}
+          {...handleProps}
         >
-          {handleIcon}
-        </Styled.handle>
-
-        <Styled.RightImageWrapper ref={topImageRef}>
-          <Styled.Image draggable="false" src={leftImgSrc} alt={leftImgAlt} />
-        </Styled.RightImageWrapper>
-
-        <Styled.LeftImageWrapper>
-          <Styled.Image draggable="false" src={rightImgSrc} alt={rightImgAlt} />
+          {thumbIcon}
+        </Styled.Handle>
+        <Styled.LeftImageWrapper ref={topImageRef}>
+          <ImagePreviewComponent {...rightImgProps} />
         </Styled.LeftImageWrapper>
+
+        <Styled.RightImageWrapper>
+          <ImagePreviewComponent {...leftImgProps} />
+        </Styled.RightImageWrapper>
       </Styled.ComparisonSlider>
     );
   }

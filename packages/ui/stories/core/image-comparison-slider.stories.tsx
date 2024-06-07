@@ -13,15 +13,11 @@ export default meta;
 type Story = StoryObj<typeof ImageComparisonSlider>;
 
 const defaultArgs = {
-  leftImgSrc: 'https://images.fineartamerica.com/images-medium-large-5/2-earth-from-space-nasa.jpg',
-  leftImgAlt: 'globe',
-  rightImgSrc: 'https://i.pinimg.com/originals/ea/e9/49/eae949d2acb583f31cc8d691a524c284.jpg',
-  rightImgAlt: 'globe',
-  width: '400px',
-  height: '400px',
+  leftImgProps: { src: 'https://images.fineartamerica.com/images-medium-large-5/2-earth-from-space-nasa.jpg', alt: 'globe' },
+	rightImgProps: { src:'https://i.pinimg.com/originals/ea/e9/49/eae949d2acb583f31cc8d691a524c284.jpg',  alt: 'globe' },
 };
 
-const BasicTemplate = ({ leftImgAlt, ...args }: ImageComparisonSliderProps): JSX.Element => {
+const BasicTemplate = ({ ...args }: ImageComparisonSliderProps): JSX.Element => {
   return <ImageComparisonSlider {...args} />;
 };
 

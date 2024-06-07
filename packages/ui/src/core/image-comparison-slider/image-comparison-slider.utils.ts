@@ -1,4 +1,3 @@
-
 export const getHorizontalPosition = ({ cursorHorizontalPosition, width, left, handleWidth} :  {
 	cursorHorizontalPosition: number;
 	width: number;
@@ -17,7 +16,7 @@ export const getHorizontalPosition = ({ cursorHorizontalPosition, width, left, h
 
 	if (isHandleOutsideRightBoundary) {
 		//set handle at extreme right
-		return { horizontalPosition: 1 }
+		return { horizontalPosition: 0.997 }
 	}
 
 	if (isHandleOutsideLeftBoundary) {
