@@ -10,7 +10,14 @@ export type ButtonType = Values<typeof ButtonType>;
 export type SideBarType = Values<typeof SideBar>;
 
 export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTMLButtonElement> {
+  /** 
+   *  'xs' | 'sm' | 'md' | 'lg'
+  */
   size?: ButtonSizeType;
+  /** 
+   * 'primary' | 'secondary' | 'basic' | 'link-primary' | 'link-secondary' | 'link-basic-primary' | link-basic-secondary' | 'error-primary' 
+   *  | 'error-secondary' | 'error-basic' | 'warning-primary' | 'warning-secondary' | 'warning-basic'
+  */
   color?: ButtonColorType;
   startIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
   endIcon?: React.ReactNode | ((props: IconProps) => React.ReactNode);
