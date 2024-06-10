@@ -1,10 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
 import { With } from '@scaleflex/ui/utils/types';
 import { WithTheme } from '@scaleflex/ui/theme/entity';
+import { FontVariant } from '@scaleflex/ui/utils/types/typography';
+import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import { Color as PaletteColor } from '../../utils/types/palette';
-import { FontVariant } from '@scaleflex/ui/utils/types/typography';
+import { Color, Color as PaletteColor } from '../../utils/types/palette';
+
 
 const baseClassName = 'image-comparison-slider';
 
@@ -24,13 +26,10 @@ const pulseKeyframe = keyframes`
 
 const ComparisonSlider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<{ width: number | undefined, height: number | undefined }>(
-  ({ width, height }) => css`
+})`
   position: relative;
   overflow: hidden;
-  width: ${`${width}px`};
-  height: ${`${height}px`};
-`);
+`;
 
 const Image = styled.img.attrs({
   className: generateClassNames(baseClassName, 'Image'),
@@ -78,8 +77,8 @@ const RightImageWrapper = styled.div.attrs({
 
 const Handle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Thumb'),
-})<{ color?: string | undefined, padding?: number | undefined, iconSize?: number | undefined }>(
-  ({ color, padding = 10, iconSize = 10 }) => css`
+})<{ color?: string | undefined, thumbIconPadding?: number | undefined, thumbIconSize?: number | undefined }>(
+  ({ color, thumbIconPadding = 10, thumbIconSize = 10 }) => css`
   position: absolute;
   width: 3px;
   height: 100%;
@@ -91,18 +90,18 @@ const Handle = styled.div.attrs({
   svg {
     display: block;
     position: absolute;
-    top: ${`calc(50% - ${padding + iconSize / 2}px)`};
-    right: ${`calc(50% - ${padding + iconSize / 2}px)`};
+    top: ${`calc(50% - ${thumbIconPadding + thumbIconSize / 2}px)`};
+    right: ${`calc(50% - ${thumbIconPadding + thumbIconSize / 2}px)`};
     background: ${color};
-    width: ${`${iconSize}px`};
-    height: ${`${iconSize}px`};
+    width: ${`${thumbIconSize}px`};
+    height: ${`${thumbIconSize}px`};
     border-radius: 8px;
-    padding: ${`${padding}px`};
+    padding: ${`${thumbIconPadding}px`};
   }
 `);
 
-const BrokenPreviewWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'BrokenPreviewWrapper'),
+const FallbackPreviewWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'FallbackPreviewWrapper'),
 })<{ backgroundColor?: string | undefined, gap?: number, }>(
   ({ backgroundColor, gap }) => css`
   display: flex;
@@ -115,16 +114,19 @@ const BrokenPreviewWrapper = styled.div.attrs({
   background: ${backgroundColor};
 `)
 
-const BrokenPreviewMsg = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'BrokenPreviewMsg'),
-})<With<WithTheme, { fontVariant?: string, color: string }>>(
-  ({ theme: { typography }, color }) => css`
+const FallbackPreviewMsg = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'FallbackPreviewMsg'),
+})<With<WithTheme, { fontVariant?: string, color?: string }>>(
+  ({ theme: { typography }, color = lightPalette[Color.TextSecondary] }) => css`
     ${typography.font[FontVariant.TextMedium]};
     user-select: none;
     color: ${color};
   `
 );
 
-const Styled = applyDisplayNames({ Image, LeftImageWrapper, RightImageWrapper, Handle, ComparisonSlider, BrokenPreviewWrapper, BrokenPreviewMsg });
+const Styled = applyDisplayNames({
+  Image, LeftImageWrapper, RightImageWrapper, FallbackPreviewMsg,
+  Handle, ComparisonSlider, FallbackPreviewWrapper,
+});
 
 export default Styled;

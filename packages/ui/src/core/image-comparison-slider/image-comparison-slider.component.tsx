@@ -7,21 +7,26 @@ import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
 import Styled from './image-comparison-slider.styles';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
-import ImagePreviewComponent from './image-preview.components.tsx/image-preview.component';
+import ImagePreviewComponent from './image-preview.component';
+
 
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
   (
     {
       leftImgProps,
       rightImgProps,
-      width = 400,
-      height = 400,
-      handleProps = { color: lightPalette[Color.BackgroundStateless], iconSize: 10, padding: 10 },
-      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
+      imgWrapperProps,
+      handleProps,
+      fallbackPreviewProps,
       ...rest
     }: ImageComparisonSliderProps,
     ref
   ): JSX.Element => {
+    const {
+      color = lightPalette[Color.BackgroundStateless], thumbIconSize = 10, thumbIconPadding = 10,
+      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />, ...restHandleProps
+    } = handleProps || {}
+
     const [isResizing, setIsResizing] = useState(false);
     const topImageRef = useRef<HTMLImageElement | null>(null);
     const handleRef = useRef<HTMLDivElement | null>(null);
@@ -74,20 +79,23 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
     }, [setPositioning]);
 
     return (
-      <Styled.ComparisonSlider width={width} height={height} {...rest} ref={ref}>
+      <Styled.ComparisonSlider {...rest} ref={ref}>
         <Styled.Handle
           ref={handleRef}
           onMouseDown={() => setIsResizing(true)}
-          {...handleProps}
+          color={color}
+          thumbIconPadding={thumbIconPadding}
+          thumbIconSize={thumbIconSize}
+          {...restHandleProps}
         >
           {thumbIcon}
         </Styled.Handle>
-        <Styled.LeftImageWrapper ref={topImageRef}>
-          <ImagePreviewComponent {...rightImgProps} />
+        <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
+          <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
         </Styled.LeftImageWrapper>
 
-        <Styled.RightImageWrapper>
-          <ImagePreviewComponent {...leftImgProps} />
+        <Styled.RightImageWrapper {...imgWrapperProps}>
+          <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
         </Styled.RightImageWrapper>
       </Styled.ComparisonSlider>
     );
