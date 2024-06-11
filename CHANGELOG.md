@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/scaleflex/ui/compare/v2.9.2...v2.10.0) (2024-06-11)
+
+
+### Bug Fixes
+
+* [Image slider] export component from index ([251df7d](https://github.com/scaleflex/ui/commit/251df7d4dabfc427559c243c0d71b4b5102ee030))
+* [Image slider] update init images srcs ([ff533b2](https://github.com/scaleflex/ui/commit/ff533b22c1d123adc50b2435253d3ff11de93e28))
+* image comparison slider -code review ([6630f6e](https://github.com/scaleflex/ui/commit/6630f6ea0f3b011a97135ede3b3efaac2163ac19))
+* image slider -console errors ([552d845](https://github.com/scaleflex/ui/commit/552d8454f06fad301ee3d81c0edb40852b778d2a))
+* image slider props ([40d7476](https://github.com/scaleflex/ui/commit/40d7476dc08831ec12a90cf98a831d1721f0ab00))
+* img comparions slider -code-review ([24fb9c4](https://github.com/scaleflex/ui/commit/24fb9c479c5b76a770647dc6d6d1f09f7036f7d6))
+* **colorPicker:** regex failing when transparency color is selected ([15526d7](https://github.com/scaleflex/ui/commit/15526d740535015fb18d900d200938e282f4caa0))
+* **IconButton:** when color is not found ([8be3334](https://github.com/scaleflex/ui/commit/8be33348cb26393294658854eb5c868f12031fd2))
+* **SwitcherGroup, Checkbox:** warning error when input is disabled ([d355fe0](https://github.com/scaleflex/ui/commit/d355fe0776a22a6baec40c8698fa9d0f6bf2e931))
+* **tooltip:** replace break all to break word ([57f8e37](https://github.com/scaleflex/ui/commit/57f8e3708779362a4ef4dcf4966bc1cbb391cc82))
+
+
+### Features
+
+* Image comparison slider ([8c1effd](https://github.com/scaleflex/ui/commit/8c1effd6aef3841d4f6f5134b13e93fdc6fd80a8))
+* Image comparison slider -code polish ([fe1e960](https://github.com/scaleflex/ui/commit/fe1e960ee8a5daef78b61abfffd69e590f591459))
+* Image comparison slider -code polish ([ab4eb16](https://github.com/scaleflex/ui/commit/ab4eb163ac0d73ed7ed998b82e93cf16c2d06b28))
+* image slider -code review ([919afcc](https://github.com/scaleflex/ui/commit/919afcc56eb2cfa451cbb6d42721b578b7b7668c))
+
+
+
+
+
+
 ## [2.9.2](https://github.com/scaleflex/ui/compare/v2.9.1...v2.9.2) (2024-06-05)
 
 **Note:** Version bump only for package ui
