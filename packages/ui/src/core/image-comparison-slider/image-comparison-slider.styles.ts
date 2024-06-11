@@ -27,6 +27,8 @@ const pulseKeyframe = keyframes`
 const ComparisonSlider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
+  width: 400px;
+  height: 400px;
   position: relative;
   overflow: hidden;
 `;

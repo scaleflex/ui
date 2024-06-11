@@ -5,15 +5,15 @@ import { lightPalette } from "@scaleflex/ui/theme/roots/palette";
 import { intrinsicComponent } from "@scaleflex/ui/utils/functions";
 
 import Styled from "./image-comparison-slider.styles";
-import { ImageComparisonSliderProps } from "./image-comparison-slider.props";
+import { ImagePreviewProps } from "./image-comparison-slider.props";
 
 
-const ImagePreviewComponent = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
+const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageElement>(
 	(
 		{
       fallbackPreviewProps,
 			...rest
-		}: ImageComparisonSliderProps,
+		}: ImagePreviewProps,
 		ref
 	): JSX.Element => {
 		const {
