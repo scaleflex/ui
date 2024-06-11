@@ -11,7 +11,7 @@ export interface FallbackPreviewProps {
 }
 
 export interface ImageComparisonSliderProps extends React.HTMLAttributes<HTMLDivElement> {
-	imgWrapperProps?: object;
+	imgWrapperProps?: React.HTMLAttributes<HTMLDivElement>;
   leftImgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
 	rightImgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
 	fallbackPreviewProps?: FallbackPreviewProps,

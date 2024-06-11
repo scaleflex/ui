@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import ErrorBroke from "@scaleflex/icons/error-broke";
-import { Color } from "@scaleflex/ui/utils/types/palette";
-import { lightPalette } from "@scaleflex/ui/theme/roots/palette";
-import { intrinsicComponent } from "@scaleflex/ui/utils/functions";
 
-import Styled from "./image-comparison-slider.styles";
 import { ImagePreviewProps } from "./image-comparison-slider.props";
+import { intrinsicComponent } from "../../utils/functions";
+import { lightPalette } from "../../theme/roots/palette";
+import Styled from "./image-comparison-slider.styles";
+import { Color } from "../../utils/types/palette";
 
 
 const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageElement>(
