@@ -79,7 +79,7 @@ const RightImageWrapper = styled.div.attrs({
 
 const Handle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'handle'),
-})<{ color?: string | undefined, $thumbIconPadding?: number | undefined, $thumbIconSize?: number | undefined }>(
+})<{ color?: string, $thumbIconPadding?: number, $thumbIconSize?: number }>(
   ({ color, $thumbIconPadding = 10, $thumbIconSize = 10 }) => css`
   position: absolute;
   width: 3px;
@@ -104,7 +104,7 @@ const Handle = styled.div.attrs({
 
 const FallbackPreviewWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'fallbackPreviewWrapper'),
-})<{ backgroundColor?: string | undefined, gap?: number, }>(
+})<{ backgroundColor?: string, gap?: number, }>(
   ({ backgroundColor, gap }) => css`
   display: flex;
   flex-direction: column;

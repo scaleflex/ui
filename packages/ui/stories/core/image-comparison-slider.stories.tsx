@@ -16,8 +16,8 @@ export default meta;
 type Story = StoryObj<typeof ImageComparisonSlider>;
 
 const defaultArgs = {
-  leftImgProps: { src: 'https://images.fineartamerica.com/images-medium-large-5/2-earth-from-space-nasa.jpg', alt: 'globe' },
-  rightImgProps: { src:'https://i.pinimg.com/originals/ea/e9/49/eae949d2acb583f31cc8d691a524c284.jpg',  alt: 'globe' },
+  leftImgProps: { src: 'https://scaleflex.cloudimg.io/v7/sfx-ui/eae949d2acb583f31cc8d691a524c284.jpg?vh=0ddbce', alt: 'globe' },
+  rightImgProps: { src:'https://scaleflex.cloudimg.io/v7/sfx-ui/2-earth-from-space-nasa.jpg?vh=4be2d8',  alt: 'globe' },
   fallbackPreviewProps: {
     gap: 10,
     iconSize: 150,
