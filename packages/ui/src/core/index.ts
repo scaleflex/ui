@@ -68,3 +68,4 @@ export { default as Drawer } from './drawer';
 export { default as GalleryButton } from './gallery-button';
 export { default as IconButtonTable } from './icon-button-table';
 export { default as ImageComparisonSlider } from './image-comparison-slider';
+export { default as EllipsedText } from './ellipsed-text';

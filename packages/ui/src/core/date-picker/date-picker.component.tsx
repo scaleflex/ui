@@ -25,8 +25,10 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       size = InputSize.Md,
       hint,
       popperOptions,
+      zIndex = 1300,
       InputProps: InputPropsData,
       calendarStyles = {},
+      popperWrapperStyles = {},
       inputGroupProps,
       fullWidth,
       placeholder,
@@ -125,12 +127,14 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
           onChange={handleOnChange}
           maxDate={maxDate}
           minDate={minDate}
+          zIndex={zIndex}
           autoSelectToday={autoSelectToday}
           enableAutoSelect={enableAutoSelect}
           anchorEl={datePickerRef.current}
           position={position || 'bottom-start'}
           popperOptions={popperOptions}
           calendarStyles={calendarStyles}
+          popperWrapperStyles={popperWrapperStyles}
         />
       </Styled.DatePicker>
     );

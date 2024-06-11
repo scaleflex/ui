@@ -1,7 +1,6 @@
 {
-  "version": "2.8.4",
+  "version": "2.9.2",
   "npmClient": "yarn",
-  "useWorkspaces": true,
   "packages": [
     "packages/*"
   ],
@@ -19,5 +18,6 @@
       ],
       "conventionalCommits": true
     }
-  }
+  },
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }

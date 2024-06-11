@@ -1,4 +1,5 @@
 import React, { ChangeEvent } from 'react';
+import Success from '@scaleflex/icons/success';
 
 import { intrinsicComponent } from '../../utils/functions';
 import Label from '../label';
@@ -27,8 +28,8 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
       size,
       value,
       hideCopyIcon,
-      copyTextMessage,
-      copySuccessIcon,
+      copyTextMessage = 'Copied!',
+      copySuccessIcon = <Success size={16} />,
       placeholder,
       fullWidth,
       onChange,
