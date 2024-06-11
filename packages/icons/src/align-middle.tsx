@@ -2,7 +2,7 @@ import React from 'react';
 import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
 
-export const AlignCenter2 = intrinsicComponent<IconProps, SVGSVGElement>(
+export const AlignMiddle = intrinsicComponent<IconProps, SVGSVGElement>(
   ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
     <svg
       ref={ref}
@@ -38,4 +38,4 @@ export const AlignCenter2 = intrinsicComponent<IconProps, SVGSVGElement>(
   )
 );
 
-export default AlignCenter2;
+export default AlignMiddle;
