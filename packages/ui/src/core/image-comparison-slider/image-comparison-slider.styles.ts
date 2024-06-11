@@ -35,8 +35,8 @@ const ComparisonSlider = styled.div.attrs({
 
 const Image = styled.img.attrs({
   className: generateClassNames(baseClassName, 'image'),
-})<With<WithTheme, { isLoading: boolean }>>(
-  ({ isLoading, theme }) => css`
+})<With<WithTheme, { $isLoading: boolean }>>(
+  ({ $isLoading, theme }) => css`
   width: 100%;
   height: auto;
   vertical-align: middle;
@@ -45,7 +45,7 @@ const Image = styled.img.attrs({
   user-select: none;
   pointer-events: none;
 
-  ${isLoading && css`
+  ${$isLoading && css`
     background-color: ${theme?.palette[PaletteColor.ButtonPrimaryText]};
     animation: ${pulseKeyframe} 1.5s ease-in-out 0.5s infinite;
     width: 100%;
@@ -79,8 +79,8 @@ const RightImageWrapper = styled.div.attrs({
 
 const Handle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'handle'),
-})<{ color?: string | undefined, thumbIconPadding?: number | undefined, thumbIconSize?: number | undefined }>(
-  ({ color, thumbIconPadding = 10, thumbIconSize = 10 }) => css`
+})<{ color?: string | undefined, $thumbIconPadding?: number | undefined, $thumbIconSize?: number | undefined }>(
+  ({ color, $thumbIconPadding = 10, $thumbIconSize = 10 }) => css`
   position: absolute;
   width: 3px;
   height: 100%;
@@ -92,13 +92,13 @@ const Handle = styled.div.attrs({
   svg {
     display: block;
     position: absolute;
-    top: ${`calc(50% - ${thumbIconPadding + thumbIconSize / 2}px)`};
-    right: ${`calc(50% - ${thumbIconPadding + thumbIconSize / 2}px)`};
+    top: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
+    right: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
     background: ${color};
-    width: ${`${thumbIconSize}px`};
-    height: ${`${thumbIconSize}px`};
+    width: ${`${$thumbIconSize}px`};
+    height: ${`${$thumbIconSize}px`};
     border-radius: 8px;
-    padding: ${`${thumbIconPadding}px`};
+    padding: ${`${$thumbIconPadding}px`};
   }
 `);
 

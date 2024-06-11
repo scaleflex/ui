@@ -35,12 +35,14 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
       if (topImageRef.current && handleRef.current) {
         const { left, width: topImgWidth } = topImageRef.current.getBoundingClientRect();
         const handleWidth = handleRef.current.offsetWidth;
-        const { horizontalPosition = 0 } = getHorizontalPosition({
+        const position = getHorizontalPosition({
           cursorHorizontalPosition,
           handleWidth: handleWidth,
           left,
           width: topImgWidth,
-        })!;
+        });
+
+        const horizontalPosition = position?.horizontalPosition || 0;
 
         if (handleRef.current) {
           handleRef.current.style.left = `${horizontalPosition * 100}%`;
@@ -84,8 +86,8 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
           ref={handleRef}
           onMouseDown={() => setIsResizing(true)}
           color={color}
-          thumbIconPadding={thumbIconPadding}
-          thumbIconSize={thumbIconSize}
+          $thumbIconPadding={thumbIconPadding}
+          $thumbIconSize={thumbIconSize}
           {...restHandleProps}
         >
           {thumbIcon}

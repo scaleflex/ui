@@ -45,7 +45,7 @@ const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageEle
 				draggable="false"
 				onError={handleError}
 				onLoad={() => setIsImgLoading(false)}
-				isLoading={isImgLoading}
+				$isLoading={isImgLoading}
 				{...rest}
 			/>
 		)
