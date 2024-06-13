@@ -18,6 +18,7 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
       imgWrapperProps,
       handleProps,
       fallbackPreviewProps,
+      footerProps,
       ...rest
     }: ImageComparisonSliderProps,
     ref
@@ -26,6 +27,8 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
       color = lightPalette[Color.BackgroundStateless], thumbIconSize = 10, thumbIconPadding = 10,
       thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />, ...restHandleProps
     } = handleProps || {}
+
+    const { leftText = 'Before', rightText = 'After', hideFooter = false, ...restFooterProps } = footerProps || {}
 
     const [isResizing, setIsResizing] = useState(false);
     const topImageRef = useRef<HTMLImageElement | null>(null);
@@ -51,21 +54,27 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
       }
     }, []);
 
-    const handleResize = useCallback((e: any) => setPositioning(e.clientX), [setPositioning]);
+    const handleResize = useCallback((e: any) => setPositioning(e?.touches?.[0]?.clientX || e.clientX), [setPositioning]);
 
     const handleResizeEnd = useCallback(() => {
       setIsResizing(false);
+      window.removeEventListener('touchmove', handleResize);
+      window.removeEventListener('touchend', handleResizeEnd);
       window.removeEventListener('mousemove', handleResize);
       window.removeEventListener('mouseup', handleResizeEnd);
     }, [handleResize]);
 
     useEffect(() => {
       if (isResizing) {
+        window.addEventListener('touchmove', handleResize);
+        window.addEventListener('touchend', handleResizeEnd);
         window.addEventListener('mousemove', handleResize);
         window.addEventListener('mouseup', handleResizeEnd);
       }
 
       return () => {
+        window.removeEventListener('touchmove', handleResize);
+        window.removeEventListener('touchend', handleResizeEnd);
         window.removeEventListener('mousemove', handleResize);
         window.removeEventListener('mouseup', handleResizeEnd);
       };
@@ -82,23 +91,33 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
 
     return (
       <Styled.ComparisonSlider {...rest} ref={ref}>
-        <Styled.Handle
-          ref={handleRef}
-          onMouseDown={() => setIsResizing(true)}
-          color={color}
-          $thumbIconPadding={thumbIconPadding}
-          $thumbIconSize={thumbIconSize}
-          {...restHandleProps}
-        >
-          {thumbIcon}
-        </Styled.Handle>
-        <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
-          <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-        </Styled.LeftImageWrapper>
+        <Styled.SliderWrapper {...rest}>
+          <Styled.Handle
+            ref={handleRef}
+            onMouseDown={() => setIsResizing(true)}
+            onTouchStart={() => setIsResizing(true)}
+            color={color}
+            $thumbIconPadding={thumbIconPadding}
+            $thumbIconSize={thumbIconSize}
+            {...restHandleProps}
+          >
+            {thumbIcon}
+          </Styled.Handle>
+          <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
+            <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+          </Styled.LeftImageWrapper>
 
-        <Styled.RightImageWrapper {...imgWrapperProps}>
-          <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-        </Styled.RightImageWrapper>
+          <Styled.RightImageWrapper {...imgWrapperProps}>
+            <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+          </Styled.RightImageWrapper>
+        </Styled.SliderWrapper>
+
+        {!hideFooter &&
+          <Styled.Footer {...restFooterProps}>
+            <span>{leftText}</span>
+            <span>{rightText}</span>
+          </Styled.Footer>
+        }
       </Styled.ComparisonSlider>
     );
   }

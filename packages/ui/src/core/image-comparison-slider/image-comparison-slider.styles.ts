@@ -27,14 +27,13 @@ const pulseKeyframe = keyframes`
 const ComparisonSlider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  width: 400px;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 const Image = styled.img.attrs({
-  className: generateClassNames(baseClassName, 'image'),
+  className: generateClassNames(baseClassName, 'Image'),
 })<With<WithTheme, { $isLoading: boolean }>>(
   ({ $isLoading, theme }) => css`
   width: 100%;
@@ -44,6 +43,7 @@ const Image = styled.img.attrs({
   -webkit-user-select: none;
   user-select: none;
   pointer-events: none;
+  touch-action: none;
 
   ${$isLoading && css`
     background-color: ${theme?.palette[PaletteColor.ButtonPrimaryText]};
@@ -54,7 +54,7 @@ const Image = styled.img.attrs({
 `);
 
 const LeftImageWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'leftImageWrapper'),
+  className: generateClassNames(baseClassName, 'LeftImageWrapper'),
 })`
   z-index: 1;
   position: absolute;
@@ -70,7 +70,7 @@ const LeftImageWrapper = styled.div.attrs({
 `;
 
 const RightImageWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'rightImageWrapper'),
+  className: generateClassNames(baseClassName, 'RightImageWrapper'),
 })`
   overflow: hidden;
   height: 100%;
@@ -78,7 +78,7 @@ const RightImageWrapper = styled.div.attrs({
 `;
 
 const Handle = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'handle'),
+  className: generateClassNames(baseClassName, 'Handle'),
 })<{ color?: string, $thumbIconPadding?: number, $thumbIconSize?: number }>(
   ({ color, $thumbIconPadding = 10, $thumbIconSize = 10 }) => css`
   position: absolute;
@@ -99,11 +99,12 @@ const Handle = styled.div.attrs({
     height: ${`${$thumbIconSize}px`};
     border-radius: 8px;
     padding: ${`${$thumbIconPadding}px`};
+    box-sizing: content-box;
   }
 `);
 
 const FallbackPreviewWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'fallbackPreviewWrapper'),
+  className: generateClassNames(baseClassName, 'FallbackPreviewWrapper'),
 })<{ backgroundColor?: string, gap?: number, }>(
   ({ backgroundColor, gap }) => css`
   display: flex;
@@ -117,8 +118,8 @@ const FallbackPreviewWrapper = styled.div.attrs({
 `)
 
 const FallbackPreviewMsg = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'fallbackPreviewMsg'),
-})<With<WithTheme, { fontVariant?: string, color?: string }>>(
+  className: generateClassNames(baseClassName, 'FallbackPreviewMsg'),
+})<With<WithTheme, { color?: string }>>(
   ({ theme: { typography }, color = lightPalette[Color.TextSecondary] }) => css`
     ${typography.font[FontVariant.TextMedium]};
     user-select: none;
@@ -126,9 +127,27 @@ const FallbackPreviewMsg = styled.span.attrs({
   `
 );
 
+const SliderWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'SliderWrapper'),
+})`
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+`
+
+const Footer = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'Footer'),
+})<WithTheme>(
+  ({ theme }) => css`
+  ${theme.typography.font[FontVariant.TextMedium]};
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`)
+
 const Styled = applyDisplayNames({
-  Image, LeftImageWrapper, RightImageWrapper, FallbackPreviewMsg,
-  Handle, ComparisonSlider, FallbackPreviewWrapper,
+  Image, LeftImageWrapper, RightImageWrapper, FallbackPreviewMsg, SliderWrapper,
+  Handle, ComparisonSlider, FallbackPreviewWrapper, Footer
 });
 
 export default Styled;

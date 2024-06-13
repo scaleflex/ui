@@ -29,7 +29,7 @@ const defaultArgs = {
 };
 
 const BasicTemplate = ({ ...args }: ImageComparisonSliderProps): JSX.Element => {
-  return <ImageComparisonSlider {...args} />;
+  return <ImageComparisonSlider style={{ width: 400, height: 400 }} {...args} />;
 };
 
 export const Primary: Story = {
