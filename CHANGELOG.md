@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/scaleflex/ui/compare/v2.10.0...v2.10.1) (2024-06-13)
+
+### Bug Fixes
+
+- **CrossIcon:** size inside search component [FRA-5517] ([f149669](https://github.com/scaleflex/ui/commit/f149669a916e3183937c4568f81e281b4b04abe8))
+
 # [2.10.0](https://github.com/scaleflex/ui/compare/v2.9.2...v2.10.0) (2024-06-11)
 
 ### Bug Fixes

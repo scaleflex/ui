@@ -3,1351 +3,792 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.1](https://github.com/scaleflex/ui/compare/v2.10.0...v2.10.1) (2024-06-13)
+
+### Bug Fixes
+
+- **CrossIcon:** size inside search component [FRA-5517] ([f149669](https://github.com/scaleflex/ui/commit/f149669a916e3183937c4568f81e281b4b04abe8))
+
 ## [2.9.2](https://github.com/scaleflex/ui/compare/v2.9.1...v2.9.2) (2024-06-05)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 ## [2.8.3](https://github.com/scaleflex/ui/compare/v2.8.2...v2.8.3) (2024-05-23)
-
 
 ### Bug Fixes
 
-* clip rule attribute ([af5965f](https://github.com/scaleflex/ui/commit/af5965ff4e41c1d569171adb81f25d5280af8151))
-
-
-
-
-
+- clip rule attribute ([af5965f](https://github.com/scaleflex/ui/commit/af5965ff4e41c1d569171adb81f25d5280af8151))
 
 ## [2.8.2](https://github.com/scaleflex/ui/compare/v2.8.1...v2.8.2) (2024-05-22)
 
-
 ### Features
 
-* **icons:** update similar icon ([a84991c](https://github.com/scaleflex/ui/commit/a84991c11a78d3c53b9be8f17a2b53b8587ebbb1))
-
-
-
-
-
+- **icons:** update similar icon ([a84991c](https://github.com/scaleflex/ui/commit/a84991c11a78d3c53b9be8f17a2b53b8587ebbb1))
 
 ## [2.8.1](https://github.com/scaleflex/ui/compare/v2.8.0...v2.8.1) (2024-05-16)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.8.0](https://github.com/scaleflex/ui/compare/v2.7.0...v2.8.0) (2024-05-16)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 ## [2.6.3](https://github.com/scaleflex/ui/compare/v2.6.2...v2.6.3) (2024-05-08)
-
 
 ### Bug Fixes
 
-* **DatePicker:** cross icon for datePicker [FRA-5097] ([ea72609](https://github.com/scaleflex/ui/commit/ea72609b63df3fe36a551331b3abad4031124502))
-
-
-
-
-
+- **DatePicker:** cross icon for datePicker [FRA-5097] ([ea72609](https://github.com/scaleflex/ui/commit/ea72609b63df3fe36a551331b3abad4031124502))
 
 ## [2.6.1](https://github.com/scaleflex/ui/compare/v2.6.0...v2.6.1) (2024-05-02)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 # [2.5.0](https://github.com/scaleflex/ui/compare/v2.4.12...v2.5.0) (2024-04-20)
-
 
 ### Bug Fixes
 
-* peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
-
-
-
-
-
+- peer dependencies support for react 18 ([703b906](https://github.com/scaleflex/ui/commit/703b906910b503ba505b656744b8bd74a9ee032d))
 
 ## [2.4.12](https://github.com/scaleflex/ui/compare/v2.4.11...v2.4.12) (2024-04-18)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 ## [2.4.8](https://github.com/scaleflex/ui/compare/v2.4.7...v2.4.8) (2024-03-27)
 
 **Note:** Version bump only for package @scaleflex/icons
-
-
-
-
-
 
 ## [2.4.6](https://github.com/scaleflex/ui/compare/v2.4.5...v2.4.6) (2024-03-14)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 ## [2.3.1](https://github.com/scaleflex/ui/compare/v2.3.0...v2.3.1) (2024-02-19)
 
 **Note:** Version bump only for package @scaleflex/icons
-
-
-
-
-
 
 # [2.3.0](https://github.com/scaleflex/ui/compare/v2.2.0...v2.3.0) (2024-02-18)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 # [2.2.0](https://github.com/scaleflex/ui/compare/v2.1.36...v2.2.0) (2024-02-16)
-
 
 ### Features
 
-* **IconButtonTable:** add icon button table to design system - FRA-2117 ([41f9e58](https://github.com/scaleflex/ui/commit/41f9e58bb39d12012ef863896f6031a4f6581c65))
-* **Icons:** add new icons ([8520b07](https://github.com/scaleflex/ui/commit/8520b07a6c23e2d1b05d95ba3022a3440e910894))
-
-
-
-
-
+- **IconButtonTable:** add icon button table to design system - FRA-2117 ([41f9e58](https://github.com/scaleflex/ui/commit/41f9e58bb39d12012ef863896f6031a4f6581c65))
+- **Icons:** add new icons ([8520b07](https://github.com/scaleflex/ui/commit/8520b07a6c23e2d1b05d95ba3022a3440e910894))
 
 ## [2.1.36](https://github.com/scaleflex/ui/compare/v2.1.35...v2.1.36) (2024-02-13)
 
-
 ### Features
 
-* **Icons:** add new icons ([74b6096](https://github.com/scaleflex/ui/commit/74b6096761d19de77b75e5b642c22be745fbdf1a))
-
-
-
-
-
+- **Icons:** add new icons ([74b6096](https://github.com/scaleflex/ui/commit/74b6096761d19de77b75e5b642c22be745fbdf1a))
 
 ## [2.1.29](https://github.com/scaleflex/ui/compare/v2.1.28...v2.1.29) (2024-02-05)
 
-
 ### Bug Fixes
 
-* **icons:** update icon path ([2f1ccb7](https://github.com/scaleflex/ui/commit/2f1ccb75864db18686f48279d58cc48e5710014b))
-
-
-
-
+- **icons:** update icon path ([2f1ccb7](https://github.com/scaleflex/ui/commit/2f1ccb75864db18686f48279d58cc48e5710014b))
 
 ## [2.1.25](https://github.com/scaleflex/ui/compare/v2.1.24...v2.1.25) (2024-01-09)
 
-
 ### Features
 
-* **Icons:** add new icons ([8d13c1b](https://github.com/scaleflex/ui/commit/8d13c1b1b4804c3902a7a6db4dfd680f78bbef88))
-
-
-
-
-
+- **Icons:** add new icons ([8d13c1b](https://github.com/scaleflex/ui/commit/8d13c1b1b4804c3902a7a6db4dfd680f78bbef88))
 
 ## [2.1.23](https://github.com/scaleflex/ui/compare/v2.1.22...v2.1.23) (2023-11-30)
 
-
 ### Features
 
-* **Icons,Theme:** update video2 icon and add red color ([d627be1](https://github.com/scaleflex/ui/commit/d627be13615f4d45d0e404bf5ce77148d137a6c3))
-
-
-
-
-
+- **Icons,Theme:** update video2 icon and add red color ([d627be1](https://github.com/scaleflex/ui/commit/d627be13615f4d45d0e404bf5ce77148d137a6c3))
 
 ## [2.1.22](https://github.com/scaleflex/ui/compare/v2.1.21...v2.1.22) (2023-11-22)
 
-
 ### Features
 
-* [Select group/icons] add option to hide actions from menu items/add new icon -FRA-2660 ([cc341bc](https://github.com/scaleflex/ui/commit/cc341bcacbdda7925323724afcc6ab0fffd88626))
-
-
-
-
-
+- [Select group/icons] add option to hide actions from menu items/add new icon -FRA-2660 ([cc341bc](https://github.com/scaleflex/ui/commit/cc341bcacbdda7925323724afcc6ab0fffd88626))
 
 ## [2.1.20](https://github.com/scaleflex/ui/compare/v2.1.19...v2.1.20) (2023-10-12)
 
-
 ### Bug Fixes
 
-* **Icons:** view box values ([8959e49](https://github.com/scaleflex/ui/commit/8959e4902d8e2fd4eb768db817c51c88ee7d7772))
-* **Icons:** view box values ([e0022ce](https://github.com/scaleflex/ui/commit/e0022ce451864e8843a81076d3061a72c4b10748))
-
-
-
-
-
+- **Icons:** view box values ([8959e49](https://github.com/scaleflex/ui/commit/8959e4902d8e2fd4eb768db817c51c88ee7d7772))
+- **Icons:** view box values ([e0022ce](https://github.com/scaleflex/ui/commit/e0022ce451864e8843a81076d3061a72c4b10748))
 
 ## [2.1.19](https://github.com/scaleflex/ui/compare/v2.1.18...v2.1.19) (2023-09-29)
 
-
 ### Bug Fixes
 
-* **Icons:** fix italic icon ([d97c22b](https://github.com/scaleflex/ui/commit/d97c22b12363199ab1a8791ea359d5c196bc7c18))
-
+- **Icons:** fix italic icon ([d97c22b](https://github.com/scaleflex/ui/commit/d97c22b12363199ab1a8791ea359d5c196bc7c18))
 
 ### Features
 
-* **Icons:** add rotate 90 icon ([042b71a](https://github.com/scaleflex/ui/commit/042b71a96e9474c22af89a22758629f54e78c385))
-* **Icons:** add success outline icon ([fa3c18f](https://github.com/scaleflex/ui/commit/fa3c18fbc30badcf3277c57f1997900c493184ca))
-
-
-
-
-
+- **Icons:** add rotate 90 icon ([042b71a](https://github.com/scaleflex/ui/commit/042b71a96e9474c22af89a22758629f54e78c385))
+- **Icons:** add success outline icon ([fa3c18f](https://github.com/scaleflex/ui/commit/fa3c18fbc30badcf3277c57f1997900c493184ca))
 
 ## [2.1.10](https://github.com/scaleflex/ui/compare/v2.1.9...v2.1.10) (2023-09-17)
 
-
 ### Bug Fixes
 
-* **Icons:** fix minus outline icon ([85c3c3f](https://github.com/scaleflex/ui/commit/85c3c3f259e238a343e1c0e3796092a8640f0e7d))
-* **Icons:** fix reset icon ([b54e573](https://github.com/scaleflex/ui/commit/b54e5739648abd68ca8882cd7c1d14d978617c75))
-* **Icons:** update annotate icon and add batch edit icon ([646d41b](https://github.com/scaleflex/ui/commit/646d41b72f25c02b1bb825c86085d0389c957355))
-
-
-
-
-
+- **Icons:** fix minus outline icon ([85c3c3f](https://github.com/scaleflex/ui/commit/85c3c3f259e238a343e1c0e3796092a8640f0e7d))
+- **Icons:** fix reset icon ([b54e573](https://github.com/scaleflex/ui/commit/b54e5739648abd68ca8882cd7c1d14d978617c75))
+- **Icons:** update annotate icon and add batch edit icon ([646d41b](https://github.com/scaleflex/ui/commit/646d41b72f25c02b1bb825c86085d0389c957355))
 
 ## [2.1.7](https://github.com/scaleflex/ui/compare/v2.1.6...v2.1.7) (2023-08-31)
 
-
 ### Bug Fixes
 
-* **Icons:** extra height in label icon ([8b5b47f](https://github.com/scaleflex/ui/commit/8b5b47fb9c25c93dcf77ed78f5ddb273472fbbc1))
-* **Icons:** fix no-folders icon dimensions ([59a439d](https://github.com/scaleflex/ui/commit/59a439dc71a5dd618e09f534e5c8a266ac005c0f))
-
-
-
-
-
+- **Icons:** extra height in label icon ([8b5b47f](https://github.com/scaleflex/ui/commit/8b5b47fb9c25c93dcf77ed78f5ddb273472fbbc1))
+- **Icons:** fix no-folders icon dimensions ([59a439d](https://github.com/scaleflex/ui/commit/59a439dc71a5dd618e09f534e5c8a266ac005c0f))
 
 # [2.1.0](https://github.com/scaleflex/ui/compare/v2.0.3...v2.1.0) (2023-07-28)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 # [2.0.0](https://github.com/scaleflex/ui/compare/v1.0.0-beta.46...v2.0.0) (2023-07-06)
-
 
 ### Bug Fixes
 
-* update icons with clipPath attribute - SHA-34 ([6d3f93e](https://github.com/scaleflex/ui/commit/6d3f93e3adf0c3d46ea0b59c5e591c0f351299a3))
-* update icons with clipPath attribute - SHA-34 ([efab56e](https://github.com/scaleflex/ui/commit/efab56e6265ea63ac15365e3b4db623f22ca9d98))
-
-
+- update icons with clipPath attribute - SHA-34 ([6d3f93e](https://github.com/scaleflex/ui/commit/6d3f93e3adf0c3d46ea0b59c5e591c0f351299a3))
+- update icons with clipPath attribute - SHA-34 ([efab56e](https://github.com/scaleflex/ui/commit/efab56e6265ea63ac15365e3b4db623f22ca9d98))
 
 # 2.0.0-beta.46 (2023-06-26)
 
-
 ### Bug Fixes
 
-* **Icons:** update icons with clipPath attribute - SHA-34 ([89dfbe6](https://github.com/scaleflex/ui/commit/89dfbe66074351568cce489f897ab8322d55df04))
-
+- **Icons:** update icons with clipPath attribute - SHA-34 ([89dfbe6](https://github.com/scaleflex/ui/commit/89dfbe66074351568cce489f897ab8322d55df04))
 
 ### Features
 
-* **Icons:** add mail outline icon ([3918dd1](https://github.com/scaleflex/ui/commit/3918dd1d3d0865a82b11ab57e5caa318bc2558f2))
-* **Icons:** add new icons - SHA-34 ([59a165e](https://github.com/scaleflex/ui/commit/59a165e79f010fd7aa0f11bce245774b25480aa5))
-
-
+- **Icons:** add mail outline icon ([3918dd1](https://github.com/scaleflex/ui/commit/3918dd1d3d0865a82b11ab57e5caa318bc2558f2))
+- **Icons:** add new icons - SHA-34 ([59a165e](https://github.com/scaleflex/ui/commit/59a165e79f010fd7aa0f11bce245774b25480aa5))
 
 # 2.0.0-beta.45 (2023-06-12)
 
-
-
 # 2.0.0-beta.44 (2023-06-08)
-
-
 
 # 2.0.0-beta.43 (2023-05-29)
 
-
 ### Features
 
-* **Icons:** add new icons to UI Kit ([a3b191c](https://github.com/scaleflex/ui/commit/a3b191c1fc3244e5917e3d1bc3026de19ddf8321))
-
-
+- **Icons:** add new icons to UI Kit ([a3b191c](https://github.com/scaleflex/ui/commit/a3b191c1fc3244e5917e3d1bc3026de19ddf8321))
 
 # 2.0.0-beta.42 (2023-05-27)
 
-
 ### Features
 
-* **Icon:** add new icon ([9ea3b3d](https://github.com/scaleflex/ui/commit/9ea3b3d7cc2f3d8642c74128ec176a963460c1d4))
-
-
+- **Icon:** add new icon ([9ea3b3d](https://github.com/scaleflex/ui/commit/9ea3b3d7cc2f3d8642c74128ec176a963460c1d4))
 
 # 2.0.0-beta.36 (2023-04-18)
 
-
 ### Features
 
-* **Icons:** add new icons ([6d5b954](https://github.com/scaleflex/ui/commit/6d5b954f5b5b044509d3c4a807236a7f981fbb9f))
-
-
+- **Icons:** add new icons ([6d5b954](https://github.com/scaleflex/ui/commit/6d5b954f5b5b044509d3c4a807236a7f981fbb9f))
 
 # 2.0.0-beta.30 (2023-02-23)
 
-
-
 # 2.0.0-beta.29 (2023-02-22)
-
 
 ### Features
 
-* add new icon ([bc401ce](https://github.com/scaleflex/ui/commit/bc401ce59ca2b5ad0d50adfce37ed61db55413e1))
-
-
+- add new icon ([bc401ce](https://github.com/scaleflex/ui/commit/bc401ce59ca2b5ad0d50adfce37ed61db55413e1))
 
 # 2.0.0-beta.28 (2023-02-09)
 
-
 ### Features
 
-* **icons:** add new icon ([13968bc](https://github.com/scaleflex/ui/commit/13968bcc1fab48a566992d3c5ec022778a1c5ffe))
-
-
+- **icons:** add new icon ([13968bc](https://github.com/scaleflex/ui/commit/13968bcc1fab48a566992d3c5ec022778a1c5ffe))
 
 # 2.0.0-beta.27 (2023-02-07)
 
-
 ### Bug Fixes
 
-* new icon names ([13ab23f](https://github.com/scaleflex/ui/commit/13ab23f3e648d34187d9cc877d9df5566a6bb37c))
-
+- new icon names ([13ab23f](https://github.com/scaleflex/ui/commit/13ab23f3e648d34187d9cc877d9df5566a6bb37c))
 
 ### Features
 
-* Add new icons T12432 ([0f6e3c0](https://github.com/scaleflex/ui/commit/0f6e3c0700a5d418cdcc6170adac0fabe21a5e25))
-
-
+- Add new icons T12432 ([0f6e3c0](https://github.com/scaleflex/ui/commit/0f6e3c0700a5d418cdcc6170adac0fabe21a5e25))
 
 # 2.0.0-beta.26 (2023-01-18)
 
-
 ### Features
 
-* add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
-* update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
-
-
+- add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
+- update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
 
 # 2.0.0-beta.25 (2023-01-16)
 
-
 ### Bug Fixes
 
-* bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
-
+- bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
 
 ### Features
 
-* update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
-
-
+- update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
 
 # 2.0.0-beta.24 (2023-01-02)
 
-
 ### Features
 
-* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
-* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
-* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
-
-
+- add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+- add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+- add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
 
 # 2.0.0-beta.21 (2022-12-21)
 
-
 ### Features
 
-* **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
-
-
+- **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
 
 # 2.0.0-beta.20 (2022-12-20)
 
-
 ### Features
 
-* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
-* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
-* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
-
-
+- add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+- Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+- add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
 
 # 2.0.0-beta.18 (2022-12-07)
 
-
 ### Features
 
-* **Icon:** add new icon ([9212a33](https://github.com/scaleflex/ui/commit/9212a3321e7d7c88c373061352dbab215c7337c6))
-
-
+- **Icon:** add new icon ([9212a33](https://github.com/scaleflex/ui/commit/9212a3321e7d7c88c373061352dbab215c7337c6))
 
 # 2.0.0-beta.17 (2022-12-07)
 
-
 ### Features
 
-* **Icon:** add new icon ([012ef79](https://github.com/scaleflex/ui/commit/012ef79508065f6c28a6da17e247da06f1d37d90))
-
-
+- **Icon:** add new icon ([012ef79](https://github.com/scaleflex/ui/commit/012ef79508065f6c28a6da17e247da06f1d37d90))
 
 # 2.0.0-beta.16 (2022-12-07)
 
-
-
 # 2.0.0-beta.13 (2022-11-28)
-
-
 
 # 2.0.0-beta.9 (2022-11-23)
 
-
 ### Features
 
-* add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
-* add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
-
-
+- add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
+- add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
 
 # 2.0.0-beta.7 (2022-11-17)
 
-
 ### Bug Fixes
 
-* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
-
-
+- update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
 
 # 2.0.0-beta.6 (2022-11-09)
 
-
-
 # 2.0.0-beta.5 (2022-10-28)
-
 
 ### Bug Fixes
 
-* types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
-
-
+- types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
 
 # 2.0.0-beta.4 (2022-10-20)
 
-
-
 # 2.0.0-beta.3 (2022-10-17)
-
 
 ### Features
 
-* **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
-
-
+- **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
 
 # 2.0.0-beta.2 (2022-10-13)
 
-
 ### Features
 
-* **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
-
-
+- **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
 
 # 2.0.0-beta.1 (2022-10-06)
 
-
-
 # 2.0.0-beta.0 (2022-10-05)
-
-
 
 # 1.0.0-beta.99 (2022-10-05)
 
-
 ### Bug Fixes
 
-* checkbox T10799 ([8bc8fdd](https://github.com/scaleflex/ui/commit/8bc8fdd5095c776f38d35cf6744c881f20afa7b0))
-* conflict T10799 ([a596fde](https://github.com/scaleflex/ui/commit/a596fdeb5dd79b8aa4ce7ac5ce765792e6214f85))
-
+- checkbox T10799 ([8bc8fdd](https://github.com/scaleflex/ui/commit/8bc8fdd5095c776f38d35cf6744c881f20afa7b0))
+- conflict T10799 ([a596fde](https://github.com/scaleflex/ui/commit/a596fdeb5dd79b8aa4ce7ac5ce765792e6214f85))
 
 ### Features
 
-* **Buttons:** add sidebarTrigger buttons option - T10863 ([80d980c](https://github.com/scaleflex/ui/commit/80d980c764f52004a748c0a182db7b6793ed18fe))
-* add prop type T10799 ([5b2a02a](https://github.com/scaleflex/ui/commit/5b2a02a9e9b75ebde5447bb4150b48eecae94341))
-* **Navigation:** update navigation design - T10797 ([304a1b7](https://github.com/scaleflex/ui/commit/304a1b7fb245e748610d5a5e98b329f9e935f937))
-
-
+- **Buttons:** add sidebarTrigger buttons option - T10863 ([80d980c](https://github.com/scaleflex/ui/commit/80d980c764f52004a748c0a182db7b6793ed18fe))
+- add prop type T10799 ([5b2a02a](https://github.com/scaleflex/ui/commit/5b2a02a9e9b75ebde5447bb4150b48eecae94341))
+- **Navigation:** update navigation design - T10797 ([304a1b7](https://github.com/scaleflex/ui/commit/304a1b7fb245e748610d5a5e98b329f9e935f937))
 
 # 1.0.0-beta.97 (2022-09-14)
 
-
 ### Features
 
-* **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
-
-
+- **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
 
 # 1.0.0-beta.96 (2022-09-08)
 
-
 ### Features
 
-* **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
-
-
+- **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
 
 # 1.0.0-beta.93 (2022-08-09)
 
-
-
 # 1.0.0-beta.91 (2022-07-19)
-
 
 ### Features
 
-* **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
-
-
+- **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
 
 # 1.0.0-beta.90 (2022-07-07)
 
-
 ### Features
 
-* **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
-
-
+- **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
 
 # 1.0.0-beta.89 (2022-07-05)
 
-
 ### Features
 
-* **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
-
-
+- **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
 
 # 1.0.0-beta.88 (2022-06-29)
 
-
 ### Features
 
-* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
-
-
+- **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
 
 # 1.0.0-beta.87 (2022-05-27)
 
-
 ### Features
 
-* **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
-
-
+- **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
 
 # 1.0.0-beta.86 (2022-05-17)
 
-
-
 # 1.0.0-beta.85 (2022-05-13)
-
 
 ### Features
 
-* **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
-
-
+- **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
 
 # 1.0.0-beta.84 (2022-05-10)
 
-
 ### Features
 
-* **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
-
-
+- **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
 
 # 1.0.0-beta.83 (2022-05-09)
 
-
 ### Features
 
-* **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
-* **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
-
-
+- **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
+- **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
 
 # 1.0.0-beta.82 (2022-04-15)
 
-
 ### Features
 
-* **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
-* **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
-
-
+- **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
+- **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
 
 # 1.0.0-beta.80 (2022-03-31)
 
-
 ### Features
 
-* **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
-
-
+- **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
 
 # 1.0.0-beta.75 (2022-03-15)
 
-
 ### Features
 
-* **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
-
-
+- **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
 
 # 1.0.0-beta.74 (2022-03-14)
 
-
 ### Bug Fixes
 
-* **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
-
-
+- **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
 
 # 1.0.0-beta.73 (2022-02-22)
 
-
 ### Features
 
-* **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
-
-
+- **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
 
 # 1.0.0-beta.71 (2022-02-15)
 
-
 ### Features
 
-* **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
-
-
+- **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
 
 # 1.0.0-beta.70 (2022-02-13)
 
-
 ### Features
 
-* **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
-
-
+- **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
 
 # 1.0.0-beta.69 (2022-02-03)
 
-
 ### Features
 
-* **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
-
-
+- **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
 
 # 1.0.0-beta.67 (2022-02-02)
 
-
 ### Bug Fixes
 
-* **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
-
-
+- **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
 
 # 1.0.0-beta.61 (2021-12-17)
 
-
 ### Features
 
-* **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
-* **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
-
-
+- **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
+- **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
 
 # 1.0.0-beta.60 (2021-12-03)
 
-
-
 # 1.0.0-beta.58 (2021-12-03)
-
 
 ### Features
 
-* **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
-
-
+- **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
 
 # 1.0.0-beta.56 (2021-11-19)
 
-
 ### Bug Fixes
 
-* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
-
+- **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
 
 ### Features
 
-* **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
-
-
+- **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
 
 # 1.0.0-beta.54 (2021-11-16)
 
-
-
 # 1.0.0-beta.53 (2021-11-15)
-
-
 
 # 1.0.0-beta.52 (2021-11-15)
 
-
 ### Features
 
-* **icons:** add all image editor icons ([f200a73](https://github.com/scaleflex/ui/commit/f200a73780bc950139a60d3cfdcad70e7d875532))
-
-
-
-
-
+- **icons:** add all image editor icons ([f200a73](https://github.com/scaleflex/ui/commit/f200a73780bc950139a60d3cfdcad70e7d875532))
 
 # [2.0.0-beta.46](https://github.com/scaleflex/ui/compare/2.0.0-beta.45...2.0.0-beta.46) (2023-06-26)
 
-
 ### Features
 
-* **Icons:** add mail outline icon ([3918dd1](https://github.com/scaleflex/ui/commit/3918dd1d3d0865a82b11ab57e5caa318bc2558f2))
-
-
-
-
-
+- **Icons:** add mail outline icon ([3918dd1](https://github.com/scaleflex/ui/commit/3918dd1d3d0865a82b11ab57e5caa318bc2558f2))
 
 # [2.0.0-beta.45](https://github.com/scaleflex/ui/compare/2.0.0-beta.44...2.0.0-beta.45) (2023-06-12)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
-
 # [2.0.0-beta.44](https://github.com/scaleflex/ui/compare/2.0.0-beta.43...2.0.0-beta.44) (2023-06-08)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.43](https://github.com/scaleflex/ui/compare/2.0.0-beta.42...2.0.0-beta.43) (2023-05-29)
-
 
 ### Features
 
-* **Icons:** add new icons to UI Kit ([a3b191c](https://github.com/scaleflex/ui/commit/a3b191c1fc3244e5917e3d1bc3026de19ddf8321))
-
-
-
-
+- **Icons:** add new icons to UI Kit ([a3b191c](https://github.com/scaleflex/ui/commit/a3b191c1fc3244e5917e3d1bc3026de19ddf8321))
 
 # [2.0.0-beta.42](https://github.com/scaleflex/ui/compare/2.0.0-beta.41...2.0.0-beta.42) (2023-05-27)
 
-
 ### Features
 
-* **Icon:** add new icon ([9ea3b3d](https://github.com/scaleflex/ui/commit/9ea3b3d7cc2f3d8642c74128ec176a963460c1d4))
-
-
-
-
-
+- **Icon:** add new icon ([9ea3b3d](https://github.com/scaleflex/ui/commit/9ea3b3d7cc2f3d8642c74128ec176a963460c1d4))
 
 # [2.0.0-beta.36](https://github.com/scaleflex/ui/compare/2.0.0-beta.35...2.0.0-beta.36) (2023-04-18)
 
-
 ### Features
 
-* **Icons:** add new icons ([6d5b954](https://github.com/scaleflex/ui/commit/6d5b954f5b5b044509d3c4a807236a7f981fbb9f))
-
-
-
-
-
+- **Icons:** add new icons ([6d5b954](https://github.com/scaleflex/ui/commit/6d5b954f5b5b044509d3c4a807236a7f981fbb9f))
 
 # [2.0.0-beta.30](https://github.com/scaleflex/ui/compare/2.0.0-beta.29...2.0.0-beta.30) (2023-02-23)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.29](https://github.com/scaleflex/ui/compare/2.0.0-beta.28...2.0.0-beta.29) (2023-02-22)
-
 
 ### Features
 
-* add new icon ([bc401ce](https://github.com/scaleflex/ui/commit/bc401ce59ca2b5ad0d50adfce37ed61db55413e1))
-
-
-
-
+- add new icon ([bc401ce](https://github.com/scaleflex/ui/commit/bc401ce59ca2b5ad0d50adfce37ed61db55413e1))
 
 # [2.0.0-beta.28](https://github.com/scaleflex/ui/compare/2.0.0-beta.27...2.0.0-beta.28) (2023-02-09)
 
-
 ### Features
 
-* **icons:** add new icon ([13968bc](https://github.com/scaleflex/ui/commit/13968bcc1fab48a566992d3c5ec022778a1c5ffe))
-
-
-
-
+- **icons:** add new icon ([13968bc](https://github.com/scaleflex/ui/commit/13968bcc1fab48a566992d3c5ec022778a1c5ffe))
 
 # [2.0.0-beta.27](https://github.com/scaleflex/ui/compare/2.0.0-beta.26...2.0.0-beta.27) (2023-02-07)
 
-
 ### Bug Fixes
 
-* new icon names ([13ab23f](https://github.com/scaleflex/ui/commit/13ab23f3e648d34187d9cc877d9df5566a6bb37c))
-
+- new icon names ([13ab23f](https://github.com/scaleflex/ui/commit/13ab23f3e648d34187d9cc877d9df5566a6bb37c))
 
 ### Features
 
-* Add new icons T12432 ([0f6e3c0](https://github.com/scaleflex/ui/commit/0f6e3c0700a5d418cdcc6170adac0fabe21a5e25))
-
-
-
-
+- Add new icons T12432 ([0f6e3c0](https://github.com/scaleflex/ui/commit/0f6e3c0700a5d418cdcc6170adac0fabe21a5e25))
 
 # [2.0.0-beta.26](https://github.com/scaleflex/ui/compare/2.0.0-beta.25...2.0.0-beta.26) (2023-01-18)
 
-
 ### Features
 
-* add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
-* update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
-
-
-
-
+- add new icons ([e1f3696](https://github.com/scaleflex/ui/commit/e1f36960a5ebee8fde23177e0a7eae65d1cff7da))
+- update organize icon ([e226e4c](https://github.com/scaleflex/ui/commit/e226e4ca9c2dba12aa842749e32908b2856f9d2a))
 
 # [2.0.0-beta.25](https://github.com/scaleflex/ui/compare/2.0.0-beta.24...2.0.0-beta.25) (2023-01-16)
 
-
 ### Bug Fixes
 
-* bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
-
+- bookmark icon ([bed2f5f](https://github.com/scaleflex/ui/commit/bed2f5f116673e75b09dd7640e70fd2b51d4b800))
 
 ### Features
 
-* update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
-
-
-
-
+- update mail icon ([e79df60](https://github.com/scaleflex/ui/commit/e79df6003b37159ff77a9b156ef840b84da8253e))
 
 # [2.0.0-beta.24](https://github.com/scaleflex/ui/compare/2.0.0-beta.23...2.0.0-beta.24) (2023-01-02)
 
-
 ### Features
 
-* add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
-* add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
-* add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
-
-
-
-
+- add new icon - T12150 ([1d99129](https://github.com/scaleflex/ui/commit/1d9912974dace234761bd7ec878854020dcea73d))
+- add new icons - T12150 ([a00334e](https://github.com/scaleflex/ui/commit/a00334e3b7af5342c6694822aadf286dfd044bde))
+- add variant placeholder icon - T12150 ([45fee92](https://github.com/scaleflex/ui/commit/45fee920292ca64c18d2de9216a5a0dd4f0f9e30))
 
 # [2.0.0-beta.21](https://github.com/scaleflex/ui/compare/2.0.0-beta.20...2.0.0-beta.21) (2022-12-21)
 
-
 ### Features
 
-* **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
-
-
-
-
+- **Icon:** add new icon ([e14419b](https://github.com/scaleflex/ui/commit/e14419b8f1272258ba8494618d98d0b7d32d5ff1))
 
 # [2.0.0-beta.20](https://github.com/scaleflex/ui/compare/2.0.0-beta.19...2.0.0-beta.20) (2022-12-20)
 
-
 ### Features
 
-* add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
-* Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
-* add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
-
-
-
-
+- add activity icon - T12052 ([837e142](https://github.com/scaleflex/ui/commit/837e1422b63b6ec5011861c40e7f0c36d1209f76))
+- Add new Icons - T12074 ([00c63db](https://github.com/scaleflex/ui/commit/00c63dbfd1a3424b41f47a19f6df060f6e66cdf9))
+- add speed icon - T12104 ([6de1843](https://github.com/scaleflex/ui/commit/6de18434855d3d5f0b8acad08efc8f93feb9e436))
 
 # [2.0.0-beta.18](https://github.com/scaleflex/ui/compare/2.0.0-beta.17...2.0.0-beta.18) (2022-12-07)
 
-
 ### Features
 
-* **Icon:** add new icon ([9212a33](https://github.com/scaleflex/ui/commit/9212a3321e7d7c88c373061352dbab215c7337c6))
-
-
-
-
+- **Icon:** add new icon ([9212a33](https://github.com/scaleflex/ui/commit/9212a3321e7d7c88c373061352dbab215c7337c6))
 
 # [2.0.0-beta.17](https://github.com/scaleflex/ui/compare/2.0.0-beta.16...2.0.0-beta.17) (2022-12-07)
 
-
 ### Features
 
-* **Icon:** add new icon ([012ef79](https://github.com/scaleflex/ui/commit/012ef79508065f6c28a6da17e247da06f1d37d90))
-
-
-
-
+- **Icon:** add new icon ([012ef79](https://github.com/scaleflex/ui/commit/012ef79508065f6c28a6da17e247da06f1d37d90))
 
 # [2.0.0-beta.16](https://github.com/scaleflex/ui/compare/2.0.0-beta.15...2.0.0-beta.16) (2022-12-07)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.13](https://github.com/scaleflex/ui/compare/2.0.0-beta.12...2.0.0-beta.13) (2022-11-28)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.9](https://github.com/scaleflex/ui/compare/2.0.0-beta.8...2.0.0-beta.9) (2022-11-23)
-
 
 ### Features
 
-* add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
-* add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
-
-
-
-
+- add new icons - T11647 ([f01d0cc](https://github.com/scaleflex/ui/commit/f01d0cc5d3708bb1eafc2ce0aaaffaa61f705740))
+- add no pins icon - T11647 ([0880091](https://github.com/scaleflex/ui/commit/0880091f949ca405b74c9c50faa5ec1cf89dd8b1))
 
 # [2.0.0-beta.7](https://github.com/scaleflex/ui/compare/2.0.0-beta.6...2.0.0-beta.7) (2022-11-17)
 
-
 ### Bug Fixes
 
-* update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
-
-
-
-
+- update design - T11581 ([8dba976](https://github.com/scaleflex/ui/commit/8dba976039e1f0b000a75a473856ce581586d75e))
 
 # [2.0.0-beta.6](https://github.com/scaleflex/ui/compare/2.0.0-beta.5...2.0.0-beta.6) (2022-11-09)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.5](https://github.com/scaleflex/ui/compare/2.0.0-beta.4...2.0.0-beta.5) (2022-10-28)
-
 
 ### Bug Fixes
 
-* types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
-
+- types ([0a8fcf4](https://github.com/scaleflex/ui/commit/0a8fcf4cb165a19c33d9a2ae952d822853c92ab9))
 
 ### Features
 
-* **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
-
-
-
-
+- **dropdown & autocomplete:** change design T11018 ([a9e5ce3](https://github.com/scaleflex/ui/commit/a9e5ce31eb3aa3645086447e2673c12a9adc28bb))
 
 # [2.0.0-beta.4](https://github.com/scaleflex/ui/compare/2.0.0-beta.3...2.0.0-beta.4) (2022-10-20)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.3](https://github.com/scaleflex/ui/compare/2.0.0-beta.2...2.0.0-beta.3) (2022-10-17)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [2.0.0-beta.2](https://github.com/scaleflex/ui/compare/2.0.0-beta.1...2.0.0-beta.2) (2022-10-13)
-
 
 ### Features
 
-* **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
-
-
-
-
+- **InputLocalization:** update input localization design - T11017 ([3bca473](https://github.com/scaleflex/ui/commit/3bca4730933c4a038d8ed0caa898509cc24e444a))
 
 # [2.0.0-beta.1](https://github.com/scaleflex/ui/compare/2.0.0-beta.0...2.0.0-beta.1) (2022-10-06)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [1.0.0-beta.99](https://github.com/scaleflex/ui/compare/1.0.0-beta.98...1.0.0-beta.99) (2022-10-05)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [1.0.0-beta.97](https://github.com/scaleflex/ui/compare/1.0.0-beta.96...1.0.0-beta.97) (2022-09-14)
-
 
 ### Features
 
-* **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
-
-
-
-
+- **Icons:** add no collections icon ([5595209](https://github.com/scaleflex/ui/commit/55952098a32e801fa1811c38fb6f0ae224270991))
 
 # [1.0.0-beta.96](https://github.com/scaleflex/ui/compare/1.0.0-beta.95...1.0.0-beta.96) (2022-09-08)
 
-
 ### Features
 
-* **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
-
-
-
-
+- **icons:** add new icon ([75e1de0](https://github.com/scaleflex/ui/commit/75e1de059baf236b465baeaec06d7c95193d0ff2))
 
 # [1.0.0-beta.93](https://github.com/scaleflex/ui/compare/1.0.0-beta.92...1.0.0-beta.93) (2022-08-09)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [1.0.0-beta.91](https://github.com/scaleflex/ui/compare/1.0.0-beta.90...1.0.0-beta.91) (2022-07-19)
-
 
 ### Features
 
-* **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
-
-
-
-
+- **Icons:** add clock pending icon ([7e91f9e](https://github.com/scaleflex/ui/commit/7e91f9e16e9fc4a23732c1a169b10e4753180958))
 
 # [1.0.0-beta.90](https://github.com/scaleflex/ui/compare/1.0.0-beta.89...1.0.0-beta.90) (2022-07-07)
 
-
 ### Features
 
-* **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
-
-
-
-
+- **Icons:** add new icons ([6aaff63](https://github.com/scaleflex/ui/commit/6aaff633dc2e58813546a45bda17dc21551f4065))
 
 # [1.0.0-beta.89](https://github.com/scaleflex/ui/compare/1.0.0-beta.88...1.0.0-beta.89) (2022-07-05)
 
-
 ### Features
 
-* **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
-
-
-
-
+- **Icons:** add new icons ([8153f4e](https://github.com/scaleflex/ui/commit/8153f4e346d504c2fc08e482375233426840cefe))
 
 # [1.0.0-beta.88](https://github.com/scaleflex/ui/compare/1.0.0-beta.87...1.0.0-beta.88) (2022-06-29)
 
-
 ### Features
 
-* **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
-
-
-
-
+- **Icons, Theme:** add new icon and color ([92a4213](https://github.com/scaleflex/ui/commit/92a421327a46e17e5a72d2084a47d904ec14cbdc))
 
 # [1.0.0-beta.87](https://github.com/scaleflex/ui/compare/1.0.0-beta.86...1.0.0-beta.87) (2022-05-27)
 
-
 ### Features
 
-* **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
-
-
-
-
+- **Icons:** add envelope icon ([402019c](https://github.com/scaleflex/ui/commit/402019c1b253292f07bfe80ab8d3efe0697ebefa))
 
 # [1.0.0-beta.86](https://github.com/scaleflex/ui/compare/1.0.0-beta.85...1.0.0-beta.86) (2022-05-17)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [1.0.0-beta.85](https://github.com/scaleflex/ui/compare/1.0.0-beta.84...1.0.0-beta.85) (2022-05-13)
-
 
 ### Features
 
-* **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
-
-
-
-
+- **icons:** add original icon ([8a6ccc1](https://github.com/scaleflex/ui/commit/8a6ccc1889300139311793a18ab62ad1c348d909))
 
 # [1.0.0-beta.84](https://github.com/scaleflex/ui/compare/1.0.0-beta.83...1.0.0-beta.84) (2022-05-10)
 
-
 ### Features
 
-* **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
-
-
-
-
+- **icons:** add new icon ([74c9d61](https://github.com/scaleflex/ui/commit/74c9d61dd3944dad07816906c87f93c5b01e505e))
 
 # [1.0.0-beta.83](https://github.com/scaleflex/ui/compare/1.0.0-beta.82...1.0.0-beta.83) (2022-05-09)
 
-
 ### Features
 
-* **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
-* **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
-
-
-
-
+- **icons:** change removebg to removebgOutline ([51cd74d](https://github.com/scaleflex/ui/commit/51cd74d40bb6884d03e7348ec0cbe46b244ce42c))
+- **icons:** change removebg to removebgOutline ([6ece5fa](https://github.com/scaleflex/ui/commit/6ece5faf134beb1dd80b965bacfacf4a43aaa2d5))
 
 # [1.0.0-beta.82](https://github.com/scaleflex/ui/compare/1.0.0-beta.81...1.0.0-beta.82) (2022-04-15)
 
-
 ### Features
 
-* **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
-* **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
-
-
-
-
+- **icons:** add new icons ([5562f08](https://github.com/scaleflex/ui/commit/5562f08c8f4145d676de891f5bb51eeff63ffb8e))
+- **icons:** update icons ([0b92b07](https://github.com/scaleflex/ui/commit/0b92b072af69c3f3d2b4ca74c01991c69105ef47))
 
 # [1.0.0-beta.80](https://github.com/scaleflex/ui/compare/1.0.0-beta.79...1.0.0-beta.80) (2022-03-31)
 
-
 ### Features
 
-* **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
-
-
-
-
+- **icon:** add HistoryModified icon ([e36d81e](https://github.com/scaleflex/ui/commit/e36d81e74702df7606162b3632d80a4c8e0c00b0))
 
 # [1.0.0-beta.75](https://github.com/scaleflex/ui/compare/1.0.0-beta.74...1.0.0-beta.75) (2022-03-15)
 
-
 ### Features
 
-* **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
-
-
-
-
+- **icons:** change look for crop icon ([ba7fd23](https://github.com/scaleflex/ui/commit/ba7fd23417e756aa4b84bd7149ae3d7ec24f1214))
 
 # [1.0.0-beta.74](https://github.com/scaleflex/ui/compare/1.0.0-beta.73...1.0.0-beta.74) (2022-03-14)
 
-
 ### Bug Fixes
 
-* **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
-
-
-
-
+- **icons:** Down icon ([66c866a](https://github.com/scaleflex/ui/commit/66c866aa7174e6eddea72f8091cf06284d6ff61a))
 
 # [1.0.0-beta.73](https://github.com/scaleflex/ui/compare/1.0.0-beta.72...1.0.0-beta.73) (2022-02-22)
 
-
 ### Features
 
-* **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
-
-
-
-
+- **icons:** add new icons ([0c231f4](https://github.com/scaleflex/ui/commit/0c231f400f43382f34e8c91704f13ae30c8ea2c8))
 
 # [1.0.0-beta.71](https://github.com/scaleflex/ui/compare/1.0.0-beta.70...1.0.0-beta.71) (2022-02-15)
 
-
 ### Features
 
-* **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
-
-
-
-
+- **icons:** add new icon ([0c2b7a8](https://github.com/scaleflex/ui/commit/0c2b7a826a4258e94a6c38c2f30fe27c0ff2efa4))
 
 # [1.0.0-beta.70](https://github.com/scaleflex/ui/compare/1.0.0-beta.69...1.0.0-beta.70) (2022-02-13)
 
-
 ### Features
 
-* **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
-
-
-
-
+- **icons:** add new icons ([30fdc86](https://github.com/scaleflex/ui/commit/30fdc86abfdf8c8b0111e519c1e6dc1958cddf0e))
 
 # [1.0.0-beta.69](https://github.com/scaleflex/ui/compare/1.0.0-beta.68...1.0.0-beta.69) (2022-02-03)
 
-
 ### Features
 
-* **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
-
-
-
-
+- **icons:** add new icon ([4c9d784](https://github.com/scaleflex/ui/commit/4c9d7840ce430091c7eb136f6227405e2b2715bf))
 
 # [1.0.0-beta.67](https://github.com/scaleflex/ui/compare/1.0.0-beta.66...1.0.0-beta.67) (2022-02-02)
 
-
 ### Bug Fixes
 
-* **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
-
-
-
-
+- **icons:** viewbox of some icons ([f122eaa](https://github.com/scaleflex/ui/commit/f122eaa41143cd0a699bce0de52fefe2f2eb8fe6))
 
 # [1.0.0-beta.61](https://github.com/scaleflex/ui/compare/1.0.0-beta.60...1.0.0-beta.61) (2021-12-17)
 
-
 ### Features
 
-* **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
-* **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
-
-
-
-
+- **icons:** add icons ([8d2e387](https://github.com/scaleflex/ui/commit/8d2e3877d1b18fd8ac2b47420539089039e10fc7))
+- **icons:** add save-as icon ([eb04262](https://github.com/scaleflex/ui/commit/eb0426273aea96b7dd2d75c187d141aaf28026b3))
 
 # [1.0.0-beta.60](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.59...1.0.0-beta.60) (2021-12-03)
 
 **Note:** Version bump only for package @scaleflex/icons
 
-
-
-
-
 # [1.0.0-beta.58](https://github.com/scaleflex/sfx-ui/compare/1.0.0-beta.57...1.0.0-beta.58) (2021-12-03)
-
 
 ### Features
 
-* **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/sfx-ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
-
-
-
-
+- **Ui&Icons:** tree shaking support ([8ad6555](https://github.com/scaleflex/sfx-ui/commit/8ad65559b57cd129292e447067402d7d16ae44ad))
 
 # [1.0.0-beta.56](https://github.com/scaleflex/ui/compare/1.0.0-beta.55...1.0.0-beta.56) (2021-11-19)
 
-
 ### Bug Fixes
 
-* **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
-
+- **icons:** viewBox in icons ([bcd0e9f](https://github.com/scaleflex/ui/commit/bcd0e9f7075e4f04f61d2221a3b89c58348ec431))
 
 ### Features
 
-* **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
-
-
-
-
+- **icons:** add new icons ([ad4080f](https://github.com/scaleflex/ui/commit/ad4080f34fc8794763903ab95291ae337f346a8a))
 
 # [1.0.0-beta.54](https://github.com/scaleflex/ui/compare/1.0.0-beta.53...1.0.0-beta.54) (2021-11-16)
 
 **Note:** Version bump only for package @scaleflex/icons
-
-
-
-
 
 # [1.0.0-beta.53](https://github.com/scaleflex/ui/compare/1.0.0-beta.52...1.0.0-beta.53) (2021-11-15)
 
