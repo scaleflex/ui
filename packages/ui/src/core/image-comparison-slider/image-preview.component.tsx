@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SyntheticEvent, useState } from "react";
 import ErrorBroke from "@scaleflex/icons/error-broke";
 
 import { ImagePreviewProps } from "./image-comparison-slider.props";
@@ -12,6 +12,8 @@ const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageEle
 	(
 		{
       fallbackPreviewProps,
+			onError,
+			onLoad,
 			...rest
 		}: ImagePreviewProps,
 		ref
@@ -24,8 +26,20 @@ const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageEle
 		const [isImgLoading, setIsImgLoading] = useState(true)
 		const [isImgFailedToLoad, setIsImgFailedToLoad] = useState(false)
 
-		const handleError = () => {
+		const onLoadError = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+			if(typeof onError === 'function') {
+				onError(e)
+			}
+
 			setIsImgFailedToLoad(true)
+			setIsImgLoading(false)
+		}
+
+		const onImgLoad = (e: SyntheticEvent<HTMLImageElement, Event>) => {
+			if(typeof onLoad === 'function') {
+				onLoad(e)
+			}
+
 			setIsImgLoading(false)
 		}
 
@@ -43,8 +57,8 @@ const ImagePreviewComponent = intrinsicComponent<ImagePreviewProps, HTMLImageEle
 		return (
 			<Styled.Image
 				draggable="false"
-				onError={handleError}
-				onLoad={() => setIsImgLoading(false)}
+				onError={onLoadError}
+				onLoad={onImgLoad}
 				$isLoading={isImgLoading}
 				{...rest}
 			/>
