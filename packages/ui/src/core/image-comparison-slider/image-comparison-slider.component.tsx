@@ -91,7 +91,7 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
 
     return (
       <Styled.ComparisonSlider {...rest} ref={ref}>
-        <Styled.SliderWrapper {...rest}>
+        <Styled.SliderWrapper>
           <Styled.Handle
             ref={handleRef}
             onMouseDown={() => setIsResizing(true)}

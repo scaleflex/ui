@@ -33,7 +33,7 @@ const ComparisonSlider = styled.div.attrs({
 `;
 
 const Image = styled.img.attrs({
-  className: generateClassNames(baseClassName, 'Image'),
+  className: generateClassNames(baseClassName, 'image'),
 })<With<WithTheme, { $isLoading: boolean }>>(
   ({ $isLoading, theme }) => css`
   width: 100%;
@@ -54,7 +54,7 @@ const Image = styled.img.attrs({
 `);
 
 const LeftImageWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'LeftImageWrapper'),
+  className: generateClassNames(baseClassName, 'leftImageWrapper'),
 })`
   z-index: 1;
   position: absolute;
@@ -70,7 +70,7 @@ const LeftImageWrapper = styled.div.attrs({
 `;
 
 const RightImageWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'RightImageWrapper'),
+  className: generateClassNames(baseClassName, 'rightImageWrapper'),
 })`
   overflow: hidden;
   height: 100%;
@@ -78,7 +78,7 @@ const RightImageWrapper = styled.div.attrs({
 `;
 
 const Handle = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Handle'),
+  className: generateClassNames(baseClassName, 'handle'),
 })<{ color?: string, $thumbIconPadding?: number, $thumbIconSize?: number }>(
   ({ color, $thumbIconPadding = 10, $thumbIconSize = 10 }) => css`
   position: absolute;
@@ -104,7 +104,7 @@ const Handle = styled.div.attrs({
 `);
 
 const FallbackPreviewWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'FallbackPreviewWrapper'),
+  className: generateClassNames(baseClassName, 'fallbackPreviewWrapper'),
 })<{ backgroundColor?: string, gap?: number, }>(
   ({ backgroundColor, gap }) => css`
   display: flex;
@@ -118,7 +118,7 @@ const FallbackPreviewWrapper = styled.div.attrs({
 `)
 
 const FallbackPreviewMsg = styled.span.attrs({
-  className: generateClassNames(baseClassName, 'FallbackPreviewMsg'),
+  className: generateClassNames(baseClassName, 'fallbackPreviewMsg'),
 })<With<WithTheme, { color?: string }>>(
   ({ theme: { typography }, color = lightPalette[Color.TextSecondary] }) => css`
     ${typography.font[FontVariant.TextMedium]};
@@ -128,7 +128,7 @@ const FallbackPreviewMsg = styled.span.attrs({
 );
 
 const SliderWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'SliderWrapper'),
+  className: generateClassNames(baseClassName, 'sliderWrapper'),
 })`
   position: relative;
   overflow: hidden;
@@ -136,7 +136,7 @@ const SliderWrapper = styled.div.attrs({
 `
 
 const Footer = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Footer'),
+  className: generateClassNames(baseClassName, 'footer'),
 })<WithTheme>(
   ({ theme }) => css`
   ${theme.typography.font[FontVariant.TextMedium]};

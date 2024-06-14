@@ -16,8 +16,8 @@ export default meta;
 type Story = StoryObj<typeof ImageComparisonSlider>;
 
 const defaultArgs = {
-  leftImgProps: { src: 'https://scaleflex.cloudimg.io/v7/sfx-ui/eae949d2acb583f31cc8d691a524c284.jpg?vh=0ddbce', alt: 'globe' },
-  rightImgProps: { src:'https://scaleflex.cloudimg.io/v7/sfx-ui/2-earth-from-space-nasa.jpg?vh=4be2d8',  alt: 'globe' },
+  leftImgProps: { src: 'https://scaleflex.cloudimg.io/v7/demo/Ask-demo/sunflower.jpg?smoothing=100', alt: 'sunflower' },
+  rightImgProps: { src:'https://fdocs.filerobot.com/https://ask.filerobot.com/deliver/fdocs/72ea764f-8ca7-4db1-b259-6b5e09dced2a.png',  alt: 'sunflower' },
   fallbackPreviewProps: {
     gap: 10,
     iconSize: 150,
@@ -29,7 +29,7 @@ const defaultArgs = {
 };
 
 const BasicTemplate = ({ ...args }: ImageComparisonSliderProps): JSX.Element => {
-  return <ImageComparisonSlider style={{ width: 400, height: 400 }} {...args} />;
+  return <ImageComparisonSlider style={{ width: 600, height: 600 }} {...args} />;
 };
 
 export const Primary: Story = {
