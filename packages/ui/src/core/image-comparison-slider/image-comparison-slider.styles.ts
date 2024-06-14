@@ -31,6 +31,7 @@ const ComparisonSlider = styled.div.attrs({
   height: 400px;
   position: relative;
   overflow: hidden;
+  user-select: none;
 `;
 
 const Image = styled.img.attrs({
