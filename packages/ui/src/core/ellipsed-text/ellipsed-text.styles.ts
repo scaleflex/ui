@@ -22,7 +22,7 @@ const EllipsedTextContent = styled.div.attrs({
     position: relative;
     display: flex;
     align-items: baseline;
-    max-width:  100%;
+    max-width: 100%;
     word-break: break-all;
     text-align: left;
   `
@@ -36,13 +36,13 @@ const TooltipContent = styled.div.attrs({
     max-height: ${$maxHeight};
     max-width: 100%;
   `
-)
+);
 
 const DotsWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'dots-wrapper'),
 })`
   flex-shrink: 0;
-`
+`;
 
 const Styled = applyDisplayNames({
   EllipsedTextWrapper,

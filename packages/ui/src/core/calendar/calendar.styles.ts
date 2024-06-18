@@ -131,12 +131,7 @@ const MonthButtonsWrapper = styled.div.attrs({
 const MonthButtons = styled.div.attrs({
   className: generateClassNames(baseClassName, 'month-buttons'),
 })<With<WithTheme, { isYearChanged?: boolean; isMonthChanged?: boolean; isDisabled?: boolean }>>(
-  ({
-    isYearChanged = false,
-    isMonthChanged = false,
-    isDisabled = false,
-    theme: { palette },
-  }) => css`
+  ({ isYearChanged = false, isMonthChanged = false, isDisabled = false, theme: { palette } }) => css`
     width: calc(100% / 3);
     display: flex;
     justify-content: center;
@@ -193,36 +188,35 @@ const DatePickerDays = styled.div.attrs({
 const DatePickerDay = styled.span.attrs({
   className: generateClassNames(baseClassName, 'date-picker-day'),
 })<With<WithTheme, { day: any; isSelectedDay: boolean; isDisabled: boolean }>>(
-  ({ day, isSelectedDay = false, isDisabled = false, theme: { palette } }) =>
-    css`
-      width: 24.57px;
-      height: 24px;
-      margin-top: -15px;
-      left: 50%;
-      top: 50%;
-      font-weight: 400;
-      border-radius: 2px;
-      line-height: 23px;
-      color: ${getDatePickerDaysColor(day, isSelectedDay, isDisabled)};
-      pointer-events: ${day.month !== 0 || isDisabled ? 'none' : ''};
-      cursor: pointer;
-      transition: all 100ms ease-out;
+  ({ day, isSelectedDay = false, isDisabled = false, theme: { palette } }) => css`
+    width: 24.57px;
+    height: 24px;
+    margin-top: -15px;
+    left: 50%;
+    top: 50%;
+    font-weight: 400;
+    border-radius: 2px;
+    line-height: 23px;
+    color: ${getDatePickerDaysColor(day, isSelectedDay, isDisabled)};
+    pointer-events: ${day.month !== 0 || isDisabled ? 'none' : ''};
+    cursor: pointer;
+    transition: all 100ms ease-out;
 
-      background-color: ${isSelectedDay && day.month === 0
-        ? palette[PColor.AccentStateless]
-        : palette[PColor.BackgroundStateless]};
+    background-color: ${isSelectedDay && day.month === 0
+      ? palette[PColor.AccentStateless]
+      : palette[PColor.BackgroundStateless]};
 
-      &:hover {
-        ${!isSelectedDay &&
-        !isDisabled &&
-        css`
-          background-color: transparent;
-          border: 1px solid ${palette[PColor.AccentPrimaryHover]};
-          box-sizing: border-box;
-          line-height: 21px;
-        `}
-      }
-    `
+    &:hover {
+      ${!isSelectedDay &&
+      !isDisabled &&
+      css`
+        background-color: transparent;
+        border: 1px solid ${palette[PColor.AccentPrimaryHover]};
+        box-sizing: border-box;
+        line-height: 21px;
+      `}
+    }
+  `
 );
 
 const DatePickerDayContainer = styled.div.attrs({

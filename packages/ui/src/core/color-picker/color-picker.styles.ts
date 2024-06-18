@@ -79,10 +79,7 @@ const ColorPointer = styled.span.attrs<{ left: number; top?: number; considerTop
     },
   })
 )<With<WithTheme, { pointerColor: string; left: number; top?: number; considerTopWidth: boolean }>>(
-  ({
-    theme,
-    pointerColor,
-  }) => css`
+  ({ theme, pointerColor }) => css`
     display: inline-block;
     box-sizing: border-box;
     width: 15px;
@@ -151,13 +148,7 @@ const ColorPickerAction = styled.div.attrs({
 const ColorItemWrapper = styled.label.attrs({
   className: generateClassNames(colorItemClassName, 'label'),
 })<With<WithTheme, { size: number; color: string; stroke: string; value: string }>>(
-  ({
-    theme,
-    size,
-    color,
-    stroke,
-    value,
-  }) => css`
+  ({ theme, size, color, stroke, value }) => css`
     border-radius: 2px;
     border: ${`1px solid ${stroke}`};
     box-sizing: border-box;

@@ -163,10 +163,7 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
             )}
 
             {showCopyIcon && (
-              <Styled.CopyIcon
-                size={size}
-                onMouseDown={(event) => onClickByMouseDown(event, copyIconHandler)}
-              >
+              <Styled.CopyIcon size={size} onMouseDown={(event) => onClickByMouseDown(event, copyIconHandler)}>
                 <CopyOutline size={getIconSize(size)} />
                 {showCopyMessage && renderCopyText()}
               </Styled.CopyIcon>

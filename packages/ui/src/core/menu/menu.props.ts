@@ -10,11 +10,9 @@ export type AnchorElType = Element | null | undefined;
 
 export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   open?: boolean;
-  fullWidth?: boolean;
   anchorElPosition?: DOMRect;
   anchorEl?: AnchorElType;
   onClose?: (event: React.MouseEvent<HTMLDivElement>) => void;
-  id?: string;
   containerProps?: object;
   alignCenter?: boolean;
   maxHeight?: string | number;

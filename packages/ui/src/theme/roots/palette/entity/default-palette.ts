@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import { Color } from '../../../../utils/types/palette';
 import type { ColorsMap } from './colors-map';
 

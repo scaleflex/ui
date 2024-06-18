@@ -29,7 +29,6 @@ const defaultLabelDisplayedRows = ({ from, to, count }: any): JSX.Element => {
 const TablePagination = intrinsicComponent<TablePaginationProps, HTMLTableSectionElement>(
   (
     {
-      children,
       page,
       count,
       rowsPerPage = 5,

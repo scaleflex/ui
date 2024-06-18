@@ -17,19 +17,14 @@ import { useAutocomplete } from './autocomplete.hook';
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
     const {
-      children,
       MenuProps,
       LabelProps: LabelPropsData,
       InputProps: InputPropsData,
       error,
       label,
       hint,
-      value,
       noOptionsText = 'No options',
       focusOnOpen,
-      onChange,
-      onOpen,
-      onClose,
       getOptionDisabled = () => false,
       getOptionValue = defaultGetOptionValue,
       getOptionLabel = defaultGetOptionLabel,
@@ -40,7 +35,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       readOnly = false,
       placeholder,
       fullWidth,
-      submitOnBlur,
       maxMenuHeight = 250,
       showClearIcon = false,
       renderLabelIconEnd,
@@ -110,8 +104,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
               </MenuItemActions>
             )}
           </>
-        )
-      }
+        ),
+      };
 
       if (typeof renderMenuItemCustomFn === 'function') {
         const option = getOptionById(optionId);
@@ -120,13 +114,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           id: optionId,
           label,
           option,
-          menuItemProps
+          menuItemProps,
         });
       }
 
-      return (
-        <MenuItem {...menuItemProps} />
-      );
+      return <MenuItem {...menuItemProps} />;
     };
 
     const renderTags = (): JSX.Element[] | JSX.Element | React.ReactNode | boolean | undefined =>

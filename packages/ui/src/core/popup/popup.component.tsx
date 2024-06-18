@@ -55,7 +55,12 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps,
     }
 
     return (
-      <Styled.Popup onMouseEnter={() => setIsHovering(true)} onMouseLeave={handleMouseLeave} {...props}>
+      <Styled.Popup
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={handleMouseLeave}
+        anchorOrigin={anchorOrigin}
+        {...props}
+      >
         <PopupContent onClose={onClose} status={status} ref={ref} {...rest} />
       </Styled.Popup>
     );

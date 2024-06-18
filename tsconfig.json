@@ -1,6 +1,6 @@
 {
   "include": ["packages/**/*", "globals.d.ts", "mdx.d.ts"],
-  "exclude": ["node_modules", "packages/*/lib"],
+  "exclude": ["node_modules", "packages/*/lib", "eslint.config.mjs"],
   "compilerOptions": {
     "module": "commonjs",
     "target": "esnext",

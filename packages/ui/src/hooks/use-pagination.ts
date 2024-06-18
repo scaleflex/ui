@@ -29,8 +29,6 @@ function usePagination({
     }
   };
 
-  // https://dev.to/namirsab/comment/2050
-  // eslint-disable-next-line unicorn/consistent-function-scoping
   const range = (start: number, end: number): any => {
     const length = end - start + 1;
     return Array.from({ length }, (_, i) => start + i);
@@ -71,8 +69,8 @@ function usePagination({
     ...(siblingsStart > boundaryCount + 2
       ? ['start-ellipsis']
       : boundaryCount + 1 < count - boundaryCount
-      ? [boundaryCount + 1]
-      : []),
+        ? [boundaryCount + 1]
+        : []),
 
     // Sibling pages
     ...range(siblingsStart, siblingsEnd),
@@ -81,8 +79,8 @@ function usePagination({
     ...(siblingsEnd < count - boundaryCount - 1
       ? ['end-ellipsis']
       : count - boundaryCount > boundaryCount
-      ? [count - boundaryCount]
-      : []),
+        ? [count - boundaryCount]
+        : []),
 
     ...endPages,
     ...['next'],

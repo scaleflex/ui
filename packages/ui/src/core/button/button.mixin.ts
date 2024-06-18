@@ -235,7 +235,6 @@ export const colorButtonMixin = {
     }
   `,
 
-  // eslint-disable-next-line sonarjs/no-identical-functions
   [ButtonColor.LinkBasicPrimary]: ({ theme: { palette }, active }: With<WithTheme, ButtonProps>) => css`
     color: ${palette[PaletteColor.AccentStateless]};
     background-color: transparent;

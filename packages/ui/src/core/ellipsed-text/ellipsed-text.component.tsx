@@ -5,7 +5,7 @@ import TooltipV2 from '../tooltip-v2';
 import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import Styled from './ellipsed-text.styles';
 
-const POSSIBLE_FONT_GAP = 1 // there is a possibility that the font might render around ~1px in height/width for some chars so we are considering that 1px in-case.
+const POSSIBLE_FONT_GAP = 1; // there is a possibility that the font might render around ~1px in height/width for some chars so we are considering that 1px in-case.
 
 const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
   (
@@ -21,56 +21,61 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
     }: EllipsedTextProps,
     ref
   ): JSX.Element => {
-    const textContentRef = useRef<HTMLDivElement>(null)
-    const [shouldEllipse, setShouldEllipse] = useState(false)
-    const [maxHeight, setMaxHeight] = useState(customMaxHeight)
+    const textContentRef = useRef<HTMLDivElement>(null);
+    const [shouldEllipse, setShouldEllipse] = useState(false);
+    const [maxHeight, setMaxHeight] = useState(customMaxHeight);
 
-    const applyEllipsisIfNeeded = useCallback((elem: Element) => {
-      if (!elem || !maxLinesCount) { return }
+    const applyEllipsisIfNeeded = useCallback(
+      (elem: Element) => {
+        if (!elem || !maxLinesCount) {
+          return;
+        }
 
-      const firstTextNodeWrapper = document.evaluate(
-        './/text()', elem, null, XPathResult.FIRST_ORDERED_NODE_TYPE
-      )?.singleNodeValue?.parentNode as Element || elem as Element;
+        const firstTextNodeWrapper =
+          (document.evaluate('.//text()', elem, null, XPathResult.FIRST_ORDERED_NODE_TYPE)?.singleNodeValue
+            ?.parentNode as Element) || (elem as Element);
 
-      const lineHeight = parseInt(getComputedStyle(firstTextNodeWrapper).lineHeight)
-      const elemScrollHeight = elem.scrollHeight
-      const elemScrollWidth = elem.scrollWidth
-      const elemHeight = (elem.clientHeight + POSSIBLE_FONT_GAP) || elemScrollHeight
-      const elemWidth = (elem.clientWidth + POSSIBLE_FONT_GAP) || elemScrollWidth
+        const lineHeight = parseInt(getComputedStyle(firstTextNodeWrapper).lineHeight);
+        const elemScrollHeight = elem.scrollHeight;
+        const elemScrollWidth = elem.scrollWidth;
+        const elemHeight = elem.clientHeight + POSSIBLE_FONT_GAP || elemScrollHeight;
+        const elemWidth = elem.clientWidth + POSSIBLE_FONT_GAP || elemScrollWidth;
 
-      setShouldEllipse(elemScrollHeight > elemHeight || elemScrollWidth > elemWidth)
-      setMaxHeight(customMaxHeight || (maxLinesCount * lineHeight))
-    }, [maxLinesCount, customMaxHeight])
+        setShouldEllipse(elemScrollHeight > elemHeight || elemScrollWidth > elemWidth);
+        setMaxHeight(customMaxHeight || maxLinesCount * lineHeight);
+      },
+      [maxLinesCount, customMaxHeight]
+    );
 
     const renderTooltipTitle = () => (
       <div onClick={ignoreEvent} onDoubleClick={ignoreEvent}>
         {children}
       </div>
-    )
+    );
 
     useEffect(() => {
       if (textContentRef.current) {
-        applyEllipsisIfNeeded(textContentRef.current)
+        applyEllipsisIfNeeded(textContentRef.current);
       }
-    }, [element, maxLinesCount, customMaxHeight])
+    }, [element, maxLinesCount, customMaxHeight]);
 
     useEffect(() => {
       const applyOnElemResize = () => {
         if (textContentRef.current) {
-          applyEllipsisIfNeeded(textContentRef.current)
+          applyEllipsisIfNeeded(textContentRef.current);
         }
-      }
+      };
 
-      let resizeObserver = new ResizeObserver(applyOnElemResize)
+      const resizeObserver = new ResizeObserver(applyOnElemResize);
 
       if (textContentRef.current) {
-        resizeObserver.observe(textContentRef.current)
+        resizeObserver.observe(textContentRef.current);
       }
 
       return () => {
-        resizeObserver.disconnect()
-      }
-    }, [])
+        resizeObserver.disconnect();
+      };
+    }, []);
 
     return (
       <Styled.EllipsedTextWrapper ref={ref} {...textWrapperProps}>
@@ -81,13 +86,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
           {...rest}
         >
           {shouldEllipse && !noTooltip ? (
-            <TooltipV2
-              position="top"
-              size="md"
-              arrow
-              {...tooltipProps}
-              title={renderTooltipTitle()}
-            >
+            <TooltipV2 position="top" size="md" arrow {...tooltipProps} title={renderTooltipTitle()}>
               <Styled.TooltipContent as={element} $maxHeight={maxHeight && `${maxHeight}px`}>
                 {children}
               </Styled.TooltipContent>
@@ -99,7 +98,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
 
         {shouldEllipse && <Styled.DotsWrapper>...</Styled.DotsWrapper>}
       </Styled.EllipsedTextWrapper>
-    )
+    );
   }
 );
 

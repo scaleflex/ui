@@ -7,11 +7,10 @@ import type { UploadInputProps } from './upload-input.props';
 import StyledInput from '../input/input.styles';
 import Styled from './upload-input.styles';
 
-const UploadInput = intrinsicComponent<UploadInputProps, HTMLDivElement>(
+const UploadInput = intrinsicComponent<UploadInputProps, HTMLInputElement>(
   (
     {
       error,
-      size,
       buttonLabel = 'Choose file',
       buttonColor = 'primary',
       placeholder = 'No file chosen',

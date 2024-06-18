@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-duplicate-string */
 import { FontVariant, FontWeight } from '../../../../utils/types/typography';
 import { FontOverrideType } from '../typography.props';
 

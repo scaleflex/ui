@@ -26,7 +26,7 @@ const Input = styled.input.attrs({
     cursor: ${disabled ? 'default' : 'pointer'};
     z-index: 1;
   `
-  );
+);
 
 const UnCheckedIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'icon'),

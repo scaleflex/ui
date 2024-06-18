@@ -1,4 +1,3 @@
-/* eslint-disable sonarjs/no-identical-functions */
 import { css } from 'styled-components';
 
 import type { WithTheme } from '../../theme/entity';
