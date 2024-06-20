@@ -11,7 +11,7 @@ import Input from '../input';
 import Styled from './search.styles';
 
 const Search = intrinsicComponent<SearchProps, HTMLInputElement>(
-  ({ onChange, value = '', size, ...rest }: SearchProps, ref): JSX.Element => {
+  ({ onChange, value = '', size = InputSize.Md, ...rest }: SearchProps, ref): JSX.Element => {
     const handleClearIconClick = (event: any): void => {
       if (onChange) {
         onChange(event);
