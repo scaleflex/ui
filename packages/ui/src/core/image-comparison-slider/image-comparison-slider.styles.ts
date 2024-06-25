@@ -29,6 +29,7 @@ const ComparisonSlider = styled.div.attrs({
   display: flex;
   flex-direction: column;
   gap: 10px;
+  user-select: none;
 `;
 
 const Image = styled.img.attrs({
