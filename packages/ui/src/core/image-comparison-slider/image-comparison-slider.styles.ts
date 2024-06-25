@@ -27,9 +27,10 @@ const pulseKeyframe = keyframes`
 const ComparisonSlider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  display:flex;
+  display: flex;
   flex-direction: column;
   gap: 10px;
+  user-select: none;
 `;
 
 const Image = styled.img.attrs({
