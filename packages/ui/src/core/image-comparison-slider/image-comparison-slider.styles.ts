@@ -27,10 +27,9 @@ const pulseKeyframe = keyframes`
 const ComparisonSlider = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })`
-  width: 400px;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   user-select: none;
 `;
 
@@ -45,6 +44,7 @@ const Image = styled.img.attrs({
   -webkit-user-select: none;
   user-select: none;
   pointer-events: none;
+  touch-action: none;
 
   ${$isLoading && css`
     background-color: ${theme?.palette[PaletteColor.ButtonPrimaryText]};
@@ -100,6 +100,7 @@ const Handle = styled.div.attrs({
     height: ${`${$thumbIconSize}px`};
     border-radius: 8px;
     padding: ${`${$thumbIconPadding}px`};
+    box-sizing: content-box;
   }
 `);
 
@@ -119,7 +120,7 @@ const FallbackPreviewWrapper = styled.div.attrs({
 
 const FallbackPreviewMsg = styled.span.attrs({
   className: generateClassNames(baseClassName, 'fallbackPreviewMsg'),
-})<With<WithTheme, { fontVariant?: string, color?: string }>>(
+})<With<WithTheme, { color?: string }>>(
   ({ theme: { typography }, color = lightPalette[Color.TextSecondary] }) => css`
     ${typography.font[FontVariant.TextMedium]};
     user-select: none;
@@ -127,9 +128,27 @@ const FallbackPreviewMsg = styled.span.attrs({
   `
 );
 
+const SliderWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'sliderWrapper'),
+})`
+  position: relative;
+  overflow: hidden;
+  touch-action: none;
+`
+
+const Footer = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'footer'),
+})<WithTheme>(
+  ({ theme }) => css`
+  ${theme.typography.font[FontVariant.TextMedium]};
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+`)
+
 const Styled = applyDisplayNames({
-  Image, LeftImageWrapper, RightImageWrapper, FallbackPreviewMsg,
-  Handle, ComparisonSlider, FallbackPreviewWrapper,
+  Image, LeftImageWrapper, RightImageWrapper, FallbackPreviewMsg, SliderWrapper,
+  Handle, ComparisonSlider, FallbackPreviewWrapper, Footer
 });
 
 export default Styled;

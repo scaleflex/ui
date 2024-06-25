@@ -20,7 +20,7 @@ const TooltipV2 = styled(Tippy).attrs({
     align-items: center;
     min-width: 54px;
     min-height: 20px;
-    word-break: break-all;
+    word-break: break-word;
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     background: ${theme.palette[
       ($warning && PColor.BackgroundOrange) || ($info && PColor.BackgroundBlue) || PColor.IconsPlaceholder

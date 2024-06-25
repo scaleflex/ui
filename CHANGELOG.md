@@ -3,35 +3,44 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.2](https://github.com/scaleflex/ui/compare/v2.10.1...v2.10.2) (2024-06-14)
+
+### Bug Fixes
+
+- [Image slider] polish behavior ([7091828](https://github.com/scaleflex/ui/commit/7091828e015a96ba5ed73343d6e9f90e84ea921b))
+
+## [2.10.1](https://github.com/scaleflex/ui/compare/v2.10.0...v2.10.1) (2024-06-13)
+
+### Bug Fixes
+
+- **CrossIcon:** size inside search component [FRA-5517] ([f149669](https://github.com/scaleflex/ui/commit/f149669a916e3183937c4568f81e281b4b04abe8))
+
+# [2.10.0](https://github.com/scaleflex/ui/compare/v2.9.2...v2.10.0) (2024-06-11)
+
+### Bug Fixes
+
+- **colorPicker:** regex failing when transparency color is selected ([15526d7](https://github.com/scaleflex/ui/commit/15526d740535015fb18d900d200938e282f4caa0))
+- **IconButton:** when color is not found ([8be3334](https://github.com/scaleflex/ui/commit/8be33348cb26393294658854eb5c868f12031fd2))
+- **SwitcherGroup, Checkbox:** warning error when input is disabled ([d355fe0](https://github.com/scaleflex/ui/commit/d355fe0776a22a6baec40c8698fa9d0f6bf2e931))
+- **tooltip:** replace break all to break word ([57f8e37](https://github.com/scaleflex/ui/commit/57f8e3708779362a4ef4dcf4966bc1cbb391cc82))
+
+### Features
+
+- Image comparison slider ([8c1effd](https://github.com/scaleflex/ui/commit/8c1effd6aef3841d4f6f5134b13e93fdc6fd80a8))
+
 ## [2.9.2](https://github.com/scaleflex/ui/compare/v2.9.1...v2.9.2) (2024-06-05)
 
 **Note:** Version bump only for package ui
-
-
-
-
-
 
 ## [2.9.1](https://github.com/scaleflex/ui/compare/v2.9.0...v2.9.1) (2024-06-04)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
-
 # [2.9.0](https://github.com/scaleflex/ui/compare/v2.8.9...v2.9.0) (2024-06-04)
-
 
 ### Features
 
-* **EliipsedText:** add EliipsedText component [FRA-5481] ([2c85f76](https://github.com/scaleflex/ui/commit/2c85f76e2cc4b29209783bac4ce21915dc998d22))
-
-
-
-
-
+- **EliipsedText:** add EliipsedText component [FRA-5481] ([2c85f76](https://github.com/scaleflex/ui/commit/2c85f76e2cc4b29209783bac4ce21915dc998d22))
 
 ## [2.8.9](https://github.com/scaleflex/ui/compare/v2.8.8...v2.8.9) (2024-05-31)
 

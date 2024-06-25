@@ -443,7 +443,7 @@ export { Font2 } from './font-2';
 export { Layout } from './layout';
 export { StarOutline } from './star-outline';
 export { AlignTop } from './align-top';
-export { AlignCenter2 } from './align-center-2';
+export { AlignMiddle } from './align-middle';
 export { AlignBottom } from './align-bottom';
 export { BoxAlignLeft } from './box-align-left';
 export { BoxAlignCenter } from './box-align-center';

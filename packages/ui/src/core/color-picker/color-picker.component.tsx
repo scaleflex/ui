@@ -299,7 +299,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
             {inputType === 'hex' ? (
               <Input
                 size="sm"
-                error={!/^#([\da-f]{3}){1,2}$/i.test(rangePicker.color)}
+                error={!/^#(?:[0-9a-fA-F]{3,4}){1,2}$/i.test(rangePicker.color)}
                 value={hexInputValue}
                 onChange={(e: any) => validateHexAndUpdate(e.target.value)}
                 style={{ width: '45%' }}

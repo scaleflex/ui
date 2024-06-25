@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import type { SwitcherProps } from './switcher.props';
 import Styled from './switcher.styles';
 import { SwitcherSize } from './switcher-size';
@@ -23,7 +23,7 @@ const Switcher = intrinsicComponent<SwitcherProps, HTMLDivElement>(
     <Styled.SwitcherWrapper disabled={disabled} ref={ref} {...SwitcherPropsData} {...rest}>
       <Styled.Input
         checked={checked}
-        onChange={readOnly || disabled ? undefined : onChange}
+        onChange={readOnly || disabled ? ignoreEvent : onChange}
         readOnly={readOnly}
         $disabled={disabled}
         size={size}
