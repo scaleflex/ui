@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.4](https://github.com/scaleflex/ui/compare/v2.10.3...v2.10.4) (2024-06-25)
+
+### Bug Fixes
+
+- [Image slider] disable user select ([73a0537](https://github.com/scaleflex/ui/commit/73a0537a17b4298378db5dc6e25407069b052cc9))
+- **EllipsedText:** change the logic [FRA-5593] ([d8ebc0d](https://github.com/scaleflex/ui/commit/d8ebc0dd057f344a3dc869b47a31131bbcd6bee0))
+- **Search:** add default value for search input [FRA-5591] ([b89090e](https://github.com/scaleflex/ui/commit/b89090e0dc76b00982907af51fb6bfeadc12b6ee))
+
 ## [2.10.3](https://github.com/scaleflex/ui/compare/v2.10.2...v2.10.3) (2024-06-25)
 
 **Note:** Version bump only for package @scaleflex/ui
