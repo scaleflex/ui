@@ -83,7 +83,6 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
         ) : (
           children
         )}
-
       </Styled.EllipsedTextWrapper>
     )
   }
