@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-
 import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
@@ -15,6 +14,10 @@ const EllipsedTextWrapper = styled.div.attrs({
     -webkit-line-clamp: ${$maxLinesCount};
     overflow: hidden;
     width: 100%;
+
+    ${$maxLinesCount === 1 && css`
+      word-break: break-all;
+    `}
   `
 );
 
