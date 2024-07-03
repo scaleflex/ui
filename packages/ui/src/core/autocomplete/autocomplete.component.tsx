@@ -13,6 +13,7 @@ import { Size } from '../menu-item/types';
 import Styled from './autocomplete.styles';
 import { renderLabel, renderHint, defaultGetOptionValue, defaultGetOptionLabel } from './autocomplete.utils';
 import { useAutocomplete } from './autocomplete.hook';
+import TextWithHighlights from '../text-with-highlights';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
@@ -63,6 +64,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       isValueSelected,
       open,
       anchorEl,
+      searchTerm,
       handleMenuItemClick,
       handleOpenMenuClick,
       handleChangeSearchTerm,
@@ -86,7 +88,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       const optionLabel = getOptionLabel(option);
       const isActive = checkIsIdSelected(optionId);
       const isDisabled = getOptionDisabled(option);
-      const label = renderOptionLabel ? renderOptionLabel(option) : optionLabel;
+      const label = renderOptionLabel ? renderOptionLabel(option) : <TextWithHighlights highlightText={searchTerm} text={optionLabel} />;
       const clickHandler = handleMenuItemClick(option);
 
       const menuItemProps = {
@@ -100,7 +102,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         enableScrollIntoView: true,
         children: (
           <>
-            {label}
+          {label}
 
             {isActive && !renderOptionLabel && (
               <MenuItemActions>
