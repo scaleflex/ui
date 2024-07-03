@@ -196,7 +196,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
           setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
         }
       }
-    }, [value]);
+    }, [value, open]);
 
     useEffect(() => {
       setTimeout(() => {
