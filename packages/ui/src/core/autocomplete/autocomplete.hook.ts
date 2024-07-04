@@ -261,6 +261,7 @@ export function useAutocomplete(
     isValueSelected,
     open,
     anchorEl,
+    searchTerm,
     handleMenuItemClick,
     handleOpenMenuClick,
     handleChangeSearchTerm,
