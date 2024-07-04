@@ -164,4 +164,5 @@ export interface AutocompleteHookReturn {
   handleOnBlur: () => void;
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   handleClearIconClick: () => void;
+  searchTerm: string;
 }
