@@ -1,4 +1,4 @@
-const findAllMatches = (str: string = '', regex: RegExp) => {
+const findAllMatches = (str: string = '', regex: RegExp): Array<{ startIndex: number, endIndex: number, match: string }> => {
   const output = [];
   let tmpResult;
 

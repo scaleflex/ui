@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import { escapeRegExp, intrinsicComponent } from '@scaleflex/ui/utils/functions';
 
 import Styled from './text-with-highlights.styles';
 import { findAllMatches } from './text-with-highlights.utils'
 import { TextWithHighlightsProps } from './text-with-highlights.props';
+import { escapeRegExp, intrinsicComponent } from '../../utils/functions';
 
 
 const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivElement>(
