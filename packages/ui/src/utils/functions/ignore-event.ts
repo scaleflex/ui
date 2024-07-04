@@ -8,4 +8,4 @@ export const ignoreEvent = (event: any) => {
 
   event.preventDefault();
   event.stopPropagation();
-}
+};

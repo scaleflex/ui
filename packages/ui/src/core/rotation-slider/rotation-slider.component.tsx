@@ -100,6 +100,8 @@ const RotationSlider = intrinsicComponent<RotationSliderProps, HTMLSpanElement>(
         hideAnnotation
         annotation={annotation}
         onChange={(event, newValue) => handleChange(event, newValue as number)}
+        onMouseDown={onMouseDown}
+        onMouseUp={onMouseUp}
         labelTooltip={labelTooltipOptions}
         ref={ref}
         components={{

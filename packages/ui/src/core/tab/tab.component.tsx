@@ -9,7 +9,7 @@ import Styled from './tab.styles';
 
 const Tab = intrinsicComponent<TabProps, HTMLDivElement>(
   (
-    { icon = false, label, badge, value, active, disabled, notification, className, size = Size.Md, ...rest }: TabProps,
+    { icon = false, label, badge, active, disabled, notification, className, size = Size.Md, ...rest }: TabProps,
     ref
   ): JSX.Element => (
     <Styled.Tab

@@ -6,7 +6,7 @@ import { Position } from '../popper/types';
 
 export type PopperPositionType = Values<typeof Position>;
 
-type OmitChange<T> = Omit<T, 'onChange'>
+type OmitChange<T> = Omit<T, 'onChange'>;
 
 export interface DatePickerProps extends OmitChange<InputGroupProps> {
   value?: string;

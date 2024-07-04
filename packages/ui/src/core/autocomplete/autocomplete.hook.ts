@@ -125,7 +125,7 @@ export function useAutocomplete(
         new Map<string, AutocompleteOptionsGroupType>()
       );
 
-      return [...groupedMap].map(([_, group]) => group);
+      return [...groupedMap].map(([, group]) => group);
     }
 
     return [{ options: filteredOptions }];

@@ -1,5 +1,5 @@
-import { HTMLAttributes } from "react";
-import { TooltipV2Props } from "../tooltip-v2";
+import { HTMLAttributes } from 'react';
+import { TooltipV2Props } from '../tooltip-v2';
 
 export interface EllipsedTextProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;

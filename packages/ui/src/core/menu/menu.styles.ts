@@ -32,7 +32,8 @@ const transformKeyframes = keyframes`
 `;
 
 const fadeInAnimation = css`
-  animation: ${opacityKeyframes} 250ms 0ms cubic-bezier(0.4, 0, 0.2, 1),
+  animation:
+    ${opacityKeyframes} 250ms 0ms cubic-bezier(0.4, 0, 0.2, 1),
     ${transformKeyframes} 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
@@ -45,7 +46,9 @@ const Menu = styled.div.attrs({
     min-height: 16px;
     overflow-x: hidden;
     overflow-y: auto;
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0, 1), transform 250ms cubic-bezier(0.4, 0, 0, 1),
+    transition:
+      opacity 250ms cubic-bezier(0.4, 0, 0, 1),
+      transform 250ms cubic-bezier(0.4, 0, 0, 1),
       margin-top 250ms cubic-bezier(0.4, 0, 0, 1);
     outline: 0;
     box-shadow: 0 2px 4px ${theme.palette[PColor.MediumShadow]};

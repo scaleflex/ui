@@ -15,9 +15,9 @@ const IconButton = styled(ButtonStyled.Button).attrs({
 })<With<WithTheme, { color?: IconButtonColorType; size?: IconButtonSizeType; $active?: boolean }>>(
   ({ theme, color = IconButtonColor.Secondary, size = ButtonSize.Md, $active = false }) => css`
     ${squarePaddingMixin[size]}
-    ${colorButtonMixin[color]? colorButtonMixin[color]({ theme, active: $active }):
-  colorButtonMixin[IconButtonColor.Basic]({ theme, active: $active })
-  }
+    ${colorButtonMixin[color]
+      ? colorButtonMixin[color]({ theme, active: $active })
+      : colorButtonMixin[IconButtonColor.Basic]({ theme, active: $active })}
   `
 );
 

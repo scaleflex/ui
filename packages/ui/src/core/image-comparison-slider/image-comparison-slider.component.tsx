@@ -9,7 +9,6 @@ import { lightPalette } from '../../theme/roots/palette';
 import Styled from './image-comparison-slider.styles';
 import { Color } from '../../utils/types/palette';
 
-
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
   (
     {
@@ -24,11 +23,14 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
     ref
   ): JSX.Element => {
     const {
-      color = lightPalette[Color.BackgroundStateless], thumbIconSize = 10, thumbIconPadding = 10,
-      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />, ...restHandleProps
-    } = handleProps || {}
+      color = lightPalette[Color.BackgroundStateless],
+      thumbIconSize = 10,
+      thumbIconPadding = 10,
+      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
+      ...restHandleProps
+    } = handleProps || {};
 
-    const { leftText = 'Before', rightText = 'After', hideFooter = false, ...restFooterProps } = footerProps || {}
+    const { leftText = 'Before', rightText = 'After', hideFooter = false, ...restFooterProps } = footerProps || {};
 
     const [isResizing, setIsResizing] = useState(false);
     const topImageRef = useRef<HTMLImageElement | null>(null);
@@ -54,7 +56,10 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
       }
     }, []);
 
-    const handleResize = useCallback((e: any) => setPositioning(e?.touches?.[0]?.clientX || e.clientX), [setPositioning]);
+    const handleResize = useCallback(
+      (e: any) => setPositioning(e?.touches?.[0]?.clientX || e.clientX),
+      [setPositioning]
+    );
 
     const handleResizeEnd = useCallback(() => {
       setIsResizing(false);
@@ -112,12 +117,12 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
           </Styled.RightImageWrapper>
         </Styled.SliderWrapper>
 
-        {!hideFooter &&
+        {!hideFooter && (
           <Styled.Footer {...restFooterProps}>
             <span>{leftText}</span>
             <span>{rightText}</span>
           </Styled.Footer>
-        }
+        )}
       </Styled.ComparisonSlider>
     );
   }

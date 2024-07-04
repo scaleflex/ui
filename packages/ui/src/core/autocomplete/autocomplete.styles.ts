@@ -8,12 +8,13 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import StyledTag from '../tag/tag.styles';
+import { AutocompleteProps } from './autocomplete.props';
 
 const baseClassName = 'Autocomplete';
 
 const Autocomplete = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})`
+})<AutocompleteProps>`
   ${StyledFormHint.FormHint} {
     margin-top: 4px;
   }

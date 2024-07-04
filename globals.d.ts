@@ -1,5 +1,4 @@
 import 'styled-components';
-
 import type { Theme } from '@scaleflex/ui/theme';
 
 declare module 'styled-components' {

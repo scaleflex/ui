@@ -6,13 +6,13 @@ export type PopperPositionType = Values<typeof Position>;
 export type PopperStrategyType = Values<typeof Strategy>;
 export type PopperPhasesType = Values<typeof Phases>;
 export type VirtualElement = {
-  getBoundingClientRect: () => DOMRect,
-  contextElement?: Element,
+  getBoundingClientRect: () => DOMRect;
+  contextElement?: Element;
 };
 
 export type Modifiers = {
   data?: object;
-  effect?:  () => void;
+  effect?: () => void;
   enabled?: boolean;
   fn?: () => void;
   name?: any;
@@ -29,7 +29,7 @@ export type PopperOptions = {
   strategy?: PopperStrategyType;
 };
 
-export interface PopperProps extends React.HTMLAttributes<HTMLDivElement>{
+export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
   anchorEl?: Element | VirtualElement | null;
   position: PopperPositionType;
   popperOptions?: PopperOptions;

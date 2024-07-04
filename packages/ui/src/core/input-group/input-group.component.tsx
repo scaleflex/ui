@@ -13,7 +13,6 @@ import Styled from './input-group.styles';
 const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
   (
     {
-      children,
       type = Type.Input,
       error = false,
       label,
@@ -59,8 +58,16 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
 
     const renderField = (): JSX.Element | null => {
       const fieldProps = {
-        value, readOnly, disabled, size, error, placeholder,
-        hideCopyIcon, copyTextMessage, copySuccessIcon, fullWidth
+        value,
+        readOnly,
+        disabled,
+        size,
+        error,
+        placeholder,
+        hideCopyIcon,
+        copyTextMessage,
+        copySuccessIcon,
+        fullWidth,
       };
 
       if (type === Type.Input) {

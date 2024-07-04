@@ -139,7 +139,7 @@ export const renderValue = ({
 
   React.Children.forEach(children, (child: ReactElement<MenuItemProps>): void => {
     if (React.isValidElement(child)) {
-      const { displayName } = (child as JSX.Element)?.type;
+      const { displayName } = (child as JSX.Element)?.type || {};
 
       if (displayName === 'MenuItem' && Boolean(child.props)) {
         optionsProps.push({

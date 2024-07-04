@@ -9,10 +9,8 @@ import Styled from './menu.styles';
 const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
   (
     {
-      id,
       children,
       open = false,
-      fullWidth,
       anchorElPosition,
       anchorEl,
       onClose,

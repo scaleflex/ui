@@ -452,3 +452,4 @@ export { BoxAlignBottom } from './box-align-bottom';
 export { BoxAlignVertical } from './box-align-vertical';
 export { BoxAlignTop } from './box-align-top';
 export { TriangleOutline } from './triangle-outline';
+export { Workspace } from './workspace';

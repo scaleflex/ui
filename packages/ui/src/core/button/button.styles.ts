@@ -35,11 +35,9 @@ const Badge = styled.span.attrs({
 const Wrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Body'),
 })`
-    display: flex;
-    align-items: center;
-  `
-;
-
+  display: flex;
+  align-items: center;
+`;
 const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
   className: generateClassNames(baseClassName, 'root'),
 })<With<WithTheme, ButtonProps>>(

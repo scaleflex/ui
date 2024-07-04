@@ -12,7 +12,7 @@ export type LabelAndHintType = {
   error?: boolean;
 };
 
-export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>  {
+export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   size?: InputSizeType;
   label?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
   hint?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
@@ -24,7 +24,7 @@ export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   copyTextMessage?: string;
   copySuccessIcon?: React.ReactNode;
   fullWidth?: boolean;
-  onChange: ((event: ChangeEvent<HTMLInputElement>) => void);
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   value?: any;
   LabelProps?: LabelProps;

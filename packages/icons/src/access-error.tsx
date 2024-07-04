@@ -3,7 +3,7 @@ import { intrinsicComponent } from './utils/functions';
 import type { IconProps } from './icon.props';
 
 export const AccessError = intrinsicComponent<IconProps, SVGSVGElement>(
-  ({ color = 'currentColor', color2 = '#F8FAFB', size = 14, ...rest }, ref): JSX.Element => (
+  ({ color = 'currentColor', size = 14, ...rest }, ref): JSX.Element => (
     <svg
       ref={ref}
       width={size}
