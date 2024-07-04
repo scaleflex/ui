@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.6](https://github.com/scaleflex/ui/compare/v2.10.5...v2.10.6) (2024-07-04)
+
+
+### Bug Fixes
+
+* **Calendar:** selected value when open day selector [FRA-5704] ([c192697](https://github.com/scaleflex/ui/commit/c192697fe3c198737a24c81e1dbc567e3172c178))
+
+
+### Features
+
+* [Autocomplete] add searched text highlight ([d208324](https://github.com/scaleflex/ui/commit/d208324019bf2ec2aed8617a1aa606c81590dd5c))
+
+
+
+
+
+
 ## [2.10.5](https://github.com/scaleflex/ui/compare/v2.10.4...v2.10.5) (2024-06-25)
 
 **Note:** Version bump only for package @scaleflex/ui
