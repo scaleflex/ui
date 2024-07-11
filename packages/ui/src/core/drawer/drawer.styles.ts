@@ -69,7 +69,7 @@ const Header = styled.div.attrs({
     width: 100%;
     box-sizing: border-box;
     text-align: left;
-    margin-top: 22px;
+    margin-top: 12px;
     transition: background-color 100ms ease-out;
   `
 );
