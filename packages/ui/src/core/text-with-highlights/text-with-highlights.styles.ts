@@ -8,9 +8,9 @@ import type { WithTheme } from '../../theme/entity';
 const baseClassName = 'TextWithHighlights';
 
 const TextWithHighlights = styled.span.attrs({
-	className: generateClassNames(baseClassName, 'root'),
+  className: generateClassNames(baseClassName, 'root'),
 })<With<WithTheme, { highlightColor?: string }>>(
-	({ highlightColor, theme }) => css`
+  ({ highlightColor, theme }) => css`
     background-color: ${highlightColor || theme.palette[PColor.Accent_1_8_Opacity]};
   `
 );

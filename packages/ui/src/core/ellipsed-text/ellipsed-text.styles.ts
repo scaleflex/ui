@@ -15,7 +15,8 @@ const EllipsedTextWrapper = styled.div.attrs({
     overflow: hidden;
     width: 100%;
 
-    ${$maxLinesCount === 1 && css`
+    ${$maxLinesCount === 1 &&
+    css`
       word-break: break-all;
     `}
   `

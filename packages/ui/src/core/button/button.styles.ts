@@ -3,7 +3,7 @@ import type { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
-import type { ButtonProps, ButtonSizeType } from './button.props';
+import type { ButtonProps, ButtonSizeType, ButtonType, SideBarType } from './button.props';
 import {
   colorButtonMixin,
   sizeButtonMixin,
@@ -15,7 +15,7 @@ import {
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
-import { ButtonType, SideBar } from './types';
+import { ButtonType as ButtonValueType, SideBarType as SideBarValueType } from './types';
 
 const baseClassName = 'Button';
 
@@ -40,8 +40,8 @@ const Wrapper = styled.span.attrs({
 `;
 const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
   className: generateClassNames(baseClassName, 'root'),
-})<With<WithTheme, ButtonProps>>(
-  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, buttonType, active, theme }) => css`
+})<With<With<WithTheme, ButtonProps>, { $buttonType: ButtonType }>>(
+  ({ color = ButtonColor.Secondary, size = ButtonSize.Md, $buttonType, active, theme }) => css`
     display: inline-flex;
     flex-shrink: 0;
     flex-direction: row;
@@ -53,8 +53,8 @@ const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
     cursor: pointer;
     outline: none;
 
-    ${buttonType !== ButtonType.Sidebar && colorButtonMixin[color]}
-    ${buttonType === ButtonType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
+    ${$buttonType !== ButtonValueType.Sidebar && colorButtonMixin[color]}
+    ${$buttonType === ButtonValueType.Sidebar ? sizeSidebarMixin[size] : sizeButtonMixin[size]}
 
     ${color === ButtonColor.Secondary && sizeSecondaryButtonMixin[size]}
 
@@ -67,7 +67,7 @@ const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
       ${sizeButtonLabelMixin[size]}
     }
 
-    ${buttonType === ButtonType.Sidebar &&
+    ${$buttonType === ButtonValueType.Sidebar &&
     css`
       background-color: ${theme.palette[PaletteColor.ButtonPrimaryText]};
       color: ${theme.palette[PaletteColor.LinkStateless]};
@@ -121,21 +121,21 @@ const StartIcon = styled.span.attrs({
 
 const SideArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'SideBar'),
-})<ButtonProps>(
-  ({ sideBarType }) => css`
+})<{ $sideBarType: SideBarType }>(
+  ({ $sideBarType }) => css`
     display: flex;
-    ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
+    ${`margin-${$sideBarType === SideBarValueType.Left ? 'right' : 'left'}`}: 12px;
   `
 );
 
 const Divider = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Divider'),
-})<ButtonProps>(
-  ({ sideBarType, size = ButtonSize.Md }) => css`
+})<With<ButtonProps, { $sideBarType: SideBarType }>>(
+  ({ $sideBarType, size = ButtonSize.Md }) => css`
     border-left-style: solid;
     border-width: 1px;
     ${sizeSidebarDividerMixin[size]}
-    ${`margin-${sideBarType === SideBar.Left ? 'right' : 'left'}`}: 12px;
+    ${`margin-${$sideBarType === SideBarValueType.Left ? 'right' : 'left'}`}: 12px;
   `
 );
 

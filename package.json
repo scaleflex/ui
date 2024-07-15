@@ -16,6 +16,7 @@
   "homepage": "https://github.com/scaleflex/ui#readme",
   "scripts": {
     "start": "storybook dev -p 9009",
+    "prettier-format": "prettier --write packages/**/*.{ts,tsx}",
     "format": "prettier --check packages/**/*.{ts,tsx}",
     "lint": "eslint --quiet --color packages/**/*.{ts,tsx}",
     "prepare": "husky",

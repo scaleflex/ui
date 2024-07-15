@@ -9,7 +9,7 @@ import Badge from '../badge';
 import type { ButtonProps } from './button.props';
 // TODO: move both types inside buttons.props file instead having them inside utils
 import { ButtonSize, ButtonColor } from '../../utils/types';
-import { ButtonType, SideBar } from './types';
+import { ButtonType, SideBarType } from './types';
 import { getIconSize, getSideBarIconSize } from './button.utils';
 import Styled from './button.styles';
 
@@ -23,19 +23,19 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
       color = ButtonColor.Secondary,
       active = false,
       buttonType = ButtonType.Default,
-      sideBarType = SideBar.Left,
+      sideBarType = SideBarType.Left,
       size = ButtonSize.Md,
-      loading,
-      disabled,
+      loading = false,
+      disabled = false,
       ...rest
     }: ButtonProps,
     ref
   ): JSX.Element => {
     const getSideBarArrows = (props: IconProps): JSX.Element | undefined => {
       switch (sideBarType) {
-        case SideBar.Right:
+        case SideBarType.Right:
           return active ? <TwoArrowsLeft {...props} /> : <TwoArrowsRight {...props} />;
-        case SideBar.Left:
+        case SideBarType.Left:
           return active ? <TwoArrowsRight {...props} /> : <TwoArrowsLeft {...props} />;
         default:
       }
@@ -43,14 +43,14 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 
     const getSideBarSection = (): any => {
       const sideBarSection = [
-        <Styled.SideArrows key="arrows" sideBarType={sideBarType}>
+        <Styled.SideArrows key="arrows" $sideBarType={sideBarType}>
           {getSideBarArrows({ size: getSideBarIconSize(size) })}
         </Styled.SideArrows>,
       ];
 
-      const divider = <Styled.Divider key="divider" size={size} sideBarType={sideBarType} />;
+      const divider = <Styled.Divider key="divider" size={size} $sideBarType={sideBarType} />;
 
-      if (sideBarType === SideBar.Right) {
+      if (sideBarType === SideBarType.Right) {
         sideBarSection.unshift(divider);
       } else {
         sideBarSection.push(divider);
@@ -61,16 +61,15 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
     return (
       <Styled.Button
         type="button"
-        buttonType={buttonType}
+        $buttonType={buttonType}
         {...rest}
         disabled={loading || disabled}
-        sideBarType={sideBarType}
         color={color}
         active={active}
         size={size}
         ref={ref}
       >
-        {sideBarType === SideBar.Left && getSideBarSection()}
+        {sideBarType === SideBarType.Left && getSideBarSection()}
 
         <Styled.Wrapper>
           {startIcon && (
@@ -104,7 +103,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
           )}
         </Styled.Wrapper>
 
-        {sideBarType === SideBar.Right && getSideBarSection()}
+        {sideBarType === SideBarType.Right && getSideBarSection()}
 
         {badge && (
           <Styled.Badge>

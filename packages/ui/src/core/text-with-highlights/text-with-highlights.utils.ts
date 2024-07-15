@@ -1,4 +1,7 @@
-const findAllMatches = (str: string = '', regex: RegExp): Array<{ startIndex: number, endIndex: number, match: string }> => {
+const findAllMatches = (
+  str: string = '',
+  regex: RegExp
+): Array<{ startIndex: number; endIndex: number; match: string }> => {
   const output = [];
   let tmpResult;
 
@@ -6,11 +9,11 @@ const findAllMatches = (str: string = '', regex: RegExp): Array<{ startIndex: nu
     output.push({
       startIndex: tmpResult.index,
       endIndex: regex.lastIndex,
-      match: tmpResult[0]
+      match: tmpResult[0],
     });
   }
 
   return output;
-}
+};
 
-export { findAllMatches }
+export { findAllMatches };

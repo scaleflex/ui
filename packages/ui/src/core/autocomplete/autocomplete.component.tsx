@@ -82,7 +82,11 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       const optionLabel = getOptionLabel(option);
       const isActive = checkIsIdSelected(optionId);
       const isDisabled = getOptionDisabled(option);
-      const label = renderOptionLabel ? renderOptionLabel(option) : <TextWithHighlights highlightText={searchTerm} text={optionLabel} />;
+      const label = renderOptionLabel ? (
+        renderOptionLabel(option)
+      ) : (
+        <TextWithHighlights highlightText={searchTerm} text={optionLabel} />
+      );
       const clickHandler = handleMenuItemClick(option);
 
       const menuItemProps = {
@@ -96,7 +100,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         enableScrollIntoView: true,
         children: (
           <>
-          {label}
+            {label}
 
             {isActive && !renderOptionLabel && (
               <MenuItemActions>

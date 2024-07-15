@@ -1,0 +1,39 @@
+{/* Button.mdx */}
+ 
+import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as ButtonStories from '../core/button.stories';
+
+<Meta of={ButtonStories} />
+ 
+<Title  /> 
+
+<Subtitle />
+
+## Color
+
+<Canvas of={ButtonStories.Primary} withToolbar layout='centered'/>
+
+## Sizes
+
+For larger or smaller buttons, use the `size` prop.
+
+<Canvas of={ButtonStories.Sizes} withToolbar layout='centered' />
+
+## Buttons with icons and badge
+
+<Canvas of={ButtonStories.WithIconsAndBadge} withToolbar layout='centered' />
+
+## Loading, active and disabled buttons
+
+<Canvas of={ButtonStories.OtherStates} withToolbar layout='centered' />
+
+## Other button types
+
+To change button type, use the `buttonType` prop. With button type `sidebar` you can use `sidebarType` prop to change the arrows and labels direction.
+
+<Canvas of={ButtonStories.SideBar} withToolbar layout='centered' />
+
+## API
+
+<ArgTypes/>
