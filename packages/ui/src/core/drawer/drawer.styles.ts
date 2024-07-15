@@ -182,7 +182,7 @@ const ItemButton = styled.div.attrs({
     padding: ${isCollapsed ? '12px 0px' : '13px 16px'};
     width: ${isCollapsed && '44px'};
     margin-bottom: 8px;
-    ${isCollapsed && css `margin: 12px`};
+    ${isCollapsed && 'margin: 12px'};
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     cursor: pointer;
     &:hover {
