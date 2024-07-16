@@ -180,9 +180,9 @@ const ItemButton = styled.div.attrs({
     box-sizing: border-box;
     text-align: left;
     padding: ${isCollapsed ? '12px 0px' : '13px 16px'};
-    width: ${isCollapsed && '56px'};
+    width: ${isCollapsed && '44px'};
     margin-bottom: 8px;
-    margin: ${isCollapsed && '8px auto'};
+    ${isCollapsed && 'margin: 12px'};
     transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     cursor: pointer;
     &:hover {
@@ -204,12 +204,29 @@ const ItemButton = styled.div.attrs({
 
 const CollapsedButton = styled(ItemButton).attrs({
   className: generateClassNames(baseClassName, 'item-button'),
-})<{ isCollapsed?: boolean }>(
-  ({ isCollapsed }) => css`
+})<With<WithTheme, { isCollapsed?: boolean; }>>(
+  ({ theme: { palette }, isCollapsed }) => css`
     ${!isCollapsed &&
     css`
       padding: 13px 16px;
     `}
+
+    &:hover {
+      background-color: ${palette[PColor.BackgroundActive]};
+      & > * {
+        color: ${palette[PColor.AccentStateless]};
+      }
+
+      svg {
+        color: ${palette[PColor.BackgroundActive]};
+        background-color: ${palette[PColor.AccentStateless]};
+        border-radius: 50%;
+
+        path:first-of-type {
+          color: ${palette[PColor.AccentStateless]};
+        };
+      }
+    }
   `
 );
 
