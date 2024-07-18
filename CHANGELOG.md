@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.8](https://github.com/scaleflex/ui/compare/v2.10.7...v2.10.8) (2024-07-18)
+
+### Bug Fixes
+
+- button docs ([d479168](https://github.com/scaleflex/ui/commit/d4791686f0e413adff23160d5b093c486e4a2d13))
+
 ## [2.10.7](https://github.com/scaleflex/ui/compare/v2.10.6...v2.10.7) (2024-07-18)
 
 ### Bug Fixes
