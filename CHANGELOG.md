@@ -3,31 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.10.6](https://github.com/scaleflex/ui/compare/v2.10.5...v2.10.6) (2024-07-04)
-
+## [2.10.7](https://github.com/scaleflex/ui/compare/v2.10.6...v2.10.7) (2024-07-18)
 
 ### Bug Fixes
 
-* **Calendar:** selected value when open day selector [FRA-5704] ([c192697](https://github.com/scaleflex/ui/commit/c192697fe3c198737a24c81e1dbc567e3172c178))
+- [Burger menu] polish design ([fb3611d](https://github.com/scaleflex/ui/commit/fb3611d8af0ec4ccabf35be369fa94a1dd47a9c9))
+- [Burger menu] polish design -code review ([d39bda0](https://github.com/scaleflex/ui/commit/d39bda0f3e95124c95efb5cf4b7f980949e48b19))
+- [Burger menu] polish design -FRA-4699 ([d41a43a](https://github.com/scaleflex/ui/commit/d41a43a96b36cdca37fcda5a9778c9455ee3a06c))
 
+## [2.10.6](https://github.com/scaleflex/ui/compare/v2.10.5...v2.10.6) (2024-07-04)
+
+### Bug Fixes
+
+- **Calendar:** selected value when open day selector [FRA-5704] ([c192697](https://github.com/scaleflex/ui/commit/c192697fe3c198737a24c81e1dbc567e3172c178))
 
 ### Features
 
-* [Autocomplete] add searched text highlight ([d208324](https://github.com/scaleflex/ui/commit/d208324019bf2ec2aed8617a1aa606c81590dd5c))
-
-
-
-
-
+- [Autocomplete] add searched text highlight ([d208324](https://github.com/scaleflex/ui/commit/d208324019bf2ec2aed8617a1aa606c81590dd5c))
 
 ## [2.10.5](https://github.com/scaleflex/ui/compare/v2.10.4...v2.10.5) (2024-06-25)
 
 **Note:** Version bump only for package ui
-
-
-
-
-
 
 ## [2.10.4](https://github.com/scaleflex/ui/compare/v2.10.3...v2.10.4) (2024-06-25)
 
