@@ -1,7 +1,7 @@
 import React, { useEffect, isValidElement } from 'react';
 import { createPortal } from 'react-dom';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';
 import ModalMenuContext from './modal-menu-context';
@@ -19,6 +19,8 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       children: _children,
       open = false,
       onClose,
+      onDragOver,
+      onDrop,
       maxWidth = Size.Xs,
       fullWidth = false,
       modalStyles,
@@ -63,7 +65,13 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
 
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
-        <Styled.Wrapper style={{ ...modalStyles }} open={Boolean(open)} ref={ref}>
+        <Styled.Wrapper
+          style={{ ...modalStyles }}
+          open={Boolean(open)}
+          ref={ref}
+          onDragOver={onDragOver ? onDragOver : ignoreEvent}
+          onDrop={onDrop ? onDrop : ignoreEvent}
+        >
           {!hideOverlay && (
             <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
           )}
