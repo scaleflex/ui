@@ -1,7 +1,7 @@
 import React, { useEffect, isValidElement } from 'react';
 import { createPortal } from 'react-dom';
 
-import { intrinsicComponent } from '../../utils/functions';
+import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';
 import ModalMenuContext from './modal-menu-context';
@@ -62,19 +62,14 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       return () => document.removeEventListener('keydown', keyListener);
     });
 
-    const preventEvent = (e: any) => {
-      e.preventDefault();
-      e.stopPropagation();
-    };
-
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
         <Styled.Wrapper
           style={{ ...modalStyles }}
           open={Boolean(open)}
           ref={ref}
-          onDragOver={enablePreventEvent ? preventEvent : undefined}
-          onDrop={enablePreventEvent ? preventEvent : undefined}
+          onDragOver={enablePreventEvent ? ignoreEvent : undefined}
+          onDrop={enablePreventEvent ? ignoreEvent : undefined}
         >
           {!hideOverlay && (
             <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
