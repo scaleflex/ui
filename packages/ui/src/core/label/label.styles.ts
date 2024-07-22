@@ -1,18 +1,18 @@
 import styled, { css } from 'styled-components';
 
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import { InputSize, With } from '../../utils/types';
+import { LabelSize, With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import type { LabelProps } from './label.props';
-import { sizeInputLabelMixin } from '../input/input.mixin';
+import { fontSizeLabelMixin } from './label.mixin';
 
 const baseClassName = 'Label';
 
 const Label = styled.label.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<With<With<WithTheme, LabelProps>, { $error?: boolean }>>(
-  ({ size = InputSize.Md, $error = false, disabled = false, htmlFor, theme }) => css`
+  ({ size = LabelSize.Md, $error = false, disabled = false, htmlFor, theme }) => css`
     display: flex;
     align-items: center;
     color: ${theme.palette[PColor.TextSecondary]};
@@ -27,7 +27,7 @@ const Label = styled.label.attrs({
       }
     `}
 
-    ${sizeInputLabelMixin[size]}
+    ${fontSizeLabelMixin[size]}
 
     cursor: ${htmlFor && 'pointer'};
 

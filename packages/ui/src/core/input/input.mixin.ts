@@ -58,18 +58,6 @@ export const sizeInputLabelMixin = {
       typography: { font },
     },
   }: WithTheme) => css(font[FV.LabelMediumEmphasis]),
-
-  [InputSize.Lg]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FV.LabelLargeEmphasis]),
-
-  [InputSize.Xl]: ({
-    theme: {
-      typography: { font },
-    },
-  }: WithTheme) => css(font[FV.LabelExtraLargeEmphasis]),
 };
 
 export const errorMixin = ({ theme: { palette } }: WithTheme) => css`
