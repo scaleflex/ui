@@ -61,9 +61,20 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       return () => document.removeEventListener('keydown', keyListener);
     });
 
+    const preventEvent = (e: any) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+
     const render = (): JSX.Element => (
       <ModalMenuContext.Provider value={{ modalOpened: Boolean(open) }}>
-        <Styled.Wrapper style={{ ...modalStyles }} open={Boolean(open)} ref={ref}>
+        <Styled.Wrapper
+          style={{ ...modalStyles }}
+          open={Boolean(open)}
+          ref={ref}
+          onDragOver={preventEvent}
+          onDrop={preventEvent}
+        >
           {!hideOverlay && (
             <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
           )}
