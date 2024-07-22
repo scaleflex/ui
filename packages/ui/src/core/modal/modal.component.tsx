@@ -24,7 +24,7 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       modalStyles,
       hideOverlay = false,
       disableOverlayClick = false,
-      enableIgnoreEvent = true,
+      disableDndEvents = true,
       ...rest
     }: ModalProps,
     ref
@@ -68,8 +68,8 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
           style={{ ...modalStyles }}
           open={Boolean(open)}
           ref={ref}
-          onDragOver={enableIgnoreEvent ? ignoreEvent : undefined}
-          onDrop={enableIgnoreEvent ? ignoreEvent : undefined}
+          onDragOver={disableDndEvents ? ignoreEvent : undefined}
+          onDrop={disableDndEvents ? ignoreEvent : undefined}
         >
           {!hideOverlay && (
             <Styled.Overlay onClick={() => (disableOverlayClick ? null : handleClose())} open={Boolean(open)} />
