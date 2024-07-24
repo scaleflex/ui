@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.9](https://github.com/scaleflex/ui/compare/v2.10.8...v2.10.9) (2024-07-24)
+
+### Bug Fixes
+
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([99aa332](https://github.com/scaleflex/ui/commit/99aa33293ef31a6f61f90e793185801dfc610fcd))
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([970db30](https://github.com/scaleflex/ui/commit/970db3039d98452071a69968ec519dcc4e3d3a11))
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([65afd57](https://github.com/scaleflex/ui/commit/65afd57801c02c13ad2d9d9e1f8d443b9033a244))
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([7a7d246](https://github.com/scaleflex/ui/commit/7a7d24609f1fa0b331570b4468a6974aba0578d7))
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([a6362e3](https://github.com/scaleflex/ui/commit/a6362e33f1fc2af4b9c23c95a5072bbeeff041ca))
+- Drag and drop files in the modal or outside the modal triggers the upload modal [FRA-5883] ([5a5caae](https://github.com/scaleflex/ui/commit/5a5caae0f76de19bd00a0f056893d1d522037b6e))
+- font weight for buttons and labels [FRA-4799] ([44437dd](https://github.com/scaleflex/ui/commit/44437dd3578445d847599cb24598c3a62b2e1088))
+- font weight for buttons and labels [FRA-4799] ([66df6bb](https://github.com/scaleflex/ui/commit/66df6bbfd67cf8415462558a603b3a52f46fafa1))
+- font weight for buttons and labels [FRA-4799] ([168865b](https://github.com/scaleflex/ui/commit/168865b9fa679c378beb1958a97099cabf4e6603))
+- font weight for buttons and labels [FRA-4799] ([c05dfad](https://github.com/scaleflex/ui/commit/c05dfadaf095b272f51f79bc98375b5555e3cd35))
+- font weight for buttons and labels [FRA-4799] ([dcbad16](https://github.com/scaleflex/ui/commit/dcbad165dae59b28e25103995a3e3d80d46e35bc))
+
 ## [2.10.8](https://github.com/scaleflex/ui/compare/v2.10.7...v2.10.8) (2024-07-18)
 
 ### Bug Fixes
