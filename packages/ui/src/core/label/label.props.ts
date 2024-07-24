@@ -1,8 +1,9 @@
 import type { PropsWithChildren } from 'react';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
-import type { LabelSize, Values } from '../../utils/types';
+import type { Values } from '../../utils/types';
 import { Type } from './types';
+import { LabelSize } from './types/size';
 
 export type LabelTypesType = Values<typeof Type>;
 export type LabelSizeType = Values<typeof LabelSize>;

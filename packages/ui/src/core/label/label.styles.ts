@@ -1,11 +1,12 @@
 import styled, { css } from 'styled-components';
 
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
-import { LabelSize, With } from '../../utils/types';
+import { With } from '../../utils/types';
 import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import type { LabelProps } from './label.props';
 import { fontSizeLabelMixin } from './label.mixin';
+import { LabelSize } from './types/size';
 
 const baseClassName = 'Label';
 
