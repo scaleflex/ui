@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import NoResult from '@scaleflex/icons/no-result';
+import { NoResult, Ai } from '@scaleflex/icons'
 
 import Autocomplete from '../../src/core/autocomplete';
 import { AutocompleteValueType } from '../../src/core/autocomplete/autocomplete.props';
 import { InputSize } from '../../src/utils/types';
-import AiIcon from './icons/ai-icon';
 import Styled from './autocomplete.stories.styled';
 
 const meta: Meta<typeof Autocomplete> = {
@@ -112,12 +111,12 @@ const WithIconsTemplate = ({ ...args }): JSX.Element => {
 };
 
 const optionsWithIconsAndFavorite = [
-  { uuid: 'en', name: 'English', endIcon: <AiIcon />, favorite: true },
-  { uuid: 'fr', name: 'French', endIcon: <AiIcon />, favorite: true },
+  { uuid: 'en', name: 'English', endIcon: <Ai />, favorite: true },
+  { uuid: 'fr', name: 'French', endIcon: <Ai />, favorite: true },
   { uuid: 'de', name: 'German', favorite: true },
   { uuid: 'it', name: 'Italian' },
   { uuid: 'es', name: 'Spanish', disabled: true },
-  { uuid: 'ua', name: 'Ukrainian', endIcon: <AiIcon /> },
+  { uuid: 'ua', name: 'Ukrainian', endIcon: <Ai /> },
 ];
 
 const options = [
