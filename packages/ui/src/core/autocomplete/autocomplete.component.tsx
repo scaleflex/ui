@@ -46,6 +46,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       hideArrow = false,
       renderTag,
       renderMenuItem: renderMenuItemCustomFn,
+      onChange,
       ...rest
     } = props;
     const {
@@ -229,9 +230,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             )}
             {...(showClearIcon
               ? {
-                  clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
-                  clearIconClick: handleClearIconClick,
-                }
+                clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
+                clearIconClick: handleClearIconClick,
+              }
               : {})}
           />
         </Styled.AutocompleteContainer>
