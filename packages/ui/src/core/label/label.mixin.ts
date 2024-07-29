@@ -9,13 +9,13 @@ export const fontSizeLabelMixin = {
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FV.LabelSmallUpEmphasis]),
+  }: WithTheme) => css(font[FV.LabelSmall]),
 
   [LabelSize.Md]: ({
     theme: {
       typography: { font },
     },
-  }: WithTheme) => css(font[FV.LabelMediumEmphasis]),
+  }: WithTheme) => css(font[FV.LabelMedium]),
 
   [LabelSize.Lg]: ({
     theme: {
