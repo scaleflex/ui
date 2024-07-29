@@ -57,7 +57,7 @@ const MenuItemWrapper = styled.div.attrs({
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<With<With<WithTheme, MenuItemProps>, { $active?: boolean }>>(
-  ({ size = Size.Sm, $active, theme, disableHover = false, noOptionsText, disabled }) => css`
+  ({ size = Size.Sm, $active, theme, disableHover = false, noOptionsText, disabled, isFocused }) => css`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -74,21 +74,25 @@ const MenuItem = styled.div.attrs({
     &:focus-within,
     &:focus,
     &:hover {
-      ${!disableHover && `background-color: ${theme.palette[PColor.BackgroundHover]}`};
+      ${!disableHover && css`background-color: ${theme.palette[PColor.BackgroundHover]}`};
       ${(noOptionsText || disabled) &&
-      css`
+    css`
         cursor: default;
         background-color: white;
       `}
     }
-    ${(noOptionsText || disabled) &&
-    css`
+
+    ${(noOptionsText || disabled) && css`
       & > svg {
         path {
           fill: ${theme.palette[PColor.ButtonDisabledText]};
         }
       }
       color: ${theme.palette[PColor.ButtonDisabledText]};
+    `}
+
+    ${isFocused && !disableHover && css`
+      background-color:  ${theme.palette[PColor.BackgroundHover]};
     `}
   `
 );

@@ -70,6 +70,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleClearIconClick,
       checkIsIdSelected,
       getOptionById,
+      focusedMenuItemIndex
     }: Partial<AutocompleteHookReturn> = useAutocomplete({
       ...props,
       getOptionValue,
@@ -78,7 +79,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     });
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
-    const renderMenuItem = (option: AutocompleteOptionType): JSX.Element | React.ReactNode => {
+    const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
       const optionLabel = getOptionLabel(option);
       const isActive = checkIsIdSelected(optionId);
@@ -88,7 +89,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       ) : (
         <TextWithHighlights highlightText={searchTerm} text={optionLabel} />
       );
-      const clickHandler = handleMenuItemClick(option);
 
       const menuItemProps = {
         key: optionId,
@@ -97,7 +97,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         onMouseDown: (event: React.MouseEvent<HTMLElement>) => event.preventDefault(),
         disabled: isDisabled,
         active: isActive,
-        onClick: clickHandler,
+        isFocused: index === focusedMenuItemIndex,
+        onClick: () => handleMenuItemClick(option),
         enableScrollIntoView: true,
         children: (
           <>

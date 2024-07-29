@@ -1,6 +1,6 @@
 import React, { useRef, useState, useMemo, useCallback, useEffect } from 'react';
-import { useDebounce } from '../../hooks/use-debounce';
 
+import { useDebounce } from '../../hooks/use-debounce';
 import { escapeRegExp } from '../../utils/functions';
 import type {
   AutocompleteProps,
@@ -38,15 +38,10 @@ export function useAutocomplete(
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isSearchMode, setIsSearchMode] = useState<boolean>(false);
+  const [focusedMenuItemIndex, setFocusedMenuItemIndex] = useState<number>(-1);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const open = Boolean(anchorEl);
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
-
-  useEffect(() => {
-    if (!isSearchMode) {
-      setSearchTerm('');
-    }
-  }, [isSearchMode]);
 
   const formattedValue = useMemo<AutocompleteValueType>((): AutocompleteValueType => {
     if (multiple) {
@@ -102,8 +97,8 @@ export function useAutocomplete(
     () =>
       debouncedSearchTerm
         ? optionsList.filter((option) =>
-            new RegExp(escapeRegExp(debouncedSearchTerm), 'i').test(getOptionLabel(option))
-          )
+          new RegExp(escapeRegExp(debouncedSearchTerm), 'i').test(getOptionLabel(option))
+        )
         : optionsList,
     [optionsList, debouncedSearchTerm]
   );
@@ -147,13 +142,14 @@ export function useAutocomplete(
   ): void => {
     setAnchorEl(undefined);
     setIsSearchMode(false);
+    setFocusedMenuItemIndex(-1);
 
     if (onClose) {
       onClose(event);
     }
   };
 
-  const handleMenuItemClick = (option: AutocompleteOptionType) => (): void => {
+  const handleMenuItemClick = (option: AutocompleteOptionType): void => {
     if (typeof onChange === 'function' && !getOptionDisabled(option)) {
       const id = getOptionValue(option);
       let newValue: AutocompleteValueType = id;
@@ -206,50 +202,63 @@ export function useAutocomplete(
   };
 
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
+    // When menu is open we handle select with arrow keys
     if (open) {
-      // TODO: Check do we need this
-      // if (event.key === 'ArrowUp') {
-      //   if (currentItemIndex > 0) {
-      //     getNextAvailableOption(currentItemIndex - 1, event.key);
-      //   } else {
-      //     getNextAvailableOption(filteredOptions.length - 1, event.key);
-      //   }
-      // }
+      event.preventDefault();
 
-      // if (event.key === 'ArrowDown') {
-      //   if (currentItemIndex < filteredOptions.length - 1) {
-      //     getNextAvailableOption(currentItemIndex + 1, event.key);
-      //   } else {
-      //     getNextAvailableOption(0, event.key);
-      //   }
-      // }
-
-      // if (event.key === 'Enter' && currentItemIndex >= 0) {
-      //   const selectedOption = filteredOptions[currentItemIndex];
-
-      //   if (typeof selectedOption === 'string') {
-      //     handleSelectedItem(event, selectedOption, -1, getOptionIndex(selectedOption));
-      //   } else {
-      //     handleSelectedItem(
-      //       event,
-      //       getOptionLabel(selectedOption),
-      //       getOptionValue(selectedOption),
-      //       getOptionIndex(getOptionLabel(selectedOption))
-      //     );
-      //   }
-      // }
-
-      if (event.key === 'Escape') {
+      if (event.key === 'ArrowDown') {
+        const nextIndex = focusedMenuItemIndex + 1;
+        setFocusedMenuItemIndex(nextIndex >= filteredOptions.length ? 0 : nextIndex);
+      } else if (event.key === 'ArrowUp') {
+        const prevIndex = focusedMenuItemIndex - 1;
+        setFocusedMenuItemIndex(prevIndex < 0 ? filteredOptions.length - 1 : prevIndex);
+      } else if (event.key === 'Enter' && focusedMenuItemIndex >= 0) {
+        const option = filteredOptions[focusedMenuItemIndex];
+        handleMenuItemClick(option);
+      } else if (event.key === 'Escape') {
         handleCloseMenuClick(event);
       }
-    }
-  };
+    };
+  }
 
   const handleClearIconClick = (): void => {
     if (onChange) {
       onChange(isMultiple ? [] : '');
     }
   };
+
+  useEffect(() => {
+    if (!isSearchMode) {
+      setSearchTerm('');
+    }
+  }, [isSearchMode]);
+
+  useEffect(() => {
+    if (open) {
+      // If multiple, set setFocusedMenuItemIndex to the last selected value's index
+      if (isMultiple) {
+        let lastSelectedIndex = -1;
+
+        formattedValue.forEach((value) => {
+          const index = filteredOptions.findIndex(
+            (option) => getOptionValue(option) === value
+          );
+
+          if (index !== -1) {
+            lastSelectedIndex = index;
+          }
+        });
+
+        setFocusedMenuItemIndex(lastSelectedIndex >= 0 ? lastSelectedIndex : -1);
+      } else {
+        // If single, set setFocusedMenuItemIndex to the selected value's index
+        const selectedIndex = filteredOptions.findIndex(
+          (option) => getOptionValue(option) === formattedValue
+        );
+        setFocusedMenuItemIndex(selectedIndex >= 0 ? selectedIndex : -1);
+      }
+    }
+  }, [open, formattedValue, filteredOptions, multiple, getOptionValue])
 
   return {
     formattedValue,
@@ -272,5 +281,6 @@ export function useAutocomplete(
     handleOnBlur,
     handleKeyDown,
     handleClearIconClick,
+    focusedMenuItemIndex,
   };
 }
