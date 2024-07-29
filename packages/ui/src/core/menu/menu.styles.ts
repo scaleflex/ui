@@ -53,6 +53,8 @@ const Menu = styled.div.attrs({
     outline: 0;
     box-shadow: 0 2px 4px ${theme.palette[PColor.MediumShadow]};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
+    padding: 4px 0;
+    background-color: ${theme.palette[PColor.BackgroundStateless]};
 
     ${scroll && scrollBar}
 
