@@ -74,15 +74,19 @@ const MenuItem = styled.div.attrs({
     &:focus-within,
     &:focus,
     &:hover {
-      ${!disableHover && css`background-color: ${theme.palette[PColor.BackgroundHover]}`};
+      ${!disableHover &&
+      css`
+        background-color: ${theme.palette[PColor.BackgroundHover]};
+      `};
       ${(noOptionsText || disabled) &&
-    css`
+      css`
         cursor: default;
         background-color: white;
       `}
     }
 
-    ${(noOptionsText || disabled) && css`
+    ${(noOptionsText || disabled) &&
+    css`
       & > svg {
         path {
           fill: ${theme.palette[PColor.ButtonDisabledText]};
@@ -91,8 +95,10 @@ const MenuItem = styled.div.attrs({
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
 
-    ${isFocused && !disableHover && css`
-      background-color:  ${theme.palette[PColor.BackgroundHover]};
+    ${isFocused &&
+    !disableHover &&
+    css`
+      background-color: ${theme.palette[PColor.BackgroundHover]};
     `}
   `
 );

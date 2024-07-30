@@ -122,8 +122,8 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
         if (typeof onChange === 'function') {
           onChange(rangePicker.color, getRgbColor(newHexColor), filterTransparentColor(localPinnedColors));
         }
-      };
-    }
+      }
+    };
 
     const updateRgb = (color: string): void => {
       if (color.includes('rgb')) {

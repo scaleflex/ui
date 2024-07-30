@@ -70,7 +70,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleClearIconClick,
       checkIsIdSelected,
       getOptionById,
-      focusedMenuItemIndex
+      focusedMenuItemIndex,
     }: Partial<AutocompleteHookReturn> = useAutocomplete({
       ...props,
       onChange,
@@ -232,9 +232,9 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             )}
             {...(showClearIcon
               ? {
-                clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
-                clearIconClick: handleClearIconClick,
-              }
+                  clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
+                  clearIconClick: handleClearIconClick,
+                }
               : {})}
           />
         </Styled.AutocompleteContainer>

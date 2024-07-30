@@ -98,8 +98,8 @@ export function useAutocomplete(
     () =>
       debouncedSearchTerm
         ? optionsList.filter((option) =>
-          new RegExp(escapeRegExp(debouncedSearchTerm), 'i').test(getOptionLabel(option))
-        )
+            new RegExp(escapeRegExp(debouncedSearchTerm), 'i').test(getOptionLabel(option))
+          )
         : optionsList,
     [optionsList, debouncedSearchTerm]
   );
@@ -219,8 +219,8 @@ export function useAutocomplete(
       } else if (event.key === 'Escape') {
         handleCloseMenuClick(event);
       }
-    };
-  }
+    }
+  };
 
   const handleClearIconClick = (): void => {
     if (onChange) {
@@ -241,9 +241,7 @@ export function useAutocomplete(
         let lastSelectedIndex = -1;
 
         formattedValue.forEach((value) => {
-          const index = filteredOptions.findIndex(
-            (option) => getOptionValue(option) === value
-          );
+          const index = filteredOptions.findIndex((option) => getOptionValue(option) === value);
 
           if (index !== -1) {
             lastSelectedIndex = index;
@@ -253,13 +251,11 @@ export function useAutocomplete(
         setFocusedMenuItemIndex(lastSelectedIndex >= 0 ? lastSelectedIndex : -1);
       } else {
         // If single, set setFocusedMenuItemIndex to the selected value's index
-        const selectedIndex = filteredOptions.findIndex(
-          (option) => getOptionValue(option) === formattedValue
-        );
+        const selectedIndex = filteredOptions.findIndex((option) => getOptionValue(option) === formattedValue);
         setFocusedMenuItemIndex(selectedIndex >= 0 ? selectedIndex : -1);
       }
     }
-  }, [open, formattedValue, filteredOptions, multiple, getOptionValue])
+  }, [open, formattedValue, filteredOptions, multiple, getOptionValue]);
 
   return {
     formattedValue,

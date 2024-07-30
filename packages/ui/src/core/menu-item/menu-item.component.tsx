@@ -8,7 +8,17 @@ import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
   (
-    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, isFocused = false, ...props }: MenuItemProps,
+    {
+      list,
+      depth = 0,
+      children,
+      disableHover,
+      noOptionsText,
+      disabled,
+      enableScrollIntoView,
+      isFocused = false,
+      ...props
+    }: MenuItemProps,
     ref
   ): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
