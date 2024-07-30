@@ -73,6 +73,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       focusedMenuItemIndex
     }: Partial<AutocompleteHookReturn> = useAutocomplete({
       ...props,
+      onChange,
       getOptionValue,
       getOptionLabel,
       getOptionDisabled,

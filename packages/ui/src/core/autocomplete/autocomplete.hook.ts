@@ -35,6 +35,7 @@ export function useAutocomplete(
     groupBy,
     closeMenuAfterSelection = true,
   } = props;
+
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [isSearchMode, setIsSearchMode] = useState<boolean>(false);
