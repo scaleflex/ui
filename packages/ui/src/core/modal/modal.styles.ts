@@ -48,9 +48,7 @@ const Container = styled.div.attrs({
     position: absolute;
     overflow-x: hidden;
     overflow-y: auto;
-    transition:
-      opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
-      transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    transition: opacity 251ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, transform 167ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     outline: 0;
     border-radius: ${theme.shape.borderRadius[BRSize.Lg]};
     background-color: ${theme.palette[PColor.BackgroundSecondary]};

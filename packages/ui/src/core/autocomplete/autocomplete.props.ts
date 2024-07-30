@@ -146,7 +146,7 @@ export interface AutocompleteHookReturn {
   isValueSelected?: boolean;
   open: boolean;
   anchorEl: AnchorElType;
-  handleMenuItemClick: (option: AutocompleteOptionType) => () => void;
+  handleMenuItemClick: (option: AutocompleteOptionType) => void;
   handleOpenMenuClick: (event: React.SyntheticEvent<HTMLSpanElement>) => void;
   handleChangeSearchTerm: (event: React.SyntheticEvent<HTMLInputElement>) => void;
   handleCloseMenuClick: (
@@ -165,4 +165,5 @@ export interface AutocompleteHookReturn {
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   handleClearIconClick: () => void;
   searchTerm: string;
+  focusedMenuItemIndex: number;
 }

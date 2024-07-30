@@ -8,7 +8,17 @@ import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
   (
-    { list, depth = 0, children, disableHover, noOptionsText, disabled, enableScrollIntoView, ...props }: MenuItemProps,
+    {
+      list,
+      depth = 0,
+      children,
+      disableHover,
+      noOptionsText,
+      disabled,
+      enableScrollIntoView,
+      isFocused = false,
+      ...props
+    }: MenuItemProps,
     ref
   ): JSX.Element => {
     const menuItemRef = useRef<HTMLDivElement | null>(null);
@@ -25,10 +35,10 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      if (props.active && enableScrollIntoView) {
+      if ((props.active || isFocused) && enableScrollIntoView) {
         handleScroll();
       }
-    }, [props.active]);
+    }, [props.active, isFocused]);
 
     const handleSelectedId = (ev: React.MouseEvent<HTMLDivElement>, selected: string, depthLevel: number): void => {
       const updatedArray = selectedIds.slice(0);
@@ -80,6 +90,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
               {...props}
               className={option.className}
               ref={ref}
+              isFocused={isFocused}
               $active={Boolean(option.active)}
               onClick={(event: React.MouseEvent<HTMLDivElement>) => option.onClick?.({ event, ...props })}
               onMouseEnter={(ev: React.MouseEvent<HTMLDivElement>) => handleSelectedId(ev, option.key, depthLevel)}
@@ -121,6 +132,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
             disableHover={disableHover}
             noOptionsText={noOptionsText}
             disabled={disabled}
+            isFocused={isFocused}
           >
             {children}
           </Styled.MenuItem>
