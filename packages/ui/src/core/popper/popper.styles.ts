@@ -9,7 +9,13 @@ import { Position } from './types';
 
 const baseClassName = 'Popper';
 
-const Popper = styled.div.attrs({ className: generateClassNames(baseClassName, 'root') })``;
+const Popper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'root'),
+})<{ open: boolean }>(
+  ({ open }) => css`
+    display: ${!open && 'none'};
+  `
+);
 
 const PopperWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),

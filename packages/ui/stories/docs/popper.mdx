@@ -1,0 +1,24 @@
+{/* Popper.mdx */}
+ 
+import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as PopperStories from '../core/popper.stories';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic popper
+
+<Canvas of={PopperStories.Primary} withToolbar layout='centered'/>
+
+## PositionedPopper
+
+<Canvas of={PopperStories.PositionedPopper} withToolbar layout='centered'/>
+
+## API
+
+- Popper relies on the 3rd party library `Popper.js` for perfect positioning.
+- To check all popper options, please check [Popper.js](https://popper.js.org/docs/v2/modifiers/) documentation.
+
+<ArgTypes/>

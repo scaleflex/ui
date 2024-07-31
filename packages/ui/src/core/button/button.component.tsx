@@ -20,7 +20,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
       startIcon,
       endIcon,
       badge,
-      color = ButtonColor.Secondary,
+      color = ButtonColor.Primary,
       active = false,
       buttonType = ButtonType.Default,
       sideBarType = SideBarType.Left,

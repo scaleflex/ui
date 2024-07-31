@@ -18,12 +18,13 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       warning = false,
       position: initialPlacement = Position.Bottom,
       arrow = false,
-      popperOptions,
-      onClick,
+      popperOptions = {},
       overlay = false,
       zIndex = 1300,
-      enableUnderlayingEvent,
+      enableUnderlayingEvent = false,
       wrapperStyles = {},
+      disablePortal = false,
+      onClick,
       ...rest
     }: PopperProps,
     ref
@@ -75,6 +76,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       if (onClick) {
         onClick(event);
       }
+
       if (enableUnderlayingEvent) {
         passEventToUnderLayingEvent(event);
       }
@@ -84,14 +86,10 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       <Styled.Overlay onClick={handleOnClicking} onContextMenu={handleOnClicking} />
     );
 
-    if (!open) {
-      return <div hidden ref={handlePopperRef} />;
-    }
-
     const render = (): JSX.Element => (
       <Styled.PopperWrapper $zIndex={zIndex} style={{ ...wrapperStyles }}>
         {overlay && renderOverlay()}
-        <Styled.Popper ref={handlePopperRef} {...rest}>
+        <Styled.Popper ref={handlePopperRef} open={open} {...rest}>
           {children}
           {arrow && (
             <Styled.Arrow
@@ -104,7 +102,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       </Styled.PopperWrapper>
     );
 
-    return createPortal(render(), target);
+    return disablePortal ? render() : createPortal(render(), target);
   }
 );
 

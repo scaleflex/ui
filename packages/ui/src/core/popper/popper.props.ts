@@ -30,14 +30,15 @@ export type PopperOptions = {
 };
 
 export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
+  open: boolean;
   anchorEl?: Element | VirtualElement | null;
   position: PopperPositionType;
   popperOptions?: PopperOptions;
-  open: boolean;
+  wrapperStyles?: object;
   warning?: boolean;
   overlay?: boolean;
   arrow?: boolean;
   zIndex?: number;
   enableUnderlayingEvent?: boolean;
-  wrapperStyles?: object;
+  disablePortal?: boolean;
 }

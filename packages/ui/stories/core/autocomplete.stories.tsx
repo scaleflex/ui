@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { NoResult, Ai } from '@scaleflex/icons'
+import { NoResult, Ai } from '@scaleflex/icons';
 
 import Autocomplete from '../../src/core/autocomplete';
 import { AutocompleteValueType } from '../../src/core/autocomplete/autocomplete.props';
