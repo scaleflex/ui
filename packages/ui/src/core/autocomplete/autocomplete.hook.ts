@@ -205,8 +205,6 @@ export function useAutocomplete(
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>): void => {
     // When menu is open we handle select with arrow keys
     if (open) {
-      event.preventDefault();
-
       if (event.key === 'ArrowDown') {
         const nextIndex = focusedMenuItemIndex + 1;
         setFocusedMenuItemIndex(nextIndex >= filteredOptions.length ? 0 : nextIndex);
