@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.10](https://github.com/scaleflex/ui/compare/v2.10.9...v2.10.10) (2024-07-31)
+
+
+### Bug Fixes
+
+* **AutoComplete:** value remove on typing [FRA-5712] ([a3c0973](https://github.com/scaleflex/ui/commit/a3c0973673549c3c0a49038a9841733f3dde3ab5))
+* **ColorPicker:** rgb value doest work [FRA-6061] ([9d3b3a5](https://github.com/scaleflex/ui/commit/9d3b3a5138cec10cd91f9624e690a9f3de12e236))
+
+
+### Features
+
+* **AutoComplete:** select items by arrows [FRA-5965] ([efad64d](https://github.com/scaleflex/ui/commit/efad64ddb5aed242dd2ab0e3dda3c34853a7c13a))
+* synchronize hub with ui-kit and add missing icons -FRA-5916 ([00540a6](https://github.com/scaleflex/ui/commit/00540a6da28ef52898557e755f8fa76357cf5e27))
+
+
+
+
+
+
 ## [2.10.9](https://github.com/scaleflex/ui/compare/v2.10.8...v2.10.9) (2024-07-24)
 
 ### Bug Fixes
