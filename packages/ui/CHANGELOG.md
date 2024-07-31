@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.11](https://github.com/scaleflex/ui/compare/v2.10.10...v2.10.11) (2024-07-31)
+
+
+### Bug Fixes
+
+* **Autocomplete:** preventDefault issue [FRA-5712] ([095bd22](https://github.com/scaleflex/ui/commit/095bd227eaec67c0e08fe38e4c54465e31ecedbb))
+
+
+
+
+
+
 ## [2.10.10](https://github.com/scaleflex/ui/compare/v2.10.9...v2.10.10) (2024-07-31)
 
 
