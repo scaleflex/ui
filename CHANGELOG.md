@@ -3,37 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [2.10.11](https://github.com/scaleflex/ui/compare/v2.10.10...v2.10.11) (2024-07-31)
-
+## [2.10.12](https://github.com/scaleflex/ui/compare/v2.10.11...v2.10.12) (2024-08-02)
 
 ### Bug Fixes
 
-* **Autocomplete:** preventDefault issue [FRA-5712] ([095bd22](https://github.com/scaleflex/ui/commit/095bd227eaec67c0e08fe38e4c54465e31ecedbb))
+- label fonts ([7bb9950](https://github.com/scaleflex/ui/commit/7bb99506c689fb2a6e8b96606af950bfd58c080c))
 
+## [2.10.11](https://github.com/scaleflex/ui/compare/v2.10.10...v2.10.11) (2024-07-31)
 
+### Bug Fixes
 
-
-
+- **Autocomplete:** preventDefault issue [FRA-5712] ([095bd22](https://github.com/scaleflex/ui/commit/095bd227eaec67c0e08fe38e4c54465e31ecedbb))
 
 ## [2.10.10](https://github.com/scaleflex/ui/compare/v2.10.9...v2.10.10) (2024-07-31)
 
-
 ### Bug Fixes
 
-* Ai icons colors -FRA-5916 ([a09c037](https://github.com/scaleflex/ui/commit/a09c0374a1c2ef18586e8b9ef30e3b258ab563e5))
-* **AutoComplete:** value remove on typing [FRA-5712] ([a3c0973](https://github.com/scaleflex/ui/commit/a3c0973673549c3c0a49038a9841733f3dde3ab5))
-* **ColorPicker:** rgb value doest work [FRA-6061] ([9d3b3a5](https://github.com/scaleflex/ui/commit/9d3b3a5138cec10cd91f9624e690a9f3de12e236))
-
+- Ai icons colors -FRA-5916 ([a09c037](https://github.com/scaleflex/ui/commit/a09c0374a1c2ef18586e8b9ef30e3b258ab563e5))
+- **AutoComplete:** value remove on typing [FRA-5712] ([a3c0973](https://github.com/scaleflex/ui/commit/a3c0973673549c3c0a49038a9841733f3dde3ab5))
+- **ColorPicker:** rgb value doest work [FRA-6061] ([9d3b3a5](https://github.com/scaleflex/ui/commit/9d3b3a5138cec10cd91f9624e690a9f3de12e236))
 
 ### Features
 
-* **AutoComplete:** select items by arrows [FRA-5965] ([efad64d](https://github.com/scaleflex/ui/commit/efad64ddb5aed242dd2ab0e3dda3c34853a7c13a))
-* synchronize hub with ui-kit and add missing icons -FRA-5916 ([00540a6](https://github.com/scaleflex/ui/commit/00540a6da28ef52898557e755f8fa76357cf5e27))
-
-
-
-
-
+- **AutoComplete:** select items by arrows [FRA-5965] ([efad64d](https://github.com/scaleflex/ui/commit/efad64ddb5aed242dd2ab0e3dda3c34853a7c13a))
+- synchronize hub with ui-kit and add missing icons -FRA-5916 ([00540a6](https://github.com/scaleflex/ui/commit/00540a6da28ef52898557e755f8fa76357cf5e27))
 
 ## [2.10.9](https://github.com/scaleflex/ui/compare/v2.10.8...v2.10.9) (2024-07-24)
 
