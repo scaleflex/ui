@@ -6,7 +6,7 @@ import { TextWithHighlightsProps } from './text-with-highlights.props';
 import { escapeRegExp, intrinsicComponent } from '../../utils/functions';
 
 const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivElement>(
-  ({ text, highlightText, highlightBackgroundColor }: TextWithHighlightsProps): JSX.Element => {
+  ({ text, highlightText, highlightBackgroundColor }: TextWithHighlightsProps, ref): JSX.Element => {
     if (!text || !highlightText) {
       return <span key={text}>{text}</span>;
     }
@@ -37,7 +37,11 @@ const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivEl
       return highlightedText.concat(<span>{text.substring(latestIndex)}</span>);
     };
 
-    return <span key={text}>{renderHighlightedText()}</span>;
+    return (
+      <span key={text} ref={ref}>
+        {renderHighlightedText()}
+      </span>
+    );
   }
 );
 
