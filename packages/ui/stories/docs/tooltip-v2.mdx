@@ -1,0 +1,53 @@
+{/* Popper.mdx */}
+ 
+import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as tooltipV2 from '../core/tooltip-v2.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic tooltip
+
+<Canvas of={tooltipV2.Primary} withToolbar layout='centered'/>
+
+## Positioned tooltips
+
+<Canvas of={tooltipV2.PositionedTooltips} withToolbar layout='centered'/>
+
+## Sizes
+
+<Canvas of={tooltipV2.Sizes} withToolbar layout='centered'/>
+
+## Variants
+
+<Canvas of={tooltipV2.Variants} withToolbar layout='centered'/>
+
+## Arrow tooltips
+
+You can use the `arrow` prop to give your tooltip an arrow indicating which element it refers to. Arrow direction depends on tooltip position.
+
+<Canvas of={tooltipV2.ArrowTooltips} withToolbar layout='centered'/>
+
+## Showing and hiding
+
+The tooltip is normally shown immediately when the user's mouse hovers over the element, and hides immediately when the user's mouse leaves. A delay in showing or hiding the tooltip can be added through the `enterDelay` and `leaveDelay` props.
+
+<Canvas of={tooltipV2.ShowingAndHiding} withToolbar layout='centered'/>
+
+## Distance from anchor
+
+You can use the `offsetX` and `offsetY` prop to control the tooltip distance from the anchor.
+
+<Canvas of={tooltipV2.Offset} withToolbar layout='centered'/>
+
+## API
+
+- Tooltip relies on the 3rd party library `tippy.js`.
+- You can provide more tippy props beside the ones below. you can check the rest [here](https://atomiks.github.io/tippyjs/v6/all-props)
+
+<ArgTypes sort='alpha'/>
+
+<ForwardRefNote />

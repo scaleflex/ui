@@ -3,6 +3,8 @@
 import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
  
 import * as PopperStories from '../core/popper.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
 
 <Title  /> 
 
@@ -21,4 +23,6 @@ import * as PopperStories from '../core/popper.stories';
 - Popper relies on the 3rd party library `Popper.js` for perfect positioning.
 - To check all popper options, please check [Popper.js](https://popper.js.org/docs/v2/modifiers/) documentation.
 
-<ArgTypes/>
+<ArgTypes sort='alpha' />
+ 
+<ForwardRefNote />

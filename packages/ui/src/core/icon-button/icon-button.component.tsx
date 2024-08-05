@@ -8,7 +8,7 @@ import Styled from './icon-button.styles';
 
 const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
   (
-    { children, size = ButtonSize.Md, color = IconButtonColor.Secondary, active = false, ...rest }: IconButtonProps,
+    { children, size = ButtonSize.Md, color = IconButtonColor.Primary, active = false, ...rest }: IconButtonProps,
     ref
   ): JSX.Element => (
     <Styled.IconButton {...rest} size={size} color={color} $active={active} ref={ref}>
