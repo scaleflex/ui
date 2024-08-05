@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.14](https://github.com/scaleflex/ui/compare/v2.10.13...v2.10.14) (2024-08-05)
+
+### Bug Fixes
+
+- **TextWithHighlights:** ref props isn't added ([f2722d5](https://github.com/scaleflex/ui/commit/f2722d5d623e5c2cbc2c86fb764213f822130ff7))
+
 ## [2.10.13](https://github.com/scaleflex/ui/compare/v2.10.12...v2.10.13) (2024-08-05)
 
 ### Bug Fixes
