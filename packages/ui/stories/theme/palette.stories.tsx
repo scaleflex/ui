@@ -1,32 +1,23 @@
 import React from 'react';
+import { StoryObj } from '@storybook/react';
 
-import { Color } from '../../src/utils/types/palette';
-import { defaultPalette } from '../../src/theme/roots/palette';
-import { objectKeys } from '../../src/utils/functions';
+import PaletteDocsTemplate from '../docs/palette.mdx';
 
 const meta = {
   title: 'Theme/Palette',
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'The palette enables you to modify the color of the components to suit your brand.',
+      page: PaletteDocsTemplate,
+    },
+  },
 };
 
 export default meta;
 
-export const Colors = (): JSX.Element => (
-  <div>
-    {objectKeys(Color).map((colorName) => (
-      <div style={{ display: 'flex', alignItems: 'center', marginBottom: 16 }}>
-        <div style={{ background: defaultPalette[Color[colorName]], width: 60, height: 40 }} />
+type Story = StoryObj<typeof meta>;
 
-        <div
-          style={{
-            fontSize: 12,
-            color: 'grey',
-            fontWeight: 500,
-            marginLeft: 8,
-          }}
-        >
-          {colorName} ({Color[colorName]})
-        </div>
-      </div>
-    ))}
-  </div>
-);
+export const Primary: Story = {
+  render: () => <div>No Story Provided</div>,
+};

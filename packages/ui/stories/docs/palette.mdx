@@ -1,0 +1,43 @@
+{/* Palette.mdx */}
+
+import {  ColorPalette, ColorItem, Title, Subtitle } from '@storybook/blocks';
+
+import { Color } from '../../src/utils/types/palette';
+import { groupedPalette } from '../../src/theme/roots/palette';
+
+<Title/>
+
+<Subtitle />
+
+## Default colors
+
+The theme exposes the following default palette colors (accessible under `theme.palette.*`):
+
+<ColorPalette>
+ {Object.keys(groupedPalette).map((colorGroupName) => (
+  <ColorItem
+    title={colorGroupName}
+    subtitle={'theme.palette[color]'}
+    colors={{...groupedPalette[colorGroupName]}}
+  />
+  ))}
+</ColorPalette>
+
+## Customization
+You may override the default palette values by overriding the color property.
+
+```jsx
+import React from 'react';
+import ThemeProvider from '@scaleflex/ui/theme'
+
+const theme = {
+  text-primary: 'red',
+  accent-primary: 'yellow'
+};
+
+return (
+<ThemeProvider theme={theme}>
+  
+</ThemeProvider>
+)
+```
