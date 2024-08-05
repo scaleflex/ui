@@ -88,7 +88,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
 
     const render = (): JSX.Element => (
       <Styled.PopperWrapper $zIndex={zIndex} style={{ ...wrapperStyles }}>
-        {overlay && renderOverlay()}
+        {overlay && open && renderOverlay()}
         <Styled.Popper ref={handlePopperRef} open={open} {...rest}>
           {children}
           {arrow && (
