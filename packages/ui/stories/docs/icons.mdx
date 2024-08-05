@@ -1,0 +1,24 @@
+{/* Iconography.mdx */}
+
+import { Meta, Title, Description, IconGallery, IconItem, Story, Controls, ArgTypes ,Subtitle} from '@storybook/blocks';
+import * as icons from '@scaleflex/icons';
+
+import { objectKeys } from '../../src/utils/functions';
+
+
+
+<Title />
+
+<Subtitle />
+
+<IconGallery>
+  {Object.entries(icons).map(([name, Icon]) => (
+      <IconItem name={name}>
+        <Icon />
+      </IconItem>
+  ))}
+</IconGallery>
+
+## API
+
+<ArgTypes sort='alpha'/>
