@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.13](https://github.com/scaleflex/ui/compare/v2.10.12...v2.10.13) (2024-08-05)
+
+### Bug Fixes
+
+- [Icons] mail outline icon -FRA-6158 ([a70d172](https://github.com/scaleflex/ui/commit/a70d1727b2d5492d52d1d486342e0ac9e1d7e3dd))
+
 ## [2.10.12](https://github.com/scaleflex/ui/compare/v2.10.11...v2.10.12) (2024-08-02)
 
 **Note:** Version bump only for package @scaleflex/icons

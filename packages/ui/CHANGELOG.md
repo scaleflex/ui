@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.13](https://github.com/scaleflex/ui/compare/v2.10.12...v2.10.13) (2024-08-05)
+
+### Bug Fixes
+
+- **ColorPicker:** not updating rgb color correct [FRA-6061] ([2aa55c9](https://github.com/scaleflex/ui/commit/2aa55c9b916ba36ca8845cc88b4d2b2147ccc3c9))
+- **Popper:** overlay is shown when popper is closed ([73f474c](https://github.com/scaleflex/ui/commit/73f474c628a6c039169d56e2353e60a023b4f1bb))
+
 ## [2.10.12](https://github.com/scaleflex/ui/compare/v2.10.11...v2.10.12) (2024-08-02)
 
 ### Bug Fixes
