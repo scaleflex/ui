@@ -112,16 +112,16 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       const newHexColor = rgbToHex(...rgbArr);
 
       setRgbColorValue([...rgbArr]);
+
       if (validateHex(newHexColor)) {
         setRangePicker({
           ...rangePicker,
           color: newHexColor,
         });
+
         changeBarPosByColor(newHexColor);
 
-        if (typeof onChange === 'function') {
-          onChange(rangePicker.color, getRgbColor(newHexColor), filterTransparentColor(localPinnedColors));
-        }
+        changeRangePickerPointerPosByColor(newHexColor);
       }
     };
 
@@ -282,6 +282,7 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
 
     const barPointSliding = useDrag(updateBarColor, updateBarColor, null);
     const rangePickerPointSliding = useDrag(updateRangePickerColor, updateRangePickerColor, null);
+
     return (
       <Styled.ColorPickerWrapper ref={ref} {...rest}>
         <Styled.ColorPickerAction>
