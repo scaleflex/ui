@@ -1,8 +1,9 @@
 import type { Values } from '../../utils/types';
-import { Position, Size } from './types';
+import { Position, Size, Variant } from './types';
 
 export type TooltipPositionType = Values<typeof Position>;
 export type TooltipSizeType = Values<typeof Size>;
+export type TooltipVariantType = Values<typeof Variant>;
 
 export interface TooltipV2Props extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'title'> {
   position?: TooltipPositionType;
@@ -10,7 +11,6 @@ export interface TooltipV2Props extends Omit<React.HTMLAttributes<HTMLSpanElemen
   title: React.ReactNode;
   children: React.ReactElement;
   arrow?: boolean;
-  tooltipProps?: object;
   enableHover?: boolean;
   warning?: boolean;
   info?: boolean;
@@ -18,4 +18,5 @@ export interface TooltipV2Props extends Omit<React.HTMLAttributes<HTMLSpanElemen
   leaveDelay?: number;
   offsetX?: number;
   offsetY?: number;
+  variant?: TooltipVariantType;
 }
