@@ -9,6 +9,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 - **TextWithHighlights:** ref props isn't added ([f2722d5](https://github.com/scaleflex/ui/commit/f2722d5d623e5c2cbc2c86fb764213f822130ff7))
 
+### Docs
+
+- **Palette:** add new documentation ([47459a4](https://github.com/scaleflex/ui/commit/47459a451556e680bfc0de2d2e954ea004bbec5a))
+- **Icons:** add new documentation ([70c3223](https://github.com/scaleflex/ui/commit/70c3223e7950f3921c347adbbe495fa6eacf6c83))
+
 ## [2.10.13](https://github.com/scaleflex/ui/compare/v2.10.12...v2.10.13) (2024-08-05)
 
 ### Bug Fixes
@@ -16,6 +21,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - [Icons] mail outline icon -FRA-6158 ([a70d172](https://github.com/scaleflex/ui/commit/a70d1727b2d5492d52d1d486342e0ac9e1d7e3dd))
 - **ColorPicker:** not updating rgb color correct [FRA-6061] ([2aa55c9](https://github.com/scaleflex/ui/commit/2aa55c9b916ba36ca8845cc88b4d2b2147ccc3c9))
 - **Popper:** overlay is shown when popper is closed ([73f474c](https://github.com/scaleflex/ui/commit/73f474c628a6c039169d56e2353e60a023b4f1bb))
+
+### Docs
+
+- **TooltipV2:** add new documentation ([ee21dbf](https://github.com/scaleflex/ui/commit/ee21dbf8727f4cb4bade2e4291f249d20333bc89))
 
 ## [2.10.12](https://github.com/scaleflex/ui/compare/v2.10.11...v2.10.12) (2024-08-02)
 
