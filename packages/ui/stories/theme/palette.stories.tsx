@@ -8,7 +8,7 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     docs: {
-      subtitle: 'The palette enables you to modify the color of the components to suit your brand.',
+      subtitle: 'The palette enables you to modify the color of the components.',
       page: PaletteDocsTemplate,
     },
   },
