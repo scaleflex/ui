@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.15](https://github.com/scaleflex/ui/compare/v2.10.14...v2.10.15) (2024-08-06)
+
+### Bug Fixes
+
+- [Icons] mail outline icon viewbox -FRA-6158 ([92162c1](https://github.com/scaleflex/ui/commit/92162c141c34af9276280b5ad67a10ac800c9d02))
+
 ## [2.10.13](https://github.com/scaleflex/ui/compare/v2.10.12...v2.10.13) (2024-08-05)
 
 ### Bug Fixes
