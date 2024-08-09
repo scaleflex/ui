@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.16](https://github.com/scaleflex/ui/compare/v2.10.15...v2.10.16) (2024-08-09)
+
+### Bug Fixes
+
+- remove type from label in checkbox, radio, switcher ([d1f38b1](https://github.com/scaleflex/ui/commit/d1f38b1344a7d1fcf5a6763593b4022fe138af29))
+
 ## [2.10.15](https://github.com/scaleflex/ui/compare/v2.10.14...v2.10.15) (2024-08-06)
 
 **Note:** Version bump only for package @scaleflex/ui
