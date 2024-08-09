@@ -14,7 +14,6 @@ const baseClassName = 'CheckBoxGroup';
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-  type: 'checkbox',
 })<With<WithTheme, { $labelPosition: LabelPositionType | undefined; disabled: boolean; size: CheckBoxSizeType }>>(
   ({ theme, $labelPosition = 'after', size = Size.Sm, disabled }) => css`
     display: inline-block;

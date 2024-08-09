@@ -12,7 +12,6 @@ const baseClassName = 'SwitcherGroup';
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-  type: 'checkbox',
 })<SwitcherGroupProps>(
   ({ disabled, size = SwitcherSize.Sm, theme }: With<WithTheme, SwitcherGroupProps>) => css`
     display: flex;

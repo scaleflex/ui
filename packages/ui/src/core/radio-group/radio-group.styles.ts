@@ -12,7 +12,6 @@ const baseClassName = 'RadioGroup';
 
 const Label = styled.span.attrs({
   className: generateClassNames(baseClassName, 'Label'),
-  type: 'checkbox',
 })<With<WithTheme, RadioGroupProps>>(
   ({ size = RadioSize.Sm, disabled, theme }) => css`
     display: flex;
