@@ -46,7 +46,9 @@ const MenuItemWrapper = styled.div.attrs({
       height: 1px;
       background: ${theme.palette[PColor.BordersSecondary]};
       box-sizing: border-box;
+      margin: 4px 0;
     `}
+
     ${($noOptionsText || disabled) &&
     css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
