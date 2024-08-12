@@ -34,7 +34,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       size = InputSize.Md,
       disabled = false,
       scroll = true,
-      isLabelEllipsed = true,
+      disableTextEllipse = false,
       readOnly = false,
       placeholder,
       fullWidth,
@@ -105,7 +105,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         enableScrollIntoView: true,
         children: (
           <>
-            {isLabelEllipsed ? <EllipsedText maxLinesCount={1}>{label}</EllipsedText> : label}
+            {disableTextEllipse ? label : <EllipsedText maxLinesCount={1}>{label}</EllipsedText>}
 
             {isActive && !renderOptionLabel && (
               <MenuItemActions>
