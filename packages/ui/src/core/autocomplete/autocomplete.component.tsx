@@ -14,6 +14,7 @@ import Styled from './autocomplete.styles';
 import { renderLabel, renderHint, defaultGetOptionValue, defaultGetOptionLabel } from './autocomplete.utils';
 import { useAutocomplete } from './autocomplete.hook';
 import TextWithHighlights from '../text-with-highlights';
+import EllipsedText from '../ellipsed-text';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
@@ -33,6 +34,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       size = InputSize.Md,
       disabled = false,
       scroll = true,
+      isLabelEllipsed = true,
       readOnly = false,
       placeholder,
       fullWidth,
@@ -103,7 +105,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         enableScrollIntoView: true,
         children: (
           <>
-            {label}
+            {isLabelEllipsed ? <EllipsedText maxLinesCount={1}>{label}</EllipsedText> : label}
 
             {isActive && !renderOptionLabel && (
               <MenuItemActions>

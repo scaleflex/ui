@@ -44,6 +44,7 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   multiple?: boolean;
   disabled?: boolean;
   scroll?: boolean;
+  isLabelEllipsed?: boolean;
   error?: boolean;
   sortAlphabetically?: boolean;
   focusOnOpen?: boolean;
