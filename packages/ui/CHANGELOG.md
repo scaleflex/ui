@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.18](https://github.com/scaleflex/ui/compare/v2.10.17...v2.10.18) (2024-08-12)
+
+### Bug Fixes
+
+- **Menu:** scroll design [FRA-5701] ([3ebdcff](https://github.com/scaleflex/ui/commit/3ebdcff11fee668df5168176bfb6e02e54c64566))
+
 ## [2.10.17](https://github.com/scaleflex/ui/compare/v2.10.16...v2.10.17) (2024-08-12)
 
 ### Bug Fixes

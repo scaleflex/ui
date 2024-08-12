@@ -1,6 +1,6 @@
 {
   "name": "@scaleflex/ui",
-  "version": "2.10.17",
+  "version": "2.10.18",
   "description": "React UI components library by Scaleflex Company",
   "main": "lib/index.js",
   "scripts": {
