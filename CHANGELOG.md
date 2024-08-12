@@ -8,6 +8,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - **Select:** update arrow color when disabled ([95a6bd1](https://github.com/scaleflex/ui/commit/95a6bd11860c272e5e4a374cdbd7966442bf6da1))
+- **Menu:** update menu design ([aca90c1](https://github.com/scaleflex/ui/commit/aca90c17eb01bb9b53a8cff53f6cba416847b71f))
 
 ## [2.10.16](https://github.com/scaleflex/ui/compare/v2.10.15...v2.10.16) (2024-08-09)
 
