@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.17](https://github.com/scaleflex/ui/compare/v2.10.16...v2.10.17) (2024-08-12)
+
+### Bug Fixes
+
+- **Select:** update arrow color when disabled ([95a6bd1](https://github.com/scaleflex/ui/commit/95a6bd11860c272e5e4a374cdbd7966442bf6da1))
+
 ## [2.10.16](https://github.com/scaleflex/ui/compare/v2.10.15...v2.10.16) (2024-08-09)
 
 ### Bug Fixes
