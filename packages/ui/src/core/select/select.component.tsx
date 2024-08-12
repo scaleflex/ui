@@ -22,7 +22,6 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       value,
       fullWidth = false,
       selectProps,
-      // eslint-disable-next-line no-shadow
       MenuProps,
       readOnly = false,
       disabled,
@@ -86,7 +85,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
             <Styled.StyledCrossButton size={size === Size.Md ? Size.Sm : Size.Xs} onClick={handleClearSelection} />
           )}
 
-          <Styled.Icon size={size}>
+          <Styled.Icon size={size} disabled={disabled}>
             <ArrowTick type={open ? 'top' : 'bottom'} IconProps={{ size: size === Size.Md ? 11 : 10 }} />
           </Styled.Icon>
           <Styled.Input {...selectProps} />
