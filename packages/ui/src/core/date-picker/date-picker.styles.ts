@@ -65,8 +65,6 @@ const DatePickerIconButton = styled(IconButton).attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
 })`
   border: none;
-  width: 30px;
-  height: 30px;
   padding: 0;
   z-index: 1;
 `;

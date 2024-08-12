@@ -4,9 +4,6 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PaletteColor } from '../types/palette';
 
 export const scrollBar = ({ theme: { palette } }: WithTheme) => css`
-  scrollbar-color: ${palette[PaletteColor.IconsMuted]} ${palette[PaletteColor.ActiveSecondary]};
-  scrollbar-width: thin;
-
   ::-webkit-scrollbar {
     width: 12px;
   }
@@ -16,7 +13,7 @@ export const scrollBar = ({ theme: { palette } }: WithTheme) => css`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${palette[PaletteColor.Extra_0_3_Overlay]};
+    background: ${palette[PaletteColor.BorderPrimaryStateless]};
     border: 4px solid ${palette[PaletteColor.ActiveSecondary]};
     border-radius: 99px;
     padding: 4px 6px;

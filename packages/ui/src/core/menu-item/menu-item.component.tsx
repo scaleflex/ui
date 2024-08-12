@@ -4,6 +4,7 @@ import Arrow from '@scaleflex/icons/arrow';
 import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemProps, MenuItemListType } from './menu-item.props';
 import Menu from '../menu';
+import EllipsedText from '../ellipsed-text';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
@@ -134,7 +135,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
             disabled={disabled}
             isFocused={isFocused}
           >
-            {children}
+            <EllipsedText maxLinesCount={1}>{children}</EllipsedText>
           </Styled.MenuItem>
         </Styled.MenuItemWrapper>
       );
