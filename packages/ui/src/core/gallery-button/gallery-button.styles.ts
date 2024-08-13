@@ -42,6 +42,7 @@ const MainRectangle = styled.div.attrs({
 
 const GalleryButton = styled(IconButtonStyled.IconButton).attrs({
   className: generateClassNames(baseClassName, 'root'),
+  type: 'button',
 })<With<WithTheme, { $active: boolean }>>(
   ({ theme, $active }) => css`
     border: none;

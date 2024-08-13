@@ -60,7 +60,6 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
 
     return (
       <Styled.Button
-        type="button"
         $buttonType={buttonType}
         {...rest}
         disabled={loading || disabled}

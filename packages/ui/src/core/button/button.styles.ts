@@ -40,6 +40,7 @@ const Wrapper = styled.span.attrs({
 `;
 const Button = styled.button.attrs<With<WithTheme, ButtonProps>>({
   className: generateClassNames(baseClassName, 'root'),
+  type: 'button',
 })<With<With<WithTheme, ButtonProps>, { $buttonType?: ButtonType }>>(
   ({ color = ButtonColor.Secondary, size = ButtonSize.Md, $buttonType, active, theme }) => css`
     display: inline-flex;

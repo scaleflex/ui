@@ -19,6 +19,7 @@ const IconButtonTablePaddingMixin = {
 
 const IconButtonTable = styled.button.attrs({
   className: generateClassNames(baseClassName, 'root'),
+  type: 'button',
 })<With<WithTheme, IconButtonTableProps>>(
   ({ size = Size.Md, theme: { palette } }) => css`
     display: flex;
