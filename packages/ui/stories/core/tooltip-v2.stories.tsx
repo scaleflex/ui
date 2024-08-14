@@ -223,6 +223,11 @@ export const Variants: Story = {
         buttonTitle: 'Info',
         title: 'Info',
       })}
+      {renderButtonWithTooltip({
+        args: { ...args, variant: Variant.Error },
+        buttonTitle: 'Error',
+        title: 'Error',
+      })}
     </div>
   ),
 };
