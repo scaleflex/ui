@@ -44,4 +44,17 @@ export const variantMixin = {
       color: ${palette[PColor.BackgroundBlue]};
     }
   `,
+
+  [Variant.Error]: ({ theme: { palette } }: WithTheme): RuleSet => css`
+    background: ${palette[PColor.BackgroundRedLight]};
+    color: ${palette[PColor.TextError]};
+
+    ${Styled.TooltipText} {
+      color: ${palette[PColor.TextError]};
+    }
+
+    .tippy-arrow {
+      color: ${palette[PColor.BackgroundRedLight]};
+    }
+  `,
 };
