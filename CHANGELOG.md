@@ -10,6 +10,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **buttons:** add type button to all button components ([392dc1d](https://github.com/scaleflex/ui/commit/392dc1d281357b38afde82262207ceeaaa5a0e28))
 - **TextWithHighlights:** duplicate key ([ab9faff](https://github.com/scaleflex/ui/commit/ab9faff0c044dadf9901ada94b3576bf117579fe))
 
+### Docs
+
+- **TextWithHighlights:** add new documentation ([baf53b1](https://github.com/scaleflex/ui/commit/baf53b10e1df854c43421c0fbce7dd728b1e450f))
+
 ## [2.10.18](https://github.com/scaleflex/ui/compare/v2.10.17...v2.10.18) (2024-08-12)
 
 ### Bug Fixes
