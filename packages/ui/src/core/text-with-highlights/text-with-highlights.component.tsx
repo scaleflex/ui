@@ -8,14 +8,14 @@ import { escapeRegExp, intrinsicComponent } from '../../utils/functions';
 const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivElement>(
   ({ text, highlightText, highlightBackgroundColor }: TextWithHighlightsProps, ref): JSX.Element => {
     if (!text || !highlightText) {
-      return <span key={text}>{text}</span>;
+      return <span>{text}</span>;
     }
 
     const regexp = new RegExp(escapeRegExp(highlightText), 'gi');
     const foundStrings = findAllMatches(text || '', regexp);
 
     if (foundStrings.length === 0) {
-      return <span key={text}>{text}</span>;
+      return <span>{text}</span>;
     }
 
     const renderHighlightedText = () => {
@@ -37,11 +37,7 @@ const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivEl
       return highlightedText.concat(<span key={text}>{text.substring(latestIndex)}</span>);
     };
 
-    return (
-      <span key={text} ref={ref}>
-        {renderHighlightedText()}
-      </span>
-    );
+    return <span ref={ref}>{renderHighlightedText()}</span>;
   }
 );
 

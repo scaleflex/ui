@@ -1,0 +1,21 @@
+{/* TextWithHighlights.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as TextWithHighlightsStories from '../core/text-with-highlights.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Highlighted text
+
+<Canvas of={TextWithHighlightsStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+ 
+<ForwardRefNote />
