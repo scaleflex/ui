@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.19](https://github.com/scaleflex/ui/compare/v2.10.18...v2.10.19) (2024-08-18)
+
+### Bug Fixes
+
+- **buttons:** add type button to all button components ([392dc1d](https://github.com/scaleflex/ui/commit/392dc1d281357b38afde82262207ceeaaa5a0e28))
+- **TextWithHighlights:** duplicate key ([ab9faff](https://github.com/scaleflex/ui/commit/ab9faff0c044dadf9901ada94b3576bf117579fe))
+
 ## [2.10.18](https://github.com/scaleflex/ui/compare/v2.10.17...v2.10.18) (2024-08-12)
 
 ### Bug Fixes
