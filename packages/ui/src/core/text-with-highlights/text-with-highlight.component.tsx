@@ -34,7 +34,7 @@ const TextWithHighlights = intrinsicComponent<TextWithHighlightsProps, HTMLDivEl
         );
       });
 
-      return highlightedText.concat(<span>{text.substring(latestIndex)}</span>);
+      return highlightedText.concat(<span key={text}>{text.substring(latestIndex)}</span>);
     };
 
     return (
