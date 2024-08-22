@@ -22,7 +22,7 @@ const getIconSize = (sizeName: CrossButtonSizeType | undefined): number => {
 
 const CrossButton = intrinsicComponent<CrossButtonProps, HTMLButtonElement>(
   ({ size = Size.Lg, ...rest }: CrossButtonProps, ref): JSX.Element => (
-    <Styled.CrossButton size={size} {...rest} ref={ref}>
+    <Styled.CrossButton type="button" size={size} {...rest} ref={ref}>
       <CrossOutline size={getIconSize(size)} />
     </Styled.CrossButton>
   )
