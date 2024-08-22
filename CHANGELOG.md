@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.20](https://github.com/scaleflex/ui/compare/v2.10.19...v2.10.20) (2024-08-22)
+
+### Bug Fixes
+
+- **Button:** fix overriding button type ([272c594](https://github.com/scaleflex/ui/commit/272c594c52e0b70d0b38a993a57cc9a20436a5c7))
+- **Button:** fix overriding button type ([f5ce550](https://github.com/scaleflex/ui/commit/f5ce5507464524a001e4d4b640a83e384de0f845))
+
 ## [2.10.19](https://github.com/scaleflex/ui/compare/v2.10.18...v2.10.19) (2024-08-18)
 
 ### Bug Fixes
