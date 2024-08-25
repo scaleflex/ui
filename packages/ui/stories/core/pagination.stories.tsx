@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Pagination, { PaginationProps } from '../../src/core/pagination';
 
 const meta: Meta<PaginationProps> = {
-  title: 'Surfaces/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   excludeStories: ['Pagination'],
 };

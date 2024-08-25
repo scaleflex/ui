@@ -14,7 +14,7 @@ import RobotHappy from '../../../icons/src/robot-happy';
 import Copy from '../../../icons/src/copy';
 
 const meta: Meta<typeof Table> = {
-  title: 'Surfaces/Table',
+  title: 'DataDisplay/Table',
   component: Table,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody', 'TablePagination'],
 };

@@ -8,7 +8,7 @@ import TagField, { TagFieldProps } from '../../src/core/tag-field';
 import { AddTagType, Size } from '../../src/core/tag-field/types';
 
 const meta: Meta<typeof TagField> = {
-  title: 'Surfaces/TagField',
+  title: 'Inputs/TagField',
   component: TagField,
   excludeStories: ['TagField'],
   argTypes: {

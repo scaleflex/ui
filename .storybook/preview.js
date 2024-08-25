@@ -55,5 +55,10 @@ export const parameters = {
         type: 'desktop'
       },
      },
-   }
+   },
+  options: {
+      storySort: {
+        order: ['Inputs', 'DataDisplay', 'Surfaces', 'Navigation', 'Feedback', 'Theme']
+      }
+    },
 };

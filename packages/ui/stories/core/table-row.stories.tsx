@@ -7,7 +7,7 @@ import TableCell from '../../src/core/table-cell';
 import TableRow, { TableRowProps } from '../../src/core/table-row';
 
 const meta: Meta<typeof TableRow> = {
-  title: 'Surfaces/Table/TableRow',
+  title: 'DataDisplay/Table/TableRow',
   component: TableRow,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
 
