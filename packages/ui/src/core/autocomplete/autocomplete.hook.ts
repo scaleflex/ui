@@ -226,6 +226,13 @@ export function useAutocomplete(
     }
   };
 
+  const handleSelectAllOptions = (): void => {
+    if (isMultiple && onChange) {
+      const allOptionIds = optionsList.map(getOptionValue);
+      onChange([...new Set(allOptionIds)]);
+    }
+  };
+
   useEffect(() => {
     if (!isSearchMode) {
       setSearchTerm('');
@@ -276,6 +283,7 @@ export function useAutocomplete(
     handleOnBlur,
     handleKeyDown,
     handleClearIconClick,
+    handleSelectAllOptions,
     focusedMenuItemIndex,
   };
 }

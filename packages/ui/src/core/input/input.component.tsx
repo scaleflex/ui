@@ -41,6 +41,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       iconStart,
       iconEnd,
       iconChange,
+      extraContent,
       clearIcon,
       iconClickStart,
       iconClickEnd,
@@ -195,6 +196,10 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       );
     };
 
+    const renderExtraContent = (extraContent: React.ReactNode): JSX.Element | undefined => {
+      return <Styled.ExtraContent>{extraContent}</Styled.ExtraContent>;
+    };
+
     return (
       <Styled.Input
         onClick={focusOnClick ? handleFocus : undefined}
@@ -210,18 +215,22 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
         $error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
-        $isSelectedItems={Boolean(isSelectedItems)}
+        $isSelectedItems={Boolean(isSelectedItems || extraContent)}
         {...(InputPropsData || {})}
       >
-        {renderIcon(iconStart, 'start')}
-        {renderField()}
-        {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
-        {showCopyMessage && renderCopyText()}
-        {renderClearIcon()}
-        {inputType === Type.Password && renderPasswordIcon()}
-        {renderIcon(iconEnd, 'end')}
-        {renderIcon(iconChange, '')}
-        {children && <>{children}</>}
+        <Styled.InputContent>
+          {renderIcon(iconStart, 'start')}
+          {renderField()}
+          {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
+          {showCopyMessage && renderCopyText()}
+          {renderClearIcon()}
+          {inputType === Type.Password && renderPasswordIcon()}
+          {renderIcon(iconEnd, 'end')}
+          {renderIcon(iconChange, '')}
+          {children && <>{children}</>}
+        </Styled.InputContent>
+
+        {renderExtraContent(extraContent)}
       </Styled.Input>
     );
   }

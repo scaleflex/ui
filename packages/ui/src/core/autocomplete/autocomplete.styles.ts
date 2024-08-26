@@ -9,6 +9,7 @@ import type { WithTheme } from '../../theme/entity';
 import { Color as PColor } from '../../utils/types/palette';
 import StyledTag from '../tag/tag.styles';
 import { AutocompleteProps } from './autocomplete.props';
+import arrowTick from '../arrow-tick';
 
 const baseClassName = 'Autocomplete';
 
@@ -80,6 +81,11 @@ const OptionGroup = styled.div.attrs({
   }
 `;
 
+const Arrow = styled(arrowTick)`
+  margin-left: auto;
+  cursor: pointer;
+`;
+
 const Styled = applyDisplayNames({
   Autocomplete,
   AutocompleteContainer,
@@ -88,6 +94,7 @@ const Styled = applyDisplayNames({
   InputIconEndContainer,
   Menu,
   OptionGroup,
+  Arrow,
 });
 
 export default Styled;
