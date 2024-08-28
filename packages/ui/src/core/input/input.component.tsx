@@ -197,6 +197,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
     };
 
     const renderExtraContent = (extraContent: React.ReactNode): JSX.Element | undefined => {
+      if (!extraContent) return;
       return <Styled.ExtraContent>{extraContent}</Styled.ExtraContent>;
     };
 
