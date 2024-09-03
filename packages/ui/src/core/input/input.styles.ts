@@ -259,8 +259,8 @@ const FieldWrapper = styled.div.attrs({
   `
 );
 
-const ExtraContent = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'extraContent'),
+const InputActions = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'inputActions'),
 })`
   padding-top: 16px;
   width: 100%;
@@ -288,7 +288,7 @@ const Styled = applyDisplayNames({
   NotificationIcon,
   NotificationText,
   FieldWrapper,
-  ExtraContent,
+  InputActions,
   InputContent,
 });
 

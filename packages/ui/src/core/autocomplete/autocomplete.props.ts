@@ -48,6 +48,10 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   error?: boolean;
   sortAlphabetically?: boolean;
   focusOnOpen?: boolean;
+  clearAllButtonLabel?: string;
+  selectAllButtonLabel?: string;
+  onClearAll?: () => void;
+  onSelectAll?: () => void;
   onChange?: (newValue: AutocompleteValueType) => void;
   onOpen?: (event: React.SyntheticEvent<HTMLElement>) => void;
   onClose?: (

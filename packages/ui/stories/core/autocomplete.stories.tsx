@@ -41,7 +41,7 @@ const defaultArgs = {
     'item11',
     'item12',
   ],
-  multiple: false,
+  multiple: true,
   fullWidth: false,
 };
 

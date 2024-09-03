@@ -48,6 +48,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       renderTag,
       renderMenuItem: renderMenuItemCustomFn,
       onChange,
+      selectAllButtonLabel = 'Select all',
+      clearAllButtonLabel = 'Clear all',
+      onClearAll,
+      onSelectAll,
       ...rest
     } = props;
     const {
@@ -82,6 +86,24 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     });
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
+    const handleSelectAll = (event: React.MouseEvent<HTMLElement>): void => {
+      handleSelectAllOptions();
+      event.stopPropagation();
+
+      if (onSelectAll) {
+        onSelectAll();
+      }
+    };
+
+    const handleClearAll = (event: React.MouseEvent<HTMLElement>): void => {
+      handleClearIconClick();
+      event.stopPropagation();
+
+      if (onClearAll) {
+        onClearAll();
+      }
+    };
+
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
       const optionLabel = getOptionLabel(option);
@@ -101,9 +123,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         disabled: isDisabled,
         active: isActive,
         isFocused: index === focusedMenuItemIndex,
-        onClick: () => {
-          handleMenuItemClick(option);
-        },
+        onClick: () => handleMenuItemClick(option),
         enableScrollIntoView: true,
         children: (
           <>
@@ -236,29 +256,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             fullWidth={fullWidth}
             isEllipsis
             iconEnd={isMultiple ? undefined : renderInputEndIcons}
-            extraContent={
+            inputActions={
               isMultiple ? (
                 <Styled.InputIconEndContainer>
                   <>
-                    <Button
-                      size="sm"
-                      color="link-basic-primary"
-                      onClick={(e) => {
-                        handleSelectAllOptions();
-                        e.stopPropagation();
-                      }}
-                    >
-                      Select all
+                    <Button size="sm" color="link-basic-primary" onClick={handleSelectAll}>
+                      {selectAllButtonLabel}
                     </Button>
-                    <Button
-                      color="link-secondary"
-                      size="sm"
-                      onClick={(e) => {
-                        handleClearIconClick();
-                        e.stopPropagation();
-                      }}
-                    >
-                      Clear all
+                    <Button color="link-secondary" size="sm" onClick={handleClearAll}>
+                      {clearAllButtonLabel}
                     </Button>
                   </>
                   {renderInputEndIcons()}

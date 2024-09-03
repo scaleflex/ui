@@ -41,7 +41,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       iconStart,
       iconEnd,
       iconChange,
-      extraContent,
+      inputActions,
       clearIcon,
       iconClickStart,
       iconClickEnd,
@@ -196,9 +196,9 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       );
     };
 
-    const renderExtraContent = (extraContent: React.ReactNode): JSX.Element | undefined => {
-      if (!extraContent) return;
-      return <Styled.ExtraContent>{extraContent}</Styled.ExtraContent>;
+    const renderInputActions = (inputActions: React.ReactNode): JSX.Element | undefined => {
+      if (!inputActions) return;
+      return <Styled.InputActions>{inputActions}</Styled.InputActions>;
     };
 
     return (
@@ -216,7 +216,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
         $error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
-        $isSelectedItems={Boolean(isSelectedItems || extraContent)}
+        $isSelectedItems={Boolean(isSelectedItems || inputActions)}
         {...(InputPropsData || {})}
       >
         <Styled.InputContent>
@@ -231,7 +231,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
           {children && <>{children}</>}
         </Styled.InputContent>
 
-        {renderExtraContent(extraContent)}
+        {renderInputActions(inputActions)}
       </Styled.Input>
     );
   }
