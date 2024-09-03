@@ -91,7 +91,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event.stopPropagation();
 
       if (onSelectAll) {
-        onSelectAll();
+        onSelectAll(event);
       }
     };
 
@@ -100,7 +100,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       event.stopPropagation();
 
       if (onClearAll) {
-        onClearAll();
+        onClearAll(event);
       }
     };
 
@@ -234,6 +234,20 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       </>
     );
 
+    const renderInputActions = (): React.ReactNode => (
+      <Styled.InputIconEndContainer>
+        <>
+          <Button size="sm" color="link-basic-primary" onClick={handleSelectAll}>
+            {selectAllButtonLabel}
+          </Button>
+          <Button color="link-secondary" size="sm" onClick={handleClearAll}>
+            {clearAllButtonLabel}
+          </Button>
+        </>
+        {renderInputEndIcons()}
+      </Styled.InputIconEndContainer>
+    );
+
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
         {renderLabel({ label, error, size, LabelProps: LabelPropsData })}
@@ -256,21 +270,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             fullWidth={fullWidth}
             isEllipsis
             iconEnd={isMultiple ? undefined : renderInputEndIcons}
-            inputActions={
-              isMultiple ? (
-                <Styled.InputIconEndContainer>
-                  <>
-                    <Button size="sm" color="link-basic-primary" onClick={handleSelectAll}>
-                      {selectAllButtonLabel}
-                    </Button>
-                    <Button color="link-secondary" size="sm" onClick={handleClearAll}>
-                      {clearAllButtonLabel}
-                    </Button>
-                  </>
-                  {renderInputEndIcons()}
-                </Styled.InputIconEndContainer>
-              ) : undefined
-            }
+            inputActions={isMultiple ? renderInputActions() : undefined}
             {...(showClearIcon
               ? {
                   clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,

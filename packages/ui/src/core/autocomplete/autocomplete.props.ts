@@ -4,6 +4,7 @@ import type { MenuProps } from '../menu';
 import type { InputProps } from '../input';
 import { InputBackgroundColor, InputSize } from '../../utils/types';
 import { AnchorElType } from '../menu/menu.props';
+import { SyntheticEvent } from 'react';
 
 export type AutocompleteBackgroundType = Values<typeof InputBackgroundColor>;
 export type AutocompleteSizeType = Values<typeof InputSize>;
@@ -50,8 +51,8 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   focusOnOpen?: boolean;
   clearAllButtonLabel?: string;
   selectAllButtonLabel?: string;
-  onClearAll?: () => void;
-  onSelectAll?: () => void;
+  onClearAll?: (event: SyntheticEvent) => void;
+  onSelectAll?: (event: SyntheticEvent) => void;
   onChange?: (newValue: AutocompleteValueType) => void;
   onOpen?: (event: React.SyntheticEvent<HTMLElement>) => void;
   onClose?: (
