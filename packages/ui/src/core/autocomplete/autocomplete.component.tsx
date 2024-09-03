@@ -4,17 +4,16 @@ import Tick from '@scaleflex/icons/tick';
 import { intrinsicComponent } from '../../utils/functions';
 import type { AutocompleteProps, AutocompleteOptionType, AutocompleteHookReturn } from './autocomplete.props';
 
-import ArrowTick from '../arrow-tick';
 import Input from '../input';
 import Tag from '../tag';
 import MenuItem, { MenuItemActions } from '../menu-item';
 import { InputSize } from '../../utils/types';
-import { Size } from '../menu-item/types';
 import Styled from './autocomplete.styles';
 import { renderLabel, renderHint, defaultGetOptionValue, defaultGetOptionLabel } from './autocomplete.utils';
 import { useAutocomplete } from './autocomplete.hook';
 import TextWithHighlights from '../text-with-highlights';
 import EllipsedText from '../ellipsed-text';
+import Button from '../button/button.component';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
@@ -49,6 +48,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       renderTag,
       renderMenuItem: renderMenuItemCustomFn,
       onChange,
+      selectAllButtonLabel = 'Select all',
+      clearAllButtonLabel = 'Clear all',
+      onClearAll,
+      onSelectAll,
       ...rest
     } = props;
     const {
@@ -71,6 +74,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       handleKeyDown,
       handleClearIconClick,
       checkIsIdSelected,
+      handleSelectAllOptions,
       getOptionById,
       focusedMenuItemIndex,
     }: Partial<AutocompleteHookReturn> = useAutocomplete({
@@ -81,6 +85,24 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       getOptionDisabled,
     });
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
+
+    const handleSelectAll = (event: React.MouseEvent<HTMLElement>): void => {
+      handleSelectAllOptions();
+      event.stopPropagation();
+
+      if (onSelectAll) {
+        onSelectAll(event);
+      }
+    };
+
+    const handleClearAll = (event: React.MouseEvent<HTMLElement>): void => {
+      handleClearIconClick();
+      event.stopPropagation();
+
+      if (onClearAll) {
+        onClearAll(event);
+      }
+    };
 
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
@@ -191,6 +213,41 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       );
     };
 
+    const renderInputEndIcons = (): React.ReactNode => (
+      <>
+        {renderLabelIconEnd &&
+          renderLabelIconEnd({
+            isMultiple,
+            option:
+              !isMultiple && formattedValue && typeof formattedValue === 'string'
+                ? getOptionById(formattedValue)
+                : null,
+          })}
+
+        {!hideArrow && (
+          <Styled.Arrow
+            {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
+            type={open ? 'top' : 'bottom'}
+            IconProps={{ size: size === 'md' ? 11 : 10 }}
+          />
+        )}
+      </>
+    );
+
+    const renderInputActions = (): React.ReactNode => (
+      <Styled.InputIconEndContainer>
+        <>
+          <Button size="sm" color="link-basic-primary" onClick={handleSelectAll}>
+            {selectAllButtonLabel}
+          </Button>
+          <Button color="link-secondary" size="sm" onClick={handleClearAll}>
+            {clearAllButtonLabel}
+          </Button>
+        </>
+        {renderInputEndIcons()}
+      </Styled.InputIconEndContainer>
+    );
+
     return (
       <Styled.Autocomplete ref={ref} {...rest}>
         {renderLabel({ label, error, size, LabelProps: LabelPropsData })}
@@ -212,26 +269,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             placeholder={placeholder}
             fullWidth={fullWidth}
             isEllipsis
-            iconEnd={() => (
-              <Styled.InputIconEndContainer>
-                {renderLabelIconEnd &&
-                  renderLabelIconEnd({
-                    isMultiple,
-                    option:
-                      !isMultiple && formattedValue && typeof formattedValue === 'string'
-                        ? getOptionById(formattedValue)
-                        : null,
-                  })}
-
-                {!hideArrow && (
-                  <ArrowTick
-                    {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
-                    type={open ? 'top' : 'bottom'}
-                    IconProps={{ size: size === Size.Md ? 11 : 10 }}
-                  />
-                )}
-              </Styled.InputIconEndContainer>
-            )}
+            iconEnd={isMultiple ? undefined : renderInputEndIcons}
+            inputActions={isMultiple ? renderInputActions() : undefined}
             {...(showClearIcon
               ? {
                   clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,

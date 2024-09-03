@@ -1,3 +1,5 @@
+import { SyntheticEvent } from 'react';
+
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import type { MenuProps } from '../menu';
@@ -48,6 +50,10 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   error?: boolean;
   sortAlphabetically?: boolean;
   focusOnOpen?: boolean;
+  clearAllButtonLabel?: string;
+  selectAllButtonLabel?: string;
+  onClearAll?: (event: SyntheticEvent) => void;
+  onSelectAll?: (event: SyntheticEvent) => void;
   onChange?: (newValue: AutocompleteValueType) => void;
   onOpen?: (event: React.SyntheticEvent<HTMLElement>) => void;
   onClose?: (
@@ -165,6 +171,7 @@ export interface AutocompleteHookReturn {
   handleOnBlur: () => void;
   handleKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
   handleClearIconClick: () => void;
+  handleSelectAllOptions: () => void;
   searchTerm: string;
   focusedMenuItemIndex: number;
 }
