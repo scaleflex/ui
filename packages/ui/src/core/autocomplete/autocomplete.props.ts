@@ -1,10 +1,11 @@
+import { SyntheticEvent } from 'react';
+
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import type { MenuProps } from '../menu';
 import type { InputProps } from '../input';
 import { InputBackgroundColor, InputSize } from '../../utils/types';
 import { AnchorElType } from '../menu/menu.props';
-import { SyntheticEvent } from 'react';
 
 export type AutocompleteBackgroundType = Values<typeof InputBackgroundColor>;
 export type AutocompleteSizeType = Values<typeof InputSize>;
