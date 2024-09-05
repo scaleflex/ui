@@ -20,7 +20,7 @@ const Label = styled.span.attrs({
     align-items: center;
     ${sizeCheckboxGroupMixin[size]}
     ${`margin-${$labelPosition === 'after' ? 'left' : 'right'}`}:4px;
-    color: ${disabled ? theme.palette[PColor.ButtonDisabledText] : theme.palette[PColor.TextPrimary]};
+    color: ${theme.palette[PColor.TextPrimary]};
     cursor: ${disabled ? 'default' : 'pointer'};
     white-space: nowrap;
     text-overflow: ellipsis;
