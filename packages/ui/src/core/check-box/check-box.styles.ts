@@ -67,8 +67,8 @@ const CheckBox = styled.span.attrs({
 
     ${disabled &&
     css`
-      background: ${checked ? palette[PColor.BackgroundGrey] : palette[PColor.BackgroundActive]};
-      border: 1px solid ${checked ? palette[PColor.BackgroundGrey] : palette[PColor.BordersSecondary]};
+      background: ${checked ? palette[PColor.Accent_2_8_Opacity] : palette[PColor.BackgroundActive]};
+      border: 1px solid ${checked ? 'transparent' : palette[PColor.BordersSecondary]};
     `}
   `
 );
