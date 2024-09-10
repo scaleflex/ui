@@ -226,6 +226,19 @@ export function useAutocomplete(
     }
   };
 
+  const handleSelectAllOptions = (): void => {
+    if (isMultiple && onChange) {
+      const allOptionIds = optionsList.reduce<AutocompleteOptionIdType[]>((acc, option) => {
+        if (!getOptionDisabled(option)) {
+          acc.push(getOptionValue(option));
+        }
+        return acc;
+      }, []);
+
+      onChange([...allOptionIds]);
+    }
+  };
+
   useEffect(() => {
     if (!isSearchMode) {
       setSearchTerm('');
@@ -276,6 +289,7 @@ export function useAutocomplete(
     handleOnBlur,
     handleKeyDown,
     handleClearIconClick,
+    handleSelectAllOptions,
     focusedMenuItemIndex,
   };
 }

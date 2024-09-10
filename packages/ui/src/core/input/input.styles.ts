@@ -99,10 +99,10 @@ const Input = styled.div.attrs({
     theme,
   }) => css`
     position: relative;
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     box-sizing: border-box;
-    column-gap: 8px;
     cursor: text;
     transition: all 100ms ease-out;
     width: ${$fullWidth ? '100%' : '300px'};
@@ -110,7 +110,6 @@ const Input = styled.div.attrs({
     background-color: ${getInputBackgroundColor(readOnly, disabled)};
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 1px solid ${getInputBorderColor(readOnly, disabled)};
-
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
 
     ${sizeInputMixin[size]}
@@ -260,6 +259,23 @@ const FieldWrapper = styled.div.attrs({
   `
 );
 
+const InputActions = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'inputActions'),
+})`
+  padding-top: 16px;
+  width: 100%;
+  box-sizing: border-box;
+`;
+
+const InputContent = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'inputContent'),
+})`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+`;
+
 const Styled = applyDisplayNames({
   Input,
   Container,
@@ -272,6 +288,8 @@ const Styled = applyDisplayNames({
   NotificationIcon,
   NotificationText,
   FieldWrapper,
+  InputActions,
+  InputContent,
 });
 
 export default Styled;
