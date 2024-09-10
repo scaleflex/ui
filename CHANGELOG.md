@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.21](https://github.com/scaleflex/ui/compare/v2.10.20...v2.10.21) (2024-09-10)
+
+### Features
+
+- UI KIT Select all to choose all applicable values [SHA-57] ([81ccc70](https://github.com/scaleflex/ui/commit/81ccc70ac79364d5015bcfa811ab1d901a87fc7b))
+- UI KIT Select all to choose all applicable values [SHA-57] ([6b4c238](https://github.com/scaleflex/ui/commit/6b4c238a5b76bc551dab4cd14d82e50850b037f2))
+- UI KIT Select all to choose all applicable values [SHA-57] ([dcbcaaa](https://github.com/scaleflex/ui/commit/dcbcaaabcd49285946a1eaedf07bc94d3b58f2a4))
+- UI KIT Select all to choose all applicable values [SHA-57] ([2eeeedd](https://github.com/scaleflex/ui/commit/2eeeeddd10eb0df755dc68119583e115c6ce73f0))
+- UI KIT Select all to choose all applicable values [SHA-57] ([65a62b9](https://github.com/scaleflex/ui/commit/65a62b97faf9d31599c5c363acbe57de88741cb4))
+- UI KIT Select all to choose all applicable values [SHA-57] ([5351d1d](https://github.com/scaleflex/ui/commit/5351d1d9fe04f93c03e95c5b2c9f60c6bc99405b))
+
 ## [2.10.20](https://github.com/scaleflex/ui/compare/v2.10.19...v2.10.20) (2024-08-22)
 
 ### Bug Fixes
