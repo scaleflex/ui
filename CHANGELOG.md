@@ -8,18 +8,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Features
 
 - UI KIT Select all to choose all applicable values [SHA-57] ([81ccc70](https://github.com/scaleflex/ui/commit/81ccc70ac79364d5015bcfa811ab1d901a87fc7b))
-- UI KIT Select all to choose all applicable values [SHA-57] ([6b4c238](https://github.com/scaleflex/ui/commit/6b4c238a5b76bc551dab4cd14d82e50850b037f2))
-- UI KIT Select all to choose all applicable values [SHA-57] ([dcbcaaa](https://github.com/scaleflex/ui/commit/dcbcaaabcd49285946a1eaedf07bc94d3b58f2a4))
-- UI KIT Select all to choose all applicable values [SHA-57] ([2eeeedd](https://github.com/scaleflex/ui/commit/2eeeeddd10eb0df755dc68119583e115c6ce73f0))
-- UI KIT Select all to choose all applicable values [SHA-57] ([65a62b9](https://github.com/scaleflex/ui/commit/65a62b97faf9d31599c5c363acbe57de88741cb4))
-- UI KIT Select all to choose all applicable values [SHA-57] ([5351d1d](https://github.com/scaleflex/ui/commit/5351d1d9fe04f93c03e95c5b2c9f60c6bc99405b))
 
 ## [2.10.20](https://github.com/scaleflex/ui/compare/v2.10.19...v2.10.20) (2024-08-22)
 
 ### Bug Fixes
 
 - **Button:** fix overriding button type ([272c594](https://github.com/scaleflex/ui/commit/272c594c52e0b70d0b38a993a57cc9a20436a5c7))
-- **Button:** fix overriding button type ([f5ce550](https://github.com/scaleflex/ui/commit/f5ce5507464524a001e4d4b640a83e384de0f845))
 
 ## [2.10.19](https://github.com/scaleflex/ui/compare/v2.10.18...v2.10.19) (2024-08-18)
 
