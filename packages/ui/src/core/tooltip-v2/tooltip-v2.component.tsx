@@ -14,6 +14,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       arrow = true,
       warning = false,
       enableHover = true,
+      hide = false,
       enterDelay = 0,
       leaveDelay = 0,
       offsetX = 0,
@@ -26,24 +27,28 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       ...rest
     }: TooltipV2Props,
     ref
-  ): JSX.Element => (
-    <Styled.TooltipV2
-      ref={ref}
-      placement={position}
-      content={<Styled.TooltipText>{title}</Styled.TooltipText>}
-      interactive={enableHover}
-      arrow={arrow}
-      delay={[enterDelay, leaveDelay]}
-      $variant={(warning && Variant.Warning) || (info && Variant.Info) || variant}
-      $size={size || Size.Sm}
-      animation="scale"
-      offset={[offsetX, offsetY]}
-      appendTo={document.body}
-      {...rest}
-    >
-      {children}
-    </Styled.TooltipV2>
-  )
+  ): JSX.Element => {
+    if (hide) return children;
+
+    return (
+      <Styled.TooltipV2
+        ref={ref}
+        placement={position}
+        content={<Styled.TooltipText>{title}</Styled.TooltipText>}
+        interactive={enableHover}
+        arrow={arrow}
+        delay={[enterDelay, leaveDelay]}
+        $variant={(warning && Variant.Warning) || (info && Variant.Info) || variant}
+        $size={size || Size.Sm}
+        animation="scale"
+        offset={[offsetX, offsetY]}
+        appendTo={document.body}
+        {...rest}
+      >
+        {children}
+      </Styled.TooltipV2>
+    );
+  }
 );
 
 export default TooltipV2;
