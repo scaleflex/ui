@@ -14,7 +14,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       arrow = true,
       warning = false,
       enableHover = true,
-      isHidden = false,
+      hide = false,
       enterDelay = 0,
       leaveDelay = 0,
       offsetX = 0,
@@ -28,7 +28,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
     }: TooltipV2Props,
     ref
   ): JSX.Element => {
-    if (isHidden) return children;
+    if (hide) return children;
 
     return (
       <Styled.TooltipV2

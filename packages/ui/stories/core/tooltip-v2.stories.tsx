@@ -117,7 +117,7 @@ const defaultArgs = {
   arrow: false,
   warning: false,
   info: false,
-  isHidden: false,
+  hide: false,
   enableHover: true,
   position: Position.Top,
   offsetX: 0,

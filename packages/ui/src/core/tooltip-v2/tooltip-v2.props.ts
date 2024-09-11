@@ -14,7 +14,7 @@ export interface TooltipV2Props extends Omit<React.HTMLAttributes<HTMLSpanElemen
   enableHover?: boolean;
   warning?: boolean;
   info?: boolean;
-  isHidden?: boolean;
+  hide?: boolean;
   enterDelay?: number;
   leaveDelay?: number;
   offsetX?: number;
