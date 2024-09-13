@@ -100,9 +100,10 @@ const Input = styled.div.attrs({
   }) => css`
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    align-items: center;
+    /* flex-direction: column; */
     box-sizing: border-box;
+    column-gap: 8px;
     cursor: text;
     transition: all 100ms ease-out;
     width: ${$fullWidth ? '100%' : '300px'};
@@ -270,10 +271,10 @@ const InputActions = styled.div.attrs({
 const InputContent = styled.div.attrs({
   className: generateClassNames(baseClassName, 'inputContent'),
 })`
-  display: flex;
+  /* display: flex;
   align-items: center;
   width: 100%;
-  box-sizing: border-box;
+  box-sizing: border-box; */
 `;
 
 const Styled = applyDisplayNames({
