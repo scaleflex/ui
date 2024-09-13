@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.22](https://github.com/scaleflex/ui/compare/v2.10.21...v2.10.22) (2024-09-11)
+
+### Features
+
+- **TooltipV2:** add hide prop ([0899c6e](https://github.com/scaleflex/ui/commit/0899c6e20bdb6c52e6fc7911298a0e2300792380))
+
 ## [2.10.21](https://github.com/scaleflex/ui/compare/v2.10.20...v2.10.21) (2024-09-10)
 
 ### Features
