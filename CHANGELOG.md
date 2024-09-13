@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.23](https://github.com/scaleflex/ui/compare/v2.10.22...v2.10.23) (2024-09-13)
+
+### Bug Fixes
+
+- input component ([6e65805](https://github.com/scaleflex/ui/commit/6e65805f63c14b506f8b590e1ff93a5e1923d125))
+
 ## [2.10.22](https://github.com/scaleflex/ui/compare/v2.10.21...v2.10.22) (2024-09-11)
 
 ### Features
