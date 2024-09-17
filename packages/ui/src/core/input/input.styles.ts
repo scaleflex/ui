@@ -106,8 +106,8 @@ const Input = styled.div.attrs({
   }) => css`
     position: relative;
     display: flex;
-    flex-direction: ${hasInputActions ? 'row' : 'column'};
-    ${!hasInputActions && 'align-items: stretch;'}
+    flex-direction: ${!hasInputActions ? 'row' : 'column'};
+    ${hasInputActions && 'align-items: stretch;'}
     box-sizing: border-box;
     cursor: text;
     transition: all 100ms ease-out;
