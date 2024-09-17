@@ -87,7 +87,12 @@ const Base = styled.input.attrs({
 
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<With<With<WithTheme, InputProps>, { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean }>>(
+})<
+  With<
+    With<WithTheme, InputProps>,
+    { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean; isFlexDirectionRow?: boolean }
+  >
+>(
   ({
     size = InputSize.Md,
     $error = false,
@@ -96,12 +101,13 @@ const Input = styled.div.attrs({
     disabled = false,
     isHovering = false,
     $isSelectedItems = false,
+    isFlexDirectionRow = true,
     theme,
   }) => css`
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-direction: ${isFlexDirectionRow ? 'row' : 'column'};
+    ${!isFlexDirectionRow && 'align-items: stretch;'}
     box-sizing: border-box;
     cursor: text;
     transition: all 100ms ease-out;
