@@ -35,8 +35,10 @@ export const groupedPalette = {
     [Color.BackgroundActive]: 'rgba(243, 247, 250, 1)', // #F3F7FA
     [Color.BackgroundBaseLight]: 'rgba(235, 239, 252, 1)', // #EBEFFC
     [Color.BackgroundBaseMedium]: 'rgba(227, 231, 251, 1)', // #E3E7FB
-    [Color.BackgroundPrimary]: 'rgba(248, 250, 251, 1)', // #f8fafb
-    [Color.BackgroundPrimaryLight]: 'rgba(243, 245, 247, 1)', // ##F3F5F7
+    [Color.BackgroundPrimary]: 'rgba(243, 245, 247, 1)', // #F3F5F7
+    // Todo: deprecate this key
+    // Not used instead use the BackgroundPrimary
+    [Color.BackgroundPrimaryLight]: 'rgba(243, 245, 247, 1)', // #F3F5F7
     [Color.BackgroundPrimaryHover]: 'rgba(239, 243, 246, 1)', // #eff3f6
     [Color.BackgroundPrimaryActive]: 'rgba(93, 109, 126, 1)', // #5d6d7e
     [Color.BackgroundPrimary_0_5_Opacity]: 'rgba(255, 255, 255, 0.500)',
