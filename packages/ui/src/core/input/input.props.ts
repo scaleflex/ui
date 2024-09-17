@@ -33,7 +33,6 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   value?: any;
   selectedItems?: any;
   isSelectedItems?: boolean;
-  isFlexDirectionRow?: boolean;
   renderTags?: () => React.ReactNode;
   iconClickStart?: (event: Event) => void;
   iconClickEnd?: (event: Event) => void;
