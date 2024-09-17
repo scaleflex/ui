@@ -7,7 +7,7 @@ import Styled from './gallery-button.styles';
 const GalleryButton = intrinsicComponent<GalleryButtonProps, HTMLButtonElement>(
   ({ active = false, disabled = false, ...rest }: GalleryButtonProps, ref): JSX.Element => {
     return (
-      <Styled.GalleryButton {...rest} $active={active} disabled={disabled} ref={ref}>
+      <Styled.GalleryButton type="button" {...rest} $active={active} disabled={disabled} ref={ref}>
         <Styled.Wrapper>
           <Styled.SideRectangle />
           <Styled.MainRectangle />

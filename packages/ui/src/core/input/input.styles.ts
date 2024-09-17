@@ -101,7 +101,7 @@ const Input = styled.div.attrs({
     disabled = false,
     isHovering = false,
     $isSelectedItems = false,
-    hasInputActions = true,
+    hasInputActions = false,
     theme,
   }) => css`
     position: relative;
@@ -109,6 +109,7 @@ const Input = styled.div.attrs({
     flex-direction: ${!hasInputActions ? 'row' : 'column'};
     ${hasInputActions && 'align-items: stretch;'}
     box-sizing: border-box;
+    column-gap: 8px;
     cursor: text;
     transition: all 100ms ease-out;
     width: ${$fullWidth ? '100%' : '300px'};

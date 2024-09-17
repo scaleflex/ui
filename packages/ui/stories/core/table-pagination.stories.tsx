@@ -5,7 +5,7 @@ import TablePagination, { TablePaginationProps } from '../../src/core/table-pagi
 import TableStory from '../shared/table-story.component';
 
 const meta: Meta<typeof TablePagination> = {
-  title: 'Surfaces/Table/TablePagination',
+  title: 'DataDisplay/Table/TablePagination',
   component: TablePagination,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody', 'TablePagination'],
 

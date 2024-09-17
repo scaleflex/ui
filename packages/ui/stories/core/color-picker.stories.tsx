@@ -1,11 +1,10 @@
-/* eslint-disable no-console */
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
 import ColorPicker from '../../src/core/color-picker';
 
 const meta: Meta<typeof ColorPicker> = {
-  title: 'Surfaces/ColorPicker',
+  title: 'Inputs/ColorPicker',
   component: ColorPicker,
   excludeStories: ['ColorPicker'],
 } as Meta;

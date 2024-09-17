@@ -5,7 +5,7 @@ import TableBody, { TableBodyProps } from '../../src/core/table-body';
 import TableStory from '../shared/table-story.component';
 
 const meta: Meta<typeof TableBody> = {
-  title: 'Surfaces/Table/TableBody',
+  title: 'DataDisplay/Table/TableBody',
   component: TableBody,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
   argTypes: {

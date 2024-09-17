@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.23](https://github.com/scaleflex/ui/compare/v2.10.22...v2.10.23) (2024-09-13)
+
+### Bug Fixes
+
+- input component ([6e65805](https://github.com/scaleflex/ui/commit/6e65805f63c14b506f8b590e1ff93a5e1923d125))
+
+## [2.10.22](https://github.com/scaleflex/ui/compare/v2.10.21...v2.10.22) (2024-09-11)
+
+### Features
+
+- **TooltipV2:** add isHidden prop ([0899c6e](https://github.com/scaleflex/ui/commit/0899c6e20bdb6c52e6fc7911298a0e2300792380))
+- **TooltipV2:** add isHidden prop ([210428e](https://github.com/scaleflex/ui/commit/210428e8d186472910b3f8a3129af63480c162e5))
+
+## [2.10.21](https://github.com/scaleflex/ui/compare/v2.10.20...v2.10.21) (2024-09-10)
+
+### Features
+
+- UI KIT Select all to choose all applicable values [SHA-57] ([81ccc70](https://github.com/scaleflex/ui/commit/81ccc70ac79364d5015bcfa811ab1d901a87fc7b))
+
+## [2.10.20](https://github.com/scaleflex/ui/compare/v2.10.19...v2.10.20) (2024-08-22)
+
+### Bug Fixes
+
+- **Button:** fix overriding button type ([272c594](https://github.com/scaleflex/ui/commit/272c594c52e0b70d0b38a993a57cc9a20436a5c7))
+
 ## [2.10.19](https://github.com/scaleflex/ui/compare/v2.10.18...v2.10.19) (2024-08-18)
 
 ### Bug Fixes

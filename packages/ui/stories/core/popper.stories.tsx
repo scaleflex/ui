@@ -9,7 +9,7 @@ import PopperDocsTemplate from '../docs/popper.mdx';
 import Button from '../../src/core/button';
 
 const meta = {
-  title: 'Surfaces/Popper',
+  title: 'DataDisplay/Popper',
   component: Popper,
   tags: ['autodocs'],
   argTypes: {

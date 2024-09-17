@@ -17,7 +17,7 @@ const getIconSize = (sizeName: IconButtonTableSizeType | undefined): number => {
 
 const IconButtonTable = intrinsicComponent<IconButtonTableProps, HTMLButtonElement>(
   ({ children, size = Size.Md, ...rest }: IconButtonTableProps, ref): JSX.Element => (
-    <Styled.IconButtonTable {...rest} ref={ref}>
+    <Styled.IconButtonTable type="button" {...rest} ref={ref}>
       {children && (typeof children === 'function' ? children({ size: getIconSize(size) }) : children)}
     </Styled.IconButtonTable>
   )

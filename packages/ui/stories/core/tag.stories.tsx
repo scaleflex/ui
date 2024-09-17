@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import Tag, { TagProps } from '../../src/core/tag';
 
 const meta: Meta<typeof Tag> = {
-  title: 'Inputs/Tag',
+  title: 'DataDisplay/Tag',
   component: Tag,
   excludeStories: ['Tag'],
   argTypes: {

@@ -8,7 +8,7 @@ import MenuItem from '../../src/core/menu-item';
 import { InputSize } from '../../src/utils/types';
 
 const meta: Meta<typeof InputLocalization> = {
-  title: 'Inputs/InputLocalization',
+  title: 'DataDisplay/InputLocalization',
   component: InputLocalization,
   excludeStories: ['InputLocalization'],
 

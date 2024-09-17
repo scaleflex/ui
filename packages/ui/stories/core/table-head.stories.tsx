@@ -5,7 +5,7 @@ import TableHead, { TableHeadProps } from '../../src/core/table-head';
 import TableStory from '../shared/table-story.component';
 
 const meta: Meta<typeof TableHead> = {
-  title: 'Surfaces/Table/TableHead',
+  title: 'DataDisplay/Table/TableHead',
   component: TableHead,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
   argTypes: {

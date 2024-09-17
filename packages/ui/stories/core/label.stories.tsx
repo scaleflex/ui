@@ -5,7 +5,7 @@ import Label, { LabelProps } from '../../src/core/label';
 import { Type } from '../../src/core/label/types';
 
 const meta: Meta<typeof Label> = {
-  title: 'Inputs/Label',
+  title: 'DataDisplay/Label',
   component: Label,
   excludeStories: ['Label'],
 };

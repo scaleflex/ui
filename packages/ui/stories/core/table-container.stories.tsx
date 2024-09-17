@@ -5,7 +5,7 @@ import TableContainer, { TableContainerProps } from '../../src/core/table-contai
 import TableStory from '../shared/table-story.component';
 
 const meta: Meta<typeof TableContainer> = {
-  title: 'Surfaces/Table/TableContainer',
+  title: 'DataDisplay/Table/TableContainer',
   component: TableContainer,
   excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
   argTypes: {
