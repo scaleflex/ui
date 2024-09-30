@@ -87,7 +87,12 @@ const Base = styled.input.attrs({
 
 const Input = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<With<With<WithTheme, InputProps>, { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean }>>(
+})<
+  With<
+    With<WithTheme, InputProps>,
+    { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean; hasInputActions?: boolean }
+  >
+>(
   ({
     size = InputSize.Md,
     $error = false,
@@ -96,12 +101,13 @@ const Input = styled.div.attrs({
     disabled = false,
     isHovering = false,
     $isSelectedItems = false,
+    hasInputActions = false,
     theme,
   }) => css`
     position: relative;
     display: flex;
-    align-items: center;
-    /* flex-direction: column; */
+    flex-direction: ${!hasInputActions ? 'row' : 'column'};
+    ${hasInputActions && 'align-items: stretch;'}
     box-sizing: border-box;
     column-gap: 8px;
     cursor: text;
@@ -271,10 +277,11 @@ const InputActions = styled.div.attrs({
 const InputContent = styled.div.attrs({
   className: generateClassNames(baseClassName, 'inputContent'),
 })`
-  /* display: flex;
+  display: flex;
   align-items: center;
   width: 100%;
-  box-sizing: border-box; */
+  column-gap: 8px;
+  box-sizing: border-box;
 `;
 
 const Styled = applyDisplayNames({

@@ -41,7 +41,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       iconStart,
       iconEnd,
       iconChange,
-      // inputActions,
+      inputActions,
       clearIcon,
       iconClickStart,
       iconClickEnd,
@@ -196,6 +196,11 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       );
     };
 
+    const renderInputActions = (inputActions: React.ReactNode): JSX.Element | undefined => {
+      if (!inputActions) return;
+      return <Styled.InputActions>{inputActions}</Styled.InputActions>;
+    };
+
     return (
       <Styled.Input
         onClick={focusOnClick ? handleFocus : undefined}
@@ -211,22 +216,23 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
         $error={error}
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
-        $isSelectedItems={Boolean(isSelectedItems)}
+        $isSelectedItems={Boolean(isSelectedItems || inputActions)}
+        hasInputActions={Boolean(inputActions)}
         {...(InputPropsData || {})}
       >
-        {/* <Styled.InputContent> */}
-        {renderIcon(iconStart, 'start')}
-        {renderField()}
-        {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
-        {showCopyMessage && renderCopyText()}
-        {renderClearIcon()}
-        {inputType === Type.Password && renderPasswordIcon()}
-        {renderIcon(iconEnd, 'end')}
-        {renderIcon(iconChange, '')}
-        {children && <>{children}</>}
-        {/* </Styled.InputContent> */}
+        <Styled.InputContent>
+          {renderIcon(iconStart, 'start')}
+          {renderField()}
+          {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
+          {showCopyMessage && renderCopyText()}
+          {renderClearIcon()}
+          {inputType === Type.Password && renderPasswordIcon()}
+          {renderIcon(iconEnd, 'end')}
+          {renderIcon(iconChange, '')}
+          {children && <>{children}</>}
+        </Styled.InputContent>
 
-        {/* {renderInputActions(inputActions)} */}
+        {renderInputActions(inputActions)}
       </Styled.Input>
     );
   }
