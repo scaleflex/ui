@@ -38,8 +38,8 @@ const Label = styled.span.attrs({
 
 const MenuItemWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'wrapper'),
-})<With<WithTheme, { divider?: boolean; $noOptionsText?: boolean; disabled?: boolean }>>(
-  ({ divider = false, $noOptionsText = false, disabled = false, theme }) => css`
+})<With<WithTheme, { divider?: boolean; disabled?: boolean }>>(
+  ({ divider = false, disabled = false, theme }) => css`
     ${divider &&
     css`
       width: 100%;
@@ -49,7 +49,7 @@ const MenuItemWrapper = styled.div.attrs({
       margin: 4px 0;
     `}
 
-    ${($noOptionsText || disabled) &&
+    ${disabled &&
     css`
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
@@ -58,8 +58,8 @@ const MenuItemWrapper = styled.div.attrs({
 
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<With<With<WithTheme, MenuItemProps>, { $active?: boolean }>>(
-  ({ size = Size.Sm, $active, theme, disableHover = false, noOptionsText, disabled, isFocused }) => css`
+})<With<With<WithTheme, MenuItemProps>, { $active?: boolean; $isFocused: boolean }>>(
+  ({ size = Size.Sm, $active, theme, disableHover = false, disabled, $isFocused }) => css`
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -80,14 +80,14 @@ const MenuItem = styled.div.attrs({
       css`
         background-color: ${theme.palette[PColor.BackgroundHover]};
       `};
-      ${(noOptionsText || disabled) &&
+      ${disabled &&
       css`
         cursor: default;
         background-color: white;
       `}
     }
 
-    ${(noOptionsText || disabled) &&
+    ${disabled &&
     css`
       & > svg {
         path {
@@ -97,7 +97,7 @@ const MenuItem = styled.div.attrs({
       color: ${theme.palette[PColor.ButtonDisabledText]};
     `}
 
-    ${isFocused &&
+    ${$isFocused &&
     !disableHover &&
     css`
       background-color: ${theme.palette[PColor.BackgroundHover]};

@@ -19,9 +19,6 @@ const meta: Meta<typeof SelectGroup> = {
     selectProps: {
       description: 'input attributes applied directly input element.',
     },
-    scroll: {
-      description: 'Prop directly change scroll design',
-    },
   },
 };
 
