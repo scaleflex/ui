@@ -17,6 +17,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
       disabled,
       enableScrollIntoView,
       isFocused = false,
+      dividerStyle,
       ...props
     }: MenuItemProps,
     ref
@@ -77,8 +78,9 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
           );
         }
         if (option.content === 'divider') {
-          return <Styled.MenuItemWrapper divider key={option.key} />;
+          return <Styled.MenuItemWrapper divider key={option.key} style={option.dividerStyle} />;
         }
+
         return (
           <Styled.MenuItemWrapper
             disabled={false}
@@ -121,13 +123,14 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
 
     if (!list) {
       if (props.value === 'divider') {
-        return <Styled.MenuItemWrapper divider key={props.value} />;
+        return <Styled.MenuItemWrapper divider key={props.value} style={dividerStyle} />;
       }
 
       return (
         <Styled.MenuItemWrapper $noOptionsText={Boolean(noOptionsText)} disabled={Boolean(disabled)}>
           <Styled.MenuItem
             {...props}
+            $active={Boolean(props.active)}
             ref={menuItemRef}
             disableHover={disableHover}
             noOptionsText={noOptionsText}
