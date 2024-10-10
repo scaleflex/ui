@@ -27,8 +27,8 @@ export const NoRepeat = intrinsicComponent<IconProps, SVGSVGElement>(
         fill={color}
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M1.76339 0.764002C2.78125 -0.253854 4.43152 -0.253854 5.44937 0.764002L49.2366 44.5512C50.2545 45.5691 50.2545 47.2194 49.2366 48.2372C48.2188 49.2551 46.5685 49.2551 45.5506 48.2372L1.76339 4.44998C0.745536 3.43213 0.745536 1.78186 1.76339 0.764002Z"
         fill={color}
       />
