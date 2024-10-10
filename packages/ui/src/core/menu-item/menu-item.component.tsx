@@ -132,6 +132,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>(
             disableHover={disableHover}
             noOptionsText={noOptionsText}
             disabled={disabled}
+            $active={props.active}
             isFocused={isFocused}
           >
             {children}
