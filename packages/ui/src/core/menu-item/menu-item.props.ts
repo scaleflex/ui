@@ -18,6 +18,7 @@ export type MenuItemListType = {
   active?: boolean;
   subMenuProps?: MenuProps;
   className?: string;
+  dividerStyle?: React.CSSProperties;
   disableHover?: boolean;
 };
 
@@ -40,5 +41,6 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   depth?: number | undefined;
   disableHover?: boolean;
   isFocused?: boolean;
+  dividerStyle?: React.CSSProperties;
   enableScrollIntoView?: boolean;
 }

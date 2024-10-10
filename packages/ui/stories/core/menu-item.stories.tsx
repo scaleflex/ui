@@ -9,6 +9,11 @@ const meta: Meta<typeof MenuItem> = {
   title: 'DataDisplay/MenuItem',
   component: MenuItem,
   excludeStories: ['MenuItem'],
+  argTypes: {
+    dividerStyle: {
+      description: 'Prop directly change divider style',
+    },
+  },
 };
 
 export default meta;
@@ -19,6 +24,7 @@ const defaultArgs = {
   children: 'France',
   active: false,
   disabled: false,
+  dividerStyle: {},
 };
 
 const BasicTemplate = (args: MenuItemProps): JSX.Element => <MenuItem {...args} />;
