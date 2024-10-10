@@ -23,26 +23,23 @@ const Placeholder = styled.div.attrs({
 })<With<WithTheme, InputProps>>(
   ({ fullWidth, theme, readOnly, disabled, size }) => css`
     position: absolute;
-    top: 54%;
-    transform: translateY(-54%);
+    top: ${size === 'sm' ? '24px' : '32px'};
     left: ${size === 'sm' ? '13px' : '18px'};
     width: ${fullWidth ? '95%' : '244px'};
-    height: ${size === 'sm' ? '16px' : '18px'};
+    height: 24px;
     ${theme.typography.font[FontVariant.InputMd]}
     color: ${theme.palette[PColor.TextPlaceholder]};
     background: ${readOnly || disabled
       ? theme.palette[PColor.BackgroundHover]
       : theme.palette[PColor.BackgroundStateless]};
     pointer-events: ${readOnly || disabled ? 'none' : 'all'};
-    display: flex;
-    align-items: center;
   `
 );
 
 const DatePickerInput = styled(InputGroup).attrs({
   className: generateClassNames(baseClassName, 'input'),
 })<With<WithTheme, { $isHovering: boolean }>>(
-  ({ $isHovering = false, theme, size }) => css`
+  ({ $isHovering = false, theme }) => css`
     input[type='date']::-webkit-calendar-picker-indicator {
       display: none;
       -webkit-appearance: none;
@@ -61,11 +58,6 @@ const DatePickerInput = styled(InputGroup).attrs({
     css`
       border: 1px solid ${theme.palette[PColor.BordersPrimaryHover]};
     `}
-
-    .SfxInput-Base,
-    .SfxInput-inputContent {
-      height: ${size === 'sm' ? '16px' : '18px'};
-    }
   `
 );
 
