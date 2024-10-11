@@ -39,7 +39,7 @@ const meta: Meta<typeof MenuItem> = {
       description: 'If true, The component will be scrolled into view',
     },
     dividerStyle: {
-      description: 'Prop directly change divider style',
+      description: 'Update divider styles',
     },
   },
   parameters: {

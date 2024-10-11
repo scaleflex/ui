@@ -22,7 +22,6 @@ export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   showClearIcon?: boolean;
   showSelectionKey?: boolean;
   hideMenuItemsActions?: boolean;
-  scroll?: boolean;
   onRequestClose?: () => void;
   renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
   hideEllipsis?: boolean;
