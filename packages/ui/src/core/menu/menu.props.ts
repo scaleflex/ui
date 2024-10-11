@@ -9,21 +9,16 @@ export type PopperPositionType = Values<typeof Position>;
 export type AnchorElType = Element | null | undefined;
 
 export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
-  open?: boolean;
-  anchorElPosition?: DOMRect;
+  open: boolean;
   anchorEl?: AnchorElType;
-  onClose?: (event: React.MouseEvent<HTMLDivElement>) => void;
   containerProps?: object;
-  alignCenter?: boolean;
   maxHeight?: string | number;
   position?: PopperPositionType;
   popperOptions?: PopperOptions;
+  popperWrapperStyles?: React.CSSProperties;
   enableOverlay?: boolean;
+  enableUnderlayingEvent?: boolean;
   zIndex?: number;
   hideScroll?: boolean;
-  scroll?: boolean;
-  enableUnderlayingEvent?: boolean;
-  popperWrapperStyles?: React.CSSProperties;
-  style?: React.CSSProperties;
-  list?: object;
+  onClose?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }

@@ -25,7 +25,6 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       MenuProps,
       readOnly = false,
       disabled,
-      scroll = true,
       placeholder,
       showSelectionKey,
       hideMenuItemsActions = false,
@@ -91,7 +90,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
           <Styled.Input {...selectProps} />
         </Styled.Select>
 
-        <Menu onClose={handleClose} scroll={scroll} open={open} anchorEl={anchorEl} {...MenuProps}>
+        <Menu onClose={handleClose} {...MenuProps} open={open} anchorEl={anchorEl}>
           {React.Children.map(children, (child) =>
             renderOption(child, {
               value,

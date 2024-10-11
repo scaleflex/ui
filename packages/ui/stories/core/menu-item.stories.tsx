@@ -2,16 +2,50 @@ import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Country, Download } from '@scaleflex/icons';
 
-import MenuItem, { MenuItemIcon, MenuItemLabel, MenuItemActions, MenuItemProps } from '../../src/core/menu-item';
+import MenuItem, { MenuItemIcon, MenuItemLabel, MenuItemActions } from '../../src/core/menu-item';
 import { Size } from '../../src/core/menu-item/types';
+import MenuItemDocsTemplate from '../docs/menu-item.mdx';
 
 const meta: Meta<typeof MenuItem> = {
-  title: 'DataDisplay/MenuItem',
+  title: 'Navigation/Menu/MenuItem',
   component: MenuItem,
-  excludeStories: ['MenuItem'],
+  tags: ['autodocs'],
   argTypes: {
+    children: {
+      description: 'The content of the component.',
+    },
+    active: {
+      description: 'If true, the component is active.',
+    },
+    size: {
+      description: 'MenuItem Sizes, `sm` or `md`.',
+    },
+    disabled: {
+      description: 'If true, the component is disabled.',
+    },
+    value: {
+      description: 'Value of the component, if equals `divider` the component will act as divider',
+    },
+    list: {
+      description: 'If you want to use `Menu` as sub list',
+    },
+    disableHover: {
+      description: 'If true, the hover is disabled',
+    },
+    isFocused: {
+      description: 'If true, the component is focused',
+    },
+    enableScrollIntoView: {
+      description: 'If true, The component will be scrolled into view',
+    },
     dividerStyle: {
       description: 'Prop directly change divider style',
+    },
+  },
+  parameters: {
+    docs: {
+      subtitle: 'Child of Menu component.',
+      page: MenuItemDocsTemplate,
     },
   },
 };
@@ -27,47 +61,13 @@ const defaultArgs = {
   dividerStyle: {},
 };
 
-const BasicTemplate = (args: MenuItemProps): JSX.Element => <MenuItem {...args} />;
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
-};
-
-export const Active: Story = {
-  args: {
-    ...defaultArgs,
-    active: true,
-  },
-  render: (args) => <BasicTemplate {...args} />,
-};
-
-export const WithIcon: Story = {
-  args: { ...defaultArgs },
   render: ({ children, ...args }) => (
     <MenuItem {...args}>
-      <MenuItemIcon {...args}>
-        <Country size={args.size === 'md' ? 16 : 14} />
-      </MenuItemIcon>
-
+      <MenuItemIcon size={args.size}>{({ size }) => <Country size={size} />}</MenuItemIcon>
       <MenuItemLabel>{children}</MenuItemLabel>
-    </MenuItem>
-  ),
-};
-
-export const WithIconAndActions: Story = {
-  args: { ...defaultArgs },
-  render: ({ children, ...args }) => (
-    <MenuItem {...args}>
-      <MenuItemIcon>
-        <Country size={args.size === 'md' ? 16 : 14} />
-      </MenuItemIcon>
-
-      <MenuItemLabel>{children}</MenuItemLabel>
-
-      <MenuItemActions>
-        <Download size={args.size === 'md' ? 15 : 12} />
-      </MenuItemActions>
+      <MenuItemActions size={args.size}>{({ size }) => <Download size={size} />}</MenuItemActions>
     </MenuItem>
   ),
 };

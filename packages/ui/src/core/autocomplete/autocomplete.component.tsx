@@ -32,7 +32,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       multiple = false,
       size = InputSize.Md,
       disabled = false,
-      scroll = true,
       disableTextEllipse = false,
       readOnly = false,
       placeholder,
@@ -207,7 +206,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
 
       return (
-        <MenuItem noOptionsText size={size}>
+        <MenuItem disabled={Boolean(noOptionsText)} size={size}>
           {noOptionsText}
         </MenuItem>
       );
@@ -283,7 +282,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         <Styled.Menu
           onClose={handleCloseMenuClick}
           open={open}
-          scroll={scroll}
           anchorEl={anchorEl}
           maxMenuHeight={maxMenuHeight}
           {...MenuProps}
