@@ -19,7 +19,6 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       LabelProps: LabelPropsData,
       SelectProps: SelectPropsData,
       selectProps,
-      scroll = true,
       fullWidth = false,
       showSelectionKey,
       value,
@@ -77,7 +76,6 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           error={error}
           value={value}
           size={size}
-          scroll={scroll}
           onChange={onChange}
           multiple={multiple}
           fullWidth={Boolean(fullWidth)}

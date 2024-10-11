@@ -1,0 +1,28 @@
+{/* Checkbox.mdx */}
+ 
+import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as CheckboxStories from '../core/checkbox.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic checkboxes
+
+<Canvas of={CheckboxStories.Primary} withToolbar layout='centered'/>
+
+## Sizes
+
+<Canvas of={CheckboxStories.Sizes} withToolbar layout='centered'/>
+
+## Types
+
+<Canvas of={CheckboxStories.Types} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

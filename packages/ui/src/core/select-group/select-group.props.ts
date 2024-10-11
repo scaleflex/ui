@@ -14,7 +14,6 @@ export interface SelectGroupProps extends SelectProps, Omit<React.HTMLAttributes
   SelectProps?: SelectProps;
   selectProps?: React.InputHTMLAttributes<HTMLInputElement>;
   fullWidth?: boolean;
-  scroll?: boolean;
   readOnly?: boolean;
   showSelectionKey?: boolean;
   hideMenuItemsActions?: boolean;

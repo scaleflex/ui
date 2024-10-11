@@ -8,6 +8,9 @@ import Styled from './tooltip.styles';
 
 import Popper from '../popper';
 
+// DEPRECATED COMPONENT
+// Replaced by TooltipV2
+
 const Tooltip = intrinsicComponent<TooltipProps, HTMLSpanElement>(
   (
     {

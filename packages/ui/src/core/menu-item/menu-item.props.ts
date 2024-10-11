@@ -31,9 +31,7 @@ export type MenuItemActionsProps = MenuItemIconProps;
 
 export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLDivElement> {
   size?: MenuItemSizeType;
-  icon?: React.ReactNode;
   active?: boolean;
-  noOptionsText?: boolean;
   disabled?: boolean;
   value?: string | number | boolean | null;
   list?: MenuItemListType[] | null | undefined;

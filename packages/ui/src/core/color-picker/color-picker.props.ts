@@ -37,5 +37,5 @@ export interface ColorPickerProps extends Omit<React.HTMLAttributes<HTMLSpanElem
   pinnedColors?: Array<string>;
   showTransparentColor?: boolean;
   hidePinIcon?: boolean;
-  containerProps?: MenuProps;
+  containerProps?: Omit<MenuProps, 'open'>;
 }

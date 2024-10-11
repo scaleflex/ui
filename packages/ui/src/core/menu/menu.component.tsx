@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
@@ -10,21 +10,18 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
   (
     {
       children,
-      open = false,
-      anchorElPosition,
       anchorEl,
-      onClose,
-      containerProps = {},
-      alignCenter,
       maxHeight = 250,
       position = Position.BottomStart,
-      popperOptions,
-      enableOverlay = true,
       zIndex,
+      open = false,
+      enableOverlay = true,
       hideScroll = true,
-      scroll = true,
       enableUnderlayingEvent = false,
+      containerProps = {}, // Todo: remove this prop as we don't need it
+      popperOptions,
       popperWrapperStyles = {},
+      onClose,
       ...rest
     }: MenuProps,
     ref
@@ -39,7 +36,6 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
         left: 0,
         height: 0,
         width: 0,
-        ...(anchorElPosition || {}),
       };
 
       const defaultRect = new DOMRect(
@@ -57,14 +53,12 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
         if (timeout) {
           clearTimeout(timeout);
         }
-
         setTimeoutState(setTimeout(updateRect, 300));
       }
     }, [open, timeout]);
 
     useEffect(() => {
       window.addEventListener('resize', handleWindowSizeChanged);
-
       return () => {
         window.removeEventListener('resize', handleWindowSizeChanged);
       };
@@ -72,7 +66,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
 
     useEffect(() => {
       updateRect();
-    }, [anchorElPosition, updateRect]);
+    }, [updateRect]);
 
     useEffect(() => {
       if (hideScroll) {
@@ -98,25 +92,17 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
     return (
       <Popper
         ref={menuRef}
-        position={position || 'bottom-start'}
-        open={Boolean(anchorEl)}
+        position={position}
+        open={open}
         anchorEl={anchorEl}
-        overlay={Boolean(enableOverlay)}
-        onClick={handleClose}
+        overlay={enableOverlay}
         popperOptions={popperOptions}
         zIndex={zIndex}
         enableUnderlayingEvent={enableUnderlayingEvent}
         wrapperStyles={popperWrapperStyles}
+        onClick={handleClose}
       >
-        <Styled.Menu
-          {...containerProps}
-          alignCenter={Boolean(alignCenter)}
-          scroll={scroll}
-          rect={rect}
-          {...rest}
-          ref={ref}
-          maxHeight={maxHeight}
-        >
+        <Styled.Menu ref={ref} $maxHeight={maxHeight} $rect={rect} {...containerProps} {...rest}>
           {children}
         </Styled.Menu>
       </Popper>
