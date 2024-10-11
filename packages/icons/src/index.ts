@@ -270,7 +270,7 @@ export { BatchEdit } from './batch-edit';
 export { Blur } from './blur';
 export { AttentionFilled } from './attention-filled';
 export { PinOutline } from './pin-outline';
-export { Duplicate } from './duplicate';
+export { CopyOutline as Duplicate } from './copy-outline';
 export { LayerOrder } from './layer-order';
 export { DeleteOutline } from './delete-outline';
 export { CropCinemaScope } from './crop-cinema-scope';
