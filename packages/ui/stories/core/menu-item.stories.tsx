@@ -38,6 +38,9 @@ const meta: Meta<typeof MenuItem> = {
     enableScrollIntoView: {
       description: 'If true, The component will be scrolled into view',
     },
+    dividerStyle: {
+      description: 'Update divider styles',
+    },
   },
   parameters: {
     docs: {
@@ -55,6 +58,7 @@ const defaultArgs = {
   children: 'France',
   active: false,
   disabled: false,
+  dividerStyle: {},
 };
 
 export const Primary: Story = {

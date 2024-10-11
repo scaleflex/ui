@@ -7,7 +7,17 @@ import Menu from '../menu';
 import Styled from './menu-item.styles';
 
 const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuItemProps, ref): JSX.Element => {
-  const { list, children, disableHover, disabled, enableScrollIntoView, isFocused = false, active, value } = props;
+  const {
+    list,
+    children,
+    disableHover,
+    disabled,
+    enableScrollIntoView,
+    isFocused = false,
+    active,
+    value,
+    dividerStyle,
+  } = props;
   const menuItemRef = useRef<HTMLDivElement | null>(null);
 
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -63,7 +73,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
         );
       }
       if (option.content === 'divider') {
-        return <Styled.MenuItemWrapper divider key={option.key} />;
+        return <Styled.MenuItemWrapper divider key={option.key} style={option.dividerStyle} />;
       }
       return (
         <Styled.MenuItemWrapper
@@ -107,7 +117,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
 
   if (!list) {
     if (value === 'divider') {
-      return <Styled.MenuItemWrapper divider key={value} />;
+      return <Styled.MenuItemWrapper divider key={value} style={dividerStyle} />;
     }
 
     return (
