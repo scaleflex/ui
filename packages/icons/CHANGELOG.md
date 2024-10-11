@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.24](https://github.com/scaleflex/ui/compare/v2.10.23...v2.10.24) (2024-10-11)
+
+### Bug Fixes
+
+- duplicate icon is not aligned [FRA-6734] ([9584a7a](https://github.com/scaleflex/ui/commit/9584a7ae86504fdfa856af700293522c62575031))
+- duplicate icon is not aligned [FRA-6734] ([34806c7](https://github.com/scaleflex/ui/commit/34806c700a8e430f2e43d1860326e7eda2c98baa))
+
 ## [2.10.17](https://github.com/scaleflex/ui/compare/v2.10.16...v2.10.17) (2024-08-12)
 
 **Note:** Version bump only for package @scaleflex/icons
