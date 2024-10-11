@@ -18,8 +18,8 @@ const CheckBox = intrinsicComponent<CheckBoxProps, HTMLSpanElement>(
       checked = false,
       onChange,
       checkBoxProps,
-      readOnly,
-      disabled,
+      readOnly = false,
+      disabled = false,
       ...rest
     }: CheckBoxProps,
     ref

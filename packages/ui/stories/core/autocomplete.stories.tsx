@@ -11,11 +11,7 @@ const meta: Meta<typeof Autocomplete> = {
   title: 'Inputs/Autocomplete',
   component: Autocomplete,
   excludeStories: ['Autocomplete'],
-  argTypes: {
-    scroll: {
-      description: 'Prop directly change scroll design',
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;

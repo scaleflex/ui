@@ -1,0 +1,39 @@
+{/* Menu.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as MenuStories from '../core/menu.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Menu
+
+<Canvas of={MenuStories.Primary} withToolbar layout='centered'/>
+
+## Positioned Menu 
+
+Because the `Menu` component uses the `Popper` component to position itself, you can use the same `position` prop to position it. For instance, you can display the menu on left of the anchor:
+
+<Canvas of={MenuStories.PositionedMenu} withToolbar layout='centered'/>
+
+## Max height Menu 
+
+If the height of a menu prevents all menu items from being displayed, the menu can scroll internally.
+
+<Canvas of={MenuStories.MaxHeightMenu} withToolbar layout='centered'/>
+
+## Sub list Menu 
+
+If you want to show sub menu, you need to use `list` prop in `MenuItem` component.
+
+<Canvas of={MenuStories.SubListMenu} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+ 
+<ForwardRefNote />

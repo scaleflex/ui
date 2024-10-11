@@ -39,9 +39,9 @@ const fadeInAnimation = css`
 
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<With<WithTheme, { rect: DOMRect; alignCenter: boolean; maxHeight?: string | number; scroll?: boolean }>>(
-  ({ rect, theme, scroll, maxHeight = '' }) => css`
-    min-width: ${rect.width}px;
+})<With<WithTheme, { $rect: DOMRect; $maxHeight?: string | number }>>(
+  ({ theme, $maxHeight = '', $rect }) => css`
+    min-width: ${$rect.width}px;
     width: 195px;
     min-height: 16px;
     overflow-x: hidden;
@@ -55,15 +55,14 @@ const Menu = styled.div.attrs({
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     padding: 4px 0;
     background-color: ${theme.palette[PColor.BackgroundStateless]};
-
-    ${scroll && scrollBar}
-
-    ${maxHeight &&
-    css`
-      max-height: ${Number.isNaN(+maxHeight) ? maxHeight : `${maxHeight}px`};
-    `}
     margin-top: 4px;
+
+    ${scrollBar}
     ${fadeInAnimation}
+    ${$maxHeight &&
+    css`
+      max-height: ${Number.isNaN(+$maxHeight) ? $maxHeight : `${$maxHeight}px`};
+    `}
   `
 );
 
