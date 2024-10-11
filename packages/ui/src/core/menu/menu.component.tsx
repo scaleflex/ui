@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 import { intrinsicComponent } from '../../utils/functions';
 import type { MenuProps } from './menu.props';
@@ -10,75 +10,26 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
   (
     {
       children,
-      open = false,
-      anchorElPosition,
       anchorEl,
-      onClose,
-      containerProps = {},
-      alignCenter,
       maxHeight = 250,
       position = Position.BottomStart,
-      popperOptions,
-      enableOverlay = true,
       zIndex,
+      open = false,
+      enableOverlay = true,
       hideScroll = true,
-      scroll = true,
       enableUnderlayingEvent = false,
+      containerProps = {}, // Todo: remove this prop as we don't need it
+      popperOptions,
       popperWrapperStyles = {},
+      onClose,
       ...rest
     }: MenuProps,
     ref
   ): JSX.Element => {
-    const [timeout, setTimeoutState] = useState<ReturnType<typeof setTimeout> | null>(null);
-    const [rect, setRect] = useState(new DOMRect());
-    const menuRef = useRef(null);
-
-    const updateRect = useCallback(() => {
-      const defaultPosition = {
-        top: 0,
-        left: 0,
-        height: 0,
-        width: 0,
-        ...(anchorElPosition || {}),
-      };
-
-      const defaultRect = new DOMRect(
-        defaultPosition.left,
-        defaultPosition.top,
-        defaultPosition.width,
-        defaultPosition.height
-      );
-
-      setRect(anchorEl?.getBoundingClientRect() ?? defaultRect);
-    }, [open, timeout, anchorEl]);
-
-    const handleWindowSizeChanged = useCallback(() => {
-      if (open) {
-        if (timeout) {
-          clearTimeout(timeout);
-        }
-
-        setTimeoutState(setTimeout(updateRect, 300));
-      }
-    }, [open, timeout]);
-
-    useEffect(() => {
-      window.addEventListener('resize', handleWindowSizeChanged);
-
-      return () => {
-        window.removeEventListener('resize', handleWindowSizeChanged);
-      };
-    }, [handleWindowSizeChanged]);
-
-    useEffect(() => {
-      updateRect();
-    }, [anchorElPosition, updateRect]);
-
     useEffect(() => {
       if (hideScroll) {
         if (open) {
           document.body.classList.add('Menu-open');
-          updateRect();
         } else {
           document.body.classList.remove('Menu-open');
         }
@@ -87,7 +38,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
           document.body.classList.remove('Menu-open');
         };
       }
-    }, [open, updateRect]);
+    }, [open]);
 
     const handleClose = (event: React.MouseEvent<HTMLDivElement>): void => {
       if (typeof onClose === 'function') {
@@ -97,26 +48,17 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
 
     return (
       <Popper
-        ref={menuRef}
-        position={position || 'bottom-start'}
-        open={Boolean(anchorEl)}
+        position={position}
+        open={open}
         anchorEl={anchorEl}
-        overlay={Boolean(enableOverlay)}
-        onClick={handleClose}
+        overlay={enableOverlay}
         popperOptions={popperOptions}
         zIndex={zIndex}
         enableUnderlayingEvent={enableUnderlayingEvent}
         wrapperStyles={popperWrapperStyles}
+        onClick={handleClose}
       >
-        <Styled.Menu
-          {...containerProps}
-          alignCenter={Boolean(alignCenter)}
-          scroll={scroll}
-          rect={rect}
-          {...rest}
-          ref={ref}
-          maxHeight={maxHeight}
-        >
+        <Styled.Menu ref={ref} $maxHeight={maxHeight} {...containerProps} {...rest}>
           {children}
         </Styled.Menu>
       </Popper>

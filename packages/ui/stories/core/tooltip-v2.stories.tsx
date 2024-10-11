@@ -52,6 +52,9 @@ const meta: Meta<typeof TooltipV2> = {
     info: {
       description: 'Apply info variant to tooltip. Please use `variant` prop instead.',
     },
+    hide: {
+      description: 'If true, hides the tooltip.',
+    },
     warning: {
       description: 'Apply warning variant to tooltip. Please use `variant` prop instead.',
     },

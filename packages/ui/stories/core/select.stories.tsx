@@ -13,9 +13,6 @@ const meta: Meta<typeof Select> = {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
     },
-    scroll: {
-      description: 'Prop directly change scroll design',
-    },
   },
 };
 
