@@ -39,8 +39,9 @@ const fadeInAnimation = css`
 
 const Menu = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})<With<WithTheme, { $maxHeight?: string | number }>>(
-  ({ theme, $maxHeight = '' }) => css`
+})<With<WithTheme, { $rect: DOMRect; $maxHeight?: string | number }>>(
+  ({ theme, $maxHeight = '', $rect }) => css`
+    min-width: ${$rect.width}px;
     width: 195px;
     min-height: 16px;
     overflow-x: hidden;
