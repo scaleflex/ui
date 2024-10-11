@@ -131,7 +131,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             {isActive && !renderOptionLabel && (
               <MenuItemActions>
                 <Styled.TickIcon>
-                  <Tick size={12} />
+                  <Tick size={size === 'md' ? 16 : 14} />
                 </Styled.TickIcon>
               </MenuItemActions>
             )}
