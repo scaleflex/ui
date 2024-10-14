@@ -42,11 +42,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           return label;
         }
 
-        return (
-          <Label error={error} {...(LabelPropsData || {})}>
-            {label}
-          </Label>
-        );
+        return <Label {...(LabelPropsData || {})}>{label}</Label>;
       }
 
       return null;
