@@ -47,7 +47,7 @@ const InputGroup = intrinsicComponent<InputGroupProps, HTMLDivElement>(
         }
 
         return (
-          <Label size={size} error={error} disabled={disabled} {...(LabelPropsData || {})}>
+          <Label size={size} disabled={disabled} {...(LabelPropsData || {})}>
             {label}
           </Label>
         );
