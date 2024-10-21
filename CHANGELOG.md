@@ -14,19 +14,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ### Bug Fixes
 
 - **DatePicker:** input aligment [FRA-5859] ([17a49ba](https://github.com/scaleflex/ui/commit/17a49ba2f988e15af11771e5be3a9ca5493acd9a))
-- **DatePicker:** input centered [FRA-5850] ([5c077b7](https://github.com/scaleflex/ui/commit/5c077b7405480b7ac45610a177a2606312a6ede5))
 - duplicate icon is not aligned [FRA-6734] ([9584a7a](https://github.com/scaleflex/ui/commit/9584a7ae86504fdfa856af700293522c62575031))
-- duplicate icon is not aligned [FRA-6734] ([34806c7](https://github.com/scaleflex/ui/commit/34806c700a8e430f2e43d1860326e7eda2c98baa))
 - menu width ([1a7d11d](https://github.com/scaleflex/ui/commit/1a7d11d62f9c27411440a3d3316e7fb76e52ff1e))
-- menu width ([fa23a4d](https://github.com/scaleflex/ui/commit/fa23a4d50335a3339e881fe1b0af2c4c9e4fb943))
 - Options selected state [FRA-6666] ([94a3ed2](https://github.com/scaleflex/ui/commit/94a3ed2a000a20a53abddcbaeb24cdb0f91b909b))
 
 ### Features
 
 - UI KIT Select all to choose all applicable values [SHA-57] ([fd0b098](https://github.com/scaleflex/ui/commit/fd0b098138f053f5f411960cc69a746b967a7ca6))
-- UI KIT Select all to choose all applicable values [SHA-57] ([6291e9f](https://github.com/scaleflex/ui/commit/6291e9ff6746cd4a4b1eca00ed4950aacc8ca97f))
-- UI KIT Select all to choose all applicable values [SHA-57] ([d148948](https://github.com/scaleflex/ui/commit/d148948e7de9b9ae6b91f7f4f1efafc7685c20ec))
-- UI KIT Select all to choose all applicable values [SHA-57] ([f0c81e3](https://github.com/scaleflex/ui/commit/f0c81e3fd98e13b1e86021375149ea8470a9b300))
 
 ## [2.10.23](https://github.com/scaleflex/ui/compare/v2.10.22...v2.10.23) (2024-09-13)
 
