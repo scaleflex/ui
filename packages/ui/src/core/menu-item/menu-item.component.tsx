@@ -17,6 +17,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
     active,
     value,
     dividerStyle,
+    depth = 0,
   } = props;
   const menuItemRef = useRef<HTMLDivElement | null>(null);
 
@@ -68,13 +69,15 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
             enableOverlay={false}
             {...option.subMenuProps}
           >
-            <MenuItem list={option.subList} depth={newDepthLevel} {...props} />
+            <MenuItem {...props} list={option.subList} depth={newDepthLevel} />
           </Menu>
         );
       }
+
       if (option.content === 'divider') {
         return <Styled.MenuItemWrapper divider key={option.key} style={option.dividerStyle} />;
       }
+
       return (
         <Styled.MenuItemWrapper
           disabled={false}
@@ -136,7 +139,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
     );
   }
 
-  return <>{renderItems(list, 0)}</>;
+  return <>{renderItems(list, depth)}</>;
 });
 
 MenuItem.displayName = 'MenuItem';
