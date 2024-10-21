@@ -32,7 +32,7 @@ export const renderLabel = ({
     }
 
     return (
-      <Label size={size} error={error} {...(LabelProps || {})}>
+      <Label size={size} {...(LabelProps || {})}>
         {label}
       </Label>
     );

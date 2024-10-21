@@ -231,11 +231,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     return (
       <Styled.TagFieldRoot ref={ref} fullWidth={fullWidth}>
         <Styled.TagInputFieldWrapper>
-          {label && (
-            <Label error={tagsError} {...(LabelPropsData || {})}>
-              {label}
-            </Label>
-          )}
+          {label && <Label {...(LabelPropsData || {})}>{label}</Label>}
 
           <Styled.Wrapper>
             <Styled.TagFieldWrapper
