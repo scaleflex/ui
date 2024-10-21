@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.25](https://github.com/scaleflex/ui/compare/v2.10.24...v2.10.25) (2024-10-21)
+
+### Bug Fixes
+
+- **Label:** remove error status from labels [FRA-6529] ([a2781f3](https://github.com/scaleflex/ui/commit/a2781f3a33ac168fea672d6f4087f45e4f167f76))
+
 ## [2.10.24](https://github.com/scaleflex/ui/compare/v2.10.23...v2.10.24) (2024-10-11)
 
 ### Bug Fixes
