@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.26](https://github.com/scaleflex/ui/compare/v2.10.25...v2.10.26) (2024-10-21)
+
+### Bug Fixes
+
+- **MenuItem:** showing subList ([7738817](https://github.com/scaleflex/ui/commit/7738817799f9765c6e4f0f5b78b880bb81cd9f93))
+
 ## [2.10.25](https://github.com/scaleflex/ui/compare/v2.10.24...v2.10.25) (2024-10-21)
 
 ### Bug Fixes
