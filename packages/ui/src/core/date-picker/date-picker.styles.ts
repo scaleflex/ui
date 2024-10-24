@@ -23,11 +23,11 @@ const Placeholder = styled.div.attrs({
 })<With<WithTheme, InputProps>>(
   ({ fullWidth, theme, readOnly, disabled, size }) => css`
     position: absolute;
-    top: 54%;
-    transform: translateY(-54%);
-    left: ${size === 'sm' ? '13px' : '18px'};
+    top: 50%;
+    transform: translateY(-50%);
+    left: ${size === 'sm' ? '13px' : '14px'};
     width: ${fullWidth ? '95%' : '244px'};
-    height: ${size === 'sm' ? '16px' : '18px'};
+    height: 19px;
     ${theme.typography.font[FontVariant.InputMd]}
     color: ${theme.palette[PColor.TextPlaceholder]};
     background: ${readOnly || disabled
@@ -47,6 +47,8 @@ const DatePickerInput = styled(InputGroup).attrs({
       display: none;
       -webkit-appearance: none;
     }
+    padding: 8px 12px;
+    align-items: center;
 
     .SfxInput-ClearIcon {
       display: none;
@@ -71,11 +73,17 @@ const DatePickerInput = styled(InputGroup).attrs({
 
 const DatePickerIconButton = styled(IconButton).attrs({
   className: generateClassNames(baseClassName, 'dropdown'),
-})`
-  border: none;
-  padding: 0;
-  z-index: 1;
-`;
+})<With<WithTheme, InputProps>>(
+  ({ theme }) => css`
+    border: none;
+    padding: 0;
+    z-index: 1;
+
+    svg {
+      color: ${theme.palette[PColor.IconsSecondary]};
+    }
+  `
+);
 
 const Styled = applyDisplayNames({
   DatePicker,
