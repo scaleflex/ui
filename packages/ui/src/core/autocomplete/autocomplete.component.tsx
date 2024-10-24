@@ -120,6 +120,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       if (renderCount.current <= 1) {
         return;
       }
+
       if (focusedMenuItemIndex) {
         setMenuJustOpened(false);
       }
