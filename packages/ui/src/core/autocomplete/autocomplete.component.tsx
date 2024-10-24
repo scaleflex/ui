@@ -108,7 +108,6 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     useEffect(() => {
       if (open) {
         setMenuJustOpened(true);
-        renderCount.current = 0;
       } else {
         setMenuJustOpened(false);
       }
