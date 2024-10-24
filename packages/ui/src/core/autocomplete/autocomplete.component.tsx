@@ -115,9 +115,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     }, [open]);
 
     useEffect(() => {
-      renderCount.current += 1; // Increment the render count on each render
+      renderCount.current += 1;
 
-      // Skip first and second render
       if (renderCount.current <= 1) {
         return;
       }
