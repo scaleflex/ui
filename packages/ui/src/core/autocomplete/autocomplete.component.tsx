@@ -84,7 +84,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       getOptionDisabled,
     });
     const [menuJustOpened, setMenuJustOpened] = useState<boolean>(false);
-    const renderCount = useRef<number>(0);
+    const isInitialRender = useRef<boolean>(false);
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
     const handleSelectAll = (event: React.MouseEvent<HTMLElement>): void => {
@@ -108,16 +108,15 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     useEffect(() => {
       if (open) {
         setMenuJustOpened(true);
-        renderCount.current = 0;
+        isInitialRender.current = false;
       } else {
         setMenuJustOpened(false);
       }
     }, [open]);
 
     useEffect(() => {
-      renderCount.current += 1;
-
-      if (renderCount.current <= 1) {
+      if (!isInitialRender.current) {
+        isInitialRender.current = true;
         return;
       }
 
