@@ -18,6 +18,7 @@ export function useAutocomplete(
     getOptionValue: (option: AutocompleteOptionType) => AutocompleteOptionIdType;
     getOptionLabel: (option: AutocompleteOptionType) => AutocompleteOptionLabelType;
     getOptionDisabled: (option: AutocompleteOptionType) => boolean;
+    setMenuJustOpened: React.Dispatch<React.SetStateAction<boolean>>;
   }
 ): AutocompleteHookReturn {
   const {
@@ -34,6 +35,7 @@ export function useAutocomplete(
     getOptionDisabled,
     groupBy,
     closeMenuAfterSelection = true,
+    setMenuJustOpened,
   } = props;
 
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -208,9 +210,11 @@ export function useAutocomplete(
       if (event.key === 'ArrowDown') {
         const nextIndex = focusedMenuItemIndex + 1;
         setFocusedMenuItemIndex(nextIndex >= filteredOptions.length ? 0 : nextIndex);
+        setMenuJustOpened(false);
       } else if (event.key === 'ArrowUp') {
         const prevIndex = focusedMenuItemIndex - 1;
         setFocusedMenuItemIndex(prevIndex < 0 ? filteredOptions.length - 1 : prevIndex);
+        setMenuJustOpened(false);
       } else if (event.key === 'Enter' && focusedMenuItemIndex >= 0) {
         const option = filteredOptions[focusedMenuItemIndex];
         handleMenuItemClick(option);
@@ -291,5 +295,6 @@ export function useAutocomplete(
     handleClearIconClick,
     handleSelectAllOptions,
     focusedMenuItemIndex,
+    setMenuJustOpened,
   };
 }
