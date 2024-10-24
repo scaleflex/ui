@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent } from '../../utils/functions';
@@ -83,6 +83,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       getOptionLabel,
       getOptionDisabled,
     });
+    const [menuJustOpened, setMenuJustOpened] = useState<boolean>(false);
+    const renderCount = useRef<number>(0);
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
     const handleSelectAll = (event: React.MouseEvent<HTMLElement>): void => {
@@ -103,6 +105,27 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
+    useEffect(() => {
+      if (open) {
+        setMenuJustOpened(true);
+        renderCount.current = 0;
+      } else {
+        setMenuJustOpened(false);
+      }
+    }, [open]);
+
+    useEffect(() => {
+      renderCount.current += 1; // Increment the render count on each render
+
+      // Skip first and second render
+      if (renderCount.current <= 1) {
+        return;
+      }
+      if (focusedMenuItemIndex) {
+        setMenuJustOpened(false); // Reset immediately after any change to `focusedMenuItemIndex`
+      }
+    }, [focusedMenuItemIndex]);
+
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
       const optionLabel = getOptionLabel(option);
@@ -114,6 +137,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         <TextWithHighlights highlightText={searchTerm} text={optionLabel} />
       );
 
+      const isFocused = !menuJustOpened && index === focusedMenuItemIndex;
+
       const menuItemProps = {
         key: optionId,
         value: optionId,
@@ -121,7 +146,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         onMouseDown: (event: React.MouseEvent<HTMLElement>) => event.preventDefault(),
         disabled: isDisabled,
         active: isActive,
-        isFocused: index === focusedMenuItemIndex,
+        isFocused,
         onClick: () => handleMenuItemClick(option),
         enableScrollIntoView: true,
         children: (

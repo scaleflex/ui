@@ -99,7 +99,6 @@ const MenuItem = styled.div.attrs({
 
     ${$isFocused &&
     !disableHover &&
-    !$active &&
     css`
       background-color: ${theme.palette[PColor.BackgroundHover]};
     `}
