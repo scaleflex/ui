@@ -117,11 +117,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     useEffect(() => {
       if (!isInitialRender.current) {
         isInitialRender.current = true;
-        return;
-      }
-
-      if (focusedMenuItemIndex && menuJustOpened) {
-        setMenuJustOpened(false);
+      } else {
+        if (focusedMenuItemIndex && menuJustOpened) {
+          setMenuJustOpened(false);
+        }
       }
     }, [focusedMenuItemIndex]);
 
