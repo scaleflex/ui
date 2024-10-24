@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent } from '../../utils/functions';
@@ -17,6 +17,7 @@ import Button from '../button/button.component';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
+    const [menuJustOpened, setMenuJustOpened] = useState<boolean>(true);
     const {
       MenuProps,
       LabelProps: LabelPropsData,
@@ -82,9 +83,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       getOptionValue,
       getOptionLabel,
       getOptionDisabled,
+      setMenuJustOpened,
     });
-    const [menuJustOpened, setMenuJustOpened] = useState<boolean>(false);
-    const isInitialRender = useRef<boolean>(false);
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
     const handleSelectAll = (event: React.MouseEvent<HTMLElement>): void => {
@@ -108,21 +108,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     useEffect(() => {
       if (open) {
         setMenuJustOpened(true);
-        isInitialRender.current = false;
       } else {
         setMenuJustOpened(false);
       }
     }, [open]);
-
-    useEffect(() => {
-      if (!isInitialRender.current) {
-        isInitialRender.current = true;
-      } else {
-        if (focusedMenuItemIndex && menuJustOpened) {
-          setMenuJustOpened(false);
-        }
-      }
-    }, [focusedMenuItemIndex]);
 
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
