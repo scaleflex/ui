@@ -121,7 +121,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         return;
       }
       if (focusedMenuItemIndex) {
-        setMenuJustOpened(false); // Reset immediately after any change to `focusedMenuItemIndex`
+        setMenuJustOpened(false);
       }
     }, [focusedMenuItemIndex]);
 
