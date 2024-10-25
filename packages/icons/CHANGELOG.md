@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.27](https://github.com/scaleflex/ui/compare/v2.10.26...v2.10.27) (2024-10-25)
+
+**Note:** Version bump only for package @scaleflex/icons
+
 ## [2.10.24](https://github.com/scaleflex/ui/compare/v2.10.23...v2.10.24) (2024-10-11)
 
 ### Bug Fixes

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.27](https://github.com/scaleflex/ui/compare/v2.10.26...v2.10.27) (2024-10-25)
+
+### Bug Fixes
+
+- adjust date picker text alignment ([92f689d](https://github.com/scaleflex/ui/commit/92f689d69439931f4d1c27a21eca0a7d29d759b3))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([cd1bf2a](https://github.com/scaleflex/ui/commit/cd1bf2aca6459d07b323c965e5dc07b4fbe8fc8a))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([aefe41c](https://github.com/scaleflex/ui/commit/aefe41c094270a74eaf04581a5990742d37bb7f5))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([b7f4ba3](https://github.com/scaleflex/ui/commit/b7f4ba3c7741f6c9b762490b221363f1bebe6c40))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([f9aaff1](https://github.com/scaleflex/ui/commit/f9aaff10471a7fd1131cdf552da5c0c25b22679f))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([9d93f90](https://github.com/scaleflex/ui/commit/9d93f90351e6920667d0179c0bbe1a77875a16a3))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([b8945ef](https://github.com/scaleflex/ui/commit/b8945ef531592db9ac9a7fc5ad507fd06721db0c))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([1bb915e](https://github.com/scaleflex/ui/commit/1bb915eaf4178101e84b8aefdacda79ceaaec1d9))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([c5e400d](https://github.com/scaleflex/ui/commit/c5e400d2ba0264879eeb2a78fe2d7caef638c00a))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([bd18c85](https://github.com/scaleflex/ui/commit/bd18c85c15e95832267bab95549fd740070b5b06))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([2ff2ab9](https://github.com/scaleflex/ui/commit/2ff2ab92b40d2db579cc7d3c415a61d90351ee34))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([e1884fe](https://github.com/scaleflex/ui/commit/e1884feafec5b1286cf9033d7c02dd231702bc3e))
+- Fix ghost effect on selected elements in drop-down menus [SHA-64] ([d482981](https://github.com/scaleflex/ui/commit/d482981d23b14836634386dda3a383452a1a651f))
+- **iconButton:** add type button ([e693fad](https://github.com/scaleflex/ui/commit/e693fada86b5b43211d811411be15a4146673094))
+
 ## [2.10.26](https://github.com/scaleflex/ui/compare/v2.10.25...v2.10.26) (2024-10-21)
 
 ### Bug Fixes
