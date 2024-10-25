@@ -106,11 +106,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
     };
 
     useEffect(() => {
-      if (open) {
-        setMenuJustOpened(true);
-      } else {
-        setMenuJustOpened(false);
-      }
+      setMenuJustOpened(open);
     }, [open]);
 
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
