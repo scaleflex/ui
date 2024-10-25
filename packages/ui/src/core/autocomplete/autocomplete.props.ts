@@ -173,4 +173,5 @@ export interface AutocompleteHookReturn {
   handleSelectAllOptions: () => void;
   searchTerm: string;
   focusedMenuItemIndex: number;
+  setMenuJustOpened: React.Dispatch<React.SetStateAction<boolean>>;
 }

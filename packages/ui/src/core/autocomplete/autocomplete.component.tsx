@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Tick from '@scaleflex/icons/tick';
 
 import { intrinsicComponent } from '../../utils/functions';
@@ -17,6 +17,7 @@ import Button from '../button/button.component';
 
 const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
   (props: AutocompleteProps, ref): JSX.Element => {
+    const [menuJustOpened, setMenuJustOpened] = useState<boolean>(true);
     const {
       MenuProps,
       LabelProps: LabelPropsData,
@@ -82,6 +83,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       getOptionValue,
       getOptionLabel,
       getOptionDisabled,
+      setMenuJustOpened,
     });
     const isMultiple = Boolean(multiple) && Array.isArray(formattedValue);
 
@@ -103,6 +105,10 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
       }
     };
 
+    useEffect(() => {
+      setMenuJustOpened(open);
+    }, [open]);
+
     const renderMenuItem = (option: AutocompleteOptionType, index: number): JSX.Element | React.ReactNode => {
       const optionId = getOptionValue(option);
       const optionLabel = getOptionLabel(option);
@@ -114,6 +120,8 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         <TextWithHighlights highlightText={searchTerm} text={optionLabel} />
       );
 
+      const isFocused = !menuJustOpened && index === focusedMenuItemIndex;
+
       const menuItemProps = {
         key: optionId,
         value: optionId,
@@ -121,7 +129,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
         onMouseDown: (event: React.MouseEvent<HTMLElement>) => event.preventDefault(),
         disabled: isDisabled,
         active: isActive,
-        isFocused: index === focusedMenuItemIndex,
+        isFocused,
         onClick: () => handleMenuItemClick(option),
         enableScrollIntoView: true,
         children: (
