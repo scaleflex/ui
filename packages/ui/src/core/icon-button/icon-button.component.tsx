@@ -11,7 +11,7 @@ const IconButton = intrinsicComponent<IconButtonProps, HTMLButtonElement>(
     { children, size = ButtonSize.Md, color = IconButtonColor.Primary, active = false, ...rest }: IconButtonProps,
     ref
   ): JSX.Element => (
-    <Styled.IconButton {...rest} size={size} color={color} $active={active} ref={ref}>
+    <Styled.IconButton type="button" {...rest} size={size} color={color} $active={active} ref={ref}>
       {children && (typeof children === 'function' ? children({ size: getIconSize(size) }) : children)}
     </Styled.IconButton>
   )
