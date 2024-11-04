@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.28](https://github.com/scaleflex/ui/compare/v2.10.27...v2.10.28) (2024-11-04)
+
+### Features
+
+- **Icons:** add new icon ([f480ca1](https://github.com/scaleflex/ui/commit/f480ca123f6e11e68af87c618176ec8a24489231))
+
 ## [2.10.27](https://github.com/scaleflex/ui/compare/v2.10.26...v2.10.27) (2024-10-25)
 
 **Note:** Version bump only for package @scaleflex/icons

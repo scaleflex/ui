@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.28](https://github.com/scaleflex/ui/compare/v2.10.27...v2.10.28) (2024-11-04)
+
+### Features
+
+- **Drawer:** add prop to collaspse button [FRA-5949] ([785efc2](https://github.com/scaleflex/ui/commit/785efc2a83f4f3642a9c53e1e805802c7a3c465a))
+- **Icons:** add new icon ([f480ca1](https://github.com/scaleflex/ui/commit/f480ca123f6e11e68af87c618176ec8a24489231))
+
 ## [2.10.27](https://github.com/scaleflex/ui/compare/v2.10.26...v2.10.27) (2024-10-25)
 
 ### Bug Fixes
