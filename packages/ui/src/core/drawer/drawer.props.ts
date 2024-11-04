@@ -18,6 +18,7 @@ export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTM
   iconsSize?: number;
   collapseButtonLabel?: string;
   persistentDrawerStyles?: object;
+  collapseButtonStyle?: React.CSSProperties;
   temproryDrawerStyles?: object; //TODO: fix typo
   variant?: DrawerVariant;
   onClose?: () => void;

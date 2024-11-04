@@ -27,6 +27,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       collapseButtonLabel = 'Collapse menu',
       persistentDrawerStyles = {},
       temproryDrawerStyles = {},
+      collapseButtonStyle = {},
       variant = Variant.Auto,
       onClose,
       onCollapse,
@@ -90,7 +91,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       <Styled.Drawer open={open} top={top} {...rest} isCollapsed={showCollapsedButton ? isCollapsed : false} ref={ref}>
         {children}
         {showCollapsedButton && (
-          <Styled.CollapsedButton onClick={handleCollapse} isCollapsed={isCollapsed}>
+          <Styled.CollapsedButton onClick={handleCollapse} isCollapsed={isCollapsed} style={{ ...collapseButtonStyle }}>
             <DrawerItemIcon>
               {isCollapsed
                 ? (props: IconProps) => <ArrowSidebarRightOutline {...props} size={iconsSize} />
