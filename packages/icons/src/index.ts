@@ -459,3 +459,4 @@ export { Denied } from './denied';
 export { Congratulations } from './congratulations';
 export { Metadata } from './metadata';
 export { NoRepeat } from './no-repeat';
+export { TrimVideo } from './trim-video';
