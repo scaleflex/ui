@@ -460,3 +460,4 @@ export { Congratulations } from './congratulations';
 export { Metadata } from './metadata';
 export { NoRepeat } from './no-repeat';
 export { TrimVideo } from './trim-video';
+export { Split } from './split';
