@@ -11,6 +11,7 @@ export interface SelectGroupProps extends SelectProps, Omit<React.HTMLAttributes
   size?: SelectSizeType;
   hint?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
   LabelProps?: LabelProps;
+  onClickClearIcon?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   SelectProps?: SelectProps;
   selectProps?: React.InputHTMLAttributes<HTMLInputElement>;
   fullWidth?: boolean;

@@ -15,6 +15,7 @@ export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   multiple?: boolean;
   value?: SelectSimpleValueType | SelectSimpleValueType[];
   onChange?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => void;
+  onClickClearIcon?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   selectProps?: React.InputHTMLAttributes<HTMLInputElement>;
   MenuProps?: Omit<MenuProps, 'open'>;
   readOnly?: boolean;
