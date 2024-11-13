@@ -247,9 +247,12 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
           <Button size="sm" color="link-basic-primary" onClick={handleSelectAll}>
             {selectAllButtonLabel}
           </Button>
-          <Button color="link-secondary" size="sm" onClick={handleClearAll}>
-            {clearAllButtonLabel}
-          </Button>
+
+          {!!rest?.value?.length && (
+            <Button color="link-secondary" size="sm" onClick={handleClearAll}>
+              {clearAllButtonLabel}
+            </Button>
+          )}
         </>
         {renderInputEndIcons()}
       </Styled.InputIconEndContainer>
