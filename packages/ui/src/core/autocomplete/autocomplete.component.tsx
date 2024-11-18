@@ -248,7 +248,7 @@ const Autocomplete = intrinsicComponent<AutocompleteProps, HTMLDivElement>(
             {selectAllButtonLabel}
           </Button>
 
-          {!!rest?.value?.length && (
+          {!!formattedValue?.length && (
             <Button color="link-secondary" size="sm" onClick={handleClearAll}>
               {clearAllButtonLabel}
             </Button>
