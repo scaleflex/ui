@@ -25,6 +25,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
       multiple,
       hideMenuItemsActions = false,
       onChange,
+      onClickClearIcon,
       readOnly = false,
       disabled = false,
       showClearIcon,
@@ -83,6 +84,7 @@ const SelectGroup = intrinsicComponent<SelectGroupProps, HTMLDivElement>(
           showSelectionKey={showSelectionKey}
           hideMenuItemsActions={hideMenuItemsActions}
           showClearIcon={showClearIcon}
+          onClickClearIcon={onClickClearIcon}
         >
           {children}
         </Select>

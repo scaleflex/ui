@@ -119,6 +119,8 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
           iconClickEnd(event);
         }
       } else if (clearIconClick) {
+        event.stopPropagation();
+        inputRef.current?.blur();
         clearIconClick(event);
       }
     };
