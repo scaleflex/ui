@@ -43,7 +43,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
 
     const renderTooltipTitle = () => (
       <div onClick={ignoreEvent} onDoubleClick={ignoreEvent}>
-        {tooltipTitle ? tooltipTitle : children}
+        {tooltipTitle || children}
       </div>
     );
 
