@@ -16,6 +16,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       customMaxHeight,
       noTooltip = false,
       tooltipProps,
+      tooltipTitle,
       textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
@@ -42,7 +43,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
 
     const renderTooltipTitle = () => (
       <div onClick={ignoreEvent} onDoubleClick={ignoreEvent}>
-        {children}
+        {tooltipTitle || children}
       </div>
     );
 
