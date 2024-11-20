@@ -7,6 +7,12 @@ const meta: Meta<typeof EllipsedText> = {
   title: 'DataDisplay/EllipsedText',
   component: EllipsedText,
   excludeStories: ['EllipsedText'],
+  argTypes: {
+    textSuffix: {
+      description:
+        'The text suffix is displayed after the ellipsis only when the text is truncated, and it is limited to a maximum of 3 characters.',
+    },
+  },
 };
 
 export default meta;

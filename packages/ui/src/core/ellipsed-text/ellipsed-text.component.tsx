@@ -17,6 +17,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       noTooltip = false,
       tooltipProps,
       tooltipTitle,
+      textSuffix = '',
       textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
@@ -24,6 +25,10 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
   ): JSX.Element => {
     const textContentRef = useRef<HTMLDivElement>(null);
     const [shouldEllipse, setShouldEllipse] = useState(false);
+
+    const getTextSuffix = (textSuffix: string): string => {
+      return textSuffix.slice(0, 3); // Take the first 3 characters
+    };
 
     const applyEllipsisIfNeeded = useCallback(
       (elem: Element) => {
@@ -72,16 +77,19 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
     }, []);
 
     return (
-      <Styled.EllipsedTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
-        {shouldEllipse && !noTooltip ? (
-          <TooltipV2 position="top" size="md" ref={ref} arrow {...tooltipProps} title={renderTooltipTitle()}>
-            <Styled.TooltipContent as={element} $customMaxHeight={customMaxHeight}>
-              {children}
-            </Styled.TooltipContent>
-          </TooltipV2>
-        ) : (
-          children
-        )}
+      <Styled.EllipsedTextWrapper>
+        <Styled.PrefixTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
+          {shouldEllipse && !noTooltip ? (
+            <TooltipV2 position="top" size="md" ref={ref} arrow {...tooltipProps} title={renderTooltipTitle()}>
+              <Styled.TooltipContent as={element} $customMaxHeight={customMaxHeight}>
+                {children}
+              </Styled.TooltipContent>
+            </TooltipV2>
+          ) : (
+            children
+          )}
+        </Styled.PrefixTextWrapper>
+        <Styled.textSuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.textSuffixTextWrapper>
       </Styled.EllipsedTextWrapper>
     );
   }
