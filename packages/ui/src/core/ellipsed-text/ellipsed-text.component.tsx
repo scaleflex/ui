@@ -17,7 +17,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       noTooltip = false,
       tooltipProps,
       tooltipTitle,
-      textSuffix = '',
+      textSuffix = undefined,
       textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
@@ -77,8 +77,8 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
     }, []);
 
     return (
-      <Styled.EllipsedTextWrapper>
-        <Styled.PrefixTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
+      <Styled.EllipsedTextContainer>
+        <Styled.EllipsedTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
           {shouldEllipse && !noTooltip ? (
             <TooltipV2 position="top" size="md" ref={ref} arrow {...tooltipProps} title={renderTooltipTitle()}>
               <Styled.TooltipContent as={element} $customMaxHeight={customMaxHeight}>
@@ -88,9 +88,9 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
           ) : (
             children
           )}
-        </Styled.PrefixTextWrapper>
-        <Styled.textSuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.textSuffixTextWrapper>
-      </Styled.EllipsedTextWrapper>
+        </Styled.EllipsedTextWrapper>
+        {textSuffix && <Styled.SuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.SuffixTextWrapper>}
+      </Styled.EllipsedTextContainer>
     );
   }
 );

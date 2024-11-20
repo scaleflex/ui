@@ -5,15 +5,13 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'Ellipsed';
 
-const EllipsedTextWrapper = styled.div.attrs({
+const EllipsedTextContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
-})(
-  () => css`
-    display: flex;
-  `
-);
+})`
+  display: flex;
+`;
 
-const PrefixTextWrapper = styled.div.attrs({
+const EllipsedTextWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Prefix-content'),
 })<With<WithTheme, { $maxLinesCount?: number }>>(
   ({ $maxLinesCount }) => css`
@@ -38,21 +36,19 @@ const TooltipContent = styled.div.attrs({
   `
 );
 
-const textSuffixTextWrapper = styled.div.attrs({
+const SuffixTextWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'Text-suffix-content'),
-})(
-  () => css`
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-  `
-);
+})`
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+`;
 
 const Styled = applyDisplayNames({
+  EllipsedTextContainer,
   EllipsedTextWrapper,
-  PrefixTextWrapper,
   TooltipContent,
-  textSuffixTextWrapper,
+  SuffixTextWrapper,
 });
 
 export default Styled;
