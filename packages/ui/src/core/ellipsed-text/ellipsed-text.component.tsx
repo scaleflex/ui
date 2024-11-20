@@ -4,6 +4,7 @@ import { EllipsedTextProps } from './ellipsed-text.props';
 import TooltipV2 from '../tooltip-v2';
 import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import Styled from './ellipsed-text.styles';
+import { getTextSuffix } from './ellipsed-text.utils';
 
 const POSSIBLE_FONT_GAP = 1; // there is a possibility that the font might render around ~1px in height/width for some chars so we are considering that 1px in-case.
 
@@ -17,7 +18,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       noTooltip = false,
       tooltipProps,
       tooltipTitle,
-      textSuffix = undefined,
+      textSuffix,
       textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
@@ -25,10 +26,6 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
   ): JSX.Element => {
     const textContentRef = useRef<HTMLDivElement>(null);
     const [shouldEllipse, setShouldEllipse] = useState(false);
-
-    const getTextSuffix = (textSuffix: string): string => {
-      return textSuffix.slice(0, 3); // Take the first 3 characters
-    };
 
     const applyEllipsisIfNeeded = useCallback(
       (elem: Element) => {
