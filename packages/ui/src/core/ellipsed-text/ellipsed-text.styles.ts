@@ -12,7 +12,7 @@ const EllipsedTextContainer = styled.div.attrs({
 `;
 
 const EllipsedTextWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Prefix-content'),
+  className: generateClassNames(baseClassName, 'ellipsed-text-wrapper'),
 })<With<WithTheme, { $maxLinesCount?: number }>>(
   ({ $maxLinesCount }) => css`
     display: -webkit-box;
@@ -37,7 +37,7 @@ const TooltipContent = styled.div.attrs({
 );
 
 const SuffixTextWrapper = styled.div.attrs({
-  className: generateClassNames(baseClassName, 'Text-suffix-content'),
+  className: generateClassNames(baseClassName, 'suffix-text-wrapper'),
 })`
   display: flex;
   justify-content: flex-end;
