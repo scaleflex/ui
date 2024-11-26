@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.31](https://github.com/scaleflex/ui/compare/v2.10.30...v2.10.31) (2024-11-26)
+
+### Bug Fixes
+
+- **Input:** blur onClick cross button [FRA-5665] ([816bf10](https://github.com/scaleflex/ui/commit/816bf10953574165e2742424daf49643f4de033a))
+
+### Features
+
+- add suffix text to the ellipsed text component ([981271f](https://github.com/scaleflex/ui/commit/981271f0363aa04e3617d3b4947149e1e69f9818))
+- add tooltip title to elipsed text ([f405972](https://github.com/scaleflex/ui/commit/f405972c6b8e7c54e1cf7f5906986a69447aa0d1))
+
 ## [2.10.30](https://github.com/scaleflex/ui/compare/v2.10.29...v2.10.30) (2024-11-12)
 
 ### Features
