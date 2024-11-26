@@ -5,8 +5,14 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 
 const baseClassName = 'Ellipsed';
 
-const EllipsedTextWrapper = styled.div.attrs({
+const EllipsedTextContainer = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
+})`
+  display: flex;
+`;
+
+const EllipsedTextWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'ellipsed-text-wrapper'),
 })<With<WithTheme, { $maxLinesCount?: number }>>(
   ({ $maxLinesCount }) => css`
     display: -webkit-box;
@@ -30,9 +36,19 @@ const TooltipContent = styled.div.attrs({
   `
 );
 
+const SuffixTextWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'suffix-text-wrapper'),
+})`
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+`;
+
 const Styled = applyDisplayNames({
+  EllipsedTextContainer,
   EllipsedTextWrapper,
   TooltipContent,
+  SuffixTextWrapper,
 });
 
 export default Styled;

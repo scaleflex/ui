@@ -19,6 +19,7 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
       error = false,
       multiple = false,
       onChange,
+      onClickClearIcon,
       value,
       fullWidth = false,
       selectProps,
@@ -54,6 +55,10 @@ const Select = intrinsicComponent<SelectProps, HTMLDivElement>(
 
       if (typeof onChange === 'function') {
         onChange('');
+      }
+
+      if (typeof onClickClearIcon === 'function') {
+        onClickClearIcon(event);
       }
     };
 
