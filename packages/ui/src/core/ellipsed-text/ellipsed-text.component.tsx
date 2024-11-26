@@ -87,17 +87,13 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       </Styled.EllipsedTextWrapper>
     );
 
-    return (
-      <>
-        {textSuffix ? (
-          <Styled.EllipsedTextContainer>
-            {renderEllipsedText()}
-            <Styled.SuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.SuffixTextWrapper>
-          </Styled.EllipsedTextContainer>
-        ) : (
-          renderEllipsedText()
-        )}
-      </>
+    return textSuffix ? (
+      <Styled.EllipsedTextContainer>
+        {renderEllipsedText()}
+        <Styled.SuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.SuffixTextWrapper>
+      </Styled.EllipsedTextContainer>
+    ) : (
+      renderEllipsedText()
     );
   }
 );
