@@ -4,6 +4,7 @@ import { EllipsedTextProps } from './ellipsed-text.props';
 import TooltipV2 from '../tooltip-v2';
 import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import Styled from './ellipsed-text.styles';
+import { getTextSuffix } from './ellipsed-text.utils';
 
 const POSSIBLE_FONT_GAP = 1; // there is a possibility that the font might render around ~1px in height/width for some chars so we are considering that 1px in-case.
 
@@ -17,6 +18,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       noTooltip = false,
       tooltipProps,
       tooltipTitle,
+      textSuffix,
       textWrapperProps = {},
       ...rest
     }: EllipsedTextProps,
@@ -71,7 +73,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       };
     }, []);
 
-    return (
+    const renderEllipsedText = () => (
       <Styled.EllipsedTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
         {shouldEllipse && !noTooltip ? (
           <TooltipV2 position="top" size="md" ref={ref} arrow {...tooltipProps} title={renderTooltipTitle()}>
@@ -83,6 +85,15 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
           children
         )}
       </Styled.EllipsedTextWrapper>
+    );
+
+    return textSuffix ? (
+      <Styled.EllipsedTextContainer>
+        {renderEllipsedText()}
+        <Styled.SuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.SuffixTextWrapper>
+      </Styled.EllipsedTextContainer>
+    ) : (
+      renderEllipsedText()
     );
   }
 );

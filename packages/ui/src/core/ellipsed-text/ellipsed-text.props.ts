@@ -10,4 +10,5 @@ export interface EllipsedTextProps extends HTMLAttributes<HTMLDivElement> {
   tooltipProps?: TooltipV2Props;
   textWrapperProps?: HTMLAttributes<HTMLDivElement>;
   tooltipTitle?: string;
+  textSuffix?: string;
 }
