@@ -39,6 +39,7 @@ const TooltipContent = styled.div.attrs({
 const SuffixTextWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'suffix-text-wrapper'),
 })`
+  word-break: normal;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
