@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.32](https://github.com/scaleflex/ui/compare/v2.10.31...v2.10.32) (2024-11-27)
+
+### Bug Fixes
+
+- ellipsed text suffix word break problem ([33564b8](https://github.com/scaleflex/ui/commit/33564b8ea860e77d8fe1fc4b1fd58c437ba236d2))
+
 ## [2.10.31](https://github.com/scaleflex/ui/compare/v2.10.30...v2.10.31) (2024-11-26)
 
 ### Bug Fixes
