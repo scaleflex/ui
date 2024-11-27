@@ -87,7 +87,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       </Styled.EllipsedTextWrapper>
     );
 
-    return textSuffix ? (
+    return textSuffix && shouldEllipse ? (
       <Styled.EllipsedTextContainer>
         {renderEllipsedText()}
         <Styled.SuffixTextWrapper>{getTextSuffix(textSuffix)}</Styled.SuffixTextWrapper>
