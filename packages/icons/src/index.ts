@@ -461,3 +461,5 @@ export { Metadata } from './metadata';
 export { NoRepeat } from './no-repeat';
 export { TrimVideo } from './trim-video';
 export { Split } from './split';
+export { LinkNotConnected } from './link-not-connected';
+export { LinkConnected } from './link-connected';
