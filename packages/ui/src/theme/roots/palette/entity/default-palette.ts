@@ -152,7 +152,8 @@ export const groupedPalette = {
     [Color.Red_0_1_Overlay]: 'rgba(232, 91, 70, 0.1)', // #E85B461A
     [Color.Orange_0_1_Overlay]: 'rgba(250, 157, 47, 0.1)', // #FA9D2F1A
     [Color.Accent_0_8_Overlay]: 'rgba(104, 121, 235, 0.08)', // #6879EB14
-    [Color.Green_0_2_Overlay]: 'rgba(27, 161, 99, 0.2)', // #16A086
+    [Color.Green_0_2_Overlay]: 'rgba(27, 161, 99, 0.2)', // #16A086,
+    [Color.WHITE_0_7_8_Overlay]: 'rgba(255, 255, 255, 0.78)', // #FFFFFFC7
   },
 };
 

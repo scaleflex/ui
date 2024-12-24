@@ -35,7 +35,7 @@ const ComparisonSlider = styled.div.attrs({
 const Image = styled.img.attrs({
   className: generateClassNames(baseClassName, 'image'),
 })<With<WithTheme, { $isLoading: boolean }>>(
-  ({ $isLoading, theme }) => css`
+  ({ $isLoading = false, theme }) => css`
     width: 100%;
     height: auto;
     vertical-align: middle;
@@ -81,10 +81,10 @@ const RightImageWrapper = styled.div.attrs({
 
 const Handle = styled.div.attrs({
   className: generateClassNames(baseClassName, 'handle'),
-})<{ color?: string; $thumbIconPadding?: number; $thumbIconSize?: number }>(
-  ({ color, $thumbIconPadding = 10, $thumbIconSize = 10 }) => css`
+})<With<WithTheme, { color?: string; $thumbColor?: string; $thumbIconPadding?: number; $thumbIconSize?: number }>>(
+  ({ color = '', $thumbColor = '', $thumbIconPadding = 8, $thumbIconSize = 16, theme }) => css`
     position: absolute;
-    width: 3px;
+    width: 6px;
     height: 100%;
     background: ${color};
     z-index: 3;
@@ -96,11 +96,12 @@ const Handle = styled.div.attrs({
       position: absolute;
       top: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
       right: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
-      background: ${color};
+      background: ${$thumbColor};
       width: ${`${$thumbIconSize}px`};
       height: ${`${$thumbIconSize}px`};
       border-radius: 8px;
       padding: ${`${$thumbIconPadding}px`};
+      border: 1px solid ${theme?.palette[PaletteColor.IconsPrimary]};
       box-sizing: content-box;
     }
   `
@@ -109,7 +110,7 @@ const Handle = styled.div.attrs({
 const FallbackPreviewWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'fallbackPreviewWrapper'),
 })<{ backgroundColor?: string; gap?: number }>(
-  ({ backgroundColor, gap }) => css`
+  ({ backgroundColor = '', gap = 2 }) => css`
     display: flex;
     flex-direction: column;
     gap: ${`${gap}px`};

@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import ArrowChange from '@scaleflex/icons/arrow-change';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
@@ -8,6 +7,7 @@ import { intrinsicComponent } from '../../utils/functions';
 import { lightPalette } from '../../theme/roots/palette';
 import Styled from './image-comparison-slider.styles';
 import { Color } from '../../utils/types/palette';
+import { Extends } from '@scaleflex/icons';
 
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
   (
@@ -23,10 +23,11 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
     ref
   ): JSX.Element => {
     const {
-      color = lightPalette[Color.BackgroundStateless],
-      thumbIconSize = 10,
-      thumbIconPadding = 10,
-      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
+      color = lightPalette[Color.WHITE_0_7_8_Overlay],
+      thumbColor = lightPalette[Color.BackgroundStateless],
+      thumbIconSize = 16,
+      thumbIconPadding = 8,
+      thumbIcon = <Extends color={lightPalette[Color.IconsPrimaryHover]} />,
       ...restHandleProps
     } = handleProps || {};
 
@@ -102,6 +103,7 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
             onMouseDown={() => setIsResizing(true)}
             onTouchStart={() => setIsResizing(true)}
             color={color}
+            $thumbColor={thumbColor}
             $thumbIconPadding={thumbIconPadding}
             $thumbIconSize={thumbIconSize}
             {...restHandleProps}

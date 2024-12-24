@@ -123,6 +123,7 @@ export const Color = {
   Orange_0_1_Overlay: 'orange-0-1-overlay',
   Accent_0_8_Overlay: 'accent-0-8-overlay',
   Green_0_2_Overlay: 'green-0-2-Overlay',
+  WHITE_0_7_8_Overlay: 'white-0-7-8-overlay',
 
   Link: 'link',
   Camera: 'camera',
