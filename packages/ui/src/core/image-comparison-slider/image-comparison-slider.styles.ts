@@ -48,7 +48,7 @@ const Image = styled.img.attrs({
 
     ${$isLoading &&
     css`
-      background-color: ${theme?.palette[PaletteColor.ButtonPrimaryText]};
+      background-color: ${theme?.palette[PaletteColor.BackgroundHover]};
       animation: ${pulseKeyframe} 1.5s ease-in-out 0.5s infinite;
       width: 100%;
       height: 100%;
