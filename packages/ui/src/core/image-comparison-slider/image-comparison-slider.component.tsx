@@ -110,13 +110,15 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
           >
             {thumbIcon}
           </Styled.Handle>
-          <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
-            <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-          </Styled.LeftImageWrapper>
+          <Styled.ImagesWrapper>
+            <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
+              <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+            </Styled.LeftImageWrapper>
 
-          <Styled.RightImageWrapper {...imgWrapperProps}>
-            <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-          </Styled.RightImageWrapper>
+            <Styled.RightImageWrapper {...imgWrapperProps}>
+              <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+            </Styled.RightImageWrapper>
+          </Styled.ImagesWrapper>
         </Styled.SliderWrapper>
 
         {!hideFooter && (

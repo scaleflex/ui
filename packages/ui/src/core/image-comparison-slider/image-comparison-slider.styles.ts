@@ -29,6 +29,7 @@ const ComparisonSlider = styled.div.attrs({
   display: flex;
   flex-direction: column;
   gap: 10px;
+  height: 100%;
   user-select: none;
 `;
 
@@ -131,12 +132,20 @@ const FallbackPreviewMsg = styled.span.attrs({
     color: ${color};
   `
 );
+
 const SliderWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'sliderWrapper'),
 })`
   position: relative;
   overflow: hidden;
   touch-action: none;
+  height: 100%;
+`;
+
+const ImagesWrapper = styled.div.attrs({
+  className: generateClassNames(baseClassName, 'imagesWrapper'),
+})`
+  height: 100%;
 `;
 
 const Footer = styled.div.attrs({
@@ -156,6 +165,7 @@ const Styled = applyDisplayNames({
   RightImageWrapper,
   FallbackPreviewMsg,
   Handle,
+  ImagesWrapper,
   ComparisonSlider,
   FallbackPreviewWrapper,
   SliderWrapper,
