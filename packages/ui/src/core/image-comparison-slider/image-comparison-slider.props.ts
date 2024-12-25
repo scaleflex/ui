@@ -16,7 +16,13 @@ export interface ImageComparisonSliderProps extends React.HTMLAttributes<HTMLDiv
   rightImgProps?: React.ImgHTMLAttributes<HTMLImageElement>;
   fallbackPreviewProps?: FallbackPreviewProps;
   footerProps?: React.HTMLAttributes<HTMLDivElement> & { leftText?: string; rightText?: string; hideFooter?: boolean };
-  handleProps?: { thumbIconSize?: number; thumbIcon?: React.ReactNode; thumbIconPadding?: number; color?: string };
+  handleProps?: {
+    thumbIconSize?: number;
+    thumbColor?: string;
+    thumbIcon?: React.ReactNode;
+    thumbIconPadding?: number;
+    color?: string;
+  };
 }
 
 export interface ImagePreviewProps extends React.ImgHTMLAttributes<HTMLImageElement> {

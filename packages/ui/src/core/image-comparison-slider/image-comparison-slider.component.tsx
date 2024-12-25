@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import ArrowChange from '@scaleflex/icons/arrow-change';
+import { Extends } from '@scaleflex/icons';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
@@ -23,10 +23,11 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
     ref
   ): JSX.Element => {
     const {
-      color = lightPalette[Color.BackgroundStateless],
-      thumbIconSize = 10,
-      thumbIconPadding = 10,
-      thumbIcon = <ArrowChange color={lightPalette[Color.IconsPrimary]} />,
+      color = lightPalette[Color.WHITE_0_7_8_Overlay],
+      thumbColor = lightPalette[Color.BackgroundStateless],
+      thumbIconSize = 16,
+      thumbIconPadding = 8,
+      thumbIcon = <Extends color={lightPalette[Color.IconsPrimaryHover]} />,
       ...restHandleProps
     } = handleProps || {};
 
@@ -102,19 +103,22 @@ const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTM
             onMouseDown={() => setIsResizing(true)}
             onTouchStart={() => setIsResizing(true)}
             color={color}
+            $thumbColor={thumbColor}
             $thumbIconPadding={thumbIconPadding}
             $thumbIconSize={thumbIconSize}
             {...restHandleProps}
           >
             {thumbIcon}
           </Styled.Handle>
-          <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
-            <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-          </Styled.LeftImageWrapper>
+          <Styled.ImagesWrapper>
+            <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
+              <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+            </Styled.LeftImageWrapper>
 
-          <Styled.RightImageWrapper {...imgWrapperProps}>
-            <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
-          </Styled.RightImageWrapper>
+            <Styled.RightImageWrapper {...imgWrapperProps}>
+              <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+            </Styled.RightImageWrapper>
+          </Styled.ImagesWrapper>
         </Styled.SliderWrapper>
 
         {!hideFooter && (

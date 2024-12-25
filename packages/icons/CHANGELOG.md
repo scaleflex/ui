@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.33](https://github.com/scaleflex/ui/compare/v2.10.32...v2.10.33) (2024-12-05)
+
+### Features
+
+- **Icons:** add LinkConnected and LinkNotConnected components ([d30ea88](https://github.com/scaleflex/ui/commit/d30ea88119e18ba02657ea733b17e761458ce778))
+- **Icons:** update success icon ([affff55](https://github.com/scaleflex/ui/commit/affff5547f7eb8d985120f96fb0830990fbaf496))
+
 ## [2.10.30](https://github.com/scaleflex/ui/compare/v2.10.29...v2.10.30) (2024-11-12)
 
 ### Features
