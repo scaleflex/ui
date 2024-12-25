@@ -1,5 +1,5 @@
 {
-  "version": "2.10.33",
+  "version": "2.10.34",
   "npmClient": "yarn",
   "packages": ["packages/*"],
   "ignoreChanges": ["**/*.spec.{ts,tsx}", "**/*.story.tsx"],

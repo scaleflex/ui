@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.34](https://github.com/scaleflex/ui/compare/v2.10.33...v2.10.34) (2024-12-25)
+
+### Bug Fixes
+
+- [Image comparison slider] images wrapper height ([4cb0d41](https://github.com/scaleflex/ui/commit/4cb0d4133c3cf131c2d35fc9902d16040264cf6e))
+- [Image comparison slider] import place ([82508ff](https://github.com/scaleflex/ui/commit/82508ffa918b9769b368947e57d86a1388976aa0))
+- [Image comparison slider] remove colors default values ([16baf14](https://github.com/scaleflex/ui/commit/16baf1411b47108ac84b57c8e2c11d6c7a75ea9e))
+- [Image comparison slider] update images bg color ([aa46a15](https://github.com/scaleflex/ui/commit/aa46a1568221f9d32edf0c429434662cd239b7a8))
+- [Visual AI] polish image comparison slider deisgn and icons -FRA-7402 ([2a64f08](https://github.com/scaleflex/ui/commit/2a64f08cb5bf50e65d9a93d51de50ffb193416a7))
+- update fillRule and clipRule to camel case ([ac322e5](https://github.com/scaleflex/ui/commit/ac322e5076512ca9f103153e3357d593d9b5ed7c))
+
 ## [2.10.33](https://github.com/scaleflex/ui/compare/v2.10.32...v2.10.33) (2024-12-05)
 
 ### Features
