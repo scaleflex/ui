@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { Extends } from '@scaleflex/icons';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
 import { getHorizontalPosition } from './image-comparison-slider.utils';
@@ -7,7 +8,6 @@ import { intrinsicComponent } from '../../utils/functions';
 import { lightPalette } from '../../theme/roots/palette';
 import Styled from './image-comparison-slider.styles';
 import { Color } from '../../utils/types/palette';
-import { Extends } from '@scaleflex/icons';
 
 const ImageComparisonSlider = intrinsicComponent<ImageComparisonSliderProps, HTMLDivElement>(
   (
