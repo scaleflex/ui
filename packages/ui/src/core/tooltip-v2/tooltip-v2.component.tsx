@@ -30,6 +30,16 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
   ): JSX.Element => {
     if (hide) return children;
 
+    // Check for multiple children
+    const childArray = React.Children.toArray(children).filter((child): child is React.ReactElement =>
+      React.isValidElement(child)
+    );
+
+    if (childArray.length > 1) {
+      console.warn('TooltipV2 only supports a single child.');
+    }
+
+    const firstChild = childArray[0];
     return (
       <Styled.TooltipV2
         ref={ref}
@@ -45,7 +55,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
         appendTo={document.body}
         {...rest}
       >
-        {children}
+        {firstChild}
       </Styled.TooltipV2>
     );
   }
