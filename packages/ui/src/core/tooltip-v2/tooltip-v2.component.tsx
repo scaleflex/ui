@@ -31,9 +31,9 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
     if (hide) return children;
 
     // Check for multiple children
-    const ChildrenArray = React.Children.toArray(children);
+    const childrenArray = React.Children.toArray(children);
 
-    if (ChildrenArray.length > 1) {
+    if (childrenArray.length > 1) {
       console.error('TooltipV2 only supports a single child.');
       return null;
     }
