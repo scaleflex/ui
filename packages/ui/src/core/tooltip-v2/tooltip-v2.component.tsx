@@ -27,7 +27,7 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
       ...rest
     }: TooltipV2Props,
     ref
-  ) => {
+  ): JSX.Element | null => {
     if (hide) return children;
 
     // Check for multiple children
