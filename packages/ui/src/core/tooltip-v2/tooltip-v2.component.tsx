@@ -30,11 +30,15 @@ const TooltipV2 = intrinsicComponent<TooltipV2Props, HTMLSpanElement>(
   ): JSX.Element | null => {
     if (hide) return children;
 
-    // Check for multiple children
     const childrenArray = React.Children.toArray(children);
 
     if (childrenArray.length > 1) {
       console.error('TooltipV2 only supports a single child.');
+      return null;
+    }
+
+    if (!React.isValidElement(childrenArray[0])) {
+      console.error('TooltipV2 only supports valid React elements.');
       return null;
     }
 
