@@ -106,6 +106,13 @@ const Textarea = intrinsicComponent<TextareaProps, HTMLTextAreaElement>(
       }, 200);
     };
 
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.style.height = 'auto';
+        inputRef.current.style.height = `${Math.min(inputRef.current.scrollHeight, 280)}px`;
+      }
+    }, [inputValue]);
+
     const renderCopyText = (): JSX.Element | undefined => {
       return (
         <InputStyled.NotificationBox size={size} isTextarea>

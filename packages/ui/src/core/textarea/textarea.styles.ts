@@ -5,7 +5,7 @@ import { InputSize, With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
 import { BorderRadiusSize as BRSize } from '../../utils/types/shape';
 import type { TextareaProps } from './textarea.props';
-import { errorMixin, sizeTextAreaMixin, heightTextAreaMixin } from './textarea.mixin';
+import { errorMixin, sizeTextAreaMixin } from './textarea.mixin';
 import { getInputBackgroundColor, getInputTextColor, getInputBorderColor } from '../input/input.utils';
 
 const baseClassName = 'Textarea';
@@ -13,17 +13,9 @@ const baseClassName = 'Textarea';
 const Textarea = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<With<With<WithTheme, TextareaProps>, { autoSize: boolean }>>(
-  ({
-    size = InputSize.Md,
-    error = false,
-    fullWidth = false,
-    readOnly = false,
-    disabled = false,
-    autoSize = false,
-    theme,
-  }) => css`
+  ({ error = false, fullWidth = false, readOnly = false, disabled = false, autoSize = false, theme }) => css`
     position: relative;
-    display: inline-flex;
+    display: block;
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
@@ -36,8 +28,6 @@ const Textarea = styled.div.attrs({
     border-radius: ${theme.shape.borderRadius[BRSize.Md]};
     border: 1px solid ${getInputBorderColor(readOnly, disabled)};
     color: ${disabled ? theme.palette[PColor.TextPlaceholder] : theme.palette[PColor.TextPrimary]};
-
-    ${heightTextAreaMixin[size]}
 
     ${!readOnly &&
     !disabled &&
@@ -94,6 +84,9 @@ const Base = styled.textarea.attrs({
     font-family: inherit;
     box-sizing: border-box;
     flex: 1;
+    min-height: 80px;
+    max-height: 280px;
+    overflow-y: auto;
 
     ${readOnly && `padding-bottom: 0px;`}
     ${sizeTextAreaMixin[size]};
