@@ -12,6 +12,7 @@ import {
   sizeSidebarDividerMixin,
   paddingIconLabelMixin,
   sizeSecondaryButtonMixin,
+  marginEndIconMixin,
 } from './button.mixin';
 import { Color as PaletteColor } from '../../utils/types/palette';
 import { ButtonSize, ButtonColor } from '../../utils/types';
@@ -141,10 +142,13 @@ const Divider = styled.span.attrs({
 
 const EndIcon = styled.span.attrs({
   className: generateClassNames(baseClassName, 'EndIcon'),
-})`
-  display: flex;
-  margin-left: 6px;
-`;
+})<{ size?: ButtonSizeType }>(
+  ({ size = ButtonSize.Md }) => css`
+    display: flex;
+
+    ${marginEndIconMixin[size]}
+  `
+);
 
 const Styled = applyDisplayNames({
   Button,
