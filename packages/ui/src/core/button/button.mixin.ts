@@ -611,11 +611,11 @@ export const sizeSidebarDividerMixin = {
 
 export const paddingIconLabelMixin = {
   [ButtonSize.Xs]: css`
-    margin-right: 5px;
+    margin-right: 3px;
   `,
 
   [ButtonSize.Sm]: css`
-    margin-right: 6px;
+    margin-right: 4px;
   `,
 
   [ButtonSize.Md]: css`
@@ -624,6 +624,24 @@ export const paddingIconLabelMixin = {
 
   [ButtonSize.Lg]: css`
     margin-right: 8px;
+  `,
+};
+
+export const marginEndIconMixin = {
+  [ButtonSize.Xs]: css`
+    margin-left: 3px;
+  `,
+
+  [ButtonSize.Sm]: css`
+    margin-left: 4px;
+  `,
+
+  [ButtonSize.Md]: css`
+    margin-left: 7px;
+  `,
+
+  [ButtonSize.Lg]: css`
+    margin-left: 8px;
   `,
 };
 

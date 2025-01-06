@@ -97,7 +97,7 @@ const Button = intrinsicComponent<ButtonProps, HTMLButtonElement>(
           <Styled.Label>{children}</Styled.Label>
 
           {endIcon && (
-            <Styled.EndIcon>
+            <Styled.EndIcon size={size}>
               {typeof endIcon === 'function' ? endIcon({ size: getIconSize(size) }) : endIcon}
             </Styled.EndIcon>
           )}
