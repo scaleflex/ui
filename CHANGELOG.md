@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.10.35](https://github.com/scaleflex/ui/compare/v2.10.34...v2.10.35) (2025-01-06)
+
+### Bug Fixes
+
+- fix padding for textarea [FRA-5597] ([bb325a1](https://github.com/scaleflex/ui/commit/bb325a1f5a774ce05344875ba1e8233dca8f7c21))
+- Tooltip error when multiple children provided [SHA-59] ([413ebc8](https://github.com/scaleflex/ui/commit/413ebc807f13f49c40470daab9501af279ff98b3))
+- **Tooltip:** validate children elements and log errors for invalid types ([971f01b](https://github.com/scaleflex/ui/commit/971f01b4bb7916297ba98e7d5a8ac21be9f359b8))
+
+### Features
+
+- **Button:** update start and end icon margin sizes ([a0bc32d](https://github.com/scaleflex/ui/commit/a0bc32d0968c94ef79b5b23eca923d7ef67f476c))
+
 ## [2.10.34](https://github.com/scaleflex/ui/compare/v2.10.33...v2.10.34) (2024-12-25)
 
 ### Bug Fixes
