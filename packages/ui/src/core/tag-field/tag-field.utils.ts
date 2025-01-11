@@ -1,7 +1,7 @@
 import { escapeRegExp } from '../../utils/functions';
 import type { TagType, SuggestionsFilterFnType } from './tag-field.props';
 
-const tagsSuggestionsFilter = <SuggestionsFilterFnType>((
+export const tagsSuggestionsFilter: SuggestionsFilterFnType = (
   suggestedTags,
   userInput,
   getTagLabel,
@@ -24,6 +24,4 @@ const tagsSuggestionsFilter = <SuggestionsFilterFnType>((
   }
 
   return suggestions;
-});
-
-export { tagsSuggestionsFilter };
+};

@@ -17,6 +17,9 @@ const CommonStyles = createGlobalStyle`
   .Modal-open {
       overflow:hidden;
   }
+  .Drawer-open {
+      overflow:hidden;
+  }
 `;
 
 export default CommonStyles;

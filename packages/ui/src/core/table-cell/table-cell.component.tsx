@@ -5,11 +5,12 @@ import type { TableCellProps } from './table-cell.props';
 import Tablelvl2Context from '../table/table-lvl-2-context';
 import TableContext from '../table/table-context';
 import Styled from './table-cell.styles';
+import { Align } from './types';
 
 const TableCell = intrinsicComponent<TableCellProps, HTMLTableCellElement>(
   (
     {
-      align = 'left',
+      align = Align.Left,
       padding: paddingProp,
       size: sizeProp,
       children,

@@ -4,10 +4,9 @@ import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import type { MenuProps } from '../menu';
 import type { InputProps } from '../input';
-import { InputBackgroundColor, InputSize } from '../../utils/types';
+import { InputSize } from '../../utils/types';
 import { AnchorElType } from '../menu/menu.props';
 
-export type AutocompleteBackgroundType = Values<typeof InputBackgroundColor>;
 export type AutocompleteSizeType = Values<typeof InputSize>;
 export type AutocompleteOptionIdType = string;
 export type AutocompleteOptionLabelType = string;
@@ -33,7 +32,6 @@ export type LabelAndHintType = {
 };
 
 export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  children?: React.ReactNode;
   size?: AutocompleteSizeType;
   label?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
   hint?: React.ReactNode | ((props: LabelAndHintType) => React.ReactNode);
@@ -70,7 +68,6 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   MenuProps?: MenuProps;
   LabelProps?: LabelProps;
   InputProps?: InputProps;
-  background?: AutocompleteBackgroundType;
   maxMenuHeight?: string | number;
   showClearIcon?: boolean;
   renderLabelIconEnd?: ({

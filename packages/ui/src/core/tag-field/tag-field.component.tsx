@@ -10,7 +10,7 @@ import Label from '../label';
 import Tooltip from '../tooltip';
 import FormHint from '../form-hint';
 import Button from '../button';
-import type { TagFieldProps, AddTagTypesType, TagType, SuggestionsFilterFnType } from './tag-field.props';
+import type { TagFieldProps, AddTagTypesType, TagType } from './tag-field.props';
 import { AddTagType, Size } from './types';
 import { tagsSuggestionsFilter } from './tag-field.utils';
 import { handleCopyIcon } from '../input/input.utils';
@@ -42,7 +42,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       size = Size.Md,
       crossIcon = true,
       loading,
-      appliedValue,
       disableOnEnter,
       showTooltip,
       copyTextMessage = 'Copied to clipboard',
@@ -61,7 +60,7 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
       getTagLabel = (tag: TagType): string => tag as string,
       getTagValue = (tag: TagType): string => tag as string,
       getTagIcon,
-      suggestionsFilter = tagsSuggestionsFilter as SuggestionsFilterFnType,
+      suggestionsFilter = tagsSuggestionsFilter,
       onFocus,
       onBlur,
       ...rest
@@ -191,13 +190,6 @@ const TagField = intrinsicComponent<TagFieldProps, HTMLDivElement>(
     const copyIconHandler = (): void => {
       handleCopyIcon((tags || []).map(getTagLabel).join(', '), setShowCopyMessage);
     };
-
-    // TODO remove when add clear all button
-    useEffect(() => {
-      if (typeof appliedValue === 'string' && !appliedValue) {
-        setUserInput('');
-      }
-    }, [appliedValue]);
 
     useEffect(() => {
       if (showCopyMessage) {

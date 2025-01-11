@@ -10,6 +10,7 @@ import { Color as PColor } from '../../utils/types/palette';
 import StyledTag from '../tag/tag.styles';
 import { AutocompleteProps } from './autocomplete.props';
 import arrowTick from '../arrow-tick';
+import type { With } from '../../utils/types';
 
 const baseClassName = 'Autocomplete';
 
@@ -45,7 +46,7 @@ const TickIcon = styled.span.attrs({
 );
 
 const CrossIcon = styled(CrossOutline)`
-  ${({ theme: { palette } }) => css`
+  ${({ theme: { palette } }: WithTheme) => css`
     color: ${palette[PColor.IconsSecondary]};
   `}
 `;
@@ -64,22 +65,24 @@ const InputIconEndContainer = styled.div.attrs({
 
 const Menu = styled(SfxMenu).attrs({
   className: generateClassNames(baseClassName, 'menu'),
-})<{ maxMenuHeight: string | number }>(
-  ({ maxMenuHeight }) => css`
+})<With<WithTheme, { maxMenuHeight: string | number }>>(
+  ({ maxMenuHeight, theme }) => css`
     max-height: ${+maxMenuHeight ? `${+maxMenuHeight}px` : maxMenuHeight};
-    background: #ffffff;
+    background: ${theme.palette[PColor.BackgroundStateless]};
   `
 );
 
 const OptionGroup = styled.div.attrs({
   className: generateClassNames(baseClassName, 'optionGroup'),
-})`
-  &:not(:last-child) {
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-    border-bottom: 1px solid ${({ theme: { palette } }: WithTheme) => palette[PColor.BordersSecondary]};
-  }
-`;
+})<WithTheme>(
+  ({ theme }) => css`
+    &:not(:last-child) {
+      padding-bottom: 8px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid ${theme.palette[PColor.BordersSecondary]};
+    }
+  `
+);
 
 const Arrow = styled(arrowTick)`
   margin-left: auto;

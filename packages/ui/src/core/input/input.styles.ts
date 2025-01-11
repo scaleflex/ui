@@ -90,7 +90,7 @@ const Input = styled.div.attrs({
 })<
   With<
     With<WithTheme, InputProps>,
-    { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean; hasInputActions?: boolean }
+    { $isSelectedItems?: boolean; $fullWidth?: boolean; $error?: boolean; $hasInputActions?: boolean }
   >
 >(
   ({
@@ -101,13 +101,13 @@ const Input = styled.div.attrs({
     disabled = false,
     isHovering = false,
     $isSelectedItems = false,
-    hasInputActions = false,
+    $hasInputActions = false,
     theme,
   }) => css`
     position: relative;
     display: flex;
-    flex-direction: ${!hasInputActions ? 'row' : 'column'};
-    ${hasInputActions && 'align-items: stretch;'}
+    flex-direction: ${!$hasInputActions ? 'row' : 'column'};
+    ${$hasInputActions && 'align-items: stretch;'}
     box-sizing: border-box;
     column-gap: 8px;
     cursor: text;

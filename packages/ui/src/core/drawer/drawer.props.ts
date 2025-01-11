@@ -24,6 +24,7 @@ export interface DrawerProps extends PropsWithChildren, React.HTMLAttributes<HTM
   onClose?: () => void;
   onCollapse?: (collapseState: boolean) => void;
   onCollapseClick?: (collapseState: boolean) => void;
+  hideScroll?: boolean;
 }
 
 export interface DrawerItemProps extends PropsWithChildren, React.HTMLAttributes<HTMLLIElement> {

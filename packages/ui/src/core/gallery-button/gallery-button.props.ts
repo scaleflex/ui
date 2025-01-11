@@ -1,6 +1,6 @@
-import { IconButtonProps } from '../icon-button';
+import { PropsWithChildren } from 'react';
 
-export interface GalleryButtonProps extends IconButtonProps {
+export interface GalleryButtonProps extends PropsWithChildren, Omit<React.HTMLAttributes<HTMLButtonElement>, 'color'> {
   disabled?: boolean;
   active?: boolean;
 }

@@ -11,7 +11,6 @@ export interface SwitcherProps extends React.HTMLAttributes<HTMLDivElement> {
   switcherProps?: Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
   SwitcherPropsData?: React.HTMLAttributes<HTMLDivElement>;
   readOnly?: boolean;
-  $disabled?: boolean;
   disabled?: boolean;
   size?: SwitcherSizeType;
 }

@@ -7,7 +7,6 @@ import { Color as PColor } from '../../utils/types/palette';
 import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import inputGroup from '../input-group';
 import { InputProps } from '../input';
-import { TimePickerProps } from './time-picker.props';
 
 const baseClassName = 'Time-picker';
 
@@ -89,7 +88,7 @@ const TimePickerDropdownColumn = styled.div.attrs({
 
 const TimePickerHour = styled.div.attrs({
   className: generateClassNames(baseClassName, 'hour'),
-})<With<TimePickerProps, WithTheme>>(
+})<With<{ selected: boolean }, WithTheme>>(
   ({ theme, selected = false }) => css`
     width: 30px;
     height: 30px;
@@ -113,7 +112,7 @@ const TimePickerHour = styled.div.attrs({
 
 const TimePickerMinute = styled.div.attrs({
   className: generateClassNames(baseClassName, 'minute'),
-})<With<TimePickerProps, WithTheme>>(
+})<With<{ selected: boolean }, WithTheme>>(
   ({ theme, selected = false }) => css`
     width: 30px;
     height: 30px;
@@ -137,7 +136,7 @@ const TimePickerMinute = styled.div.attrs({
 
 const TimePickerPeriod = styled.div.attrs({
   className: generateClassNames(baseClassName, 'period'),
-})<With<TimePickerProps, WithTheme>>(
+})<With<{ selected: boolean }, WithTheme>>(
   ({ theme, selected = false }) => css`
     display: flex;
     align-items: center;

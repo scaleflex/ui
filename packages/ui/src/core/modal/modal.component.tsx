@@ -5,13 +5,8 @@ import { ignoreEvent, intrinsicComponent } from '../../utils/functions';
 import type { ModalProps } from './modal.props';
 import { Size } from './types';
 import ModalMenuContext from './modal-menu-context';
+import { isValidSingleFragmentChildren } from './modal.utils';
 import Styled from './modal.styles';
-
-const isValidSingleFragmentChildren = (children?: any): boolean =>
-  children &&
-  isValidElement(children) &&
-  React.Children.count(children) === 1 &&
-  (children as JSX.Element).type === React.Fragment;
 
 const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
   (
@@ -32,7 +27,6 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
   ): JSX.Element => {
     const children = isValidSingleFragmentChildren(_children) ? (_children as JSX.Element).props.children : _children;
 
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const target = document.querySelector('body')!;
     useEffect(() => {
       if (open) {
@@ -94,7 +88,8 @@ const Modal = intrinsicComponent<ModalProps, HTMLDivElement>(
       </ModalMenuContext.Provider>
     );
 
-    return createPortal(render(), target);
+    // we use fragments only to for storybook to detect auto props generated in stories
+    return <>{createPortal(render(), target)}</>;
   }
 );
 

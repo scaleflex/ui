@@ -219,7 +219,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
         clearIcon={clearIcon}
         isHovering={rest.isHovering}
         $isSelectedItems={Boolean(isSelectedItems || inputActions)}
-        hasInputActions={Boolean(inputActions)}
+        $hasInputActions={Boolean(inputActions)}
         {...(InputPropsData || {})}
       >
         <Styled.InputContent>

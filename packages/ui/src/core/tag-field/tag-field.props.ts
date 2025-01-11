@@ -28,7 +28,6 @@ export interface TagFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   getTagValue?: (tag: TagType) => string;
   getTagIcon?: (tag: TagType) => string;
   onValidate?: (tagInput: string) => string | boolean;
-  appliedValue?: string;
   placeholder?: string;
   readOnly?: boolean;
   disabled?: boolean;

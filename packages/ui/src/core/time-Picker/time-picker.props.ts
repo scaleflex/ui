@@ -12,6 +12,5 @@ export interface TimePickerProps extends Omit<InputGroupProps, 'onChange'> {
   fullWidth?: boolean;
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
-  selected?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>, value: string) => void;
 }

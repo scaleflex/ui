@@ -6,13 +6,14 @@ import Button from '../button';
 import type { UploadInputProps } from './upload-input.props';
 import StyledInput from '../input/input.styles';
 import Styled from './upload-input.styles';
+import { ButtonColor } from '../../utils/types';
 
 const UploadInput = intrinsicComponent<UploadInputProps, HTMLInputElement>(
   (
     {
       error,
       buttonLabel = 'Choose file',
-      buttonColor = 'primary',
+      buttonColor = ButtonColor.Primary,
       placeholder = 'No file chosen',
       onChange,
       ...rest

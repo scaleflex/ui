@@ -23,7 +23,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       collapsed = false,
       top,
       hideBackdrop = false,
-      disablePortal,
+      disablePortal = false,
       collapseButtonLabel = 'Collapse menu',
       persistentDrawerStyles = {},
       temproryDrawerStyles = {},
@@ -32,6 +32,7 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
       onClose,
       onCollapse,
       onCollapseClick,
+      hideScroll = false,
       ...rest
     }: DrawerProps,
     ref
@@ -55,6 +56,20 @@ const Drawer = intrinsicComponent<DrawerProps, HTMLDivElement>(
         onCollapse(isCollapsed);
       }
     }, [isCollapsed]);
+
+    useEffect(() => {
+      if (hideScroll) {
+        if (open) {
+          document.body.classList.add('Drawer-open');
+        } else {
+          document.body.classList.remove('Drawer-open');
+        }
+
+        return () => {
+          document.body.classList.remove('Drawer-open');
+        };
+      }
+    }, [open]);
 
     const handleCollapse = (): void => {
       const newCollapseState = !isCollapsed;

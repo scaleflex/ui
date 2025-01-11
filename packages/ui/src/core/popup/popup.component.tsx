@@ -66,7 +66,8 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps,
     );
   };
 
-  return createPortal(render(), target);
+  // we use fragments only to for storybook to detect auto props generated in stories
+  return <>{createPortal(render(), target)}</>;
 });
 
 export default Popup;

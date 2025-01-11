@@ -17,11 +17,8 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
       size = InputSize.Md,
       popperOptions,
       InputProps: InputPropsData,
-      readOnly = true,
       fullWidth = false,
       inputGroupProps,
-      hint,
-      label,
       onChange,
       ...rest
     }: TimePickerProps,
@@ -110,13 +107,10 @@ const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
     return (
       <Styled.TimePicker ref={timePickerRef} fullWidth={fullWidth}>
         <Styled.TimePickerInput
-          label={label}
           fullWidth={fullWidth}
-          hint={hint}
           size={size}
           value={time}
           onChange={handleTimeChange}
-          readOnly={readOnly}
           hideCopyIcon
           inputProps={{
             iconEnd: () => (
