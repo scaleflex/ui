@@ -1,0 +1,21 @@
+{/* TimePicker.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes, Controls} from '@storybook/blocks';
+ 
+import * as TimePickerStories from '../core/time-picker.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic TimePicker
+
+<Canvas of={TimePickerStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' controls />
+
+ <ForwardRefNote />
