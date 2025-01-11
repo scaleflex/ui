@@ -1,0 +1,24 @@
+{/* ModalTitle.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as ModalTitleStories from '../core/modal-title.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Modal Title
+
+<Canvas of={ModalTitleStories.Primary} withToolbar />
+
+## Variant With Icon
+
+<Canvas of={ModalTitleStories.WithIcon} withToolbar />
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

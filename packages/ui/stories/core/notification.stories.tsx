@@ -1,13 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import Notification, { NotificationProps } from '../../src/core/notification';
 import { NotificationStatus } from '../../src/core/notification/types';
+import NotificationDocsTemplate from '../docs/notification.mdx';
 
 const meta: Meta<typeof Notification> = {
   title: 'DataDisplay/Notification',
   component: Notification,
-  excludeStories: ['Notification'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: NotificationDocsTemplate,
+      subtitle: 'Notifications component can be used to display messages.',
+    },
+  },
+  argTypes: {
+    status: {
+      description: 'The status of the notification.',
+      options: Object.values(NotificationStatus),
+      control: {
+        type: 'select',
+      },
+    },
+    message: {
+      description: 'The body of the notification.',
+    },
+    title: {
+      description: 'The title of the notification.',
+    },
+    onClose: {
+      description: 'The callback function that is called when the notification is closed.',
+    },
+    hideIcon: {
+      description: 'If true, the main icon will be hidden.',
+    },
+    removeBackground: {
+      description: 'If true, the background color will be removed.',
+    },
+  },
 };
 
 export default meta;

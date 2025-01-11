@@ -1,0 +1,25 @@
+{/* Notification.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as NotificationStories from '../core/notification.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Notification
+
+<Canvas of={NotificationStories.Primary} withToolbar layout='centered'/>
+
+## Different Statuses
+
+<Canvas of={NotificationStories.All} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

@@ -1,0 +1,25 @@
+{/* Label.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as LabelStories from '../core/label.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Label
+
+<Canvas of={LabelStories.Primary} withToolbar layout='centered'/>
+
+## Before And After Icon
+
+<Canvas of={LabelStories.WithIcons} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' exclude={['htmlFor']} />
+
+<ForwardRefNote />

@@ -1,0 +1,36 @@
+{/* Popup.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as PopupStories from '../core/popup.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+import { Status } from '../../src/core/popup-status/types';
+
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Popup
+
+You can choose the position of the popup by using the `anchorOrigin` prop. It accepts an object with `vertical` and `horizontal` properties.
+
+`vertical`: can be `top` or `bottom`.
+
+`horizontal`: can be `left`, `center` or `right`.
+
+<Canvas of={PopupStories.Primary} withToolbar layout='centered'/>
+
+## Statuses
+
+Using `status` prop you can change the popup status to 
+{Object.values(Status).map((status, index) => `${status}${Object.values(Status).length - 1 !== index ? ', ' : ''}`)}.
+
+<Canvas of={PopupStories.Statuses} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />
