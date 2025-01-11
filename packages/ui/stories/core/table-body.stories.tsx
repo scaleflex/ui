@@ -1,16 +1,21 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import TableBody, { TableBodyProps } from '../../src/core/table-body';
-import TableStory from '../shared/table-story.component';
+import TableBody from '../../src/core/table-body';
+import TableBodyDocs from '../docs/table-body.mdx';
 
 const meta: Meta<typeof TableBody> = {
   title: 'DataDisplay/Table/TableBody',
   component: TableBody,
-  excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: TableBodyDocs,
+      subtitle: 'Used with Table component.',
+    },
+  },
   argTypes: {
     children: {
-      description: 'Node',
+      description: 'Content of the table body',
     },
   },
 };
@@ -22,9 +27,6 @@ const defaultArgs = {
   children: '',
 };
 
-const BasicTemplate = ({ ...args }: TableBodyProps): JSX.Element => <TableStory {...args} />;
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
 };

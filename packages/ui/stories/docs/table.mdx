@@ -1,0 +1,35 @@
+{/* Table.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as TableStories from '../core/table.stories';
+import * as TableCellStories from '../core/table-cell.stories';
+import * as ButtonStories from '../core/button.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Introduction
+
+#### Tables are implemented using a collection of related components:
+
+`TableContainer`: A wrapper that provides horizontally scrolling behavior for the `Table` component. <br />
+`Table`: The main component for the table element. Renders as a `table` by default. <br />
+`TableHead`: The container for the header row(s) of `Table`. Renders as a `thead` by default. <br />
+`TableBody`: The container for the body rows of `Table`. Renders as a `tbody` by default. <br />
+`TableRow`: A row in a table. Can be used in `TableHead` or `TableBody`. Renders as a `tr` by default. <br />
+`TableCell`: A cell in a table. Can be used in `TableRow` . Renders as a `th` in `TableHead` and `td` in `TableBody` by default. <br />
+`TablePagination`: A component that provides controls for paginating table data.
+
+
+## Basic Table
+
+<Canvas of={TableStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />  

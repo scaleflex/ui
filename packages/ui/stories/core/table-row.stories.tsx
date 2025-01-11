@@ -1,19 +1,27 @@
-import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Table from '../../src/core/table';
-import TableHead from '../../src/core/table-head';
-import TableCell from '../../src/core/table-cell';
-import TableRow, { TableRowProps } from '../../src/core/table-row';
+import TableRow from '../../src/core/table-row';
+import TableRowDocs from '../docs/table-row.mdx';
 
 const meta: Meta<typeof TableRow> = {
   title: 'DataDisplay/Table/TableRow',
   component: TableRow,
-  excludeStories: ['Table', 'TableContainer', 'TableHead', 'TableCell', 'TableRow', 'TableBody'],
-
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: TableRowDocs,
+      subtitle: 'Used with Table component.',
+    },
+  },
   argTypes: {
     children: {
-      description: 'Node',
+      description: 'The content of the table row',
+    },
+    hover: {
+      description: 'if true, the table row will have a hover effect',
+    },
+    selected: {
+      description: 'if true, the table row will have a selected effect',
     },
   },
 };
@@ -25,17 +33,6 @@ const defaultArgs = {
   children: '',
 };
 
-const BasicTemplate = ({ ...args }: TableRowProps): JSX.Element => (
-  <Table>
-    <TableHead>
-      <TableRow {...args}>
-        <TableCell>Description</TableCell>
-      </TableRow>
-    </TableHead>
-  </Table>
-);
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
 };
