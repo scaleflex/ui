@@ -1,0 +1,53 @@
+{/* Slider.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as SliderStories from '../core/slider.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Slider
+
+<Canvas of={SliderStories.Primary} withToolbar layout='centered'/>
+
+## Range Slider
+
+The slider can be used to set the start and end of a range by supplying an array of values to the value prop.
+
+<Canvas of={SliderStories.RangeSlider} withToolbar layout='centered'/>
+
+## Customization
+
+The slider can be customized using the `componentsProps` prop.
+
+If you want to replace the components used for each slot inside the Slider, you can use the `components` prop.
+
+<Canvas of={SliderStories.UsingComponentProps} withToolbar layout='centered'/>
+
+## Uncontrolled Slider
+
+The slider can be used as an uncontrolled component by supplying a defaultValue prop.
+
+<Canvas of={SliderStories.UnControlledSlider} withToolbar layout='centered'/>
+
+## Labels Tooltip
+
+The slider can be used to show the value of the slider as a tooltip.
+
+Supports three modes:
+
+- `auto`: The tooltip is shown when the slider is hovered or focused.
+- `on`: The tooltip is always shown.
+- `off`: The tooltip is never shown.
+
+<Canvas of={SliderStories.LabelsTooltip} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

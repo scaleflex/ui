@@ -1,0 +1,24 @@
+{/* DatePicker.mdx */}
+
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as DatePickerStories from '../core/date-picker.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic date picker
+
+<Canvas of={DatePickerStories.Primary} withToolbar layout='centered'/>  
+
+## Sizes
+
+<Canvas of={DatePickerStories.Sizes} withToolbar layout='centered'/>  
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

@@ -1,12 +1,43 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import Radio, { RadioProps, RadioSize } from '../../src/core/radio';
+import Radio, { RadioSize } from '../../src/core/radio';
+import RadioDocsTemplate from '../docs/radio.mdx';
 
 const meta: Meta<typeof Radio> = {
   title: 'Inputs/Radio',
   component: Radio,
-  excludeStories: ['Radio'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: RadioDocsTemplate,
+      subtitle: 'Radio buttons allow users to select one option from a list.',
+    },
+  },
+  argTypes: {
+    checked: {
+      description: 'If true, the radio input is checked.',
+    },
+    readOnly: {
+      description: 'If true, the radio input is read only.',
+    },
+    disabled: {
+      description: 'If true, the radio input is disabled.',
+    },
+    onChange: {
+      description: 'The callback function when the radio input is changed.',
+    },
+    radioProps: {
+      description: 'The props passed to the base radio input.',
+    },
+    size: {
+      description: 'The size of the radio input. `sm` or `md`.',
+      options: Object.values(RadioSize),
+      control: {
+        type: 'select',
+      },
+    },
+  },
 };
 
 export default meta;
@@ -19,17 +50,31 @@ const defaultArgs = {
   size: RadioSize.Sm,
 };
 
-const BasicTemplate = ({ checked, ...args }: RadioProps): JSX.Element => {
-  const [checkedState, setCheckedState] = useState(checked || false);
-
-  useEffect(() => {
-    setCheckedState(checked || false);
-  }, [checked]);
-
-  return <Radio {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
-};
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  render: ({ ...args }) => {
+    const [checkedState, setCheckedState] = useState(false);
+
+    return <Radio {...args} checked={checkedState} onChange={(event) => setCheckedState(event.target.checked)} />;
+  },
+};
+
+export const Sizes: Story = {
+  args: { ...defaultArgs, size: RadioSize.Sm },
+  render: (args) => {
+    const [checkedSm, setCheckedSm] = useState(true);
+    const [checkedMd, setCheckedMd] = useState(false);
+
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <Radio {...args} checked={checkedSm} onChange={(event) => setCheckedSm(event.target.checked)} />
+        <Radio
+          {...args}
+          checked={checkedMd}
+          size={RadioSize.Md}
+          onChange={(event) => setCheckedMd(event.target.checked)}
+        />
+      </div>
+    );
+  },
 };

@@ -1,0 +1,23 @@
+{/* Search.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as SearchStories from '../core/search.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Search
+
+<Canvas of={SearchStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+This component extends the [Input](/docs/inputs-input--docs#api) component, so all of its props are available.
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

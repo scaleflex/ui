@@ -1,0 +1,27 @@
+{/* Radio.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as RadioStories from '../core/radio.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Radio
+
+<Canvas of={RadioStories.Primary} withToolbar layout='centered'/>
+
+## Sizes
+
+use `size` prop to change the size of the radio.
+
+<Canvas of={RadioStories.Sizes} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />
