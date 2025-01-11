@@ -10,6 +10,8 @@ import { isYearFormRegex } from '../calendar/calendar.utils';
 import Calendar from '../calendar';
 
 import Styled from './date-picker.styles';
+import Popper from '../popper';
+import { Position } from '../popper/types';
 
 const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
   (
@@ -20,7 +22,7 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       enableAutoSelect = false,
       maxDate = '',
       minDate = '',
-      position,
+      position = Position.BottomStart,
       label,
       size = InputSize.Md,
       hint,
@@ -74,6 +76,10 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
       if (!disabled && !readOnly) setShowPlaceholder(false);
     };
 
+    const handleOpen = (isOpen: boolean): void => {
+      if (setOpen) setOpen(isOpen);
+    };
+
     useEffect(() => {
       if (autoSelectToday) return;
       if (!value) setInputValue('');
@@ -120,22 +126,28 @@ const Datepicker = intrinsicComponent<DatePickerProps, HTMLDivElement>(
             {placeholder}
           </Styled.Placeholder>
         )}
-        <Calendar
-          value={inputValue}
-          open={open}
-          setOpen={setOpen}
-          onChange={handleOnChange}
-          maxDate={maxDate}
-          minDate={minDate}
-          zIndex={zIndex}
-          autoSelectToday={autoSelectToday}
-          enableAutoSelect={enableAutoSelect}
+        <Popper
+          onClick={() => handleOpen(!open)}
           anchorEl={datePickerRef.current}
-          position={position || 'bottom-start'}
+          open={open}
           popperOptions={popperOptions}
-          calendarStyles={calendarStyles}
-          popperWrapperStyles={popperWrapperStyles}
-        />
+          wrapperStyles={popperWrapperStyles}
+          zIndex={zIndex}
+          position={position}
+          overlay
+        >
+          <Calendar
+            value={inputValue}
+            onChange={handleOnChange}
+            onDateClick={() => handleOpen(false)}
+            onCancel={() => handleOpen(false)}
+            maxDate={maxDate}
+            minDate={minDate}
+            autoSelectToday={autoSelectToday}
+            enableAutoSelect={enableAutoSelect}
+            calendarStyles={calendarStyles}
+          />
+        </Popper>
       </Styled.DatePicker>
     );
   }

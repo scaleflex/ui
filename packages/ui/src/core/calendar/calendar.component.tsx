@@ -5,7 +5,6 @@ import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
 import { intrinsicComponent } from '../../utils/functions';
-import Popper from '../popper';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
 import Button from '../button';
@@ -26,7 +25,6 @@ import {
   getMinDate,
 } from './calendar.utils';
 import Styled from './calendar.styles';
-import { Position } from '../popper/types';
 
 const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
   (
@@ -34,17 +32,12 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       value,
       onChange,
       autoSelectToday,
+      onCancel,
+      onDateClick,
       enableAutoSelect = false,
       maxDate = '',
       minDate = '',
-      anchorEl,
-      zIndex = 1300,
-      position = Position.BottomStart,
-      popperOptions,
-      open = false,
-      setOpen,
       calendarStyles,
-      popperWrapperStyles,
       ...rest
     }: CalendarProps,
     ref
@@ -148,18 +141,14 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
       }
     };
 
-    const handleOpen = (isOpen: boolean): void => {
-      if (setOpen) setOpen(isOpen);
-    };
-
-    const onDateClick = (day: any): void => {
+    const handleDateClick = (day: any): void => {
       const newDay = day.timestamp;
 
       if (onChange) {
         onChange(getDateStringFromTimestamp(newDay, month, year));
       }
 
-      if (handleOpen) handleOpen(false);
+      if (onDateClick) onDateClick(newDay);
       setSelectedDay(newDay);
     };
 
@@ -196,7 +185,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
           setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
         }
       }
-    }, [value, open]);
+    }, [value]);
 
     useEffect(() => {
       setTimeout(() => {
@@ -212,7 +201,7 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
             <Styled.DatePickerDayContainer>
               <Styled.DatePickerDay
                 isDisabled={day.timestamp > maxDateTimestamp || day.timestamp < minDateTimestamp}
-                onClick={() => onDateClick(day)}
+                onClick={() => handleDateClick(day)}
                 day={day}
                 isSelectedDay={selectedDay === day.timestamp}
               >
@@ -238,111 +227,100 @@ const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
     };
 
     return (
-      <Popper
-        onClick={() => handleOpen(!open)}
-        anchorEl={anchorEl}
-        open={open}
-        popperOptions={popperOptions}
-        wrapperStyles={popperWrapperStyles}
-        zIndex={zIndex}
-        position={position || 'bottom-start'}
-        overlay
-      >
-        <Styled.Calendar position={position} open={open} style={{ ...calendarStyles }} {...rest} ref={ref}>
-          <MonthPicker
-            year={year}
-            setMonth={setMonth}
-            getMonthStr={getMonthStr}
-            _month={month}
-            getTimeStamp={getTimeStamp}
-            selectedDay={selectedDay}
-            onChange={onChange}
-            setSelectedDay={setSelectedDay}
-            enableAutoSelect={enableAutoSelect}
-            currentMonth={getMonthStr(month)}
-            showMonthsDatePicker={showMonthsDatePicker}
-            setShowMonthsDatePicker={setShowMonthsDatePicker}
-            setMonthDetails={setMonthDetails}
-            getMonthDetails={getMonthDetails}
-            monthDetails={monthDetails}
-            maxMonth={maxMonth}
-            minMonth={minMonth}
-            minYear={minYear}
-            maxYear={maxYear}
-            maxDate={maxDate}
-            value={value}
-          />
+      <Styled.Calendar style={{ ...calendarStyles }} {...rest} ref={ref}>
+        <MonthPicker
+          year={year}
+          setMonth={setMonth}
+          getMonthStr={getMonthStr}
+          _month={month}
+          getTimeStamp={getTimeStamp}
+          selectedDay={selectedDay}
+          onChange={onChange}
+          setSelectedDay={setSelectedDay}
+          enableAutoSelect={enableAutoSelect}
+          currentMonth={getMonthStr(month)}
+          showMonthsDatePicker={showMonthsDatePicker}
+          setShowMonthsDatePicker={setShowMonthsDatePicker}
+          setMonthDetails={setMonthDetails}
+          getMonthDetails={getMonthDetails}
+          monthDetails={monthDetails}
+          maxMonth={maxMonth}
+          minMonth={minMonth}
+          minYear={minYear}
+          maxYear={maxYear}
+          maxDate={maxDate}
+          value={value}
+        />
 
-          <YearPicker
-            showYearsDatePicker={showYearsDatePicker}
-            enableAutoSelect={enableAutoSelect}
-            setShowYearsDatePicker={setShowYearsDatePicker}
-            setMonthDetails={setMonthDetails}
-            getMonthDetails={getMonthDetails}
-            monthDetails={monthDetails}
-            getTimeStamp={getTimeStamp}
-            setSelectedDay={setSelectedDay}
-            selectedDay={selectedDay}
-            onChange={onChange}
-            setYear={setYear}
-            monthIndex={month}
-            _year={year}
-            value={value}
-            maxDate={maxDate}
-            minDate={minDate}
-            minYear={minYear}
-            maxYear={maxYear}
-            maxMonth={maxMonth}
-            isYearForm={isYearForm}
-          />
+        <YearPicker
+          showYearsDatePicker={showYearsDatePicker}
+          enableAutoSelect={enableAutoSelect}
+          setShowYearsDatePicker={setShowYearsDatePicker}
+          setMonthDetails={setMonthDetails}
+          getMonthDetails={getMonthDetails}
+          monthDetails={monthDetails}
+          getTimeStamp={getTimeStamp}
+          setSelectedDay={setSelectedDay}
+          selectedDay={selectedDay}
+          onChange={onChange}
+          setYear={setYear}
+          monthIndex={month}
+          _year={year}
+          value={value}
+          maxDate={maxDate}
+          minDate={minDate}
+          minYear={minYear}
+          maxYear={maxYear}
+          maxMonth={maxMonth}
+          isYearForm={isYearForm}
+        />
 
-          <Styled.HeaderWrapper>
-            <Styled.HeaderLeftArrows
-              isDisabled={prevYearTimestamp < minDateTimestamp || (year === minYear && month <= minMonth)}
-              onClick={() => handleNextYearButton(-1, false)}
-            >
-              <TwoArrowsRight size={10} />
-            </Styled.HeaderLeftArrows>
+        <Styled.HeaderWrapper>
+          <Styled.HeaderLeftArrows
+            isDisabled={prevYearTimestamp < minDateTimestamp || (year === minYear && month <= minMonth)}
+            onClick={() => handleNextYearButton(-1, false)}
+          >
+            <TwoArrowsRight size={10} />
+          </Styled.HeaderLeftArrows>
 
-            <Styled.HeaderLeftArrow
-              isDisabled={prevMonthTimestamp <= minDateTimestamp}
-              onClick={() => handleNextMonthButton(-1, true)}
-            >
-              <ArrowLeftOutline size={10} />
-            </Styled.HeaderLeftArrow>
+          <Styled.HeaderLeftArrow
+            isDisabled={prevMonthTimestamp <= minDateTimestamp}
+            onClick={() => handleNextMonthButton(-1, true)}
+          >
+            <ArrowLeftOutline size={10} />
+          </Styled.HeaderLeftArrow>
 
-            <Styled.HeaderBody>
-              <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
-                {getMonthStr(month)}
-              </Styled.HeaderBodyMonth>
-              <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
-            </Styled.HeaderBody>
+          <Styled.HeaderBody>
+            <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
+              {getMonthStr(month)}
+            </Styled.HeaderBodyMonth>
+            <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
+          </Styled.HeaderBody>
 
-            <Styled.HeaderRightArrow
-              isDisabled={nextMonthTimestamp >= maxDateTimestamp}
-              onClick={() => handlePrevMonthButton(1, false)}
-            >
-              <ArrowRightOutline size={10} />
-            </Styled.HeaderRightArrow>
+          <Styled.HeaderRightArrow
+            isDisabled={nextMonthTimestamp >= maxDateTimestamp}
+            onClick={() => handlePrevMonthButton(1, false)}
+          >
+            <ArrowRightOutline size={10} />
+          </Styled.HeaderRightArrow>
 
-            <Styled.HeaderRightArrows
-              isDisabled={nextYearTimestamp > maxDateTimestamp || (year === maxYear && month >= maxYear)}
-              onClick={() => handleNextYearButton(1, true)}
-            >
-              <TwoArrowsLeft size={10} />
-            </Styled.HeaderRightArrows>
-          </Styled.HeaderWrapper>
-          <Styled.CalendarBody>{renderCalendar()}</Styled.CalendarBody>
-          <Styled.ButtonWrapper>
-            <Button onClick={() => handleOpen(false)} size="xs" color="basic">
-              Cancel
-            </Button>
-            <Button onClick={handleTodayButton} size="xs" color="secondary" disabled={isTodayDateDisabled}>
-              Today
-            </Button>
-          </Styled.ButtonWrapper>
-        </Styled.Calendar>
-      </Popper>
+          <Styled.HeaderRightArrows
+            isDisabled={nextYearTimestamp > maxDateTimestamp || (year === maxYear && month >= maxYear)}
+            onClick={() => handleNextYearButton(1, true)}
+          >
+            <TwoArrowsLeft size={10} />
+          </Styled.HeaderRightArrows>
+        </Styled.HeaderWrapper>
+        <Styled.CalendarBody>{renderCalendar()}</Styled.CalendarBody>
+        <Styled.ButtonWrapper>
+          <Button onClick={onCancel} size="xs" color="basic">
+            Cancel
+          </Button>
+          <Button onClick={handleTodayButton} size="xs" color="secondary" disabled={isTodayDateDisabled}>
+            Today
+          </Button>
+        </Styled.ButtonWrapper>
+      </Styled.Calendar>
     );
   }
 );

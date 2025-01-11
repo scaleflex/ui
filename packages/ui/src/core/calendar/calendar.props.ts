@@ -1,6 +1,6 @@
 import type { Values } from '../../utils/types';
 
-import { PopperOptions, VirtualElement } from '../popper/popper.props';
+import { VirtualElement } from '../popper/popper.props';
 import { Position } from '../popper/types';
 
 export type AnchorElType = Element | VirtualElement | null | undefined;
@@ -10,19 +10,13 @@ export type PopperPositionType = Values<typeof Position>;
 export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: string;
   maxDate?: string;
-  position?: PopperPositionType;
-  popperOptions?: PopperOptions;
   minDate?: string;
-  anchorEl?: AnchorElType;
-  open?: boolean;
   autoSelectToday?: boolean;
   enableAutoSelect?: boolean;
-  isDisabled?: boolean;
-  zIndex?: number;
   calendarStyles?: object;
-  popperWrapperStyles?: object;
   onChange?: (value: string) => void;
-  setOpen?: (value: boolean) => void;
+  onCancel?: () => void;
+  onDateClick?: (value: number) => void;
 }
 
 export interface MonthPickerProps {

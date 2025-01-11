@@ -32,7 +32,7 @@ const Calendar = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
 })<CalendarProps>(
   ({ theme: { palette } }: With<WithTheme, CalendarProps>) => css`
-    position: absolute;
+    position: relative;
     width: 224px;
     top: 4px;
     background: ${palette[PColor.BackgroundStateless]};
@@ -105,8 +105,9 @@ const DatePickerHeadDay = styled.div.attrs({
 
 const MonthDatePickerWrapper = styled(Calendar).attrs({
   className: generateClassNames(baseClassName, 'month-date-picker-wrapper'),
-})<CalendarProps>(
-  ({ open = false }: CalendarProps) => css`
+})<{ open: boolean }>(
+  ({ open = false }) => css`
+    position: absolute;
     top: 0;
     left: 0;
     box-shadow: unset;
@@ -316,8 +317,8 @@ const HeaderBodyMonth = styled.div.attrs({
 
 const HeaderLeftArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-left-arrow'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled = false }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     left: 0;
     top: 0;
@@ -329,8 +330,8 @@ const HeaderLeftArrows = styled.span.attrs({
 
 const HeaderLeftArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-left-arrow'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     left: 16.37px;
     top: 0;
@@ -342,8 +343,8 @@ const HeaderLeftArrow = styled.span.attrs({
 
 const MonthsHeaderLeftArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'month-header-left-arrow'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     color: ${palette[PColor.IconsPrimary]};
     left: 0;
@@ -356,8 +357,8 @@ const MonthsHeaderLeftArrow = styled.span.attrs({
 
 const HeaderRightArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-right-arrow'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     right: 16.37px;
     top: 0;
@@ -369,8 +370,8 @@ const HeaderRightArrow = styled.span.attrs({
 
 const MonthsHeaderRightArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'month-header-right-arrow'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     right: 0;
     color: ${isDisabled ? palette[PColor.TextPlaceholder] : palette[PColor.IconsPrimary]};
@@ -381,8 +382,8 @@ const MonthsHeaderRightArrow = styled.span.attrs({
 
 const HeaderRightArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-right-arrows'),
-})<CalendarProps>(
-  ({ theme: { palette }, isDisabled = false }: With<WithTheme, CalendarProps>) => css`
+})<With<WithTheme, { isDisabled: boolean }>>(
+  ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
     right: 0;
     color: ${isDisabled ? palette[PColor.TextPlaceholder] : palette[PColor.IconsPrimary]};
@@ -394,22 +395,19 @@ const HeaderRightArrows = styled.span.attrs({
 
 const ButtonWrapper = styled.span.attrs({
   className: generateClassNames(baseClassName, 'button-wrapper'),
-})<CalendarProps>(
-  () => css`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    column-gap: 4px;
-    width: 100%;
-    height: 24px;
-    padding-top: 12px;
+})`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 4px;
+  width: 100%;
+  height: 24px;
+  padding-top: 12px;
 
-    .SfxButton-root {
-      max-height: 24px;
-    }
-  `
-);
-
+  .SfxButton-root {
+    max-height: 24px;
+  }
+`;
 const Styled = applyDisplayNames({
   Calendar,
   MonthDatePickerWrapper,

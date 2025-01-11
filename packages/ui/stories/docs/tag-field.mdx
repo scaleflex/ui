@@ -1,0 +1,25 @@
+{/* TagField.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as TagFieldStories from '../core/tag-field.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  />  
+
+<Subtitle />
+
+## Basic TagField
+
+<Canvas of={TagFieldStories.Primary} withToolbar layout='centered'/>
+
+## TagField with array of objects
+
+<Canvas of={TagFieldStories.TagsObjects} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

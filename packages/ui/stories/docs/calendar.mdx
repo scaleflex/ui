@@ -1,0 +1,20 @@
+{/* Calendar.mdx */}
+
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as CalendarStories from '../core/calendar.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic calendar
+
+<Canvas of={CalendarStories.Primary} withToolbar layout='centered'/>  
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

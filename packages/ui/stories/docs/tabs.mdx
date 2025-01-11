@@ -1,0 +1,27 @@
+{/* Tabs.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as TabsStories from '../core/tabs.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  />  
+
+<Subtitle />
+
+## Basic Tabs
+
+Tabs are implemented using a collection of related components:
+
+`Tab` - the tab element itself. Clicking on a tab displays its corresponding panel. <br />
+`Tabs` - the container that houses the tabs. Responsible for handling focus and keyboard navigation between tabs. <br />
+`TabPanel` - the panel that displays the content of the tab. <br />
+
+<Canvas of={TabsStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />
