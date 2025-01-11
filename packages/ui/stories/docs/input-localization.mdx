@@ -1,0 +1,33 @@
+{/* InputLocalization.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as InputLocalizationStories from '../core/input-localization.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Input Localization
+
+<Canvas of={InputLocalizationStories.Primary} withToolbar layout='centered'/>
+
+## Multiple
+
+<Canvas of={InputLocalizationStories.Multiple} withToolbar layout='centered'/>
+
+## With Icon
+
+<Canvas of={InputLocalizationStories.WithIcon} withToolbar layout='centered'/>
+
+## With Icon And Custom Label
+
+<Canvas of={InputLocalizationStories.WithIconAndCustomLabel} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

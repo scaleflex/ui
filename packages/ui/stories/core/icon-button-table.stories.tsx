@@ -7,14 +7,29 @@ import IconButtonTable from '../../src/core/icon-button-table';
 import { ButtonSize } from '../../src/utils/types';
 
 const meta: Meta<typeof IconButtonTable> = {
-  title: 'Inputs/IconButtonTable',
+  title: 'Inputs/IconButton/IconButtonTable',
   component: IconButtonTable,
-  excludeStories: ['IconButtonTable'],
-
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Display an icon button in a table.',
+    },
+    layout: 'centered',
+  },
   argTypes: {
     children: {
       description:
         "IconButtonTable is used in tables as IconButton as it has different states, normally contains `icon` function `(props) => <MyIcon {...props} />`. If you use function you will have adaptive icon size. If you don't need it just use `<IconButtonTable><MyIcon /></IconButtonTable>`",
+    },
+    size: {
+      description: 'The size of the icon button. `sm` or `md`.',
+      options: Object.values(ButtonSize),
+      control: {
+        type: 'select',
+      },
+    },
+    disabled: {
+      description: 'If true, the icon button will be disabled.',
     },
   },
 };

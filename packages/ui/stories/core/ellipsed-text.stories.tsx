@@ -1,16 +1,47 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import EllipsedText, { EllipsedTextProps } from '../../src/core/ellipsed-text';
+import EllipsedText from '../../src/core/ellipsed-text';
+import EllipsedTextDocsTemplate from '../docs/ellipsed-text.mdx';
 
 const meta: Meta<typeof EllipsedText> = {
   title: 'DataDisplay/EllipsedText',
   component: EllipsedText,
-  excludeStories: ['EllipsedText'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: EllipsedTextDocsTemplate,
+      subtitle: 'Display a text with ellipsis.',
+    },
+  },
   argTypes: {
     textSuffix: {
       description:
         'The text suffix is displayed after the ellipsis only when the text is truncated, and it is limited to a maximum of 3 characters.',
+    },
+    maxLinesCount: {
+      description: 'The maximum number of lines to display.',
+    },
+    noTooltip: {
+      description: 'Whether to display the tooltip.',
+    },
+    children: {
+      description: 'The text to display.',
+    },
+    element: {
+      description: 'The html tag to pass to `as` attribute.',
+    },
+    textWrapperProps: {
+      description: 'The props to pass to the text wrapper.',
+    },
+    tooltipProps: {
+      description: 'The props to pass to the tooltip.',
+    },
+    tooltipTitle: {
+      description: 'The title to display in the tooltip.',
+    },
+    customMaxHeight: {
+      description: 'The custom maximum height to apply to ellipsed text.',
     },
   },
 };
@@ -25,14 +56,11 @@ const defaultArgs = {
   noTooltip: false,
 };
 
-const BasicTemplate = (args: EllipsedTextProps): JSX.Element => {
-  return (
+export const Primary: Story = {
+  args: { ...defaultArgs },
+  render: (args) => (
     <div style={{ maxWidth: 200 }}>
       <EllipsedText {...args}>{args.children}</EllipsedText>
     </div>
-  );
-};
-export const Primary: Story = {
-  args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  ),
 };

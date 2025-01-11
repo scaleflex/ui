@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import styled, { css } from 'styled-components';
 import Hub from '@scaleflex/icons/hub';
 import Assets from '@scaleflex/icons/assets';
 import Menu from '@scaleflex/icons/menu';
@@ -30,12 +29,69 @@ import Drawer, {
 import Divider from '../../src/core/divider';
 import IconButton from '../../src/core/icon-button';
 import { FontVariant } from '../../src/utils/types/typography';
-import { Color } from '../../src/utils/types/palette';
+import DrawerDocsTemplate from '../docs/drawer.mdx';
+import Button from '../../src/core/button';
+import { Variant } from '../../src/core/drawer/types';
 
 const meta: Meta<typeof Drawer> = {
   title: 'Navigation/Drawer',
   component: Drawer,
-  excludeStories: ['Drawer'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: DrawerDocsTemplate,
+      subtitle:
+        'The navigation drawers (or "sidebars") provide ergonomic access to destinations in a site or app functionality such as switching accounts.',
+    },
+  },
+  argTypes: {
+    variant: {
+      description: 'The variant of the drawer. `auto`, `temporary`, `persistent`',
+      options: Object.values(Variant),
+      control: {
+        type: 'select',
+      },
+    },
+    open: {
+      description: 'if true the drawer is open.',
+    },
+    collapsed: {
+      description: 'if true, the drawer will show as mini drawer.',
+    },
+    hideScroll: {
+      description: 'if true, the window scroll is hidden.',
+    },
+    top: {
+      description: 'the top position of the drawer.',
+    },
+    onCollapse: {
+      description: 'Callback function fired when the drawer is collapsed.',
+    },
+    onCollapseClick: {
+      description: 'Callback function fired when collapse button is clicked.',
+    },
+    onClose: {
+      description: 'Callback function fired when the drawer is closed.',
+    },
+    collapseButtonLabel: {
+      description: 'The label of the collapse button.',
+    },
+    collapseButtonStyle: {
+      description: 'The style of the collapse button.',
+    },
+    disablePortal: {
+      description: 'If true, the portal is disabled.',
+    },
+    persistentDrawerStyles: {
+      description: 'The style of the persistent drawer.',
+    },
+    temproryDrawerStyles: {
+      description: 'The style of the temporary drawer.',
+    },
+    iconsSize: {
+      description: 'The size of the icons in the drawer.',
+    },
+  },
 };
 
 export default meta;
@@ -45,23 +101,6 @@ const defaultArgs = {
   collpased: false,
   top: 64,
 };
-
-const StyledHeader = styled.div(
-  ({ theme }) => css`
-    background-color: ${theme.palette[Color.BackgroundStateless]};
-    border-bottom: 1px solid ${theme.palette[Color.BordersSecondary]};
-    display: flex;
-    align-items: center;
-    width: 100%;
-    box-sizing: border-box;
-    position: fixed;
-    top: 0px;
-    left: auto;
-    right: 0px;
-    height: 64px;
-    font-size: 31px;
-  `
-);
 
 const libraryItems = [
   {
@@ -110,99 +149,86 @@ const analyticsItems = [
   },
 ];
 
-const BasicTemplate = ({ ...args }): JSX.Element => {
-  const [open, setOpen] = useState(true);
-  const [analyticsOpen, setAnalyticsOpen] = useState(false);
-  const [isDrawerOpened, setIsDrawerOpened] = useState(true);
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const onCollapse = (state: boolean): void => {
-    setIsCollapsed(state);
-  };
-
-  return (
-    <div>
-      <StyledHeader>
-        <IconButton
-          style={{
-            border: 'none',
-            marginLeft: '2px',
-            marginRight: '8px',
-          }}
-          color={ButtonColor.Basic}
-          size={ButtonSize.Md}
-          onClick={() => setIsDrawerOpened(!isDrawerOpened)}
-        >
-          {(props: IconProps) => <Menu {...props} />}
-        </IconButton>
-        Drawer
-      </StyledHeader>
-      <Drawer
-        {...args}
-        open={isDrawerOpened}
-        collapsed={isCollapsed}
-        onClose={() => setIsDrawerOpened(false)}
-        onCollapse={onCollapse}
-        style={{
-          marginTop: '46px',
-        }}
-      >
-        <DrawerHeader>
-          <IconButton
-            style={{
-              border: 'none',
-              marginLeft: '2px',
-              marginRight: '8px',
-            }}
-            color={ButtonColor.Basic}
-            size={ButtonSize.Md}
-            onClick={() => setIsDrawerOpened(false)}
-          >
-            {(props: IconProps) => <Menu {...props} />}
-          </IconButton>
-          <DrawerItemText>Logo</DrawerItemText>
-        </DrawerHeader>
-        <DrawerBody>
-          <DrawerList>
-            <DrawerItem>
-              <DrawerItemText font={FontVariant.LabelLargeEmphasis}>Home</DrawerItemText>
-            </DrawerItem>
-            <DrawerAccordion label="Library" fullWidth expanded={open} onChange={(value) => setOpen(value)} selected>
-              {libraryItems.map((item) => (
-                <DrawerItemButton key={item.title} selected={item.selected}>
-                  <DrawerItemIcon>{item.icon}</DrawerItemIcon>
-                  <DrawerItemText>{item.title}</DrawerItemText>
-                </DrawerItemButton>
-              ))}
-            </DrawerAccordion>
-            {isCollapsed && <Divider style={{ margin: '8px 0px' }} />}
-            <DrawerAccordion
-              label="Analytics"
-              fullWidth
-              expanded={analyticsOpen}
-              onChange={(value) => setAnalyticsOpen(value)}
-            >
-              {analyticsItems.map((item) => (
-                <DrawerItemButton key={item.title}>
-                  <DrawerItemIcon>{item.icon}</DrawerItemIcon>
-                  <DrawerItemText>{item.title}</DrawerItemText>
-                </DrawerItemButton>
-              ))}
-            </DrawerAccordion>
-          </DrawerList>
-        </DrawerBody>
-        <DrawerFooter>
-          <DrawerItemButton>
-            <DrawerItemIcon>{(props: IconProps) => <QuestionMark {...props} />}</DrawerItemIcon>
-            <DrawerItemText>Help</DrawerItemText>
-          </DrawerItemButton>
-        </DrawerFooter>
-      </Drawer>
-    </div>
-  );
-};
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  render: (args) => {
+    const [open, setOpen] = useState(false);
+    const [analyticsOpen, setAnalyticsOpen] = useState(false);
+    const [isDrawerOpened, setIsDrawerOpened] = useState(false);
+    const [isCollapsed, setIsCollapsed] = useState(false);
+
+    const onCollapse = (state: boolean): void => {
+      setIsCollapsed(state);
+    };
+
+    return (
+      <div>
+        <Button onClick={() => setIsDrawerOpened(!isDrawerOpened)}>Toggle Drawer</Button>
+
+        <Drawer
+          {...args}
+          open={isDrawerOpened}
+          collapsed={isCollapsed}
+          onClose={() => setIsDrawerOpened(false)}
+          onCollapse={onCollapse}
+          hideScroll={true}
+          variant={Variant.Temporary}
+          style={{
+            height: '100%',
+          }}
+        >
+          <DrawerHeader>
+            <IconButton
+              style={{
+                border: 'none',
+                marginLeft: '2px',
+                marginRight: '8px',
+              }}
+              color={ButtonColor.Basic}
+              size={ButtonSize.Md}
+              onClick={() => setIsDrawerOpened(false)}
+            >
+              {(props: IconProps) => <Menu {...props} />}
+            </IconButton>
+            <DrawerItemText>Logo</DrawerItemText>
+          </DrawerHeader>
+          <DrawerBody>
+            <DrawerList>
+              <DrawerItem>
+                <DrawerItemText font={FontVariant.LabelLargeEmphasis}>Home</DrawerItemText>
+              </DrawerItem>
+              <DrawerAccordion label="Library" fullWidth expanded={open} onChange={(value) => setOpen(value)} selected>
+                {libraryItems.map((item) => (
+                  <DrawerItemButton key={item.title} selected={item.selected}>
+                    <DrawerItemIcon>{item.icon}</DrawerItemIcon>
+                    <DrawerItemText>{item.title}</DrawerItemText>
+                  </DrawerItemButton>
+                ))}
+              </DrawerAccordion>
+              {isCollapsed && <Divider style={{ margin: '8px 0px' }} />}
+              <DrawerAccordion
+                label="Analytics"
+                fullWidth
+                expanded={analyticsOpen}
+                onChange={(value) => setAnalyticsOpen(value)}
+              >
+                {analyticsItems.map((item) => (
+                  <DrawerItemButton key={item.title}>
+                    <DrawerItemIcon>{item.icon}</DrawerItemIcon>
+                    <DrawerItemText>{item.title}</DrawerItemText>
+                  </DrawerItemButton>
+                ))}
+              </DrawerAccordion>
+            </DrawerList>
+          </DrawerBody>
+          <DrawerFooter>
+            <DrawerItemButton>
+              <DrawerItemIcon>{(props: IconProps) => <QuestionMark {...props} />}</DrawerItemIcon>
+              <DrawerItemText>Help</DrawerItemText>
+            </DrawerItemButton>
+          </DrawerFooter>
+        </Drawer>
+      </div>
+    );
+  },
 };

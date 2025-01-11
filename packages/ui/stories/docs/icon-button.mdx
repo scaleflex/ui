@@ -1,0 +1,31 @@
+{/* IconButton.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as IconButtonStories from '../core/icon-button.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Icon Button
+
+<Canvas of={IconButtonStories.Primary} withToolbar layout='centered'/>
+
+## Sizes
+
+For larger or smaller buttons, use the `size` prop.
+
+<Canvas of={IconButtonStories.Sizes} withToolbar layout='centered' />
+
+## Colors
+
+<Canvas of={IconButtonStories.Colors} withToolbar layout='centered' />
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

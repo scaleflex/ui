@@ -1,15 +1,44 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-
-import ImageComparisonSlider, { ImageComparisonSliderProps } from '../../src/core/image-comparison-slider';
-import { lightPalette } from '@scaleflex/ui/theme/roots/palette';
-import { Color } from '@scaleflex/ui/utils/types/palette';
 import ErrorBroke from '@scaleflex/icons/error-broke';
+
+import { lightPalette } from '../../src/theme/roots/palette';
+import { Color } from '../../src/utils/types/palette';
+import ImageComparisonSlider from '../../src/core/image-comparison-slider';
+import ImageComparisonSliderDocsTemplate from '../docs/image-comparison-slider.mdx';
 
 const meta: Meta<typeof ImageComparisonSlider> = {
   title: 'DataDisplay/ImageComparisonSlider',
   component: ImageComparisonSlider,
-  excludeStories: ['ImageComparisonSlider'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: ImageComparisonSliderDocsTemplate,
+      subtitle: 'Display an image comparison slider.',
+    },
+  },
+  argTypes: {
+    leftImgProps: {
+      description: 'The left image props passed to image element.',
+    },
+    rightImgProps: {
+      description: 'The right image props passed to image element.',
+    },
+    fallbackPreviewProps: {
+      description:
+        'fallback props used when image failed to load. <br/> ``{ gap?: number; iconSize?: number; iconColor?: string;backgroundColor?: string; msgProps?: { text?: string; color?: string }; icon?: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;}``',
+    },
+    handleProps: {
+      description: 'The handle props for the drag slider.',
+    },
+    imgWrapperProps: {
+      description: 'Image wrapper props for the left and right images.',
+    },
+    footerProps: {
+      description:
+        'Props for the footer under the image slider. <br/> ``{ leftText?: string; rightText?: string; hideFooter?: boolean }``',
+    },
+  },
 };
 
 export default meta;
@@ -31,11 +60,7 @@ const defaultArgs = {
   },
 };
 
-const BasicTemplate = ({ ...args }: ImageComparisonSliderProps): JSX.Element => {
-  return <ImageComparisonSlider style={{ width: 600, height: 600 }} {...args} />;
-};
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  render: (args) => <ImageComparisonSlider style={{ width: 600, height: 600 }} {...args} />,
 };

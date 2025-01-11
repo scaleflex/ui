@@ -1,20 +1,54 @@
 import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import LanguagesIcon from '@scaleflex/icons/languages';
-import type { IconProps } from '@scaleflex/icons/icon.props';
 
 import InputLocalization from '../../src/core/input-localization';
 import MenuItem from '../../src/core/menu-item';
 import { InputSize } from '../../src/utils/types';
+import InputLocalizationDocsTemplate from '../docs/input-localization.mdx';
 
 const meta: Meta<typeof InputLocalization> = {
   title: 'DataDisplay/InputLocalization',
   component: InputLocalization,
-  excludeStories: ['InputLocalization'],
-
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: InputLocalizationDocsTemplate,
+      subtitle: 'InputLocalization is a component that allows users to select a language.',
+    },
+  },
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
+    },
+    renderLabel: {
+      description: 'Custom label render function.',
+    },
+    icon: {
+      description: 'Icon to display.',
+    },
+    value: {
+      description: 'The value of the input.',
+    },
+    onChange: {
+      description: 'Callback function called when the value changes.',
+    },
+    size: {
+      description: 'The size of the input. `sm` or `md`.',
+      options: Object.values(InputSize),
+      control: {
+        type: 'select',
+      },
+    },
+    MenuProps: {
+      description:
+        'The props of the menu component. Please refer to the [Menu](/?path=/docs/navigation-menu--docs#api) component for more information.',
+    },
+    readOnly: {
+      description: 'if true, the input is read-only.',
+    },
+    disabled: {
+      description: 'if true, the input is disabled.',
     },
   },
 };
@@ -30,36 +64,34 @@ const defaultArgs = {
 
 const options = ['France', 'Germany', 'Ukraine'];
 
-const BasicTemplate = ({ ...args }): JSX.Element => {
-  const [value, setValue] = useState(args.multiple ? [options[0]] : options[0]);
-
-  return (
-    <InputLocalization {...args} value={value} onChange={(ev: any) => setValue(ev)}>
-      {options.map((option) => (
-        <MenuItem key={option} value={option}>
-          {option}
-        </MenuItem>
-      ))}
-    </InputLocalization>
-  );
-};
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  render: (args) => {
+    const [value, setValue] = useState(args.multiple ? [options[0]] : options[0]);
+
+    return (
+      <InputLocalization {...args} value={value} onChange={(ev: any) => setValue(ev)}>
+        {options.map((option) => (
+          <MenuItem key={option} value={option}>
+            {option}
+          </MenuItem>
+        ))}
+      </InputLocalization>
+    );
+  },
 };
 
 export const Multiple: Story = {
   args: { ...defaultArgs, multiple: true },
-  render: (args) => <BasicTemplate {...args} />,
+  render: Primary.render,
 };
 
 export const WithIcon: Story = {
   args: {
     ...defaultArgs,
-    icon: (props: IconProps) => <LanguagesIcon {...props} />,
+    icon: <LanguagesIcon size={12} />,
   },
-  render: (args) => <BasicTemplate {...args} />,
+  render: Primary.render,
 };
 
 export const WithIconAndCustomLabel: Story = {
@@ -68,5 +100,5 @@ export const WithIconAndCustomLabel: Story = {
     icon: <LanguagesIcon size={12} />,
     renderLabel: (value) => `Value: ${value}`,
   },
-  render: (args) => <BasicTemplate {...args} />,
+  render: Primary.render,
 };

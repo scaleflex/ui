@@ -1,0 +1,31 @@
+{/* Input.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as InputStories from '../core/input.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Input
+
+<Canvas of={InputStories.Primary} withToolbar layout='centered'/>
+
+## Icons
+
+There are multiple ways to display an icon with an input.
+
+<Canvas of={InputStories.Icons} withToolbar layout='centered'/>
+
+## Sizes
+
+<Canvas of={InputStories.Sizes} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

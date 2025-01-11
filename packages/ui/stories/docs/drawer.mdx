@@ -1,0 +1,24 @@
+{/* Drawer.mdx */}
+
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as DrawerStories from '../core/drawer.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic drawer
+
+The variant used here is temprory. you can change it to persistent by setting the variant prop to 'persistent', or auto to detect the variant by the screen size.
+
+In auto mode, the drawer will be persistent on xlarge screen sizes and temprory on under xlarge sizes.
+
+<Canvas of={DrawerStories.Primary} withToolbar layout='centered'/>  
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />
