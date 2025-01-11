@@ -1,0 +1,29 @@
+{/* Switcher.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as SwitcherStories from '../core/switcher.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic Switcher
+
+<Canvas of={SwitcherStories.Primary} withToolbar layout='centered'/>
+
+## Sizes
+
+Use the size prop to change the size of the switcher.
+
+## Text inside the switcher
+
+<Canvas of={SwitcherStories.WithChildren} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

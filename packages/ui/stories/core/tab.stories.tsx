@@ -1,15 +1,51 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import AssetsIcon from '@scaleflex/icons/assets';
 import DownloadCart from '@scaleflex/icons/download-cart';
 
-import Tab, { TabProps } from '../../src/core/tab';
+import Tab from '../../src/core/tab';
 import { Size } from '../../src/core/tab/types';
+import TabDocsTemplate from '../docs/tab.mdx';
 
 const meta: Meta<typeof Tab> = {
   title: 'Navigation/Tabs/Tab',
   component: Tab,
-  excludeStories: ['Tab'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: TabDocsTemplate,
+      subtitle: 'Tab is a component that used with `Tabs` component to display a tab.',
+    },
+  },
+  argTypes: {
+    label: {
+      description: 'The content of the tab.',
+    },
+    icon: {
+      description: 'An icon that is shown before the label.',
+    },
+    badge: {
+      description: 'A badge that is shown after the label.',
+    },
+    disabled: {
+      description: 'if true, the tab is disabled.',
+    },
+    active: {
+      description: 'if true, the tab is active.',
+    },
+    notification: {
+      description: 'if it has value, a notification dot is shown on the icon and the color is the value.',
+    },
+    size: {
+      description: 'The size of the tab. `sm`, `md`, `lg`',
+      options: Object.values(Size),
+      control: {
+        type: 'select',
+      },
+    },
+    value: {
+      description: 'The value of the tab.',
+    },
+  },
 };
 
 export default meta;
@@ -22,19 +58,7 @@ const defaultArgs = {
   active: false,
 };
 
-const BasicTemplate = ({ ...args }: TabProps): JSX.Element => <Tab {...args} />;
-
 export const Primary: Story = {
-  args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
-};
-
-export const WithIcon: Story = {
-  args: { ...defaultArgs, label: 'Assets', icon: <AssetsIcon /> },
-  render: (args) => <BasicTemplate {...args} />,
-};
-
-export const WithBadge: Story = {
   args: { ...defaultArgs, label: 'Download Cart', icon: <DownloadCart />, badge: '(2)', notification: '#3ECF8B' },
-  render: (args) => <BasicTemplate {...args} />,
+  render: (args) => <Tab {...args} />,
 };

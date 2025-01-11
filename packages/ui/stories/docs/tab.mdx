@@ -1,0 +1,21 @@
+{/* Tab.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as TabStories from '../core/tab.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  />  
+
+<Subtitle />
+
+## Basic Tab
+
+<Canvas of={TabStories.Primary} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

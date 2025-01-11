@@ -1,16 +1,29 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 
-import TabPanel, { TabPanelProps } from '../../src/core/tab-panel';
+import TabPanel from '../../src/core/tab-panel';
+import TabPanelDocsTemplate from '../docs/tab-panel.mdx';
 
 const meta: Meta<typeof TabPanel> = {
-  title: 'DataDisplay/TabPanel',
+  title: 'Navigation/Tabs/TabPanel',
   component: TabPanel,
-  excludeStories: ['TabPanel'],
-
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: TabPanelDocsTemplate,
+      subtitle:
+        'TabPanel is a component that displays the content of a tab, it is used with `Tab` and `Tabs` components.',
+    },
+  },
   argTypes: {
     value: {
       description: 'TabPanel is visible only when value is equal to index',
+    },
+    index: {
+      description: 'The index of the tab panel.',
+    },
+    children: {
+      description: 'The content of the tab panel.',
     },
   },
 };
@@ -24,9 +37,7 @@ const defaultArgs = {
   index: 1,
 };
 
-const BasicTemplate = ({ ...args }: TabPanelProps): JSX.Element => <TabPanel {...args} />;
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate {...args} />,
+  render: (args) => <TabPanel {...args} />,
 };
