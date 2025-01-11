@@ -1,0 +1,33 @@
+{/* Autocomplete.mdx */}
+ 
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as AutocompleteStories from '../core/autocomplete.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic autocomplete
+
+<Canvas of={AutocompleteStories.Primary} withToolbar layout='centered'/>
+
+## Using objects with options
+
+<Canvas of={AutocompleteStories.AutocompleteObjects} withToolbar layout='centered'/>
+
+## Multiple 
+
+<Canvas of={AutocompleteStories.Multiple} withToolbar layout='centered'/>
+
+## Groups and Icons
+
+<Canvas of={AutocompleteStories.GroupsAndIcons} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

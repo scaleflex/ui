@@ -1,0 +1,25 @@
+{/* Badge.mdx */}
+
+import { Canvas, Title, Subtitle, ArgTypes} from '@storybook/blocks';
+ 
+import * as BadgeStories from '../core/badge.stories';
+import ForwardRefNote from '../shared/ForwardRefNote';
+
+
+<Title  /> 
+
+<Subtitle />
+
+## Basic badge
+
+<Canvas of={BadgeStories.Primary} withToolbar layout='centered'/>
+
+## Colors
+
+<Canvas of={BadgeStories.Colors} withToolbar layout='centered'/>
+
+## API
+
+<ArgTypes sort='alpha' />
+
+<ForwardRefNote />

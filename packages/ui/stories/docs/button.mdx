@@ -4,13 +4,18 @@ import { Canvas, Meta, Title, Subtitle, ArgTypes} from '@storybook/blocks';
  
 import * as ButtonStories from '../core/button.stories';
 import ForwardRefNote from '../shared/ForwardRefNote';
+import { ButtonColor } from '../../src/utils/types/color/button-color';
 
 
 <Title  /> 
 
 <Subtitle />
 
-## Color
+## Colors
+
+Button colors are:
+
+{Object.values(ButtonColor).map((color, index) => `${color}${Object.values(ButtonColor).length - 1 !== index ? ', ' : ''}`)}.
 
 <Canvas of={ButtonStories.Primary} withToolbar layout='centered'/>
 

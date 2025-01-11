@@ -1,16 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Accordion, { AccordionProps } from '../../src/core/accordion';
+
+import Accordion from '../../src/core/accordion';
+import AccordionDocsTemplate from '../docs/accordion.mdx';
 
 const meta: Meta<typeof Accordion> = {
   title: 'Surfaces/Accordion',
   component: Accordion,
-  argTypes: {
-    children: {
-      description: 'Accordion children are sub-module components: `AccordionHeader, AccordionDetails`.',
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      page: AccordionDocsTemplate,
+      subTitle: 'The Accordion component lets users show and hide sections of related content on a page.',
     },
   },
-  excludeStories: ['Accordion'],
+  argTypes: {
+    children: {
+      description: 'The content of the component.',
+    },
+    expanded: {
+      description: 'If true, the component is expanded.',
+    },
+    onChange: {
+      description: 'Callback fired when the state is changed.',
+    },
+    onClick: {
+      description: 'Callback fired when the component is clicked.',
+    },
+    onContextMenu: {
+      description: 'Callback fired when the component is context-clicked.',
+    },
+    hideIcon: {
+      description: 'If true, arrow icon is hidden.',
+    },
+    label: {
+      description: 'The label of the component.',
+    },
+    iconProps: {
+      description: 'Props applied to the arrow icon.',
+    },
+    fullWidth: {
+      description: 'If true, the component is full width.',
+    },
+    detailStyle: {
+      description: 'Styles applied to the details component.',
+    },
+    headerStyle: {
+      description: 'Styles applied to the header component.',
+    },
+  },
 };
 
 export default meta;
@@ -22,21 +60,19 @@ const defaultArgs = {
   hideIcon: false,
 };
 
-const BasicTemplate = ({ expanded, ...args }: AccordionProps): JSX.Element => {
-  const [openState, setOpenState] = useState(expanded || false);
-
-  useEffect(() => {
-    setOpenState(expanded || false);
-  }, [expanded]);
-
-  return (
-    <Accordion {...args} expanded={openState} onChange={(value) => setOpenState(value)}>
-      <div>This is Scaleflex Accordion </div>
-    </Accordion>
-  );
-};
-
 export const Primary: Story = {
   args: { ...defaultArgs },
-  render: (args) => <BasicTemplate expanded={args.expanded} {...args} />,
+  render: (args) => {
+    const [openState, setOpenState] = useState(args.expanded || false);
+
+    useEffect(() => {
+      setOpenState(args.expanded || false);
+    }, [args.expanded]);
+
+    return (
+      <Accordion {...args} expanded={openState} onChange={(value) => setOpenState(value)}>
+        <div>This is Scaleflex Accordion </div>
+      </Accordion>
+    );
+  },
 };

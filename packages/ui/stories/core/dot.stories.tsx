@@ -1,11 +1,20 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
+
 import Dot from '../../src/core/dot';
 
 const meta: Meta<typeof Dot> = {
-  title: 'DataDisplay/Dot',
+  title: 'Navigation/DotsNavigation/Dot',
   component: Dot,
-  excludeStories: ['Dot'],
+  tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'The Dot component is used to display a dot.',
+    },
+  },
+  argTypes: {
+    active: { description: 'If true the dot will be active' },
+  },
 } as Meta;
 
 export default meta;

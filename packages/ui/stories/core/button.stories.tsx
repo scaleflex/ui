@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import type { Meta, StoryObj } from '@storybook/react';
 import UploadIcon from '@scaleflex/icons/upload';
+
 import { ButtonSize, ButtonColor } from '../../src/utils/types';
 import { ButtonType, SideBarType } from '../../src/core/button/types';
 import ButtonDocsTemplate from '../docs/button.mdx';
@@ -12,6 +13,45 @@ const meta: Meta<typeof Button> = {
   component: Button,
   tags: ['autodocs'],
   argTypes: {
+    children: {
+      description: 'The content of the button.',
+    },
+    size: {
+      description: 'The size of the button.',
+      options: Object.values(ButtonSize),
+      control: {
+        type: 'select',
+      },
+    },
+    color: {
+      description: 'The color of the button.',
+      options: Object.values(ButtonColor),
+      control: {
+        type: 'select',
+      },
+    },
+    buttonType: {
+      description: 'The type of the button.',
+      options: Object.values(ButtonType),
+      control: {
+        type: 'select',
+      },
+    },
+    disabled: {
+      description: 'if true the button is disabled.',
+    },
+    active: {
+      description: 'if true the button is active.',
+    },
+    loading: {
+      description: 'if true the button is loading.',
+    },
+    badge: {
+      description: 'The badge content for the button.',
+    },
+    sideBarType: {
+      description: 'The sidebar type when buttonType is sidebar.',
+    },
     startIcon: {
       description:
         'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`',
