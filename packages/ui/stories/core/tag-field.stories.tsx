@@ -52,7 +52,7 @@ const meta: Meta<typeof TagField> = {
     },
     LabelProps: {
       description:
-        'The props of the label component. Please refer to the [Label](/?path=/docs/datadisplay-label--docs#api) component for more information.',
+        'The props of the label component. Please refer to the [Label]((ui/?path=/docs/datadisplay-label--docs#api) component for more information.',
     },
     clearTagsButtonLabel: {
       description: 'The label of the clear tags button.',

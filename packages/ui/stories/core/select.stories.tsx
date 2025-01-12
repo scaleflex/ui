@@ -62,7 +62,7 @@ const meta: Meta<typeof Select> = {
     },
     MenuProps: {
       description:
-        'The props of the menu component. Please refer to the [Menu](/?path=/docs/navigation-menu--docs#api) component for more information.',
+        'The props of the menu component. Please refer to the [Menu]((ui/?path=/docs/navigation-menu--docs#api) component for more information.',
     },
     onClickClearIcon: {
       description: 'The onClick event handler of the clear icon.',

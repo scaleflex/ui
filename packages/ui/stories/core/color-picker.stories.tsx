@@ -32,7 +32,7 @@ const meta: Meta<typeof ColorPicker> = {
     },
     MenuProps: {
       description:
-        'The props of the menu component applied tot the select input in the color picker. Please refer to the [Menu](/?path=/docs/navigation-menu--docs#api) component for more information.',
+        'The props of the menu component applied tot the select input in the color picker. Please refer to the [Menu]((ui/?path=/docs/navigation-menu--docs#api) component for more information.',
     },
   },
 };
