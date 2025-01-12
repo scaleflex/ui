@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.1](https://github.com/scaleflex/ui/compare/v2.11.0...v2.11.1) (2025-01-12)
+
+### Bug Fixes
+
+- component url redirects in stories ([b49c2b7](https://github.com/scaleflex/ui/commit/b49c2b747b07c58462265dab72122f19ebcf831f))
+
 # [2.11.0](https://github.com/scaleflex/ui/compare/v2.10.35...v2.11.0) (2025-01-12)
 
 ### Features
