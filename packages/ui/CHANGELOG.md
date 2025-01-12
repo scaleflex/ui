@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/scaleflex/ui/compare/v2.10.35...v2.11.0) (2025-01-12)
+
+### Features
+
+- **Accordion, Autocomplete, Badge, Button, ColorPicker, CrossButton, Dot, DotNavigation:** add new documentation ([79aae24](https://github.com/scaleflex/ui/commit/79aae247df1965286a5ad83aae4831a449c2560b))
+- **Calendar, DatePicker, Tabs, TagField, Tag:** add new documentation ([2de8ce3](https://github.com/scaleflex/ui/commit/2de8ce37221fef620dab47fea6cf4e1d8a579d91))
+- **Drawer, EllipsedText, GalleryButton, IconButtonTable, IconButton, ImageComparisonSlider, InputGroup, inputLocalization, Input:** add new documentation ([0921bac](https://github.com/scaleflex/ui/commit/0921bacf1783cf0bae3161e73ddc097d75603ddd))
+- **Label, ModalActions, ModalContent, ModalTitle, Modal, Notification, Pagination, Popup:** add new documentation ([c3c134c](https://github.com/scaleflex/ui/commit/c3c134c38e7b74f35af070138349ff1b5654c3b7))
+- **RadioGroup, Radio, RotationSlider, Search, SelectGroup, Select, Slider:** add new documentation ([ac0781b](https://github.com/scaleflex/ui/commit/ac0781b57488748420ce613442908561db9fca91))
+- **Skeleton, StatusLabel, SwitcherGroup, Switcher, TabPanel, Tab:** add new documentation ([49be8f3](https://github.com/scaleflex/ui/commit/49be8f3fec6380f861e7865cb3ead8408e6e9494))
+- **Table, TableBody, TableCell, TableContainer, TableHead, TablePagination, TableRow:** add new documentation ([7361507](https://github.com/scaleflex/ui/commit/7361507032916933fb46b4bb2c1381613763f2c8))
+- **Textarea. TimePicker, UploadInput:** add new documentation ([837a15f](https://github.com/scaleflex/ui/commit/837a15f6a0b8f1a79b51531b0166c6ca1da0e721))
+
 ## [2.10.35](https://github.com/scaleflex/ui/compare/v2.10.34...v2.10.35) (2025-01-06)
 
 ### Bug Fixes
