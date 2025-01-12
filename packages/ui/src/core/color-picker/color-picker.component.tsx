@@ -35,7 +35,8 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
       pinnedColors = [],
       showTransparentColor = false,
       hidePinIcon = false,
-      containerProps,
+      containerProps, // TODO: Remove containerProps in major release
+      MenuProps,
       ...rest
     }: ColorPickerProps,
     ref
@@ -291,7 +292,8 @@ const ColorPicker = intrinsicComponent<ColorPickerProps, HTMLDivElement>(
               <Select
                 size="sm"
                 value={inputType}
-                MenuProps={{ zIndex: 11112, ...containerProps }}
+                // TODO: Remove containerProps in major release
+                MenuProps={{ zIndex: 11112, ...containerProps, ...MenuProps }}
                 onChange={(ev: any) => setInputType(ev)}
                 fullWidth
                 hideEllipsis

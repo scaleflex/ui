@@ -30,8 +30,9 @@ const meta: Meta<typeof ColorPicker> = {
     hidePinIcon: {
       description: 'If true, the pin icon will be hidden in the color picker',
     },
-    containerProps: {
-      description: 'Menu props for the select input in the color picker',
+    MenuProps: {
+      description:
+        'The props of the menu component applied tot the select input in the color picker. Please refer to the [Menu](/?path=/docs/navigation-menu--docs#api) component for more information.',
     },
   },
 };

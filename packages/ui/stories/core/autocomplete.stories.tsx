@@ -105,16 +105,16 @@ const meta: Meta<typeof Autocomplete> = {
       description: 'The options of the autocomplete.',
     },
     getOptionValue: {
-      description: 'The function that returns the value of the option.',
+      description: 'A function that returns the value of the option.',
     },
     getOptionLabel: {
-      description: 'The function that returns the label of the option.',
+      description: 'A function that returns the label of the option.',
     },
     getOptionDisabled: {
-      description: 'The function that returns the disabled state of the option.',
+      description: 'A function that returns the disabled state of the option.',
     },
     groupBy: {
-      description: 'A functions that can be used to group options by a specific filter.',
+      description: 'A function that can be used to group options by a specific filter.',
     },
     submitOnBlur: {
       description: 'If true, the input will be submitted on blur.',

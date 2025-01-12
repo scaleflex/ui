@@ -29,9 +29,17 @@ const meta: Meta<typeof CheckBox> = {
     },
     size: {
       description: 'Size of the checkbox, `sm` or `md`',
+      options: Object.values(Size),
+      control: {
+        type: 'select',
+      },
     },
     type: {
       description: 'Type of the checkbox, `checkbox` or `intermediate`',
+      options: Object.values(Type),
+      control: {
+        type: 'select',
+      },
     },
   },
   parameters: {
