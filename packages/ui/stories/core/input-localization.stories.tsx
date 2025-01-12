@@ -42,7 +42,7 @@ const meta: Meta<typeof InputLocalization> = {
     },
     MenuProps: {
       description:
-        'The props of the menu component. Please refer to the [Menu]((ui/?path=/docs/navigation-menu--docs#api) component for more information.',
+        'The props of the menu component. Please refer to the [Menu]((../?path=/docs/navigation-menu--docs#api) component for more information.',
     },
     readOnly: {
       description: 'if true, the input is read-only.',
