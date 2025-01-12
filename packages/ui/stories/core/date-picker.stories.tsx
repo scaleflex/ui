@@ -62,15 +62,15 @@ const meta: Meta<typeof DatePicker> = {
     // },
     InputProps: {
       description:
-        'The props of the input component. Please refer to the [Input](?path=/docs/inputs-input--docs#api) component for more information.',
+        'The props of the input component. Please refer to the [Input](https://scaleflex.github.io/ui/?path=/docs/inputs-input--docs#api) component for more information.',
     },
     inputGroupProps: {
       description:
-        'Props for the input group. Please refer to the [InputGroup](?path=/docs/inputs-input-inputgroup--docs#api) component for more information.',
+        'Props for the input group. Please refer to the [InputGroup](https://scaleflex.github.io/ui/?path=/docs/inputs-input-inputgroup--docs#api) component for more information.',
     },
     popperOptions: {
       description:
-        'PopperOptions prop in the popper component. Please refer to the [Popper](?path=/docs/datadisplay-popper--docs#api) component for more information.',
+        'PopperOptions prop in the popper component. Please refer to the [Popper](https://scaleflex.github.io/ui/?path=/docs/datadisplay-popper--docs#api) component for more information.',
     },
     zIndex: {
       description: 'The z-index of the popper component',

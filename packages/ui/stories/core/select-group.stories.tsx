@@ -64,15 +64,15 @@ const meta: Meta<typeof SelectGroup> = {
     },
     SelectProps: {
       description:
-        'The props of the select component. Please refer to the [Select](?path=/docs/inputs-select--docs#api) component for more information.',
+        'The props of the select component. Please refer to the [Select](https://scaleflex.github.io/ui/?path=/docs/inputs-select--docs#api) component for more information.',
     },
     LabelProps: {
       description:
-        'The props of the label component. Please refer to the [Label](?path=/docs/datadisplay-label--docs#api) component for more information.',
+        'The props of the label component. Please refer to the [Label](https://scaleflex.github.io/ui/?path=/docs/datadisplay-label--docs#api) component for more information.',
     },
     MenuProps: {
       description:
-        'The props of the menu component. Please refer to the [Menu](?path=/docs/navigation-menu--docs#api) component for more information.',
+        'The props of the menu component. Please refer to the [Menu](https://scaleflex.github.io/ui/?path=/docs/navigation-menu--docs#api) component for more information.',
     },
     onClickClearIcon: {
       description: 'The onClick event handler of the clear icon.',
