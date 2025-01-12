@@ -46,15 +46,15 @@ const meta: Meta<typeof Autocomplete> = {
     },
     InputProps: {
       description:
-        'The props of the input component. Please refer to the [Input](../?path=/docs/inputs-input--docs#api) component for more information.',
+        'The props of the input component. Please refer to the [Input](?path=/docs/inputs-input--docs#api) component for more information.',
     },
     MenuProps: {
       description:
-        'The props of the menu component. Please refer to the [Menu]((../?path=/docs/navigation-menu--docs#api) component for more information.',
+        'The props of the menu component. Please refer to the [Menu](?path=/docs/navigation-menu--docs#api) component for more information.',
     },
     LabelProps: {
       description:
-        'The props of the label component. Please refer to the [Label]((../?path=/docs/datadisplay-label--docs#api) component for more information.',
+        'The props of the label component. Please refer to the [Label](?path=/docs/datadisplay-label--docs#api) component for more information.',
     },
     hint: {
       description: 'The hint of the autocomplete.',

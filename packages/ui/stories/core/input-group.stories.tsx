@@ -74,7 +74,7 @@ const meta: Meta<typeof InputGroup> = {
     },
     LabelProps: {
       description:
-        'The props of the label component. Please refer to the [Label]((../?path=/docs/datadisplay-label--docs#api) component for more information.',
+        'The props of the label component. Please refer to the [Label](?path=/docs/datadisplay-label--docs#api) component for more information.',
     },
     copyTextMessage: {
       description: 'The message to display when the copy icon is clicked.',

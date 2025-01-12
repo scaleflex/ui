@@ -22,15 +22,15 @@ const meta: Meta<typeof TimePicker> = {
     },
     inputGroupProps: {
       description:
-        'Props for the input group. Please refer to the [InputGroup]((../?path=/docs/inputs-input-inputgroup--docs#api) component for more information.',
+        'Props for the input group. Please refer to the [InputGroup](?path=/docs/inputs-input-inputgroup--docs#api) component for more information.',
     },
     InputProps: {
       description:
-        'Props for the input. Please refer to the [Input]((../?path=/docs/inputs-input--docs#api) component for more information.',
+        'Props for the input. Please refer to the [Input](?path=/docs/inputs-input--docs#api) component for more information.',
     },
     position: {
       description:
-        'The position of the menu. refer to the [Popper]((../?path=/docs/datadisplay-popper--docs#positioned-popper) component to see the available positions.',
+        'The position of the menu. refer to the [Popper](?path=/docs/datadisplay-popper--docs#positioned-popper) component to see the available positions.',
       options: Object.values(Position),
       control: {
         type: 'select',
@@ -48,7 +48,7 @@ const meta: Meta<typeof TimePicker> = {
     },
     popperOptions: {
       description:
-        'The props for the popper component. Please refer to the [Popper]((../?path=/docs/datadisplay-popper--docs#api) component for more information.',
+        'The props for the popper component. Please refer to the [Popper](?path=/docs/datadisplay-popper--docs#api) component for more information.',
     },
   },
 };
