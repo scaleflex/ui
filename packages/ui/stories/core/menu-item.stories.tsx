@@ -10,6 +10,12 @@ const meta: Meta<typeof MenuItem> = {
   title: 'Navigation/Menu/MenuItem',
   component: MenuItem,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Child of Menu component.',
+      page: MenuItemDocsTemplate,
+    },
+  },
   argTypes: {
     children: {
       description: 'The content of the component.',
@@ -40,12 +46,6 @@ const meta: Meta<typeof MenuItem> = {
     },
     dividerStyle: {
       description: 'Update divider styles',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Child of Menu component.',
-      page: MenuItemDocsTemplate,
     },
   },
 };

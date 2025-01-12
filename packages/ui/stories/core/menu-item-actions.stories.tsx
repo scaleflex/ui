@@ -9,6 +9,12 @@ import { Size } from '../../src/core/menu-item/types';
 const meta: Meta<typeof MenuItemActions> = {
   title: 'Navigation/Menu/MenuItemActions',
   component: MenuItemActions,
+  parameters: {
+    docs: {
+      subtitle: 'Child of MenuItem component.',
+      page: MenuItemActionsDocsTemplate,
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     children: {
@@ -16,12 +22,6 @@ const meta: Meta<typeof MenuItemActions> = {
     },
     size: {
       description: 'Size of the icon inside the component, `sm` or `md`',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Child of MenuItem component.',
-      page: MenuItemActionsDocsTemplate,
     },
   },
 };

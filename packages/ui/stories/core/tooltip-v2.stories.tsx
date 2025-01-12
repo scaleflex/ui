@@ -15,6 +15,12 @@ const meta: Meta<typeof TooltipV2> = {
   title: 'DataDisplay/TooltipV2',
   component: TooltipV2,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Tooltips display informative text when users hover over, focus on, or tap an element.',
+      page: TooltipDocsTemplate,
+    },
+  },
   argTypes: {
     title: {
       description: 'Tooltip title.',
@@ -57,12 +63,6 @@ const meta: Meta<typeof TooltipV2> = {
     },
     warning: {
       description: 'Apply warning variant to tooltip. Please use `variant` prop instead.',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Tooltips display informative text when users hover over, focus on, or tap an element.',
-      page: TooltipDocsTemplate,
     },
   },
 };

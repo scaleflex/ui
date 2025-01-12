@@ -12,6 +12,12 @@ const meta = {
   title: 'DataDisplay/Popper',
   component: Popper,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'A Popper can be used to display some content on top of another.',
+      page: PopperDocsTemplate,
+    },
+  },
   argTypes: {
     anchorEl: {
       description:
@@ -49,12 +55,6 @@ const meta = {
     },
     disablePortal: {
       description: 'The children will be under the DOM hierarchy of the parent component.',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'A Popper can be used to display some content on top of another.',
-      page: PopperDocsTemplate,
     },
   },
 } satisfies Meta<typeof Popper>;

@@ -98,6 +98,9 @@ const meta = {
     copySuccessIcon: {
       description: 'The icon to display when the copy is successful.',
     },
+    hideCopyIcon: {
+      description: 'If true, the copy icon will be hidden.',
+    },
   },
 } satisfies Meta<typeof Input>;
 

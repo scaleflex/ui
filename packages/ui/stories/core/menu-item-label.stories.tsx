@@ -8,15 +8,15 @@ const meta: Meta<typeof MenuItemLabel> = {
   title: 'Navigation/Menu/MenuItemLabel',
   component: MenuItemLabel,
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      description: 'The content of the component.',
-    },
-  },
   parameters: {
     docs: {
       subtitle: 'Child of MenuItem component.',
       page: MenuItemDocsTemplate,
+    },
+  },
+  argTypes: {
+    children: {
+      description: 'The content of the component.',
     },
   },
 };

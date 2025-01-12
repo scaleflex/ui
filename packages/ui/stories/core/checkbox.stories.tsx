@@ -10,6 +10,12 @@ const meta: Meta<typeof CheckBox> = {
   title: 'Inputs/CheckBox',
   component: CheckBox,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Checkboxes allow the user to select one or more items from a set.',
+      page: checkboxDocsTemplate,
+    },
+  },
   argTypes: {
     checked: {
       description: 'If true, the component is checked.',
@@ -40,12 +46,6 @@ const meta: Meta<typeof CheckBox> = {
       control: {
         type: 'select',
       },
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Checkboxes allow the user to select one or more items from a set.',
-      page: checkboxDocsTemplate,
     },
   },
 };

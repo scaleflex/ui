@@ -11,6 +11,12 @@ const meta: Meta<typeof Menu> = {
   title: 'Navigation/Menu',
   component: Menu,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Menus display a list of choices on temporary surfaces.',
+      page: MenuDocsTemplate,
+    },
+  },
   argTypes: {
     children: {
       description: 'Menu contents, normally `MenuItem`s.',
@@ -50,12 +56,6 @@ const meta: Meta<typeof Menu> = {
     },
     containerProps: {
       description: '**Deprecated** <br/> you can pass props to the root element directly.',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Menus display a list of choices on temporary surfaces.',
-      page: MenuDocsTemplate,
     },
   },
 };

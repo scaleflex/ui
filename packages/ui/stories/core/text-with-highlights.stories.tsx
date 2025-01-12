@@ -8,6 +8,12 @@ const meta: Meta<typeof TextWithHighlights> = {
   title: 'Feedback/TextWithHighlights',
   component: TextWithHighlights,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Highlights words in text',
+      page: TextWithHighlightsDocsTemplate,
+    },
+  },
   argTypes: {
     text: {
       description: 'Text to be shown',
@@ -20,12 +26,6 @@ const meta: Meta<typeof TextWithHighlights> = {
       control: {
         type: 'color',
       },
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Highlights words in text',
-      page: TextWithHighlightsDocsTemplate,
     },
   },
 };

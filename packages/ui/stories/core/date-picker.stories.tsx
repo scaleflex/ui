@@ -76,7 +76,7 @@ const meta: Meta<typeof DatePicker> = {
       description: 'The z-index of the popper component',
     },
     calendarStyles: {
-      description: 'The styles of the calendar component',
+      description: 'The styles of the calendar component that will be applied to the calendar root element',
     },
     popperWrapperStyles: {
       description: 'The styles of the popper wrapper component',

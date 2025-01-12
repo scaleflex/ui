@@ -11,6 +11,13 @@ import Button from '../../src/core/button';
 const meta: Meta<typeof Button> = {
   title: 'Inputs/Button',
   component: Button,
+  parameters: {
+    docs: {
+      subtitle:
+        'You can use Button components to take different actions in your interface. It includes a variety of different sizes and styles, including primary and secondary action buttons.',
+      page: ButtonDocsTemplate,
+    },
+  },
   tags: ['autodocs'],
   argTypes: {
     children: {
@@ -59,13 +66,6 @@ const meta: Meta<typeof Button> = {
     endIcon: {
       description:
         'If you want to have proper icon size to button size (md, lg, ...) you need to use icon function like `icon={(props) => <UploadIcon {...props} />}` otherwise `icon={<UploadIcon />}`',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle:
-        'You can use Button components to take different actions in your interface. It includes a variety of different sizes and styles, including primary and secondary action buttons.',
-      page: ButtonDocsTemplate,
     },
   },
 };

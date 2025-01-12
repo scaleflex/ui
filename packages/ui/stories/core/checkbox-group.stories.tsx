@@ -12,6 +12,12 @@ const meta: Meta<typeof CheckBoxGroup> = {
   title: 'Inputs/Checkbox/CheckBoxGroup',
   component: CheckBoxGroup,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'CheckboxGroup is a wrapper used to group Checkbox components.',
+      page: checkboxGroupDocsTemplate,
+    },
+  },
   argTypes: {
     icon: {
       description:
@@ -55,12 +61,6 @@ const meta: Meta<typeof CheckBoxGroup> = {
       control: {
         type: 'select',
       },
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'CheckboxGroup is a wrapper used to group Checkbox components.',
-      page: checkboxGroupDocsTemplate,
     },
   },
 };

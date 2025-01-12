@@ -10,6 +10,12 @@ const meta: Meta<typeof MenuItemIcon> = {
   title: 'Navigation/Menu/MenuItemIcon',
   component: MenuItemIcon,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      subtitle: 'Child of MenuItem component.',
+      page: MenuItemIconDocsTemplate,
+    },
+  },
   argTypes: {
     children: {
       description: 'The content of the component. React component or a function',
@@ -19,12 +25,6 @@ const meta: Meta<typeof MenuItemIcon> = {
     },
     disabled: {
       description: 'If true, the component is disabled.',
-    },
-  },
-  parameters: {
-    docs: {
-      subtitle: 'Child of MenuItem component.',
-      page: MenuItemIconDocsTemplate,
     },
   },
 };
