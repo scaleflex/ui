@@ -1,6 +1,6 @@
 {
   "name": "@scaleflex/ui",
-  "version": "2.11.4",
+  "version": "2.11.5",
   "description": "React UI components library by Scaleflex Company",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "@scaleflex/icons": "^2.10.34",
+    "@scaleflex/icons": "^2.11.5",
     "@tippyjs/react": "^4.2.6",
     "@types/lodash.merge": "^4.6.9",
     "lodash.merge": "^4.6.2",
