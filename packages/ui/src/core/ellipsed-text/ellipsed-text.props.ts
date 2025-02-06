@@ -7,6 +7,7 @@ export interface EllipsedTextProps extends HTMLAttributes<HTMLDivElement> {
   maxLinesCount?: number;
   customMaxHeight?: number;
   noTooltip?: boolean;
+  forceTooltip?: boolean;
   tooltipProps?: TooltipV2Props;
   textWrapperProps?: HTMLAttributes<HTMLDivElement>;
   tooltipTitle?: string;
