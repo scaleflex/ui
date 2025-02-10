@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.6](https://github.com/scaleflex/ui/compare/v2.11.5...v2.11.6) (2025-02-10)
+
+### Features
+
+- add forcetooltip to ellipsed text ([8088152](https://github.com/scaleflex/ui/commit/8088152ba4b8e22dc0f6a9f3bda7cc8cc726df2e))
+
 ## [2.11.5](https://github.com/scaleflex/ui/compare/v2.11.4...v2.11.5) (2025-01-14)
 
 ### Features
