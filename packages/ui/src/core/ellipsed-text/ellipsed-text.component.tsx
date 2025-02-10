@@ -16,6 +16,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
       maxLinesCount = 2,
       customMaxHeight,
       noTooltip = false,
+      forceTooltip = false,
       tooltipProps,
       tooltipTitle,
       textSuffix,
@@ -75,7 +76,7 @@ const EllipsedText = intrinsicComponent<EllipsedTextProps, HTMLDivElement>(
 
     const renderEllipsedText = () => (
       <Styled.EllipsedTextWrapper $maxLinesCount={maxLinesCount} ref={textContentRef} {...textWrapperProps} {...rest}>
-        {shouldEllipse && !noTooltip ? (
+        {(shouldEllipse && !noTooltip) || forceTooltip ? (
           <TooltipV2 position="top" size="md" ref={ref} arrow {...tooltipProps} title={renderTooltipTitle()}>
             <Styled.TooltipContent as={element} $customMaxHeight={customMaxHeight}>
               {children}
