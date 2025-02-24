@@ -28,7 +28,7 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
       ...rest
     }: PopperProps,
     ref
-  ): JSX.Element | null => {
+  ): JSX.Element => {
     const target = usePortal(generateClassNames('Popper'));
     const popperRef = useRef(null);
     const handlePopperRef = useForkRef(popperRef, ref);
@@ -101,10 +101,6 @@ const Popper = intrinsicComponent<PopperProps, HTMLDivElement>(
         </Styled.Popper>
       </Styled.PopperWrapper>
     );
-
-    if (!open) {
-      return null;
-    }
 
     return disablePortal ? render() : createPortal(render(), target);
   }
