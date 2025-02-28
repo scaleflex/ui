@@ -125,6 +125,16 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
       }
     };
 
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+      const { value } = event.target;
+
+      if (rest?.min === 0 && value?.startsWith('-')) {
+        return;
+      }
+
+      rest.onChange?.(event);
+    };
+
     const renderIcon = (_icon: React.ReactNode | IconFuncType, type: string): JSX.Element | undefined =>
       _icon ? (
         <Styled.Icon
@@ -185,6 +195,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
           readOnly={Boolean(readOnly)}
           type={getInputType()}
           $isEllipsis={isEllipsis}
+          onChange={handleInputChange}
         />
       </Styled.FieldWrapper>
     );
