@@ -128,7 +128,7 @@ const Input = intrinsicComponent<InputProps, HTMLInputElement>(
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
       const { value } = event.target;
 
-      if (rest?.min === 0 && value?.startsWith('-')) {
+      if (value?.startsWith('-0')) {
         return;
       }
 
