@@ -7,7 +7,7 @@ import Styled from './tooltip-v2.styles';
 
 export const variantMixin = {
   [Variant.Default]: ({ theme: { palette } }: WithTheme): RuleSet => css`
-    background: ${palette[PColor.IconsPlaceholder]};
+    background-color: ${palette[PColor.IconsPlaceholder]};
     color: ${palette[PColor.LinkActive]};
 
     ${Styled.TooltipText} {
@@ -20,7 +20,7 @@ export const variantMixin = {
   `,
 
   [Variant.Warning]: ({ theme: { palette } }: WithTheme): RuleSet => css`
-    background: ${palette[PColor.BackgroundOrange]};
+    background-color: ${palette[PColor.BackgroundOrange]};
     color: ${palette[PColor.TextWarning]};
 
     ${Styled.TooltipText} {
@@ -33,7 +33,7 @@ export const variantMixin = {
   `,
 
   [Variant.Info]: ({ theme: { palette } }: WithTheme): RuleSet => css`
-    background: ${palette[PColor.BackgroundBlue]};
+    background-color: ${palette[PColor.BackgroundBlue]};
     color: ${palette[PColor.TextInfo]};
 
     ${Styled.TooltipText} {
@@ -46,7 +46,7 @@ export const variantMixin = {
   `,
 
   [Variant.Error]: ({ theme: { palette } }: WithTheme): RuleSet => css`
-    background: ${palette[PColor.BackgroundRedLight]};
+    background-color: ${palette[PColor.BackgroundRedLight]};
     color: ${palette[PColor.TextError]};
 
     ${Styled.TooltipText} {
