@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.11.9](https://github.com/scaleflex/ui/compare/v2.11.8...v2.11.9) (2025-03-05)
+
+### Bug Fixes
+
+- **Input:** input has min value zero prevent negative value [FRA-7854] ([7b8b279](https://github.com/scaleflex/ui/commit/7b8b2795f25a40d4ea2585d3b0dd7f1f140d190a))
+- **Input:** input has min value zero prevent negative value [FRA-7854] ([25b03ad](https://github.com/scaleflex/ui/commit/25b03ada9dd797dc99ad4930656ec0d556902d9e))
+
 ## [2.11.8](https://github.com/scaleflex/ui/compare/v2.11.7...v2.11.8) (2025-02-24)
 
 ### Bug Fixes
