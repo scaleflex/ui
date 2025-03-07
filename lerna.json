@@ -6,7 +6,7 @@
   "command": {
     "version": {
       "message": "chore(release): publish new version %s🔥🚀",
-      "allowBranch": ["master", "hotfix-*", "release-*"],
+      "allowBranch": ["master", "hotfix-*", "release-*", "react-19"],
       "conventionalCommits": true
     }
   },
