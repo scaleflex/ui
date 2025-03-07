@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Ref } from 'react';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
 import type { Values } from '../../utils/types';
@@ -41,4 +41,5 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   showPlaceholder?: (value: boolean) => void;
   placeholder?: string;
   InputProps?: React.HtmlHTMLAttributes<HTMLDivElement>;
+  ref?: Ref<HTMLInputElement>;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Arrow from '../arrow';
-import { intrinsicComponent } from '../../utils/functions';
 import type { PaginationProps } from './pagination.props';
 import { usePagination } from '../../hooks/use-pagination';
 import Styled from './pagination.styles';
@@ -12,10 +11,10 @@ function defaultGetAriaLabel(type: string, page: number, selected: boolean): str
   }
   return `Go to ${type} page`;
 }
-const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>((props: PaginationProps, ref): JSX.Element => {
+const Pagination = (props: PaginationProps): JSX.Element => {
   const { items } = usePagination({ ...props });
 
-  const { getItemAriaLabel = defaultGetAriaLabel, ...rest } = props;
+  const { getItemAriaLabel = defaultGetAriaLabel, ref, ...rest } = props;
 
   const paginationItem = (paginationitems: any): JSX.Element => {
     const { disabled = false, page, selected = false, type = 'page', ...other } = paginationitems;
@@ -55,6 +54,6 @@ const Pagination = intrinsicComponent<PaginationProps, HTMLDivElement>((props: P
       </Styled.PaginationList>
     </Styled.Pagination>
   );
-});
+};
 
 export default Pagination;

@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { PopperPhasesType, PopperPositionType, PopperStrategyType } from '../popper/popper.props';
 import { Position, Size } from './types';
@@ -39,4 +40,5 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElement>
   enterDelay?: number;
   leaveDelay?: number;
   stayOpen?: boolean;
+  ref?: Ref<HTMLSpanElement>;
 }

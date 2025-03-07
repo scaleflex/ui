@@ -4,7 +4,7 @@ import { generateClassNames, applyDisplayNames } from '../../utils/functions';
 import { Color as PColor } from '../../utils/types/palette';
 import { FontVariant } from '../../utils/types/typography';
 import { popupContentMixin } from './popup-content.mixin';
-import { PopupContentProps } from './popup-content.props';
+import { PopupStatusType } from './popup-content.props';
 
 const baseClassName = 'PopupContent';
 
@@ -75,8 +75,8 @@ const CloseWrapper = styled.div.attrs({
 
 const PopupStatus = styled.div.attrs({
   className: generateClassNames(baseClassName, 'PopupStatus'),
-})<PopupContentProps>(
-  ({ status = 'success' }: PopupContentProps) => css`
+})<{ $status: PopupStatusType }>(
+  ({ $status = 'success' }) => css`
     position: absolute;
     display: flex;
     left: 0;
@@ -88,7 +88,7 @@ const PopupStatus = styled.div.attrs({
     box-sizing: border-box;
     border-radius: 4px 0 0 4px;
 
-    ${popupContentMixin[status]}
+    ${popupContentMixin[$status]}
   `
 );
 

@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import type { LabelProps } from '../label';
 import { Size, AddTagType } from './types';
@@ -58,4 +59,5 @@ export interface TagFieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   filterInputWidth?: string | number;
   fullWidth?: boolean;
   hideClearButton?: boolean;
+  ref?: Ref<HTMLDivElement>;
 }

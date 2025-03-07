@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, Ref } from 'react';
 
 import { Position } from '../popper/types';
 import { Values } from '../../utils/types';
@@ -21,4 +21,5 @@ export interface MenuProps extends PropsWithChildren, React.HTMLAttributes<HTMLD
   zIndex?: number;
   hideScroll?: boolean;
   onClose?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  ref?: Ref<HTMLDivElement>;
 }

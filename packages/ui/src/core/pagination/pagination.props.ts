@@ -7,4 +7,5 @@ export interface PaginationProps extends Omit<React.HTMLAttributes<HTMLDivElemen
   getItemAriaLabel?: (type: string, page: number, selected: boolean) => string;
   page?: number;
   siblingCount?: number;
+  ref?: React.Ref<HTMLDivElement>;
 }

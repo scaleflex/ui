@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Size, Type } from './types';
 
@@ -12,4 +12,5 @@ export interface CheckBoxProps extends React.HTMLAttributes<HTMLSpanElement> {
   disabled?: boolean;
   size?: CheckBoxSizeType;
   type?: CheckBoxType;
+  ref?: Ref<HTMLSpanElement>;
 }

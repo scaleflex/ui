@@ -2,4 +2,5 @@ export interface TextWithHighlightsProps extends React.HTMLAttributes<HTMLSpanEl
   text: string;
   highlightText: string;
   highlightBackgroundColor?: string;
+  ref?: React.Ref<HTMLSpanElement>;
 }

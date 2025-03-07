@@ -1,5 +1,6 @@
 import type { SelectSimpleValueType } from '../select/select.props';
 import type { MenuProps } from '../menu';
+import { Ref } from 'react';
 
 export interface ColorType {
   hue: number;
@@ -15,6 +16,7 @@ export interface ColorItemProps {
   checked?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   size?: number;
+  ref?: React.Ref<HTMLLabelElement>;
 }
 
 export interface HueBarProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -39,4 +41,5 @@ export interface ColorPickerProps extends Omit<React.HTMLAttributes<HTMLSpanElem
   hidePinIcon?: boolean;
   containerProps?: Omit<MenuProps, 'open'>;
   MenuProps?: Omit<MenuProps, 'open'>;
+  ref?: Ref<HTMLDivElement>;
 }

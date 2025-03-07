@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Size } from './types';
 
@@ -12,4 +13,5 @@ export interface TabProps extends React.HTMLAttributes<HTMLDivElement> {
   active?: boolean;
   notification?: string;
   disabled?: boolean;
+  ref?: Ref<HTMLDivElement>;
 }

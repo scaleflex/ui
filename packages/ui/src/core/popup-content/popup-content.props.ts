@@ -9,4 +9,5 @@ export interface PopupContentProps extends React.HTMLAttributes<HTMLDivElement> 
   onClose?: () => void;
   status?: PopupStatusType;
   popupStatusProps?: PopupStatusProps;
+  ref?: React.Ref<HTMLDivElement>;
 }

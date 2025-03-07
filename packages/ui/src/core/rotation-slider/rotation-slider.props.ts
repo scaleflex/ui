@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, Ref } from 'react';
 
 import type { Values } from '../../utils/types';
 import { LabelTooltip } from '../slider/types';
@@ -24,4 +24,5 @@ export interface RotationSliderProps extends Omit<React.HTMLAttributes<HTMLSpanE
   markTextStyles?: React.CSSProperties;
   labelTooltipProps?: React.HTMLAttributes<HTMLSpanElement>;
   labelTooltipOptions?: LabelTooltipType;
+  ref?: Ref<HTMLSpanElement>;
 }

@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Align, Padding, Size } from './types';
 
@@ -11,4 +12,5 @@ export interface TableCellProps extends React.HTMLAttributes<HTMLTableCellElemen
   size?: string | TableCellSize;
   component?: React.ReactNode | string;
   scope?: string;
+  ref?: Ref<HTMLTableCellElement>;
 }

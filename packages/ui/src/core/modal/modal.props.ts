@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, Ref } from 'react';
 
 import type { Values } from '../../utils/types';
 import { Size } from './types';
@@ -15,4 +15,5 @@ export interface ModalProps extends PropsWithChildren, React.HTMLAttributes<HTML
   onClose?: () => void;
   onDragOver?: () => void;
   onDrop?: () => void;
+  ref?: Ref<HTMLDivElement>;
 }

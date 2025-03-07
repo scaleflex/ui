@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react';
+import React, { MouseEvent, Ref } from 'react';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 
 export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -10,4 +10,5 @@ export interface AccordionProps extends Omit<React.HTMLAttributes<HTMLDivElement
   fullWidth?: boolean;
   onChange?: (value: boolean, event: MouseEvent<HTMLDivElement>) => void;
   iconProps?: IconProps;
+  ref?: Ref<HTMLDivElement>;
 }

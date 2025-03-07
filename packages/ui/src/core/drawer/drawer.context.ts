@@ -5,8 +5,8 @@ const DrawerContext = createContext({
   size: 20,
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  DrawerContext.displayName = 'DrawerContext';
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   DrawerContext.displayName = 'DrawerContext';
+// }
 
 export default DrawerContext;

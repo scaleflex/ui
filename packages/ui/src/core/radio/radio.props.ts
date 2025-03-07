@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref } from 'react';
 
 import { Values } from '../../utils/types';
 import { RadioSize } from './size';
@@ -12,4 +12,5 @@ export interface RadioProps extends React.HTMLAttributes<HTMLInputElement> {
   readOnly?: boolean;
   disabled?: boolean;
   size?: RadioSizeType;
+  ref?: Ref<HTMLSpanElement>;
 }

@@ -1,12 +1,11 @@
 import React, { useRef, useEffect } from 'react';
 import Arrow from '@scaleflex/icons/arrow';
 
-import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemProps, MenuItemListType } from './menu-item.props';
 import Menu from '../menu';
 import Styled from './menu-item.styles';
 
-const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuItemProps, ref): JSX.Element => {
+const MenuItem = (props: MenuItemProps): JSX.Element => {
   const {
     list,
     children,
@@ -18,6 +17,7 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
     value,
     dividerStyle,
     depth = 0,
+    ref,
   } = props;
   const menuItemRef = useRef<HTMLDivElement | null>(null);
 
@@ -140,8 +140,6 @@ const MenuItem = intrinsicComponent<MenuItemProps, HTMLDivElement>((props: MenuI
   }
 
   return <>{renderItems(list, depth)}</>;
-});
-
-MenuItem.displayName = 'MenuItem';
+};
 
 export default MenuItem;

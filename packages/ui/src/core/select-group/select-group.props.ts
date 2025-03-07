@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { LabelProps } from '../label';
 import type { SelectProps } from '../select';
 import { SelectSizeType } from '../select/select.props';
@@ -19,5 +20,6 @@ export interface SelectGroupProps extends SelectProps, Omit<React.HTMLAttributes
   showSelectionKey?: boolean;
   hideMenuItemsActions?: boolean;
   disabled?: boolean;
+  ref?: Ref<HTMLDivElement>;
   // Extends from SelectProps: multiple, error, children, value, onChange
 }

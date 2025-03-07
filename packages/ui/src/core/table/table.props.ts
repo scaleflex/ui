@@ -8,4 +8,5 @@ export interface TableProps extends React.HTMLAttributes<HTMLTableElement> {
   children: React.ReactNode;
   padding?: TableCellPadding;
   size?: TableCellSize;
+  ref?: React.Ref<HTMLTableElement>;
 }

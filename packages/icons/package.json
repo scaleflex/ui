@@ -9,10 +9,10 @@
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
-    "@types/react": ">=16.0.0",
-    "@types/react-dom": ">=16.0.0",
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
+    "@types/react": ">=19.0.0",
+    "@types/react-dom": ">=19.0.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
   },
   "sideEffects": false
 }

@@ -16,4 +16,5 @@ export interface BadgeProps {
   fontSize?: number | string;
   padding?: number | string;
   inline?: boolean;
+  ref?: React.Ref<HTMLDivElement>;
 }

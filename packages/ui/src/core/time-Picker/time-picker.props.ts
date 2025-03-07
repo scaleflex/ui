@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import type { InputProps } from '../input';
 import { InputGroupProps } from '../input-group';
@@ -13,4 +14,5 @@ export interface TimePickerProps extends Omit<InputGroupProps, 'onChange'> {
   InputProps?: InputProps;
   inputGroupProps?: InputProps;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>, value: string) => void;
+  ref?: Ref<HTMLInputElement>;
 }

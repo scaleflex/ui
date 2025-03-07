@@ -12,4 +12,5 @@ export interface LabelProps extends PropsWithChildren, React.HTMLAttributes<HTML
   error?: boolean;
   disabled?: boolean;
   size?: LabelSizeType;
+  ref?: React.Ref<HTMLLabelElement>;
 }

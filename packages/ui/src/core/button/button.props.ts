@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, Ref } from 'react';
 import type { IconProps } from '@scaleflex/icons/icon.props';
 import type { Values } from '../../utils/types';
 import { ButtonSize, ButtonColor } from '../../utils/types';
@@ -33,4 +33,5 @@ export interface ButtonProps extends PropsWithChildren, React.HTMLAttributes<HTM
   active?: boolean;
   loading?: boolean;
   disabled?: boolean;
+  ref?: Ref<HTMLButtonElement>;
 }

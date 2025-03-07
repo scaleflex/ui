@@ -1,16 +1,12 @@
 import React from 'react';
 
-import { intrinsicComponent } from '../../utils/functions';
+import type { MenuItemLabelProps } from './menu-item-label.props';
 import Styled from './menu-item.styles';
 
-const MenuItemLabel = intrinsicComponent<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>(
-  ({ children, ...rest }, ref): JSX.Element => (
-    <Styled.Label {...rest} ref={ref}>
-      {children}
-    </Styled.Label>
-  )
+const MenuItemLabel = ({ children, ref, ...rest }: MenuItemLabelProps): JSX.Element => (
+  <Styled.Label {...rest} ref={ref}>
+    {children}
+  </Styled.Label>
 );
-
-MenuItemLabel.displayName = 'MenuItemLabel';
 
 export default MenuItemLabel;

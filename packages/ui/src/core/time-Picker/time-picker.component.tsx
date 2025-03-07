@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import Clock from '@scaleflex/icons/clock';
 
 import { InputSize } from '../../utils/types';
-import { intrinsicComponent } from '../../utils/functions';
 import Popper from '../popper/popper.component';
 import { TimePickerProps } from './time-picker.props';
 import Styled from './time-picker.styles';
@@ -10,176 +9,172 @@ import Styled from './time-picker.styles';
 const AM = 'AM';
 const PM = 'PM';
 
-const TimePicker = intrinsicComponent<TimePickerProps, HTMLDivElement>(
-  (
-    {
-      position,
-      size = InputSize.Md,
-      popperOptions,
-      InputProps: InputPropsData,
-      fullWidth = false,
-      inputGroupProps,
-      onChange,
-      ...rest
-    }: TimePickerProps,
-    ref
-  ): JSX.Element => {
-    const [open, setOpen] = useState(false);
-    const [time, setTime] = useState('');
-    const [selectedHour, setSelectedHour] = useState('01');
-    const [selectedMinute, setSelectedMinute] = useState('00');
-    const [selectedPeriod, setSelectedPeriod] = useState(AM);
+const TimePicker = ({
+  position,
+  size = InputSize.Md,
+  popperOptions,
+  InputProps: InputPropsData,
+  fullWidth = false,
+  inputGroupProps,
+  onChange,
+  ref,
+  ...rest
+}: TimePickerProps): JSX.Element => {
+  const [open, setOpen] = useState(false);
+  const [time, setTime] = useState('');
+  const [selectedHour, setSelectedHour] = useState('01');
+  const [selectedMinute, setSelectedMinute] = useState('00');
+  const [selectedPeriod, setSelectedPeriod] = useState(AM);
 
-    const timePickerRef = useRef(null);
+  const timePickerRef = useRef(null);
 
-    const getFormattedHour = (hour: number) => (hour < 10 ? `0${hour}` : `${hour}`);
-    const getFormattedMinute = (minute: number) => (minute < 10 ? `0${minute}` : `${minute}`);
+  const getFormattedHour = (hour: number) => (hour < 10 ? `0${hour}` : `${hour}`);
+  const getFormattedMinute = (minute: number) => (minute < 10 ? `0${minute}` : `${minute}`);
 
-    const toggleDropdown = (): void => {
-      setOpen(!open);
-    };
+  const toggleDropdown = (): void => {
+    setOpen(!open);
+  };
 
-    const handleHourChange = (hour: number, event: any): void => {
-      const formattedHour = getFormattedHour(hour);
-      const [hourString] = time.split(':');
-      let hourValue = formattedHour;
+  const handleHourChange = (hour: number, event: any): void => {
+    const formattedHour = getFormattedHour(hour);
+    const [hourString] = time.split(':');
+    let hourValue = formattedHour;
 
-      if (Number.parseInt(hourString, 10) > 10) {
-        hourValue = `${hour + 12}`;
-      }
+    if (Number.parseInt(hourString, 10) > 10) {
+      hourValue = `${hour + 12}`;
+    }
 
-      const updatedTime = `${hourValue}:${selectedMinute}`;
-      setSelectedHour(formattedHour);
-      setTime(updatedTime);
+    const updatedTime = `${hourValue}:${selectedMinute}`;
+    setSelectedHour(formattedHour);
+    setTime(updatedTime);
 
-      if (typeof onChange === 'function') {
-        onChange(event, updatedTime);
-      }
-    };
+    if (typeof onChange === 'function') {
+      onChange(event, updatedTime);
+    }
+  };
 
-    const handleMinuteChange = (minute: number, event: any): void => {
-      const formattedMinute = getFormattedMinute(minute);
-      const [hourString] = time.split(':');
-      const updatedHour = hourString || selectedHour;
-      const updatedTime = `${updatedHour}:${formattedMinute}`;
+  const handleMinuteChange = (minute: number, event: any): void => {
+    const formattedMinute = getFormattedMinute(minute);
+    const [hourString] = time.split(':');
+    const updatedHour = hourString || selectedHour;
+    const updatedTime = `${updatedHour}:${formattedMinute}`;
 
-      setSelectedMinute(formattedMinute);
-      setTime(updatedTime);
+    setSelectedMinute(formattedMinute);
+    setTime(updatedTime);
 
-      if (typeof onChange === 'function') {
-        onChange(event, updatedTime);
-      }
-    };
+    if (typeof onChange === 'function') {
+      onChange(event, updatedTime);
+    }
+  };
 
-    const handlePeriodChange = (period: string, event: any): void => {
-      const hour = period === PM ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
-      const updatedTime = `${hour}:${selectedMinute}`;
+  const handlePeriodChange = (period: string, event: any): void => {
+    const hour = period === PM ? Number.parseInt(selectedHour, 10) + 12 : selectedHour;
+    const updatedTime = `${hour}:${selectedMinute}`;
 
-      setTime(updatedTime);
-      setSelectedPeriod(period);
+    setTime(updatedTime);
+    setSelectedPeriod(period);
 
-      if (typeof onChange === 'function') {
-        onChange(event, updatedTime);
-      }
-    };
+    if (typeof onChange === 'function') {
+      onChange(event, updatedTime);
+    }
+  };
 
-    const handleTimeChange = (event: any) => {
-      const timeString = event.target.value;
-      const [hourString, minuteString] = timeString.split(':');
-      const hour = Number.parseInt(hourString, 10);
+  const handleTimeChange = (event: any) => {
+    const timeString = event.target.value;
+    const [hourString, minuteString] = timeString.split(':');
+    const hour = Number.parseInt(hourString, 10);
 
-      setTime(timeString);
-      setSelectedMinute(minuteString);
+    setTime(timeString);
+    setSelectedMinute(minuteString);
 
-      if (hour > 12) {
-        setSelectedHour(`${hour - 12 < 10 ? '0' : ''}${hour - 12}`);
-        setSelectedPeriod(PM);
-      } else {
-        setSelectedPeriod(AM);
-        setSelectedHour(hourString);
-      }
+    if (hour > 12) {
+      setSelectedHour(`${hour - 12 < 10 ? '0' : ''}${hour - 12}`);
+      setSelectedPeriod(PM);
+    } else {
+      setSelectedPeriod(AM);
+      setSelectedHour(hourString);
+    }
 
-      if (typeof onChange === 'function') {
-        onChange(event, time);
-      }
-    };
+    if (typeof onChange === 'function') {
+      onChange(event, time);
+    }
+  };
 
-    return (
-      <Styled.TimePicker ref={timePickerRef} fullWidth={fullWidth}>
-        <Styled.TimePickerInput
-          fullWidth={fullWidth}
-          size={size}
-          value={time}
-          onChange={handleTimeChange}
-          hideCopyIcon
-          inputProps={{
-            iconEnd: () => (
-              <Styled.TimePickerIconButton size={size} color="basic">
-                <Clock size={size === 'md' ? 16 : 14} />
-              </Styled.TimePickerIconButton>
-            ),
-            iconClickEnd: toggleDropdown,
-            type: 'time',
-            ...(InputPropsData || {}),
-          }}
-          {...inputGroupProps}
-          ref={ref}
-          {...rest}
-        />
-        <Popper
-          anchorEl={timePickerRef.current}
-          onClick={toggleDropdown}
-          open={open}
-          popperOptions={popperOptions}
-          position={position || 'bottom-start'}
-          overlay
-        >
-          {open && (
-            <Styled.TimePickerDropdownContainer>
-              <Styled.TimePickerDropdown>
-                <Styled.TimePickerDropdownColumn>
-                  {[...new Array(12).keys()].map((hour) => (
-                    <Styled.TimePickerHour
-                      selected={selectedHour === getFormattedHour(hour + 1)}
-                      key={hour}
-                      onClick={(event) => handleHourChange(hour + 1, event)}
-                    >
-                      {hour + 1}
-                    </Styled.TimePickerHour>
-                  ))}
-                </Styled.TimePickerDropdownColumn>
-                <Styled.TimePickerDropdownColumn>
-                  {[...new Array(60).keys()].map((minute) => (
-                    <Styled.TimePickerMinute
-                      selected={selectedMinute === getFormattedMinute(minute)}
-                      key={minute}
-                      onClick={(event) => handleMinuteChange(minute, event)}
-                    >
-                      {getFormattedMinute(minute)}
-                    </Styled.TimePickerMinute>
-                  ))}
-                </Styled.TimePickerDropdownColumn>
-              </Styled.TimePickerDropdown>
+  return (
+    <Styled.TimePicker ref={timePickerRef} fullWidth={fullWidth}>
+      <Styled.TimePickerInput
+        fullWidth={fullWidth}
+        size={size}
+        value={time}
+        onChange={handleTimeChange}
+        hideCopyIcon
+        inputProps={{
+          iconEnd: () => (
+            <Styled.TimePickerIconButton size={size} color="basic">
+              <Clock size={size === 'md' ? 16 : 14} />
+            </Styled.TimePickerIconButton>
+          ),
+          iconClickEnd: toggleDropdown,
+          type: 'time',
+          ...(InputPropsData || {}),
+        }}
+        {...inputGroupProps}
+        ref={ref}
+        {...rest}
+      />
+      <Popper
+        anchorEl={timePickerRef.current}
+        onClick={toggleDropdown}
+        open={open}
+        popperOptions={popperOptions}
+        position={position || 'bottom-start'}
+        overlay
+      >
+        {open && (
+          <Styled.TimePickerDropdownContainer>
+            <Styled.TimePickerDropdown>
               <Styled.TimePickerDropdownColumn>
-                <Styled.TimePickerPeriod
-                  selected={selectedPeriod === AM}
-                  onClick={(event) => handlePeriodChange(AM, event)}
-                >
-                  AM
-                </Styled.TimePickerPeriod>
-                <Styled.TimePickerPeriod
-                  selected={selectedPeriod === PM}
-                  onClick={(event) => handlePeriodChange(PM, event)}
-                >
-                  PM
-                </Styled.TimePickerPeriod>
+                {[...new Array(12).keys()].map((hour) => (
+                  <Styled.TimePickerHour
+                    selected={selectedHour === getFormattedHour(hour + 1)}
+                    key={hour}
+                    onClick={(event) => handleHourChange(hour + 1, event)}
+                  >
+                    {hour + 1}
+                  </Styled.TimePickerHour>
+                ))}
               </Styled.TimePickerDropdownColumn>
-            </Styled.TimePickerDropdownContainer>
-          )}
-        </Popper>
-      </Styled.TimePicker>
-    );
-  }
-);
+              <Styled.TimePickerDropdownColumn>
+                {[...new Array(60).keys()].map((minute) => (
+                  <Styled.TimePickerMinute
+                    selected={selectedMinute === getFormattedMinute(minute)}
+                    key={minute}
+                    onClick={(event) => handleMinuteChange(minute, event)}
+                  >
+                    {getFormattedMinute(minute)}
+                  </Styled.TimePickerMinute>
+                ))}
+              </Styled.TimePickerDropdownColumn>
+            </Styled.TimePickerDropdown>
+            <Styled.TimePickerDropdownColumn>
+              <Styled.TimePickerPeriod
+                selected={selectedPeriod === AM}
+                onClick={(event) => handlePeriodChange(AM, event)}
+              >
+                AM
+              </Styled.TimePickerPeriod>
+              <Styled.TimePickerPeriod
+                selected={selectedPeriod === PM}
+                onClick={(event) => handlePeriodChange(PM, event)}
+              >
+                PM
+              </Styled.TimePickerPeriod>
+            </Styled.TimePickerDropdownColumn>
+          </Styled.TimePickerDropdownContainer>
+        )}
+      </Popper>
+    </Styled.TimePicker>
+  );
+};
 
 export default TimePicker;

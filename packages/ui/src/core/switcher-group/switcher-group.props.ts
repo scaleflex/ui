@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref } from 'react';
 import { SwitcherSizeType } from '../switcher/switcher.props';
 
 export interface SwitcherGroupProps extends Omit<React.HTMLAttributes<HTMLLabelElement>, 'onChange'> {
@@ -10,4 +10,5 @@ export interface SwitcherGroupProps extends Omit<React.HTMLAttributes<HTMLLabelE
   disabled?: boolean;
   checked?: boolean;
   size?: SwitcherSizeType;
+  ref?: Ref<HTMLLabelElement>;
 }

@@ -4,7 +4,7 @@ import type { InputProps } from '../input';
 import type { TextareaProps } from '../textarea';
 import { Type } from './types';
 import { InputSizeType } from '../input/input.props';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, Ref } from 'react';
 
 export type InputGroupTypesType = Values<typeof Type>;
 
@@ -35,4 +35,5 @@ export interface InputGroupProps extends Omit<React.HTMLAttributes<HTMLDivElemen
     | React.MutableRefObject<HTMLInputElement | null>
     | null;
   TextareaProps?: TextareaProps;
+  ref?: Ref<HTMLDivElement>;
 }

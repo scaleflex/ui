@@ -4,4 +4,5 @@ export interface SearchProps extends Omit<React.HTMLAttributes<HTMLInputElement>
   size?: InputSizeType;
   value?: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  ref?: React.Ref<HTMLInputElement>;
 }

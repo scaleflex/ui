@@ -13,4 +13,5 @@ export type ArrowTypesType = Values<typeof Type>;
 export interface ArrowProps extends React.HTMLAttributes<HTMLSpanElement> {
   type?: ArrowTypesType;
   IconProps?: IconProps;
+  ref?: React.Ref<HTMLSpanElement>;
 }

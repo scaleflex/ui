@@ -1,8 +1,6 @@
 import React from 'react';
-import PT from 'prop-types';
 import StarIcon from '@scaleflex/icons/star';
 
-import { intrinsicComponent } from '../../utils/functions';
 import type { RatingProps, RatingItemProps, RatingItemReadOnlyProps } from './rating.props';
 import Styled from './rating.styles';
 
@@ -26,36 +24,28 @@ const RatingItemReadOnly = ({ active }: RatingItemReadOnlyProps): JSX.Element =>
   </Styled.Item>
 );
 
-const Rating = intrinsicComponent<RatingProps, HTMLInputElement>(
-  ({ value = 0, readOnly = false, name, onChange, ...rest }: RatingProps, ref): JSX.Element => {
-    const valueRounded = Math.min(value || 0, 5);
+const Rating = ({ value = 0, readOnly = false, name, onChange, ref, ...rest }: RatingProps): JSX.Element => {
+  const valueRounded = Math.min(value || 0, 5);
 
-    return (
-      <Styled.Rating ref={ref}>
-        {[1, 2, 3, 4, 5].map((mark) => {
-          const itemProps = {
-            key: mark,
-            mark,
-            active: mark <= valueRounded,
-            value: valueRounded,
-            ...rest,
-          };
+  return (
+    <Styled.Rating ref={ref}>
+      {[1, 2, 3, 4, 5].map((mark) => {
+        const itemProps = {
+          key: mark,
+          mark,
+          active: mark <= valueRounded,
+          value: valueRounded,
+          ...rest,
+        };
 
-          return readOnly ? (
-            <RatingItemReadOnly {...itemProps} />
-          ) : (
-            <RatingItem {...itemProps} name={name || 'raiting-field'} onChange={onChange} />
-          );
-        })}
-      </Styled.Rating>
-    );
-  }
-);
-
-Rating.propTypes = {
-  value: PT.number.isRequired,
-  name: PT.string,
-  readOnly: PT.bool,
+        return readOnly ? (
+          <RatingItemReadOnly {...itemProps} />
+        ) : (
+          <RatingItem {...itemProps} name={name || 'raiting-field'} onChange={onChange} />
+        );
+      })}
+    </Styled.Rating>
+  );
 };
 
 export default Rating;

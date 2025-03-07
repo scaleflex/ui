@@ -1,5 +1,4 @@
-import { ForwardRefExoticComponent, RefAttributes } from 'react';
-import { IconProps } from '@scaleflex/icons/icon.props';
+import { Ref } from 'react';
 
 export interface FallbackPreviewProps {
   gap?: number;
@@ -7,7 +6,7 @@ export interface FallbackPreviewProps {
   iconColor?: string;
   backgroundColor?: string;
   msgProps?: { text?: string; color?: string };
-  icon?: ForwardRefExoticComponent<IconProps & RefAttributes<SVGSVGElement>>;
+  icon?: React.FC;
 }
 
 export interface ImageComparisonSliderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -23,8 +22,10 @@ export interface ImageComparisonSliderProps extends React.HTMLAttributes<HTMLDiv
     thumbIconPadding?: number;
     color?: string;
   };
+  ref?: Ref<HTMLDivElement>;
 }
 
 export interface ImagePreviewProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   fallbackPreviewProps?: FallbackPreviewProps;
+  ref?: React.Ref<HTMLImageElement>;
 }

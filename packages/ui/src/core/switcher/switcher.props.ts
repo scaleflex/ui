@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from 'react';
+import React, { ChangeEvent, Ref } from 'react';
 
 import { Values } from '../../utils/types';
 import { SwitcherSize } from './switcher-size';
@@ -13,4 +13,5 @@ export interface SwitcherProps extends React.HTMLAttributes<HTMLDivElement> {
   readOnly?: boolean;
   disabled?: boolean;
   size?: SwitcherSizeType;
+  ref?: Ref<HTMLDivElement>;
 }

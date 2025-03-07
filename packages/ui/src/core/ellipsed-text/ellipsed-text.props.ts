@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, Ref } from 'react';
 import { TooltipV2Props } from '../tooltip-v2';
 
 export interface EllipsedTextProps extends HTMLAttributes<HTMLDivElement> {
@@ -12,4 +12,5 @@ export interface EllipsedTextProps extends HTMLAttributes<HTMLDivElement> {
   textWrapperProps?: HTMLAttributes<HTMLDivElement>;
   tooltipTitle?: string;
   textSuffix?: string;
+  ref?: Ref<HTMLDivElement>;
 }

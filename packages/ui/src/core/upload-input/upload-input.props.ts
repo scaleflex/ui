@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, Ref } from 'react';
 import { ButtonColor, Values } from '../../utils/types';
 
 export type ButtonColorType = Values<typeof ButtonColor>;
@@ -8,4 +8,5 @@ export interface UploadInputProps extends HTMLAttributes<HTMLInputElement> {
   placeholder?: string;
   buttonColor?: ButtonColorType;
   error?: boolean;
+  ref?: Ref<HTMLInputElement>;
 }

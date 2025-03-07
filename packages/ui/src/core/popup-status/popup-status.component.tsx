@@ -4,7 +4,6 @@ import { Success, About, Error, Warning, InfoOutline, WarningOutline, ErrorOutli
 import { lightPalette } from '../../theme/roots/palette';
 import { Color } from '../../utils/types/palette';
 
-import { intrinsicComponent } from '../../utils/functions';
 import type { PopupStatusProps, PopupStatusType } from './popup-status.props';
 import { Status } from './types';
 import Styled from './popup-status.styles';
@@ -38,12 +37,10 @@ const getPopupStatusIcon = (status?: PopupStatusType, notificationBackground?: b
   }
 };
 
-const PopupStatus = intrinsicComponent<PopupStatusProps, HTMLSpanElement>(
-  ({ status, notificationBackground = true, ...rest }, ref): JSX.Element => (
-    <Styled.PopupStatus status={status} {...rest} ref={ref}>
-      {getPopupStatusIcon(status, notificationBackground)}
-    </Styled.PopupStatus>
-  )
+const PopupStatus = ({ status, notificationBackground = true, ref, ...rest }: PopupStatusProps): JSX.Element => (
+  <Styled.PopupStatus status={status} {...rest} ref={ref}>
+    {getPopupStatusIcon(status, notificationBackground)}
+  </Styled.PopupStatus>
 );
 
 export default PopupStatus;

@@ -18,4 +18,5 @@ export interface PopupProps extends PopupContentProps {
   autoHideDuration?: number;
   status?: PopupContentType;
   onClose?: () => void;
+  ref?: React.Ref<HTMLDivElement>;
 }

@@ -1,1 +1,1 @@
-export * from './intrinsic-component';
+// export * from './intrinsic-component';

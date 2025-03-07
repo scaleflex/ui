@@ -5,8 +5,8 @@ const TableContext = React.createContext({
   size: 'medium',
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  TableContext.displayName = 'TableContext';
-}
+// if (process.env.NODE_ENV !== 'production') {
+//   TableContext.displayName = 'TableContext';
+// }
 
 export default TableContext;

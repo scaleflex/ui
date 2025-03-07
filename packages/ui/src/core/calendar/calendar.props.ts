@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 
 import { VirtualElement } from '../popper/popper.props';
@@ -17,6 +18,7 @@ export interface CalendarProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   onChange?: (value: string) => void;
   onCancel?: () => void;
   onDateClick?: (value: number) => void;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export interface MonthPickerProps {
@@ -42,6 +44,7 @@ export interface MonthPickerProps {
   getMonthDetails?: (year: number, month: number) => object[];
   getTimeStamp?: () => number;
   setShowMonthsDatePicker?: (value: boolean) => void;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export interface YearPickerProps {
@@ -65,4 +68,5 @@ export interface YearPickerProps {
   getTimeStamp?: () => number;
   onChange?: (value: string) => void;
   setShowYearsDatePicker?: (value: boolean) => void;
+  ref?: Ref<HTMLDivElement>;
 }

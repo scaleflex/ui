@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import type { InputProps } from '../input';
 import { InputGroupProps } from '../input-group';
@@ -26,4 +27,5 @@ export interface DatePickerProps extends OmitChange<InputGroupProps> {
   popperWrapperStyles?: object;
   placeholder?: string;
   zIndex?: number;
+  ref?: Ref<HTMLDivElement>;
 }

@@ -27,4 +27,5 @@ export interface TextareaProps extends React.HTMLAttributes<HTMLTextAreaElement>
   clearAllButtonLabel?: string;
   onClickActionButton?: (event: SyntheticEvent) => void;
   onClear?: (event: SyntheticEvent) => void;
+  ref?: React.Ref<HTMLTextAreaElement>;
 }

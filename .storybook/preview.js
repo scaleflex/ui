@@ -1,9 +1,22 @@
+import React from 'react';
 import { withThemeFromJSXProvider } from '@storybook/addon-themes';
 import ThemeProvider from '@scaleflex/ui/theme';
+import { StyleSheetManager } from 'styled-components';
+import isPropValid from '@emotion/is-prop-valid';
 
 export const decorators = [
   withThemeFromJSXProvider({
-    Provider: ThemeProvider ,
+    Provider: ({ children, ...props }) => (
+      <ThemeProvider {...props}>
+        <StyleSheetManager
+          shouldForwardProp={(propName, elementToBeRendered) => (typeof elementToBeRendered === 'string'
+            ? isPropValid(propName) && !['height', 'width'].includes(propName)
+            : true)}
+        >
+          {children}
+        </StyleSheetManager>
+      </ThemeProvider>
+    ),
   }),
 ];
 

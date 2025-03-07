@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Ref } from 'react';
 
 export interface TablePaginationProps extends React.HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -8,4 +8,5 @@ export interface TablePaginationProps extends React.HTMLAttributes<HTMLDivElemen
   rowsPerPageOptions?: number[];
   onPageChange: (event: any, val: any) => void;
   onRowsPerPageChange: (event: any) => void;
+  ref?: Ref<HTMLTableSectionElement>;
 }

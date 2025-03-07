@@ -26,6 +26,7 @@ export interface MenuItemIconProps extends Omit<React.HTMLAttributes<HTMLDivElem
   size?: MenuItemSizeType;
   disabled?: boolean;
   children: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export type MenuItemActionsProps = MenuItemIconProps;
@@ -41,4 +42,5 @@ export interface MenuItemProps extends PropsWithChildren, React.HTMLAttributes<H
   isFocused?: boolean;
   dividerStyle?: React.CSSProperties;
   enableScrollIntoView?: boolean;
+  ref?: React.Ref<HTMLDivElement>;
 }

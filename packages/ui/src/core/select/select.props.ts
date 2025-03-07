@@ -1,7 +1,7 @@
 import type { Values } from '../../utils/types';
 import type { MenuProps } from '../menu';
 import { InputBackgroundColor, InputSize } from '../../utils/types';
-import React from 'react';
+import React, { Ref } from 'react';
 
 export type SelectSizeType = Values<typeof InputSize>;
 export type SelectSimpleValueType = string | number | boolean | null | undefined;
@@ -27,6 +27,7 @@ export interface SelectProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 
   renderLabel?: (value: SelectSimpleValueType | SelectSimpleValueType[]) => React.ReactNode;
   hideEllipsis?: boolean;
   placeholder?: string;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export interface RenderOption {

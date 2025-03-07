@@ -12,4 +12,5 @@ export interface IconButtonTableProps extends Omit<React.HTMLAttributes<HTMLButt
   size?: IconButtonTableSizeType;
   children: React.ReactNode | ((props: IconProps) => React.ReactNode);
   disabled?: boolean;
+  ref?: React.Ref<HTMLButtonElement>;
 }

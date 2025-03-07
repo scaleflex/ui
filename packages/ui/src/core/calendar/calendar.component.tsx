@@ -4,7 +4,6 @@ import ArrowRightOutline from '@scaleflex/icons/arrow-right-outline';
 import TwoArrowsLeft from '@scaleflex/icons/two-arrows-left';
 import TwoArrowsRight from '@scaleflex/icons/two-arrows-right';
 
-import { intrinsicComponent } from '../../utils/functions';
 import MonthPicker from './month-picker/month-picker.component';
 import YearPicker from './year-picker/year-picker.component';
 import Button from '../button';
@@ -26,303 +25,299 @@ import {
 } from './calendar.utils';
 import Styled from './calendar.styles';
 
-const Calendar = intrinsicComponent<CalendarProps, HTMLDivElement>(
-  (
-    {
-      value,
-      onChange,
-      autoSelectToday,
-      onCancel,
-      onDateClick,
-      enableAutoSelect = false,
-      maxDate = '',
-      minDate = '',
-      calendarStyles,
-      ...rest
-    }: CalendarProps,
-    ref
-  ): JSX.Element => {
-    const { maxYear, maxMonth, maxDay, maxDateTimestamp } = getMaxDate(maxDate);
+const Calendar = ({
+  value,
+  onChange,
+  autoSelectToday,
+  onCancel,
+  onDateClick,
+  enableAutoSelect = false,
+  maxDate = '',
+  minDate = '',
+  calendarStyles,
+  ref,
+  ...rest
+}: CalendarProps): JSX.Element => {
+  const { maxYear, maxMonth, maxDay, maxDateTimestamp } = getMaxDate(maxDate);
 
-    const { minYear, minMonth, minDay, minDateTimestamp } = getMinDate(minDate);
+  const { minYear, minMonth, minDay, minDateTimestamp } = getMinDate(minDate);
 
-    const [year, setYear] = useState(maxDate ? maxYear : new Date().getFullYear());
-    const [month, setMonth] = useState(maxDate ? maxMonth : new Date().getMonth());
-    const [monthDetails, setMonthDetails] = useState(getMonthDetails(year, month));
-    const [selectedDay, setSelectedDay] = useState(
-      getMaxMinSelectedDay(maxDate, minDate, monthDetails, maxDay, minDay, autoSelectToday)
-    );
-    const [dayDate, setDayDate] = useState(0);
-    const [showMonthsDatePicker, setShowMonthsDatePicker] = useState(false);
-    const [showYearsDatePicker, setShowYearsDatePicker] = useState(false);
-    const [isNextMonth, setIsNextMonth] = useState(false);
-    const [isPrevMonth, setIsPrevMonth] = useState(false);
+  const [year, setYear] = useState(maxDate ? maxYear : new Date().getFullYear());
+  const [month, setMonth] = useState(maxDate ? maxMonth : new Date().getMonth());
+  const [monthDetails, setMonthDetails] = useState(getMonthDetails(year, month));
+  const [selectedDay, setSelectedDay] = useState(
+    getMaxMinSelectedDay(maxDate, minDate, monthDetails, maxDay, minDay, autoSelectToday)
+  );
+  const [dayDate, setDayDate] = useState(0);
+  const [showMonthsDatePicker, setShowMonthsDatePicker] = useState(false);
+  const [showYearsDatePicker, setShowYearsDatePicker] = useState(false);
+  const [isNextMonth, setIsNextMonth] = useState(false);
+  const [isPrevMonth, setIsPrevMonth] = useState(false);
 
-    const isYearForm = isYearFormRegex.test?.(maxYear);
-    const isTodayDateDisabled = getTodayTimestamp() > maxDateTimestamp || getTodayTimestamp() < minDateTimestamp;
-    const nextMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 1);
-    const prevMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 0);
+  const isYearForm = isYearFormRegex.test?.(maxYear);
+  const isTodayDateDisabled = getTodayTimestamp() > maxDateTimestamp || getTodayTimestamp() < minDateTimestamp;
+  const nextMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 1);
+  const prevMonthTimestamp = getNextPrevSelectedDayTimeStamp(year, month, 0);
 
-    const nextYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, 1);
-    const prevYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, -1);
+  const nextYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, 1);
+  const prevYearTimestamp = getNextPrevYearSelectedDayTimeStamp(year, month, dayDate, -1);
 
-    const getTimeStamp = (): number => {
-      const toDayDate: any = monthDetails.find((day: any) => day.date === dayDate);
+  const getTimeStamp = (): number => {
+    const toDayDate: any = monthDetails.find((day: any) => day.date === dayDate);
 
-      return toDayDate?.timestamp;
-    };
+    return toDayDate?.timestamp;
+  };
 
-    const setNewYear = (offset: number): void => {
-      const newYear = year + offset;
+  const setNewYear = (offset: number): void => {
+    const newYear = year + offset;
 
-      if (onChange && enableAutoSelect) {
-        onChange(getDateStringFromTimestamp(selectedDay, month, newYear));
-      }
+    if (onChange && enableAutoSelect) {
+      onChange(getDateStringFromTimestamp(selectedDay, month, newYear));
+    }
 
-      setYear(newYear);
-      setMonthDetails(getMonthDetails(newYear, month));
-    };
+    setYear(newYear);
+    setMonthDetails(getMonthDetails(newYear, month));
+  };
 
-    const setNewMonth = (offset: number, prev: boolean): void => {
-      let newYear = year;
-      let newMonth = month + offset;
+  const setNewMonth = (offset: number, prev: boolean): void => {
+    let newYear = year;
+    let newMonth = month + offset;
 
-      if (month === 0 && prev) {
-        newMonth = 11;
-        newYear--;
-      } else if (month === 11 && !prev) {
-        newMonth = 0;
-        newYear++;
-      }
+    if (month === 0 && prev) {
+      newMonth = 11;
+      newYear--;
+    } else if (month === 11 && !prev) {
+      newMonth = 0;
+      newYear++;
+    }
 
-      if (onChange && enableAutoSelect) {
-        onChange(getDateStringFromTimestamp(selectedDay, newMonth, newYear));
-      }
+    if (onChange && enableAutoSelect) {
+      onChange(getDateStringFromTimestamp(selectedDay, newMonth, newYear));
+    }
 
-      setYear(newYear);
-      setMonth(newMonth);
-      setMonthDetails(getMonthDetails(newYear, newMonth));
-    };
+    setYear(newYear);
+    setMonth(newMonth);
+    setMonthDetails(getMonthDetails(newYear, newMonth));
+  };
 
-    const handleNextMonthButton = (offset: number, prev: boolean): void => {
-      setNewMonth(offset, prev);
-      setIsNextMonth(true);
-    };
+  const handleNextMonthButton = (offset: number, prev: boolean): void => {
+    setNewMonth(offset, prev);
+    setIsNextMonth(true);
+  };
 
-    const handlePrevMonthButton = (offset: number, next: boolean): void => {
-      setNewMonth(offset, next);
+  const handlePrevMonthButton = (offset: number, next: boolean): void => {
+    setNewMonth(offset, next);
+    setIsPrevMonth(true);
+  };
+
+  const handleNextYearButton = (offset: number, prev: boolean): void => {
+    if (prev) {
       setIsPrevMonth(true);
-    };
+    } else {
+      setIsNextMonth(true);
+    }
 
-    const handleNextYearButton = (offset: number, prev: boolean): void => {
-      if (prev) {
-        setIsPrevMonth(true);
-      } else {
-        setIsNextMonth(true);
-      }
+    setNewYear(offset);
+  };
 
-      setNewYear(offset);
-    };
+  const handleTodayButton = (): void => {
+    const currentYear = new Date().getFullYear();
+    const currentMonth = new Date().getMonth();
+    const todayTimestamp = getTodayTimestamp();
 
-    const handleTodayButton = (): void => {
-      const currentYear = new Date().getFullYear();
-      const currentMonth = new Date().getMonth();
-      const todayTimestamp = getTodayTimestamp();
+    if (isTodayDateDisabled) return;
 
-      if (isTodayDateDisabled) return;
+    setSelectedDay(todayTimestamp);
+    setYear(() => currentYear);
+    setMonth(() => currentMonth);
+    setMonthDetails(getMonthDetails(currentYear, currentMonth));
 
-      setSelectedDay(todayTimestamp);
-      setYear(() => currentYear);
-      setMonth(() => currentMonth);
-      setMonthDetails(getMonthDetails(currentYear, currentMonth));
+    if (onChange) {
+      onChange(getCurrentDate());
+    }
+  };
 
-      if (onChange) {
-        onChange(getCurrentDate());
-      }
-    };
+  const handleDateClick = (day: any): void => {
+    const newDay = day.timestamp;
 
-    const handleDateClick = (day: any): void => {
-      const newDay = day.timestamp;
+    if (onChange) {
+      onChange(getDateStringFromTimestamp(newDay, month, year));
+    }
 
-      if (onChange) {
-        onChange(getDateStringFromTimestamp(newDay, month, year));
-      }
+    if (onDateClick) onDateClick(newDay);
+    setSelectedDay(newDay);
+  };
 
-      if (onDateClick) onDateClick(newDay);
-      setSelectedDay(newDay);
-    };
+  useEffect(() => {
+    if (year.toString().length !== 4) return;
 
-    useEffect(() => {
-      if (year.toString().length !== 4) return;
+    if (onChange && autoSelectToday && !isTodayDateDisabled) {
+      onChange(getDateStringFromTimestamp(selectedDay, month, year));
+    }
+  }, [autoSelectToday]);
 
-      if (onChange && autoSelectToday && !isTodayDateDisabled) {
-        onChange(getDateStringFromTimestamp(selectedDay, month, year));
-      }
-    }, [autoSelectToday]);
+  useEffect(() => {
+    const todayDate: any = monthDetails.find((day: any) => day.timestamp === selectedDay);
 
-    useEffect(() => {
-      const todayDate: any = monthDetails.find((day: any) => day.timestamp === selectedDay);
+    if (todayDate) {
+      setDayDate(todayDate.date);
+    }
+  }, [selectedDay]);
 
-      if (todayDate) {
-        setDayDate(todayDate.date);
-      }
-    }, [selectedDay]);
+  useEffect(() => {
+    if (value) {
+      const dateData: any = getDateFromDateString(value);
+      const dayData: any = monthDetails.find((day: any) => day?.date === dateData?.date);
 
-    useEffect(() => {
-      if (value) {
-        const dateData: any = getDateFromDateString(value);
-        const dayData: any = monthDetails.find((day: any) => day?.date === dateData?.date);
+      if (dateData !== null) {
+        if (onChange) onChange(value);
 
-        if (dateData !== null) {
-          if (onChange) onChange(value);
-
-          if (dayData?.timestamp && dateData.year.toString().length === 4) {
-            setSelectedDay(dayData?.timestamp);
-          }
-
-          setMonth(dateData.month - 1);
-          setYear(dateData.year);
-          setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
+        if (dayData?.timestamp && dateData.year.toString().length === 4) {
+          setSelectedDay(dayData?.timestamp);
         }
+
+        setMonth(dateData.month - 1);
+        setYear(dateData.year);
+        setMonthDetails(getMonthDetails(dateData.year, dateData.month - 1));
       }
-    }, [value]);
+    }
+  }, [value]);
 
-    useEffect(() => {
-      setTimeout(() => {
-        setIsNextMonth(false);
-        setIsPrevMonth(false);
-      }, 310);
-    }, [monthDetails]);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsNextMonth(false);
+      setIsPrevMonth(false);
+    }, 310);
+  }, [monthDetails]);
 
-    const renderCalendar = (): JSX.Element => {
-      const days = monthDetails.map((day: any, index: number) => {
-        return (
-          <Styled.DatePickerDays key={index}>
-            <Styled.DatePickerDayContainer>
-              <Styled.DatePickerDay
-                isDisabled={day.timestamp > maxDateTimestamp || day.timestamp < minDateTimestamp}
-                onClick={() => handleDateClick(day)}
-                day={day}
-                isSelectedDay={selectedDay === day.timestamp}
-              >
-                {day.date}
-              </Styled.DatePickerDay>
-            </Styled.DatePickerDayContainer>
-          </Styled.DatePickerDays>
-        );
-      });
-
+  const renderCalendar = (): JSX.Element => {
+    const days = monthDetails.map((day: any, index: number) => {
       return (
-        <Styled.DatePickerCalendar>
-          <Styled.DatePickerCalendarHead>
-            {HEADER_DAYS.map((d, i) => (
-              <Styled.DatePickerHeadDay key={i}>{d}</Styled.DatePickerHeadDay>
-            ))}
-          </Styled.DatePickerCalendarHead>
-          <Styled.DatePickerCalendarBody isPrevMonth={isPrevMonth} isNextMonth={isNextMonth}>
-            {days}
-          </Styled.DatePickerCalendarBody>
-        </Styled.DatePickerCalendar>
+        <Styled.DatePickerDays key={index}>
+          <Styled.DatePickerDayContainer>
+            <Styled.DatePickerDay
+              isDisabled={day.timestamp > maxDateTimestamp || day.timestamp < minDateTimestamp}
+              onClick={() => handleDateClick(day)}
+              day={day}
+              isSelectedDay={selectedDay === day.timestamp}
+            >
+              {day.date}
+            </Styled.DatePickerDay>
+          </Styled.DatePickerDayContainer>
+        </Styled.DatePickerDays>
       );
-    };
+    });
 
     return (
-      <Styled.Calendar style={{ ...calendarStyles }} {...rest} ref={ref}>
-        <MonthPicker
-          year={year}
-          setMonth={setMonth}
-          getMonthStr={getMonthStr}
-          _month={month}
-          getTimeStamp={getTimeStamp}
-          selectedDay={selectedDay}
-          onChange={onChange}
-          setSelectedDay={setSelectedDay}
-          enableAutoSelect={enableAutoSelect}
-          currentMonth={getMonthStr(month)}
-          showMonthsDatePicker={showMonthsDatePicker}
-          setShowMonthsDatePicker={setShowMonthsDatePicker}
-          setMonthDetails={setMonthDetails}
-          getMonthDetails={getMonthDetails}
-          monthDetails={monthDetails}
-          maxMonth={maxMonth}
-          minMonth={minMonth}
-          minYear={minYear}
-          maxYear={maxYear}
-          maxDate={maxDate}
-          value={value}
-        />
-
-        <YearPicker
-          showYearsDatePicker={showYearsDatePicker}
-          enableAutoSelect={enableAutoSelect}
-          setShowYearsDatePicker={setShowYearsDatePicker}
-          setMonthDetails={setMonthDetails}
-          getMonthDetails={getMonthDetails}
-          monthDetails={monthDetails}
-          getTimeStamp={getTimeStamp}
-          setSelectedDay={setSelectedDay}
-          selectedDay={selectedDay}
-          onChange={onChange}
-          setYear={setYear}
-          monthIndex={month}
-          _year={year}
-          value={value}
-          maxDate={maxDate}
-          minDate={minDate}
-          minYear={minYear}
-          maxYear={maxYear}
-          maxMonth={maxMonth}
-          isYearForm={isYearForm}
-        />
-
-        <Styled.HeaderWrapper>
-          <Styled.HeaderLeftArrows
-            isDisabled={prevYearTimestamp < minDateTimestamp || (year === minYear && month <= minMonth)}
-            onClick={() => handleNextYearButton(-1, false)}
-          >
-            <TwoArrowsRight size={10} />
-          </Styled.HeaderLeftArrows>
-
-          <Styled.HeaderLeftArrow
-            isDisabled={prevMonthTimestamp <= minDateTimestamp}
-            onClick={() => handleNextMonthButton(-1, true)}
-          >
-            <ArrowLeftOutline size={10} />
-          </Styled.HeaderLeftArrow>
-
-          <Styled.HeaderBody>
-            <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
-              {getMonthStr(month)}
-            </Styled.HeaderBodyMonth>
-            <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
-          </Styled.HeaderBody>
-
-          <Styled.HeaderRightArrow
-            isDisabled={nextMonthTimestamp >= maxDateTimestamp}
-            onClick={() => handlePrevMonthButton(1, false)}
-          >
-            <ArrowRightOutline size={10} />
-          </Styled.HeaderRightArrow>
-
-          <Styled.HeaderRightArrows
-            isDisabled={nextYearTimestamp > maxDateTimestamp || (year === maxYear && month >= maxYear)}
-            onClick={() => handleNextYearButton(1, true)}
-          >
-            <TwoArrowsLeft size={10} />
-          </Styled.HeaderRightArrows>
-        </Styled.HeaderWrapper>
-        <Styled.CalendarBody>{renderCalendar()}</Styled.CalendarBody>
-        <Styled.ButtonWrapper>
-          <Button onClick={onCancel} size="xs" color="basic">
-            Cancel
-          </Button>
-          <Button onClick={handleTodayButton} size="xs" color="secondary" disabled={isTodayDateDisabled}>
-            Today
-          </Button>
-        </Styled.ButtonWrapper>
-      </Styled.Calendar>
+      <Styled.DatePickerCalendar>
+        <Styled.DatePickerCalendarHead>
+          {HEADER_DAYS.map((d, i) => (
+            <Styled.DatePickerHeadDay key={i}>{d}</Styled.DatePickerHeadDay>
+          ))}
+        </Styled.DatePickerCalendarHead>
+        <Styled.DatePickerCalendarBody isPrevMonth={isPrevMonth} isNextMonth={isNextMonth}>
+          {days}
+        </Styled.DatePickerCalendarBody>
+      </Styled.DatePickerCalendar>
     );
-  }
-);
+  };
+
+  return (
+    <Styled.Calendar style={{ ...calendarStyles }} {...rest} ref={ref}>
+      <MonthPicker
+        year={year}
+        setMonth={setMonth}
+        getMonthStr={getMonthStr}
+        _month={month}
+        getTimeStamp={getTimeStamp}
+        selectedDay={selectedDay}
+        onChange={onChange}
+        setSelectedDay={setSelectedDay}
+        enableAutoSelect={enableAutoSelect}
+        currentMonth={getMonthStr(month)}
+        showMonthsDatePicker={showMonthsDatePicker}
+        setShowMonthsDatePicker={setShowMonthsDatePicker}
+        setMonthDetails={setMonthDetails}
+        getMonthDetails={getMonthDetails}
+        monthDetails={monthDetails}
+        maxMonth={maxMonth}
+        minMonth={minMonth}
+        minYear={minYear}
+        maxYear={maxYear}
+        maxDate={maxDate}
+        value={value}
+      />
+
+      <YearPicker
+        showYearsDatePicker={showYearsDatePicker}
+        enableAutoSelect={enableAutoSelect}
+        setShowYearsDatePicker={setShowYearsDatePicker}
+        setMonthDetails={setMonthDetails}
+        getMonthDetails={getMonthDetails}
+        monthDetails={monthDetails}
+        getTimeStamp={getTimeStamp}
+        setSelectedDay={setSelectedDay}
+        selectedDay={selectedDay}
+        onChange={onChange}
+        setYear={setYear}
+        monthIndex={month}
+        _year={year}
+        value={value}
+        maxDate={maxDate}
+        minDate={minDate}
+        minYear={minYear}
+        maxYear={maxYear}
+        maxMonth={maxMonth}
+        isYearForm={isYearForm}
+      />
+
+      <Styled.HeaderWrapper>
+        <Styled.HeaderLeftArrows
+          isDisabled={prevYearTimestamp < minDateTimestamp || (year === minYear && month <= minMonth)}
+          onClick={() => handleNextYearButton(-1, false)}
+        >
+          <TwoArrowsRight size={10} />
+        </Styled.HeaderLeftArrows>
+
+        <Styled.HeaderLeftArrow
+          isDisabled={prevMonthTimestamp <= minDateTimestamp}
+          onClick={() => handleNextMonthButton(-1, true)}
+        >
+          <ArrowLeftOutline size={10} />
+        </Styled.HeaderLeftArrow>
+
+        <Styled.HeaderBody>
+          <Styled.HeaderBodyMonth onClick={() => setShowMonthsDatePicker(true)}>
+            {getMonthStr(month)}
+          </Styled.HeaderBodyMonth>
+          <Styled.HeaderBodyYear onClick={() => setShowYearsDatePicker(true)}>{year}</Styled.HeaderBodyYear>
+        </Styled.HeaderBody>
+
+        <Styled.HeaderRightArrow
+          isDisabled={nextMonthTimestamp >= maxDateTimestamp}
+          onClick={() => handlePrevMonthButton(1, false)}
+        >
+          <ArrowRightOutline size={10} />
+        </Styled.HeaderRightArrow>
+
+        <Styled.HeaderRightArrows
+          isDisabled={nextYearTimestamp > maxDateTimestamp || (year === maxYear && month >= maxYear)}
+          onClick={() => handleNextYearButton(1, true)}
+        >
+          <TwoArrowsLeft size={10} />
+        </Styled.HeaderRightArrows>
+      </Styled.HeaderWrapper>
+      <Styled.CalendarBody>{renderCalendar()}</Styled.CalendarBody>
+      <Styled.ButtonWrapper>
+        <Button onClick={onCancel} size="xs" color="basic">
+          Cancel
+        </Button>
+        <Button onClick={handleTodayButton} size="xs" color="secondary" disabled={isTodayDateDisabled}>
+          Today
+        </Button>
+      </Styled.ButtonWrapper>
+    </Styled.Calendar>
+  );
+};
 
 export default Calendar;

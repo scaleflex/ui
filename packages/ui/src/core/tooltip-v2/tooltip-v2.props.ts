@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Position, Size, Variant } from './types';
 
@@ -20,4 +21,5 @@ export interface TooltipV2Props extends Omit<React.HTMLAttributes<HTMLSpanElemen
   offsetX?: number;
   offsetY?: number;
   variant?: TooltipVariantType;
+  ref?: Ref<HTMLSpanElement>;
 }

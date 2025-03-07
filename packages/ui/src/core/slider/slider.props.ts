@@ -1,4 +1,4 @@
-import React, { MouseEventHandler } from 'react';
+import React, { MouseEventHandler, Ref } from 'react';
 
 import type { Values } from '../../utils/types';
 import { LabelTooltip } from './types';
@@ -39,4 +39,5 @@ export interface SliderProps extends Omit<React.HTMLAttributes<HTMLSpanElement>,
   labelTooltip?: LabelTooltipType;
   components?: ComponentsType;
   componentsProps?: ComponentsPropsType;
+  ref?: Ref<HTMLSpanElement>;
 }

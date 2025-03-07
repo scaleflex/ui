@@ -1,5 +1,4 @@
-import type { HTMLAttributes } from 'react';
-
+import type { HTMLAttributes, Ref } from 'react';
 import type { IntrinsicComponent, StylableComponent } from './utils/types';
 
 export interface IconProps extends IntrinsicComponent<HTMLAttributes<SVGSVGElement>>, StylableComponent {
@@ -11,4 +10,5 @@ export interface IconProps extends IntrinsicComponent<HTMLAttributes<SVGSVGEleme
   stroke?: string;
   stroke2?: string;
   viewBox?: string;
+  ref?: Ref<SVGSVGElement>;
 }

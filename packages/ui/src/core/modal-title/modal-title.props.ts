@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Variant } from './types';
 
@@ -11,4 +12,5 @@ export interface ModalTitleProps extends React.HTMLAttributes<HTMLDivElement> {
   iconShadow?: boolean;
   onClose?: () => void;
   variant?: ModalTitleVariantType;
+  ref?: Ref<HTMLDivElement>;
 }

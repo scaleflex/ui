@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import type { Values } from '../../utils/types';
 import { Size, Type, Variant } from './types';
 
@@ -11,4 +12,5 @@ export interface StatusLabelProps extends React.HTMLAttributes<HTMLDivElement> {
   type?: StatusLabelTypesType;
   iconSize?: number;
   variant?: StatusLabelVariantType;
+  ref?: Ref<HTMLDivElement>;
 }

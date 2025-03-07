@@ -1,3 +1,4 @@
+import { Ref } from 'react';
 import { IconProps } from '@scaleflex/icons/icon.props';
 
 import type { Values } from '../../utils/types';
@@ -13,4 +14,5 @@ export interface IconButtonProps extends Omit<React.HTMLAttributes<HTMLButtonEle
   disabled?: boolean;
   active?: boolean;
   children: React.ReactNode | ((props: IconProps) => React.ReactNode);
+  ref?: Ref<HTMLButtonElement>;
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { intrinsicComponent } from '../../utils/functions';
 import type { MenuItemIconProps, MenuItemSizeType } from './menu-item.props';
 import { Size } from './types';
 import Styled from './menu-item.styles';
@@ -16,12 +15,10 @@ const getIconSize = (sizeName: MenuItemSizeType | undefined): number => {
   }
 };
 
-const MenuItemIcon = intrinsicComponent<MenuItemIconProps, HTMLDivElement>(
-  ({ children, disabled = false, size = Size.Md, ...rest }, ref): JSX.Element => (
-    <Styled.Icon disabled={disabled} {...rest} ref={ref}>
-      {children && typeof children === 'function' ? children({ size: getIconSize(size) }) : children}
-    </Styled.Icon>
-  )
+const MenuItemIcon = ({ children, disabled = false, size = Size.Md, ref, ...rest }: MenuItemIconProps): JSX.Element => (
+  <Styled.Icon disabled={disabled} {...rest} ref={ref}>
+    {children && typeof children === 'function' ? children({ size: getIconSize(size) }) : children}
+  </Styled.Icon>
 );
 
 export default MenuItemIcon;

@@ -41,4 +41,5 @@ export interface PopperProps extends React.HTMLAttributes<HTMLDivElement> {
   zIndex?: number;
   enableUnderlayingEvent?: boolean;
   disablePortal?: boolean;
+  ref?: React.Ref<HTMLDivElement>;
 }

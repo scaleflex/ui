@@ -1,4 +1,4 @@
-import React, { type PropsWithChildren } from 'react';
+import React, { Ref, type PropsWithChildren } from 'react';
 
 import type { Values } from '../../utils/types';
 import { NotificationStatus } from './types';
@@ -12,4 +12,5 @@ export interface NotificationProps extends PropsWithChildren, Omit<React.HTMLAtt
   title?: string | React.ReactNode;
   hideIcon?: boolean;
   onClose?: () => void;
+  ref?: Ref<HTMLDivElement>;
 }

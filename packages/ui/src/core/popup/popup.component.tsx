@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import { intrinsicComponent, generateClassNames } from '../../utils/functions';
+import { generateClassNames } from '../../utils/functions';
 import usePortal from '../../hooks/use-portal';
 import PopupContent from '../popup-content/popup-content.component';
 import type { PopupProps } from './popup.props';
@@ -9,7 +9,7 @@ import { Horizontal, Vertical } from './types';
 import Styled from './popup.styles';
 import { Status } from '../popup-status/types';
 
-const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps, ref): JSX.Element => {
+const Popup = (props: PopupProps): JSX.Element => {
   const {
     autoHideDuration = 5000,
     anchorOrigin = {
@@ -19,6 +19,7 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps,
     open = false,
     onClose,
     status = Status.Success,
+    ref,
     ...rest
   } = props;
   const target = usePortal(generateClassNames('Popup'));
@@ -68,6 +69,6 @@ const Popup = intrinsicComponent<PopupProps, HTMLDivElement>((props: PopupProps,
 
   // we use fragments only to for storybook to detect auto props generated in stories
   return <>{createPortal(render(), target)}</>;
-});
+};
 
 export default Popup;
