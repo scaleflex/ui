@@ -29,4 +29,6 @@ const ModalTitle = ({
   </Styled.ModalTitle>
 );
 
+ModalTitle.displayName = 'ModalTitle';
+
 export default ModalTitle;

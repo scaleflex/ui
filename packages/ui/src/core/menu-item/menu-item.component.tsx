@@ -142,4 +142,6 @@ const MenuItem = (props: MenuItemProps): JSX.Element => {
   return <>{renderItems(list, depth)}</>;
 };
 
+MenuItem.displayName = 'MenuItem';
+
 export default MenuItem;

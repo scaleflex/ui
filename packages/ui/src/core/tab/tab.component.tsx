@@ -47,4 +47,6 @@ const Tab = ({
   </Styled.Tab>
 );
 
+Tab.displayName = 'Tab';
+
 export default Tab;

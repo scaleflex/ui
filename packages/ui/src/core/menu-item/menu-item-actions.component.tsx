@@ -21,4 +21,6 @@ const MenuItemActions = ({ children, ref, ...rest }: MenuItemActionsProps): JSX.
   </Styled.Actions>
 );
 
+MenuItemActions.displayName = 'MenuItemActions';
+
 export default MenuItemActions;
