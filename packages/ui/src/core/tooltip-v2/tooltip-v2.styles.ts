@@ -1,5 +1,5 @@
 import { applyDisplayNames, generateClassNames } from '../../utils/functions';
-import Tippy from '@tippyjs/react';
+import Tippy from 'rb-tippyjs-react';
 import styled, { css } from 'styled-components';
 
 import type { With } from '../../utils/types';
