@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.2](https://github.com/scaleflex/ui/compare/v2.11.9...v3.0.0-beta.2) (2025-03-18)
+
+
+### Bug Fixes
+
+* displayName usecase issues ([3737323](https://github.com/scaleflex/ui/commit/373732383e67839a2ea9b72bd6b8888ffeb5c535))
+
+
+
+
+
 # [3.0.0-beta.1](https://github.com/scaleflex/ui/compare/v2.11.9...3.0.0-beta.1) (2025-03-07)
 
 ### Bug Fixes
