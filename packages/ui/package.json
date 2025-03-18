@@ -1,6 +1,6 @@
 {
   "name": "@scaleflex/ui",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0-beta.3",
   "description": "React UI components library by Scaleflex Company",
   "main": "lib/index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.6.0",
-    "@scaleflex/icons": "^3.0.0-beta.1",
+    "@scaleflex/icons": "^3.0.0-beta.3",
     "@types/lodash.merge": "^4.6.9",
     "lodash.merge": "^4.6.2",
     "prop-types": "^15.7.2",
