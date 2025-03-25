@@ -13,7 +13,7 @@ export const CoverLayoutCustom = intrinsicComponent<IconProps, SVGSVGElement>(
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      <rect x="0.5" y="0.5" width="67" height="47" rx="3.5" fill="url(#paint0_linear_1_2)" fill-opacity="0.18" />
+      <rect x="0.5" y="0.5" width="67" height="47" rx="3.5" fill="url(#paint0_linear_1_2)" fillOpacity="0.18" />
       <rect x="0.5" y="0.5" width="67" height="47" rx="3.5" stroke={color} />
     </svg>
   )
