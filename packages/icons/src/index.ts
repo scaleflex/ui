@@ -473,3 +473,4 @@ export { LinkNotConnected } from './link-not-connected';
 export { LinkConnected } from './link-connected';
 export { CoverLayoutCustom } from './cover-layout-custom';
 export { CoverLayoutStandard } from './cover-layout-standard';
+export { Variations } from './variations';
