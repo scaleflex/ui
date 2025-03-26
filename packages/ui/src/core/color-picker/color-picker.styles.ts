@@ -4,6 +4,7 @@ import type { SelectSimpleValueType } from '../select/select.props';
 import type { WithTheme } from '../../theme/entity';
 import type { With } from '../../utils/types';
 import { Color as PColor } from '../../utils/types/palette';
+import Input, { InputProps } from '../input';
 
 const baseClassName = 'ColorPicker';
 
@@ -197,6 +198,22 @@ const SelectWrapper = styled.div({
   gap: '12px',
 });
 
+const HexInput = styled(Input).attrs({
+  className: generateClassNames(baseClassName, 'hex-input'),
+})<With<WithTheme, InputProps>>(
+  () => css`
+    width: 45%;
+  `
+);
+
+const RgbInput = styled(Input).attrs({
+  className: generateClassNames(baseClassName, 'rgb-input'),
+})<With<WithTheme, InputProps>>(
+  () => css`
+    width: 20%;
+  `
+);
+
 const Styled = applyDisplayNames({
   ColorPickerWrapper,
   RangePickerWrapper,
@@ -212,6 +229,8 @@ const Styled = applyDisplayNames({
   ColorItemWrapper,
   Select,
   SelectWrapper,
+  RgbInput,
+  HexInput,
 });
 
 export default Styled;

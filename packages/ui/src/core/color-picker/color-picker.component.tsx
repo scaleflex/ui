@@ -3,7 +3,6 @@ import { PinOutline, DeleteOutline } from '@scaleflex/icons';
 
 import Select from '../select';
 import MenuItem from '../menu-item';
-import Input from '../input';
 import useDrag from '../../hooks/use-drag';
 import {
   colorToHsl,
@@ -299,21 +298,19 @@ const ColorPicker = ({
           </Styled.Select>
 
           {inputType === 'hex' ? (
-            <Input
+            <Styled.HexInput
               size="sm"
               error={!/^#(?:[0-9a-fA-F]{3,4}){1,2}$/i.test(rangePicker.color)}
               value={hexInputValue}
               onChange={(e: any) => validateHexAndUpdate(e.target.value)}
-              style={{ width: '45%' }}
             />
           ) : (
             rgbColorValue.map((rgb, index) => (
-              <Input
+              <Styled.RgbInput
                 key={index}
                 size="sm"
                 value={rgb}
                 onChange={(e: any) => handleRgbInput(Number(e.target?.value), index)}
-                style={{ width: '20%' }}
               />
             ))
           )}
