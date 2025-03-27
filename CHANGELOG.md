@@ -3,59 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [3.0.0-beta.7](https://github.com/scaleflex/ui/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2025-03-26)
+# [3.0.0-beta.8](https://github.com/scaleflex/ui/compare/v3.0.0-beta.7...v3.0.0-beta.8) (2025-03-27)
 
+**Note:** Version bump only for package ui
+
+# [3.0.0-beta.7](https://github.com/scaleflex/ui/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2025-03-26)
 
 ### Bug Fixes
 
-* **ColorPicker:** input inline style ([9d5ecaa](https://github.com/scaleflex/ui/commit/9d5ecaa7560acc461555feaef7fc8c3df4a378c6))
-
-
-
-
+- **ColorPicker:** input inline style ([9d5ecaa](https://github.com/scaleflex/ui/commit/9d5ecaa7560acc461555feaef7fc8c3df4a378c6))
 
 # [3.0.0-beta.6](https://github.com/scaleflex/ui/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2025-03-26)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [3.0.0-beta.5](https://github.com/scaleflex/ui/compare/v3.0.0-beta.4...v3.0.0-beta.5) (2025-03-18)
 
 **Note:** Version bump only for package ui
-
-
-
-
 
 # [3.0.0-beta.4](https://github.com/scaleflex/ui/compare/v3.0.0-beta.3...v3.0.0-beta.4) (2025-03-18)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [3.0.0-beta.3](https://github.com/scaleflex/ui/compare/v3.0.0-beta.2...v3.0.0-beta.3) (2025-03-18)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [3.0.0-beta.2](https://github.com/scaleflex/ui/compare/v2.11.9...v3.0.0-beta.2) (2025-03-18)
-
 
 ### Bug Fixes
 
-* displayName usecase issues ([3737323](https://github.com/scaleflex/ui/commit/373732383e67839a2ea9b72bd6b8888ffeb5c535))
-
-
-
-
+- displayName usecase issues ([3737323](https://github.com/scaleflex/ui/commit/373732383e67839a2ea9b72bd6b8888ffeb5c535))
 
 # [3.0.0-beta.1](https://github.com/scaleflex/ui/compare/v2.11.9...3.0.0-beta.1) (2025-03-07)
 
