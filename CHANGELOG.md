@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0-beta.7](https://github.com/scaleflex/ui/compare/v3.0.0-beta.6...v3.0.0-beta.7) (2025-03-26)
+
+
+### Bug Fixes
+
+* **ColorPicker:** input inline style ([9d5ecaa](https://github.com/scaleflex/ui/commit/9d5ecaa7560acc461555feaef7fc8c3df4a378c6))
+
+
+
+
+
 # [3.0.0-beta.6](https://github.com/scaleflex/ui/compare/v3.0.0-beta.5...v3.0.0-beta.6) (2025-03-26)
 
 **Note:** Version bump only for package ui
