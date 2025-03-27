@@ -476,3 +476,6 @@ export { CoverLayoutStandard } from './cover-layout-standard';
 export { Variations } from './variations';
 export { Eraser } from './eraser';
 export { RemoveBrush } from './remove-brush';
+export { EraserOutline } from './eraser-outline';
+export { BrushOutline } from './brush-outline';
+export { AiToolsOutline } from './ai-tools-outline';
