@@ -24,7 +24,7 @@ const Tab = ({
     icon={icon}
     disabled={disabled}
     {...rest}
-    className={`${className}${active ? ' active' : ''}`}
+    className={[className, active ? 'active' : ''].filter(Boolean).join(' ')}
   >
     <Styled.Icons>
       {icon && (
