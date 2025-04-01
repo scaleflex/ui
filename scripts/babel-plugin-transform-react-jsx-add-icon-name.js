@@ -37,7 +37,6 @@ module.exports = declare((api) => {
           !state.filename ||
           !state.filename.match(/packages[/\\]icons[/\\]src[/\\][^/\\]+\.tsx$/) ||
           !state.file?.code ||
-          !state.file.code.includes('intrinsicComponent') ||
           !state.file.code.includes('IconProps') ||
           // Only process svg as first node of JSXElement (don't process deep <svg>)
           path.parentPath?.node?.type !== 'JSXElement' ||
