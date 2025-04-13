@@ -58,6 +58,7 @@ const MenuItemWrapper = styled.div.attrs({
 
 const MenuItem = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
+  role: 'menuitem',
 })<With<With<WithTheme, MenuItemProps>, { $active?: boolean; $isFocused: boolean }>>(
   ({ size = Size.Sm, $active, theme, disableHover = false, disabled, $isFocused }) => css`
     display: flex;

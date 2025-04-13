@@ -102,7 +102,7 @@ const Menu = intrinsicComponent<MenuProps, HTMLDivElement>(
         wrapperStyles={popperWrapperStyles}
         onClick={handleClose}
       >
-        <Styled.Menu ref={ref} $maxHeight={maxHeight} $rect={rect} {...containerProps} {...rest}>
+        <Styled.Menu ref={ref} $maxHeight={maxHeight} $rect={rect} role="menu" {...containerProps} {...rest}>
           {children}
         </Styled.Menu>
       </Popper>
