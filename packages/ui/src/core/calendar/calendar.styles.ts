@@ -30,6 +30,8 @@ const leftDatePickerAnimation = css`
 
 const Calendar = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
+  role: 'application',
+  'aria-label': 'Calendar',
 })<CalendarProps>(
   ({ theme: { palette } }: With<WithTheme, CalendarProps>) => css`
     position: relative;
@@ -131,6 +133,7 @@ const MonthButtonsWrapper = styled.div.attrs({
 
 const MonthButtons = styled.div.attrs({
   className: generateClassNames(baseClassName, 'month-buttons'),
+  role: 'button',
 })<With<WithTheme, { isYearChanged?: boolean; isMonthChanged?: boolean; isDisabled?: boolean }>>(
   ({ isYearChanged = false, isMonthChanged = false, isDisabled = false, theme: { palette } }) => css`
     width: calc(100% / 3);
@@ -317,6 +320,7 @@ const HeaderBodyMonth = styled.div.attrs({
 
 const HeaderLeftArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-left-arrow'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
@@ -330,6 +334,7 @@ const HeaderLeftArrows = styled.span.attrs({
 
 const HeaderLeftArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-left-arrow'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
@@ -343,6 +348,7 @@ const HeaderLeftArrow = styled.span.attrs({
 
 const MonthsHeaderLeftArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'month-header-left-arrow'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
@@ -357,6 +363,7 @@ const MonthsHeaderLeftArrow = styled.span.attrs({
 
 const HeaderRightArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-right-arrow'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
@@ -370,6 +377,7 @@ const HeaderRightArrow = styled.span.attrs({
 
 const MonthsHeaderRightArrow = styled.span.attrs({
   className: generateClassNames(baseClassName, 'month-header-right-arrow'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;
@@ -382,6 +390,7 @@ const MonthsHeaderRightArrow = styled.span.attrs({
 
 const HeaderRightArrows = styled.span.attrs({
   className: generateClassNames(baseClassName, 'header-right-arrows'),
+  role: 'button',
 })<With<WithTheme, { isDisabled: boolean }>>(
   ({ theme: { palette }, isDisabled = false }) => css`
     position: absolute;

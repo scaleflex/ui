@@ -27,6 +27,7 @@ const Label = styled.span.attrs({
 
 const Header = styled.div.attrs({
   className: generateClassNames(baseClassName, 'root'),
+  role: 'button',
 })<With<WithTheme, { $fullWidth?: boolean }>>(
   ({ theme, $fullWidth }) => css`
     display: inline-flex;
