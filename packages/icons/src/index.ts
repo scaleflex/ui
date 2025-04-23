@@ -479,3 +479,6 @@ export { RemoveBrush } from './remove-brush';
 export { EraserOutline } from './eraser-outline';
 export { BrushOutline } from './brush-outline';
 export { AiToolsOutline } from './ai-tools-outline';
+export { RateScore } from './rate-score';
+export { Nsfw } from './nsfw';
+export { Upscale } from './upscale';
