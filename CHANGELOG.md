@@ -3,36 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.1](https://github.com/scaleflex/ui/compare/v3.0.0...v3.0.1) (2025-04-24)
+
+**Note:** Version bump only for package ui
+
 # [3.0.0](https://github.com/scaleflex/ui/compare/v3.0.0-beta.12...v3.0.0) (2025-04-23)
-
-
 
 ## [2.11.10](https://github.com/scaleflex/ui/compare/v3.0.0-beta.5...v2.11.10) (2025-03-25)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [3.0.0-beta.12](https://github.com/scaleflex/ui/compare/v3.0.0-beta.11...v3.0.0-beta.12) (2025-04-23)
 
 **Note:** Version bump only for package ui
 
-
-
-
-
 # [3.0.0-beta.11](https://github.com/scaleflex/ui/compare/v3.0.0-beta.10...v3.0.0-beta.11) (2025-04-01)
-
 
 ### Bug Fixes
 
-* Tab className ([a27ef18](https://github.com/scaleflex/ui/commit/a27ef18366341206baccdc434aa78a97482bcfd7))
-
-
-
-
+- Tab className ([a27ef18](https://github.com/scaleflex/ui/commit/a27ef18366341206baccdc434aa78a97482bcfd7))
 
 # [3.0.0-beta.10](https://github.com/scaleflex/ui/compare/v3.0.0-beta.9...v3.0.0-beta.10) (2025-03-28)
 
