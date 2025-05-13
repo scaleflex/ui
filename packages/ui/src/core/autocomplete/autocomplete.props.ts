@@ -125,6 +125,7 @@ export interface AutocompleteProps extends Omit<React.HTMLAttributes<HTMLDivElem
   }) => React.ReactNode;
   closeMenuAfterSelection?: boolean;
   ref?: React.Ref<HTMLDivElement>;
+  disableClose?: boolean;
 }
 
 export interface RenderLabelProps {

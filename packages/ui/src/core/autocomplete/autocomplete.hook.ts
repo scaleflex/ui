@@ -36,6 +36,7 @@ export function useAutocomplete(
     groupBy,
     closeMenuAfterSelection = true,
     setMenuJustOpened,
+    disableClose,
   } = props;
 
   const [anchorEl, setAnchorEl] = useState<AnchorElType>(undefined);
@@ -143,7 +144,9 @@ export function useAutocomplete(
       | React.KeyboardEvent<HTMLInputElement>
       | React.MouseEvent<HTMLDivElement>
   ): void => {
-    setAnchorEl(undefined);
+    if (!disableClose) {
+      setAnchorEl(undefined);
+    }
     setIsSearchMode(false);
     setFocusedMenuItemIndex(-1);
 
@@ -185,7 +188,9 @@ export function useAutocomplete(
     }
 
     setIsSearchMode(false);
-    setAnchorEl(undefined);
+    if (!disableClose) {
+      setAnchorEl(undefined);
+    }
   };
 
   const handleOnRemoveItem = (

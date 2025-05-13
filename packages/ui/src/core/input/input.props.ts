@@ -42,4 +42,5 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
   placeholder?: string;
   InputProps?: React.HtmlHTMLAttributes<HTMLDivElement>;
   ref?: Ref<HTMLInputElement>;
+  showClearIconOnFocus?: boolean;
 }

@@ -46,6 +46,7 @@ const Input = ({
   size = InputSize.Md,
   className,
   style,
+  showClearIconOnFocus = false,
   fullWidth = false,
   readOnly = false,
   disabled = false,
@@ -65,17 +66,24 @@ const Input = ({
   const [isHovering, setIsHovering] = useState(false);
   const [showCopyMessage, setShowCopyMessage] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
   const isSelectedItems = rest.selectedItems?.length;
   const placeholder = rest.value || isSelectedItems ? '' : rest.placeholder;
   const showCopyIcon = isHovering && readOnly && rest.value.length > 0 && !hideCopyIcon;
+  const showClearIcon = showClearIconOnFocus ? (isFocused || isHovering) && rest.value.length > 0 : true;
 
   const handleFocus = (): void => {
     if (disabled || readOnly) return;
 
+    setIsFocused(true);
     showPlaceholder?.(false);
     inputRef.current?.focus();
+  };
+
+  const handleBlur = (): void => {
+    setIsFocused(false);
   };
 
   useEffect(() => {
@@ -217,6 +225,7 @@ const Input = ({
       size={size}
       onMouseEnter={handleEntering}
       onMouseLeave={handleLeaving}
+      onBlur={handleBlur}
       className={className}
       style={style}
       readOnly={readOnly}
@@ -234,7 +243,7 @@ const Input = ({
         {renderField()}
         {renderCopyIcon(<CopyOutline size={getIconSize(size, 'copy')} />)}
         {showCopyMessage && renderCopyText()}
-        {renderClearIcon()}
+        {showClearIcon && renderClearIcon()}
         {inputType === Type.Password && renderPasswordIcon()}
         {renderIcon(iconEnd, 'end')}
         {renderIcon(iconChange, '')}

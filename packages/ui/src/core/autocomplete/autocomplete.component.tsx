@@ -60,7 +60,6 @@ const Autocomplete = (props: AutocompleteProps): JSX.Element => {
     optionsList,
     inputRef,
     inputValue,
-    isValueSelected,
     open,
     anchorEl,
     searchTerm,
@@ -229,11 +228,13 @@ const Autocomplete = (props: AutocompleteProps): JSX.Element => {
         })}
 
       {!hideArrow && (
-        <Styled.Arrow
-          {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
-          type={open ? 'top' : 'bottom'}
-          IconProps={{ size: size === 'md' ? 11 : 10 }}
-        />
+        <Styled.ArrowContainer disabled={disabled}>
+          <Styled.Arrow
+            {...(!disabled && !readOnly ? { onClick: handleOpenMenuClick } : {})}
+            type={open ? 'top' : 'bottom'}
+            IconProps={{ size: size === 'md' ? 11 : 10 }}
+          />
+        </Styled.ArrowContainer>
       )}
     </>
   );
@@ -276,11 +277,12 @@ const Autocomplete = (props: AutocompleteProps): JSX.Element => {
           placeholder={placeholder}
           fullWidth={fullWidth}
           isEllipsis
+          showClearIconOnFocus
           iconEnd={isMultiple ? undefined : renderInputEndIcons}
           inputActions={isMultiple ? renderInputActions() : undefined}
           {...(showClearIcon
             ? {
-                clearIcon: isValueSelected && <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
+                clearIcon: <Styled.CrossIcon size={size === 'md' ? 11 : 10} />,
                 clearIconClick: handleClearIconClick,
               }
             : {})}

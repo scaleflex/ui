@@ -84,6 +84,14 @@ const OptionGroup = styled.div.attrs({
   `
 );
 
+const ArrowContainer = styled.span.attrs({
+  className: generateClassNames(baseClassName, 'arrowContainer'),
+})<WithTheme & { disabled: boolean }>(
+  ({ theme, disabled }) => css`
+    color: ${disabled ? theme.palette[PColor.IconsMuted] : theme.palette[PColor.IconsPrimary]};
+  `
+);
+
 const Arrow = styled(arrowTick)`
   margin-left: auto;
   cursor: pointer;
@@ -97,6 +105,7 @@ const Styled = applyDisplayNames({
   InputIconEndContainer,
   Menu,
   OptionGroup,
+  ArrowContainer,
   Arrow,
 });
 

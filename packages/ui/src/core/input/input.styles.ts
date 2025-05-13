@@ -280,7 +280,7 @@ const InputContent = styled.div.attrs({
   display: flex;
   align-items: center;
   width: 100%;
-  column-gap: 8px;
+  column-gap: 10px;
   box-sizing: border-box;
 `;
 
