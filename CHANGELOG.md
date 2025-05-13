@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/scaleflex/ui/compare/v3.0.1...v3.0.2) (2025-05-13)
+
+### Features
+
+- show clear icon on focus instead of on option select and update design ([803ec63](https://github.com/scaleflex/ui/commit/803ec63dae644f0f747ce60c75c65393af3d3d40))
+
 ## [3.0.1](https://github.com/scaleflex/ui/compare/v3.0.0...v3.0.1) (2025-04-24)
 
 **Note:** Version bump only for package ui
