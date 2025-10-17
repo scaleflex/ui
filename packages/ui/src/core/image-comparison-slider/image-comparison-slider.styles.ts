@@ -37,8 +37,15 @@ const Image = styled.img.attrs({
   className: generateClassNames(baseClassName, 'image'),
 })<With<WithTheme, { $isLoading: boolean }>>(
   ({ $isLoading = false, theme }) => css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: contain;
+    max-width: 100%;
+    max-height: 100%;
     width: 100%;
-    height: auto;
+    height: 100%;
     vertical-align: middle;
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -50,8 +57,6 @@ const Image = styled.img.attrs({
     css`
       background-color: ${theme?.palette[PaletteColor.BackgroundHover]};
       animation: ${pulseKeyframe} 1.5s ease-in-out 0.5s infinite;
-      width: 100%;
-      height: 100%;
     `}
   `
 );
@@ -65,11 +70,9 @@ const LeftImageWrapper = styled.div.attrs({
   width: 100%;
   top: 0;
   overflow: hidden;
-
-  img {
-    height: 100%;
-    object-fit: cover;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const RightImageWrapper = styled.div.attrs({

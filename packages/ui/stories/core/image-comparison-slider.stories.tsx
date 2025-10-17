@@ -46,7 +46,7 @@ type Story = StoryObj<typeof ImageComparisonSlider>;
 
 const defaultArgs = {
   leftImgProps: {
-    src: 'https://scaleflex.cloudimg.io/v7/sfx-ui/eae949d2acb583f31cc8d691a524c284.jpg?vh=0ddbce',
+    src: 'https://scaleflex.cloudimg.io/v7/sfx-ui/grey-2-earth-from-space-nasa.webp?vh=8d2de0',
     alt: 'globe',
   },
   rightImgProps: { src: 'https://scaleflex.cloudimg.io/v7/sfx-ui/2-earth-from-space-nasa.jpg?vh=4be2d8', alt: 'globe' },
