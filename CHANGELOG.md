@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.3](https://github.com/scaleflex/ui/compare/v3.0.2...v3.0.3) (2025-10-17)
+
+
+### Bug Fixes
+
+* **ImageComparisonSlider:** aspect ration issues ([4129bcc](https://github.com/scaleflex/ui/commit/4129bcc64b7a1191dcbb57553a9514a36de82854))
+
+
+
+
+
 ## [3.0.2](https://github.com/scaleflex/ui/compare/v3.0.1...v3.0.2) (2025-05-13)
 
 ### Features
