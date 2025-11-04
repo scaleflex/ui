@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.5](https://github.com/scaleflex/ui/compare/v3.0.4...v3.0.5) (2025-11-04)
+
+### Bug Fixes
+
+- **Input:** remove negative zero input prevention from handleInputChange ([27addad](https://github.com/scaleflex/ui/commit/27addadf9b828782f6ed24a64a13fc8e9b607654))
+
 ## [3.0.4](https://github.com/scaleflex/ui/compare/v3.0.3...v3.0.4) (2025-11-04)
 
 ### Bug Fixes
