@@ -129,10 +129,10 @@ const Input = ({
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, noMinusZero = false): void => {
     const { value } = event.target;
 
-    if (value?.startsWith('-0')) {
+    if (noMinusZero && value?.startsWith('-0')) {
       return;
     }
 
