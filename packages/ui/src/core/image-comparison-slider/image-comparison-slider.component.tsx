@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState, useTransition } from 'react';
 import { Extends } from '@scaleflex/icons';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
@@ -29,29 +29,50 @@ const ImageComparisonSlider = ({
 
   const { leftText = 'Before', rightText = 'After', hideFooter = false, ...restFooterProps } = footerProps || {};
 
-  const [isResizing, setIsResizing] = useState(false);
-  const topImageRef = useRef<HTMLImageElement | null>(null);
+  const [, startTransition] = useTransition();
+  const leftImageWrapperRef = useRef<HTMLDivElement | null>(null);
+  const rightImageWrapperRef = useRef<HTMLDivElement | null>(null);
+  const sliderWrapperRef = useRef<HTMLDivElement | null>(null);
   const handleRef = useRef<HTMLDivElement | null>(null);
 
-  const setPositioning = useCallback((cursorHorizontalPosition: number) => {
-    if (topImageRef.current && handleRef.current) {
-      const { left, width: topImgWidth } = topImageRef.current.getBoundingClientRect();
-      const handleWidth = handleRef.current.offsetWidth;
-      const position = getHorizontalPosition({
-        cursorHorizontalPosition,
-        handleWidth: handleWidth,
-        left,
-        width: topImgWidth,
+  const [isResizing, setIsResizing] = useState(false);
+  const [leftImageWidth, setLeftImageWidth] = useState<number>(0);
+  const [rightImageWidth, setRightImageWidth] = useState<number>(0);
+
+  const setPositioning = useCallback(
+    (cursorHorizontalPosition: number) => {
+      startTransition(() => {
+        if (leftImageWrapperRef.current && handleRef.current) {
+          if (leftImageWidth && rightImageWidth) {
+            const width = Math.max(leftImageWidth, rightImageWidth);
+            leftImageWrapperRef.current.style.width = `${width}px`;
+            if (rightImageWrapperRef.current) rightImageWrapperRef.current.style.width = `${width}px`;
+          }
+
+          const { left, width: leftImgWrapWidth } = leftImageWrapperRef.current.getBoundingClientRect();
+          const handleWidth = handleRef.current.offsetWidth;
+          const containerWidth = sliderWrapperRef.current?.getBoundingClientRect().width || 0;
+
+          const position = getHorizontalPosition({
+            cursorHorizontalPosition,
+            handleWidth,
+            left,
+            width: leftImgWrapWidth,
+            containerWidth,
+          });
+
+          const containerHorizontalPosition = position?.containerHorizontalPosition || 0;
+          const imgHorizontalPosition = position?.imgHorizontalPosition || 0;
+
+          if (handleRef.current) {
+            handleRef.current.style.left = `${containerHorizontalPosition * 100}%`;
+            leftImageWrapperRef.current.style.clipPath = `inset(0 ${100 - imgHorizontalPosition * 100 - 0.1}% 0 0)`;
+          }
+        }
       });
-
-      const horizontalPosition = position?.horizontalPosition || 0;
-
-      if (handleRef.current) {
-        handleRef.current.style.left = `${horizontalPosition * 100}%`;
-        topImageRef.current.style.clipPath = `inset(0 ${100 - horizontalPosition * 100 - 0.1}% 0 0)`;
-      }
-    }
-  }, []);
+    },
+    [leftImageWidth, rightImageWidth]
+  );
 
   const handleResize = useCallback((e: any) => setPositioning(e?.touches?.[0]?.clientX || e.clientX), [setPositioning]);
 
@@ -62,6 +83,22 @@ const ImageComparisonSlider = ({
     window.removeEventListener('mousemove', handleResize);
     window.removeEventListener('mouseup', handleResizeEnd);
   }, [handleResize]);
+
+  const handleLeftImageLoad = (e: any) => {
+    setLeftImageWidth((e.target as HTMLImageElement).getBoundingClientRect()?.width || 0);
+
+    if (typeof leftImgProps?.onLoad === 'function') {
+      leftImgProps.onLoad(e);
+    }
+  };
+
+  const handleRightImageLoad = (e: any) => {
+    setRightImageWidth((e.target as HTMLImageElement).getBoundingClientRect()?.width || 0);
+
+    if (typeof rightImgProps?.onLoad === 'function') {
+      rightImgProps.onLoad(e);
+    }
+  };
 
   useEffect(() => {
     if (isResizing) {
@@ -80,17 +117,17 @@ const ImageComparisonSlider = ({
   }, [isResizing, handleResize, handleResizeEnd]);
 
   useEffect(() => {
-    if (topImageRef.current && handleRef.current) {
-      const { left, width: topImgWidth } = topImageRef.current.getBoundingClientRect();
+    if (leftImageWrapperRef.current && handleRef.current) {
+      const { left, width: leftImgWidth } = leftImageWrapperRef.current.getBoundingClientRect();
       const handleWidth = handleRef.current.offsetWidth;
 
-      setPositioning(topImgWidth / 2 + left - handleWidth / 2);
+      setPositioning(leftImgWidth / 2 + left - handleWidth / 2);
     }
   }, [setPositioning]);
 
   return (
     <Styled.ComparisonSlider {...rest} ref={ref}>
-      <Styled.SliderWrapper>
+      <Styled.SliderWrapper ref={sliderWrapperRef}>
         <Styled.Handle
           ref={handleRef}
           onMouseDown={() => setIsResizing(true)}
@@ -104,12 +141,20 @@ const ImageComparisonSlider = ({
           {thumbIcon}
         </Styled.Handle>
         <Styled.ImagesWrapper>
-          <Styled.LeftImageWrapper ref={topImageRef} {...imgWrapperProps}>
-            <ImagePreviewComponent {...leftImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+          <Styled.LeftImageWrapper ref={leftImageWrapperRef} {...imgWrapperProps}>
+            <ImagePreviewComponent
+              {...leftImgProps}
+              fallbackPreviewProps={fallbackPreviewProps}
+              onLoad={handleLeftImageLoad}
+            />
           </Styled.LeftImageWrapper>
 
-          <Styled.RightImageWrapper {...imgWrapperProps}>
-            <ImagePreviewComponent {...rightImgProps} fallbackPreviewProps={fallbackPreviewProps} />
+          <Styled.RightImageWrapper ref={rightImageWrapperRef} {...imgWrapperProps}>
+            <ImagePreviewComponent
+              {...rightImgProps}
+              fallbackPreviewProps={fallbackPreviewProps}
+              onLoad={handleRightImageLoad}
+            />
           </Styled.RightImageWrapper>
         </Styled.ImagesWrapper>
       </Styled.SliderWrapper>

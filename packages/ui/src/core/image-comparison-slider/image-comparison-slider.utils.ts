@@ -1,32 +1,43 @@
-export const getHorizontalPosition = ({
-  cursorHorizontalPosition,
-  width,
-  left,
-  handleWidth,
-}: {
+interface GetHorizontalPositionProps {
   cursorHorizontalPosition: number;
   width: number;
   left: number;
   handleWidth: number;
-}): { horizontalPosition?: number } | undefined => {
-  const isHandleInBoundaries =
-    cursorHorizontalPosition <= width + left - handleWidth / 2 && cursorHorizontalPosition >= left;
+  containerWidth: number;
+}
 
-  const isHandleOutsideRightBoundary = cursorHorizontalPosition > width + left - handleWidth / 2;
-  const isHandleOutsideLeftBoundary = cursorHorizontalPosition < left;
+interface GetHorizontalPosition {
+  containerHorizontalPosition: number;
+  imgHorizontalPosition: number;
+}
+
+export const getHorizontalPosition = (props: GetHorizontalPositionProps): GetHorizontalPosition | undefined => {
+  const { cursorHorizontalPosition, width, left, handleWidth, containerWidth } = props;
+
+  const offset = containerWidth ? (containerWidth - width) / 2 : 0;
+  const rightBoundary = left + width;
+  const leftBoundary = left - handleWidth;
+  const isHandleOutsideRightBoundary = cursorHorizontalPosition > rightBoundary;
+  const isHandleOutsideLeftBoundary = cursorHorizontalPosition < leftBoundary;
+  const isHandleInBoundaries = cursorHorizontalPosition <= rightBoundary && cursorHorizontalPosition >= leftBoundary;
 
   if (isHandleInBoundaries) {
-    //set handle at cursor position
-    return { horizontalPosition: (cursorHorizontalPosition - left) / width };
+    return {
+      containerHorizontalPosition: (cursorHorizontalPosition + offset - left) / containerWidth,
+      imgHorizontalPosition: (cursorHorizontalPosition - left) / width,
+    };
   }
 
   if (isHandleOutsideRightBoundary) {
-    //set handle at extreme right
-    return { horizontalPosition: 1 };
+    return { containerHorizontalPosition: offset ? (offset + width) / containerWidth : 1, imgHorizontalPosition: 1 };
   }
 
   if (isHandleOutsideLeftBoundary) {
-    //set handle at extreme left
-    return { horizontalPosition: 0 };
+    const minPosition = (handleWidth * -1) / containerWidth;
+
+    return {
+      containerHorizontalPosition: offset ? (offset - handleWidth) / containerWidth : minPosition,
+      imgHorizontalPosition: minPosition,
+    };
   }
 };

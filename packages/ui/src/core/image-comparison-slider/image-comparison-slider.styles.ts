@@ -44,7 +44,7 @@ const Image = styled.img.attrs({
     object-fit: contain;
     max-width: 100%;
     max-height: 100%;
-    width: 100%;
+    width: auto;
     height: 100%;
     vertical-align: middle;
     -moz-user-select: none;
@@ -66,9 +66,11 @@ const LeftImageWrapper = styled.div.attrs({
 })`
   z-index: 1;
   position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
   width: 100%;
-  top: 0;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -79,6 +81,10 @@ const RightImageWrapper = styled.div.attrs({
   className: generateClassNames(baseClassName, 'rightImageWrapper'),
 })`
   overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   height: 100%;
   width: 100%;
 `;
@@ -98,8 +104,9 @@ const Handle = styled.div.attrs({
     svg {
       display: block;
       position: absolute;
-      top: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
-      right: ${`calc(50% - ${$thumbIconPadding + $thumbIconSize / 2}px)`};
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: ${$thumbColor};
       width: ${`${$thumbIconSize}px`};
       height: ${`${$thumbIconSize}px`};
@@ -143,6 +150,7 @@ const SliderWrapper = styled.div.attrs({
   overflow: hidden;
   touch-action: none;
   height: 100%;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 `;
 
 const ImagesWrapper = styled.div.attrs({
