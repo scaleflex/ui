@@ -129,13 +129,7 @@ const Input = ({
     }
   };
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>, noMinusZero = false): void => {
-    const { value } = event.target;
-
-    if (noMinusZero && value?.startsWith('-0')) {
-      return;
-    }
-
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     rest.onChange?.(event);
   };
 
