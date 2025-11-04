@@ -43,10 +43,11 @@ const ImageComparisonSlider = ({
     (cursorHorizontalPosition: number) => {
       startTransition(() => {
         if (leftImageWrapperRef.current && handleRef.current) {
-          if (leftImageWidth && rightImageWidth) {
-            const width = Math.max(leftImageWidth, rightImageWidth);
-            leftImageWrapperRef.current.style.width = `${width}px`;
-            if (rightImageWrapperRef.current) rightImageWrapperRef.current.style.width = `${width}px`;
+          const wrappersWidth = Math.max(leftImageWidth, rightImageWidth);
+
+          if (wrappersWidth) {
+            leftImageWrapperRef.current.style.width = `${wrappersWidth}px`;
+            if (rightImageWrapperRef.current) rightImageWrapperRef.current.style.width = `${wrappersWidth}px`;
           }
 
           const { left, width: leftImgWrapWidth } = leftImageWrapperRef.current.getBoundingClientRect();
@@ -124,6 +125,15 @@ const ImageComparisonSlider = ({
       setPositioning(leftImgWidth / 2 + left - handleWidth / 2);
     }
   }, [setPositioning]);
+
+  // Reset elements width for dynamic images use cases
+  useEffect(() => {
+    if (leftImageWrapperRef.current) leftImageWrapperRef.current.style.removeProperty('width');
+    if (rightImageWrapperRef.current) rightImageWrapperRef.current.style.removeProperty('width');
+
+    setLeftImageWidth(0);
+    setRightImageWidth(0);
+  }, [leftImgProps?.src, rightImgProps?.src]);
 
   return (
     <Styled.ComparisonSlider {...rest} ref={ref}>
