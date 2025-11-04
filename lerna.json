@@ -1,12 +1,22 @@
 {
-  "version": "3.0.5",
+  "version": "3.0.6",
   "npmClient": "yarn",
-  "packages": ["packages/*"],
-  "ignoreChanges": ["**/*.spec.{ts,tsx}", "**/*.story.tsx"],
+  "packages": [
+    "packages/*"
+  ],
+  "ignoreChanges": [
+    "**/*.spec.{ts,tsx}",
+    "**/*.story.tsx"
+  ],
   "command": {
     "version": {
       "message": "chore(release): publish new version %s🔥🚀",
-      "allowBranch": ["master", "hotfix-*", "release-*", "react-19"],
+      "allowBranch": [
+        "master",
+        "hotfix-*",
+        "release-*",
+        "react-19"
+      ],
       "conventionalCommits": true
     }
   },
