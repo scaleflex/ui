@@ -41,3 +41,43 @@ export const getHorizontalPosition = (props: GetHorizontalPositionProps): GetHor
     };
   }
 };
+
+interface GetRightImageSizeprops {
+  containerElement: HTMLDivElement;
+  ratio: number;
+}
+interface GetWrappersWidth {
+  width: number;
+  height: number;
+}
+
+export const getRightImageSize = ({ containerElement, ratio }: GetRightImageSizeprops): GetWrappersWidth => {
+  const { width: containerWidth, height: containerHeight } = containerElement.getBoundingClientRect();
+
+  let width = containerWidth;
+  let height = containerWidth / ratio;
+
+  if (height > containerHeight) {
+    height = containerHeight;
+    width = height * ratio;
+  }
+
+  return { width, height };
+};
+
+interface GetWrappersWidthProps {
+  containerElement: HTMLDivElement | null;
+  leftImageRatio: number;
+  rightImageRatio: number;
+}
+
+export const getWrappersWidth = (props: GetWrappersWidthProps): number => {
+  const { containerElement, leftImageRatio, rightImageRatio } = props;
+
+  if (!containerElement) return 0;
+
+  return Math.max(
+    getRightImageSize({ containerElement, ratio: leftImageRatio })?.width || 0,
+    getRightImageSize({ containerElement, ratio: rightImageRatio })?.width || 0
+  );
+};

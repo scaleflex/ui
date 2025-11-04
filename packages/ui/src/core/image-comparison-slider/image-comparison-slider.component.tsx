@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useRef, useState, useTransition } from '
 import { Extends } from '@scaleflex/icons';
 
 import { ImageComparisonSliderProps } from './image-comparison-slider.props';
-import { getHorizontalPosition } from './image-comparison-slider.utils';
+import { getHorizontalPosition, getWrappersWidth } from './image-comparison-slider.utils';
 import ImagePreviewComponent from './image-preview.component';
 import { lightPalette } from '../../theme/roots/palette';
 import Styled from './image-comparison-slider.styles';
@@ -36,14 +36,18 @@ const ImageComparisonSlider = ({
   const handleRef = useRef<HTMLDivElement | null>(null);
 
   const [isResizing, setIsResizing] = useState(false);
-  const [leftImageWidth, setLeftImageWidth] = useState<number>(0);
-  const [rightImageWidth, setRightImageWidth] = useState<number>(0);
+  const [leftImageRatio, setLeftImageRatio] = useState<number>(0);
+  const [rightImageRatio, setRightImageRatio] = useState<number>(0);
 
   const setPositioning = useCallback(
     (cursorHorizontalPosition: number) => {
       startTransition(() => {
         if (leftImageWrapperRef.current && handleRef.current) {
-          const wrappersWidth = Math.max(leftImageWidth, rightImageWidth);
+          const wrappersWidth = getWrappersWidth({
+            containerElement: sliderWrapperRef.current,
+            leftImageRatio,
+            rightImageRatio,
+          });
 
           if (wrappersWidth) {
             leftImageWrapperRef.current.style.width = `${wrappersWidth}px`;
@@ -72,7 +76,7 @@ const ImageComparisonSlider = ({
         }
       });
     },
-    [leftImageWidth, rightImageWidth]
+    [leftImageRatio, rightImageRatio]
   );
 
   const handleResize = useCallback((e: any) => setPositioning(e?.touches?.[0]?.clientX || e.clientX), [setPositioning]);
@@ -86,7 +90,12 @@ const ImageComparisonSlider = ({
   }, [handleResize]);
 
   const handleLeftImageLoad = (e: any) => {
-    setLeftImageWidth((e.target as HTMLImageElement).getBoundingClientRect()?.width || 0);
+    if (e.target && e.target.naturalWidth && e.target.naturalHeight) {
+      const naturalWidth = e.target.naturalWidth;
+      const naturalHeight = e.target.naturalHeight;
+
+      setLeftImageRatio(naturalWidth / naturalHeight);
+    }
 
     if (typeof leftImgProps?.onLoad === 'function') {
       leftImgProps.onLoad(e);
@@ -94,7 +103,12 @@ const ImageComparisonSlider = ({
   };
 
   const handleRightImageLoad = (e: any) => {
-    setRightImageWidth((e.target as HTMLImageElement).getBoundingClientRect()?.width || 0);
+    if (e.target && e.target.naturalWidth && e.target.naturalHeight) {
+      const naturalWidth = e.target.naturalWidth;
+      const naturalHeight = e.target.naturalHeight;
+
+      setRightImageRatio(naturalWidth / naturalHeight);
+    }
 
     if (typeof rightImgProps?.onLoad === 'function') {
       rightImgProps.onLoad(e);
@@ -118,12 +132,21 @@ const ImageComparisonSlider = ({
   }, [isResizing, handleResize, handleResizeEnd]);
 
   useEffect(() => {
-    if (leftImageWrapperRef.current && handleRef.current) {
-      const { left, width: leftImgWidth } = leftImageWrapperRef.current.getBoundingClientRect();
-      const handleWidth = handleRef.current.offsetWidth;
+    const handleCenterPosition = () => {
+      if (leftImageWrapperRef.current && handleRef.current) {
+        const { left, width: leftImgWidth } = leftImageWrapperRef.current.getBoundingClientRect();
+        const handleWidth = handleRef.current.offsetWidth;
 
-      setPositioning(leftImgWidth / 2 + left - handleWidth / 2);
-    }
+        setPositioning(leftImgWidth / 2 + left - handleWidth / 2);
+      }
+    };
+
+    handleCenterPosition();
+    window.addEventListener('resize', handleCenterPosition);
+
+    return () => {
+      window.removeEventListener('resize', handleCenterPosition);
+    };
   }, [setPositioning]);
 
   // Reset elements width for dynamic images use cases
@@ -131,8 +154,8 @@ const ImageComparisonSlider = ({
     if (leftImageWrapperRef.current) leftImageWrapperRef.current.style.removeProperty('width');
     if (rightImageWrapperRef.current) rightImageWrapperRef.current.style.removeProperty('width');
 
-    setLeftImageWidth(0);
-    setRightImageWidth(0);
+    setLeftImageRatio(0);
+    setRightImageRatio(0);
   }, [leftImgProps?.src, rightImgProps?.src]);
 
   return (
